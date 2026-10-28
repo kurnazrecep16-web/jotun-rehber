@@ -470,25 +470,25 @@ const SYS = {
    ["C3.04","ak",["l","m","h","vh"],[["qd",80,"p"],["qd",80,"i"],["p2",50,"t"],["p2",50,"t"]]],
    ["C3.05","ep",["l","m"],[["pel",80,"p"],["hxp",50,"t"]]],
    ["C3.06","ep",["l","m","h"],[["pel",120,"p"],["hxp",60,"t"]]],
-   ["C3.07","ep",["l","m","h","vh"],[["pel",100,"p"],["pel",80,"i"],["hxp",60,"t"]]],
-   ["C3.10","zn",["l","m","h","vh"],[[Z,60,"p"],["pel",80,"i"],["hxp",60,"t"]]]
+   ["C3.07","ep",["l","m","h","vh"],[["pel",100,"p"],["pe",80,"i"],["hxp",60,"t"]]],
+   ["C3.10","zn",["l","m","h","vh"],[[Z,60,"p"],["pe",80,"i"],["hxp",60,"t"]]]
   ],
   C4:[
    ["C4.02","ak",["l","m"],[["qd",80,"p"],["qd",60,"i"],["p2",60,"t"]]],
    ["C4.03","ak",["l","m","h"],[["qd",80,"p"],["qd",80,"i"],["p2",50,"t"],["p2",50,"t"]]],
-   ["C4.05","ep",["l","m"],[["pel",120,"p"],["hxp",60,"t"]]],
-   ["C4.06","ep",["l","m","h"],[["pel",100,"p"],["pel",80,"i"],["hxp",60,"t"]]],
-   ["C4.07","ep",["l","m","h","vh"],[["pel",120,"p"],["pel",120,"i"],["hxp",60,"t"]]],
-   ["C4.10","zn",["l","m","h"],[[Z,60,"p"],["pel",80,"i"],["hxp",60,"t"]]],
-   ["C4.11","zn",["l","m","h","vh"],[[Z,60,"p"],["pel",140,"i"],["hxp",60,"t"]]]
+   ["C4.05","ep",["l","m"],[["pezp",120,"p"],["hxp",60,"t"]]],
+   ["C4.06","ep",["l","m","h"],[["pezp",100,"p"],["pe",80,"i"],["hxp",60,"t"]]],
+   ["C4.07","ep",["l","m","h","vh"],[["pezp",120,"p"],["pe",120,"i"],["hxp",60,"t"]]],
+   ["C4.10","zn",["l","m","h"],[[Z,60,"p"],["pe",80,"i"],["hxp",60,"t"]]],
+   ["C4.11","zn",["l","m","h","vh"],[[Z,60,"p"],["pe",140,"i"],["hxp",60,"t"]]]
   ],
   C5:[
-   ["C5.02","ep",["l","m"],[["pel",100,"p"],["pel",80,"i"],["hxp",60,"t"]]],
-   ["C5.03","ep",["l","m","h"],[["pel",120,"p"],["pel",120,"i"],["hxp",60,"t"]]],
-   ["C5.04","ep",["l","m","h","vh"],[["pel",120,"p"],["pel",180,"i"],["hxp",60,"t"]]],
-   ["C5.06","zn",["l","m"],[[Z,60,"p"],["pel",80,"i"],["hxp",60,"t"]]],
-   ["C5.07","zn",["l","m","h"],[[Z,60,"p"],["pel",140,"i"],["hxp",60,"t"]]],
-   ["C5.08","zn",["l","m","h","vh"],[[Z,60,"p"],["pel",200,"i"],["hxp",60,"t"]]]
+   ["C5.02","ep",["l","m"],[["pezp",100,"p"],["pe",80,"i"],["hxp",60,"t"]]],
+   ["C5.03","ep",["l","m","h"],[["pezp",120,"p"],["pe",120,"i"],["hxp",60,"t"]]],
+   ["C5.04","ep",["l","m","h","vh"],[["pezp",120,"p"],["pe",180,"i"],["hxp",60,"t"]]],
+   ["C5.06","zn",["l","m"],[[Z,60,"p"],["pe",80,"i"],["hxp",60,"t"]]],
+   ["C5.07","zn",["l","m","h"],[[Z,60,"p"],["pe",140,"i"],["hxp",60,"t"]]],
+   ["C5.08","zn",["l","m","h","vh"],[[Z,60,"p"],["pe",200,"i"],["hxp",60,"t"]]]
   ],
   Im:[
    ["I.03","ep",["l","m","h"],[["pu",80,"p"],["jm87",150,"i"],["jm87",150,"t"]]],
@@ -811,8 +811,8 @@ renderCats(); renderRehber(); route();
 const WHY_P={
  "Barrier 80S":"Çinko, çeliği katodik olarak korur; boya çizilse bile pas altına yürümez. Ağır ortamda en güçlü astar.",
  "Resist 86":"Çinko silikat; en yüksek korozyon ve ısı dayanımı sağlayan astar.",
- "Penguard Express LITE":"Hızlı kürlenen, hafif epoksi; astar ve ara kat olarak çeliğe iyi yapışır, kalınlık ve bariyer koruma sağlar. Aynı işi gören astarlar arasında ekonomiktir.",
- "Penguard Express ZP":"Çinko fosfatlı epoksi astar; çeliğe iyi yapışır, korozyonu yavaşlatır, hızlı kürlenir.",
+ "Penguard Express LITE":"Hızlı kürlenen epoksi astar; düşük–orta korozyonda (C2–C3) çeliğe iyi yapışır ve bariyer koruma sağlar. Bu ortamda ek pas önleyici pigment gerekmediği için ekonomik seçimdir.",
+ "Penguard Express ZP":"Çinko fosfatlı epoksi astar; yüksek korozyonda (C4–C5) pas önleyici pigmentiyle çeliği aktif olarak korur, kumlama sonrası astar olarak güvenli seçimdir.",
  "Penguard Express":"Kalınlık yapan bariyer kat; nem ve tuzun çeliğe ulaşmasını engeller. Hızlı kürlenir, iş çabuk biter.",
  "Hardtop XP":"Epoksi güneşte tebeşirlenir; poliüretan son kat UV'ye dayanır, rengi ve parlaklığı yıllarca korur.",
  "Pilot QD Primer":"Tek bileşenli, hızlı kuruyan alkid astar; düşük–orta korozyonda ekonomik çözüm.",
@@ -948,7 +948,7 @@ function wzResult(a=W.ans){
 }
 
 /* --- rakip tip eşleştirme --- */
-const RV_TYPES=[["zn_ep","Çinkoca zengin epoksi astar","Barrier 80S"],["zn_esi","Çinko silikat astar","Resist 86"],["ep_pr","Epoksi astar","Penguard Express LITE"],["ep_mio","Epoksi ara kat (MIO)","Penguard Express Mio"],["ep_mid","Epoksi ara kat","Penguard Express"],["mastic","Epoksi mastik (yüzey toleranslı)","Jotamastic 87"],["gf","Cam pulcuklu epoksi","Marathon"],["galv","Galvaniz / çok amaçlı epoksi astar","Penguard Universal"],["ep_tc","Epoksi son kat","Penguard FC"],["pu","Poliüretan son kat","Hardtop XP"],["psx","Polisiloksan son kat","Hardtop Optima"],["ak_pr","Alkid astar","Pilot QD Primer"],["ak_tc","Alkid son kat","Pilot II"],["ac_tc","Akrilik son kat","Conseal T/U"],["hr","Isıya dayanıklı silikon","Solvalitt"]];
+const RV_TYPES=[["zn_ep","Çinkoca zengin epoksi astar","Barrier 80S"],["zn_esi","Çinko silikat astar","Resist 86"],["ep_pr","Epoksi astar","Penguard Express ZP"],["ep_mio","Epoksi ara kat (MIO)","Penguard Express Mio"],["ep_mid","Epoksi ara kat","Penguard Express"],["mastic","Epoksi mastik (yüzey toleranslı)","Jotamastic 87"],["gf","Cam pulcuklu epoksi","Marathon"],["galv","Galvaniz / çok amaçlı epoksi astar","Penguard Universal"],["ep_tc","Epoksi son kat","Penguard FC"],["pu","Poliüretan son kat","Hardtop XP"],["psx","Polisiloksan son kat","Hardtop Optima"],["ak_pr","Alkid astar","Pilot QD Primer"],["ak_tc","Alkid son kat","Pilot II"],["ac_tc","Akrilik son kat","Conseal T/U"],["hr","Isıya dayanıklı silikon","Solvalitt"]];
 let RV=[["zn_ep",60],["ep_mio",120],["pu",60]];
 function rvRender(){
   const area=Math.max(0,parseFloat($("#rv-area").value)||0), loss=Math.min(80,Math.max(0,parseFloat($("#rv-loss").value)||0));
