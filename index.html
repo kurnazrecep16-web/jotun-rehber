@@ -169,7 +169,12 @@ input[type=search]{width:100%;font:500 16px var(--f-body);padding:10px 12px;bord
 @media (max-width:480px){.r-body dl{grid-template-columns:1fr}.r-body dt{padding-top:6px}}
 .modes{margin-bottom:14px}
 .modes label{padding:8px 10px;font-size:14px}
+[hidden]{display:none!important}
 .dpanel{display:flex;flex-direction:column;gap:14px}
+.up-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.up-btn{display:flex!important;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-align:center;min-height:72px;padding:10px;border:2px dashed var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:600 14px var(--f-body);cursor:pointer}
+.up-btn svg{width:26px;height:26px;stroke:var(--steel);fill:none;stroke-width:1.8}
+.up-btn:hover,.up-btn:focus-within{border-color:var(--accent)}
 .dbox{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:10px;min-width:0}
 .dtitle{font-weight:600;margin:0}
 textarea{width:100%;font:15px/1.45 var(--f-body);padding:9px 11px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);resize:vertical}
@@ -399,7 +404,13 @@ label.btn{display:inline-block}
       <div class="ch-in" id="ch-drop">
         <div class="att" id="ch-att" hidden></div>
         <textarea id="ch-text" rows="2" placeholder="Örn: Tekirdağ'da deniz kenarında depo çatı makası, paslı, kumlama yok — veya sadece rakip etiketin fotoğrafını ekleyin"></textarea>
-        <div class="q-actions"><label class="btn ghost" for="ch-file" id="ch-file-lbl">Fotoğraf / dosya ekle</label><input type="file" id="ch-file" multiple hidden><span class="hint" id="ch-file-hint">Yüzey fotoğrafı, şartname, rakip ürün etiketi veya rakip teklifinin fotoğrafı; PDF ya da metin dosyası ekleyebilirsiniz. Fotoğraftaki yazılar da okunur.</span></div>
+        <div class="up-row">
+          <label class="up-btn" for="ch-cam"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>Fotoğraf çek</label>
+          <label class="up-btn" for="ch-file" id="ch-file-lbl"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M12 11v6M9 14l3-3 3 3"/></svg>Fotoğraf / dosya seç</label>
+        </div>
+        <input type="file" id="ch-cam" accept="image/*" capture="environment" hidden>
+        <input type="file" id="ch-file" multiple accept="image/*,.pdf,.txt,.csv,.md" hidden>
+        <p class="hint" id="ch-file-hint">Rakip ürün etiketi, rakip teklifi, şartname (PDF) veya yüzey fotoğrafı ekleyin. Fotoğraftaki yazılar okunur.</p>
         <div class="q-actions"><button type="button" class="btn primary" id="ch-send">Gönder</button><button type="button" class="btn ghost" id="ch-stop" hidden>Durdur</button><button type="button" class="btn ghost" id="ch-new">Yeni sohbet</button><a class="btn ghost" id="ch-fwd" href="#" target="_blank" rel="noopener" hidden>Sorularımı bölge yöneticisine ilet</a></div></div>
     </div>
   </div>
@@ -1195,6 +1206,7 @@ async function addFiles(files){
   }
 }
 $("#ch-file").addEventListener("change",e=>{addFiles([...e.target.files]);e.target.value="";});
+$("#ch-cam").addEventListener("change",e=>{addFiles([...e.target.files]);e.target.value="";});
 $("#ch-att").addEventListener("click",e=>{const b=e.target.closest("[data-rm]");if(!b)return;const a=ATT.splice(+b.dataset.rm,1)[0];if(a&&a.url)URL.revokeObjectURL(a.url);renderAtt();});
 const drop=$("#ch-drop");
 drop.addEventListener("dragover",e=>{e.preventDefault();drop.classList.add("drag");});
