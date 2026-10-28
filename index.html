@@ -542,13 +542,19 @@ function syncControls(s){
   $("#dur-hint").textContent = DUR[s.dur];
 }
 
+/* ISO'ya uygun sistemlerin ekonomik sıralaması (en uygun maliyetli önce; m² başına malzeme maliyetine göre önceden hesaplandı) */
+const ECON={"cs|C2|l|b80":["C2.01","C2.03","C2.04","C2.05","C2.06"],"cs|C2|m|b80":["C2.03","C2.04","C2.05","C2.06"],"cs|C2|h|b80":["C2.03","C2.04","C2.05","C2.06"],"cs|C2|vh|b80":["C2.04","C2.06"],"cs|C2|l|r86":["C2.01","C2.03","C2.04","C2.05","C2.06"],"cs|C2|m|r86":["C2.03","C2.04","C2.05","C2.06"],"cs|C2|h|r86":["C2.03","C2.04","C2.05","C2.06"],"cs|C2|vh|r86":["C2.04","C2.06"],"cs|C3|l|b80":["C3.02","C3.03","C3.05","C3.04","C3.06","C3.07","C3.10"],"cs|C3|m|b80":["C3.02","C3.03","C3.05","C3.04","C3.06","C3.07","C3.10"],"cs|C3|h|b80":["C3.03","C3.04","C3.06","C3.07","C3.10"],"cs|C3|vh|b80":["C3.04","C3.07","C3.10"],"cs|C3|l|r86":["C3.02","C3.03","C3.05","C3.04","C3.06","C3.07","C3.10"],"cs|C3|m|r86":["C3.02","C3.03","C3.05","C3.04","C3.06","C3.07","C3.10"],"cs|C3|h|r86":["C3.03","C3.04","C3.06","C3.07","C3.10"],"cs|C3|vh|r86":["C3.04","C3.07","C3.10"],"cs|C4|l|b80":["C4.02","C4.03","C4.05","C4.06","C4.07","C4.10","C4.11"],"cs|C4|m|b80":["C4.02","C4.03","C4.05","C4.06","C4.07","C4.10","C4.11"],"cs|C4|h|b80":["C4.03","C4.06","C4.07","C4.10","C4.11"],"cs|C4|vh|b80":["C4.07","C4.11"],"cs|C4|l|r86":["C4.02","C4.03","C4.05","C4.06","C4.07","C4.10","C4.11"],"cs|C4|m|r86":["C4.02","C4.03","C4.05","C4.06","C4.07","C4.10","C4.11"],"cs|C4|h|r86":["C4.03","C4.06","C4.07","C4.10","C4.11"],"cs|C4|vh|r86":["C4.07","C4.11"],"cs|C5|l|b80":["C5.02","C5.03","C5.06","C5.04","C5.07","C5.08"],"cs|C5|m|b80":["C5.02","C5.03","C5.06","C5.04","C5.07","C5.08"],"cs|C5|h|b80":["C5.03","C5.04","C5.07","C5.08"],"cs|C5|vh|b80":["C5.04","C5.08"],"cs|C5|l|r86":["C5.02","C5.03","C5.06","C5.04","C5.07","C5.08"],"cs|C5|m|r86":["C5.02","C5.03","C5.06","C5.04","C5.07","C5.08"],"cs|C5|h|r86":["C5.03","C5.04","C5.07","C5.08"],"cs|C5|vh|r86":["C5.04","C5.08"],"cs|Im|l|b80":["I.03","I.04"],"cs|Im|m|b80":["I.03","I.04"],"cs|Im|h|b80":["I.03","I.04"],"cs|Im|vh|b80":["I.04"],"cs|Im|l|r86":["I.03","I.04"],"cs|Im|m|r86":["I.03","I.04"],"cs|Im|h|r86":["I.03","I.04"],"cs|Im|vh|r86":["I.04"],"hdg|C2|l|b80":["G2.03"],"hdg|C2|m|b80":["G2.03"],"hdg|C2|h|b80":["G2.03"],"hdg|C2|vh|b80":["G2.03"],"hdg|C2|l|r86":["G2.03"],"hdg|C2|m|r86":["G2.03"],"hdg|C2|h|r86":["G2.03"],"hdg|C2|vh|r86":["G2.03"],"hdg|C3|l|b80":["G3.02","G3.04"],"hdg|C3|m|b80":["G3.02","G3.04"],"hdg|C3|h|b80":["G3.02","G3.04"],"hdg|C3|vh|b80":["G3.04"],"hdg|C3|l|r86":["G3.02","G3.04"],"hdg|C3|m|r86":["G3.02","G3.04"],"hdg|C3|h|r86":["G3.02","G3.04"],"hdg|C3|vh|r86":["G3.04"],"hdg|C4|l|b80":["G4.02","G4.04","G4.06"],"hdg|C4|m|b80":["G4.02","G4.04","G4.06"],"hdg|C4|h|b80":["G4.04","G4.06"],"hdg|C4|vh|b80":["G4.06"],"hdg|C4|l|r86":["G4.02","G4.04","G4.06"],"hdg|C4|m|r86":["G4.02","G4.04","G4.06"],"hdg|C4|h|r86":["G4.04","G4.06"],"hdg|C4|vh|r86":["G4.06"],"hdg|C5|l|b80":["G5.01","G5.02b","G5.04","G5.05"],"hdg|C5|m|b80":["G5.02b","G5.04","G5.05"],"hdg|C5|h|b80":["G5.04","G5.05"],"hdg|C5|vh|b80":["G5.05"],"hdg|C5|l|r86":["G5.01","G5.02b","G5.04","G5.05"],"hdg|C5|m|r86":["G5.02b","G5.04","G5.05"],"hdg|C5|h|r86":["G5.04","G5.05"],"hdg|C5|vh|r86":["G5.05"]};
+function econSort(list,sub,env,dur,zn,getIso,getTot){
+  const o=ECON[sub+"|"+env+"|"+dur+"|"+(zn||"b80")]||[];
+  const ix=x=>{const i=o.indexOf(getIso(x));return i<0?999:i};
+  return list.slice().sort((a,b)=>ix(a)-ix(b)||getTot(a)-getTot(b));
+}
 function render(){
   const s = state(); syncControls(s);
   let list = (SYS[s.sub][s.env]||[]).filter(r=>r[2].includes(s.dur));
   if(s.sub==="cs" && s.env!=="Im" && s.pri!=="all") list = list.filter(r=>r[1]===s.pri);
-  // cheapest-in-film first: lowest total DFT
-  list = list.map(r=>({iso:r[0],fam:r[1],durs:r[2],coats:r[3].map(c=>({key:c[0]===Z?s.zinc:c[0],dft:c[1],role:c[2]}))}))
-             .sort((a,b)=>tot(a)-tot(b));
+  // ISO'ya uygun olanlar arasında en ekonomik önce
+  list = econSort(list.map(r=>({iso:r[0],fam:r[1],durs:r[2],coats:r[3].map(c=>({key:c[0]===Z?s.zinc:c[0],dft:c[1],role:c[2]}))})),s.sub,s.env,s.dur,s.zinc,x=>x.iso,tot);
   LAST={list,s};
   const out = $("#out");
   const envLabel = s.env==="Im"?"Im1–Im3":s.env;
@@ -817,7 +823,7 @@ const DUR_TR={l:"7 yıla kadar",m:"7–15 yıl",h:"15–25 yıl",vh:"25 yıldan 
 function whyHTML(names,o){
   const u=[...new Set(names)];
   const head = o.iso
-    ? `ISO 12944-5/${o.iso} sistemi ${ENV_TR[o.env]} ortamda ${DUR_TR[o.dur]} dayanım için tanımlıdır. Toplam ${o.tot} µm ile gereken kat sayısı ve kalınlığı karşılayan en ince, yani en ekonomik seçenektir.`
+    ? `ISO 12944-5/${o.iso} sistemi ${ENV_TR[o.env]} ortamda ${DUR_TR[o.dur]} dayanım için tanımlıdır. Toplam ${o.tot} µm ile gereken kat sayısı ve kalınlığı karşılar; bu şartı sağlayan sistemler arasında en ekonomik olanıdır.`
     : o.head||"";
   return `<div class="why"><p class="why-t">Neden bu öneri?</p>${head?`<p>${head}</p>`:""}<ul>${u.filter(n=>WHY_P[n]).map(n=>`<li><b>${esc(n)}:</b> ${WHY_P[n]}</li>`).join("")}</ul>${o.extra?`<p>${o.extra}</p>`:""}</div>`;
 }
@@ -904,7 +910,7 @@ function wzResult(a=W.ans){
     const sub=a.surf==="hdg"?"hdg":"cs";
     let list=(SYS[sub][a.env]||[]).filter(r=>r[2].includes(a.dur));
     if(a.what==="ekipman"&&sub==="cs"){const nz=list.filter(r=>r[1]!=="zn");if(nz.length)list=nz;}
-    list=list.slice().sort((x,y)=>x[3].reduce((s,c)=>s+c[1],0)-y[3].reduce((s,c)=>s+c[1],0));
+    list=econSort(list,sub,a.env,a.dur,"b80",x=>x[0],x=>x[3].reduce((s,c)=>s+c[1],0));
     if(!list.length) return card("Bu kombinasyon için hazır sistem yok",`<p>Bir üst dayanım veya ortam sınıfı seçin ya da Jotun teknik ekibine danışın.</p>`);
     const r=list[0];
     const coats=r[3].map(c=>[PRODUCTS[c[0]==="ZN"?"b80":c[0]].name,c[1],ROLEN[c[2]]]);
@@ -963,6 +969,8 @@ $("#rv-toq").onclick=()=>{const area=parseFloat($("#rv-area").value)||0,loss=par
 const KB = (()=>{
   const prods=CATALOG.filter(p=>!["MCI Tinter"].includes(p.cat)).map(p=>`${p.name} | ${CATS[p.cat][0]} | katı:${p.vs.length?p.vs.join("/")+"%":"?"}${p.mix.length?" | karışım:"+p.mix.join("/"):""}${p.th.length?" | inceltici No."+p.th.join("/"):""}${p.note?" | "+p.note:""}${p.offlist?" | liste dışı":""}`).join("\n");
   const sys=[];for(const sub in SYS)for(const env in SYS[sub])SYS[sub][env].forEach(r=>sys.push(`${r[0]} (${sub==="cs"?"karbon çelik":"galvaniz"}, ${env}, dayanım ${r[2].join("/").toUpperCase()}): `+r[3].map(c=>`${c[0]==="ZN"?"Barrier 80S":PRODUCTS[c[0]].name} ${c[1]}µm`).join(" + ")));
+  const DN={l:"L",m:"M",h:"H",vh:"VH"};
+  Object.keys(ECON).filter(k=>k.endsWith("|b80")).forEach(k=>{const [sb,en,du]=k.split("|");if(ECON[k].length>1)sys.push(`Ekonomik sıra ${sb==="cs"?"karbon çelik":"galvaniz"} ${en} dayanım ${DN[du]}: ${ECON[k].join(" > ")}`);});
   return {prods,sys:sys.join("\n")};
 })();
 const RULES=`Sen bir Jotun endüstriyel boya bayisinin teknik satış asistanısın. Türkçe, kısa ve uygulanabilir yaz.
@@ -971,6 +979,7 @@ Kurallar:
 - Eksik bilgi varsa önce SIRAYLA tek tek sor (ne boyanacak, iç/dış ortam ve deniz/sanayi yakınlığı, yüzey durumu ve kumlama yapılıp yapılamayacağı, beklenen ömür, uygulama yöntemi, alan m²). Her mesajda en fazla bir soru sor ve 2–5 kısa seçenek sun (her biri ayrı satırda "1) ..." şeklinde).
 - Bilgi yeterli olunca: korozyon kategorisi (ISO 12944-2), dayanım, yüzey hazırlığı (ISO 8501-1, örn. Sa 2½ veya St 2–St 3), kat kat ürün ve kuru film kalınlığı (µm), toplam kalınlık ve uygunsa ISO 12944-5 sistem numarası ver. Alan verilmişse litre hesabı: litre = m² × µm / (katı% × 10), %30 fire ekle.
 - Rakip ürün sorulursa: rakip ürünün jenerik tipini (çinkoca zengin epoksi, epoksi MIO ara kat, poliüretan son kat vb.) belirt, aynı tip ve kalınlıktaki Jotun karşılığını kat kat ver, eşleşmenin jenerik tipe göre olduğunu ve birebir aynı ürün olmadığını belirt. Emin olmadığın rakip ürün için tipini kullanıcıya sor.
+- ISO 12944-5'e uygunluk önceliklidir; uygun seçenekler arasında daha ekonomik sistemi öner (genelde alkid < epoksi < çinkolu astar; aynı dayanımı daha az kat/kalınlıkla sağlayan sistem daha ekonomiktir). Aşağıdaki "Ekonomik sıra" satırları her ortam ve dayanım için ISO'ya uygun sistemleri en ekonomikten başlayarak sıralar; ilkini öner, müşteri özel bir şey istemedikçe.
 - Fiyat, indirim veya maliyet bilgisi verme; sorulursa bayinin fiyat listesine yönlendir.
 - Tank içi, kimyasal ortam, yangın koruması ve gıda teması için Jotun teknik onayı alınması gerektiğini söyle.
 - Her öneride "Neden bu öneri?" başlığıyla 2–4 kısa maddede, her ürünün neden seçildiğini (görevi: katodik koruma, bariyer kalınlığı, UV dayanımı, yüzey toleransı vb.) ve kalınlığın neden yeterli olduğunu açıkla.
