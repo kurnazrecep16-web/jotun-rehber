@@ -1,0 +1,1347 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"></head><body style="margin:0">
+<title>Jotun Rehber</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: sticky input rail on the left (desktop) / on top (phone); system cards stacked on the right, each a spec sheet with a coat table. */
+:root{
+  --bg:#f1f3f7; --panel:#ffffff; --ink:#031e45; --muted:#4b5b74; --line:#d2d9e4;
+  --steel:#031e45; --accent:#f0ab00; --accent-ink:#031e45; --zinc:#5f7391; --red:#d52b1e;
+  --ok:#2e7d4f; --warn:#d52b1e;
+  --f-display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#061430; --panel:#0c1f3f; --ink:#e9eef7; --muted:#9db0cc; --line:#20385e;
+  --steel:#9cbcef; --accent:#f0ab00; --accent-ink:#031e45; --zinc:#8fa3c2; --red:#ff6a5c; --ok:#6cc392; --warn:#ff7a6c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#061430; --panel:#0c1f3f; --ink:#e9eef7; --muted:#9db0cc; --line:#20385e;
+  --steel:#9cbcef; --accent:#f0ab00; --accent-ink:#031e45; --zinc:#8fa3c2; --red:#ff6a5c; --ok:#6cc392; --warn:#ff7a6c; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.5}
+.wrap{max-width:1180px;margin:0 auto;padding-block:20px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:8px 24px;border-bottom:3px solid var(--red);padding-bottom:10px;margin-bottom:20px}
+h1{font-family:var(--f-display);font-weight:700;font-size:clamp(28px,5vw,40px);line-height:1;margin:0;letter-spacing:.01em;text-transform:uppercase}
+h1{color:var(--steel)}
+h1 span{color:#fff;background:var(--red);padding:0 8px;margin-left:4px}
+.sub{color:var(--muted);font-size:13px;margin:0}
+.grid{display:grid;grid-template-columns:320px 1fr;gap:20px;align-items:start}
+@media (max-width:860px){.grid{grid-template-columns:1fr}}
+.rail{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:14px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px)}
+@media (max-width:860px){.rail{position:static}}
+fieldset{border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;min-width:0}
+legend,label.lbl{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:0;margin-bottom:2px}
+.seg{display:flex;flex-wrap:wrap;gap:4px}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label{flex:1 1 auto;text-align:center;border:1px solid var(--line);border-radius:4px;padding:6px 8px;cursor:pointer;font-size:13px;font-weight:500;background:var(--bg);min-width:44px}
+.seg input:checked+label{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.seg input:focus-visible+label{outline:2px solid var(--accent);outline-offset:2px}
+.seg input:disabled+label{opacity:.35;cursor:not-allowed}
+.hint{font-size:12px;color:var(--muted);margin:2px 0 0}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+input[type=number],select{width:100%;font:500 15px var(--f-mono);padding:7px 9px;border:1px solid var(--line);border-radius:4px;background:var(--bg);color:var(--ink)}
+input:focus-visible,select:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.results{display:flex;flex-direction:column;gap:16px;min-width:0}
+.summary{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline;font-size:14px;color:var(--muted)}
+.summary b{color:var(--ink);font-weight:600}
+.prep{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--steel);border-radius:6px;padding:10px 14px;font-size:13.5px}
+.prep strong{font-family:var(--f-mono);font-weight:500;background:var(--bg);padding:1px 6px;border-radius:3px;border:1px solid var(--line)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.card-h{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.iso{font-family:var(--f-mono);font-size:13px;font-weight:500;background:var(--accent);color:var(--accent-ink);padding:2px 8px;border-radius:3px}
+.u{text-transform:none}
+.card-h h3{font-family:var(--f-display);font-weight:600;font-size:22px;margin:0;line-height:1.1;text-transform:uppercase;letter-spacing:.02em}
+.dur{display:flex;gap:3px;margin-left:auto}
+.dur span{font:500 11px var(--f-mono);border:1px solid var(--line);color:var(--muted);padding:1px 5px;border-radius:3px}
+.dur span.on{border-color:var(--ok);color:var(--ok)}
+.tbl-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px;font-variant-numeric:tabular-nums}
+th{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);text-align:left;padding:8px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+td.n,th.n{text-align:right;font-family:var(--f-mono);white-space:nowrap}
+td .role{display:block;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+td .prod{font-weight:600}
+tfoot td{font-weight:600;border-bottom:0;background:var(--bg)}
+.card-f{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between;padding:10px 16px;font-size:12.5px;color:var(--muted)}
+.btn{font:600 13px var(--f-body);border:1px solid var(--ink);background:var(--panel);color:var(--ink);border-radius:4px;padding:6px 12px;cursor:pointer}
+.btn:hover{background:var(--ink);color:var(--bg)}
+.warn{color:var(--warn);font-weight:500}
+.empty{background:var(--panel);border:1px dashed var(--line);border-radius:6px;padding:20px;color:var(--muted)}
+details.data{background:var(--panel);border:1px solid var(--line);border-radius:6px}
+details.data summary{cursor:pointer;padding:12px 16px;font-weight:600}
+details.data .inner{padding:0 16px 16px;display:flex;flex-direction:column;gap:10px}
+details.data input{max-width:90px}
+.foot{font-size:12px;color:var(--muted);line-height:1.6}
+.copied{color:var(--ok);font-weight:600}
+input[type=text]{width:100%;font:500 15px var(--f-body);padding:7px 9px;border:1px solid var(--line);border-radius:4px;background:var(--bg);color:var(--ink)}
+.row3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media (max-width:480px){.row3{grid-template-columns:1fr 1fr}.row2{grid-template-columns:1fr}}
+.quote{margin-top:28px;border-top:3px solid var(--ink);padding-top:14px}
+.q-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 18px;margin-bottom:12px}
+.q-head h2{font-family:var(--f-display);font-weight:700;font-size:30px;text-transform:uppercase;margin:0;line-height:1}
+.q-head .hint{margin:0;max-width:62ch}
+.q-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:960px){.q-grid{grid-template-columns:1fr}}
+.q-form{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.q-lines td{padding:6px 6px;vertical-align:middle}
+.q-lines th{padding:6px}
+.q-lines input,.q-lines select{font-size:14px;padding:6px 7px}
+.q-lines input[type=number]{width:100px;text-align:right}
+.q-lines input[type=text]{min-width:150px}
+.q-lines .amt{font-family:var(--f-mono);text-align:right;white-space:nowrap}
+.x{border:0;background:none;color:var(--muted);font-size:18px;cursor:pointer;padding:2px 6px;border-radius:4px}
+.x:hover{color:var(--warn)}
+.q-warn{max-width:460px;width:calc(100% - 32px);border:1px solid var(--line);border-top:5px solid var(--red);border-radius:6px;background:var(--panel);color:var(--ink);padding:20px 22px}
+.q-warn::backdrop{background:rgba(0,0,0,.45)}
+.q-warn h2{font-size:17px;margin:2px 0 10px}.q-warn p{font-size:14px;line-height:1.5;margin:0 0 10px}
+.q-warn-lab{font:700 11px var(--f-body)!important;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin:0!important}
+.q-status{font-size:13.5px;margin:8px 0 0;padding:8px 10px;border-radius:4px;border:1px solid var(--line);border-left:4px solid var(--zinc);background:var(--panel)}
+.q-status.ok{border-left-color:var(--ok,#2e8b57)}.q-status.warn{border-left-color:var(--warn,#b5651d)}
+.q-status code{font:600 12.5px var(--f-mono)}
+a.btn{text-decoration:none;display:inline-block}
+#v-onay .pane{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:10px;margin-bottom:16px}
+#v-onay textarea,#v-onay input[type=text]{width:100%;font:14px var(--f-body);padding:8px 10px;border:1px solid var(--line);border-radius:4px;background:var(--bg);color:var(--ink);box-sizing:border-box}
+#v-onay pre{white-space:pre-wrap;font:12.5px/1.5 var(--f-mono);background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:10px;margin:0;max-height:360px;overflow:auto}
+.o-list{display:flex;flex-direction:column;gap:8px}
+.o-item{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:10px 12px}
+.o-item summary{cursor:pointer;display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline}
+.o-badge{font:600 11px var(--f-body);text-transform:uppercase;letter-spacing:.06em;padding:2px 7px;border-radius:3px;background:var(--bg);border:1px solid var(--line)}
+.o-badge.onay{color:var(--ok,#2e8b57);border-color:currentColor}.o-badge.red{color:var(--warn,#b5651d);border-color:currentColor}
+.o-meta{color:var(--muted);font-size:12.5px}
+.q-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.q-actions select{width:auto;flex:1 1 180px;font-family:var(--f-body)}
+.btn.ghost{border-color:var(--line);color:var(--muted)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn.primary:hover{filter:brightness(.95);background:var(--accent);color:var(--accent-ink)}
+.q-doc-wrap{display:flex;flex-direction:column;gap:10px;min-width:0}
+/* the quote document stays paper-white in both themes: it is a document to screenshot and send */
+.q-doc{background:#ffffff;color:#031e45;border:1px solid var(--line);border-radius:4px;padding:24px;font-size:13.5px;line-height:1.5;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.q-doc .top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-bottom:2px solid #031e45;padding-bottom:10px;margin-bottom:14px}
+.q-doc .dealer{font-family:var(--f-display);font-weight:700;font-size:24px;text-transform:uppercase;line-height:1.05}
+.q-doc .meta{font-family:var(--f-mono);font-size:12px;text-align:right;color:#4b5b74}
+.q-doc .to{margin-bottom:12px}
+.q-doc .to b{display:block;font-size:15px}
+.q-doc .lab{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:#4b5b74}
+.q-doc table{font-size:13px}
+.q-doc th{color:#4b5b74;border-bottom:1px solid #cfd7e3;padding:6px 6px}
+.q-doc td{border-bottom:1px solid #e4e8ef;padding:6px 6px;color:#031e45}
+.q-doc .tot{margin-left:auto;margin-top:10px;display:grid;grid-template-columns:auto auto;gap:3px 18px;width:max-content;font-variant-numeric:tabular-nums}
+.q-doc .tot span:nth-child(even){font-family:var(--f-mono);text-align:right}
+.q-doc .tot .g{font-weight:700;font-size:15px;border-top:2px solid #031e45;padding-top:4px}
+.q-doc .sys{margin-top:14px;padding:10px 12px;background:#f1f3f7;border-left:3px solid #f0ab00;font-size:12.5px}
+.q-doc .notes{margin-top:12px;font-size:11.5px;color:#4b5b74}
+.q-doc .notes li{margin-bottom:2px}
+.q-doc .empty-doc{color:#4b5b74;font-style:italic}
+details.adv{border-top:1px solid var(--line);padding-top:10px}
+details.adv summary,details.more summary{cursor:pointer;font-weight:600;font-size:13px;color:var(--muted)}
+.adv-in{display:flex;flex-direction:column;gap:14px;margin-top:12px}
+details.more summary{padding:4px 0}
+.more-in{display:flex;flex-direction:column;gap:16px;margin-top:12px}
+.card.best{border-color:var(--ink);border-width:2px}
+.badge{font:600 11px var(--f-body);letter-spacing:.08em;text-transform:uppercase;background:var(--ink);color:var(--bg);padding:3px 8px;border-radius:3px}
+.card-h .iso{margin-left:auto;background:none;color:var(--muted);padding:0}
+.card-f{justify-content:flex-end}
+.tabs{display:flex;gap:4px;margin:-8px 0 18px;border-bottom:1px solid var(--line)}
+.tab{font:600 15px var(--f-body);color:var(--muted);text-decoration:none;padding:8px 14px;border-bottom:3px solid transparent;margin-bottom:-1px}
+.tab[aria-current="page"]{color:var(--ink);border-bottom-color:var(--accent)}
+.tab:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.r-top{display:flex;flex-direction:column;gap:10px;margin-bottom:10px}
+input[type=search]{width:100%;font:500 16px var(--f-body);padding:10px 12px;border:1px solid var(--line);border-radius:6px;background:var(--panel);color:var(--ink)}
+.chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
+.chip{flex:0 0 auto;font:500 13px var(--f-body);border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:999px;padding:5px 12px;cursor:pointer;white-space:nowrap}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.r-catinfo{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:6px;padding:10px 14px;margin:0 0 10px;font-size:14px}
+.r-list{display:flex;flex-direction:column;gap:6px}
+.r-item{background:var(--panel);border:1px solid var(--line);border-radius:6px}
+.r-item>summary{list-style:none;cursor:pointer;padding:10px 14px;display:grid;grid-template-columns:1fr auto;gap:2px 12px;align-items:baseline}
+.r-item>summary::-webkit-details-marker{display:none}
+.r-item>summary:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;border-radius:6px}
+.r-name{font-weight:600;font-size:15.5px}
+.r-cat{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:right}
+.r-note{grid-column:1/-1;font-size:13.5px;color:var(--muted)}
+.r-tag{font:600 10.5px var(--f-body);letter-spacing:.05em;text-transform:uppercase;padding:1px 6px;border-radius:3px;margin-left:6px;vertical-align:2px;border:1px solid var(--line);color:var(--muted)}
+.r-tag.new{border-color:var(--ok);color:var(--ok)}
+.r-body{padding:0 14px 14px;display:flex;flex-direction:column;gap:10px;border-top:1px solid var(--line);padding-top:12px}
+.r-body dl{display:grid;grid-template-columns:max-content 1fr;gap:6px 14px;margin:0;font-size:14px}
+.r-body dt{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.05em;padding-top:2px}
+.r-body dd{margin:0;font-variant-numeric:tabular-nums}
+@media (max-width:480px){.r-body dl{grid-template-columns:1fr}.r-body dt{padding-top:6px}}
+.modes{margin-bottom:14px}
+.modes label{padding:8px 10px;font-size:14px}
+.dpanel{display:flex;flex-direction:column;gap:14px}
+.dbox{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.dtitle{font-weight:600;margin:0}
+textarea{width:100%;font:15px/1.45 var(--f-body);padding:9px 11px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);resize:vertical}
+textarea:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.ai-out,.msg{white-space:pre-wrap;font-size:14.5px;line-height:1.55}
+.ai-out{border-top:1px solid var(--line);padding-top:10px}
+.chat{display:flex;flex-direction:column;gap:10px;max-height:60vh;overflow-y:auto;padding-right:4px}
+.msg{padding:10px 12px;border-radius:8px;max-width:92%}
+.msg.bot{background:var(--bg);border:1px solid var(--line);align-self:flex-start}
+.msg.me{background:var(--ink);color:var(--bg);align-self:flex-end}
+.think{color:var(--muted);font-style:italic}
+.choice{display:block;width:100%;text-align:left;font:500 14px var(--f-body);background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:8px 10px;margin:4px 0;cursor:pointer;white-space:normal}
+.choice:hover{border-color:var(--ink)}
+.ch-in{display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--line);padding-top:10px}
+.wz{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:18px;display:flex;flex-direction:column;gap:12px}
+.wz-top{display:flex;gap:8px;justify-content:space-between}
+.wz-n{margin:0;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.wz-q{margin:0;font-family:var(--f-display);font-weight:600;font-size:26px;line-height:1.1;text-transform:uppercase;text-wrap:balance}
+.wz-opts{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px}
+.wz-opt{text-align:left;font:15px var(--f-body);background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:12px 14px;cursor:pointer;display:flex;flex-direction:column;gap:2px}
+.wz-opt b{font-weight:600}
+.wz-opt span{font-size:12.5px;color:var(--muted)}
+.wz-opt:hover{border-color:var(--ink)}
+.wz-opt:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.wz-num{display:flex;gap:8px;flex-wrap:wrap}
+.wz-num input{max-width:180px}
+.wz-res{display:flex;flex-direction:column;gap:10px}
+.wz-res p{margin:0}
+.wz-prods{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px}
+.note{background:var(--bg);border-left:3px solid var(--accent);padding:8px 10px;border-radius:4px;font-size:13.5px}
+.why{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:10px 14px;font-size:14px;display:flex;flex-direction:column;gap:6px}
+.card .why{margin:12px 16px 0}
+.why p{margin:0}
+.why-t{font-weight:600;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.why ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px}
+.q-doc .why-doc{margin-top:8px;font-size:12px;line-height:1.5}
+.need{display:block;font-size:11.5px;color:var(--muted)}
+.mono{font-family:var(--f-mono);white-space:nowrap}
+.q-lines input.dens{width:72px}
+.q-lines select{width:auto;font-family:var(--f-mono)}
+.q-doc tfoot td{font-weight:700;border-top:1px solid #cfd7e3;border-bottom:0;background:#f4f6fa}
+.att{display:flex;flex-wrap:wrap;gap:6px}
+.chip-att{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--bg);border-radius:6px;padding:4px 6px;font-size:12.5px;max-width:100%}
+.chip-att img{width:36px;height:36px;object-fit:cover;border-radius:4px}
+.chip-att b{font-size:10.5px;letter-spacing:.06em;color:var(--muted)}
+.chip-att span{overflow-wrap:anywhere}
+.att.sent{margin-top:6px}
+.att.sent img{width:72px;height:72px;object-fit:cover;border-radius:6px;border:1px solid var(--line)}
+.ch-in.drag{outline:2px dashed var(--accent);outline-offset:4px;border-radius:6px}
+label.btn{display:inline-block}
+.linkbtn{background:none;border:0;padding:0;font:inherit;color:var(--ink);text-decoration:underline;cursor:pointer}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+<header>
+  <h1>Jotun <span>Rehber</span></h1>
+</header>
+<nav class="tabs" aria-label="Bölümler">
+  <a href="#sistem" id="t-sistem" class="tab" aria-current="page">Sistem &amp; Teklif</a>
+  <a href="#danisman" id="t-danisman" class="tab">Danışman</a>
+  <a href="#urunler" id="t-urunler" class="tab">Ürün Rehberi</a>
+</nav>
+<div id="v-sistem">
+
+<div class="grid">
+<form class="rail" id="f" autocomplete="off">
+  <fieldset>
+    <legend>Yüzey</legend>
+    <div class="seg" id="sub">
+      <input type="radio" name="sub" id="sub-cs" value="cs" checked><label for="sub-cs">Karbon çelik</label>
+      <input type="radio" name="sub" id="sub-hdg" value="hdg"><label for="sub-hdg">Sıcak daldırma galvaniz</label>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Ortam (ISO 12944-2)</legend>
+    <div class="seg" id="env">
+      <input type="radio" name="env" id="env-C2" value="C2"><label for="env-C2">C2</label>
+      <input type="radio" name="env" id="env-C3" value="C3"><label for="env-C3">C3</label>
+      <input type="radio" name="env" id="env-C4" value="C4" checked><label for="env-C4">C4</label>
+      <input type="radio" name="env" id="env-C5" value="C5"><label for="env-C5">C5</label>
+      <input type="radio" name="env" id="env-Im" value="Im"><label for="env-Im">Im1–3</label>
+    </div>
+    <p class="hint" id="env-hint"></p>
+  </fieldset>
+
+  <fieldset>
+    <legend>Hedef dayanım (ilk büyük bakıma kadar)</legend>
+    <div class="seg" id="dur">
+      <input type="radio" name="dur" id="dur-l" value="l"><label for="dur-l">L</label>
+      <input type="radio" name="dur" id="dur-m" value="m"><label for="dur-m">M</label>
+      <input type="radio" name="dur" id="dur-h" value="h" checked><label for="dur-h">H</label>
+      <input type="radio" name="dur" id="dur-vh" value="vh"><label for="dur-vh">VH</label>
+    </div>
+    <p class="hint" id="dur-hint"></p>
+  </fieldset>
+
+  <fieldset>
+    <label class="lbl" for="area">Boyanacak alan (m²)</label>
+    <input type="number" id="area" min="0" step="10" value="500">
+  </fieldset>
+
+  <details class="adv">
+    <summary>Gelişmiş ayarlar</summary>
+    <div class="adv-in">
+      <fieldset id="primer-fs">
+        <legend>Astar tipi</legend>
+        <div class="seg" id="pri">
+          <input type="radio" name="pri" id="pri-all" value="all" checked><label for="pri-all">Hepsi</label>
+          <input type="radio" name="pri" id="pri-ep" value="ep"><label for="pri-ep">Epoksi</label>
+          <input type="radio" name="pri" id="pri-zn" value="zn"><label for="pri-zn">Çinkolu</label>
+          <input type="radio" name="pri" id="pri-ak" value="ak"><label for="pri-ak">Alkid</label>
+        </div>
+      </fieldset>
+      <fieldset id="zinc-fs">
+        <label class="lbl" for="zinc">Çinko astar</label>
+        <select id="zinc">
+          <option value="b80">Barrier 80S (çinkoca zengin epoksi)</option>
+          <option value="r86">Resist 86 (çinko etil silikat)</option>
+        </select>
+      </fieldset>
+      <fieldset>
+        <label class="lbl" for="loss">Fire (%)</label>
+        <input type="number" id="loss" min="0" max="80" step="5" value="30">
+        <p class="hint">Airless püskürtmede çelik konstrüksiyonda genelde %30–50.</p>
+      </fieldset>
+    </div>
+  </details>
+</form>
+
+<main class="results" id="out" aria-live="polite"></main>
+</div>
+
+<section class="quote" id="quote" aria-labelledby="q-title">
+  <div class="q-head">
+    <h2 id="q-title">Teklif</h2>
+    <p class="hint">Adet teneke sayısıdır. Ambalaj fiyatını ve yoğunluğu (kg/L, teneke etiketinde yazar) bir kez girin; sonraki tekliflerde hatırlanır.</p>
+  </div>
+  <div class="q-grid">
+    <div class="q-form">
+      <div class="row2">
+        <fieldset><label class="lbl" for="q-dealer">Bayi adı</label><input type="text" id="q-dealer" placeholder="Bayi ünvanı"></fieldset>
+        <fieldset><label class="lbl" for="q-customer">Müşteri adı</label><input type="text" id="q-customer" placeholder="Firma / kişi"></fieldset>
+      </div>
+      <fieldset><label class="lbl" for="q-project">Proje / iş (isteğe bağlı)</label><input type="text" id="q-project" placeholder="Örn. çelik konstrüksiyon depo"></fieldset>
+      <div class="row3">
+        <fieldset><label class="lbl" for="q-valid">Geçerlilik (gün)</label><input type="number" id="q-valid" min="1" step="1" value="15"></fieldset>
+        <fieldset><label class="lbl" for="q-kdv">KDV (%)</label><input type="number" id="q-kdv" min="0" max="100" step="1" value="20"></fieldset>
+        <fieldset><label class="lbl" for="q-cur">Para birimi</label><select id="q-cur"><option value="TRY">₺ TL</option><option value="EUR">€ EUR</option><option value="USD">$ USD</option></select></fieldset>
+      </div>
+      <div class="tbl-wrap">
+        <table class="q-lines">
+          <thead><tr><th>Ürün</th><th class="n">Ambalaj</th><th class="n">Adet</th><th class="n">Toplam L</th><th class="n">kg/L</th><th class="n">Toplam kg</th><th class="n">Ambalaj fiyatı</th><th class="n">Tutar</th><th></th></tr></thead>
+          <tbody id="q-body"></tbody>
+        </table>
+      </div>
+      <div class="q-actions">
+        <select id="q-add-sel" aria-label="Eklenecek ürün"></select>
+        <button type="button" class="btn" id="q-add">Ürün ekle</button>
+        <button type="button" class="btn ghost" id="q-clear">Satırları temizle</button>
+      </div>
+    </div>
+
+    <div class="q-doc-wrap">
+      <article class="q-doc" id="q-doc"></article>
+      <div class="q-actions">
+        <button type="button" class="btn primary" id="q-pdf" hidden>PDF indir</button>
+        <button type="button" class="btn" id="q-copy">Teklif metnini kopyala</button>
+        <a class="btn" id="q-send" href="#" target="_blank" rel="noopener">Bölge yöneticisine gönder</a>
+      </div>
+      <p class="hint" id="q-status">Teklifi müşteriye iletmeden önce bölge yöneticinizin onayını alınız.</p>
+      <dialog id="q-warn" class="q-warn" aria-labelledby="q-warn-t">
+        <p class="q-warn-lab">Önemli uyarı</p>
+        <h2 id="q-warn-t">Bölge yöneticisi onayı alınmadan iletmeyiniz</h2>
+        <p>Hazırlanan bu teklif; ürün seçimi, sistem, miktar ve fiyat bakımından <b>Jotun Boya bölge yöneticisinin onayı alınmadan</b> müşteriye iletilmemelidir.</p>
+        <p>Lütfen teklifi önce bölge yöneticinize gönderiniz ve onay aldıktan sonra müşteriyle paylaşınız.</p>
+        <div class="q-actions"><a class="btn primary" id="q-warn-send" href="#" target="_blank" rel="noopener">Bölge yöneticisine gönder</a><button type="button" class="btn" id="q-warn-ok">Okudum, anladım</button></div>
+      </dialog>
+    </div>
+  </div>
+</section>
+
+<details class="data" id="data" style="margin-top:20px">
+  <summary>Ürün verileri (hacimce katı madde %)</summary>
+  <div class="inner">
+    <p class="hint">Sarfiyat bu değerlerle hesaplanır. Güncel TDS'ye göre değiştirebilirsiniz; değişiklik yalnızca bu tarayıcıda saklanır.</p>
+    <div class="tbl-wrap"><table id="prod-tbl"><thead><tr><th>Ürün</th><th>Tip</th><th class="n">Katı madde %</th><th>Kaynak</th></tr></thead><tbody></tbody></table></div>
+    <div><button type="button" class="btn" id="reset-vs">Varsayılan değerlere dön</button></div>
+  </div>
+</details>
+
+<p class="foot" style="margin-top:16px">Sistemler ISO 12944-5:2019 Ek C (karbon çelik) ve Ek D (galvaniz) tablolarındaki astar KFK aralığı, kat sayısı ve minimum toplam KFK’ya göre kurulmuştur; ürün dağılımı örnektir. Teorik sarfiyat = katı madde % × 10 / KFK (m²/L). Ölçülen tek KFK değeri nominalin 3 katını geçmemelidir (ISO 12944-5 §7.3). Nihai sistem, ara kat bekleme süreleri ve renk seçimi için ilgili TDS'ye ve Jotun teknik ekibine danışın.</p>
+</div>
+<section id="v-danisman" hidden>
+  <div class="seg modes" id="d-mode" role="tablist">
+    <input type="radio" name="dmode" id="dm-w" value="w" checked><label for="dm-w">Adım adım öneri</label>
+    <input type="radio" name="dmode" id="dm-r" value="r"><label for="dm-r">Rakibe alternatif</label>
+    <input type="radio" name="dmode" id="dm-c" value="c"><label for="dm-c">Soru / fotoğraf / dosya</label>
+  </div>
+
+  <div id="d-w" class="dpanel">
+    <div class="wz" id="wz"></div>
+  </div>
+
+  <div id="d-r" class="dpanel" hidden>
+    <div class="dbox">
+      <label class="lbl" for="rv-text">Rakip sistemi yazın</label>
+      <textarea id="rv-text" rows="3" placeholder="Örn: Hempadur Zinc 17360 60µ + Hempadur 47300 120µ + Hempathane 55610 60µ, C4 sanayi"></textarea>
+      <div class="q-actions"><button type="button" class="btn primary" id="rv-ask">Jotun alternatifini öner</button><button type="button" class="btn ghost" id="rv-stop" hidden>Durdur</button></div>
+      <div class="ai-out" id="rv-out" hidden></div>
+      <p class="hint">Rakip ürünün etiketi, teknik föyü veya rakip teklifi elinizdeyse fotoğrafını çekip <button type="button" class="linkbtn" id="rv-photo">Soru / fotoğraf / dosya</button> bölümüne yükleyin; yazıları okuyup Jotun karşılığını çıkarır.</p>
+    </div>
+    <div class="dbox">
+      <p class="dtitle">Ürün tipine göre eşleştir</p>
+      <p class="hint">Rakip sistemin her katının tipini ve kalınlığını seçin; aynı tipteki Jotun ürünü ve litre çıkar.</p>
+      <div class="row2"><fieldset><label class="lbl" for="rv-area">Alan (m²)</label><input type="number" id="rv-area" min="0" step="10" value="500"></fieldset>
+      <fieldset><label class="lbl" for="rv-loss">Fire (%)</label><input type="number" id="rv-loss" min="0" max="80" step="5" value="30"></fieldset></div>
+      <div class="tbl-wrap"><table class="q-lines"><thead><tr><th>Rakip kat tipi</th><th class="n">µm</th><th>Jotun karşılığı</th><th class="n">Litre</th><th></th></tr></thead><tbody id="rv-body"></tbody></table></div>
+      <div class="q-actions"><button type="button" class="btn" id="rv-addrow">Kat ekle</button><button type="button" class="btn primary" id="rv-toq">Teklife aktar</button></div>
+    </div>
+  </div>
+
+  <div id="d-c" class="dpanel" hidden>
+    <div class="dbox">
+      <div class="chat" id="ch-log"><div class="msg bot">Merhaba. Ne boyanacak, nerede duracak ve ne kadar dayanması gerekiyor? Bilmediğiniz yerleri ben sorarım.</div></div>
+      <div class="ch-in" id="ch-drop">
+        <div class="att" id="ch-att" hidden></div>
+        <textarea id="ch-text" rows="2" placeholder="Örn: Tekirdağ'da deniz kenarında depo çatı makası, paslı, kumlama yok — veya sadece rakip etiketin fotoğrafını ekleyin"></textarea>
+        <div class="q-actions"><label class="btn ghost" for="ch-file" id="ch-file-lbl">Fotoğraf / dosya ekle</label><input type="file" id="ch-file" multiple hidden><span class="hint" id="ch-file-hint">Yüzey fotoğrafı, şartname, rakip ürün etiketi veya rakip teklifinin fotoğrafı; PDF ya da metin dosyası ekleyebilirsiniz. Fotoğraftaki yazılar da okunur.</span></div>
+        <div class="q-actions"><button type="button" class="btn primary" id="ch-send">Gönder</button><button type="button" class="btn ghost" id="ch-stop" hidden>Durdur</button><button type="button" class="btn ghost" id="ch-new">Yeni sohbet</button><a class="btn ghost" id="ch-fwd" href="#" target="_blank" rel="noopener" hidden>Sorularımı bölge yöneticisine ilet</a></div></div>
+    </div>
+  </div>
+  <p class="hint ai-off" id="ai-off" hidden></p>
+  <p class="foot">Öneriler ISO 12944-5:2019 ve Jotun ürün teknik verilerine dayanır; bilgilendirme amaçlıdır. Tank içi, kimyasal ortam ve yangın koruması için Jotun teknik onayı alın. Uygulamadan önce ürünün TDS'ini kontrol edin.</p>
+</section>
+
+<section id="v-urunler" hidden>
+  <div class="r-top">
+    <input type="search" id="r-q" placeholder="Ürün ara: Jotamastic, Hardtop, zemin, tank…" aria-label="Ürün ara">
+    <div class="chips" id="r-cats"></div>
+  </div>
+  <p class="r-catinfo" id="r-catinfo" hidden></p>
+  <p class="hint" id="r-count"></p>
+  <div class="r-list" id="r-list"></div>
+  <p class="foot">Teknik bilgiler (katı madde, karışım oranı, inceltici, ambalaj) Jotun Deniz &amp; Endüstri ürün teknik verilerinden (Nisan 2026) alınmıştır. “Liste dışı” ürünler standart bayi stok listesinde yoktur; minimum sipariş ve teslim süresi için Jotun'a danışın. Uygulamadan önce ürünün güncel teknik föyünü (TDS) kontrol edin.</p>
+</section>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+(function(){
+const PRODUCTS = {
+  b80:{name:"Barrier 80S", type:"Çinkoca zengin epoksi", vs:67, src:"Jotun ürün teknik verisi (Nisan 2026)"},
+  r86:{name:"Resist 86", type:"Çinko etil silikat", vs:67, src:"Jotun ürün teknik verisi (Nisan 2026)"},
+  pezp:{name:"Penguard Express ZP", type:"Epoksi astar (çinko fosfat)", vs:74, src:"Jotun ürün teknik verisi (Nisan 2026)"},
+  pe:{name:"Penguard Express", type:"Epoksi ara kat", vs:74, src:"Jotun ürün teknik verisi (Nisan 2026)"},
+  pu:{name:"Penguard Universal", type:"Saf epoksi", vs:72, src:"Nor-Maali ürün sayfası"},
+  jm87:{name:"Jotamastic 87", type:"Epoksi mastik", vs:82, src:"Jotun ürün teknik verisi (Nisan 2026)"},
+  hxp:{name:"Hardtop XP", type:"Alifatik poliüretan son kat", vs:63, src:"Jotun ürün teknik verisi (Nisan 2026)"},
+  qd:{name:"Pilot QD Primer", type:"Alkid astar (çinko fosfat)", vs:56, src:"Jotun ürün teknik verisi (Nisan 2026)"},
+  p2:{name:"Pilot II", type:"Alkid son kat", vs:48, src:"Jotun ürün teknik verisi (Nisan 2026)"}
+};
+const CATALOG = [{"name":"Jotafloor Sealer","cat":"Flooring","vs":[40],"packs":["20"],"mix":["4:1"],"th":[],"colors":["Transparent"],"special":false,"new":false,"note":"Beton zemin astarı; tozumayı önler.","offlist":false},{"name":"Jotafloor Sealer WB","cat":"Flooring","vs":[24],"packs":["5"],"mix":["tek bileşen"],"th":[],"colors":["Transparent"],"special":true,"new":false,"note":"Su bazlı beton zemin astarı.","offlist":false},{"name":"Jotafloor SF Pro Primer","cat":"Flooring","vs":[98],"packs":["15"],"mix":["2:1"],"th":[],"colors":["Transparent"],"special":false,"new":false,"note":"Solventsiz zemin astarı.","offlist":false},{"name":"Jotafloor Screed Primer","cat":"Flooring","vs":[98],"packs":["19,50"],"mix":["2:1"],"th":[],"colors":["Transparent"],"special":true,"new":false,"note":"Şap/harç sistemleri için astar.","offlist":false},{"name":"Jotafloor Anti-Static Primer","cat":"Flooring","vs":[35],"packs":["10"],"mix":["4,5:1"],"th":[],"colors":["Black"],"special":true,"new":false,"note":"Antistatik zemin sistemi astarı.","offlist":false},{"name":"Jotafloor SL Pro","cat":"Flooring","vs":[97],"packs":["12"],"mix":["3:1"],"th":[],"colors":["Grey"],"special":false,"new":false,"note":"Self-levelling epoksi zemin, 2–4 mm; parlak, kolay temizlenir.","offlist":false},{"name":"Jotafloor PU Flex","cat":"Flooring","vs":[98],"packs":["10"],"mix":["3,5:1"],"th":[],"colors":["Grey"],"special":true,"new":false,"note":"Esnek poliüretan zemin.","offlist":false},{"name":"Jotafloor Screed","cat":"Flooring","vs":[98],"packs":["19,50"],"mix":["2:1"],"th":[],"colors":["Transparent"],"special":true,"new":false,"note":"Ağır trafik için epoksi harç (mortar) zemin.","offlist":false},{"name":"Jotafloor PU Crete","cat":"Flooring","vs":[98],"packs":["10,63"],"mix":[],"th":[],"colors":[],"special":true,"new":false,"note":"Poliüretan çimento zemin; gıda tesisi, ısıl şok.","offlist":false},{"name":"Jotafloor Anti-Static","cat":"Flooring","vs":[95],"packs":["18"],"mix":["2,8:1"],"th":[],"colors":["Grey"],"special":true,"new":false,"note":"Antistatik epoksi zemin kaplaması; elektronik, ATEX alanları.","offlist":false},{"name":"Jotafloor Tex","cat":"Flooring","vs":[98],"packs":["18"],"mix":["4:1"],"th":[],"colors":["Grey"],"special":false,"new":false,"note":"Dokulu, kaymaz epoksi zemin.","offlist":false},{"name":"Jotafloor Topcoat E","cat":"Flooring","vs":[98],"packs":["9,20","10"],"mix":["4:1"],"th":[],"colors":["Grey","Base 1","Base 3"],"special":false,"new":false,"note":"Solventsiz epoksi zemin son katı.","offlist":false},{"name":"Jotafloor Topcoat E Clear","cat":"Flooring","vs":[98],"packs":["10"],"mix":["3,3:1,7"],"th":[],"colors":[],"special":true,"new":false,"note":"Şeffaf epoksi zemin son katı.","offlist":false},{"name":"Jotafloor PU Topcoat","cat":"Flooring","vs":[63],"packs":["18","20"],"mix":["5,65:1"],"th":[],"colors":["Grey","Base 1","Base 2","Base 3"],"special":false,"new":false,"note":"UV dayanımlı PU zemin son katı.","offlist":false},{"name":"Jotafloor SL Pro Aggregatte (*kg)","cat":"Flooring","vs":[],"packs":[],"mix":[],"th":[],"colors":[],"special":false,"new":false,"note":"SL Pro dolgu agregası (kg).","offlist":false},{"name":"Jotafloor Non-Slip Aggregatte Fine (*kg)","cat":"Flooring","vs":[],"packs":[],"mix":[],"th":[],"colors":[],"special":false,"new":false,"note":"Kaymaz agrega, ince (kg).","offlist":false},{"name":"Jotafloor Non-Slip Aggregatte Medium (*kg)","cat":"Flooring","vs":[],"packs":[],"mix":[],"th":[],"colors":[],"special":false,"new":false,"note":"Kaymaz agrega, orta (kg).","offlist":false},{"name":"Jotafloor Non-Slip Aggregatte Course (*kg)","cat":"Flooring","vs":[],"packs":[],"mix":[],"th":[],"colors":[],"special":false,"new":false,"note":"Kaymaz agrega, kalın (kg).","offlist":false},{"name":"SeaForce 30","cat":"Anti-Fouling","vs":[58],"packs":["20"],"mix":["tek bileşen"],"th":["7"],"colors":["Dark Red","Black"],"special":false,"new":false,"note":"Zehirli boya. Rakam, hedeflenen havuzlama aralığını (ay) gösterir.","offlist":false},{"name":"SeaForce 30 M","cat":"Anti-Fouling","vs":[62],"packs":["20"],"mix":["tek bileşen"],"th":["7"],"colors":["Red"],"special":false,"new":false,"note":"Zehirli boya. Rakam, hedeflenen havuzlama aralığını (ay) gösterir.","offlist":false},{"name":"SeaForce 60","cat":"Anti-Fouling","vs":[58],"packs":["20"],"mix":["tek bileşen"],"th":["7"],"colors":["Dark Red"],"special":false,"new":false,"note":"Zehirli boya. Rakam, hedeflenen havuzlama aralığını (ay) gösterir.","offlist":false},{"name":"SeaForce 60 M","cat":"Anti-Fouling","vs":[62],"packs":["20"],"mix":["tek bileşen"],"th":["7"],"colors":["Red"],"special":false,"new":false,"note":"Zehirli boya. Rakam, hedeflenen havuzlama aralığını (ay) gösterir.","offlist":false},{"name":"SeaForce 90","cat":"Anti-Fouling","vs":[58],"packs":["20"],"mix":["tek bileşen"],"th":["7"],"colors":["Dark Red","Black"],"special":false,"new":false,"note":"Zehirli boya. Rakam, hedeflenen havuzlama aralığını (ay) gösterir.","offlist":false},{"name":"SeaQuantum Classic S","cat":"Anti-Fouling","vs":[50],"packs":["20"],"mix":["tek bileşen"],"th":["7"],"colors":["Dark Red","Light Red"],"special":false,"new":false,"note":"Üst segment, kendini parlatan zehirli boya.","offlist":false},{"name":"SeaQuantum Ultra S","cat":"Anti-Fouling","vs":[50],"packs":["20"],"mix":["tek bileşen"],"th":["7"],"colors":["Dark Red","Light Red"],"special":false,"new":false,"note":"Üst segment, kendini parlatan zehirli boya.","offlist":false},{"name":"SeaQuantum Pro U","cat":"Anti-Fouling","vs":[58],"packs":["20"],"mix":["tek bileşen"],"th":["7"],"colors":["Dark Red","Light Red"],"special":false,"new":false,"note":"Üst segment, kendini parlatan zehirli boya.","offlist":false},{"name":"SeaQuantum Spectrum","cat":"Anti-Fouling","vs":[47],"packs":["20"],"mix":["tek bileşen"],"th":["7"],"colors":["Black"],"special":true,"new":false,"note":"Üst segment, kendini parlatan zehirli boya.","offlist":false},{"name":"SeaMate M","cat":"Anti-Fouling","vs":[58],"packs":["20"],"mix":["tek bileşen"],"th":["7"],"colors":["Dark Red","Light Red"],"special":false,"new":false,"note":"Zehirli boya.","offlist":false},{"name":"SeaMate NB","cat":"Anti-Fouling","vs":[58],"packs":["20"],"mix":["tek bileşen"],"th":["7"],"colors":["Dark Red","Light Red"],"special":false,"new":false,"note":"Zehirli boya.","offlist":false},{"name":"SeaQuest Endura","cat":"Anti-Fouling","vs":[75],"packs":["18,45"],"mix":["17:0,7:0,75"],"th":["7"],"colors":["Red"],"special":true,"new":false,"note":"Gemi su altı kaplaması.","offlist":false},{"name":"Pilot QD Primer","cat":"Alkyd","vs":[56],"packs":["5","20"],"mix":["tek bileşen"],"th":["7"],"colors":["Red","Grey"],"special":true,"new":false,"note":"Hızlı kuruyan, çinko fosfatlı alkid astar/ara kat.","offlist":false},{"name":"Alkydprimer","cat":"Alkyd","vs":[52],"packs":["20"],"mix":["tek bileşen"],"th":["2"],"colors":["Red","Grey"],"special":false,"new":false,"note":"Ekonomik alkid astar; 120 °C kuru ısıya dayanır.","offlist":false},{"name":"Pilot II","cat":"Alkyd","vs":[48],"packs":["2,70","4,50","18","20"],"mix":["tek bileşen"],"th":["2"],"colors":["Base 1","Base 2","Base 3","Base 5","Base 6","White","Black","Red 49","Green137","Yellow 258","Blue 138","Grey 38"],"special":true,"new":false,"note":"Parlak alkid son kat; fırça, rulo, tabanca.","offlist":false},{"name":"Pilot QD Topcoat","cat":"Alkyd","vs":[44],"packs":["18"],"mix":["tek bileşen"],"th":["7"],"colors":["Base 1","Base 2","Base 3","Base 5","Base 6"],"special":false,"new":false,"note":"Hızlı kuruyan alkid son kat.","offlist":false},{"name":"Vinyguard","cat":"Acrylic","vs":[38],"packs":["20"],"mix":["tek bileşen"],"th":["7"],"colors":["Silvergrey 88"],"special":false,"new":false,"note":"Tek bileşenli vinil/akrilik kaplama.","offlist":false},{"name":"Pioner Topcoat","cat":"Acrylic","vs":[34],"packs":["5","18","20"],"mix":["tek bileşen"],"th":["7"],"colors":["Base 1","Base 2","Base 3","Base 5","Base 6","White","Black","Red 49","Green 137","Grey 38"],"special":true,"new":false,"note":"Tek bileşenli akrilik son kat.","offlist":false},{"name":"Conseal T/U","cat":"Acrylic","vs":[42,49],"packs":["2,70","4,50","18","20"],"mix":["tek bileşen"],"th":["7"],"colors":["Base 1","Base 2","Base 3","Base 5","Base 6","RAL 9002","Alu"],"special":true,"new":false,"note":"Ekipman ve çelik için su dayanımlı, yarı mat, hızlı kuruyan akrilik son kat.","offlist":false},{"name":"Pilot ACR","cat":"Acrylic","vs":[55],"packs":["4,50","18"],"mix":["tek bileşen"],"th":["7/10"],"colors":["Base 1","Base 2","Base 3","Base 5","Base 6"],"special":true,"new":false,"note":"Direkt metale uygulanan, -10 °C'ye kadar kuruyan akrilik.","offlist":false},{"name":"Aluflex","cat":"Reflected","vs":[40],"packs":["20"],"mix":["tek bileşen"],"th":["2"],"colors":[],"special":false,"new":false,"note":"Alüminyum pigmentli yansıtıcı boya.","offlist":false},{"name":"Se-Lett","cat":"Reflected","vs":[56],"packs":["1"],"mix":["tek bileşen"],"th":["2"],"colors":["Signal Orange"],"special":false,"new":false,"note":"Sinyal turuncusu işaretleme boyası.","offlist":false},{"name":"Aluminium Paint HR","cat":"Heat Resistant","vs":[45],"packs":["5"],"mix":["tek bileşen"],"th":["2"],"colors":[],"special":true,"new":false,"note":"Isıya dayanıklı alüminyum boya.","offlist":false},{"name":"Solvalitt Midtherm","cat":"Heat Resistant","vs":[34,42],"packs":["4,50","5","18","20"],"mix":["tek bileşen"],"th":["7"],"colors":["Alu","Base 1","Base 2","Base 3"],"special":true,"new":false,"note":"Orta sıcaklıklar için ısıya dayanıklı boya.","offlist":false},{"name":"Solvalitt","cat":"Heat Resistant","vs":[40,43],"packs":["4,50","5","18","20"],"mix":["tek bileşen"],"th":["7"],"colors":["Alu","Base 1","Base 2","Base 3"],"special":true,"new":false,"note":"Silikon esaslı yüksek sıcaklık boyası.","offlist":false},{"name":"Solvalitt Zinc","cat":"Heat Resistant","vs":[42],"packs":["20"],"mix":["tek bileşen"],"th":["7"],"colors":[],"special":true,"new":false,"note":"Çinkolu, ısıya dayanıklı astar.","offlist":false},{"name":"Jotatemp 210","cat":"Heat Resistant","vs":[60],"packs":["20"],"mix":["4:1"],"th":["17/23"],"colors":[],"special":false,"new":false,"note":"Isıya dayanıklı iki bileşenli kaplama; izolasyon altı dahil.","offlist":false},{"name":"Jotatemp 250","cat":"Heat Resistant","vs":[70],"packs":["20"],"mix":["5:1"],"th":["23"],"colors":[],"special":false,"new":false,"note":"Isıya dayanıklı iki bileşenli kaplama.","offlist":false},{"name":"Penguard Primer","cat":"Epoxy","vs":[51],"packs":["20"],"mix":["4:1"],"th":["17"],"colors":["Red","Grey"],"special":false,"new":false,"note":"Genel amaçlı epoksi astar.","offlist":false},{"name":"Penguard Clear Sealer","cat":"Epoxy","vs":[44],"packs":["20"],"mix":["4:1"],"th":["17"],"colors":["Transparent"],"special":true,"new":false,"note":"Şeffaf epoksi sealer. Termal sprey metal ve beton gözeneklerini doldurur.","offlist":false},{"name":"Penguard HSP","cat":"Epoxy","vs":[74],"packs":["20"],"mix":["4:1"],"th":["17"],"colors":["Grey"],"special":false,"new":false,"note":"Yüksek katılı epoksi astar / ara kat.","offlist":false},{"name":"Penguard HSP Mio","cat":"Epoxy","vs":[75],"packs":["20"],"mix":["4:1"],"th":["17"],"colors":["Grey"],"special":false,"new":false,"note":"Mikalı demir oksit (MIO) pigmentli epoksi ara kat.","offlist":false},{"name":"Penguard HSP ZP","cat":"Epoxy","vs":[73],"packs":["20"],"mix":["4:1"],"th":["17"],"colors":["Grey"],"special":false,"new":false,"note":"Çinko fosfatlı yüksek katılı epoksi astar.","offlist":false},{"name":"Penguard Express LITE","cat":"Epoxy","vs":[74],"packs":["20"],"mix":["4:1"],"th":["17"],"colors":["Grey"],"special":false,"new":true,"note":"Penguard Express'in yeni versiyonu; hızlı kürlenen epoksi.","offlist":false},{"name":"Penguard Express LITE Mio","cat":"Epoxy","vs":[74],"packs":["20"],"mix":["4:1"],"th":["17"],"colors":["Grey"],"special":false,"new":true,"note":"MIO pigmentli Penguard Express LITE.","offlist":false},{"name":"Penguard Express LITE ZP","cat":"Epoxy","vs":[74],"packs":["20"],"mix":["4:1"],"th":["17"],"colors":["Grey"],"special":false,"new":true,"note":"Çinko fosfatlı Penguard Express LITE astar.","offlist":false},{"name":"Penguard Express","cat":"Epoxy","vs":[74],"packs":["20"],"mix":["4:1"],"th":["17"],"colors":["Grey"],"special":false,"new":false,"note":"Hızlı kürlenen epoksi; astar, ara kat veya son kat. Düşük sıcaklıkta da kürlenir.","offlist":false},{"name":"Penguard Express Mio","cat":"Epoxy","vs":[74],"packs":["20"],"mix":["4:1"],"th":["17"],"colors":["Grey"],"special":false,"new":false,"note":"MIO pigmentli hızlı kürlenen epoksi ara kat.","offlist":false},{"name":"Penguard Express ZP","cat":"Epoxy","vs":[74],"packs":["20"],"mix":["4:1"],"th":["17"],"colors":["Grey"],"special":false,"new":false,"note":"Çinko fosfatlı hızlı kürlenen epoksi astar. Yeni inşaat çeliği.","offlist":false},{"name":"Penguard Topcoat","cat":"Epoxy","vs":[50],"packs":["4,60","18,40"],"mix":[],"th":["17"],"colors":["Base 1","Base 2","Base 3","Base 5","Base 6"],"special":true,"new":false,"note":"Epoksi son kat. Güneş görmeyen iç yüzeylerde.","offlist":false},{"name":"Penguard FC","cat":"Epoxy","vs":[62],"packs":["18,40"],"mix":[],"th":["17"],"colors":["Base 1","Base 3"],"special":false,"new":false,"note":"Yüksek katılı, MCI ile renklendirilebilen epoksi son kat.","offlist":false},{"name":"Penguard Express CF","cat":"Epoxy","vs":[77],"packs":["18,40","20"],"mix":["4:1"],"th":["17"],"colors":["Base 1","Base 3","RAL 9002"],"special":true,"new":false,"note":"Renk stabil, hızlı kuruyan epoksi astar/son kat. Tek kat sistemlerde.","offlist":false},{"name":"Balloxy HB Light","cat":"Modified Epoxy","vs":[82],"packs":["18"],"mix":["5:1"],"th":["17"],"colors":["Green","Beige"],"special":false,"new":false,"note":"","offlist":false},{"name":"Balloxy HB Light WG","cat":"Modified Epoxy","vs":[71],"packs":["20"],"mix":["3:1"],"th":["17"],"colors":["Green","Beige"],"special":false,"new":false,"note":"","offlist":false},{"name":"Balloxy BT","cat":"Modified Epoxy","vs":[72],"packs":["20"],"mix":["4:1"],"th":["17"],"colors":["Grey","Alu RT"],"special":false,"new":false,"note":"","offlist":false},{"name":"Jotaguard 630","cat":"Modified Epoxy","vs":[71],"packs":["20"],"mix":["4:1"],"th":["17"],"colors":["Red","Grey"],"special":false,"new":false,"note":"","offlist":false},{"name":"Jotaguard 660","cat":"Modified Epoxy","vs":[72],"packs":["20"],"mix":["3:1"],"th":["17"],"colors":["Red","Grey"],"special":false,"new":false,"note":"","offlist":false},{"name":"Safeguard Universal ES","cat":"Modified Epoxy","vs":[62],"packs":["18"],"mix":["5:1"],"th":["17"],"colors":["Plum","Grey"],"special":false,"new":false,"note":"","offlist":false},{"name":"Jotacote Universal","cat":"Modified Epoxy","vs":[72],"packs":["20"],"mix":["3:1"],"th":["17"],"colors":["Alu","Alu RT","Grey"],"special":false,"new":false,"note":"Saf epoksi astar; alkidler dahil tüm son katlarla uyumlu.","offlist":false},{"name":"Jotacote Universal N 10","cat":"Modified Epoxy","vs":[72],"packs":["20"],"mix":["3:1"],"th":["17"],"colors":["Alu","Grey"],"special":false,"new":false,"note":"","offlist":false},{"name":"Jotafix Epoxy Primer","cat":"Modified Epoxy","vs":[68],"packs":["18"],"mix":["5:1"],"th":["17"],"colors":["Red","Grey"],"special":false,"new":false,"note":"","offlist":false},{"name":"Jotaprime 500","cat":"Modified Epoxy","vs":[72],"packs":["20"],"mix":["4:1"],"th":["17"],"colors":["Alu","Red","Grey"],"special":false,"new":false,"note":"Hızlı kuruyan, aşınmaya dayanıklı epoksi astar.","offlist":false},{"name":"Jotamastic 70","cat":"Modified Epoxy","vs":[77],"packs":["18"],"mix":["5:1"],"th":["17"],"colors":["Alu"],"special":false,"new":false,"note":"Ekonomik epoksi mastik.","offlist":false},{"name":"Jotamastic 80","cat":"Modified Epoxy","vs":[80],"packs":["4,60","18,30"],"mix":["6,5:1","7:1"],"th":["17"],"colors":["Alu"],"special":false,"new":false,"note":"Alüminyum pigmentli, yüzey toleranslı epoksi mastik.","offlist":false},{"name":"Jotamastic 80 WG","cat":"Modified Epoxy","vs":[72],"packs":["5","20"],"mix":["4:1"],"th":["17"],"colors":["Alu"],"special":false,"new":false,"note":"Jotamastic 80'in kış tipi; düşük sıcaklıkta uygulama.","offlist":false},{"name":"Jotamastic 85","cat":"Modified Epoxy","vs":[72],"packs":["20"],"mix":["4:1"],"th":["17"],"colors":["Alu","Red","Grey"],"special":false,"new":false,"note":"Yüzey toleranslı epoksi mastik.","offlist":false},{"name":"Jotamastic 87","cat":"Modified Epoxy","vs":[82,87],"packs":["4,70","17,40","18,70"],"mix":["5,5:1","6:1"],"th":["17"],"colors":["Alu","Red","Grey"],"special":true,"new":false,"note":"Yüzey toleranslı, yüksek katılı epoksi mastik. Astar, ara kat ve son kat; atmosfer ve daldırma.","offlist":false},{"name":"Jotamastic 87 WG","cat":"Modified Epoxy","vs":[74,77],"packs":["5","18,70","20"],"mix":["3,5:1","4:1"],"th":["17"],"colors":["Alu","Red","Grey"],"special":true,"new":false,"note":"Jotamastic 87'nin kış tipi; düşük sıcaklıkta daha hızlı kürlenir.","offlist":false},{"name":"Jotamastic 90","cat":"Modified Epoxy","vs":[80],"packs":["18,40","20"],"mix":["3,5:1"],"th":["17"],"colors":["Base 1","Base 3","Base 5","Base 6","Grey","Alu","Red"],"special":true,"new":false,"note":"Renklendirilebilir epoksi mastik.","offlist":false},{"name":"Jotamastic 90 WG","cat":"Modified Epoxy","vs":[80],"packs":["18,40"],"mix":[],"th":["17"],"colors":["Base 1","Base 3"],"special":false,"new":false,"note":"Jotamastic 90'ın kış tipi.","offlist":false},{"name":"Jotamastic Smart Pack HB","cat":"Modified Epoxy","vs":[78],"packs":["10"],"mix":["1:1"],"th":["17"],"colors":["Red","Grey"],"special":false,"new":false,"note":"Fırça/rulo için 1:1 karışımlı mastik. Az ön hazırlık, kolay kullanım.","offlist":false},{"name":"Jota Armour","cat":"Modified Epoxy","vs":[90],"packs":["9"],"mix":["2,65:0,7:4,3"],"th":["17"],"colors":["Grey"],"special":false,"new":false,"note":"Çok yüksek katılı, aşınmaya dayanıklı epoksi.","offlist":false},{"name":"Jota Armour WG","cat":"Modified Epoxy","vs":[84],"packs":["9,30"],"mix":["2,65:1:4,3"],"th":["17"],"colors":["Grey"],"special":false,"new":false,"note":"Jota Armour'un kış tipi.","offlist":false},{"name":"Jotamastic 87 GF","cat":"Glass Flake Epoxy","vs":[80],"packs":["18,70"],"mix":["6:1"],"th":["17"],"colors":["Grey 38","Red 49"],"special":false,"new":false,"note":"Cam pulcuklu Jotamastic 87. Daldırma ve aşınma.","offlist":false},{"name":"Jotamastic 87 GF WG","cat":"Glass Flake Epoxy","vs":[70],"packs":["20"],"mix":["4:1"],"th":["17"],"colors":["Grey 38","Red 49"],"special":false,"new":false,"note":"Jotamastic 87 GF kış tipi.","offlist":false},{"name":"Jotamastic 90 GF","cat":"Glass Flake Epoxy","vs":[80],"packs":["18,40"],"mix":[],"th":["17"],"colors":["Base 1","Base 3"],"special":false,"new":false,"note":"Cam pulcuklu, renklendirilebilir mastik.","offlist":false},{"name":"Jotamastic 90 GF WG","cat":"Glass Flake Epoxy","vs":[80],"packs":["18,40"],"mix":[],"th":["17"],"colors":["Base 1","Base 3"],"special":false,"new":false,"note":"Jotamastic 90 GF kış tipi.","offlist":false},{"name":"Marathon","cat":"Glass Flake Epoxy","vs":[80],"packs":["20"],"mix":["3:1"],"th":["17"],"colors":["Grey 38","Red 49"],"special":false,"new":false,"note":"Cam pulcuklu epoksi; yüksek kalınlık, aşınma ve kimyasal dayanım.","offlist":false},{"name":"Marathon 550","cat":"Glass Flake Epoxy","vs":[85],"packs":["18"],"mix":["4:1"],"th":["17"],"colors":["Base 1","Base 3"],"special":false,"new":false,"note":"Cam pulcuklu, renklendirilebilir epoksi.","offlist":false},{"name":"Marathon XHB","cat":"Glass Flake Epoxy","vs":[96],"packs":["15"],"mix":["2:1"],"th":["17"],"colors":["Grey","Red"],"special":false,"new":false,"note":"Solventsiz, çok yüksek kalınlıkta epoksi.","offlist":false},{"name":"Marathon 1000 XHB","cat":"Glass Flake Epoxy","vs":[96],"packs":["18"],"mix":["3:1"],"th":["17"],"colors":["Grey","Red"],"special":false,"new":false,"note":"Solventsiz epoksi; darbe ve aşınmaya çok dayanıklı.","offlist":false},{"name":"Marathon IQ2","cat":"Glass Flake Epoxy","vs":[98],"packs":["18"],"mix":["3:1"],"th":["17"],"colors":["Red"],"special":true,"new":false,"note":"Solventsiz, %98 katılı cam pulcuklu epoksi.","offlist":false},{"name":"Futura Classic","cat":"Polyurethane","vs":[61],"packs":["4,55","18,20","20"],"mix":["9:1"],"th":["10"],"colors":["Base 1","Base 2","Base 3","Base 5","Base 6","RAL 9002","RAL 7035","RAL 9005"],"special":true,"new":false,"note":"Parlak PU son kat.","offlist":false},{"name":"Jotafix PU TC","cat":"Polyurethane","vs":[61],"packs":["18,20"],"mix":[],"th":["10"],"colors":["Base 1","Base 2","Base 3","Base 5","Base 6"],"special":false,"new":false,"note":"Tamir/bakım için PU son kat.","offlist":false},{"name":"Hardtop XP","cat":"Polyurethane","vs":[63],"packs":["4,55","5","18,20","20"],"mix":["10:1"],"th":["10"],"colors":["White","Red 49","Black","Grey 38","RAL 9002","Base 1","Base 2","Base 3","Base 5","Base 6"],"special":true,"new":false,"note":"Yüksek katılı, parlak alifatik PU son kat. En çok kullanılan PU.","offlist":false},{"name":"Hardtop XPL","cat":"Polyurethane","vs":[58],"packs":["18,20"],"mix":[],"th":["10"],"colors":["Base 1","Base 2","Base 3"],"special":true,"new":false,"note":"Hardtop XP ailesinden PU son kat.","offlist":false},{"name":"Hardtop XP II","cat":"Polyurethane","vs":[67],"packs":["18,20","20"],"mix":[],"th":["10"],"colors":["Black","Grey 38","RAL 9002","Base 1","Base 2","Base 3","Base 5","Base 6"],"special":false,"new":true,"note":"Hardtop XP'nin yeni versiyonu, daha yüksek katı madde.","offlist":false},{"name":"Hardtop Clear","cat":"Polyurethane","vs":[46],"packs":["20"],"mix":["3:1"],"th":["10"],"colors":["Transparent"],"special":true,"new":false,"note":"Şeffaf PU vernik.","offlist":false},{"name":"Hardtop AX","cat":"Polyurethane","vs":[63],"packs":["4,60","5","18,40","20"],"mix":["4:1"],"th":["10"],"colors":["Base 1","Base 2","Base 3","Base 5","Base 6","RAL 9006"],"special":true,"new":false,"note":"Hızlı kuruyan alifatik PU son kat.","offlist":false},{"name":"Hardtop HB","cat":"Polyurethane","vs":[50],"packs":["4,60","18,40"],"mix":[],"th":["10"],"colors":["Base 1","Base 2","Base 3"],"special":true,"new":false,"note":"Düşük parlaklıkta (mat) PU son kat.","offlist":false},{"name":"Hardtop Flexi","cat":"Polyurethane","vs":[64],"packs":["18,40"],"mix":[],"th":["10"],"colors":["Base 1","Base 2","Base 3","Base 5","Base 6"],"special":true,"new":false,"note":"Esnek, darbeye dayanıklı PU son kat.","offlist":false},{"name":"Hardtop Smart Pack","cat":"Polyurethane","vs":[58],"packs":["9,50"],"mix":[],"th":["17"],"colors":["Base 1","Base 2","Base 3","Base 5","Base 6"],"special":true,"new":false,"note":"Fırça/rulo için küçük ambalaj PU son kat.","offlist":false},{"name":"Tankguard 412","cat":"Tank Coating","vs":[100],"packs":["15"],"mix":["2:1"],"th":[],"colors":["White","Light Grey"],"special":true,"new":false,"note":"Solventsiz tank içi kaplama.","offlist":false},{"name":"Tankguard DW","cat":"Tank Coating","vs":[100],"packs":["15"],"mix":["2:1"],"th":[],"colors":["White","Light Grey"],"special":true,"new":false,"note":"İçme suyu tankları için solventsiz kaplama.","offlist":false},{"name":"Tankguard HB Classic","cat":"Tank Coating","vs":[65],"packs":["20"],"mix":["4:1"],"th":["23"],"colors":["Grey"],"special":true,"new":false,"note":"Tank içi yüksek kalınlıkta kaplama.","offlist":false},{"name":"Tankguard Zinc","cat":"Tank Coating","vs":[67],"packs":["10,40"],"mix":["3:1"],"th":["25"],"colors":["Grey"],"special":true,"new":false,"note":"Tank içi çinko astar.","offlist":false},{"name":"Tankguard Special Ultra","cat":"Tank Coating","vs":[70],"packs":["20"],"mix":["4:1"],"th":["23"],"colors":["Light Grey"],"special":true,"new":false,"note":"Yakıt ve kimyasal tanklar için yüksek dayanımlı kaplama.","offlist":false},{"name":"Tankguard Storage","cat":"Tank Coating","vs":[63],"packs":["18,80"],"mix":["6,5:1"],"th":["23"],"colors":["Light Red","Light Grey"],"special":false,"new":false,"note":"Depolama tankları iç kaplaması.","offlist":false},{"name":"Tankguard Plus","cat":"Tank Coating","vs":[70],"packs":["20"],"mix":["4:1"],"th":["23"],"colors":["White"],"special":true,"new":false,"note":"Tank içi kaplama.","offlist":false},{"name":"Tankguard SF","cat":"Tank Coating","vs":[100],"packs":["15"],"mix":["2:1"],"th":[],"colors":["Light Grey"],"special":true,"new":false,"note":"Solventsiz tank içi kaplama.","offlist":false},{"name":"Muki EPS","cat":"Shopprimer","vs":[25],"packs":["18,50"],"mix":["36:1"],"th":["17"],"colors":["Red","Grey"],"special":false,"new":false,"note":"Epoksi ön imalat astarı; iyi kimyasal ve mekanik dayanım.","offlist":false},{"name":"Muki-Z 2001 FW","cat":"Shopprimer","vs":[28],"packs":["16,75"],"mix":["1,5:1"],"th":["4"],"colors":["Red","Grey"],"special":false,"new":false,"note":"Çinko silikat ön imalat astarı; çok yüksek kaynak ve kesim hızı.","offlist":false},{"name":"Barrier","cat":"Zinc Rich","vs":[53],"packs":["9"],"mix":["3:1"],"th":["17"],"colors":[],"special":false,"new":false,"note":"Çinkoca zengin epoksi astar.","offlist":false},{"name":"Barrier Smart Pack","cat":"Zinc Rich","vs":[70],"packs":["6"],"mix":["1:1"],"th":["17"],"colors":[],"special":true,"new":false,"note":"Fırça/rulo için küçük ambalaj çinkolu epoksi. Rötuş ve tamir.","offlist":false},{"name":"Barrier 80","cat":"Zinc Rich","vs":[61],"packs":["9"],"mix":["3:1"],"th":["17"],"colors":[],"special":true,"new":false,"note":"Çinkoca zengin epoksi astar, %80 çinko.","offlist":false},{"name":"Barrier 80S","cat":"Zinc Rich","vs":[67],"packs":["8,75"],"mix":["6:1"],"th":["17"],"colors":[],"special":false,"new":false,"note":"%80 çinkolu, yüksek katılı epoksi astar. C5 VH'ye kadar sistemlerde astar.","offlist":false},{"name":"Barrier 90","cat":"Zinc Rich","vs":[58],"packs":["8,75"],"mix":["6:1"],"th":["17"],"colors":[],"special":true,"new":false,"note":"Çok yüksek çinko içerikli epoksi astar.","offlist":false},{"name":"Resist 78","cat":"Zinc Rich","vs":[72],"packs":["11,60"],"mix":[],"th":["4 / 25"],"colors":[],"special":false,"new":false,"note":"Çinko etil silikat astar. Agresif atmosfer, ısıya dayanıklı.","offlist":false},{"name":"Resist 86","cat":"Zinc Rich","vs":[67],"packs":["10,60"],"mix":[],"th":["4 / 25"],"colors":[],"special":true,"new":false,"note":"%85 çinkolu etil silikat astar. 540 °C'ye kadar ısıya dayanıklı. Üzerine bağlayıcı kat önerilir.","offlist":false},{"name":"Optipro Express Primer","cat":"General Industry","vs":[54],"packs":["19,50"],"mix":["5,5:1"],"th":["64/67"],"colors":["Grey"],"special":false,"new":false,"note":"Hızlı kuruyan endüstriyel astar.","offlist":false},{"name":"Optipro Universal Primer","cat":"General Industry","vs":[48],"packs":["17,50"],"mix":["2,5:1"],"th":["64"],"colors":["Grey"],"special":false,"new":false,"note":"Farklı yüzeyler için endüstriyel astar.","offlist":false},{"name":"Optipro Acyrlic Primer","cat":"General Industry","vs":[40],"packs":["20"],"mix":["4:1"],"th":["65/68"],"colors":["Grey"],"special":false,"new":false,"note":"Akrilik endüstriyel astar.","offlist":false},{"name":"Optipro Universal Topcoat","cat":"General Industry","vs":[43],"packs":["18"],"mix":["3:1"],"th":["25"],"colors":["Base 1","Base 2","Base 3","Base 5","Base 6"],"special":false,"new":false,"note":"Renklendirilebilir endüstriyel son kat.","offlist":false},{"name":"Optipro Ultimate Shine","cat":"General Industry","vs":[50],"packs":["15"],"mix":["2:1"],"th":["65/68"],"colors":["Base 1","Base 2","Base 3","Base 5","Base 6"],"special":false,"new":false,"note":"Yüksek parlaklıkta endüstriyel son kat.","offlist":false},{"name":"Steelmaster 600 WF","cat":"Fire Protection","vs":[71],"packs":["18,50"],"mix":["tek bileşen"],"th":[],"colors":["White"],"special":true,"new":false,"note":"Su bazlı yangın geciktirici boya.","offlist":false},{"name":"Steelmaster 900 WF","cat":"Fire Protection","vs":[73],"packs":["18,50"],"mix":["tek bileşen"],"th":[],"colors":["White"],"special":true,"new":false,"note":"Su bazlı yangın geciktirici boya.","offlist":false},{"name":"Steelmaster 1200 WF","cat":"Fire Protection","vs":[69],"packs":["18,50"],"mix":["tek bileşen"],"th":[],"colors":["White"],"special":true,"new":false,"note":"Su bazlı yangın geciktirici boya.","offlist":false},{"name":"Jotun Thinner N° 2","cat":"Thinner","vs":[],"packs":["1","5","20"],"mix":[],"th":[],"colors":[],"special":true,"new":false,"note":"Bu listede kullanan ürünler: Alkydprimer, Aluflex, Aluminium Paint HR, Pilot II, Se-Lett","offlist":false},{"name":"Jotun Thinner N° 4","cat":"Thinner","vs":[],"packs":["1","5","20"],"mix":[],"th":[],"colors":[],"special":true,"new":false,"note":"Bu listede kullanan ürünler: Muki-Z 2001 FW, Resist 78, Resist 86","offlist":false},{"name":"Jotun Thinner N° 7","cat":"Thinner","vs":[],"packs":["1","5","20"],"mix":[],"th":[],"colors":[],"special":true,"new":false,"note":"Bu listede kullanan ürünler: Conseal T/U, Pilot ACR, Pilot QD Primer, Pilot QD Topcoat, Pioner Topcoat, SeaForce 30, SeaForce 30 M, SeaForce 60, SeaForce 60 M, SeaForce 90, SeaMate M, SeaMate NB …","offlist":false},{"name":"Jotun Thinner N° 10","cat":"Thinner","vs":[],"packs":["1","5","20"],"mix":[],"th":[],"colors":[],"special":true,"new":false,"note":"Bu listede kullanan ürünler: Futura Classic, Hardtop AX, Hardtop Clear, Hardtop Flexi, Hardtop HB, Hardtop XP, Hardtop XP II, Hardtop XPL, Jotafix PU TC, Pilot ACR","offlist":false},{"name":"Jotun Thinner N° 17","cat":"Thinner","vs":[],"packs":["1","5","20"],"mix":[],"th":[],"colors":[],"special":true,"new":false,"note":"Bu listede kullanan ürünler: Balloxy BT, Balloxy HB Light, Balloxy HB Light WG, Barrier, Barrier 80, Barrier 80S, Barrier 90, Barrier Smart Pack, Hardtop Smart Pack, Jota Armour, Jota Armour WG, Jotacote Universal …","offlist":false},{"name":"Jotun Thinner N° 23","cat":"Thinner","vs":[],"packs":["1","5","20"],"mix":[],"th":[],"colors":[],"special":true,"new":false,"note":"Bu listede kullanan ürünler: Jotatemp 210, Jotatemp 250, Tankguard HB Classic, Tankguard Plus, Tankguard Special Ultra, Tankguard Storage","offlist":false},{"name":"Jotun Thinner N° 25","cat":"Thinner","vs":[],"packs":["1","5","20"],"mix":[],"th":[],"colors":[],"special":true,"new":false,"note":"Bu listede kullanan ürünler: Optipro Universal Topcoat, Resist 78, Resist 86, Tankguard Zinc","offlist":false},{"name":"Jotun Thinner N° 64","cat":"Thinner","vs":[],"packs":["1","5","20"],"mix":[],"th":[],"colors":[],"special":true,"new":false,"note":"Bu listede kullanan ürünler: Optipro Express Primer, Optipro Universal Primer","offlist":false},{"name":"Jotun Thinner N° 65","cat":"Thinner","vs":[],"packs":["1","5","20"],"mix":[],"th":[],"colors":[],"special":true,"new":false,"note":"Bu listede kullanan ürünler: Optipro Acyrlic Primer, Optipro Ultimate Shine","offlist":false},{"name":"Jotun Thinner N° 67","cat":"Thinner","vs":[],"packs":["1","5","20"],"mix":[],"th":[],"colors":[],"special":true,"new":false,"note":"Bu listede kullanan ürünler: Optipro Express Primer","offlist":false},{"name":"Jotun Thinner N° 68","cat":"Thinner","vs":[],"packs":["1","5","20"],"mix":[],"th":[],"colors":[],"special":true,"new":false,"note":"Bu listede kullanan ürünler: Optipro Acyrlic Primer, Optipro Ultimate Shine","offlist":false},{"name":"Multicolor Industry (MCI) renk pastaları","cat":"MCI Tinter","vs":[],"packs":["3"],"mix":[],"th":[],"colors":["17 renk pastası"],"special":false,"new":false,"note":"WT, SB, YX, BL, RD, AP, YS, GB, RX, VL, GR, PK, WB, RA, YB, PX, RW.","offlist":false},{"name":"Anti-Skid","cat":"Flooring","vs":[],"packs":[],"mix":[],"th":[],"colors":["JOTUN ANTI-SKID COARSE 25K","JOTUN ANTI-SKID COARSE 3K","JOTUN ANTI-SKID EXT COARSE 25K","JOTUN ANTI-SKID FINE       3K","JOTUN ANTI-SKID MEDIUM 3K","JOTUN ANTI-SKID MEDIUM 25K"],"special":true,"new":false,"note":"Kaymazlık agregası (fine / medium / coarse).","offlist":true},{"name":"Megafiller","cat":"Other","vs":[],"packs":[],"mix":[],"th":[],"colors":["(10 LT + 10 LT)"],"special":true,"new":false,"note":"","offlist":true},{"name":"Megafiller Deck","cat":"Other","vs":[],"packs":[],"mix":[],"th":[],"colors":["(10 LT + 10 LT)"],"special":true,"new":false,"note":"","offlist":true},{"name":"Megafiller Smooth","cat":"Other","vs":[],"packs":[],"mix":[],"th":[],"colors":["(2 LT + 2 LT)"],"special":true,"new":false,"note":"","offlist":true},{"name":"Jotaprime PP10","cat":"Modified Epoxy","vs":[],"packs":[],"mix":[],"th":[],"colors":[],"special":true,"new":false,"note":"","offlist":true},{"name":"Pioner TC","cat":"Acrylic","vs":[],"packs":[],"mix":[],"th":[],"colors":["STD138 BLUE"],"special":true,"new":false,"note":"Akrilik son kat (Pilot serisi sistemlerinde).","offlist":true},{"name":"Pilot WF","cat":"Acrylic","vs":[],"packs":[],"mix":[],"th":[],"colors":["Base A","Base B","Base C"],"special":true,"new":false,"note":"Su bazlı akrilik son kat.","offlist":true},{"name":"Pilot WF Primer","cat":"Acrylic","vs":[],"packs":[],"mix":[],"th":[],"colors":["GREY"],"special":true,"new":false,"note":"Su bazlı akrilik astar.","offlist":true},{"name":"Jotatemp 1000","cat":"Heat Resistant","vs":[],"packs":[],"mix":[],"th":[],"colors":["Alu Effect"],"special":true,"new":false,"note":"Çok yüksek sıcaklık boyası.","offlist":true},{"name":"Jotatemp 540 Zinc","cat":"Heat Resistant","vs":[],"packs":[],"mix":[],"th":[],"colors":[],"special":true,"new":false,"note":"Çinkolu, yüksek sıcaklık astarı.","offlist":true},{"name":"Penguard Tie Coat 100","cat":"Epoxy","vs":[],"packs":[],"mix":[],"th":[],"colors":[],"special":true,"new":false,"note":"Bağlayıcı kat; çinko silikat gibi astarlar ile sonraki kat arasında.","offlist":true},{"name":"Penguard Special","cat":"Epoxy","vs":[],"packs":[],"mix":[],"th":[],"colors":[],"special":true,"new":false,"note":"","offlist":true},{"name":"Penguard Midcoat","cat":"Epoxy","vs":[],"packs":[],"mix":[],"th":[],"colors":[],"special":true,"new":false,"note":"Epoksi ara kat.","offlist":true},{"name":"Penguard Midcoat Mio","cat":"Epoxy","vs":[],"packs":[],"mix":[],"th":[],"colors":[],"special":true,"new":false,"note":"MIO pigmentli epoksi ara kat.","offlist":true},{"name":"Penguard Midcoat Mio 80","cat":"Epoxy","vs":[],"packs":[],"mix":[],"th":[],"colors":[],"special":true,"new":false,"note":"MIO pigmentli epoksi ara kat.","offlist":true},{"name":"Penguard Midcoat 20","cat":"Epoxy","vs":[],"packs":[],"mix":[],"th":[],"colors":[],"special":true,"new":false,"note":"Epoksi ara kat.","offlist":true},{"name":"Penguard Midcoat M20","cat":"Epoxy","vs":[],"packs":[],"mix":[],"th":[],"colors":[],"special":true,"new":false,"note":"Epoksi ara kat.","offlist":true},{"name":"Penguard Express E","cat":"Epoxy","vs":[],"packs":[],"mix":[],"th":[],"colors":[],"special":true,"new":false,"note":"","offlist":true},{"name":"Penguard Express XT","cat":"Epoxy","vs":[],"packs":[],"mix":[],"th":[],"colors":["Grey"],"special":true,"new":false,"note":"","offlist":true},{"name":"Penguard Additive for Low Temprature","cat":"Epoxy","vs":[],"packs":[],"mix":[],"th":[],"colors":[],"special":true,"new":false,"note":"Düşük sıcaklıkta kürlenme katkısı.","offlist":true},{"name":"Penguard WF","cat":"Epoxy","vs":[],"packs":[],"mix":[],"th":[],"colors":[],"special":true,"new":false,"note":"Su bazlı epoksi; çok düşük VOC.","offlist":true},{"name":"Safeguard FRC PE","cat":"Modified Epoxy","vs":[],"packs":[],"mix":[],"th":[],"colors":[],"special":true,"new":false,"note":"","offlist":true},{"name":"Jotacote F60","cat":"Modified Epoxy","vs":[],"packs":[],"mix":[],"th":[],"colors":["RAL 3009","White"],"special":true,"new":false,"note":"","offlist":true},{"name":"Jotacote UHB","cat":"Modified Epoxy","vs":[],"packs":[],"mix":[],"th":[],"colors":["Grey"],"special":true,"new":false,"note":"","offlist":true},{"name":"Penguard Universal","cat":"Epoxy","vs":[72],"packs":[],"mix":[],"th":[],"colors":["RAL 9001","AL RT","Grey"],"special":true,"new":false,"note":"Hızlı kuruyan, aşınmaya dayanıklı saf epoksi. Çelik, galvaniz, paslanmaz, alüminyum ve beton üzerine; sıfır altında uygulanabilir.","offlist":true},{"name":"Jotamastic Plus","cat":"Modified Epoxy","vs":[],"packs":[],"mix":[],"th":[],"colors":[],"special":true,"new":false,"note":"","offlist":true},{"name":"Jotamastic SF","cat":"Modified Epoxy","vs":[],"packs":[],"mix":[],"th":[],"colors":[],"special":true,"new":false,"note":"","offlist":true},{"name":"Penguard Pro GF","cat":"Glass Flake Epoxy","vs":[],"packs":[],"mix":[],"th":[],"colors":["Grey","Black"],"special":true,"new":false,"note":"Cam pulcuklu epoksi; su altı sistemlerinde.","offlist":true},{"name":"Marathon 1000 GF","cat":"Glass Flake Epoxy","vs":[],"packs":[],"mix":[],"th":[],"colors":["Red"],"special":true,"new":false,"note":"Cam pulcuklu, solventsiz Marathon.","offlist":true},{"name":"Hardtop XPF","cat":"Polyurethane","vs":[],"packs":[],"mix":[],"th":[],"colors":["Base 1"],"special":true,"new":false,"note":"Hardtop XP'nin kış tipi.","offlist":true},{"name":"Hardtop Optima","cat":"Polyurethane","vs":[76],"packs":[],"mix":[],"th":[],"colors":["Base 1"],"special":true,"new":false,"note":"Polisiloksan son kat; çok yüksek renk/parlaklık dayanımı.","offlist":true},{"name":"Hardtop Peelable","cat":"Polyurethane","vs":[],"packs":[],"mix":[],"th":[],"colors":[],"special":true,"new":false,"note":"Soyulabilir geçici koruma kaplaması.","offlist":true},{"name":"Hardtop Pro","cat":"Polyurethane","vs":[],"packs":[],"mix":[],"th":[],"colors":["Base 1"],"special":true,"new":false,"note":"","offlist":true},{"name":"Hardtop CA","cat":"Polyurethane","vs":[60],"packs":[],"mix":[],"th":[],"colors":["Base 1"],"special":true,"new":false,"note":"Hardtop ailesinden son kat.","offlist":true},{"name":"Hardtop F10","cat":"Polyurethane","vs":[],"packs":[],"mix":[],"th":[],"colors":[],"special":true,"new":false,"note":"","offlist":true},{"name":"Hardtop F15","cat":"Polyurethane","vs":[],"packs":[],"mix":[],"th":[],"colors":[],"special":true,"new":false,"note":"","offlist":true},{"name":"Hardtop Eco","cat":"Polyurethane","vs":[],"packs":[],"mix":[],"th":[],"colors":["Base 1","Base 2","Base 3"],"special":true,"new":false,"note":"","offlist":true},{"name":"Tankguard Holding Primer","cat":"Tank Coating","vs":[],"packs":[],"mix":[],"th":[],"colors":[],"special":true,"new":false,"note":"Tank içi geçici astar.","offlist":true},{"name":"Tankguard NCV","cat":"Tank Coating","vs":[],"packs":[],"mix":[],"th":[],"colors":[],"special":true,"new":false,"note":"Tank içi kaplama.","offlist":true},{"name":"Tankguard Flexline","cat":"Tank Coating","vs":[],"packs":[],"mix":[],"th":[],"colors":[],"special":true,"new":false,"note":"Tank içi kaplama.","offlist":true},{"name":"Jotapipe FC 407","cat":"Tank Coating","vs":[],"packs":[],"mix":[],"th":[],"colors":[],"special":true,"new":false,"note":"Boru kaplaması.","offlist":true},{"name":"Jotapipe IL 425","cat":"Tank Coating","vs":[],"packs":[],"mix":[],"th":[],"colors":[],"special":true,"new":false,"note":"Boru iç kaplaması.","offlist":true},{"name":"Baltoflake","cat":"Glass Flake Epoxy","vs":[],"packs":[],"mix":[],"th":[],"colors":["Black/Grey 38/Red 49"],"special":true,"new":false,"note":"Cam pulcuk takviyeli polyester; korozyon, aşınma ve kimyasala en dayanıklı seri.","offlist":true},{"name":"Chemclear","cat":"Other","vs":[],"packs":[],"mix":[],"th":[],"colors":[],"special":true,"new":false,"note":"","offlist":true},{"name":"Chemflake","cat":"Tank Coating","vs":[],"packs":[],"mix":[],"th":[],"colors":["Black/Grey 38/Red 49"],"special":true,"new":false,"note":"Cam pulcuklu vinil ester; tank içi ve agresif kimyasal ortam.","offlist":true},{"name":"Baltoflake/Chemflake yardımcıları","cat":"Glass Flake Epoxy","vs":[],"packs":[],"mix":[],"th":[],"colors":["Butanox M 50","Jotun Accelerator Co1P","Jotun Accelerator DMA10","Jotun Peroxide 1","Norpol Inhibitor"],"special":true,"new":false,"note":"Butanox M 50, Peroxide 1, Accelerator Co1P/DMA10, Norpol Inhibitor: kür sistemi bileşenleri.","offlist":true},{"name":"Resist FC","cat":"Zinc Rich","vs":[],"packs":[],"mix":[],"th":[],"colors":[],"special":true,"new":false,"note":"","offlist":true},{"name":"Barrier 65","cat":"Zinc Rich","vs":[],"packs":[],"mix":[],"th":[],"colors":["Grey"],"special":true,"new":false,"note":"Çinkoca zengin epoksi astar.","offlist":true},{"name":"Barrier 77","cat":"Zinc Rich","vs":[],"packs":[],"mix":[],"th":[],"colors":["Grey"],"special":true,"new":false,"note":"Çinkoca zengin epoksi astar.","offlist":true},{"name":"Barrier Plus","cat":"Zinc Rich","vs":[],"packs":[],"mix":[],"th":[],"colors":["Grey"],"special":true,"new":false,"note":"Çinkoca zengin epoksi astar.","offlist":true},{"name":"Barrier ZEP","cat":"Zinc Rich","vs":[],"packs":[],"mix":[],"th":[],"colors":["Grey"],"special":true,"new":false,"note":"Çinkolu epoksi astar.","offlist":true}];
+const CATS = {"Zinc Rich":["Çinkolu astar","Yüksek çinko içerikli astarlar; çeliği katodik olarak korur. Sa 2½ yüzey hazırlığı ister.","C4–C5 ağır korozyon: çelik konstrüksiyon, köprü, enerji santrali, rafineri, liman."],"Epoxy":["Epoksi","İki bileşenli epoksi astar, ara kat ve son katlar. Güneşte tebeşirlenir; dışarıda PU son kat ile kapatılır.","Yeni inşaat çelik yapılar, fabrika imalatı, C2–C5 sistemlerin astar ve ara katı."],"Modified Epoxy":["Epoksi mastik","Yüzey toleranslı, yüksek katılı epoksiler. Tam raspa yapılamayan yüzeylerde ve eski boya üstünde çalışır.","Bakım-onarım, St 2/St 3 mekanik temizlik yapılmış yüzeyler, tank dışı, boru, tesis bakımı."],"Glass Flake Epoxy":["Cam pulcuklu epoksi","Cam pulcuk takviyeli, yüksek kalınlıklı epoksiler. Aşınma, darbe ve suya karşı çok dayanıklı.","Su altı ve toprak altı (Im1–Im3), çırpıntı bölgesi, iskele, kazık, aşınan yüzeyler."],"Polyurethane":["Poliüretan son kat","Alifatik poliüretan son katlar. Renk ve parlaklığını uzun süre korur.","Güneş gören tüm dış yüzeylerde epoksi sistem üzerine son kat."],"Alkyd":["Alkid","Tek bileşenli, kolay uygulanan, ekonomik ürünler. Galvaniz üzerine uygulanmaz.","C2–C3 düşük/orta korozyon: iç mekan çelik, depo, hafif konstrüksiyon, bakım."],"Acrylic":["Akrilik","Tek bileşenli, hızlı kuruyan akrilik son katlar ve direkt metale ürünler.","Ekipman, makine, konteyner, hızlı teslim gereken imalatlar."],"Heat Resistant":["Isıya dayanıklı","Yüksek sıcaklıkta çalışan yüzeyler için boyalar. Sıcaklık sınırı ürüne göre değişir.","Baca, egzoz, sıcak boru hattı, fırın, kazan dışı."],"Tank Coating":["Tank içi kaplama","Tank ve depoların iç yüzeyi için kimyasal dayanımlı kaplamalar.","Su, içme suyu, yakıt ve kimyasal depolama tankları."],"Shopprimer":["Ön imalat astarı","Raspalanmış sac ve profile hatta uygulanan ince geçici astar. Kaynak ve kesimi bozmaz.","Çelik servis merkezi, tersane, konstrüksiyon atölyesi raspa-astar hattı."],"Fire Protection":["Yangın koruma","Su bazlı, yangında kabararak çeliğin ısınmasını geciktiren boyalar. Kalınlık hesapla belirlenir.","AVM, havalimanı, fabrika, plaza gibi yapılarda taşıyıcı çelik."],"General Industry":["Genel endüstri (Optipro)","Fabrika üretim hattı için hızlı kuruyan astar ve son katlar.","Makine, ekipman, metal eşya üreticileri (OEM)."],"Flooring":["Zemin (Jotafloor)","Beton zeminler için epoksi ve poliüretan kaplama sistemleri.","Fabrika, depo, otopark, gıda tesisi, laboratuvar zeminleri."],"Anti-Fouling":["Zehirli boya (anti-fouling)","Tekne ve gemilerin su altı bölümünde canlı tutunmasını önler.","Tekne, yat, balıkçı teknesi, gemi su altı."],"Reflected":["Özel amaçlı","Alüminyum pigmentli ve işaretleme amaçlı ürünler.","Çatı, tank dışı yansıtıcı kat; işaretleme."],"Thinner":["İnceltici","Ürünün teknik föyünde yazan numaralı inceltici kullanılır.","Ürün inceltme ve ekipman temizliği."],"MCI Tinter":["Renk pastası","Base ürünleri bayide renklendirmek için MCI renk pastaları.","MCI renklendirme makinesi olan bayiler."],"Other":["Liste dışı ürün","Standart bayi listesi dışındaki ürün; minimum sipariş ve teslim süresi değişebilir.",""]};
+const DEFAULT_VS = Object.fromEntries(Object.entries(PRODUCTS).map(([k,p])=>[k,p.vs]));
+try{const s=JSON.parse(localStorage.getItem("vs-overrides")||"{}");for(const k in s){if(PRODUCTS[k]&&s[k]>0)PRODUCTS[k].vs=s[k];}}catch(e){}
+
+const ROLE = {p:"Astar", i:"Ara kat", t:"Son kat"};
+const Z = "ZN"; // placeholder for selected zinc primer
+// [isoNo, family, durabilities, coats:[[productKey, dft, role]]]
+const SYS = {
+ cs:{
+  C2:[
+   ["C2.01","ak",["l"],[["qd",40,"p"],["p2",40,"t"]]],
+   ["C2.03","ak",["l","m","h"],[["qd",100,"p"],["p2",60,"t"]]],
+   ["C2.04","ak",["l","m","h","vh"],[["qd",80,"p"],["qd",60,"i"],["p2",60,"t"]]],
+   ["C2.05","ep",["l","m","h"],[["pezp",60,"p"],["hxp",60,"t"]]],
+   ["C2.06","ep",["l","m","h","vh"],[["pezp",100,"p"],["hxp",80,"t"]]]
+  ],
+  C3:[
+   ["C3.02","ak",["l","m"],[["qd",100,"p"],["p2",60,"t"]]],
+   ["C3.03","ak",["l","m","h"],[["qd",80,"p"],["qd",60,"i"],["p2",60,"t"]]],
+   ["C3.04","ak",["l","m","h","vh"],[["qd",80,"p"],["qd",80,"i"],["p2",50,"t"],["p2",50,"t"]]],
+   ["C3.05","ep",["l","m"],[["pezp",80,"p"],["hxp",50,"t"]]],
+   ["C3.06","ep",["l","m","h"],[["pezp",120,"p"],["hxp",60,"t"]]],
+   ["C3.07","ep",["l","m","h","vh"],[["pezp",100,"p"],["pe",80,"i"],["hxp",60,"t"]]],
+   ["C3.10","zn",["l","m","h","vh"],[[Z,60,"p"],["pe",80,"i"],["hxp",60,"t"]]]
+  ],
+  C4:[
+   ["C4.02","ak",["l","m"],[["qd",80,"p"],["qd",60,"i"],["p2",60,"t"]]],
+   ["C4.03","ak",["l","m","h"],[["qd",80,"p"],["qd",80,"i"],["p2",50,"t"],["p2",50,"t"]]],
+   ["C4.05","ep",["l","m"],[["pezp",120,"p"],["hxp",60,"t"]]],
+   ["C4.06","ep",["l","m","h"],[["pezp",100,"p"],["pe",80,"i"],["hxp",60,"t"]]],
+   ["C4.07","ep",["l","m","h","vh"],[["pezp",120,"p"],["pe",120,"i"],["hxp",60,"t"]]],
+   ["C4.10","zn",["l","m","h"],[[Z,60,"p"],["pe",80,"i"],["hxp",60,"t"]]],
+   ["C4.11","zn",["l","m","h","vh"],[[Z,60,"p"],["pe",140,"i"],["hxp",60,"t"]]]
+  ],
+  C5:[
+   ["C5.02","ep",["l","m"],[["pezp",100,"p"],["pe",80,"i"],["hxp",60,"t"]]],
+   ["C5.03","ep",["l","m","h"],[["pezp",120,"p"],["pe",120,"i"],["hxp",60,"t"]]],
+   ["C5.04","ep",["l","m","h","vh"],[["pezp",120,"p"],["pe",180,"i"],["hxp",60,"t"]]],
+   ["C5.06","zn",["l","m"],[[Z,60,"p"],["pe",80,"i"],["hxp",60,"t"]]],
+   ["C5.07","zn",["l","m","h"],[[Z,60,"p"],["pe",140,"i"],["hxp",60,"t"]]],
+   ["C5.08","zn",["l","m","h","vh"],[[Z,60,"p"],["pe",200,"i"],["hxp",60,"t"]]]
+  ],
+  Im:[
+   ["I.03","ep",["l","m","h"],[["pu",80,"p"],["jm87",150,"i"],["jm87",150,"t"]]],
+   ["I.04","ep",["l","m","h","vh"],[["pu",80,"p"],["jm87",230,"i"],["jm87",230,"t"]]]
+  ]
+ },
+ hdg:{
+  C2:[["G2.03","ep",["l","m","h","vh"],[["pu",80,"p"],["hxp",50,"t"]]]],
+  C3:[["G3.02","ep",["l","m","h"],[["pu",80,"p"],["hxp",50,"t"]]],
+      ["G3.04","ep",["l","m","h","vh"],[["pu",80,"p"],["hxp",80,"t"]]]],
+  C4:[["G4.02","ep",["l","m"],[["pu",80,"p"],["hxp",50,"t"]]],
+      ["G4.04","ep",["l","m","h"],[["pu",80,"p"],["hxp",80,"t"]]],
+      ["G4.06","ep",["l","m","h","vh"],[["pu",80,"p"],["pu",60,"i"],["hxp",60,"t"]]]],
+  C5:[["G5.01","ep",["l"],[["pu",80,"p"],["hxp",50,"t"]]],
+      ["G5.02b","ep",["l","m"],[["pu",80,"p"],["hxp",80,"t"]]],
+      ["G5.04","ep",["l","m","h"],[["pu",80,"p"],["pu",60,"i"],["hxp",60,"t"]]],
+      ["G5.05","ep",["l","m","h","vh"],[["pu",80,"p"],["pu",100,"i"],["hxp",60,"t"]]]]
+ }
+};
+const ENV = {
+ C2:"Düşük: kırsal, az kirli dış ortam; yoğuşma olabilen ısıtılmayan depo, spor salonu.",
+ C3:"Orta: kent ve sanayi havası, düşük tuzlu kıyı; nemli üretim alanları (gıda, çamaşırhane).",
+ C4:"Yüksek: sanayi bölgeleri, orta tuzlu kıyı; kimya tesisi, yüzme havuzu, tersane.",
+ C5:"Çok yüksek: agresif, yüksek nemli sanayi; yüksek tuzlu kıyı şeridi.",
+ Im:"Daldırma/gömülü: Im1 tatlı su, Im2 deniz suyu (katodik korumasız), Im3 toprak. Tank içleri kapsam dışı."
+};
+const DUR = {l:"Düşük (L): 7 yıla kadar", m:"Orta (M): 7–15 yıl", h:"Yüksek (H): 15–25 yıl", vh:"Çok yüksek (VH): 25 yıldan fazla"};
+const FAM = {ep:"Epoksi astarlı", zn:"Çinkolu astarlı", ak:"Alkid"};
+
+const $ = s=>document.querySelector(s);
+const val = n=>{const el=document.querySelector(`input[name="${n}"]:checked`);return el?el.value:null};
+const fmt = (x,d=1)=>x.toLocaleString("tr-TR",{minimumFractionDigits:d,maximumFractionDigits:d});
+
+function state(){
+  return {sub:val("sub"), env:val("env"), dur:val("dur"), pri:val("pri"),
+    zinc:$("#zinc").value, area:Math.max(0,parseFloat($("#area").value)||0),
+    loss:Math.min(80,Math.max(0,parseFloat($("#loss").value)||0))};
+}
+
+function syncControls(s){
+  const hdg = s.sub==="hdg";
+  const im = $("#env-Im");
+  im.disabled = hdg;
+  if(hdg && s.env==="Im"){ $("#env-C4").checked=true; s.env="C4"; }
+  const showPri = !hdg && s.env!=="Im";
+  $("#primer-fs").hidden = !showPri;
+  const zn = $("#pri-zn"), ak=$("#pri-ak");
+  zn.disabled = s.env==="C2"; ak.disabled = s.env==="C5";
+  if((zn.disabled&&s.pri==="zn")||(ak.disabled&&s.pri==="ak")){ $("#pri-all").checked=true; s.pri="all"; }
+  $("#zinc-fs").hidden = !(showPri && s.env!=="C2" && s.pri!=="ak" && s.pri!=="ep");
+  $("#env-hint").textContent = ENV[s.env];
+  $("#dur-hint").textContent = DUR[s.dur];
+}
+
+function render(){
+  const s = state(); syncControls(s);
+  let list = (SYS[s.sub][s.env]||[]).filter(r=>r[2].includes(s.dur));
+  if(s.sub==="cs" && s.env!=="Im" && s.pri!=="all") list = list.filter(r=>r[1]===s.pri);
+  // cheapest-in-film first: lowest total DFT
+  list = list.map(r=>({iso:r[0],fam:r[1],durs:r[2],coats:r[3].map(c=>({key:c[0]===Z?s.zinc:c[0],dft:c[1],role:c[2]}))}))
+             .sort((a,b)=>tot(a)-tot(b));
+  LAST={list,s};
+  const out = $("#out");
+  const envLabel = s.env==="Im"?"Im1–Im3":s.env;
+  let html = "";
+  html += prepBox(s, list);
+  if(!list.length){
+    html += `<div class="empty">Bu ortam ve dayanım için seçilen astar tipinde ISO 12944-5 sistemi yok. ${s.env==="C5"?"C5'te alkid sistem tanımlı değildir; epoksi veya çinkolu astarı deneyin.":"Astar tipini \"Hepsi\" yapın veya bir üst dayanım/kategori sistemi seçin."}</div>`;
+  }
+  list.forEach((sy,i)=>{ if(i===1) html += `<details class="more"><summary>Diğer seçenekler (${list.length-1})</summary><div class="more-in">`; html += card(sy,s,i); });
+  if(list.length>1) html += `</div></details>`;
+  out.innerHTML = html;
+  out.querySelectorAll("[data-copy]").forEach(b=>b.addEventListener("click",()=>copy(b,list[+b.dataset.copy],s)));
+  out.querySelectorAll("[data-quote]").forEach(b=>b.addEventListener("click",()=>quoteFromSystem(list[+b.dataset.quote],s)));
+}
+let LAST={list:[],s:null};
+const tot = sy=>sy.coats.reduce((a,c)=>a+c.dft,0);
+
+function prepBox(s,list){
+  if(s.sub==="hdg") return `<div class="prep">Yüzey hazırlığı: metalik olmayan aşındırıcı ile <strong>süpürme raspa</strong> (ISO 12944-4). Jotun galvaniz üzerinde alkid sistem önermez.</div>`;
+  const hasZn = list.some(x=>x.fam==="zn");
+  let t = `Yüzey hazırlığı: <strong>Sa 2½</strong> (ISO 8501-1)`;
+  if(hasZn) t += `; çinkolu astarda pürüzlülük <strong>Medium (G)</strong> (ISO 8503-1)`;
+  t += `. Pas sınıfı D (çukurlaşmış) yüzeyde KFK veya kat sayısı artırılmalıdır.`;
+  if(s.env==="Im") t += ` Jotun daldırma ortamında çinko astar önermez; sistemler epoksi astar + epoksi mastik ile kurulmuştur.`;
+  if(hasZn && s.zinc==="r86") t += ` <span class="warn">Resist 86 üzerine ara kattan önce bağlayıcı (mist) kat önerilir.</span>`;
+  return `<div class="prep">${t}</div>`;
+}
+
+function card(sy,s,i){
+  let rows="", totLg=0, totDft=0;
+  sy.coats.forEach((c,n)=>{
+    const p = PRODUCTS[c.key];
+    const lg = s.area/(p.vs*10/c.dft)/(1-s.loss/100);
+    totLg+=lg; totDft+=c.dft;
+    rows += `<tr><td><span class="role">${n+1}. kat · ${ROLE[c.role]}</span><span class="prod">${p.name}</span></td>
+      <td class="n">${c.dft} µm</td><td class="n">${fmt(Math.ceil(lg),0)} L</td></tr>`;
+  });
+  return `<article class="card${i===0?" best":""}">
+   <div class="card-h">${i===0?'<span class="badge">Önerilen</span>':""}<h3>${FAM[sy.fam]} · ${sy.coats.length} kat · ${totDft} <span class="u">µm</span></h3><span class="iso">ISO 12944-5/${sy.iso}</span></div>
+   <div class="tbl-wrap"><table>
+    <thead><tr><th>Ürün</th><th class="n">Kalınlık</th><th class="n">Gereken boya</th></tr></thead>
+    <tbody>${rows}</tbody>
+    <tfoot><tr><td>Toplam</td><td class="n">${totDft} µm</td><td class="n">${fmt(Math.ceil(totLg),0)} L</td></tr></tfoot>
+   </table></div>
+   ${i===0?whyHTML(sy.coats.map(c=>PRODUCTS[c.key].name),{iso:sy.iso,env:s.env,dur:s.dur,tot:totDft}):""}
+   <div class="card-f"><button type="button" class="btn ghost" data-copy="${i}">Özeti kopyala</button><button type="button" class="btn primary" data-quote="${i}">Teklif hazırla</button></div>
+  </article>`;
+}
+
+function copy(btn,sy,s){
+  const lines = [`Önerilen boya sistemi: ISO 12944-5/${sy.iso}`,
+    `Yüzey: ${s.sub==="cs"?"Karbon çelik, Sa 2½":"Sıcak daldırma galvaniz, süpürme raspa"} | Ortam: ${s.env==="Im"?"Im1–Im3":s.env} | Dayanım: ${DUR[s.dur]}`,
+    `Alan: ${fmt(s.area,0)} m² | Fire: %${fmt(s.loss,0)}`, ""];
+  sy.coats.forEach((c,n)=>{const p=PRODUCTS[c.key];const l=s.area/(p.vs*10/c.dft)/(1-s.loss/100);
+    lines.push(`${n+1}. ${ROLE[c.role]}: ${p.name} – ${c.dft} µm KFK – yaklaşık ${fmt(l)} L`);});
+  lines.push(`Toplam KFK: ${tot(sy)} µm`,"","Bilgilendirme amaçlıdır; nihai sistem ve ara kat bekleme süreleri için ürün TDS'lerine bakınız.");
+  const text = lines.join("\n");
+  const done = ()=>{const o=btn.textContent;btn.textContent="Kopyalandı";btn.classList.add("copied");setTimeout(()=>{btn.textContent=o;btn.classList.remove("copied")},1600)};
+  const fallback = ()=>{const ta=document.createElement("textarea");ta.value=text;ta.style.position="fixed";ta.style.opacity="0";document.body.appendChild(ta);ta.select();try{document.execCommand("copy");done()}catch(e){}ta.remove()};
+  try{navigator.clipboard.writeText(text).then(done,fallback)}catch(e){fallback()}
+}
+
+function renderProducts(){
+  const tb = $("#prod-tbl tbody");
+  tb.innerHTML = Object.entries(PRODUCTS).map(([k,p])=>`<tr><td class="prod">${p.name}</td><td>${p.type}</td>
+    <td class="n"><input type="number" id="vs-${k}" data-k="${k}" min="1" max="100" step="1" value="${p.vs}" aria-label="${p.name} katı madde yüzdesi"></td><td style="font-size:12px;color:var(--muted)">${p.src}</td></tr>`).join("");
+  tb.querySelectorAll("input").forEach(inp=>inp.addEventListener("input",()=>{
+    const v=parseFloat(inp.value); if(!(v>0&&v<=100))return;
+    PRODUCTS[inp.dataset.k].vs=v; saveVS(); render();
+  }));
+}
+function saveVS(){try{const o={};for(const k in PRODUCTS){if(PRODUCTS[k].vs!==DEFAULT_VS[k])o[k]=PRODUCTS[k].vs}localStorage.setItem("vs-overrides",JSON.stringify(o))}catch(e){}}
+$("#reset-vs").addEventListener("click",()=>{for(const k in PRODUCTS)PRODUCTS[k].vs=DEFAULT_VS[k];try{localStorage.removeItem("vs-overrides")}catch(e){}renderProducts();render();});
+
+/* ---------- Teklif ---------- */
+const esc = t=>String(t??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const load=(k,d)=>{try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}};
+const store=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
+const PRICES = load("q-prices",{});
+const Q = {lines:[], sys:null, no:"", date:new Date()};
+const ASK=[];
+const CUR = {TRY:"₺",EUR:"€",USD:"$"};
+const money = x=>{const c=$("#q-cur").value;return x.toLocaleString("tr-TR",{minimumFractionDigits:2,maximumFractionDigits:2})+" "+CUR[c]};
+function newNo(){const d=new Date(),p=n=>String(n).padStart(2,"0");Q.date=d;Q.no=`TKL-${d.getFullYear()}${p(d.getMonth()+1)}${p(d.getDate())}-${p(d.getHours())}${p(d.getMinutes())}`}
+
+const DENS_SRC = {"Barrier 80S": 2.3, "Resist 86": 2.6, "Penguard Express ZP": 1.6, "Penguard Express": 1.6, "Penguard Express LITE": 1.6, "Penguard Universal": 1.4, "Jotamastic 87": 1.4, "Jotamastic 87 GF": 1.4, "Jotamastic 85": 1.4, "Jotamastic 90": 1.4, "Hardtop XP": 1.4, "Hardtop XP II": 1.5, "Futura Classic": 1.4, "Pilot QD Primer": 1.6, "Pilot II": 1.1, "Hardtop AX": 1.4, "Penguard Express Mio": 1.6, "Penguard Primer": 1.3, "Jotamastic 80": 1.5, "Conseal T/U": 1.2, "Pioner Topcoat": 1.1, "Pilot ACR": 1.5, "Barrier": 2.5, "Barrier Plus": 2.8, "Resist 78": 2.5, "Hardtop Flexi": 1.2, "Hardtop HB": 1.2, "Penguard HSP": 1.6, "Marathon": 1.26, "Penguard HSP ZP": 1.6, "Alkydprimer": 1.3, "Steelmaster 600 WF": 1.4, "Barrier 90": 2.9, "Steelmaster 900 WF": 1.4, "Barrier Smart Pack": 2.4, "Penguard Midcoat": 1.7, "Penguard Tie Coat 100": 1.4, "Jotun Thinner N° 10": 0.9, "Jotacote Universal N 10": 1.37, "Tankguard Storage": 1.6, "Tankguard Special Ultra": 1.6, "Tankguard DW": 1.4, "Muki EPS": 1.1, "Jotafloor SL Pro": 1.65, "Jotamastic 70": 1.6, "Balloxy HB Light": 1.4, "Jota Armour": 2.5, "Vinyguard": 1.14, "SeaForce 90": 1.7, "Jotafix PU TC": 1.4, "Penguard Clear Sealer": 0.97, "Aluminium Paint HR": 0.9, "Solvalitt": 1.3, "Penguard Midcoat M20": 1.6, "Penguard Topcoat": 1.3, "Steelmaster 1200 WF": 1.4, "Jotatemp 210": 1.4, "Megafiller": 0.6, "Pilot WF": 1.2, "Pilot WF Primer": 1.3, "Penguard WF": 1.3, "Penguard Pro GF": 1.4, "Penguard FC": 1.4, "Marathon 550": 1.6, "Hardtop Eco": 1.5, "Hardtop Optima": 1.4, "Hardtop Pro": 1.4, "Jotafloor Anti-Static": 1.3, "Jotafloor Anti-Static Primer": 1.1, "Jotafloor PU Flex": 1.3, "Jotafloor Topcoat E": 1.29, "Jotafloor Screed Primer": 1.13, "Jotamastic Smart Pack HB": 1.4, "Tankguard 412": 1.5, "Tankguard Holding Primer": 1.3, "Jotacote F60": 1.4, "Jotafloor PU Topcoat": 1.3, "Tankguard Plus": 1.6, "Marathon 1000 GF": 1.4, "Penguard Express CF": 1.5, "Penguard HSP Mio": 1.6, "Hardtop Clear": 1.0, "Tankguard Zinc": 2.6, "Barrier 77": 2.2, "Barrier ZEP": 1.8, "Marathon IQ2": 1.5, "Hardtop XPL": 1.4, "Jotatemp 250": 1.5, "Penguard Midcoat Mio": 1.8, "Jotamastic SF": 1.5, "Jotacote Universal": 1.3, "Tankguard HB Classic": 1.5, "Tankguard SF": 1.5, "Baltoflake": 1.2, "SeaForce 30 M": 1.6, "SeaQuantum Ultra S": 1.8, "Jotamastic 90 GF": 1.4, "Hardtop XPF": 1.4, "Barrier 80": 2.5, "Jotamastic Plus": 1.4};
+const DENS = Object.assign({}, DENS_SRC, load("q-dens",{}));
+const num = v=>{const x=parseFloat(String(v).replace(",","."));return isFinite(x)?x:0};
+const packsOf = n=>{const c=catByName(n);return c?c.packs.map(x=>num(x)).filter(x=>x>0):[]};
+const isKg = n=>/\(\*kg\)/.test(n);
+function mkLine(name,needL,key){
+  const packs=packsOf(name), pack=packs.length?Math.max(...packs):"";
+  const qty=needL&&pack?Math.ceil(needL/pack):1;
+  return {key:key||"c",name,pack,qty,needL:needL||null,dens:DENS[name]??"",price:PRICES[name+"|"+pack]??""};
+}
+function addLine(name,needL){
+  const ex=Q.lines.find(l=>l.name===name);
+  if(ex){ if(needL){ex.needL=(ex.needL||0)+needL; if(num(ex.pack)) ex.qty=Math.ceil(ex.needL/num(ex.pack));} else ex.qty=num(ex.qty)+1; }
+  else Q.lines.push(mkLine(name,needL));
+}
+const lineL = l=>num(l.pack)*num(l.qty);
+const lineKg = l=>num(l.dens)>0?lineL(l)*num(l.dens):null;
+const amt = l=>{const q=num(l.qty),p=num(l.price);return q>0&&p>0?money(q*p):"—"};
+
+function quoteFromSystem(sy,s,silent){
+  const need = {};
+  sy.coats.forEach(c=>{const p=PRODUCTS[c.key];need[p.name]=(need[p.name]||0)+s.area/(p.vs*10/c.dft)/(1-s.loss/100);});
+  Q.lines=[]; Object.entries(need).forEach(([n,l])=>addLine(n,l));
+  Q.sys = {iso:sy.iso, dft:tot(sy), area:s.area, env:s.env==="Im"?"Im1–Im3":s.env, dur:DUR[s.dur],
+           sub:s.sub==="cs"?"Karbon çelik":"Sıcak daldırma galvaniz", prep:s.sub==="cs"?"Sa 2½ (ISO 8501-1)":"Süpürme raspa (ISO 12944-4)",
+           coats:sy.coats.map(c=>`${PRODUCTS[c.key].name} ${c.dft} µm`).join(" + ")};
+  newNo(); renderLines(); renderDoc();
+  if(!silent) $("#quote").scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"});
+}
+
+function renderLines(){
+  const tb=$("#q-body");
+  tb.innerHTML = Q.lines.map((ln,i)=>{const packs=packsOf(ln.name);const u=isKg(ln.name)?"kg":"L";
+   return `<tr>
+    <td>${ln.key?`<span class="prod">${esc(ln.name)}</span>`:`<input type="text" id="q-n-${i}" data-i="${i}" data-f="name" value="${esc(ln.name)}" placeholder="Ürün adı" aria-label="Ürün adı">`}${ln.needL?`<span class="need">İhtiyaç ≈ ${fmt(Math.ceil(ln.needL),0)} L</span>`:""}</td>
+    <td class="n">${packs.length>1?`<select id="q-k-${i}" data-i="${i}" data-f="pack" aria-label="Ambalaj">${packs.map(x=>`<option value="${x}"${x===num(ln.pack)?" selected":""}>${fmt(x,x%1?2:0)} ${u}</option>`).join("")}</select>`
+      :packs.length===1?`<span class="mono">${fmt(packs[0],packs[0]%1?2:0)} ${u}</span>`
+      :`<input type="number" id="q-k-${i}" data-i="${i}" data-f="pack" min="0" step="0.1" value="${ln.pack}" placeholder="L" aria-label="Ambalaj litre">`}</td>
+    <td class="n"><input type="number" id="q-q-${i}" data-i="${i}" data-f="qty" min="0" step="1" value="${ln.qty}" aria-label="Adet (teneke)"></td>
+    <td class="amt" id="q-tl-${i}">${lineL(ln)?fmt(lineL(ln),lineL(ln)%1?2:0)+" "+u:"—"}</td>
+    <td class="n"><input type="number" id="q-d-${i}" data-i="${i}" data-f="dens" min="0" step="0.01" value="${ln.dens}" placeholder="kg/L" aria-label="Yoğunluk kg/L" class="dens"></td>
+    <td class="amt" id="q-kg-${i}">${lineKg(ln)!=null?fmt(lineKg(ln),1)+" kg":"—"}</td>
+    <td class="n"><input type="number" id="q-p-${i}" data-i="${i}" data-f="price" min="0" step="0.01" value="${ln.price}" placeholder="0,00" aria-label="Teneke fiyatı"></td>
+    <td class="amt" id="q-a-${i}">${amt(ln)}</td>
+    <td><button type="button" class="x" data-del="${i}" aria-label="Satırı sil">×</button></td></tr>`}).join("")
+    || `<tr><td colspan="9" class="hint" style="padding:12px 6px">Henüz satır yok. Bir sistem kartından teklif oluşturun veya ürün ekleyin.</td></tr>`;
+}
+function updCells(i){const ln=Q.lines[i];const u=isKg(ln.name)?"kg":"L";
+  $("#q-tl-"+i).textContent=lineL(ln)?fmt(lineL(ln),lineL(ln)%1?2:0)+" "+u:"—";
+  $("#q-kg-"+i).textContent=lineKg(ln)!=null?fmt(lineKg(ln),1)+" kg":"—";
+  $("#q-a-"+i).textContent=amt(ln);}
+function onLine(e){
+  const t=e.target, f=t.dataset.f; if(f==null)return; const i=+t.dataset.i, ln=Q.lines[i];
+  ln[f]=t.value;
+  if(f==="pack"){ if(ln.needL&&num(ln.pack)){ln.qty=Math.ceil(ln.needL/num(ln.pack));const qi=$("#q-q-"+i);if(qi)qi.value=ln.qty;}
+    const pr=PRICES[ln.name+"|"+num(ln.pack)]; ln.price=pr??""; const pi=$("#q-p-"+i); if(pi) pi.value=ln.price; }
+  if(f==="price"&&ln.name){const v=num(t.value);if(v>0){PRICES[ln.name+"|"+num(ln.pack)]=v;store("q-prices",PRICES)}}
+  if(f==="dens"&&ln.name){const v=num(t.value);if(v>0){DENS[ln.name]=v;store("q-dens",Object.fromEntries(Object.entries(DENS)))}}
+  updCells(i); renderDoc();
+}
+$("#q-body").addEventListener("input",onLine);
+$("#q-body").addEventListener("change",e=>{if(e.target.tagName==="SELECT")onLine(e);});
+$("#q-body").addEventListener("click",e=>{const d=e.target.closest("[data-del]");if(!d)return;Q.lines.splice(+d.dataset.del,1);renderLines();renderDoc();});
+$("#q-add-sel").innerHTML = Object.keys(CATS).map(c=>{const items=CATALOG.map((p,i)=>[p,i]).filter(([p])=>p.cat===c&&c!=="MCI Tinter");return items.length?`<optgroup label="${CATS[c][0]}">${items.map(([p,i])=>`<option value="c:${i}">${esc(p.name)}</option>`).join("")}</optgroup>`:""}).join("")+`<option value="__free">Diğer ürün (elle yaz)</option>`;
+$("#q-add").addEventListener("click",()=>{
+  const k=$("#q-add-sel").value;
+  if(k==="__free") Q.lines.push({key:null,name:"",pack:"",qty:1,needL:null,dens:"",price:""});
+  else addLine(k.startsWith("c:")?CATALOG[+k.slice(2)].name:PRODUCTS[k].name,null);
+  if(!Q.no)newNo(); renderLines(); renderDoc();
+});
+$("#q-clear").addEventListener("click",()=>{Q.lines=[];Q.sys=null;renderLines();renderDoc();});
+
+const dealerEl=$("#q-dealer"); dealerEl.value=load("q-dealer","");
+["#q-dealer","#q-customer","#q-project","#q-valid","#q-kdv","#q-cur"].forEach(id=>$(id).addEventListener("input",()=>{if(id==="#q-dealer")store("q-dealer",dealerEl.value);if(id==="#q-cur")renderLines();renderDoc();}));
+$("#q-cur").addEventListener("change",()=>{renderLines();renderDoc();});
+
+function totals(){
+  const L=Q.lines.filter(l=>l.name);
+  const sub=L.reduce((a,l)=>{const q=num(l.qty),p=num(l.price);return a+(q>0&&p>0?q*p:0)},0);
+  const kdvR=Math.max(0,num($("#q-kdv").value)); const kdv=sub*kdvR/100;
+  const adet=L.reduce((a,l)=>a+num(l.qty),0), lt=L.filter(l=>!isKg(l.name)).reduce((a,l)=>a+lineL(l),0);
+  const kgKnown=L.every(l=>lineKg(l)!=null||isKg(l.name)), kg=L.reduce((a,l)=>a+(isKg(l.name)?lineL(l):(lineKg(l)||0)),0);
+  return {sub,kdvR,kdv,grand:sub+kdv,adet,lt,kg,kgKnown};
+}
+function fields(){
+  const valid=Math.max(1,parseInt($("#q-valid").value)||15);
+  const until=new Date(Q.date.getTime()+valid*864e5);
+  return {dealer:dealerEl.value.trim(),customer:$("#q-customer").value.trim(),project:$("#q-project").value.trim(),
+    date:Q.date.toLocaleDateString("tr-TR"),until:until.toLocaleDateString("tr-TR"),valid};
+}
+function renderDoc(){
+  const f=fields(), t=totals();
+  const rows = Q.lines.filter(l=>l.name).map((l,i)=>{const q=num(l.qty),p=num(l.price),u=isKg(l.name)?"kg":"L",kg=isKg(l.name)?lineL(l):lineKg(l);
+    return `<tr><td>${i+1}</td><td>${esc(l.name)}</td><td class="n">${num(l.pack)?fmt(num(l.pack),num(l.pack)%1?2:0)+" "+u:"—"}</td><td class="n">${fmt(q,0)}</td><td class="n">${lineL(l)?fmt(lineL(l),lineL(l)%1?2:0)+" "+u:"—"}</td><td class="n">${kg!=null?fmt(kg,1):"—"}</td><td class="n">${p>0?money(p):"—"}</td><td class="n">${q>0&&p>0?money(q*p):"—"}</td></tr>`}).join("");
+  const missing = Q.lines.some(l=>l.name&&!(parseFloat(l.price)>0));
+  $("#q-doc").innerHTML = `
+   <div class="top"><div><div class="lab">Fiyat teklifi</div><div class="dealer">${f.dealer?esc(f.dealer):"Bayi adı"}</div></div>
+     <div class="meta">${Q.no||"—"}<br>Tarih: ${f.date}<br>Geçerlilik: ${f.until}</div></div>
+   <div class="to"><span class="lab">Sayın</span><b>${f.customer?esc(f.customer):"Müşteri adı"}</b>${f.project?`<span>${esc(f.project)}</span>`:""}</div>
+   ${rows?`<div class="tbl-wrap"><table><thead><tr><th>#</th><th>Ürün</th><th class="n">Ambalaj</th><th class="n">Adet</th><th class="n">Toplam L</th><th class="n">Toplam kg</th><th class="n">Ambalaj fiyatı</th><th class="n">Tutar</th></tr></thead><tbody>${rows}</tbody><tfoot><tr><td></td><td>Toplam</td><td></td><td class="n">${fmt(t.adet,0)}</td><td class="n">${fmt(t.lt,t.lt%1?2:0)} L</td><td class="n">${t.kg?fmt(t.kg,1)+(t.kgKnown?"":"*"):"—"}</td><td></td><td></td></tr></tfoot></table></div>
+   <div class="tot"><span>Ara toplam</span><span>${money(t.sub)}</span><span>KDV (%${fmt(t.kdvR,0)})</span><span>${money(t.kdv)}</span><span class="g">Genel toplam</span><span class="g">${money(t.grand)}</span></div>`
+   :`<p class="empty-doc">Teklif satırları burada görünecek.</p>`}
+   ${missing?`<p style="color:#b5651d;font-size:12px;margin:8px 0 0">Fiyatı girilmemiş satırlar toplama dahil edilmedi.</p>`:""}
+   ${rows&&!t.kgKnown&&t.kg?`<p style="color:#4b5b74;font-size:11.5px;margin:4px 0 0">* Yoğunluğu girilmeyen ürünler kg toplamına dahil değildir.</p>`:""}
+   ${Q.sys?`<div class="sys"><b>Önerilen sistem: ISO 12944-5/${Q.sys.iso}</b><br>${Q.sys.coats} · Toplam KFK ${Q.sys.dft} µm<br>${Q.sys.sub} · Ortam ${Q.sys.env} · ${Q.sys.dur} · Alan ${fmt(Q.sys.area,0)} m²<br>Yüzey hazırlığı: ${Q.sys.prep}</div>`:""}
+   <ul class="notes"><li>Fiyatlar ambalaj (teneke) başınadır; KDV ayrıca gösterilmiştir.</li><li>Teneke adetleri teorik sarfiyat ve fire payı ile hesaplanmış ihtiyaca göre yukarı yuvarlanmıştır.</li><li>Teklif ${f.valid} gün geçerlidir. Uygulama için ürün teknik föylerine (TDS) uyulmalıdır.</li></ul>`;
+  if(window.__gate)window.__gate();
+}
+
+$("#q-copy").addEventListener("click",()=>{
+  const f=fields(), t=totals(), btn=$("#q-copy");
+  const L=[`FİYAT TEKLİFİ – ${f.dealer||"Bayi"}`,`Teklif no: ${Q.no||"-"} | Tarih: ${f.date} | Geçerlilik: ${f.until}`,`Sayın ${f.customer||"Müşteri"}${f.project?" – "+f.project:""}`,""];
+  Q.lines.filter(l=>l.name).forEach((l,i)=>{const q=num(l.qty),p=num(l.price),u=isKg(l.name)?"kg":"L",kg=isKg(l.name)?lineL(l):lineKg(l);L.push(`${i+1}. ${l.name} – ${fmt(q,0)} × ${num(l.pack)?fmt(num(l.pack),num(l.pack)%1?2:0)+" "+u:"-"} = ${lineL(l)?fmt(lineL(l),lineL(l)%1?2:0)+" "+u:"-"}${kg!=null?" ("+fmt(kg,1)+" kg)":""} × ${p>0?money(p):"-"} = ${q>0&&p>0?money(q*p):"-"}`)});
+  L.push("",`Toplam: ${fmt(t.adet,0)} ambalaj, ${fmt(t.lt,t.lt%1?2:0)} L${t.kg?", "+fmt(t.kg,1)+" kg"+(t.kgKnown?"":" (yoğunluğu girilenler)"):""}`);
+  L.push("",`Ara toplam: ${money(t.sub)}`,`KDV (%${fmt(t.kdvR,0)}): ${money(t.kdv)}`,`GENEL TOPLAM: ${money(t.grand)}`);
+  if(Q.sys)L.push("",`Önerilen sistem: ISO 12944-5/${Q.sys.iso} – ${Q.sys.coats} (toplam ${Q.sys.dft} µm KFK)`,`${Q.sys.sub}, ortam ${Q.sys.env}, ${Q.sys.dur}, alan ${fmt(Q.sys.area,0)} m², yüzey hazırlığı ${Q.sys.prep}`);
+  L.push("","Fiyatlar ambalaj başınadır. Adetler teorik sarfiyat + fire payına göre yukarı yuvarlanmıştır.");
+  const text=L.join("\n");
+  const done=()=>{const o=btn.textContent;btn.textContent="Kopyalandı";setTimeout(()=>btn.textContent=o,1600)};
+  const fb=()=>{const ta=document.createElement("textarea");ta.value=text;ta.style.position="fixed";ta.style.opacity="0";document.body.appendChild(ta);ta.select();try{document.execCommand("copy");done()}catch(e){}ta.remove()};
+  try{navigator.clipboard.writeText(text).then(done,fb)}catch(e){fb()}
+});
+
+/* ---------- Ürün rehberi ---------- */
+let rCat="all";
+const norm=t=>t.toLocaleLowerCase("tr-TR").normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/ı/g,"i");
+function renderCats(){
+  const present=Object.keys(CATS).filter(c=>CATALOG.some(p=>p.cat===c));
+  $("#r-cats").innerHTML=`<button type="button" class="chip" data-c="all" aria-pressed="${rCat==="all"}">Hepsi</button>`+present.map(c=>`<button type="button" class="chip" data-c="${c}" aria-pressed="${rCat===c}">${CATS[c][0]}</button>`).join("");
+}
+function renderRehber(){
+  const q=norm($("#r-q").value.trim());
+  const list=CATALOG.map((p,i)=>[p,i]).filter(([p])=>(rCat==="all"||p.cat===rCat)&&(!q||norm(p.name+" "+(p.note||"")+" "+CATS[p.cat][0]+" "+CATS[p.cat][2]).includes(q)));
+  const info=$("#r-catinfo");
+  if(rCat!=="all"){info.hidden=false;info.innerHTML=`<b>${CATS[rCat][0]}.</b> ${CATS[rCat][1]}${CATS[rCat][2]?` <br><b>Nerede:</b> ${CATS[rCat][2]}`:""}`}else info.hidden=true;
+  $("#r-count").textContent=`${list.length} ürün`;
+  $("#r-list").innerHTML=list.map(([p,i])=>{
+    const c=CATS[p.cat];
+    const row=(k,v)=>v?`<dt>${k}</dt><dd>${v}</dd>`:"";
+    const vs=p.vs.length?(p.vs.length>1?`%${p.vs[0]}–${p.vs[p.vs.length-1]} (renge göre)`:`%${p.vs[0]}`):"";
+    return `<details class="r-item"><summary><span class="r-name">${esc(p.name)}${p.offlist?'<span class="r-tag">Liste dışı</span>':""}${p.new?'<span class="r-tag new">Yeni</span>':""}</span><span class="r-cat">${c[0]}</span><span class="r-note">${esc(p.note||c[1])}</span></summary>
+      <div class="r-body"><dl>
+        ${row("Ne işe yarar",esc(p.note?c[1]:""))}
+        ${row("Nerede",c[2])}
+        ${row("Katı madde",vs)}
+        ${row("Karışım",p.mix.length?p.mix.join(" / ")+(p.mix[0]==="tek bileşen"?"":" (hacimce)"):"")}
+        ${row("İnceltici",p.th.length?"Jotun Thinner No. "+p.th.join(" / "):"")}
+        ${row("Yoğunluk",DENS_SRC[p.name]?fmt(DENS_SRC[p.name],1)+" kg/L":"")}
+        ${row("Ambalaj",p.packs.length?p.packs.join(" / ")+(p.name.includes("(*kg)")?" kg":" L"):"")}
+        ${row("Renk / baz",esc(p.colors.join(", ")))}
+        ${p.offlist&&!p.note?row("Bilgi","Teknik bilgi için Jotun'a danışın."):""}
+      </dl>${p.cat!=="MCI Tinter"?`<div><button type="button" class="btn" data-addq="${i}">Teklife ekle</button></div>`:""}</div></details>`}).join("")||`<p class="empty">“${esc($("#r-q").value)}” için ürün bulunamadı.</p>`;
+}
+$("#r-q").addEventListener("input",renderRehber);
+$("#r-cats").addEventListener("click",e=>{const b=e.target.closest("[data-c]");if(!b)return;rCat=b.dataset.c;renderCats();renderRehber();});
+$("#r-list").addEventListener("click",e=>{const b=e.target.closest("[data-addq]");if(!b)return;const nm=CATALOG[+b.dataset.addq].name;
+  addLine(nm,null);
+  if(!Q.no)newNo(); renderLines(); renderDoc(); b.textContent="Teklife eklendi ✓"; setTimeout(()=>b.textContent="Teklife ekle",1500);});
+function route(){
+  const V=["sistem","danisman","urunler"];
+  const h=(location.hash||"#sistem").slice(1), v=V.includes(h)?h:"sistem";
+  V.forEach(k=>{$("#v-"+k).hidden=k!==v; const t=$("#t-"+k); if(k===v)t.setAttribute("aria-current","page"); else t.removeAttribute("aria-current");});
+}
+window.addEventListener("hashchange",route);
+renderCats(); renderRehber(); route();
+
+/* ---------- Neden bu sistem ---------- */
+const WHY_P={
+ "Barrier 80S":"Çinko, çeliği katodik olarak korur; boya çizilse bile pas altına yürümez. Ağır ortamda en güçlü astar.",
+ "Resist 86":"Çinko silikat; en yüksek korozyon ve ısı dayanımı sağlayan astar.",
+ "Penguard Express ZP":"Çinko fosfatlı epoksi astar; çeliğe iyi yapışır, korozyonu yavaşlatır, hızlı kürlenir.",
+ "Penguard Express":"Kalınlık yapan bariyer kat; nem ve tuzun çeliğe ulaşmasını engeller. Hızlı kürlenir, iş çabuk biter.",
+ "Hardtop XP":"Epoksi güneşte tebeşirlenir; poliüretan son kat UV'ye dayanır, rengi ve parlaklığı yıllarca korur.",
+ "Pilot QD Primer":"Tek bileşenli, hızlı kuruyan alkid astar; düşük–orta korozyonda ekonomik çözüm.",
+ "Pilot II":"Kolay uygulanan parlak alkid son kat; görünüm ve ek koruma sağlar.",
+ "Penguard Universal":"Galvaniz yüzeye iyi yapışan epoksi; galvaniz üzerinde alkid kullanılmaz.",
+ "Jotamastic 87":"Yüzey toleranslı mastik; kumlama yapılamayan, fırça/taşlama ile temizlenmiş yüzeye yapışır ve tek katta yüksek kalınlık verir."
+};
+const ENV_TR={C2:"düşük korozyonlu (C2)",C3:"orta korozyonlu (C3)",C4:"yüksek korozyonlu (C4)",C5:"çok yüksek korozyonlu (C5)",Im:"su altı / toprak altı (Im)"};
+const DUR_TR={l:"7 yıla kadar",m:"7–15 yıl",h:"15–25 yıl",vh:"25 yıldan fazla"};
+function whyHTML(names,o){
+  const u=[...new Set(names)];
+  const head = o.iso
+    ? `ISO 12944-5/${o.iso} sistemi ${ENV_TR[o.env]} ortamda ${DUR_TR[o.dur]} dayanım için tanımlıdır. Toplam ${o.tot} µm ile gereken kat sayısı ve kalınlığı karşılayan en ince, yani en ekonomik seçenektir.`
+    : o.head||"";
+  return `<div class="why"><p class="why-t">Neden bu öneri?</p>${head?`<p>${head}</p>`:""}<ul>${u.filter(n=>WHY_P[n]).map(n=>`<li><b>${esc(n)}:</b> ${WHY_P[n]}</li>`).join("")}</ul>${o.extra?`<p>${o.extra}</p>`:""}</div>`;
+}
+function whyText(names,o){const t=document.createElement("div");t.innerHTML=whyHTML(names,o);return [...t.querySelectorAll("p:not(.why-t),li")].map(x=>x.textContent).join("\n");}
+
+/* ---------- Danışman ---------- */
+const catByName = n=>CATALOG.find(p=>p.name===n);
+const vsOf = n=>{const c=catByName(n);if(c&&c.vs.length)return c.vs[0];const p=Object.values(PRODUCTS).find(x=>x.name===n);return p?p.vs:null};
+const litres=(name,dft,area,loss)=>{const v=vsOf(name);if(!v||!area)return null;return Math.ceil(area*dft/(v*10)/(1-loss/100))};
+const md = t=>esc(t).replace(/\*\*(.+?)\*\*/g,"<b>$1</b>");
+
+/* mode switch */
+$("#d-mode").addEventListener("change",()=>{const m=val("dmode");["w","r","c"].forEach(k=>$("#d-"+k).hidden=k!==m)});
+
+/* --- wizard --- */
+const W={ans:{},hist:[]};
+const ENVOPT=[["C2","İç mekan / kuru, kırsal","C2"],["C3","Şehir ve hafif sanayi, düşük tuz","C3"],["C4","Sanayi bölgesi veya deniz kıyısı","C4"],["C5","Agresif kimyasal ortam / denize çok yakın","C5"],["Im","Su altı veya toprağa gömülü","Im1–Im3"]];
+function wzStep(a=W.ans){
+  if(!a.what) return {k:"what",q:"Ne boyanacak?",o:[["celik","Çelik konstrüksiyon / yapı"],["ekipman","Makine, ekipman, metal eşya"],["tankdis","Tank veya boru (dış yüzey)"],["tankic","Tank içi"],["sicak","Sıcak yüzey (baca, egzoz, sıcak boru)"],["zemin","Beton zemin"],["tekne","Tekne / gemi su altı"],["yangin","Çelikte yangın koruması"]]};
+  if(["celik","ekipman","tankdis"].includes(a.what)){
+    if(!a.surf) return {k:"surf",q:"Yüzey durumu nedir?",o:[["new","Yeni / kumlanabilir çelik","Sa 2½ raspa yapılabilir"],["maint","Paslı veya eski boyalı, kumlama yok","Sadece fırça, taşlama ile temizlik (St 2–St 3)"],["hdg","Sıcak daldırma galvaniz"]]};
+    if(!a.env) return {k:"env",q:"Nerede duracak?",o:ENVOPT.filter(o=>!(a.surf==="hdg"&&o[0]==="Im")).map(o=>[o[0],o[1],o[2]])};
+    if(!a.dur&&a.surf!=="maint") return {k:"dur",q:"İlk büyük bakıma kadar ne kadar dayanmalı?",o:[["l","7 yıla kadar","Düşük (L)"],["m","7–15 yıl","Orta (M)"],["h","15–25 yıl","Yüksek (H)"],["vh","25 yıldan fazla","Çok yüksek (VH)"]]};
+    if(!a.app) return {k:"app",q:"Nasıl uygulanacak?",o:[["spray","Tabanca (airless)"],["brush","Fırça / rulo"]]};
+    if(a.area==null) return {k:"area",q:"Boyanacak alan kaç m²?",num:true};
+    return null;
+  }
+  if(a.what==="tankic"&&!a.tank) return {k:"tank",q:"Tankta ne depolanacak?",o:[["dw","İçme suyu"],["water","Su / yangın suyu / proses suyu"],["fuel","Yakıt, mazot, ham petrol"],["chem","Kimyasal"]]};
+  if(a.what==="sicak"&&!a.temp) return {k:"temp",q:"Yüzey sıcaklığı en fazla kaç derece?",o:[["120","120 °C'ye kadar"],["250","120–250 °C"],["540","250–540 °C"],["hi","540 °C üzeri"]]};
+  if(a.what==="zemin"&&!a.floor) return {k:"floor",q:"Zemin nasıl kullanılacak?",o:[["light","Yaya, hafif trafik, tozumayı önleme"],["heavy","Forklift, ağır yük trafiği"],["smooth","Temiz, parlak, kolay temizlenen yüzey"],["food","Gıda tesisi, ıslak, sıcak su ile yıkama"],["static","Antistatik (elektronik, patlayıcı ortam)"]]};
+  if(a.what==="tekne"&&!a.boat) return {k:"boat",q:"Tekne ne sıklıkla havuza çıkıyor?",o:[["30","Yaklaşık 2,5 yılda bir (30 ay)"],["60","Yaklaşık 5 yılda bir (60 ay)"],["90","7,5 yıla kadar (90 ay)"],["prem","En üst performans istiyor"]]};
+  return null;
+}
+function wzRender(){
+  const el=$("#wz"), st=wzStep();
+  const crumbs=W.hist.length?`<div class="wz-top"><button type="button" class="btn ghost" id="wz-back">← Geri</button><button type="button" class="btn ghost" id="wz-reset">Baştan başla</button></div>`:"";
+  if(st){
+    el.innerHTML=crumbs+`<p class="wz-n">Soru ${W.hist.length+1}</p><h3 class="wz-q">${st.q}</h3>`+(st.num
+      ?`<div class="wz-num"><input type="number" id="wz-area" min="1" step="10" value="500" aria-label="Alan m²"><button type="button" class="btn primary" id="wz-go">Öneriyi göster</button></div>`
+      :`<div class="wz-opts">${st.o.map(o=>`<button type="button" class="wz-opt" data-k="${st.k}" data-v="${o[0]}"><b>${o[1]}</b>${o[2]?`<span>${o[2]}</span>`:""}</button>`).join("")}</div>`);
+  } else el.innerHTML=crumbs+wzResult();
+  bindWz();
+}
+function bindWz(){
+  const el=$("#wz");
+  el.querySelectorAll(".wz-opt").forEach(b=>b.onclick=()=>{W.hist.push(b.dataset.k);W.ans[b.dataset.k]=b.dataset.v;wzRender();});
+  const go=$("#wz-go"); if(go) go.onclick=()=>{W.hist.push("area");W.ans.area=Math.max(0,parseFloat($("#wz-area").value)||0);wzRender();};
+  const bk=$("#wz-back"); if(bk) bk.onclick=()=>{const k=W.hist.pop();delete W.ans[k];wzRender();};
+  const rs=$("#wz-reset"); if(rs) rs.onclick=()=>{W.ans={};W.hist=[];wzRender();};
+  el.querySelectorAll("[data-wzq]").forEach(b=>b.onclick=()=>{
+    const items=JSON.parse(b.dataset.wzq); Q.lines=[]; Q.sys=null; newNo(); items.forEach(([nm,q])=>addLine(nm,q||null));
+    if(!Q.no)newNo(); renderLines(); renderDoc(); location.hash="#sistem"; setTimeout(()=>$("#quote").scrollIntoView({block:"start"}),50);});
+  const op=el.querySelector("[data-open]"); if(op) op.onclick=()=>{
+    const a=W.ans; $("#sub-"+(a.surf==="hdg"?"hdg":"cs")).checked=true; $("#env-"+a.env).checked=true; $("#dur-"+a.dur).checked=true; $("#pri-all").checked=true;
+    $("#area").value=a.area||500; location.hash="#sistem"; render(); setTimeout(()=>$("#out").scrollIntoView({block:"start"}),50);};
+}
+function coatTable(coats,area,loss){
+  let tot=0,rows="";const items=[];
+  coats.forEach((c,i)=>{tot+=c[1];const l=litres(c[0],c[1],area,loss);items.push([c[0],l]);
+    rows+=`<tr><td><span class="role">${i+1}. kat · ${c[2]||""}</span><span class="prod">${esc(c[0])}</span></td><td class="n">${c[1]} µm</td><td class="n">${l!=null?l+" L":"—"}</td></tr>`;});
+  return {html:`<div class="tbl-wrap"><table><thead><tr><th>Ürün</th><th class="n">Kalınlık</th><th class="n">Gereken boya</th></tr></thead><tbody>${rows}</tbody><tfoot><tr><td>Toplam</td><td class="n">${tot} µm</td><td></td></tr></tfoot></table></div>`,items,tot};
+}
+function agg(items){const m={};items.forEach(([n,l])=>m[n]=(m[n]||0)+(l||0));return Object.entries(m)}
+function prodList(names,intro){
+  return `<ul class="wz-prods">${names.map(n=>{const c=catByName(n);return `<li><b>${esc(n)}</b>${c&&c.note?` — ${esc(c.note)}`:""}</li>`}).join("")}</ul>`+
+   `<div class="q-actions"><button type="button" class="btn primary" data-wzq='${esc(JSON.stringify(names.map(n=>[n,0])))}'>Ürünleri teklife ekle</button></div>`;
+}
+function wzResult(a=W.ans){
+  const loss=30;
+  const card=(t,body)=>`<div class="wz-res"><p class="wz-n">Öneri</p><h3 class="wz-q">${t}</h3>${body}</div>`;
+  const ROLEN={p:"Astar",i:"Ara kat",t:"Son kat"};
+  if(["celik","ekipman","tankdis"].includes(a.what)){
+    const envL=ENVOPT.find(o=>o[0]===a.env)[2];
+    let brush=a.app==="brush"?`<p class="note">Fırça/rulo ile kat başına film daha ince olur. Aynı toplam kalınlık için bir kat fazla planlayın. Küçük işlerde Smart Pack ürünleri pratiktir: Barrier Smart Pack, Jotamastic Smart Pack HB, Hardtop Smart Pack.</p>`:"";
+    if(a.surf==="maint"){
+      const M={C2:[["Jotamastic 87",150,"Astar / son kat"]],C3:[["Jotamastic 87",150,"Astar"],["Hardtop XP",50,"Son kat"]],C4:[["Jotamastic 87",125,"Astar"],["Jotamastic 87",125,"Ara kat"],["Hardtop XP",60,"Son kat"]],C5:[["Jotamastic 87",150,"Astar"],["Jotamastic 87",150,"Ara kat"],["Hardtop XP",60,"Son kat"]],Im:[["Jotamastic 87",200,"1. kat"],["Jotamastic 87",200,"2. kat"]]};
+      const t=coatTable(M[a.env],a.area,loss);
+      return card(`Bakım sistemi · ${envL} · ${t.tot} <span class="u">µm</span>`,
+        `<p>Kumlama yapılamayan yüzeyde yüzey toleranslı epoksi mastik ile bakım. Gevşek pas ve boya fırça/taşlama ile alınır (<b>St 2–St 3</b>, ISO 8501-1), yağ ve tuz yıkanır.</p>${t.html}${whyHTML(M[a.env].map(c=>c[0]),{head:"Yüzey kumlanamadığı için, St 2–St 3 temizlikte çalışabilen yüzey toleranslı bir sistem seçildi. Kat sayısı ortamın ağırlığına göre artırıldı."})}
+        <p class="note">Bu bir bakım sistemidir; ISO 12944-5'in kumlanmış yüzey sistemleri kadar ömür vermez. ${a.env==="Im"?"Su altında son kat gerekmez.":"Güneş görmeyen iç yüzeyde Hardtop XP son katı atlanabilir."}</p>${brush}
+        <p class="hint">Litreler ${a.area} m² ve %${loss} fire ile hesaplandı.</p>
+        <div class="q-actions"><button type="button" class="btn primary" data-wzq='${esc(JSON.stringify(agg(t.items)))}'>Teklife aktar</button></div>`);
+    }
+    const sub=a.surf==="hdg"?"hdg":"cs";
+    let list=(SYS[sub][a.env]||[]).filter(r=>r[2].includes(a.dur));
+    if(a.what==="ekipman"&&sub==="cs"){const nz=list.filter(r=>r[1]!=="zn");if(nz.length)list=nz;}
+    list=list.slice().sort((x,y)=>x[3].reduce((s,c)=>s+c[1],0)-y[3].reduce((s,c)=>s+c[1],0));
+    if(!list.length) return card("Bu kombinasyon için hazır sistem yok",`<p>Bir üst dayanım veya ortam sınıfı seçin ya da Jotun teknik ekibine danışın.</p>`);
+    const r=list[0];
+    const coats=r[3].map(c=>[PRODUCTS[c[0]==="ZN"?"b80":c[0]].name,c[1],ROLEN[c[2]]]);
+    const t=coatTable(coats,a.area,loss);
+    const extra=(a.what==="ekipman"&&["C2","C3"].includes(a.env))?`<p class="note">Hızlı imalat için alternatifler: <b>Penguard Express CF</b> (tek kat epoksi), <b>Conseal T/U</b> (akrilik son kat), <b>Pilot ACR</b> (direkt metale akrilik).</p>`:"";
+    const W_=whyHTML(coats.map(c=>c[0]),{iso:r[0],env:a.env,dur:a.dur,tot:t.tot,extra:sub==="hdg"?"Galvaniz zaten çeliği korur; boya sistemi galvanizin ömrünü uzatır ve renk verir.":(r[1]==="zn"?"":r[1]==="ak"?"":"")});
+    return card(`ISO 12944-5/${r[0]} · ${envL} · ${t.tot} <span class="u">µm</span>`,
+      `<p>${sub==="hdg"?"Galvaniz yüzey önce metalik olmayan aşındırıcı ile <b>süpürme raspa</b> yapılır.":"Yüzey <b>Sa 2½</b> (ISO 8501-1) raspa edilir; yağ, toz ve tuz temizlenir."}</p>${t.html}${W_}${extra}${brush}
+      <p class="hint">Litreler ${a.area} m² ve %${loss} fire ile hesaplandı. Diğer seçenekler Sistem ekranında.</p>
+      <div class="q-actions"><button type="button" class="btn primary" data-wzq='${esc(JSON.stringify(agg(t.items)))}'>Teklife aktar</button><button type="button" class="btn" data-open="1">Sistem ekranında aç</button></div>`);
+  }
+  if(a.what==="tankic"){
+    const m={dw:["Tankguard DW"],water:["Tankguard Storage","Tankguard HB Classic"],fuel:["Tankguard Special Ultra","Tankguard HB Classic"],chem:["Tankguard Special Ultra","Chemflake"]}[a.tank];
+    return card("Tank içi kaplama",`<p>Tank içinde ürün, depolanan maddeye göre seçilir. Aşağıdakiler başlangıç önerisidir; <b>siparişten önce Jotun'un kimyasal dayanım listesi ile teyit edin.</b> Yüzey Sa 2½ raspa ister.</p><div class="why"><p class="why-t">Neden bu öneri?</p><p>${{dw:"İçme suyunda boyadan suya madde geçmemesi gerekir; Tankguard DW bunun için geliştirilmiş solventsiz kaplamadır.",water:"Sürekli su altında kalan iç yüzeyde, su ve neme dayanıklı kalın tank kaplaması gerekir.",fuel:"Yakıt ve hidrokarbonlar normal epoksiyi yumuşatabilir; yakıta dayanıklı tank kaplaması gerekir.",chem:"Kimyasal ortamda dayanım maddeye göre değişir; en dayanıklı tank kaplamaları önerildi, liste ile teyit şart."}[a.tank]}</p></div>${prodList(m)}`);
+  }
+  if(a.what==="sicak"){
+    const m={"120":["Alkydprimer","Pilot II"],"250":["Jotatemp 250","Solvalitt Midtherm"],"540":["Resist 86","Solvalitt"],"hi":["Jotatemp 1000","Solvalitt"]}[a.temp];
+    return card("Isıya dayanıklı sistem",`<p>Çalışma sıcaklığına uygun ürün seçilmelidir. Ürünün sıcaklık sınırını TDS'den teyit edin.</p><div class="why"><p class="why-t">Neden bu öneri?</p><p>Normal epoksi ve poliüretanlar yüksek sıcaklıkta yanar, kabarır veya dökülür. Seçilen ürünler bu sıcaklık aralığında film özelliğini koruyacak bağlayıcıya sahiptir.</p></div>${prodList(m)}`);
+  }
+  if(a.what==="zemin"){
+    const m={light:["Jotafloor Sealer","Jotafloor Topcoat E"],heavy:["Jotafloor Screed Primer","Jotafloor Screed"],smooth:["Jotafloor SF Pro Primer","Jotafloor SL Pro"],food:["Jotafloor PU Crete"],static:["Jotafloor Anti-Static Primer","Jotafloor Anti-Static"]}[a.floor];
+    const txt={light:"Tozumayı önleyen ince epoksi kaplama.",heavy:"Ağır yük trafiği için 6–9 mm epoksi harç (mortar) sistemi.",smooth:"2–4 mm self-levelling, parlak ve kolay temizlenen epoksi.",food:"Islak, sıcak suyla yıkanan gıda alanları için poliüretan çimento.",static:"Elektriği iletebilen antistatik epoksi zemin."}[a.floor];
+    return card("Zemin sistemi",`<p>Beton kuru, sağlam ve en az 28 günlük olmalı; yüzey taşlanarak açılır.</p><div class="why"><p class="why-t">Neden bu öneri?</p><p>${txt} Astar betona işleyerek yapışmayı sağlar, üst kat aşınma ve kimyasala dayanır.</p></div>${prodList(m)}${a.floor!=="food"?`<p class="note">Güneş gören açık alanda son kat olarak <b>Jotafloor PU Topcoat</b> kullanın.</p>`:""}`);
+  }
+  if(a.what==="tekne"){
+    const m={"30":["SeaForce 30"],"60":["SeaForce 60"],"90":["SeaForce 90"],"prem":["SeaQuantum Ultra S","SeaQuantum Classic S"]}[a.boat];
+    return card("Su altı zehirli boya",`<p>Altta uygun epoksi astar sistemi gerekir.</p><div class="why"><p class="why-t">Neden bu öneri?</p><p>Zehirli boyanın ömrü havuzlama aralığına göre seçilir; daha uzun aralık için daha uzun ömürlü ürün gerekir. Fazlası gereksiz maliyet, azı erken kirlenme demektir.</p></div>${prodList(m)}`);
+  }
+  if(a.what==="yangin"){
+    return card("Yangın koruması",`<p>Kalınlık; çelik profili, yük ve istenen yangın süresine göre Jotun tarafından hesaplanır. Proje çizimi ve istenen süreyi (30/60/90/120 dk) Jotun'a iletin. Altına uyumlu astar gerekir.</p><div class="why"><p class="why-t">Neden bu öneri?</p><p>Çelik yaklaşık 550 °C'de taşıma gücünü kaybeder. Steelmaster yangında kabararak yalıtım katmanı oluşturur ve çeliğin bu sıcaklığa ulaşmasını geciktirir.</p></div>${prodList(["Steelmaster 600 WF","Steelmaster 900 WF","Steelmaster 1200 WF"])}`);
+  }
+  return "";
+}
+
+/* --- rakip tip eşleştirme --- */
+const RV_TYPES=[["zn_ep","Çinkoca zengin epoksi astar","Barrier 80S"],["zn_esi","Çinko silikat astar","Resist 86"],["ep_pr","Epoksi astar","Penguard Express ZP"],["ep_mio","Epoksi ara kat (MIO)","Penguard Express Mio"],["ep_mid","Epoksi ara kat","Penguard Express"],["mastic","Epoksi mastik (yüzey toleranslı)","Jotamastic 87"],["gf","Cam pulcuklu epoksi","Marathon"],["galv","Galvaniz / çok amaçlı epoksi astar","Penguard Universal"],["ep_tc","Epoksi son kat","Penguard FC"],["pu","Poliüretan son kat","Hardtop XP"],["psx","Polisiloksan son kat","Hardtop Optima"],["ak_pr","Alkid astar","Pilot QD Primer"],["ak_tc","Alkid son kat","Pilot II"],["ac_tc","Akrilik son kat","Conseal T/U"],["hr","Isıya dayanıklı silikon","Solvalitt"]];
+let RV=[["zn_ep",60],["ep_mio",120],["pu",60]];
+function rvRender(){
+  const area=Math.max(0,parseFloat($("#rv-area").value)||0), loss=Math.min(80,Math.max(0,parseFloat($("#rv-loss").value)||0));
+  $("#rv-body").innerHTML=RV.map(([t,d],i)=>{const j=RV_TYPES.find(x=>x[0]===t)[2];const l=litres(j,d,area,loss);
+    return `<tr><td><select data-ri="${i}" data-f="t" aria-label="Kat tipi">${RV_TYPES.map(x=>`<option value="${x[0]}"${x[0]===t?" selected":""}>${x[1]}</option>`).join("")}</select></td>
+    <td class="n"><input type="number" data-ri="${i}" data-f="d" min="10" step="10" value="${d}" aria-label="Kalınlık µm"></td>
+    <td><b>${j}</b></td><td class="amt">${l!=null?l+" L":"—"}</td><td><button type="button" class="x" data-rdel="${i}" aria-label="Katı sil">×</button></td></tr>`}).join("");
+}
+$("#rv-body").addEventListener("change",e=>{const t=e.target;if(t.dataset.ri==null)return;const r=RV[+t.dataset.ri];if(t.dataset.f==="t")r[0]=t.value;else r[1]=Math.max(0,parseFloat(t.value)||0);rvRender();});
+$("#rv-body").addEventListener("click",e=>{const b=e.target.closest("[data-rdel]");if(!b)return;RV.splice(+b.dataset.rdel,1);rvRender();});
+["#rv-area","#rv-loss"].forEach(id=>$(id).addEventListener("input",rvRender));
+$("#rv-addrow").onclick=()=>{RV.push(["pu",60]);rvRender();};
+$("#rv-toq").onclick=()=>{const area=parseFloat($("#rv-area").value)||0,loss=parseFloat($("#rv-loss").value)||0;
+  const items=RV.map(([t,d])=>{const j=RV_TYPES.find(x=>x[0]===t)[2];return [j,litres(j,d,area,loss)]});
+  Q.lines=[]; Q.sys=null; newNo();
+  agg(items).forEach(([nm,q])=>addLine(nm,q||null));
+  if(!Q.no)newNo(); renderLines(); renderDoc(); location.hash="#sistem"; setTimeout(()=>$("#quote").scrollIntoView({block:"start"}),50);};
+
+/* --- AI (sample) --- */
+const KB = (()=>{
+  const prods=CATALOG.filter(p=>!["MCI Tinter"].includes(p.cat)).map(p=>`${p.name} | ${CATS[p.cat][0]} | katı:${p.vs.length?p.vs.join("/")+"%":"?"}${p.mix.length?" | karışım:"+p.mix.join("/"):""}${p.th.length?" | inceltici No."+p.th.join("/"):""}${p.note?" | "+p.note:""}${p.offlist?" | liste dışı":""}`).join("\n");
+  const sys=[];for(const sub in SYS)for(const env in SYS[sub])SYS[sub][env].forEach(r=>sys.push(`${r[0]} (${sub==="cs"?"karbon çelik":"galvaniz"}, ${env}, dayanım ${r[2].join("/").toUpperCase()}): `+r[3].map(c=>`${c[0]==="ZN"?"Barrier 80S":PRODUCTS[c[0]].name} ${c[1]}µm`).join(" + ")));
+  return {prods,sys:sys.join("\n")};
+})();
+const RULES=`Sen bir Jotun endüstriyel boya bayisinin teknik satış asistanısın. Türkçe, kısa ve uygulanabilir yaz.
+Kurallar:
+- Sadece aşağıdaki Jotun ürün listesindeki ürünleri öner. Listede olmayan Jotun ürünü uydurma.
+- Eksik bilgi varsa önce SIRAYLA tek tek sor (ne boyanacak, iç/dış ortam ve deniz/sanayi yakınlığı, yüzey durumu ve kumlama yapılıp yapılamayacağı, beklenen ömür, uygulama yöntemi, alan m²). Her mesajda en fazla bir soru sor ve 2–5 kısa seçenek sun (her biri ayrı satırda "1) ..." şeklinde).
+- Bilgi yeterli olunca: korozyon kategorisi (ISO 12944-2), dayanım, yüzey hazırlığı (ISO 8501-1, örn. Sa 2½ veya St 2–St 3), kat kat ürün ve kuru film kalınlığı (µm), toplam kalınlık ve uygunsa ISO 12944-5 sistem numarası ver. Alan verilmişse litre hesabı: litre = m² × µm / (katı% × 10), %30 fire ekle.
+- Rakip ürün sorulursa: rakip ürünün jenerik tipini (çinkoca zengin epoksi, epoksi MIO ara kat, poliüretan son kat vb.) belirt, aynı tip ve kalınlıktaki Jotun karşılığını kat kat ver, eşleşmenin jenerik tipe göre olduğunu ve birebir aynı ürün olmadığını belirt. Emin olmadığın rakip ürün için tipini kullanıcıya sor.
+- Fiyat, indirim veya maliyet bilgisi verme; sorulursa bayinin fiyat listesine yönlendir.
+- Tank içi, kimyasal ortam, yangın koruması ve gıda teması için Jotun teknik onayı alınması gerektiğini söyle.
+- Her öneride "Neden bu öneri?" başlığıyla 2–4 kısa maddede, her ürünün neden seçildiğini (görevi: katodik koruma, bariyer kalınlığı, UV dayanımı, yüzey toleransı vb.) ve kalınlığın neden yeterli olduğunu açıkla.
+- Cevabın sonunda tek satırla ürün TDS'inin kontrol edilmesini hatırlat. Uzun açıklama yapma.
+
+ISO 12944-5 tabanlı hazır sistemler (karbon çelik ve galvaniz):
+${KB.sys}
+
+Jotun ürün listesi (ad | kategori | katı madde | karışım | inceltici | not):
+${KB.prods}`;
+let SAMPLE=null;
+(async()=>{try{SAMPLE=window.claude&&window.claude.use?await window.claude.use("sample"):null}catch(e){SAMPLE=null}
+})();
+function aiFail(e){const c=e&&e.code;
+  if(["not_granted","sampling_disabled","not_declared","capability_disabled","capability_removed","session_expired"].includes(c)){OFFLINE=true;return "";}
+  if(c==="cancelled")return ""; if(c==="rate_limited")return "Çok sık soruldu veya kullanım limiti doldu. Biraz sonra tekrar deneyin.";
+  if(c==="session_expired")return "Oturum süresi doldu. Claude'a yeniden giriş yapın.";
+  if(c==="image_rejected")return "Fotoğraf kabul edilmedi (tür veya boyut). Başka bir fotoğraf deneyin.";
+  if(c==="images_unavailable")return "Bu görünümde fotoğraf gönderilemiyor; fotoğrafı kaldırıp tekrar deneyin.";
+  if(c==="prompt_too_large")return "Dosya çok uzun. Daha kısa bir bölüm veya ilgili sayfaları ekleyin."; if(c==="refused")return "Bu soruya cevap verilemedi; soruyu farklı yazın.";
+  return "Bağlantı sorunu oldu. Tekrar deneyin.";}
+/* chat */
+let CH=[], chCtl=null;
+/* ---------- Girişsiz (çevrimdışı) danışman ---------- */
+let OFFLINE=false;
+const TYPE_DFT={zn_ep:60,zn_esi:75,ep_pr:80,ep_mio:120,ep_mid:120,mastic:150,gf:400,galv:80,ep_tc:80,pu:60,psx:100,ak_pr:60,ak_tc:40,ac_tc:60,hr:25};
+/* rakip ürün → jenerik tip (yaygın ürünler; jenerik tipe göre eşleşme) */
+const RIVAL=[
+ [/hempadur\s*zinc|avantguard|hempadur.*1736\d|hempadur.*1738\d/i,"zn_ep","Hempel"],
+ [/galvosil/i,"zn_esi","Hempel"],
+ [/hempadur\s*mastic|4588\d|45753/i,"mastic","Hempel"],
+ [/hempadur.*mio|hempadur.*4720\d/i,"ep_mio","Hempel"],
+ [/hempadur/i,"ep_mid","Hempel"],
+ [/hempathane/i,"pu","Hempel"],
+ [/hempaxane/i,"psx","Hempel"],
+ [/hempalin.*(primer|astar)|hempel'?s?\s*primer/i,"ak_pr","Hempel"],
+ [/hempalin/i,"ak_tc","Hempel"],
+ [/hempel'?s?\s*silicone|56910/i,"hr","Hempel"],
+ [/hempafire/i,"fire","Hempel"],
+ [/interzinc\s*2[0-9]\b|interzinc\s*22/i,"zn_esi","International"],
+ [/interzinc/i,"zn_ep","International"],
+ [/intergard\s*475|intergard.*mio/i,"ep_mio","International"],
+ [/intergard\s*(251|269)/i,"ep_pr","International"],
+ [/intergard|interzone/i,"ep_mid","International"],
+ [/interseal|interplus/i,"mastic","International"],
+ [/interthane/i,"pu","International"],
+ [/interfine/i,"psx","International"],
+ [/intertherm/i,"hr","International"],
+ [/interchar|chartek/i,"fire","International"],
+ [/interlac/i,"ak_tc","International"],
+ [/zinc\s*clad\s*(ii|2)\b/i,"zn_esi","Sherwin-Williams"],
+ [/zinc\s*clad/i,"zn_ep","Sherwin-Williams"],
+ [/macropoxy/i,"ep_mid","Sherwin-Williams"],
+ [/acrolon/i,"pu","Sherwin-Williams"],
+ [/sher-?loxane/i,"psx","Sherwin-Williams"],
+ [/firetex/i,"fire","Sherwin-Williams"],
+ [/sigmazinc/i,"zn_ep","PPG Sigma"],
+ [/sigmacover|sigmafast|sigmaprime/i,"ep_mid","PPG Sigma"],
+ [/sigmadur/i,"pu","PPG Sigma"],
+ [/psx\s*700/i,"psx","PPG"],
+ [/steelguard/i,"fire","PPG"],
+ [/carbozinc\s*11/i,"zn_esi","Carboline"],
+ [/carbozinc/i,"zn_ep","Carboline"],
+ [/carbomastic/i,"mastic","Carboline"],
+ [/carboguard/i,"ep_mid","Carboline"],
+ [/carbothane/i,"pu","Carboline"],
+ [/carboxane/i,"psx","Carboline"],
+ [/thermo-?sorb/i,"hr","Carboline"]
+];
+const GENERIC=[
+ [/(çinko|cinko|zinc)\s*(ca|ça|lu|lü)?\s*(zengin|rich)|zinkrich|zn\s*epoksi/i,"zn_ep"],
+ [/(çinko|cinko|zinc)\s*silika?t|silicate/i,"zn_esi"],
+ [/cam\s*pul|glass\s*flake/i,"gf"],
+ [/\bmio\b|demir\s*mika|miyo/i,"ep_mio"],
+ [/mastik|mastic|yüzey\s*toleranslı|surface\s*tolerant/i,"mastic"],
+ [/polisiloksan|polysiloxane/i,"psx"],
+ [/poli\s*üretan|poliuretan|polyurethane|\bpu\b|\bpur\b/i,"pu"],
+ [/galvaniz.*(astar|primer)|wash\s*primer/i,"galv"],
+ [/(epoksi|epoxy).*(astar|primer)|(astar|primer).*(epoksi|epoxy)/i,"ep_pr"],
+ [/(epoksi|epoxy).*(son\s*kat|topcoat)/i,"ep_tc"],
+ [/epoksi|epoxy/i,"ep_mid"],
+ [/(alkid|alkyd|sentetik).*(astar|primer)|(astar|primer).*(alkid|alkyd|sentetik)/i,"ak_pr"],
+ [/alkid|alkyd|sentetik/i,"ak_tc"],
+ [/akrilik|acrylic/i,"ac_tc"],
+ [/silikon|silicone|ısıya\s*dayanıklı|heat\s*resist/i,"hr"],
+ [/intumesan|intümesan|intumescent|yangın\s*boya/i,"fire"]
+];
+const TNAME=Object.fromEntries(RV_TYPES.map(x=>[x[0],x[1]])); TNAME.fire="Yangın koruma (intumesan)";
+const TJOT=Object.fromEntries(RV_TYPES.map(x=>[x[0],x[2]])); TJOT.fire="Steelmaster 600 WF";
+const tnorm=t=>t.replace(/İ/g,"i").toLowerCase();
+function rivalParse(text){
+  const segs=text.split(/\n|\+|;|\s\/\s|,(?=\s*[a-zçğıöşü])/i).map(s=>s.trim()).filter(s=>s.length>2);
+  const out=[];
+  segs.forEach(sg=>{
+    const t=tnorm(sg); let hit=null;
+    for(const [re,ty,br] of RIVAL){const m=t.match(re);if(m){hit={type:ty,brand:br,name:sg.match(new RegExp(re.source,"i"))?.[0]||m[0]};break;}}
+    if(!hit) for(const [re,ty] of GENERIC){if(re.test(t)){hit={type:ty,brand:"",name:""};break;}}
+    if(!hit) return;
+    const d=sg.match(/(\d{2,4})\s*(µm|μm|µ|μ|um|mikron|micron|mic)\b/i)||sg.match(/(?:dft|kfk|kalınlık)\D{0,4}(\d{2,4})/i);
+    out.push({src:sg.replace(/\s+/g," ").slice(0,80),type:hit.type,brand:hit.brand,dft:d?+d[1]:TYPE_DFT[hit.type]||80,dftGuess:!d});
+  });
+  return out;
+}
+function infoParse(text){
+  const t=tnorm(text), a={};
+  const has=re=>re.test(t);
+  if(has(/tank\s*i[çc]|tankın\s*i[çc]|iç\s*yüzey.*tank/)) a.what="tankic";
+  else if(has(/zemin|beton|şap|epoksi\s*zemin|otopark/)) a.what="zemin";
+  else if(has(/tekne|gemi|yat\b|zehirli\s*boya|antifouling|karina/)) a.what="tekne";
+  else if(has(/yangın|intumesan|intumescent|steelmaster/)) a.what="yangin";
+  else if(has(/baca|egzoz|sıcak\s*(yüzey|boru)|\d{3}\s*°?\s*(c\b|derece)|ısıya\s*dayan/)) a.what="sicak";
+  else if(has(/tank|boru|silo/)) a.what="tankdis";
+  else if(has(/makine|ekipman|imalat|kasa|şasi|römork|vinç/)) a.what="ekipman";
+  else if(has(/çelik|celik|konstrüksiyon|konstruksiyon|çatı|makas|kiriş|kolon|köprü|yapı|metal|demir|profil|direk|korkuluk/)) a.what="celik";
+  if(has(/galvaniz/)) a.surf="hdg";
+  else if(has(/paslı|pasli|eski\s*boya|kumlama\s*(yok|yapılamaz|yapılamıyor|olmaz)|kumlanamaz|raspa\s*yok|bakım|tamir|tadilat/)) a.surf="maint";
+  else if(has(/kumlama|raspa|sa\s*2|yeni\s*(çelik|imalat|yapı)|sıfır/)) a.surf="new";
+  const c=t.match(/\bc\s*([2-5])\b/); if(c) a.env="C"+c[1];
+  else if(has(/su\s*altı|gömülü|toprak\s*altı|toprağa/)) a.env="Im";
+  else if(has(/denize\s*(sıfır|çok\s*yakın)|offshore|iskele|liman|kimyasal|asit|agresif/)) a.env="C5";
+  else if(has(/deniz|sahil|kıyı|sanayi|fabrika\s*dış|osb/)) a.env="C4";
+  else if(has(/şehir|kent|dış\s*mekan|açık\s*alan|dışarıda/)) a.env="C3";
+  else if(has(/iç\s*mekan|kapalı\s*alan|içeride|kuru\s*ortam|depo\s*içi/)) a.env="C2";
+  const y=t.match(/(\d{1,2})\s*(\+)?\s*yıl/); if(y){const n=+y[1];a.dur=n<=7?"l":n<=15?"m":n<=25?"h":"vh";}
+  else if(has(/çok\s*uzun\s*ömür/)) a.dur="vh"; else if(has(/uzun\s*ömür/)) a.dur="h";
+  if(has(/fırça|rulo/)) a.app="brush"; else if(has(/tabanca|airless|püskürt/)) a.app="spray";
+  const m=t.match(/(\d[\d.]*)\s*(m2|m²|metrekare|metre\s*kare)/); if(m) a.area=parseFloat(m[1].replace(/\./g,""));
+  if(a.what==="tankic"){if(has(/içme\s*suyu|içme/))a.tank="dw";else if(has(/yakıt|mazot|motorin|benzin|petrol|akaryakıt/))a.tank="fuel";else if(has(/kimyasal|asit|kostik/))a.tank="chem";else if(has(/su\b|suyu/))a.tank="water";}
+  if(a.what==="sicak"){const d=t.match(/(\d{2,4})\s*°?\s*(c\b|derece)/);if(d){const n=+d[1];a.temp=n<=120?"120":n<=250?"250":n<=540?"540":"hi";}}
+  if(a.what==="zemin"){if(has(/forklift|ağır|transpalet/))a.floor="heavy";else if(has(/gıda|mutfak|ıslak|süt|et\s/))a.floor="food";else if(has(/antistatik|elektronik/))a.floor="static";else if(has(/parlak|self|hijyen|temiz/))a.floor="smooth";else if(has(/toz|yaya|hafif/))a.floor="light";}
+  return a;
+}
+const LBL={what:{celik:"Çelik yapı",ekipman:"Makine / ekipman",tankdis:"Tank / boru dış",tankic:"Tank içi",sicak:"Sıcak yüzey",zemin:"Beton zemin",tekne:"Tekne su altı",yangin:"Yangın koruması"},surf:{new:"Kumlanabilir yüzey",maint:"Paslı / eski boyalı, kumlama yok",hdg:"Galvaniz"},app:{spray:"Tabanca",brush:"Fırça / rulo"},dur:{l:"7 yıla kadar",m:"7–15 yıl",h:"15–25 yıl",vh:"25+ yıl"}};
+function knownLine(a){const p=[];if(a.what)p.push(LBL.what[a.what]);if(a.surf)p.push(LBL.surf[a.surf]);if(a.env)p.push(a.env==="Im"?"Su/toprak altı":a.env);if(a.dur)p.push(LBL.dur[a.dur]);if(a.app)p.push(LBL.app[a.app]);if(a.area)p.push(fmt(a.area,0)+" m²");return p.join(" · ");}
+const CW={ans:{}};
+function offAsk(){
+  const st=wzStep(CW.ans);
+  if(st){
+    const b=chAdd("bot",`<p>${esc(st.q)}</p>`+(st.num
+      ?`<div class="wz-num"><input type="number" class="cw-area" min="1" step="10" value="500" aria-label="Alan m²"><button type="button" class="btn primary cw-go">Öneriyi göster</button></div>`
+      :st.o.map(o=>`<button type="button" class="choice" data-k="${st.k}" data-v="${o[0]}">${esc(o[1])}${o[2]?` <span class="hint">· ${esc(o[2])}</span>`:""}</button>`).join("")));
+    b.querySelectorAll(".choice").forEach(x=>x.onclick=()=>{if(x.closest(".msg").dataset.done)return;x.closest(".msg").dataset.done=1;x.classList.add("on");chAdd("me",esc(x.textContent.split(" · ")[0]));CW.ans[x.dataset.k]=x.dataset.v;offAsk();});
+    const go=b.querySelector(".cw-go"); if(go) go.onclick=()=>{if(b.dataset.done)return;b.dataset.done=1;const v=Math.max(0,parseFloat(b.querySelector(".cw-area").value)||0);chAdd("me",fmt(v,0)+" m²");CW.ans.area=v;offAsk();};
+  } else {
+    const b=chAdd("bot",wzResult(CW.ans)+`<div class="q-actions" style="margin-top:8px"><button type="button" class="btn ghost cw-new">Yeni soru</button></div>`);
+    bindRes(b); b.querySelector(".cw-new").onclick=()=>{CW.ans={};chAdd("bot","Ne boyanacak, nerede duracak? Yazın veya rakip ürün adını / fotoğrafını ekleyin.");};
+  }
+}
+function bindRes(el){
+  el.querySelectorAll("[data-wzq]").forEach(b=>b.onclick=()=>{
+    const items=JSON.parse(b.dataset.wzq); Q.lines=[]; Q.sys=null; newNo(); items.forEach(([nm,q])=>addLine(nm,q||null));
+    renderLines(); renderDoc(); location.hash="#sistem"; setTimeout(()=>$("#quote").scrollIntoView({block:"start"}),50);});
+  const op=el.querySelector("[data-open]"); if(op) op.onclick=()=>{const a=CW.ans;$("#sub-"+(a.surf==="hdg"?"hdg":"cs")).checked=true;$("#env-"+a.env).checked=true;if(a.dur)$("#dur-"+a.dur).checked=true;$("#pri-all").checked=true;$("#area").value=a.area||500;location.hash="#sistem";render();setTimeout(()=>$("#out").scrollIntoView({block:"start"}),50);};
+}
+function rivalHTML(rows,info){
+  const area=info.area||0, loss=30;
+  const items=[]; let tot=0;
+  const tr=rows.map(r=>{const j=TJOT[r.type];tot+=r.type==="fire"?0:r.dft;const l=r.type==="fire"?null:litres(j,r.dft,area,loss);items.push([j,l]);
+    return `<tr><td>${esc(r.src)}<br><span class="hint">${r.brand?esc(r.brand)+" · ":""}${TNAME[r.type]}</span></td><td><b>${esc(j)}</b></td><td class="n">${r.type==="fire"?"Jotun hesaplar":r.dft+" µm"+(r.dftGuess?"*":"")}</td><td class="n">${l!=null?l+" L":"—"}</td></tr>`}).join("");
+  const guess=rows.some(r=>r.dftGuess), fire=rows.some(r=>r.type==="fire");
+  return `<p><b>Rakip sisteme Jotun alternatifi</b></p><div class="tbl-wrap"><table><thead><tr><th>Rakip</th><th>Jotun</th><th class="n">Kalınlık</th><th class="n">Litre</th></tr></thead><tbody>${tr}</tbody>${tot?`<tfoot><tr><td>Toplam</td><td></td><td class="n">${tot} µm</td><td></td></tr></tfoot>`:""}</table></div>
+   ${guess?`<p class="hint">* Kalınlık yazılmadığı için bu tip için tipik kalınlık kullanıldı; rakip teklifteki değeri yazarsanız güncellenir.</p>`:""}
+   ${area?`<p class="hint">Litreler ${fmt(area,0)} m² ve %${loss} fire ile.</p>`:`<p class="hint">Litre için alanı da yazın (örn. “500 m2”).</p>`}
+   ${fire?`<p class="note">Yangın boyasında kalınlık profil ve yangın süresine göre Jotun tarafından hesaplanır.</p>`:""}
+   ${whyHTML(rows.map(r=>TJOT[r.type]),{head:"Rakip ürünlerin jenerik tipine (görevine) göre aynı tip ve aynı kalınlıkta Jotun ürünü seçildi; böylece koruma mekanizması ve toplam film kalınlığı korunur. Bu birebir aynı ürün değildir; rakip ürünün teknik föyüyle teyit edin."})}
+   <div class="q-actions"><button type="button" class="btn primary" data-wzq='${esc(JSON.stringify(agg(items.filter(x=>x[0]))))}'>Teklife aktar</button></div>`;
+}
+let TESS=null;
+async function ocr(blob){
+  if(!TESS){await loadScript("https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js");TESS=await window.Tesseract.createWorker("eng");}
+  const r=await TESS.recognize(blob); return (r&&r.data&&r.data.text||"").trim();
+}
+async function offSend(text){
+  const usable=ATT.filter(a=>!a.err);
+  if(!text.trim()&&!usable.length) return;
+  chAdd("me",esc(text.trim()||"(Dosya ile öneri istendi)")+(usable.length?`<div class="att sent">${usable.map(a=>a.kind==="img"?`<img src="${a.url}" alt="${esc(a.name)}">`:`<span class="chip-att"><b>${a.kind.toUpperCase()}</b><span>${esc(a.name)}</span></span>`).join("")}</div>`:""));
+  ASK.push(((text.trim()||"Dosya ile öneri istendi")+(usable.length?` [Ekler: ${usable.map(a=>a.name).join(", ")}]`:"")).slice(0,220)); if(window.__gate)window.__gate();
+  ATT=[]; renderAtt();
+  let all=text;
+  if(usable.length){
+    const wait=chAdd("bot","<span class='think'>Dosyalar okunuyor…</span>");
+    for(const a of usable){
+      if(a.kind==="img"){try{const t=await ocr(a.blob);all+="\n"+t;}catch(e){a.ocrErr=1;}}
+      else all+="\n"+(a.text||"");
+    }
+    wait.remove();
+    if(usable.some(a=>a.ocrErr)) chAdd("bot","Fotoğraftaki yazıları okuyamadım. Etiketteki ürün adını ve kalınlığı yazarsanız eşleştiririm.");
+  }
+  const rows=rivalParse(all), info=infoParse(all);
+  Object.assign(CW.ans,Object.fromEntries(Object.entries(info).filter(([k,v])=>v!=null)));
+  if(rows.length && rows.some(r=>r.brand)){ const b=chAdd("bot",rivalHTML(rows,info)); bindRes(b); return; }
+  if(rows.length && !info.what){ const b=chAdd("bot",rivalHTML(rows,info)); bindRes(b); return; }
+  const k=knownLine(CW.ans);
+  if(!Object.keys(info).length && usable.length && !rows.length){if(!usable.some(a=>a.ocrErr))chAdd("bot","Dosyada boya ürünü veya iş bilgisi bulamadım. Ne boyanacağını yazın ya da adım adım ilerleyelim.");}
+  else if(k) chAdd("bot",`Anladıklarım: <b>${esc(k)}</b>`);
+  offAsk();
+}
+
+function chAdd(cls,html){const d=document.createElement("div");d.className="msg "+cls;d.innerHTML=html;$("#ch-log").appendChild(d);d.scrollIntoView({block:"nearest"});return d;}
+/* ekler: fotoğraf, PDF, metin */
+let ATT=[], IMG_OK=false, IMG_MAX=4, IMG_TYPES=["image/jpeg","image/png","image/webp","image/gif"];
+(async()=>{ for(let i=0;i<40&&!SAMPLE;i++) await new Promise(r=>setTimeout(r,300)); if(!SAMPLE) return;
+  try{const L=await SAMPLE.limits(); if(L&&L.images){IMG_OK=true;IMG_MAX=L.images.maxCount||4;IMG_TYPES=L.images.mediaTypes||IMG_TYPES;}}catch(e){}
+  $("#ch-file").accept=(IMG_OK?IMG_TYPES.join(",")+",":"image/*,")+".pdf,.txt,.csv,.md";
+})();
+let pdfLib=null;
+function loadScript(src){return new Promise((ok,no)=>{const el=document.createElement("script");el.src=src;el.onload=ok;el.onerror=no;document.head.appendChild(el);});}
+async function pdfText(file){
+  if(!pdfLib){ await loadScript("https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js"); await loadScript("https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"); pdfLib=window.pdfjsLib; }
+  const doc=await pdfLib.getDocument({data:new Uint8Array(await file.arrayBuffer())}).promise;
+  let out=""; for(let i=1;i<=Math.min(doc.numPages,30)&&out.length<24000;i++){const pg=await doc.getPage(i);const tc=await pg.getTextContent();out+=tc.items.map(x=>x.str).join(" ")+"\n";}
+  return out.trim();
+}
+function renderAtt(){
+  const el=$("#ch-att"); el.hidden=!ATT.length;
+  el.innerHTML=ATT.map((a,i)=>`<span class="chip-att">${a.kind==="img"?`<img src="${a.url}" alt="">`:`<b>${a.kind.toUpperCase()}</b>`}<span>${esc(a.name)}${a.busy?" · okunuyor…":a.err?" · "+esc(a.err):""}</span><button type="button" class="x" data-rm="${i}" aria-label="Kaldır">×</button></span>`).join("");
+}
+async function addFiles(files){
+  for(const f of files){
+    const t=(f.type||"").toLowerCase(), n=f.name.toLowerCase();
+    if(t.startsWith("image/")){
+      if(!IMG_OK&&SAMPLE&&!OFFLINE){ATT.push({kind:"img",name:f.name,err:"bu görünümde fotoğraf gönderilemiyor",url:""});continue;}
+      if(ATT.filter(a=>a.kind==="img"&&!a.err).length>=IMG_MAX){ATT.push({kind:"img",name:f.name,err:`en fazla ${IMG_MAX} fotoğraf`,url:""});continue;}
+      ATT.push({kind:"img",name:f.name,blob:f,url:URL.createObjectURL(f)});
+    } else if(t==="application/pdf"||n.endsWith(".pdf")){
+      const a={kind:"pdf",name:f.name,busy:true}; ATT.push(a); renderAtt();
+      try{a.text=await pdfText(f); if(!a.text) a.err="metin bulunamadı (taranmış olabilir; fotoğrafını ekleyin)";}catch(e){a.err="okunamadı";}
+      a.busy=false;
+    } else if(/\.(txt|csv|md)$/.test(n)||t.startsWith("text/")){
+      ATT.push({kind:"txt",name:f.name,text:(await f.text()).slice(0,24000)});
+    } else ATT.push({kind:"dosya",name:f.name,err:"desteklenmeyen tür (fotoğraf, PDF veya metin ekleyin)"});
+    renderAtt();
+  }
+}
+$("#ch-file").addEventListener("change",e=>{addFiles([...e.target.files]);e.target.value="";});
+$("#ch-att").addEventListener("click",e=>{const b=e.target.closest("[data-rm]");if(!b)return;const a=ATT.splice(+b.dataset.rm,1)[0];if(a&&a.url)URL.revokeObjectURL(a.url);renderAtt();});
+const drop=$("#ch-drop");
+drop.addEventListener("dragover",e=>{e.preventDefault();drop.classList.add("drag");});
+drop.addEventListener("dragleave",()=>drop.classList.remove("drag"));
+drop.addEventListener("drop",e=>{e.preventDefault();drop.classList.remove("drag");addFiles([...e.dataTransfer.files]);});
+$("#ch-text").addEventListener("paste",e=>{const fs=[...(e.clipboardData?.files||[])];if(fs.length){e.preventDefault();addFiles(fs);}});
+const ATT_RULE=`Bu mesajla birlikte dosya/fotoğraf gönderildi. Şu sırayla çalış:
+1) Fotoğraftaki/dosyadaki YAZILARI oku: teneke etiketi, ürün adı ve markası, teknik föy, şartname sayfası, teklif veya keşif listesi, el yazısı not olabilir. Okuduğun önemli bilgileri kısaca listele (marka, ürün adı, kalınlık µm, kat sayısı, korozyon kategorisi, dayanım, renk, miktar). Okunamayan kısmı "okunamadı" diye belirt, uydurma.
+2) Rakip marka ürünü varsa (Hempel, International/AkzoNobel, Sigma/PPG, Carboline, Sherwin-Williams, Teknos, Marshall, Filli Boya, Polisan, Kansai vb.): her ürünün jenerik tipini (ör. çinkoca zengin epoksi astar, epoksi MIO ara kat, alifatik poliüretan son kat) yaz ve karşısına aynı tip ve aynı kalınlıkta Jotun ürününü koy. Bunun jenerik tipe göre eşleşme olduğunu, birebir aynı ürün olmadığını belirt. Ürün tipinden emin değilsen tahmin olduğunu söyle.
+3) Yüzey fotoğrafıysa: yüzeyin durumu (ISO 8501-1 pas sınıfı A–D tahmini, mevcut boya, kabarma/dökülme), yapının türü ve ortam ipuçları (deniz, sanayi, iç mekân).
+4) Kesin anlaşılamayan ve öneriyi değiştirecek bir bilgi varsa tek bir soru sor.
+5) Öneriyi kat kat ürün, kalınlık ve yüzey hazırlığı ile ver; alan biliniyorsa litre hesapla. Sonra "Neden bu öneri?" başlığıyla her ürünün neden seçildiğini 2–4 kısa maddede özetle.`;
+
+async function chSend(text){
+  if(!SAMPLE||OFFLINE) return offSend(text);
+  if(ATT.some(a=>a.busy)) return;
+  const usable=ATT.filter(a=>!a.err);
+  if(!text.trim()&&!usable.length) return;
+  const imgs=usable.filter(a=>a.kind==="img").map(a=>a.blob);
+  const docs=usable.filter(a=>a.kind!=="img");
+  let content=text.trim()||"Ekteki dosyalara göre boya sistemi önerisi yap.";
+  if(usable.length){
+    content+="\n\n"+ATT_RULE;
+    if(imgs.length) content+=`\n\nEkli fotoğraf(lar): ${usable.filter(a=>a.kind==="img").map(a=>a.name).join(", ")}`;
+    docs.forEach(a=>content+=`\n\n[Ek dosya: ${a.name}]\n${a.text}`);
+  }
+  const shown=esc(text.trim()||"(Dosya ile öneri istendi)")+(usable.length?`<div class="att sent">${usable.map(a=>a.kind==="img"?`<img src="${a.url}" alt="${esc(a.name)}">`:`<span class="chip-att"><b>${a.kind.toUpperCase()}</b><span>${esc(a.name)}</span></span>`).join("")}</div>`:"");
+  chAdd("me",shown);
+  // geçmişe dosya metni yerine kısa not yazılır; fotoğraflar sadece bu turda gider
+  const histNote=(text.trim()||"Ekteki dosyalara göre öneri istendi.")+(usable.length?` [Ekler: ${usable.map(a=>a.name).join(", ")}]`:"");
+  CH.push({role:"user",content:histNote}); ASK.push(histNote.slice(0,220)); if(window.__gate)window.__gate();
+  ATT=[]; renderAtt();
+  const turnsBase=CH.slice(-16,-1);
+  const bot=chAdd("bot","<span class='think'>Düşünüyor…</span>");
+  chCtl=new AbortController(); $("#ch-stop").hidden=false; $("#ch-send").disabled=true;
+  try{
+    const prev=turnsBase[0]&&turnsBase[0].role==="assistant"?turnsBase.slice(1):turnsBase;
+    const opts={cache:false,signal:chCtl.signal,onText:({text})=>{bot.innerHTML=md(text);bindChoices(bot);}};
+    if(imgs.length) opts.images=imgs;
+    const {text:ans,truncated}=await SAMPLE([{role:"user",content:RULES},...prev,{role:"user",content}],opts);
+    CH.push({role:"assistant",content:ans}); bot.innerHTML=md(ans)+(truncated?"<p class='hint'>Cevap kısa kesildi; devamını isteyin.</p>":""); bindChoices(bot);
+  }catch(e){const m=aiFail(e); if(OFFLINE&&!(e&&e.text)){bot.remove();CH.pop();const ln=[...$("#ch-log").children].pop();if(ln&&ln.classList.contains("me"))ln.remove();ASK.pop();finOff=true;}else{bot.innerHTML=(e&&e.text?md(e.text):"")+(m?`<p class="note">${m}</p>`:""); if(!e||!e.text)CH.pop();}}
+  finally{$("#ch-stop").hidden=true;$("#ch-send").disabled=false;chCtl=null;}
+  if(finOff){finOff=false;offSend(text);}
+}
+let finOff=false;
+function bindChoices(bot){
+  // turn "1) secenek" lines into tappable answers
+  const lines=bot.innerHTML.split("\n");
+  if(!lines.some(l=>/^\s*\d\)\s+/.test(l)))return;
+  bot.innerHTML=lines.map(l=>{const m=l.match(/^\s*(\d)\)\s+(.*)$/);return m?`<button type="button" class="choice" data-ans="${m[2].replace(/<[^>]+>/g,"").replace(/"/g,"&quot;")}">${m[1]}) ${m[2]}</button>`:l}).join("\n");
+  bot.querySelectorAll(".choice").forEach(b=>b.onclick=()=>{if(chCtl)return;chSend(b.dataset.ans);});
+}
+$("#ch-send").onclick=()=>{const t=$("#ch-text").value;$("#ch-text").value="";chSend(t);};
+$("#ch-text").addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();$("#ch-send").click();}});
+$("#ch-stop").onclick=()=>chCtl&&chCtl.abort();
+$("#ch-new").onclick=()=>{if(chCtl)chCtl.abort();CH=[];CW.ans={};$("#ch-log").innerHTML=`<div class="msg bot">Yeni sohbet. Ne boyanacak, nerede duracak ve ne kadar dayanması gerekiyor?</div>`;};
+$("#rv-photo").onclick=()=>{$("#dm-c").checked=true;$("#d-mode").dispatchEvent(new Event("change"));setTimeout(()=>$("#ch-file-lbl").focus(),0);};
+/* rakip AI */
+let rvCtl=null;
+$("#rv-ask").onclick=async()=>{
+  const t=$("#rv-text").value.trim(); if(!t)return;
+  if(!SAMPLE||OFFLINE){const out=$("#rv-out");out.hidden=false;const rows=rivalParse(t);ASK.push("Rakip alternatifi: "+t.slice(0,200));if(window.__gate)window.__gate();
+    if(!rows.length){out.innerHTML="<p>Ürünleri tanıyamadım. Aşağıdaki “Ürün tipine göre eşleştir” bölümünde her katın tipini seçin.</p>";return;}
+    out.innerHTML=rivalHTML(rows,infoParse(t));bindRes(out);return;}
+  ASK("Rakip alternatifi: "+t.slice(0,200)); if(window.__gate)window.__gate();
+  const out=$("#rv-out"); out.hidden=false; out.innerHTML="<span class='think'>Düşünüyor…</span>";
+  rvCtl=new AbortController(); $("#rv-stop").hidden=false; $("#rv-ask").disabled=true;
+  try{
+    const {text}=await SAMPLE(RULES+`\n\nGÖREV: Aşağıdaki rakip boya sistemine Jotun alternatifi hazırla. Önce rakip sistemi kat kat jenerik tipiyle yaz, sonra karşısına Jotun ürününü ve aynı kuru film kalınlığını yaz, toplam kalınlığı ver. Ortam belirtilmemişse en sona ortamı soran tek bir soru ekle. Kısa tut.\n\nRakip sistem: ${t}`,{signal:rvCtl.signal,onText:({text})=>{out.innerHTML=md(text)}});
+    out.innerHTML=md(text);
+  }catch(e){const m=aiFail(e); if(OFFLINE&&!(e&&e.text)){const rows=rivalParse(t);out.innerHTML=rows.length?rivalHTML(rows,infoParse(t)):"<p>Ürünleri tanıyamadım. Aşağıdaki “Ürün tipine göre eşleştir” bölümünde her katın tipini seçin.</p>";bindRes(out);} else out.innerHTML=(e&&e.text?md(e.text):"")+(m?`<p class="note">${m}</p>`:"");}
+  finally{$("#rv-stop").hidden=true;$("#rv-ask").disabled=false;rvCtl=null;}
+};
+$("#rv-stop").onclick=()=>rvCtl&&rvCtl.abort();
+wzRender(); rvRender();
+
+/* ---------- PDF ---------- */
+let DL=null;
+(async()=>{try{DL=window.claude&&window.claude.use?await window.claude.use("downloads"):null}catch(e){DL=null}
+  if(window.__gate)window.__gate();})();
+$("#q-pdf").addEventListener("click",async()=>{
+  const btn=$("#q-pdf"), old=btn.textContent; btn.disabled=true; btn.textContent="Hazırlanıyor…";
+  const host=document.createElement("div");
+  host.style.cssText="position:fixed;left:-10000px;top:0;width:794px;background:#fff";
+  const clone=$("#q-doc").cloneNode(true); clone.removeAttribute("id"); clone.style.border="0"; clone.style.boxShadow="none"; clone.style.padding="40px";
+  clone.querySelectorAll(".tbl-wrap").forEach(t=>t.style.overflow="visible");
+  host.appendChild(clone); document.body.appendChild(host);
+  try{
+    if(document.fonts&&document.fonts.ready) await document.fonts.ready;
+    const canvas=await html2canvas(clone,{scale:2,backgroundColor:"#ffffff",useCORS:true,logging:false});
+    const {jsPDF}=window.jspdf; const pdf=new jsPDF({unit:"mm",format:"a4",orientation:"portrait"});
+    const pw=210, ph=297, m=0, w=pw-2*m, pxPerMm=canvas.width/w, pagePx=Math.floor((ph-2*m)*pxPerMm);
+    for(let y=0,first=true;y<canvas.height;y+=pagePx,first=false){
+      const h=Math.min(pagePx,canvas.height-y); const c=document.createElement("canvas"); c.width=canvas.width; c.height=h;
+      c.getContext("2d").drawImage(canvas,0,y,canvas.width,h,0,0,canvas.width,h);
+      if(!first) pdf.addPage();
+      pdf.addImage(c.toDataURL("image/jpeg",0.92),"JPEG",m,m,w,h/pxPerMm);
+    }
+    const cust=($("#q-customer").value.trim()||"Musteri").replace(/[^\p{L}\p{N}]+/gu,"_").slice(0,40);
+    const fn=`Teklif_${Q.no||"taslak"}_${cust}.pdf`;
+    if(DL) await DL.save({filename:fn,data:pdf.output("blob")}); else pdf.save(fn);
+    btn.textContent="İndirildi"; setTimeout(()=>btn.textContent=old,1600); warn();
+  }catch(e){
+    const code=e&&e.code;
+    if(code==="declined"){btn.textContent=old}
+    else if(code==="rate_limited"){btn.textContent="Biraz bekleyin"; setTimeout(()=>btn.textContent=old,2000)}
+    else if(code==="unavailable"||code==="not_granted"||code==="capability_disabled"||code==="capability_removed"){btn.hidden=true}
+    else {btn.textContent="PDF oluşturulamadı"; setTimeout(()=>btn.textContent=old,2500)}
+  }finally{host.remove(); btn.disabled=false;}
+});
+
+/* ---------- Bölge yöneticisine gönder / uyarı ---------- */
+const WA="905359750483";
+function quoteText(){
+  const f=fields(), t=totals();
+  const L=["*JOTUN TEKLİF – ONAY İÇİN*",`Bayi: ${f.dealer||"-"}`,`Müşteri: ${f.customer||"-"}${f.project?" – "+f.project:""}`,`Teklif no: ${Q.no||"-"} | Geçerlilik: ${f.valid} gün`,"","Ürünler:"];
+  Q.lines.filter(l=>l.name).forEach((l,i)=>{const q=num(l.qty),p=num(l.price),u=isKg(l.name)?"kg":"L",kg=isKg(l.name)?lineL(l):lineKg(l);
+    L.push(`${i+1}. ${l.name} – ${fmt(q,0)} × ${num(l.pack)?fmt(num(l.pack),num(l.pack)%1?2:0)+" "+u:"-"} = ${lineL(l)?fmt(lineL(l),lineL(l)%1?2:0)+" "+u:"-"}${kg!=null?" ("+fmt(kg,1)+" kg)":""} × ${p>0?money(p):"fiyat yok"} = ${q>0&&p>0?money(q*p):"-"}`)});
+  L.push("",`Toplam: ${fmt(t.adet,0)} ambalaj, ${fmt(t.lt,t.lt%1?2:0)} L${t.kg?", "+fmt(t.kg,1)+" kg":""}`,`Ara toplam: ${money(t.sub)} | KDV %${fmt(t.kdvR,0)}: ${money(t.kdv)}`,`GENEL TOPLAM: ${money(t.grand)}`);
+  if(Q.sys)L.push("",`Sistem: ISO 12944-5/${Q.sys.iso} – ${Q.sys.coats} (${Q.sys.dft} µm), ${Q.sys.env}, ${Q.sys.dur}, ${fmt(Q.sys.area,0)} m²`);
+  if(ASK.length){L.push("","Danışman'da sorduğu / istedikleri:");ASK.slice(-8).forEach(a=>L.push("• "+a));}
+  return L.join("\n");
+}
+const waQuote=()=>"https://wa.me/"+WA+"?text="+encodeURIComponent(quoteText());
+function gate(){
+  const fwd=$("#ch-fwd"); if(fwd) fwd.hidden=!ASK.length;
+  $("#q-pdf").hidden=!((DL||!window.claude)&&window.html2canvas&&window.jspdf);
+}
+window.__gate=gate;
+["#q-send","#q-warn-send"].forEach(id=>$(id).addEventListener("click",()=>{if(!Q.no)newNo();$(id).href=waQuote();}));
+function warn(){const d=$("#q-warn");try{d.showModal()}catch(e){d.setAttribute("open","")}}
+$("#q-warn-ok").addEventListener("click",()=>{const d=$("#q-warn");try{d.close()}catch(e){d.removeAttribute("open")}});
+$("#q-warn-send").addEventListener("click",()=>setTimeout(()=>$("#q-warn-ok").click(),300));
+$("#q-copy").addEventListener("click",()=>setTimeout(warn,700));
+$("#ch-fwd").addEventListener("click",()=>{
+  const f=fields();
+  $("#ch-fwd").href="https://wa.me/"+WA+"?text="+encodeURIComponent(["*DANIŞMAN SORU ÖZETİ*",`Bayi: ${f.dealer||"-"}`,"",...ASK.slice(-10).map(a=>"• "+a)].join("\n"));
+});
+gate();
+
+$("#f").addEventListener("input",render);
+$("#f").addEventListener("change",render);
+$("#f").addEventListener("submit",e=>e.preventDefault());
+renderProducts(); render();
+if(LAST.list.length) quoteFromSystem(LAST.list[0],LAST.s,true); else {renderLines();renderDoc();}
+})();
+</script>
+
+</body></html>
