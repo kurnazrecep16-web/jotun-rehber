@@ -164,32 +164,40 @@ details.more summary{padding:4px 0}
 .tab .sm{display:none}
 @media (max-width:700px){.tab .sm{display:inline}}
 .tab{display:inline-flex;align-items:center;gap:6px}
-#v-ana{display:flex;flex-direction:column;gap:16px}
-.h-hello h2{font-family:var(--f-display);font-weight:700;font-size:clamp(26px,6vw,34px);text-transform:uppercase;margin:0;line-height:1.05;color:var(--steel)}
-.h-hello p{margin:6px 0 0;color:var(--muted);font-size:15px}
-.h-name,.h-resume,.h-how{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
-.h-name{border-left:5px solid var(--accent)}
-.h-name label{display:flex;flex-direction:column;gap:2px;margin-bottom:10px}.h-name label span{color:var(--muted);font-size:13.5px}
-.h-row{display:flex;gap:8px}.h-row input{flex:1;min-width:0;font:15px var(--f-body);padding:9px 10px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink)}
-.h-resume{display:flex;flex-wrap:wrap;align-items:center;gap:10px;justify-content:space-between;border-left:5px solid var(--steel)}
-.h-resume p{margin:0;font-size:14px}.h-resume b{display:block;font-size:15px}
-.h-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
-@media (max-width:700px){.h-grid{grid-template-columns:1fr 1fr}}
-.h-tile{display:flex;flex-direction:column;align-items:flex-start;gap:6px;text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;cursor:pointer;color:var(--ink);font:inherit;min-height:128px;transition:border-color .15s,transform .15s}
-.h-tile:hover,.h-tile:focus-visible{border-color:var(--accent);outline:none}
-.h-tile:active{transform:scale(.98)}
-.h-tile svg{width:30px;height:30px;fill:none;stroke:var(--red);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.h-tile b{font-size:15.5px;line-height:1.25}
-.h-tile span{font-size:13px;color:var(--muted);line-height:1.35}
-.h-tile.big{grid-column:1/-1;flex-direction:row;flex-wrap:wrap;align-items:center;min-height:0;background:#031e45;border-color:#031e45;color:#fff;padding:16px}
-.h-tile.big svg{stroke:var(--accent);width:36px;height:36px}
-.h-tile.big b{font-size:18px;flex:1;min-width:60%}
-.h-tile.big span{color:rgba(255,255,255,.82);flex-basis:100%}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .h-tile.big{background:#123a7a;border-color:#123a7a}}
-:root[data-theme="dark"] .h-tile.big{background:#123a7a;border-color:#123a7a}
-.h-search{display:flex;gap:8px}.h-search input{flex:1;min-width:0;font:15px var(--f-body);padding:11px 12px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--ink)}
-.h-how ol{margin:6px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:6px;font-size:14px}
-.h-how li b{color:var(--steel)}
+#v-ana{display:flex;flex-direction:column;gap:14px}
+svg.art{width:100%;height:100%;fill:none;stroke:var(--ink);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+svg.art .f{fill:var(--art-fill);stroke:none}svg.art .a{stroke:var(--red);stroke-width:2.4}svg.art circle.a,svg.art rect.a{fill:var(--art-red)}
+svg.art .y{stroke:var(--accent);stroke-width:2.6}svg.art .d{stroke:var(--muted);stroke-width:1.6;opacity:.7}svg.art .g{stroke:var(--zinc);stroke-width:3}
+:root{--art-fill:#dfe7f3;--art-red:#fbe3e1;--tile:#e9eef6}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--art-fill:#16315c;--art-red:#4a1d1d;--tile:#0f2548}}
+:root[data-theme="dark"]{--art-fill:#16315c;--art-red:#4a1d1d;--tile:#0f2548}
+.h-hi{margin:0;font:700 22px/1.2 var(--f-body);color:var(--steel)}
+.h-search{display:flex;align-items:center;gap:8px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:0 12px}
+.h-search svg{width:20px;height:20px;fill:none;stroke:var(--muted);stroke-width:2;flex:none}
+.h-search input,.h-search input[type=search]{flex:1;min-width:0;width:auto;border:0;border-radius:0;background:transparent;font:16px var(--f-body);padding:12px 0;color:var(--ink);outline:none}
+.h-name{display:flex;gap:8px;background:var(--panel);border:1px solid var(--line);border-left:5px solid var(--accent);border-radius:12px;padding:10px}
+.h-name input{flex:1;min-width:0;font:15px var(--f-body);padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+.h-resume{display:flex;align-items:center;gap:10px;justify-content:space-between;background:var(--panel);border:1px solid var(--line);border-left:5px solid var(--steel);border-radius:12px;padding:10px 12px}
+.h-resume p{margin:0;font-size:14px}.h-resume b{display:block}
+.h-hero{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;text-align:left;border:0;border-radius:16px;padding:16px 12px 16px 18px;background:#031e45;color:#fff;cursor:pointer;font:inherit;min-height:120px}
+.h-hero svg.art{width:120px;height:96px;flex:none;stroke:#fff}
+.h-hero svg.art .f{fill:rgba(255,255,255,.12)}.h-hero svg.art .d{stroke:#9db0cc}.h-hero svg.art .g{stroke:#b9c4d6}
+.h-hero-t{display:flex;flex-direction:column;gap:4px}
+.h-hero-t b{font:700 20px/1.15 var(--f-body)}
+.h-hero-t span{color:rgba(255,255,255,.75);font-size:13.5px}
+.h-hero-t .h-go{margin-top:6px;align-self:flex-start;background:var(--accent);color:#031e45;font-weight:700;font-size:13.5px;border-radius:20px;padding:5px 12px}
+.h-hero:active,.h-cat:active{transform:scale(.97)}
+.h-sec{margin:6px 0 -4px;font:700 16px var(--f-body);color:var(--ink)}
+.h-cats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px 8px}
+@media (min-width:701px){.h-cats{grid-template-columns:repeat(8,1fr)}}
+.h-cat{display:flex;flex-direction:column;align-items:center;gap:6px;background:none;border:0;padding:0;cursor:pointer;font:inherit;color:var(--ink);transition:transform .12s}
+.h-ic{display:block;width:100%;aspect-ratio:1;background:var(--tile);border-radius:16px;padding:12%}
+.h-ic.t{background:var(--panel);border:1px solid var(--line)}
+.h-lb{font:600 12.5px/1.2 var(--f-body);text-align:center}
+.h-cat:focus-visible .h-ic{outline:2px solid var(--accent);outline-offset:2px}
+.wz-cats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px 8px}
+.wz-cats .wz-opt{border:0;background:none;padding:0;border-radius:0;align-items:center;gap:6px}
+.wz-cats .wz-opt .h-lb{font-size:12.5px;color:var(--ink)}
 .tab{font:600 15px var(--f-body);color:var(--muted);text-decoration:none;padding:8px 14px;border-bottom:3px solid transparent;margin-bottom:-1px}
 .tab[aria-current="page"]{color:var(--ink);border-bottom-color:var(--accent)}
 .tab:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
@@ -223,7 +231,7 @@ input[type=search]{width:100%;font:500 16px var(--f-body);padding:10px 12px;bord
 .r-body dt{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.05em;padding-top:2px}
 .r-body dd{margin:0;font-variant-numeric:tabular-nums}
 @media (max-width:480px){.r-body dl{grid-template-columns:1fr}.r-body dt{padding-top:6px}}
-.modes{margin-bottom:14px}
+.modes{margin-bottom:14px;flex-wrap:nowrap}
 .modes label{padding:8px 10px;font-size:14px}
 [hidden]{display:none!important}
 .dpanel{display:flex;flex-direction:column;gap:14px}
@@ -296,28 +304,15 @@ label.btn{display:inline-block}
   <a href="#urunler" id="t-urunler" class="tab"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5"/></svg><span>Ürünler</span></a>
 </nav>
 <section id="v-ana">
-  <div class="h-hello">
-    <h2 id="h-greet">Hoş geldiniz</h2>
-    <p>Ne yapmak istiyorsunuz? Bir başlığa dokunun, gerisini adım adım birlikte yapalım.</p>
-  </div>
-  <form class="h-name" id="h-name" hidden>
-    <label for="h-name-in"><b>Önce bayi adınızı yazın</b><span>Tekliflerinizin başında bu ad görünür. Bir kez yazmanız yeterli.</span></label>
-    <div class="h-row"><input type="text" id="h-name-in" placeholder="Örn: Marmara Boya Ltd. Şti." autocomplete="organization"><button type="submit" class="btn primary">Kaydet</button></div>
-  </form>
+  <p class="h-hi" id="h-greet">Hoş geldiniz</p>
+  <form class="h-search" id="h-search" role="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5"/></svg><input type="search" id="h-q" placeholder="Ürün ara" aria-label="Ürün ara"></form>
+  <form class="h-name" id="h-name" hidden><input type="text" id="h-name-in" placeholder="Bayi adınız (tekliflerde görünür)" autocomplete="organization" aria-label="Bayi adı"><button type="submit" class="btn primary">Kaydet</button></form>
   <div class="h-resume" id="h-resume" hidden></div>
-  <div class="h-grid">
-    <button type="button" class="h-tile big" data-go="sistem"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg><b>Boya sistemi ve litre hesabı</b><span>Ortamı ve dayanımı seçin; ISO 12944'e uygun sistem ve gereken litre çıksın.</span></button>
-    <button type="button" class="h-tile" data-go="wizard"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h4v4H5zM5 14h4v4H5z"/><path d="M12 8h7M12 16h7"/></svg><b>Adım adım öneri</b><span>Ne bilmediğinizi sorayım, sırayla seçin.</span></button>
-    <button type="button" class="h-tile" data-go="teklif"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg><b>Teklif hazırla</b><span>Ürün, adet ve fiyatla PDF teklif.</span></button>
-    <button type="button" class="h-tile" data-go="rakip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h13l-3-3M20 16H7l3 3"/></svg><b>Rakibe alternatif</b><span>Rakip sistemi yazın, karşılığını görün.</span></button>
-    <button type="button" class="h-tile" data-go="foto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg><b>Fotoğraf / dosya ile sor</b><span>Etiket, teklif veya şartname yükleyin.</span></button>
-    <button type="button" class="h-tile" data-go="urun"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5"/></svg><b>Ürün bilgisi</b><span>Nerede kullanılır, karışım, ambalaj.</span></button>
-  </div>
-  <form class="h-search" id="h-search" role="search"><input type="search" id="h-q" placeholder="Hızlı ürün ara: Jotamastic, Hardtop, zemin…" aria-label="Ürün ara"><button type="submit" class="btn">Ara</button></form>
-  <div class="h-how">
-    <p class="dtitle">Nasıl çalışır?</p>
-    <ol><li><b>Sistemi seçin.</b> Ortam (C2–C5) ve beklenen ömrü seçin; en uygun sistem önce gelir.</li><li><b>Teklife aktarın.</b> Teneke adedi ve litre hazır gelir; fiyatı siz girersiniz.</li><li><b>Paylaşın.</b> PDF indirin, bölge yöneticinize gönderin, onaydan sonra müşteriye iletin.</li></ol>
-  </div>
+  <button type="button" class="h-hero" data-go="sistem"><span class="h-hero-t"><b>Boya sistemi hesapla</b><span>ISO 12944 · kat · litre</span><span class="h-go">Başla →</span></span><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M6 46h52v8H6z"/><path d="M6 46h52v8H6z"/><path class="a" d="M6 41h52"/><path class="g" d="M6 36h52"/><path class="y" d="M6 31h52"/><path class="d" d="M50 31v-14h8M50 36v-14M50 41v-14" /><path d="M10 50h4M20 50h4M30 50h4"/></svg></button>
+  <h3 class="h-sec">Ne boyanacak?</h3>
+  <div class="h-cats"><button type="button" class="h-cat" data-go="what:celik"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M10 18h44v6H35v20h19v6H10v-6h19V24H10z"/><path d="M10 18h44v6H35v20h19v6H10v-6h19V24H10z"/><path class="d" d="M6 56h52M6 12h52"/><path class="a" d="M4 15v-6M60 15v-6M4 12h56"/></svg></span><span class="h-lb">Çelik yapı</span></button><button type="button" class="h-cat" data-go="what:ekipman"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><rect class="f" x="8" y="24" width="34" height="24" rx="2"/><rect x="8" y="24" width="34" height="24" rx="2"/><path d="M14 48v6M36 48v6M42 32h8l6 8v8H42"/><circle class="a" cx="25" cy="36" r="6"/><circle cx="25" cy="36" r="2"/><path class="d" d="M4 54h56"/></svg></span><span class="h-lb">Makine</span></button><button type="button" class="h-cat" data-go="what:tankdis"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><rect class="f" x="8" y="18" width="48" height="22" rx="11"/><rect x="8" y="18" width="48" height="22" rx="11"/><path d="M16 40l-4 10h12l-4-10M48 40l-4 10h12l-4-10M30 18v-8h8v8"/><path class="a" d="M8 29h48"/><path class="d" d="M4 50h56"/></svg></span><span class="h-lb">Tank dış</span></button><button type="button" class="h-cat" data-go="what:tankic"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M14 34h36v18a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4z"/><path d="M14 10h36v42a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4z"/><path class="a" d="M14 34c6-3 12 3 18 0s12-3 18 0"/><path class="y" d="M18 14v38"/></svg></span><span class="h-lb">Tank içi</span></button><button type="button" class="h-cat" data-go="what:sicak"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M22 20h20v36H22z"/><path d="M22 20h20v36H22zM18 56h28M26 20v-6h12v6"/><path class="a" d="M26 10c-2-3 2-4 0-7M32 10c-2-3 2-4 0-7M38 10c-2-3 2-4 0-7"/><path class="d" d="M22 32h20M22 44h20"/></svg></span><span class="h-lb">Sıcak yüzey</span></button><button type="button" class="h-cat" data-go="what:zemin"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M6 38l20-12h32L38 38z"/><path d="M6 38l20-12h32L38 38zM6 38v8h32v-8M38 46l20-12v-8"/><path class="y" d="M6 42h32"/><path class="d" d="M16 34l8-5M26 34l8-5M36 34l8-5"/></svg></span><span class="h-lb">Beton zemin</span></button><button type="button" class="h-cat" data-go="what:tekne"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M6 30h52l-8 18H14z"/><path d="M6 30h52l-8 18H14zM20 30V20h18v10M38 24h8v6"/><path class="a" d="M10 38h44"/><path class="d" d="M4 54c5-3 9 3 14 0s9-3 14 0 9 3 14 0 9-3 14 0"/></svg></span><span class="h-lb">Tekne</span></button><button type="button" class="h-cat" data-go="what:yangin"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M26 8h12v48H26z"/><path d="M22 8h20M22 56h20M26 8v48M38 8v48"/><path class="a" d="M46 50c-6 0-9-5-7-10 1 3 3 3 3 3-1-6 3-10 6-12-1 5 4 7 4 12s-2 7-6 7z"/></svg></span><span class="h-lb">Yangın</span></button></div>
+  <h3 class="h-sec">Hızlı işlemler</h3>
+  <div class="h-cats"><button type="button" class="h-cat" data-go="teklif"><span class="h-ic t"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M14 6h26l10 10v42H14z"/><path d="M14 6h26l10 10v42H14zM40 6v10h10"/><path class="d" d="M20 26h24M20 33h24M20 40h24M32 26v21"/><path class="y" d="M20 50h14"/></svg></span><span class="h-lb">Teklif</span></button><button type="button" class="h-cat" data-go="rakip"><span class="h-ic t"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><rect class="f" x="6" y="22" width="18" height="26" rx="2"/><rect x="6" y="22" width="18" height="26" rx="2"/><rect x="40" y="22" width="18" height="26" rx="2"/><path d="M10 22v-4h10v4M44 22v-4h10v4"/><path class="a" d="M28 30h8l-3-3M36 40h-8l3 3"/><path class="y" d="M40 30h18"/></svg></span><span class="h-lb">Rakibe karşı</span></button><button type="button" class="h-cat" data-go="foto"><span class="h-ic t"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M8 20h12l4-6h16l4 6h12v32H8z"/><path d="M8 20h12l4-6h16l4 6h12v32H8z"/><circle cx="32" cy="35" r="10"/><circle class="a" cx="32" cy="35" r="5"/><path class="d" d="M48 26h4"/></svg></span><span class="h-lb">Fotoğrafla sor</span></button><button type="button" class="h-cat" data-go="urun"><span class="h-ic t"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M14 16h36v38a3 3 0 0 1-3 3H17a3 3 0 0 1-3-3z"/><path d="M14 16h36v38a3 3 0 0 1-3 3H17a3 3 0 0 1-3-3zM14 16c0-4 36-4 36 0M22 10h20"/><rect class="a" x="20" y="28" width="24" height="14"/><path class="y" d="M24 48h16"/></svg></span><span class="h-lb">Ürünler</span></button></div>
 </section>
 <div id="v-sistem">
 
@@ -452,9 +447,9 @@ label.btn{display:inline-block}
 </div>
 <section id="v-danisman" hidden>
   <div class="seg modes" id="d-mode" role="tablist">
-    <input type="radio" name="dmode" id="dm-w" value="w" checked><label for="dm-w">Adım adım öneri</label>
-    <input type="radio" name="dmode" id="dm-r" value="r"><label for="dm-r">Rakibe alternatif</label>
-    <input type="radio" name="dmode" id="dm-c" value="c"><label for="dm-c">Soru / fotoğraf / dosya</label>
+    <input type="radio" name="dmode" id="dm-w" value="w" checked><label for="dm-w">Adım adım</label>
+    <input type="radio" name="dmode" id="dm-r" value="r"><label for="dm-r">Rakibe karşı</label>
+    <input type="radio" name="dmode" id="dm-c" value="c"><label for="dm-c">Soru · Foto</label>
   </div>
 
   <div id="d-w" class="dpanel">
@@ -496,7 +491,7 @@ label.btn{display:inline-block}
     </div>
   </div>
   <p class="hint ai-off" id="ai-off" hidden></p>
-  <p class="foot">Öneriler ISO 12944-5:2019 ve Jotun ürün teknik verilerine dayanır; bilgilendirme amaçlıdır. Tank içi, kimyasal ortam ve yangın koruması için Jotun teknik onayı alın. Uygulamadan önce ürünün TDS'ini kontrol edin.</p>
+  <p class="foot">Bilgilendirme amaçlıdır. Uygulamadan önce ürünün TDS'ini kontrol edin; tank içi, kimyasal ve yangın işlerinde Jotun teknik onayı alın.</p>
 </section>
 
 <section id="v-urunler" hidden>
@@ -894,11 +889,12 @@ function homeRender(){
   $("#h-greet").textContent=dn?`Merhaba, ${dn}`:"Hoş geldiniz";
   $("#h-name").hidden=!!dn;
   const r=$("#h-resume"), has=Q.lines.some(l=>l.name), cust=$("#q-customer").value.trim();
-  if(has&&cust){r.hidden=false;r.innerHTML=`<p><b>Yarım kalan teklif</b>${esc(cust)} · ${Q.lines.filter(l=>l.name).length} ürün</p><button type="button" class="btn primary" data-go="teklif">Teklife dön</button>`;}
+  if(has&&cust){r.hidden=false;r.innerHTML=`<p><b>Yarım teklif</b>${esc(cust)}</p><button type="button" class="btn primary" data-go="teklif">Devam et</button>`;}
   else r.hidden=true;
 }
 function go(where){
   const dm=k=>{$("#dm-"+k).checked=true;$("#d-mode").dispatchEvent(new Event("change"));};
+  if(where.startsWith("what:")){W.ans={what:where.slice(5)};W.hist=["what"];dm("w");wzRender();location.hash="#danisman";return;}
   if(where==="sistem"){location.hash="#sistem";}
   else if(where==="teklif"){route.keep=true;location.hash="#sistem";setTimeout(()=>$("#quote").scrollIntoView({block:"start"}),60);}
   else if(where==="wizard"){dm("w");location.hash="#danisman";}
@@ -908,7 +904,7 @@ function go(where){
 }
 document.addEventListener("click",e=>{const b=e.target.closest("[data-go]");if(b){e.preventDefault();go(b.dataset.go);}});
 $("#h-name").addEventListener("submit",e=>{e.preventDefault();const v=$("#h-name-in").value.trim();if(!v)return;dealerEl.value=v;store("q-dealer",v);renderDoc();homeRender();});
-$("#h-search").addEventListener("submit",e=>{e.preventDefault();$("#r-q").value=$("#h-q").value;rCat="all";renderCats();renderRehber();location.hash="#urunler";});
+$("#h-search").addEventListener("submit",e=>{e.preventDefault();$("#h-q").blur();$("#r-q").value=$("#h-q").value;rCat="all";renderCats();renderRehber();location.hash="#urunler";});
 window.addEventListener("hashchange",route);
 renderCats(); renderRehber(); route();
 
@@ -964,12 +960,16 @@ function wzStep(a=W.ans){
   if(a.what==="tekne"&&!a.boat) return {k:"boat",q:"Tekne ne sıklıkla havuza çıkıyor?",o:[["30","Yaklaşık 2,5 yılda bir (30 ay)"],["60","Yaklaşık 5 yılda bir (60 ay)"],["90","7,5 yıla kadar (90 ay)"],["prem","En üst performans istiyor"]]};
   return null;
 }
+const ART={"celik": "<path class=\"f\" d=\"M10 18h44v6H35v20h19v6H10v-6h19V24H10z\"/><path d=\"M10 18h44v6H35v20h19v6H10v-6h19V24H10z\"/><path class=\"d\" d=\"M6 56h52M6 12h52\"/><path class=\"a\" d=\"M4 15v-6M60 15v-6M4 12h56\"/>", "ekipman": "<rect class=\"f\" x=\"8\" y=\"24\" width=\"34\" height=\"24\" rx=\"2\"/><rect x=\"8\" y=\"24\" width=\"34\" height=\"24\" rx=\"2\"/><path d=\"M14 48v6M36 48v6M42 32h8l6 8v8H42\"/><circle class=\"a\" cx=\"25\" cy=\"36\" r=\"6\"/><circle cx=\"25\" cy=\"36\" r=\"2\"/><path class=\"d\" d=\"M4 54h56\"/>", "tankdis": "<rect class=\"f\" x=\"8\" y=\"18\" width=\"48\" height=\"22\" rx=\"11\"/><rect x=\"8\" y=\"18\" width=\"48\" height=\"22\" rx=\"11\"/><path d=\"M16 40l-4 10h12l-4-10M48 40l-4 10h12l-4-10M30 18v-8h8v8\"/><path class=\"a\" d=\"M8 29h48\"/><path class=\"d\" d=\"M4 50h56\"/>", "tankic": "<path class=\"f\" d=\"M14 34h36v18a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4z\"/><path d=\"M14 10h36v42a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4z\"/><path class=\"a\" d=\"M14 34c6-3 12 3 18 0s12-3 18 0\"/><path class=\"y\" d=\"M18 14v38\"/>", "sicak": "<path class=\"f\" d=\"M22 20h20v36H22z\"/><path d=\"M22 20h20v36H22zM18 56h28M26 20v-6h12v6\"/><path class=\"a\" d=\"M26 10c-2-3 2-4 0-7M32 10c-2-3 2-4 0-7M38 10c-2-3 2-4 0-7\"/><path class=\"d\" d=\"M22 32h20M22 44h20\"/>", "zemin": "<path class=\"f\" d=\"M6 38l20-12h32L38 38z\"/><path d=\"M6 38l20-12h32L38 38zM6 38v8h32v-8M38 46l20-12v-8\"/><path class=\"y\" d=\"M6 42h32\"/><path class=\"d\" d=\"M16 34l8-5M26 34l8-5M36 34l8-5\"/>", "tekne": "<path class=\"f\" d=\"M6 30h52l-8 18H14z\"/><path d=\"M6 30h52l-8 18H14zM20 30V20h18v10M38 24h8v6\"/><path class=\"a\" d=\"M10 38h44\"/><path class=\"d\" d=\"M4 54c5-3 9 3 14 0s9-3 14 0 9 3 14 0 9-3 14 0\"/>", "yangin": "<path class=\"f\" d=\"M26 8h12v48H26z\"/><path d=\"M22 8h20M22 56h20M26 8v48M38 8v48\"/><path class=\"a\" d=\"M46 50c-6 0-9-5-7-10 1 3 3 3 3 3-1-6 3-10 6-12-1 5 4 7 4 12s-2 7-6 7z\"/>", "teklif": "<path class=\"f\" d=\"M14 6h26l10 10v42H14z\"/><path d=\"M14 6h26l10 10v42H14zM40 6v10h10\"/><path class=\"d\" d=\"M20 26h24M20 33h24M20 40h24M32 26v21\"/><path class=\"y\" d=\"M20 50h14\"/>", "rakip": "<rect class=\"f\" x=\"6\" y=\"22\" width=\"18\" height=\"26\" rx=\"2\"/><rect x=\"6\" y=\"22\" width=\"18\" height=\"26\" rx=\"2\"/><rect x=\"40\" y=\"22\" width=\"18\" height=\"26\" rx=\"2\"/><path d=\"M10 22v-4h10v4M44 22v-4h10v4\"/><path class=\"a\" d=\"M28 30h8l-3-3M36 40h-8l3 3\"/><path class=\"y\" d=\"M40 30h18\"/>", "foto": "<path class=\"f\" d=\"M8 20h12l4-6h16l4 6h12v32H8z\"/><path d=\"M8 20h12l4-6h16l4 6h12v32H8z\"/><circle cx=\"32\" cy=\"35\" r=\"10\"/><circle class=\"a\" cx=\"32\" cy=\"35\" r=\"5\"/><path class=\"d\" d=\"M48 26h4\"/>", "urun": "<path class=\"f\" d=\"M14 16h36v38a3 3 0 0 1-3 3H17a3 3 0 0 1-3-3z\"/><path d=\"M14 16h36v38a3 3 0 0 1-3 3H17a3 3 0 0 1-3-3zM14 16c0-4 36-4 36 0M22 10h20\"/><rect class=\"a\" x=\"20\" y=\"28\" width=\"24\" height=\"14\"/><path class=\"y\" d=\"M24 48h16\"/>", "sistem": "<path class=\"f\" d=\"M6 46h52v8H6z\"/><path d=\"M6 46h52v8H6z\"/><path class=\"a\" d=\"M6 41h52\"/><path class=\"g\" d=\"M6 36h52\"/><path class=\"y\" d=\"M6 31h52\"/><path class=\"d\" d=\"M50 31v-14h8M50 36v-14M50 41v-14\" /><path d=\"M10 50h4M20 50h4M30 50h4\"/>"};
+const WZ_SHORT={celik:"Çelik yapı",ekipman:"Makine",tankdis:"Tank dış",tankic:"Tank içi",sicak:"Sıcak yüzey",zemin:"Beton zemin",tekne:"Tekne",yangin:"Yangın"};
+const artSVG=k=>ART[k]?`<svg class="art" viewBox="0 0 64 64" aria-hidden="true">${ART[k]}</svg>`:"";
 function wzRender(){
   const el=$("#wz"), st=wzStep();
   const crumbs=W.hist.length?`<div class="wz-top"><button type="button" class="btn ghost" id="wz-back">← Geri</button><button type="button" class="btn ghost" id="wz-reset">Baştan başla</button></div>`:"";
   if(st){
     el.innerHTML=crumbs+`<p class="wz-n">Soru ${W.hist.length+1}</p><h3 class="wz-q">${st.q}</h3>`+(st.num
       ?`<div class="wz-num"><input type="number" id="wz-area" min="1" step="10" value="500" aria-label="Alan m²"><button type="button" class="btn primary" id="wz-go">Öneriyi göster</button></div>`
+      :st.k==="what"?`<div class="wz-cats">${st.o.map(o=>`<button type="button" class="h-cat wz-opt" data-k="${st.k}" data-v="${o[0]}"><span class="h-ic">${artSVG(o[0])}</span><span class="h-lb">${WZ_SHORT[o[0]]||o[1]}</span></button>`).join("")}</div>`
       :`<div class="wz-opts">${st.o.map(o=>`<button type="button" class="wz-opt" data-k="${st.k}" data-v="${o[0]}"><b>${o[1]}</b>${o[2]?`<span>${o[2]}</span>`:""}</button>`).join("")}</div>`);
   } else el.innerHTML=crumbs+wzResult();
   bindWz();
