@@ -8,7 +8,7 @@
 <meta name="apple-mobile-web-app-title" content="JTN Rehber">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <style>
-#pwa-bar{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9999;background:#031e45;color:#fff;border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,.3);padding:12px 14px;display:flex;gap:10px;align-items:center;font:14px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif;max-width:520px;margin:0 auto}
+#pwa-bar{position:fixed;left:12px;right:12px;bottom:calc(80px + env(safe-area-inset-bottom,0px));z-index:9999;background:#031e45;color:#fff;border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,.3);padding:12px 14px;display:flex;gap:10px;align-items:center;font:14px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif;max-width:520px;margin:0 auto}
 #pwa-bar img{width:40px;height:40px;border-radius:8px;flex:none}
 #pwa-bar .t{flex:1}#pwa-bar b{display:block;font-size:15px}
 #pwa-bar button{font:600 14px system-ui,sans-serif;border:0;border-radius:6px;padding:8px 12px;cursor:pointer}
@@ -158,10 +158,50 @@ details.more summary{padding:4px 0}
 .badge{font:600 11px var(--f-body);letter-spacing:.08em;text-transform:uppercase;background:var(--ink);color:var(--bg);padding:3px 8px;border-radius:3px}
 .card-h .iso{margin-left:auto;background:none;color:var(--muted);padding:0}
 .card-f{justify-content:flex-end}
+.brand{text-decoration:none;color:inherit}
 .tabs{display:flex;gap:4px;margin:-8px 0 18px;border-bottom:1px solid var(--line)}
+.tab svg{display:none}
+.tab .sm{display:none}
+@media (max-width:700px){.tab .sm{display:inline}}
+.tab{display:inline-flex;align-items:center;gap:6px}
+#v-ana{display:flex;flex-direction:column;gap:16px}
+.h-hello h2{font-family:var(--f-display);font-weight:700;font-size:clamp(26px,6vw,34px);text-transform:uppercase;margin:0;line-height:1.05;color:var(--steel)}
+.h-hello p{margin:6px 0 0;color:var(--muted);font-size:15px}
+.h-name,.h-resume,.h-how{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.h-name{border-left:5px solid var(--accent)}
+.h-name label{display:flex;flex-direction:column;gap:2px;margin-bottom:10px}.h-name label span{color:var(--muted);font-size:13.5px}
+.h-row{display:flex;gap:8px}.h-row input{flex:1;min-width:0;font:15px var(--f-body);padding:9px 10px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink)}
+.h-resume{display:flex;flex-wrap:wrap;align-items:center;gap:10px;justify-content:space-between;border-left:5px solid var(--steel)}
+.h-resume p{margin:0;font-size:14px}.h-resume b{display:block;font-size:15px}
+.h-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+@media (max-width:700px){.h-grid{grid-template-columns:1fr 1fr}}
+.h-tile{display:flex;flex-direction:column;align-items:flex-start;gap:6px;text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;cursor:pointer;color:var(--ink);font:inherit;min-height:128px;transition:border-color .15s,transform .15s}
+.h-tile:hover,.h-tile:focus-visible{border-color:var(--accent);outline:none}
+.h-tile:active{transform:scale(.98)}
+.h-tile svg{width:30px;height:30px;fill:none;stroke:var(--red);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.h-tile b{font-size:15.5px;line-height:1.25}
+.h-tile span{font-size:13px;color:var(--muted);line-height:1.35}
+.h-tile.big{grid-column:1/-1;flex-direction:row;flex-wrap:wrap;align-items:center;min-height:0;background:#031e45;border-color:#031e45;color:#fff;padding:16px}
+.h-tile.big svg{stroke:var(--accent);width:36px;height:36px}
+.h-tile.big b{font-size:18px;flex:1;min-width:60%}
+.h-tile.big span{color:rgba(255,255,255,.82);flex-basis:100%}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .h-tile.big{background:#123a7a;border-color:#123a7a}}
+:root[data-theme="dark"] .h-tile.big{background:#123a7a;border-color:#123a7a}
+.h-search{display:flex;gap:8px}.h-search input{flex:1;min-width:0;font:15px var(--f-body);padding:11px 12px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--ink)}
+.h-how ol{margin:6px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:6px;font-size:14px}
+.h-how li b{color:var(--steel)}
 .tab{font:600 15px var(--f-body);color:var(--muted);text-decoration:none;padding:8px 14px;border-bottom:3px solid transparent;margin-bottom:-1px}
 .tab[aria-current="page"]{color:var(--ink);border-bottom-color:var(--accent)}
 .tab:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (max-width:700px){
+  body{padding-bottom:calc(70px + env(safe-area-inset-bottom,0px))}
+  .tabs{position:fixed;left:0;right:0;bottom:0;z-index:50;margin:0;background:var(--panel);border-top:1px solid var(--line);border-bottom:0;gap:0;padding:4px 4px calc(4px + env(safe-area-inset-bottom,0px));box-shadow:0 -2px 12px rgba(3,30,69,.08)}
+  .tab{flex:1;flex-direction:column;gap:2px;font-size:11.5px;padding:6px 2px;border-bottom:0;border-top:3px solid transparent;margin:0;text-align:center}
+  .tab svg{display:block;width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .tab[aria-current="page"]{border-top-color:var(--accent);border-bottom-color:transparent;color:var(--ink)}
+  .tab .lg{display:none}
+  header{margin-bottom:12px}
+}
 .r-top{display:flex;flex-direction:column;gap:10px;margin-bottom:10px}
 input[type=search]{width:100%;font:500 16px var(--f-body);padding:10px 12px;border:1px solid var(--line);border-radius:6px;background:var(--panel);color:var(--ink)}
 .chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
@@ -247,13 +287,38 @@ label.btn{display:inline-block}
 
 <div class="wrap">
 <header>
-  <h1>JTN ENDÜSTRİ <span>REHBER</span></h1>
+  <a href="#ana" class="brand" aria-label="Ana sayfa"><h1>JTN ENDÜSTRİ <span>REHBER</span></h1></a>
 </header>
 <nav class="tabs" aria-label="Bölümler">
-  <a href="#sistem" id="t-sistem" class="tab" aria-current="page">Sistem &amp; Teklif</a>
-  <a href="#danisman" id="t-danisman" class="tab">Danışman</a>
-  <a href="#urunler" id="t-urunler" class="tab">Ürün Rehberi</a>
+  <a href="#ana" id="t-ana" class="tab" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg><span>Ana Sayfa</span></a>
+  <a href="#sistem" id="t-sistem" class="tab"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg><span class="lg">Sistem &amp; Teklif</span><span class="sm">Sistem</span></a>
+  <a href="#danisman" id="t-danisman" class="tab"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></svg><span>Danışman</span></a>
+  <a href="#urunler" id="t-urunler" class="tab"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5"/></svg><span>Ürünler</span></a>
 </nav>
+<section id="v-ana">
+  <div class="h-hello">
+    <h2 id="h-greet">Hoş geldiniz</h2>
+    <p>Ne yapmak istiyorsunuz? Bir başlığa dokunun, gerisini adım adım birlikte yapalım.</p>
+  </div>
+  <form class="h-name" id="h-name" hidden>
+    <label for="h-name-in"><b>Önce bayi adınızı yazın</b><span>Tekliflerinizin başında bu ad görünür. Bir kez yazmanız yeterli.</span></label>
+    <div class="h-row"><input type="text" id="h-name-in" placeholder="Örn: Marmara Boya Ltd. Şti." autocomplete="organization"><button type="submit" class="btn primary">Kaydet</button></div>
+  </form>
+  <div class="h-resume" id="h-resume" hidden></div>
+  <div class="h-grid">
+    <button type="button" class="h-tile big" data-go="sistem"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg><b>Boya sistemi ve litre hesabı</b><span>Ortamı ve dayanımı seçin; ISO 12944'e uygun sistem ve gereken litre çıksın.</span></button>
+    <button type="button" class="h-tile" data-go="wizard"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h4v4H5zM5 14h4v4H5z"/><path d="M12 8h7M12 16h7"/></svg><b>Adım adım öneri</b><span>Ne bilmediğinizi sorayım, sırayla seçin.</span></button>
+    <button type="button" class="h-tile" data-go="teklif"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg><b>Teklif hazırla</b><span>Ürün, adet ve fiyatla PDF teklif.</span></button>
+    <button type="button" class="h-tile" data-go="rakip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h13l-3-3M20 16H7l3 3"/></svg><b>Rakibe alternatif</b><span>Rakip sistemi yazın, karşılığını görün.</span></button>
+    <button type="button" class="h-tile" data-go="foto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg><b>Fotoğraf / dosya ile sor</b><span>Etiket, teklif veya şartname yükleyin.</span></button>
+    <button type="button" class="h-tile" data-go="urun"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5"/></svg><b>Ürün bilgisi</b><span>Nerede kullanılır, karışım, ambalaj.</span></button>
+  </div>
+  <form class="h-search" id="h-search" role="search"><input type="search" id="h-q" placeholder="Hızlı ürün ara: Jotamastic, Hardtop, zemin…" aria-label="Ürün ara"><button type="submit" class="btn">Ara</button></form>
+  <div class="h-how">
+    <p class="dtitle">Nasıl çalışır?</p>
+    <ol><li><b>Sistemi seçin.</b> Ortam (C2–C5) ve beklenen ömrü seçin; en uygun sistem önce gelir.</li><li><b>Teklife aktarın.</b> Teneke adedi ve litre hazır gelir; fiyatı siz girersiniz.</li><li><b>Paylaşın.</b> PDF indirin, bölge yöneticinize gönderin, onaydan sonra müşteriye iletin.</li></ol>
+  </div>
+</section>
 <div id="v-sistem">
 
 <div class="grid">
@@ -816,10 +881,34 @@ $("#r-list").addEventListener("click",e=>{const b=e.target.closest("[data-addq]"
   addLine(nm,null);
   if(!Q.no)newNo(); renderLines(); renderDoc(); b.textContent="Teklife eklendi ✓"; setTimeout(()=>b.textContent="Teklife ekle",1500);});
 function route(){
-  const V=["sistem","danisman","urunler"];
-  const h=(location.hash||"#sistem").slice(1), v=V.includes(h)?h:"sistem";
+  const V=["ana","sistem","danisman","urunler"];
+  const h=(location.hash||"#ana").slice(1), v=V.includes(h)?h:"ana";
+  const changed=route.last!==v; route.last=v;
   V.forEach(k=>{$("#v-"+k).hidden=k!==v; const t=$("#t-"+k); if(k===v)t.setAttribute("aria-current","page"); else t.removeAttribute("aria-current");});
+  if(v==="ana") homeRender();
+  if(changed&&!route.keep) window.scrollTo(0,0); route.keep=false;
 }
+/* ---------- Ana sayfa ---------- */
+function homeRender(){
+  const dn=(dealerEl.value||"").trim();
+  $("#h-greet").textContent=dn?`Merhaba, ${dn}`:"Hoş geldiniz";
+  $("#h-name").hidden=!!dn;
+  const r=$("#h-resume"), has=Q.lines.some(l=>l.name), cust=$("#q-customer").value.trim();
+  if(has&&cust){r.hidden=false;r.innerHTML=`<p><b>Yarım kalan teklif</b>${esc(cust)} · ${Q.lines.filter(l=>l.name).length} ürün</p><button type="button" class="btn primary" data-go="teklif">Teklife dön</button>`;}
+  else r.hidden=true;
+}
+function go(where){
+  const dm=k=>{$("#dm-"+k).checked=true;$("#d-mode").dispatchEvent(new Event("change"));};
+  if(where==="sistem"){location.hash="#sistem";}
+  else if(where==="teklif"){route.keep=true;location.hash="#sistem";setTimeout(()=>$("#quote").scrollIntoView({block:"start"}),60);}
+  else if(where==="wizard"){dm("w");location.hash="#danisman";}
+  else if(where==="rakip"){dm("r");location.hash="#danisman";setTimeout(()=>$("#rv-text").focus(),80);}
+  else if(where==="foto"){dm("c");location.hash="#danisman";}
+  else if(where==="urun"){location.hash="#urunler";setTimeout(()=>$("#r-q").focus(),80);}
+}
+document.addEventListener("click",e=>{const b=e.target.closest("[data-go]");if(b){e.preventDefault();go(b.dataset.go);}});
+$("#h-name").addEventListener("submit",e=>{e.preventDefault();const v=$("#h-name-in").value.trim();if(!v)return;dealerEl.value=v;store("q-dealer",v);renderDoc();homeRender();});
+$("#h-search").addEventListener("submit",e=>{e.preventDefault();$("#r-q").value=$("#h-q").value;rCat="all";renderCats();renderRehber();location.hash="#urunler";});
 window.addEventListener("hashchange",route);
 renderCats(); renderRehber(); route();
 
