@@ -202,7 +202,7 @@ svg.art .y{stroke:var(--accent);stroke-width:2.6}svg.art .d{stroke:var(--muted);
   .q-lines tr{grid-template-columns:1fr 1fr 1.2fr;gap:6px 10px;padding:14px}
   .q-lines td:nth-child(1){grid-column:1/-1;grid-row:1}
   .q-lines td:nth-child(1) .prod{font-size:16px}
-  .q-lines td:nth-child(1) input.ral{max-width:none;margin-top:8px;padding:7px 10px;font-size:14px}
+  .q-lines td:nth-child(1) .ral{max-width:none;margin-top:8px;padding:7px 10px;font-size:14px}
   .q-lines td:nth-child(2){grid-column:1;grid-row:2}
   .q-lines td:nth-child(3){grid-column:2;grid-row:2}
   .q-lines td:nth-child(7){grid-column:3;grid-row:2}
@@ -225,6 +225,7 @@ svg.art .y{stroke:var(--accent);stroke-width:2.6}svg.art .d{stroke:var(--muted);
 .rv-n{font-size:16px;font-weight:600}.rv-j{font-size:20px;font-weight:700;color:var(--steel)}.rv-t{font-size:13.5px;color:var(--muted)}
 #r-rival:not([hidden]) ~ #r-list .empty{display:none}
 .rv-arrow{font-size:20px;color:var(--red);margin:4px 0}.rv-card .q-actions{margin-top:10px}.rv-card .hint{margin-top:8px}
+.q-lines select.ral{display:block;margin-top:6px;width:100%;max-width:220px;font:13px var(--f-body);padding:5px 8px}
 .q-lines input.ral{display:block;margin-top:6px;width:100%;max-width:220px;font:13px var(--f-body);padding:5px 8px}
 .h-hist{display:flex;flex-direction:column;gap:8px}
 .h-hi-item{display:flex;align-items:center;gap:8px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
@@ -829,12 +830,21 @@ function quoteFromSystem(sy,s,silent){
   if(!silent) $("#quote").scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"});
 }
 
+/* Renk: fiyat listesindeki renk/baz bilgisine göre. "Base" varsa renklendirilebilir (RAL yazılır); yoksa sadece listedeki renkler seçilir. */
+function colorCell(ln,i){
+  const c=CATALOG.find(p=>p.name===ln.name); const cols=c?c.colors:[];
+  const fixed=cols.filter(x=>!/^Base\b/i.test(x)&&!/transparent/i.test(x)), tint=cols.some(x=>/^Base\b/i.test(x));
+  if(tint) return `<input type="text" class="ral" id="q-r-${i}" data-i="${i}" data-f="ral" list="dl-${i}" value="${esc(ln.ral||"")}" placeholder="Renk / RAL kodu (renklendirilebilir)" aria-label="Renk"><datalist id="dl-${i}">${fixed.map(x=>`<option value="${esc(x)}">`).join("")}</datalist>`;
+  if(fixed.length===1){ if(!ln.ral) ln.ral=fixed[0]; return `<span class="need">Renk: ${esc(fixed[0])} (renklendirilmez)</span>`; }
+  if(fixed.length>1) return `<select class="ral" id="q-r-${i}" data-i="${i}" data-f="ral" aria-label="Renk"><option value="">Renk seçin</option>${fixed.map(x=>`<option${x===ln.ral?" selected":""}>${esc(x)}</option>`).join("")}</select>`;
+  return "";
+}
 function renderLines(){
   syncThinner();
   const tb=$("#q-body");
   tb.innerHTML = Q.lines.map((ln,i)=>{const packs=packsOf(ln.name);const u=isKg(ln.name)?"kg":"L";
    return `<tr>
-    <td>${ln.key?`<span class="prod">${esc(ln.name)}</span>`:`<input type="text" id="q-n-${i}" data-i="${i}" data-f="name" value="${esc(ln.name)}" placeholder="Ürün adı" aria-label="Ürün adı">`}${ln.auto?`<span class="need">Boyanın %15'i · İhtiyaç ≈ ${fmt(Math.ceil(ln.needL),0)} L</span>`:ln.needL?`<span class="need">İhtiyaç ≈ ${fmt(Math.ceil(ln.needL),0)} L</span>`:""}${ln.auto?"":`<input type="text" class="ral" id="q-r-${i}" data-i="${i}" data-f="ral" value="${esc(ln.ral||"")}" placeholder="Renk – isteğe bağlı (örn. RAL 7035)" aria-label="Renk">`}</td>
+    <td>${ln.key?`<span class="prod">${esc(ln.name)}</span>`:`<input type="text" id="q-n-${i}" data-i="${i}" data-f="name" value="${esc(ln.name)}" placeholder="Ürün adı" aria-label="Ürün adı">`}${ln.auto?`<span class="need">Boyanın %15'i · İhtiyaç ≈ ${fmt(Math.ceil(ln.needL),0)} L</span>`:ln.needL?`<span class="need">İhtiyaç ≈ ${fmt(Math.ceil(ln.needL),0)} L</span>`:""}${ln.auto?"":colorCell(ln,i)}</td>
     <td class="n" data-label="Ambalaj">${packs.length>1?`<select id="q-k-${i}" data-i="${i}" data-f="pack" aria-label="Ambalaj">${packs.map(x=>`<option value="${x}"${x===num(ln.pack)?" selected":""}>${fmt(x,x%1?2:0)} ${u}</option>`).join("")}</select>`
       :packs.length===1?`<span class="mono">${fmt(packs[0],packs[0]%1?2:0)} ${u}</span>`
       :`<input type="number" id="q-k-${i}" data-i="${i}" data-f="pack" min="0" step="0.1" value="${ln.pack}" placeholder="L" aria-label="Ambalaj litre">`}</td>
