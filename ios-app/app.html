@@ -4,19 +4,19 @@
 <style>
 /* Layout: sticky input rail on the left (desktop) / on top (phone); system cards stacked on the right, each a spec sheet with a coat table. */
 :root{
-  --bg:#f1f3f7; --panel:#ffffff; --ink:#031e45; --muted:#4b5b74; --line:#d2d9e4;
+  --bg:#f3f5f9; --panel:#ffffff; --ink:#031e45; --muted:#4b5b74; --line:#d2d9e4;
   --steel:#031e45; --accent:#f0ab00; --accent-ink:#031e45; --zinc:#5f7391; --red:#d52b1e;
-  --ok:#2e7d4f; --warn:#d52b1e;
+  --ok:#2e7d4f; --warn:#d52b1e; --shadow:0 1px 2px rgba(3,30,69,.05),0 6px 18px rgba(3,30,69,.06);
   --f-display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
   --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#061430; --panel:#0c1f3f; --ink:#e9eef7; --muted:#9db0cc; --line:#20385e;
-  --steel:#9cbcef; --accent:#f0ab00; --accent-ink:#031e45; --zinc:#8fa3c2; --red:#ff6a5c; --ok:#6cc392; --warn:#ff7a6c; color-scheme:dark}}
+  --steel:#9cbcef; --accent:#f0ab00; --accent-ink:#031e45; --zinc:#8fa3c2; --red:#ff6a5c; --ok:#6cc392; --warn:#ff7a6c; --shadow:0 1px 2px rgba(0,0,0,.25); color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#061430; --panel:#0c1f3f; --ink:#e9eef7; --muted:#9db0cc; --line:#20385e;
-  --steel:#9cbcef; --accent:#f0ab00; --accent-ink:#031e45; --zinc:#8fa3c2; --red:#ff6a5c; --ok:#6cc392; --warn:#ff7a6c; color-scheme:dark}
+  --steel:#9cbcef; --accent:#f0ab00; --accent-ink:#031e45; --zinc:#8fa3c2; --red:#ff6a5c; --ok:#6cc392; --warn:#ff7a6c; --shadow:0 1px 2px rgba(0,0,0,.25); color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.5}
 .wrap{max-width:1180px;margin:0 auto;padding-block:20px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
@@ -27,7 +27,7 @@ h1 span{color:#fff;background:var(--red);padding:0 8px;margin-left:4px}
 .sub{color:var(--muted);font-size:13px;margin:0}
 .grid{display:grid;grid-template-columns:320px 1fr;gap:20px;align-items:start}
 @media (max-width:860px){.grid{grid-template-columns:1fr}}
-.rail{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:14px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px)}
+.rail{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:14px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);box-shadow:var(--shadow)}
 @media (max-width:860px){.rail{position:static}}
 fieldset{border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;min-width:0}
 legend,label.lbl{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:0;margin-bottom:2px}
@@ -44,9 +44,9 @@ input:focus-visible,select:focus-visible,button:focus-visible{outline:2px solid 
 .results{display:flex;flex-direction:column;gap:16px;min-width:0}
 .summary{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline;font-size:14px;color:var(--muted)}
 .summary b{color:var(--ink);font-weight:600}
-.prep{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--steel);border-radius:6px;padding:10px 14px;font-size:13.5px}
+.prep{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--steel);border-radius:16px;padding:10px 14px;font-size:13.5px;box-shadow:var(--shadow)}
 .prep strong{font-family:var(--f-mono);font-weight:500;background:var(--bg);padding:1px 6px;border-radius:3px;border:1px solid var(--line)}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
 .card-h{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;padding:12px 16px;border-bottom:1px solid var(--line)}
 .iso{font-family:var(--f-mono);font-size:13px;font-weight:500;background:var(--accent);color:var(--accent-ink);padding:2px 8px;border-radius:3px}
 .u{text-transform:none}
@@ -82,7 +82,7 @@ input[type=text]{width:100%;font:500 15px var(--f-body);padding:7px 9px;border:1
 .q-head .hint{margin:0;max-width:62ch}
 .q-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:start}
 @media (max-width:960px){.q-grid{grid-template-columns:1fr}}
-.q-form{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.q-form{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0;box-shadow:var(--shadow)}
 .q-lines td{padding:6px 6px;vertical-align:middle}
 .q-lines th{padding:6px}
 .q-lines input,.q-lines select{font-size:14px;padding:6px 7px}
@@ -250,6 +250,23 @@ svg.art .y{stroke:var(--accent);stroke-width:2.6}svg.art .d{stroke:var(--muted);
 body:has(#q-empty:not([hidden]))[data-view="teklif"] #q-bar{display:none}
 .q-empty{text-align:center;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px 18px}
 .q-empty svg.art{width:84px;height:84px;margin:0 auto 6px;display:block}.q-empty h3{margin:4px 0;font-size:18px}.q-empty p{color:var(--muted);margin:0 0 14px}
+:root{--c-p:#d9534a;--c-i:#9aa8bd;--c-t:#f0ab00;--c-steel:#5d6b80}
+.stack{display:flex;flex-direction:column;height:118px;margin:12px 16px 0;border-radius:10px;overflow:hidden;border:1px solid var(--line)}
+.st-l{display:flex;align-items:center;justify-content:space-between;padding:0 10px;color:#fff;font-size:12px;min-height:22px;text-shadow:0 1px 1px rgba(0,0,0,.25)}
+.st-l b{font-family:var(--f-mono);font-weight:600}
+.st-steel{flex:0 0 18px;background:repeating-linear-gradient(45deg,var(--c-steel),var(--c-steel) 4px,#71809a 4px,#71809a 8px);color:#fff;font-size:10.5px;display:flex;align-items:center;padding:0 10px}
+.cmp-btn{margin-top:8px;width:100%}
+dialog.sheet{border:0;padding:0;margin:auto auto 0;width:100%;max-width:640px;max-height:88vh;border-radius:18px 18px 0 0;background:var(--panel);color:var(--ink);box-shadow:0 -10px 40px rgba(0,0,0,.25)}
+@media (min-width:701px){dialog.sheet{margin:auto;border-radius:18px}}
+dialog.sheet::backdrop{background:rgba(3,30,69,.45)}
+.sheet-in{padding:16px 18px calc(18px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:10px;overflow:auto;max-height:88vh}
+.sheet-h{display:flex;align-items:center;justify-content:space-between}.sheet-h h3{margin:0;font-size:18px}
+.sheet .x{font-size:24px;background:none;border:0;color:var(--muted);cursor:pointer}
+pre.spec{white-space:pre-wrap;font:13px/1.55 var(--f-mono);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px;margin:0}
+table.cmp th,table.cmp td{vertical-align:top;font-size:13px;padding:8px}
+table.cmp th.best,table.cmp td.best{background:color-mix(in srgb,var(--accent) 14%,transparent)}
+table.cmp tbody th{color:var(--muted);font-weight:600;text-align:left;white-space:nowrap}
+.btn{border-radius:10px}
 .wz-cats .wz-opt{border:0;background:none;padding:0;border-radius:0;align-items:center;gap:6px}
 .wz-cats .wz-opt .h-lb{font-size:12.5px;color:var(--ink)}
 .tab{font:600 15px var(--f-body);color:var(--muted);text-decoration:none;padding:8px 14px;border-bottom:3px solid transparent;margin-bottom:-1px}
@@ -271,7 +288,7 @@ input[type=search]{width:100%;font:500 16px var(--f-body);padding:10px 12px;bord
 .chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .r-catinfo{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:6px;padding:10px 14px;margin:0 0 10px;font-size:14px}
 .r-list{display:flex;flex-direction:column;gap:6px}
-.r-item{background:var(--panel);border:1px solid var(--line);border-radius:6px}
+.r-item{background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}
 .r-item>summary{list-style:none;cursor:pointer;padding:10px 14px;display:grid;grid-template-columns:1fr auto;gap:2px 12px;align-items:baseline}
 .r-item>summary::-webkit-details-marker{display:none}
 .r-item>summary:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;border-radius:6px}
@@ -304,7 +321,7 @@ input[type=search]{width:100%;font:500 16px var(--f-body);padding:10px 12px;bord
 .up-btn{display:flex!important;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-align:center;min-height:72px;padding:10px;border:2px dashed var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:600 14px var(--f-body);cursor:pointer}
 .up-btn svg{width:26px;height:26px;stroke:var(--steel);fill:none;stroke-width:1.8}
 .up-btn:hover,.up-btn:focus-within{border-color:var(--accent)}
-.dbox{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.dbox{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:10px;min-width:0;box-shadow:var(--shadow)}
 .dtitle{font-weight:600;margin:0}
 textarea{width:100%;font:15px/1.45 var(--f-body);padding:9px 11px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);resize:vertical}
 textarea:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
@@ -318,7 +335,7 @@ textarea:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
 .choice{display:block;width:100%;text-align:left;font:500 14px var(--f-body);background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:8px 10px;margin:4px 0;cursor:pointer;white-space:normal}
 .choice:hover{border-color:var(--ink)}
 .ch-in{display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--line);padding-top:10px}
-.wz{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:18px;display:flex;flex-direction:column;gap:12px}
+.wz{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:12px;box-shadow:var(--shadow)}
 .wz-top{display:flex;gap:8px;justify-content:space-between}
 .wz-n{margin:0;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .wz-q{margin:0;font-family:var(--f-display);font-weight:600;font-size:26px;line-height:1.1;text-transform:uppercase;text-wrap:balance}
@@ -731,9 +748,12 @@ function render(){
   }
   list.forEach((sy,i)=>{ if(i===1) html += `<details class="more"><summary>Diğer seçenekler (${list.length-1})</summary><div class="more-in">`; html += card(sy,s,i); });
   if(list.length>1) html += `</div></details>`;
+  if(list.length>1) html += `<button type="button" class="btn ghost cmp-btn" id="cmp-btn">Seçenekleri yan yana karşılaştır (${Math.min(list.length,4)})</button>`;
   out.innerHTML = html;
   out.querySelectorAll("[data-copy]").forEach(b=>b.addEventListener("click",()=>copy(b,list[+b.dataset.copy],s)));
   out.querySelectorAll("[data-quote]").forEach(b=>b.addEventListener("click",()=>quoteFromSystem(list[+b.dataset.quote],s)));
+  out.querySelectorAll("[data-spec]").forEach(b=>b.addEventListener("click",()=>specOpen(list[+b.dataset.spec],s)));
+  const cmp=out.querySelector("#cmp-btn"); if(cmp) cmp.addEventListener("click",()=>cmpOpen(list,s));
 }
 let LAST={list:[],s:null};
 const tot = sy=>sy.coats.reduce((a,c)=>a+c.dft,0);
@@ -747,6 +767,12 @@ function prepBox(s,list){
   return `<div class="prep">${t}</div>`;
 }
 
+/* Katman kesiti: her kat kalınlığıyla orantılı şerit (alttan üste: çelik → astar → ara → son kat) */
+function stackHTML(coats){
+  const tot=coats.reduce((a,c)=>a+c.d,0)||1, col={p:"var(--c-p)",i:"var(--c-i)",t:"var(--c-t)"};
+  const segs=coats.slice().reverse().map(c=>`<div class="st-l" style="flex:${Math.max(c.d/tot,.14)};background:${col[c.r]||"var(--c-i)"}"><span>${esc(c.n)}</span><b>${c.d} µm</b></div>`).join("");
+  return `<div class="stack" aria-hidden="true">${segs}<div class="st-steel"><span>Çelik</span></div></div>`;
+}
 function card(sy,s,i){
   let rows="", totLg=0, totDft=0;
   sy.coats.forEach((c,n)=>{
@@ -758,13 +784,14 @@ function card(sy,s,i){
   });
   return `<article class="card${i===0?" best":""}">
    <div class="card-h">${i===0?'<span class="badge">Önerilen</span>':""}<h3>${FAM[sy.fam]} · ${sy.coats.length} kat · ${totDft} <span class="u">µm</span></h3><span class="iso">ISO 12944-5/${sy.iso}</span></div>
+   ${stackHTML(sy.coats.map(c=>({n:PRODUCTS[c.key].name,d:c.dft,r:c.role})))}
    <div class="tbl-wrap"><table>
     <thead><tr><th>Ürün</th><th class="n"><span class="u">µm</span></th><th class="n">Litre</th></tr></thead>
     <tbody>${rows}</tbody>
     <tfoot><tr><td>Toplam</td><td class="n">${totDft} µm</td><td class="n">${fmt(Math.ceil(totLg),0)} L</td></tr></tfoot>
    </table></div>
    ${i===0?`<details class="whyd"><summary>Neden bu sistem?</summary>${whyHTML(sy.coats.map(c=>PRODUCTS[c.key].name),{iso:sy.iso,env:s.env,dur:s.dur,tot:totDft})}</details>`:""}
-   <div class="card-f"><button type="button" class="btn ghost" data-copy="${i}">Kopyala</button><button type="button" class="btn primary" data-quote="${i}">Teklife aktar →</button></div>
+   <div class="card-f"><button type="button" class="btn ghost" data-spec="${i}">Şartname metni</button><button type="button" class="btn primary" data-quote="${i}">Teklife aktar →</button></div>
   </article>`;
 }
 
@@ -1017,13 +1044,45 @@ function renderRehber(){
         ${row("Ambalaj",p.packs.length?p.packs.join(" / ")+(p.name.includes("(*kg)")?" kg":" L"):"")}
         ${row("Renk / baz",esc(p.colors.join(", ")))}
         ${p.offlist&&!p.note?row("Bilgi","Teknik bilgi için Jotun'a danışın."):""}
-      </dl>${p.cat!=="MCI Tinter"?`<div><button type="button" class="btn" data-addq="${i}">Teklife ekle</button></div>`:""}</div></details>`}).join("")||`<p class="empty">“${esc($("#r-q").value)}” için ürün bulunamadı.</p>`;
+      </dl><div class="q-actions">${p.cat!=="MCI Tinter"?`<button type="button" class="btn primary" data-addq="${i}">Teklife ekle</button>`:""}<a class="btn" target="_blank" rel="noopener" href="https://www.google.com/search?q=${encodeURIComponent("Jotun "+p.name+" technical data sheet")}">TDS'i aç</a></div></div></details>`}).join("")||`<p class="empty">“${esc($("#r-q").value)}” için ürün bulunamadı.</p>`;
 }
 $("#r-q").addEventListener("input",renderRehber);
 $("#r-cats").addEventListener("click",e=>{const b=e.target.closest("[data-c]");if(!b)return;rCat=b.dataset.c;renderCats();renderRehber();});
 ["#r-list","#r-rival"].forEach(id=>$(id).addEventListener("click",e=>{const b=e.target.closest("[data-addq]");if(!b)return;const nm=CATALOG[+b.dataset.addq].name;
   addLine(nm,null);
   if(!Q.no)newNo(); renderLines(); renderDoc(); b.textContent="Teklife eklendi ✓"; setTimeout(()=>b.textContent="Teklife ekle",1500); toast(nm+" teklife eklendi",true);}));
+/* ---------- Şartname metni ve karşılaştırma (Grundfos "tender text" mantığı) ---------- */
+function sheet(title,html){
+  let d=$("#sheet"); if(!d){d=document.createElement("dialog");d.id="sheet";d.className="sheet";document.body.appendChild(d);d.addEventListener("click",e=>{if(e.target===d||e.target.closest("[data-close]"))d.close();});}
+  d.innerHTML=`<div class="sheet-in"><div class="sheet-h"><h3>${title}</h3><button type="button" class="x" data-close aria-label="Kapat">×</button></div>${html}</div>`;
+  try{d.showModal()}catch(e){d.setAttribute("open","")} return d;
+}
+function specText(sy,s){
+  const hdg=s.sub==="hdg", envT={C2:"C2 (düşük)",C3:"C3 (orta)",C4:"C4 (yüksek)",C5:"C5 (çok yüksek)",Im:"Im1–Im3 (daldırma)"}[s.env];
+  const role={p:"Astar",i:"Ara kat",t:"Son kat"};
+  const L=[`BOYA SİSTEMİ – ISO 12944-5:2019 / ${sy.iso}`,
+   `Korozyon kategorisi: ${envT} (ISO 12944-2) · Dayanıklılık: ${DUR[s.dur]}`,
+   `Yüzey hazırlığı: ${hdg?"Metalik olmayan aşındırıcı ile süpürme raspa (ISO 12944-4)":"Sa 2½ (ISO 8501-1) aşındırıcı püskürtme; yağ, toz ve tuz giderilmiş"}${!hdg&&sy.fam==="zn"?"; pürüzlülük Medium (G), ISO 8503-1":""}.`,""];
+  sy.coats.forEach((c,n)=>{const p=PRODUCTS[c.key];L.push(`${n+1}. ${role[c.role]||"Kat"}: ${p.type}, hacimce katı madde min. %${p.vs} – ${c.dft} µm KFK (Jotun ${p.name} veya eşdeğeri)`);});
+  L.push("",`Toplam nominal kuru film kalınlığı: ${tot(sy)} µm`,"Kat başına kalınlıklar ilgili ürünün teknik föyündeki (TDS) aralıkta olmalıdır; ölçümler ISO 19840'a göre yapılır.");
+  return L.join("\n");
+}
+function specOpen(sy,s){
+  const t=specText(sy,s);
+  const d=sheet("Şartname metni",`<p class="hint">Müşterinin teknik şartnamesine yapıştırmaya hazır metin.</p><pre class="spec">${esc(t)}</pre><div class="q-actions"><button type="button" class="btn primary" id="spec-cp">Kopyala</button><a class="btn" target="_blank" rel="noopener" href="https://wa.me/?text=${encodeURIComponent(t)}">WhatsApp</a></div>`);
+  d.querySelector("#spec-cp").onclick=e=>{const b=e.target;const ok=()=>{b.textContent="Kopyalandı ✓"};try{navigator.clipboard.writeText(t).then(ok,()=>{})}catch(_){}};
+}
+function cmpOpen(list,s){
+  const L=list.slice(0,4), loss=s.loss;
+  const lit=sy=>Math.ceil(sy.coats.reduce((a,c)=>{const p=PRODUCTS[c.key];return a+s.area/(p.vs*10/c.dft)/(1-loss/100)},0));
+  const row=(k,f)=>`<tr><th>${k}</th>${L.map((sy,i)=>`<td${i===0?' class="best"':""}>${f(sy)}</td>`).join("")}</tr>`;
+  const html=`<div class="tbl-wrap"><table class="cmp"><thead><tr><th></th>${L.map((sy,i)=>`<th${i===0?' class="best"':""}>${i===0?"Önerilen":`Seçenek ${i+1}`}<br><small>ISO ${sy.iso}</small></th>`).join("")}</tr></thead><tbody>
+   ${row("Astar tipi",sy=>FAM[sy.fam])}${row("Kat sayısı",sy=>sy.coats.length)}${row("Toplam KFK",sy=>tot(sy)+" µm")}${row(`Boya (${fmt(s.area,0)} m²)`,sy=>lit(sy)+" L")}
+   ${row("Katlar",sy=>sy.coats.map(c=>`${esc(PRODUCTS[c.key].name)} ${c.dft}`).join("<br>"))}
+   ${row("",(sy)=>`<button type="button" class="btn ${sy===L[0]?"primary":""}" data-cq="${list.indexOf(sy)}">Teklife aktar</button>`)}</tbody></table></div>`;
+  const d=sheet("Seçenekleri karşılaştır",html);
+  d.querySelectorAll("[data-cq]").forEach(b=>b.onclick=()=>{d.close();quoteFromSystem(list[+b.dataset.cq],s);});
+}
 /* ---------- Bildirim, rozet, alt çubuklar ---------- */
 let toastT=null;
 function toast(msg,link){
