@@ -1,5 +1,5 @@
 /* JTN Endüstri Rehber – çevrimdışı çalışma ve hızlı açılış */
-const CACHE = "jtn-rehber-v2";
+const CACHE = "jtn-rehber-v3";
 const CORE = ["./", "./index.html", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png", "./apple-touch-icon.png",
   "https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js",
   "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"];
@@ -14,7 +14,7 @@ self.addEventListener("fetch", e => {
   if (req.method !== "GET") return;
   // Sayfa: önce internet (güncel sürüm), yoksa kayıtlı kopya
   if (req.mode === "navigate") {
-    e.respondWith(fetch(req).then(r => { const cp = r.clone(); caches.open(CACHE).then(c => c.put("./index.html", cp)); return r; })
+    e.respondWith(fetch(req, {cache: "no-store"}).then(r => { const cp = r.clone(); caches.open(CACHE).then(c => c.put("./index.html", cp)); return r; })
       .catch(() => caches.match("./index.html")));
     return;
   }
