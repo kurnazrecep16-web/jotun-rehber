@@ -1,6 +1,6 @@
 {
-  "appId": "com.jotun.rehber",
-  "appName": "Jotun Rehber",
+  "appId": "com.jtn.endustrirehber",
+  "appName": "JTN Endüstri Rehber",
   "webDir": "www",
   "ios": {
     "contentInset": "always",

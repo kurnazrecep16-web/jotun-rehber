@@ -1,5 +1,5 @@
-/* Jotun Rehber – çevrimdışı çalışma ve hızlı açılış */
-const CACHE = "jotun-rehber-v1";
+/* JTN Endüstri Rehber – çevrimdışı çalışma ve hızlı açılış */
+const CACHE = "jtn-rehber-v2";
 const CORE = ["./", "./index.html", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png", "./apple-touch-icon.png",
   "https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js",
   "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"];

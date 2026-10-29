@@ -1,7 +1,7 @@
 {
-  "name": "Jotun Rehber",
-  "short_name": "Jotun Rehber",
-  "description": "Jotun bayileri için sistem önerisi, sarfiyat, teklif ve ürün rehberi",
+  "name": "JTN Endüstri Rehber",
+  "short_name": "JTN Rehber",
+  "description": "Bayiler için sistem önerisi, sarfiyat, teklif ve ürün rehberi",
   "lang": "tr",
   "start_url": "./",
   "scope": "./",
