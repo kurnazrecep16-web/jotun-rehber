@@ -1,7 +1,7 @@
 # fontsource CSS'inden latin ve latin-ext yüzlerini alıp www/fonts.css üretir
 import re,shutil,os,sys
 out=[]
-for pkg,ws in [("barlow-condensed",[600,700]),("ibm-plex-sans",[400,500,600]),("ibm-plex-mono",[400,500])]:
+for pkg,ws in [("barlow-condensed",[600,700]),("ibm-plex-sans",[400,500,600,700]),("ibm-plex-mono",[400,500])]:
     for w in ws:
         css=open(f"node_modules/@fontsource/{pkg}/{w}.css").read()
         for blk in re.findall(r"/\* ([^*]+) \*/\s*(@font-face \{.*?\})",css,re.S):
