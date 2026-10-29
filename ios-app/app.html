@@ -210,7 +210,8 @@ svg.art .y{stroke:var(--accent);stroke-width:2.6}svg.art .d{stroke:var(--muted);
   .q-lines td:nth-child(2) .mono{display:flex;align-items:center;height:42px;font-size:16px}
   .q-lines td:nth-child(4),.q-lines td:nth-child(6),.q-lines td:nth-child(8){grid-row:3;font-weight:500!important;font-size:13px;color:var(--muted);padding-top:8px;border-top:1px dashed var(--line)}
   .q-lines td:nth-child(4){grid-column:1}.q-lines td:nth-child(6){grid-column:2}.q-lines td:nth-child(8){grid-column:3}
-  .q-lines td:nth-child(4)::before,.q-lines td:nth-child(6)::before,.q-lines td:nth-child(8)::before{font-size:10.5px}
+  .q-lines td:nth-child(4)::before,.q-lines td:nth-child(6)::before,.q-lines td:nth-child(8)::before{display:none!important}
+  .q-lines td:nth-child(8):not(:empty)::after{content:" /kg"}
   .q-lines td:nth-child(5){grid-column:1/3;grid-row:4;display:flex;align-items:center;gap:6px}
   .q-lines td:nth-child(5)::before{display:inline!important;margin:0!important}
   .q-lines td:nth-child(5) input{width:80px!important;height:34px}
@@ -218,6 +219,10 @@ svg.art .y{stroke:var(--accent);stroke-width:2.6}svg.art .d{stroke:var(--muted);
   .q-lines td:nth-child(9){grid-column:1/-1;grid-row:5;display:flex;justify-content:space-between;align-items:baseline;font-size:18px!important;font-weight:700!important;color:var(--ink);padding-top:8px;border-top:1px solid var(--line)}
   .q-lines td:nth-child(9)::before{display:inline!important;font-size:13px!important;font-weight:600;margin:0!important}
   .q-lines td.del{grid-row:1}
+  .q-lines tr.auto td:nth-child(5),.q-lines tr.auto td:nth-child(6),.q-lines tr.auto td:nth-child(8){display:none!important}
+  .q-head{display:none}
+  header{margin-bottom:10px!important;padding-bottom:6px!important}
+  h1{font-size:24px!important}
   #q-add-sel{flex:1 1 100%;width:100%;min-width:0;max-width:100%}
 }
 .rv-card{background:var(--panel);border:1px solid var(--line);border-left:5px solid var(--red);border-radius:12px;padding:14px 16px;margin-bottom:12px;display:flex;flex-direction:column;gap:2px}
@@ -251,7 +256,7 @@ body:has(#q-empty:not([hidden]))[data-view="teklif"] #q-bar{display:none}
 .q-empty{text-align:center;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px 18px}
 .q-empty svg.art{width:84px;height:84px;margin:0 auto 6px;display:block}.q-empty h3{margin:4px 0;font-size:18px}.q-empty p{color:var(--muted);margin:0 0 14px}
 :root{--c-p:#d9534a;--c-i:#9aa8bd;--c-t:#f0ab00;--c-steel:#5d6b80}
-.stack{display:flex;flex-direction:column;height:118px;margin:12px 16px 0;border-radius:10px;overflow:hidden;border:1px solid var(--line)}
+.stack{display:flex;flex-direction:column;height:150px;margin:12px 16px 0;border-radius:10px;overflow:hidden;border:1px solid var(--line)}
 .st-l{display:flex;align-items:center;justify-content:space-between;padding:0 10px;color:#fff;font-size:12px;min-height:22px;text-shadow:0 1px 1px rgba(0,0,0,.25)}
 .st-l b{font-family:var(--f-mono);font-weight:600}
 .st-steel{flex:0 0 18px;background:repeating-linear-gradient(45deg,var(--c-steel),var(--c-steel) 4px,#71809a 4px,#71809a 8px);color:#fff;font-size:10.5px;display:flex;align-items:center;padding:0 10px}
@@ -267,6 +272,13 @@ table.cmp th,table.cmp td{vertical-align:top;font-size:13px;padding:8px}
 table.cmp th.best,table.cmp td.best{background:color-mix(in srgb,var(--accent) 14%,transparent)}
 table.cmp tbody th{color:var(--muted);font-weight:600;text-align:left;white-space:nowrap}
 .btn{border-radius:10px}
+.c-sum{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 16px 0}
+.c-sum div{background:var(--bg);border-radius:12px;padding:8px 12px}.c-sum b{display:block;font:700 20px var(--f-body);color:var(--ink)}.c-sum span{font-size:12px;color:var(--muted)}
+.c-prep{margin:10px 16px 0;font-size:13px;color:var(--muted)}
+.card .whyd{margin:8px 16px 0}
+.r-cgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.r-cg{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;cursor:pointer;font:inherit;color:var(--ink);box-shadow:var(--shadow)}
+.r-cg b{font-size:15px}.r-cg span{font-size:12.5px;color:var(--muted)}
 .wz-cats .wz-opt{border:0;background:none;padding:0;border-radius:0;align-items:center;gap:6px}
 .wz-cats .wz-opt .h-lb{font-size:12.5px;color:var(--ink)}
 .tab{font:600 15px var(--f-body);color:var(--muted);text-decoration:none;padding:8px 14px;border-bottom:3px solid transparent;margin-bottom:-1px}
@@ -388,16 +400,12 @@ label.btn{display:inline-block}
 </nav>
 <section id="v-ana">
   <p class="h-hi" id="h-greet">Hoş geldiniz</p>
-  <form class="h-search" id="h-search" role="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5"/></svg><input type="search" id="h-q" placeholder="Ürün ara" aria-label="Ürün ara"></form>
-  <form class="h-name" id="h-name" hidden><input type="text" id="h-name-in" placeholder="Bayi adınız (tekliflerde görünür)" autocomplete="organization" aria-label="Bayi adı"><button type="submit" class="btn primary">Kaydet</button></form>
   <div class="h-resume" id="h-resume" hidden></div>
   <button type="button" class="h-hero" data-go="sistem"><span class="h-hero-t"><b>Boya sistemi hesapla</b><span>ISO 12944 · kat · litre</span><span class="h-go">Başla →</span></span><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M6 46h52v8H6z"/><path d="M6 46h52v8H6z"/><path class="a" d="M6 41h52"/><path class="g" d="M6 36h52"/><path class="y" d="M6 31h52"/><path class="d" d="M50 31v-14h8M50 36v-14M50 41v-14" /><path d="M10 50h4M20 50h4M30 50h4"/></svg></button>
   <h3 class="h-sec">Ne boyanacak?</h3>
   <div class="h-cats"><button type="button" class="h-cat" data-go="what:celik"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M10 18h44v6H35v20h19v6H10v-6h19V24H10z"/><path d="M10 18h44v6H35v20h19v6H10v-6h19V24H10z"/><path class="d" d="M6 56h52M6 12h52"/><path class="a" d="M4 15v-6M60 15v-6M4 12h56"/></svg></span><span class="h-lb">Çelik yapı</span></button><button type="button" class="h-cat" data-go="what:ekipman"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><rect class="f" x="8" y="24" width="34" height="24" rx="2"/><rect x="8" y="24" width="34" height="24" rx="2"/><path d="M14 48v6M36 48v6M42 32h8l6 8v8H42"/><circle class="a" cx="25" cy="36" r="6"/><circle cx="25" cy="36" r="2"/><path class="d" d="M4 54h56"/></svg></span><span class="h-lb">Makine</span></button><button type="button" class="h-cat" data-go="what:tankdis"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><rect class="f" x="8" y="18" width="48" height="22" rx="11"/><rect x="8" y="18" width="48" height="22" rx="11"/><path d="M16 40l-4 10h12l-4-10M48 40l-4 10h12l-4-10M30 18v-8h8v8"/><path class="a" d="M8 29h48"/><path class="d" d="M4 50h56"/></svg></span><span class="h-lb">Tank dış</span></button><button type="button" class="h-cat" data-go="what:boru"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M6 24h40v16H6z"/><path d="M6 24h40v16H6zM46 20h6v24h-6zM52 26h8v12h-8"/><path class="a" d="M14 24v16M30 24v16"/><path class="d" d="M4 50h56"/></svg></span><span class="h-lb">Boru dış</span></button><button type="button" class="h-cat" data-go="what:tankic"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M14 34h36v18a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4z"/><path d="M14 10h36v42a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4z"/><path class="a" d="M14 34c6-3 12 3 18 0s12-3 18 0"/><path class="y" d="M18 14v38"/></svg></span><span class="h-lb">Tank içi</span></button><button type="button" class="h-cat" data-go="what:sicak"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M22 20h20v36H22z"/><path d="M22 20h20v36H22zM18 56h28M26 20v-6h12v6"/><path class="a" d="M26 10c-2-3 2-4 0-7M32 10c-2-3 2-4 0-7M38 10c-2-3 2-4 0-7"/><path class="d" d="M22 32h20M22 44h20"/></svg></span><span class="h-lb">Sıcak yüzey</span></button><button type="button" class="h-cat" data-go="what:zemin"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M6 38l20-12h32L38 38z"/><path d="M6 38l20-12h32L38 38zM6 38v8h32v-8M38 46l20-12v-8"/><path class="y" d="M6 42h32"/><path class="d" d="M16 34l8-5M26 34l8-5M36 34l8-5"/></svg></span><span class="h-lb">Beton zemin</span></button><button type="button" class="h-cat" data-go="what:yangin"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M26 8h12v48H26z"/><path d="M22 8h20M22 56h20M26 8v48M38 8v48"/><path class="a" d="M46 50c-6 0-9-5-7-10 1 3 3 3 3 3-1-6 3-10 6-12-1 5 4 7 4 12s-2 7-6 7z"/></svg></span><span class="h-lb">Yangın</span></button></div>
   <div id="h-hist-wrap" hidden><h3 class="h-sec" style="margin-bottom:8px">Son teklifler</h3><div class="h-hist" id="h-hist"></div></div>
-  <h3 class="h-sec">Hızlı işlemler</h3>
-  <div class="h-cats h-cats3"><button type="button" class="h-cat" data-go="teklif"><span class="h-ic t"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M14 6h26l10 10v42H14z"/><path d="M14 6h26l10 10v42H14zM40 6v10h10"/><path class="d" d="M20 26h24M20 33h24M20 40h24M32 26v21"/><path class="y" d="M20 50h14"/></svg></span><span class="h-lb">Teklif</span></button><button type="button" class="h-cat" data-go="foto"><span class="h-ic t"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M8 12h40v28H24l-10 9v-9H8z"/><path d="M8 12h40v28H24l-10 9v-9H8z"/><path class="a" d="M23 22a5 5 0 1 1 7 4.6c-1.4.6-2 1.4-2 2.9V31"/><circle class="a" cx="28" cy="35.5" r=".8"/><path class="y" d="M52 24h4v26h-6l-6 6v-6"/></svg></span><span class="h-lb">Soru sor</span></button><button type="button" class="h-cat" data-go="urun"><span class="h-ic t"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M14 16h36v38a3 3 0 0 1-3 3H17a3 3 0 0 1-3-3z"/><path d="M14 16h36v38a3 3 0 0 1-3 3H17a3 3 0 0 1-3-3zM14 16c0-4 36-4 36 0M22 10h20"/><rect class="a" x="20" y="28" width="24" height="14"/><path class="y" d="M24 48h16"/></svg></span><span class="h-lb">Ürünler</span></button></div>
-  <p class="foot" style="text-align:center;margin-top:8px">Sürüm 29.10.2026 · 22:35</p>
+  <p class="foot" style="text-align:center;margin-top:8px">Sürüm 29.10.2026 · 22:50</p>
 </section>
 <div id="v-sistem">
 
@@ -478,7 +486,7 @@ label.btn{display:inline-block}
   <div class="q-grid">
     <div class="q-form">
       <div class="row2">
-        <fieldset><label class="lbl" for="q-dealer">Bayi adı</label><input type="text" id="q-dealer" placeholder="Bayi ünvanı"></fieldset>
+        <p class="hint" id="q-dealer-show" hidden></p><fieldset id="q-dealer-fs"><label class="lbl" for="q-dealer">Bayi adı</label><input type="text" id="q-dealer" placeholder="Bayi ünvanınız (bir kez)"></fieldset>
         <fieldset><label class="lbl" for="q-customer">Müşteri adı</label><input type="text" id="q-customer" placeholder="Firma / kişi"></fieldset>
       </div>
       <fieldset><label class="lbl" for="q-project">Proje (isteğe bağlı)</label><input type="text" id="q-project" placeholder="Örn. depo çelik yapı"></fieldset>
@@ -743,13 +751,11 @@ function render(){
   const out = $("#out");
   const envLabel = s.env==="Im"?"Im1–Im3":s.env;
   let html = "";
-  html += prepBox(s, list);
   if(!list.length){
     html += `<div class="empty">Bu ortam ve dayanım için seçilen astar tipinde ISO 12944-5 sistemi yok. ${s.env==="C5"?"C5'te alkid sistem tanımlı değildir; epoksi veya çinkolu astarı deneyin.":"Astar tipini \"Hepsi\" yapın veya bir üst dayanım/kategori sistemi seçin."}</div>`;
   }
-  list.forEach((sy,i)=>{ if(i===1) html += `<details class="more"><summary>Diğer seçenekler (${list.length-1})</summary><div class="more-in">`; html += card(sy,s,i); });
-  if(list.length>1) html += `</div></details>`;
-  if(list.length>1) html += `<button type="button" class="btn ghost cmp-btn" id="cmp-btn">Seçenekleri yan yana karşılaştır (${Math.min(list.length,4)})</button>`;
+  if(list.length) html += card(list[0],s,0,prepBox(s,list));
+  if(list.length>1) html += `<button type="button" class="btn ghost cmp-btn" id="cmp-btn">Diğer ${list.length-1} seçenek · yan yana karşılaştır</button>`;
   out.innerHTML = html;
   out.querySelectorAll("[data-copy]").forEach(b=>b.addEventListener("click",()=>copy(b,list[+b.dataset.copy],s)));
   out.querySelectorAll("[data-quote]").forEach(b=>b.addEventListener("click",()=>quoteFromSystem(list[+b.dataset.quote],s)));
@@ -760,38 +766,29 @@ let LAST={list:[],s:null};
 const tot = sy=>sy.coats.reduce((a,c)=>a+c.dft,0);
 
 function prepBox(s,list){
-  if(s.sub==="hdg") return `<div class="prep">Yüzey: <strong>süpürme raspa</strong> (ISO 12944-4)</div>`;
+  if(s.sub==="hdg") return `Yüzey: <b>süpürme raspa</b>`;
   const hasZn = list.some(x=>x.fam==="zn");
-  let t = `Yüzey: <strong>Sa 2½</strong>`;
-  if(hasZn) t += ` · çinkoluda pürüzlülük <strong>Medium (G)</strong>`;
+  let t = `Yüzey: <b>Sa 2½</b>`;
+  if(hasZn) t += ` · pürüzlülük <b>Medium (G)</b>`;
   if(hasZn && s.zinc==="r86") t += ` <span class="warn">· Resist 86 üzerine önce mist kat</span>`;
-  return `<div class="prep">${t}</div>`;
+  return t;
 }
 
 /* Katman kesiti: her kat kalınlığıyla orantılı şerit (alttan üste: çelik → astar → ara → son kat) */
 function stackHTML(coats){
   const tot=coats.reduce((a,c)=>a+c.d,0)||1, col={p:"var(--c-p)",i:"var(--c-i)",t:"var(--c-t)"};
-  const segs=coats.slice().reverse().map(c=>`<div class="st-l" style="flex:${Math.max(c.d/tot,.14)};background:${col[c.r]||"var(--c-i)"}"><span>${esc(c.n)}</span><b>${c.d} µm</b></div>`).join("");
+  const segs=coats.slice().reverse().map(c=>`<div class="st-l" style="flex:${Math.max(c.d/tot,.2)};background:${col[c.r]||"var(--c-i)"}"><span>${esc(c.n)}</span><b>${c.d} µm${c.l!=null?` · ${c.l} L`:""}</b></div>`).join("");
   return `<div class="stack" aria-hidden="true">${segs}<div class="st-steel"><span>Çelik</span></div></div>`;
 }
-function card(sy,s,i){
-  let rows="", totLg=0, totDft=0;
-  sy.coats.forEach((c,n)=>{
-    const p = PRODUCTS[c.key];
-    const lg = s.area/(p.vs*10/c.dft)/(1-s.loss/100);
-    totLg+=lg; totDft+=c.dft;
-    rows += `<tr><td><span class="role">${n+1}. kat · ${ROLE[c.role]}</span><span class="prod">${p.name}</span></td>
-      <td class="n">${c.dft} µm</td><td class="n">${fmt(Math.ceil(lg),0)} L</td></tr>`;
-  });
-  return `<article class="card${i===0?" best":""}">
-   <div class="card-h">${i===0?'<span class="badge">Önerilen</span>':""}<h3>${FAM[sy.fam]} · ${sy.coats.length} kat · ${totDft} <span class="u">µm</span></h3><span class="iso">ISO 12944-5/${sy.iso}</span></div>
-   ${stackHTML(sy.coats.map(c=>({n:PRODUCTS[c.key].name,d:c.dft,r:c.role})))}
-   <div class="tbl-wrap"><table>
-    <thead><tr><th>Ürün</th><th class="n"><span class="u">µm</span></th><th class="n">Litre</th></tr></thead>
-    <tbody>${rows}</tbody>
-    <tfoot><tr><td>Toplam</td><td class="n">${totDft} µm</td><td class="n">${fmt(Math.ceil(totLg),0)} L</td></tr></tfoot>
-   </table></div>
-   ${i===0?`<details class="whyd"><summary>Neden bu sistem?</summary>${whyHTML(sy.coats.map(c=>PRODUCTS[c.key].name),{iso:sy.iso,env:s.env,dur:s.dur,tot:totDft})}</details>`:""}
+function card(sy,s,i,prep){
+  let totLg=0, totDft=0; const cs=[];
+  sy.coats.forEach(c=>{const p=PRODUCTS[c.key];const lg=Math.ceil(s.area/(p.vs*10/c.dft)/(1-s.loss/100));totLg+=lg;totDft+=c.dft;cs.push({n:p.name,d:c.dft,r:c.role,l:lg});});
+  return `<article class="card best">
+   <div class="card-h"><span class="badge">Önerilen</span><h3>${FAM[sy.fam]} · ${sy.coats.length} kat</h3><span class="iso">ISO ${sy.iso}</span></div>
+   ${stackHTML(cs)}
+   <div class="c-sum"><div><b>${totDft} µm</b><span>toplam kalınlık</span></div><div><b>${fmt(totLg,0)} L</b><span>${fmt(s.area,0)} m² için boya</span></div></div>
+   ${prep?`<p class="c-prep">${prep}</p>`:""}
+   <details class="whyd"><summary>Neden bu sistem?</summary>${whyHTML(sy.coats.map(c=>PRODUCTS[c.key].name),{iso:sy.iso,env:s.env,dur:s.dur,tot:totDft})}</details>
    <div class="card-f"><button type="button" class="btn ghost" data-spec="${i}">Şartname metni</button><button type="button" class="btn primary" data-quote="${i}">Teklife aktar →</button></div>
   </article>`;
 }
@@ -899,7 +896,7 @@ function renderLines(){
   syncThinner();
   const tb=$("#q-body");
   tb.innerHTML = Q.lines.map((ln,i)=>{const packs=packsOf(ln.name);const u=isKg(ln.name)?"kg":"L";
-   return `<tr>
+   return `<tr${ln.auto?' class="auto"':""}>
     <td>${ln.key?`<span class="prod">${esc(ln.name)}</span>`:`<input type="text" id="q-n-${i}" data-i="${i}" data-f="name" value="${esc(ln.name)}" placeholder="Ürün adı" aria-label="Ürün adı">`}${ln.auto?`<span class="need">Boyanın %15'i · İhtiyaç ≈ ${fmt(Math.ceil(ln.needL),0)} L</span>`:ln.needL?`<span class="need">İhtiyaç ≈ ${fmt(Math.ceil(ln.needL),0)} L</span>`:""}${ln.auto?"":colorCell(ln,i)}</td>
     <td class="n" data-label="Ambalaj">${packs.length>1?`<select id="q-k-${i}" data-i="${i}" data-f="pack" aria-label="Ambalaj">${packs.map(x=>`<option value="${x}"${x===num(ln.pack)?" selected":""}>${fmt(x,x%1?2:0)} ${u}</option>`).join("")}</select>`
       :packs.length===1?`<span class="mono">${fmt(packs[0],packs[0]%1?2:0)} ${u}</span>`
@@ -909,7 +906,7 @@ function renderLines(){
     <td class="n" data-label="kg/L"><input type="number" id="q-d-${i}" data-i="${i}" data-f="dens" min="0" step="0.01" value="${ln.dens}" placeholder="kg/L" aria-label="Yoğunluk kg/L" class="dens"></td>
     <td class="amt" data-label="Toplam kg" id="q-kg-${i}">${lineKg(ln)!=null?fmt(lineKg(ln),1)+" kg":"—"}</td>
     <td class="n" data-label="L fiyatı"><input type="number" id="q-p-${i}" data-i="${i}" data-f="price" min="0" step="0.01" value="${ln.price}" placeholder="0,00" aria-label="Litre fiyatı"></td>
-    <td class="amt" data-label="kg fiyatı" id="q-kp-${i}">${kgPrice(ln)!=null?money(kgPrice(ln)):"—"}</td>
+    <td class="amt" data-label="kg fiyatı" id="q-kp-${i}">${kgPrice(ln)!=null?money(kgPrice(ln)):""}</td>
     <td class="amt" data-label="Tutar" id="q-a-${i}">${amt(ln)}</td>
     <td class="del"><button type="button" class="x" data-del="${i}" aria-label="Satırı sil">×</button></td></tr>`}).join("")
     || `<tr><td colspan="10" class="hint" style="padding:12px 6px">Henüz ürün yok. Sistem kartından "Teklife aktar" deyin veya ürün ekleyin.</td></tr>`;
@@ -918,7 +915,7 @@ function updCells(i){const ln=Q.lines[i];const u=isKg(ln.name)?"kg":"L";
   $("#q-tl-"+i).textContent=lineL(ln)?fmt(lineL(ln),lineL(ln)%1?2:0)+" "+u:"—";
   $("#q-kg-"+i).textContent=lineKg(ln)!=null?fmt(lineKg(ln),1)+" kg":"—";
   $("#q-a-"+i).textContent=amt(ln);
-  const kp=$("#q-kp-"+i); if(kp) kp.textContent=kgPrice(ln)!=null?money(kgPrice(ln)):"—";}
+  const kp=$("#q-kp-"+i); if(kp) kp.textContent=kgPrice(ln)!=null?money(kgPrice(ln)):"";}
 function onLine(e){
   const t=e.target, f=t.dataset.f; if(f==null)return; const i=+t.dataset.i, ln=Q.lines[i];
   ln[f]=t.value;
@@ -945,6 +942,7 @@ $("#q-add").addEventListener("click",()=>{
 $("#q-clear").addEventListener("click",()=>{Q.lines=[];Q.sys=null;Q.thOff={};renderLines();renderDoc();});
 
 const dealerEl=$("#q-dealer"); dealerEl.value=load("q-dealer","");
+dealerEl.addEventListener("blur",()=>setTimeout(dealerUI,100));
 ["#q-dealer","#q-customer","#q-project","#q-valid","#q-kdv","#q-cur"].forEach(id=>$(id).addEventListener("input",()=>{if(id==="#q-dealer")store("q-dealer",dealerEl.value);if(id==="#q-cur")renderLines();renderDoc();}));
 $("#q-cur").addEventListener("change",()=>{renderLines();renderDoc();});
 
@@ -1030,6 +1028,12 @@ function renderRehber(){
   if(rCat!=="all"){info.hidden=false;info.innerHTML=`<b>${CATS[rCat][0]}.</b> ${CATS[rCat][1]}${CATS[rCat][2]?` <br><b>Nerede:</b> ${CATS[rCat][2]}`:""}`}else info.hidden=true;
   const rc=""; $("#r-rival").innerHTML=rc; $("#r-rival").hidden=!rc;
   $("#r-count").textContent=rc&&!list.length?"":`${list.length} ürün`;
+  if(rCat==="all"&&!q){
+    const cats=Object.keys(CATS).filter(c=>c!=="MCI Tinter"&&CATALOG.some(p=>p.cat===c));
+    $("#r-count").textContent="Kategori seçin veya ürün arayın";
+    $("#r-list").innerHTML=`<div class="r-cgrid">${cats.map(c=>`<button type="button" class="r-cg" data-c="${c}"><b>${CATS[c][0]}</b><span>${CATALOG.filter(p=>p.cat===c).length} ürün</span></button>`).join("")}</div>`;
+    return;
+  }
   $("#r-list").innerHTML=list.map(([p,i])=>{
     const c=CATS[p.cat];
     const row=(k,v)=>v?`<dt>${k}</dt><dd>${v}</dd>`:"";
@@ -1049,6 +1053,7 @@ function renderRehber(){
 }
 $("#r-q").addEventListener("input",renderRehber);
 $("#r-cats").addEventListener("click",e=>{const b=e.target.closest("[data-c]");if(!b)return;rCat=b.dataset.c;renderCats();renderRehber();});
+$("#r-list").addEventListener("click",e=>{const b=e.target.closest(".r-cg");if(!b)return;rCat=b.dataset.c;renderCats();renderRehber();window.scrollTo(0,0);});
 ["#r-list","#r-rival"].forEach(id=>$(id).addEventListener("click",e=>{const b=e.target.closest("[data-addq]");if(!b)return;const nm=CATALOG[+b.dataset.addq].name;
   addLine(nm,null);
   if(!Q.no)newNo(); renderLines(); renderDoc(); b.textContent="Teklife eklendi ✓"; setTimeout(()=>b.textContent="Teklife ekle",1500); toast(nm+" teklife eklendi",true);}));
@@ -1091,7 +1096,8 @@ function toast(msg,link){
   t.innerHTML=esc(msg)+(link?` <button type="button" data-go="teklif">Teklife git</button>`:"");
   t.classList.add("on"); clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove("on"),2600);
 }
-function badgeUpd(){
+function dealerUI(){const v=dealerEl.value.trim(),sh=$("#q-dealer-show"),fs=$("#q-dealer-fs");if(!sh||!fs)return;if(v&&document.activeElement!==dealerEl){fs.hidden=true;sh.hidden=false;sh.innerHTML=`Bayi: <b>${esc(v)}</b> · <button type="button" class="linkbtn" id="q-dealer-ed">değiştir</button>`;$("#q-dealer-ed").onclick=()=>{fs.hidden=false;sh.hidden=true;dealerEl.focus();};}else if(!v){fs.hidden=false;sh.hidden=true;}}
+function badgeUpd(){ dealerUI();
   const n=Q.lines.filter(l=>l.name&&!l.auto).length, b=$("#t-badge"); if(b){b.hidden=!n;b.textContent=n;}
   const e=$("#q-empty"); if(e) e.hidden=Q.lines.some(l=>l.name);
   const qs=$("#quote"); if(qs) qs.hidden=!Q.lines.some(l=>l.name);
@@ -1131,7 +1137,7 @@ function route(){
 function homeRender(){
   const dn=(dealerEl.value||"").trim();
   $("#h-greet").textContent=dn?`Merhaba, ${dn}`:"Hoş geldiniz";
-  $("#h-name").hidden=!!dn;
+  if($("#h-name"))$("#h-name").hidden=!!dn;
   const r=$("#h-resume"), has=Q.lines.some(l=>l.name), cust=$("#q-customer").value.trim();
   if(has&&cust){r.hidden=false;r.innerHTML=`<p><b>Yarım teklif</b>${esc(cust)}</p><button type="button" class="btn primary" data-go="teklif">Devam et</button>`;}
   else r.hidden=true;
@@ -1148,8 +1154,8 @@ function go(where){
   else if(where==="urun"){location.hash="#urunler";setTimeout(()=>$("#r-q").focus(),80);}
 }
 document.addEventListener("click",e=>{const b=e.target.closest("[data-go]");if(b){e.preventDefault();go(b.dataset.go);}});
-$("#h-name").addEventListener("submit",e=>{e.preventDefault();const v=$("#h-name-in").value.trim();if(!v)return;dealerEl.value=v;store("q-dealer",v);renderDoc();homeRender();});
-$("#h-search").addEventListener("submit",e=>{e.preventDefault();$("#h-q").blur();$("#r-q").value=$("#h-q").value;rCat="all";renderCats();renderRehber();location.hash="#urunler";});
+$("#h-name")&&$("#h-name").addEventListener("submit",e=>{e.preventDefault();const v=$("#h-name-in").value.trim();if(!v)return;dealerEl.value=v;store("q-dealer",v);renderDoc();homeRender();});
+$("#h-search")&&$("#h-search").addEventListener("submit",e=>{e.preventDefault();$("#h-q").blur();$("#r-q").value=$("#h-q").value;rCat="all";renderCats();renderRehber();location.hash="#urunler";});
 window.addEventListener("hashchange",route);
 renderCats(); renderRehber(); route();
 
