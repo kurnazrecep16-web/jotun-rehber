@@ -1,4 +1,20 @@
-<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"></head><body style="margin:0">
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#031e45">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Jotun Rehber">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<style>
+#pwa-bar{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9999;background:#031e45;color:#fff;border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,.3);padding:12px 14px;display:flex;gap:10px;align-items:center;font:14px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif;max-width:520px;margin:0 auto}
+#pwa-bar img{width:40px;height:40px;border-radius:8px;flex:none}
+#pwa-bar .t{flex:1}#pwa-bar b{display:block;font-size:15px}
+#pwa-bar button{font:600 14px system-ui,sans-serif;border:0;border-radius:6px;padding:8px 12px;cursor:pointer}
+#pwa-in{background:#f0ab00;color:#031e45}#pwa-x{background:transparent;color:#fff;font-size:20px!important;padding:4px 8px!important}
+</style>
+</head><body style="margin:0">
 <title>Jotun Rehber</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -1366,5 +1382,20 @@ renderProducts(); render();
 if(LAST.list.length) quoteFromSystem(LAST.list[0],LAST.s,true); else {renderLines();renderDoc();}
 })();
 </script>
-
+<div id="pwa-bar" hidden><img src="icon-192.png" alt=""><div class="t"><b>Jotun Rehber'i yükle</b><span id="pwa-msg">Telefonunda uygulama olarak açılsın.</span></div><button type="button" id="pwa-in">Yükle</button><button type="button" id="pwa-x" aria-label="Kapat">×</button></div>
+<script>
+(function(){
+  if("serviceWorker" in navigator) addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){});});
+  var bar=document.getElementById("pwa-bar"), inst=document.getElementById("pwa-in"), msg=document.getElementById("pwa-msg"), ev=null;
+  var standalone=matchMedia("(display-mode: standalone)").matches||navigator.standalone;
+  var closed=false; try{closed=localStorage.getItem("pwa-x")==="1"}catch(e){}
+  if(standalone||closed) return;
+  document.getElementById("pwa-x").onclick=function(){bar.hidden=true;try{localStorage.setItem("pwa-x","1")}catch(e){}};
+  addEventListener("beforeinstallprompt",function(e){e.preventDefault();ev=e;bar.hidden=false;});
+  inst.onclick=function(){ if(ev){ev.prompt();ev.userChoice.then(function(){bar.hidden=true;ev=null;});} };
+  var ios=/iphone|ipad|ipod/i.test(navigator.userAgent);
+  if(ios){ msg.innerHTML="Alttaki <b style='display:inline'>Paylaş</b> düğmesine basın, sonra <b style='display:inline'>Ana Ekrana Ekle</b>'yi seçin."; inst.hidden=true; bar.hidden=false; }
+  addEventListener("appinstalled",function(){bar.hidden=true;});
+})();
+</script>
 </body></html>
