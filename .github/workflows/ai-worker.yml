@@ -1,0 +1,37 @@
+name: Yapay zekâ sunucusunu yayınla (Cloudflare)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["ai-worker/**", ".github/workflows/ai-worker.yml"]
+
+jobs:
+  kontrol:
+    runs-on: ubuntu-latest
+    outputs:
+      hazir: ${{ steps.k.outputs.hazir }}
+    steps:
+      - id: k
+        env:
+          A: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          B: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          C: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -n "$A" ] && [ -n "$B" ] && [ -n "$C" ]; then echo "hazir=evet" >> "$GITHUB_OUTPUT"; else echo "Cloudflare/Anthropic anahtarları henüz eklenmedi; yayın atlandı."; echo "hazir=hayir" >> "$GITHUB_OUTPUT"; fi
+
+  yayinla:
+    needs: kontrol
+    if: needs.kontrol.outputs.hazir == 'evet'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cloudflare/wrangler-action@v3
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: ai-worker
+          secrets: |
+            ANTHROPIC_API_KEY

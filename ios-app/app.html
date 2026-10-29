@@ -992,7 +992,34 @@ ${KB.sys}
 Jotun ürün listesi (ad | kategori | katı madde | karışım | inceltici | not):
 ${KB.prods}`;
 let SAMPLE=null;
+/* Claude'a girişsiz kullanım: kendi aracı sunucumuz (Cloudflare Worker). Boşsa kurallı danışman çalışır. */
+const AI_URL="";
+async function shrinkImg(b){
+  try{const bm=await createImageBitmap(b);const k=Math.min(1,1600/Math.max(bm.width,bm.height));
+    const c=document.createElement("canvas");c.width=Math.round(bm.width*k);c.height=Math.round(bm.height*k);c.getContext("2d").drawImage(bm,0,0,c.width,c.height);
+    return await new Promise(ok=>c.toBlob(x=>ok(x||b),"image/jpeg",0.85));}catch(e){return b}
+}
+const blobB64=b=>new Promise((ok,no)=>{const r=new FileReader();r.onload=()=>ok(String(r.result).split(",")[1]);r.onerror=no;r.readAsDataURL(b);});
+function proxySample(){
+  const f=async(input,opts={})=>{
+    let msgs=typeof input==="string"?[{role:"user",content:input}]:input.slice(), system="";
+    if(typeof input==="string"&&input.startsWith(RULES)){system=RULES;msgs=[{role:"user",content:input.slice(RULES.length).trim()}];}
+    else if(msgs.length&&msgs[0].content===RULES){system=RULES;msgs=msgs.slice(1);}
+    const images=[];for(const b of (opts.images||[])){const j=await shrinkImg(b);images.push({type:j.type||"image/jpeg",data:await blobB64(j)});}
+    let r;
+    try{r=await fetch(AI_URL,{method:"POST",headers:{"content-type":"application/json","x-app":"jtn-rehber"},body:JSON.stringify({system,messages:msgs,images}),signal:opts.signal});}
+    catch(e){if(e&&e.name==="AbortError")throw {code:"cancelled"};throw {code:"not_granted",message:"sunucuya ulaşılamadı"};}
+    const d=await r.json().catch(()=>({}));
+    if(!r.ok) throw {code:d.code==="rate_limited"?"rate_limited":(r.status===403?"not_granted":"unavailable"),message:d.message||""};
+    if(opts.onText) opts.onText({text:d.text,delta:d.text});
+    return {text:d.text||"",truncated:!!d.truncated};
+  };
+  f.limits=async()=>({images:{maxCount:4,mediaTypes:["image/jpeg","image/png","image/webp","image/heic","image/heif"]}});
+  f.json=async(i,o)=>JSON.parse((await f(i,o)).text);
+  return f;
+}
 (async()=>{try{SAMPLE=window.claude&&window.claude.use?await window.claude.use("sample"):null}catch(e){SAMPLE=null}
+  if(!SAMPLE&&AI_URL) SAMPLE=proxySample();
 })();
 function aiFail(e){const c=e&&e.code;
   if(["not_granted","sampling_disabled","not_declared","capability_disabled","capability_removed","session_expired"].includes(c)){OFFLINE=true;return "";}
@@ -1282,7 +1309,7 @@ $("#rv-ask").onclick=async()=>{
   if(!SAMPLE||OFFLINE){const out=$("#rv-out");out.hidden=false;const rows=rivalParse(t);ASK.push("Rakip alternatifi: "+t.slice(0,200));if(window.__gate)window.__gate();
     if(!rows.length){out.innerHTML="<p>Ürünleri tanıyamadım. Aşağıdaki “Ürün tipine göre eşleştir” bölümünde her katın tipini seçin.</p>";return;}
     out.innerHTML=rivalHTML(rows,infoParse(t));bindRes(out);return;}
-  ASK("Rakip alternatifi: "+t.slice(0,200)); if(window.__gate)window.__gate();
+  ASK.push("Rakip alternatifi: "+t.slice(0,200)); if(window.__gate)window.__gate();
   const out=$("#rv-out"); out.hidden=false; out.innerHTML="<span class='think'>Düşünüyor…</span>";
   rvCtl=new AbortController(); $("#rv-stop").hidden=false; $("#rv-ask").disabled=true;
   try{

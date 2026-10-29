@@ -1,0 +1,10 @@
+name = "jtn-rehber-ai"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+workers_dev = true
+
+# Kişi (IP) başına dakikada en fazla 6 soru
+[[ratelimits]]
+name = "LIMITER"
+namespace_id = "1001"
+simple = { limit = 6, period = 60 }
