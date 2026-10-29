@@ -179,6 +179,28 @@ svg.art .y{stroke:var(--accent);stroke-width:2.6}svg.art .d{stroke:var(--muted);
 .h-lb{font:600 12.5px/1.2 var(--f-body);text-align:center}
 .h-cat:focus-visible .h-ic{outline:2px solid var(--accent);outline-offset:2px}
 .wz-cats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px 8px}
+#env-hint,#dur-hint{display:none}
+.seg label b{display:block;font-weight:600}
+.seg label small{display:block;font-size:10.5px;font-weight:500;opacity:.75;line-height:1.2;margin-top:1px;white-space:nowrap}
+#env label,#dur label{padding:7px 4px;min-width:0}
+.whyd{margin:12px 16px 0}.whyd>summary{cursor:pointer;font-weight:600;font-size:14px;color:var(--steel);padding:6px 0}
+.whyd .why{margin:6px 0 0}.whyd .why-t{display:none}
+.q-set{border:1px solid var(--line);border-radius:8px;padding:8px 10px;background:var(--panel)}.q-set>summary{cursor:pointer;font-size:13.5px;font-weight:600;color:var(--muted)}.q-set .row3{margin-top:8px}
+.q-main{margin-bottom:6px}.q-main #q-pdf{flex:1 1 100%;padding:12px;font-size:16px}
+.q-prev>summary{cursor:pointer;font-weight:600;font-size:14px;color:var(--steel);margin:10px 0 8px}
+@media (max-width:700px){
+  .q-lines thead{display:none}
+  .q-lines,.q-lines tbody{display:block}
+  .q-lines tr{display:grid;grid-template-columns:repeat(3,1fr);gap:8px 10px;border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:10px;background:var(--panel);position:relative}
+  .q-lines td{display:block;padding:0;border:0;text-align:left}
+  .q-lines td:first-child{grid-column:1/-1;padding-right:30px}
+  .q-lines td[data-label]::before{content:attr(data-label);display:block;font-size:11px;color:var(--muted);margin-bottom:2px}
+  .q-lines td.del{position:absolute;top:8px;right:8px}
+  .q-lines td input,.q-lines td select{width:100%;min-width:0}
+  .q-lines td[colspan]{grid-column:1/-1}
+  .q-lines td.amt{text-align:left!important;font-weight:600}
+  #q-add-sel{flex:1 1 100%;width:100%;min-width:0;max-width:100%}
+}
 .wz-cats .wz-opt{border:0;background:none;padding:0;border-radius:0;align-items:center;gap:6px}
 .wz-cats .wz-opt .h-lb{font-size:12.5px;color:var(--ink)}
 .tab{font:600 15px var(--f-body);color:var(--muted);text-decoration:none;padding:8px 14px;border-bottom:3px solid transparent;margin-bottom:-1px}
@@ -304,41 +326,41 @@ label.btn{display:inline-block}
   <fieldset>
     <legend>Yüzey</legend>
     <div class="seg" id="sub">
-      <input type="radio" name="sub" id="sub-cs" value="cs" checked><label for="sub-cs">Karbon çelik</label>
-      <input type="radio" name="sub" id="sub-hdg" value="hdg"><label for="sub-hdg">Sıcak daldırma galvaniz</label>
+      <input type="radio" name="sub" id="sub-cs" value="cs" checked><label for="sub-cs">Çelik</label>
+      <input type="radio" name="sub" id="sub-hdg" value="hdg"><label for="sub-hdg">Galvaniz</label>
     </div>
   </fieldset>
 
   <fieldset>
-    <legend>Ortam (ISO 12944-2)</legend>
+    <legend>Ortam</legend>
     <div class="seg" id="env">
-      <input type="radio" name="env" id="env-C2" value="C2"><label for="env-C2">C2</label>
-      <input type="radio" name="env" id="env-C3" value="C3"><label for="env-C3">C3</label>
-      <input type="radio" name="env" id="env-C4" value="C4" checked><label for="env-C4">C4</label>
-      <input type="radio" name="env" id="env-C5" value="C5"><label for="env-C5">C5</label>
-      <input type="radio" name="env" id="env-Im" value="Im"><label for="env-Im">Im1–3</label>
+      <input type="radio" name="env" id="env-C2" value="C2"><label for="env-C2"><b>C2</b><small>İç mekân</small></label>
+      <input type="radio" name="env" id="env-C3" value="C3"><label for="env-C3"><b>C3</b><small>Şehir</small></label>
+      <input type="radio" name="env" id="env-C4" value="C4" checked><label for="env-C4"><b>C4</b><small>Sanayi, kıyı</small></label>
+      <input type="radio" name="env" id="env-C5" value="C5"><label for="env-C5"><b>C5</b><small>Deniz, kimya</small></label>
+      <input type="radio" name="env" id="env-Im" value="Im"><label for="env-Im"><b>Im</b><small>Su altı</small></label>
     </div>
     <p class="hint" id="env-hint"></p>
   </fieldset>
 
   <fieldset>
-    <legend>Hedef dayanım (ilk büyük bakıma kadar)</legend>
+    <legend>Kaç yıl dayansın?</legend>
     <div class="seg" id="dur">
-      <input type="radio" name="dur" id="dur-l" value="l"><label for="dur-l">L</label>
-      <input type="radio" name="dur" id="dur-m" value="m"><label for="dur-m">M</label>
-      <input type="radio" name="dur" id="dur-h" value="h" checked><label for="dur-h">H</label>
-      <input type="radio" name="dur" id="dur-vh" value="vh"><label for="dur-vh">VH</label>
+      <input type="radio" name="dur" id="dur-l" value="l"><label for="dur-l"><b>≤7 yıl</b><small>L</small></label>
+      <input type="radio" name="dur" id="dur-m" value="m"><label for="dur-m"><b>7–15</b><small>M</small></label>
+      <input type="radio" name="dur" id="dur-h" value="h" checked><label for="dur-h"><b>15–25</b><small>H</small></label>
+      <input type="radio" name="dur" id="dur-vh" value="vh"><label for="dur-vh"><b>25+</b><small>VH</small></label>
     </div>
     <p class="hint" id="dur-hint"></p>
   </fieldset>
 
   <fieldset>
-    <label class="lbl" for="area">Boyanacak alan (m²)</label>
+    <label class="lbl" for="area">Alan (m²)</label>
     <input type="number" id="area" min="0" step="10" value="500">
   </fieldset>
 
   <details class="adv">
-    <summary>Gelişmiş ayarlar</summary>
+    <summary>Ayarlar</summary>
     <div class="adv-in">
       <fieldset id="primer-fs">
         <legend>Astar tipi</legend>
@@ -359,7 +381,7 @@ label.btn{display:inline-block}
       <fieldset>
         <label class="lbl" for="loss">Fire (%)</label>
         <input type="number" id="loss" min="0" max="80" step="5" value="30">
-        <p class="hint">Airless püskürtmede çelik konstrüksiyonda genelde %30–50.</p>
+        <p class="hint">Airless: %30–50</p>
       </fieldset>
     </div>
   </details>
@@ -371,7 +393,7 @@ label.btn{display:inline-block}
 <section class="quote" id="quote" aria-labelledby="q-title">
   <div class="q-head">
     <h2 id="q-title">Teklif</h2>
-    <p class="hint">Adet teneke sayısıdır. Ambalaj fiyatını ve yoğunluğu (kg/L, teneke etiketinde yazar) bir kez girin; sonraki tekliflerde hatırlanır.</p>
+    <p class="hint">Adet = teneke. Fiyatı bir kez girin, hatırlanır.</p>
   </div>
   <div class="q-grid">
     <div class="q-form">
@@ -379,12 +401,13 @@ label.btn{display:inline-block}
         <fieldset><label class="lbl" for="q-dealer">Bayi adı</label><input type="text" id="q-dealer" placeholder="Bayi ünvanı"></fieldset>
         <fieldset><label class="lbl" for="q-customer">Müşteri adı</label><input type="text" id="q-customer" placeholder="Firma / kişi"></fieldset>
       </div>
-      <fieldset><label class="lbl" for="q-project">Proje / iş (isteğe bağlı)</label><input type="text" id="q-project" placeholder="Örn. çelik konstrüksiyon depo"></fieldset>
+      <fieldset><label class="lbl" for="q-project">Proje (isteğe bağlı)</label><input type="text" id="q-project" placeholder="Örn. depo çelik yapı"></fieldset>
+      <details class="q-set"><summary>Geçerlilik · KDV · Para birimi</summary>
       <div class="row3">
         <fieldset><label class="lbl" for="q-valid">Geçerlilik (gün)</label><input type="number" id="q-valid" min="1" step="1" value="15"></fieldset>
         <fieldset><label class="lbl" for="q-kdv">KDV (%)</label><input type="number" id="q-kdv" min="0" max="100" step="1" value="20"></fieldset>
         <fieldset><label class="lbl" for="q-cur">Para birimi</label><select id="q-cur"><option value="TRY">₺ TL</option><option value="EUR">€ EUR</option><option value="USD">$ USD</option></select></fieldset>
-      </div>
+      </div></details>
       <div class="tbl-wrap">
         <table class="q-lines">
           <thead><tr><th>Ürün</th><th class="n">Ambalaj</th><th class="n">Adet</th><th class="n">Toplam L</th><th class="n">kg/L</th><th class="n">Toplam kg</th><th class="n">Ambalaj fiyatı</th><th class="n">Tutar</th><th></th></tr></thead>
@@ -394,18 +417,20 @@ label.btn{display:inline-block}
       <div class="q-actions">
         <select id="q-add-sel" aria-label="Eklenecek ürün"></select>
         <button type="button" class="btn" id="q-add">Ürün ekle</button>
-        <button type="button" class="btn ghost" id="q-clear">Satırları temizle</button>
+        <button type="button" class="btn ghost" id="q-clear">Temizle</button>
       </div>
     </div>
 
     <div class="q-doc-wrap">
-      <article class="q-doc" id="q-doc"></article>
-      <div class="q-actions">
+      <div class="q-actions q-main">
         <button type="button" class="btn primary" id="q-pdf" hidden>PDF indir</button>
-        <button type="button" class="btn" id="q-copy">Teklif metnini kopyala</button>
-        <a class="btn" id="q-send" href="#" target="_blank" rel="noopener">Bölge yöneticisine gönder</a>
+        <a class="btn" id="q-send" href="#" target="_blank" rel="noopener">Yöneticiye gönder</a>
+        <button type="button" class="btn ghost" id="q-copy">Metni kopyala</button>
       </div>
-      <p class="hint" id="q-status">Teklifi müşteriye iletmeden önce bölge yöneticinizin onayını alınız.</p>
+      <p class="hint" id="q-status">Müşteriye iletmeden önce bölge yöneticinizin onayını alın.</p>
+      <details class="q-prev" open><summary>Teklif önizleme</summary>
+      <article class="q-doc" id="q-doc"></article>
+      </details>
       <dialog id="q-warn" class="q-warn" aria-labelledby="q-warn-t">
         <p class="q-warn-lab">Önemli uyarı</p>
         <h2 id="q-warn-t">Bölge yöneticisi onayı alınmadan iletmeyiniz</h2>
@@ -426,7 +451,7 @@ label.btn{display:inline-block}
   </div>
 </details>
 
-<p class="foot" style="margin-top:16px">Sistemler ISO 12944-5:2019 Ek C (karbon çelik) ve Ek D (galvaniz) tablolarındaki astar KFK aralığı, kat sayısı ve minimum toplam KFK’ya göre kurulmuştur; ürün dağılımı örnektir. Teorik sarfiyat = katı madde % × 10 / KFK (m²/L). Ölçülen tek KFK değeri nominalin 3 katını geçmemelidir (ISO 12944-5 §7.3). Nihai sistem, ara kat bekleme süreleri ve renk seçimi için ilgili TDS'ye ve Jotun teknik ekibine danışın.</p>
+<p class="foot" style="margin-top:16px">ISO 12944-5:2019 tablolarına göre kurulmuştur. Sarfiyat = m² × µm ÷ (katı madde % × 10). Nihai sistem için ürün TDS'ine bakın.</p>
 </div>
 <section id="v-danisman" hidden>
   <div class="seg modes" id="d-mode" role="tablist">
@@ -633,13 +658,11 @@ let LAST={list:[],s:null};
 const tot = sy=>sy.coats.reduce((a,c)=>a+c.dft,0);
 
 function prepBox(s,list){
-  if(s.sub==="hdg") return `<div class="prep">Yüzey hazırlığı: metalik olmayan aşındırıcı ile <strong>süpürme raspa</strong> (ISO 12944-4). Jotun galvaniz üzerinde alkid sistem önermez.</div>`;
+  if(s.sub==="hdg") return `<div class="prep">Yüzey: <strong>süpürme raspa</strong> (ISO 12944-4)</div>`;
   const hasZn = list.some(x=>x.fam==="zn");
-  let t = `Yüzey hazırlığı: <strong>Sa 2½</strong> (ISO 8501-1)`;
-  if(hasZn) t += `; çinkolu astarda pürüzlülük <strong>Medium (G)</strong> (ISO 8503-1)`;
-  t += `. Pas sınıfı D (çukurlaşmış) yüzeyde KFK veya kat sayısı artırılmalıdır.`;
-  if(s.env==="Im") t += ` Jotun daldırma ortamında çinko astar önermez; sistemler epoksi astar + epoksi mastik ile kurulmuştur.`;
-  if(hasZn && s.zinc==="r86") t += ` <span class="warn">Resist 86 üzerine ara kattan önce bağlayıcı (mist) kat önerilir.</span>`;
+  let t = `Yüzey: <strong>Sa 2½</strong>`;
+  if(hasZn) t += ` · çinkoluda pürüzlülük <strong>Medium (G)</strong>`;
+  if(hasZn && s.zinc==="r86") t += ` <span class="warn">· Resist 86 üzerine önce mist kat</span>`;
   return `<div class="prep">${t}</div>`;
 }
 
@@ -655,12 +678,12 @@ function card(sy,s,i){
   return `<article class="card${i===0?" best":""}">
    <div class="card-h">${i===0?'<span class="badge">Önerilen</span>':""}<h3>${FAM[sy.fam]} · ${sy.coats.length} kat · ${totDft} <span class="u">µm</span></h3><span class="iso">ISO 12944-5/${sy.iso}</span></div>
    <div class="tbl-wrap"><table>
-    <thead><tr><th>Ürün</th><th class="n">Kalınlık</th><th class="n">Gereken boya</th></tr></thead>
+    <thead><tr><th>Ürün</th><th class="n"><span class="u">µm</span></th><th class="n">Litre</th></tr></thead>
     <tbody>${rows}</tbody>
     <tfoot><tr><td>Toplam</td><td class="n">${totDft} µm</td><td class="n">${fmt(Math.ceil(totLg),0)} L</td></tr></tfoot>
    </table></div>
-   ${i===0?whyHTML(sy.coats.map(c=>PRODUCTS[c.key].name),{iso:sy.iso,env:s.env,dur:s.dur,tot:totDft}):""}
-   <div class="card-f"><button type="button" class="btn ghost" data-copy="${i}">Özeti kopyala</button><button type="button" class="btn primary" data-quote="${i}">Teklif hazırla</button></div>
+   ${i===0?`<details class="whyd"><summary>Neden bu sistem?</summary>${whyHTML(sy.coats.map(c=>PRODUCTS[c.key].name),{iso:sy.iso,env:s.env,dur:s.dur,tot:totDft})}</details>`:""}
+   <div class="card-f"><button type="button" class="btn ghost" data-copy="${i}">Kopyala</button><button type="button" class="btn primary" data-quote="${i}">Teklife aktar →</button></div>
   </article>`;
 }
 
@@ -735,17 +758,17 @@ function renderLines(){
   tb.innerHTML = Q.lines.map((ln,i)=>{const packs=packsOf(ln.name);const u=isKg(ln.name)?"kg":"L";
    return `<tr>
     <td>${ln.key?`<span class="prod">${esc(ln.name)}</span>`:`<input type="text" id="q-n-${i}" data-i="${i}" data-f="name" value="${esc(ln.name)}" placeholder="Ürün adı" aria-label="Ürün adı">`}${ln.needL?`<span class="need">İhtiyaç ≈ ${fmt(Math.ceil(ln.needL),0)} L</span>`:""}</td>
-    <td class="n">${packs.length>1?`<select id="q-k-${i}" data-i="${i}" data-f="pack" aria-label="Ambalaj">${packs.map(x=>`<option value="${x}"${x===num(ln.pack)?" selected":""}>${fmt(x,x%1?2:0)} ${u}</option>`).join("")}</select>`
+    <td class="n" data-label="Ambalaj">${packs.length>1?`<select id="q-k-${i}" data-i="${i}" data-f="pack" aria-label="Ambalaj">${packs.map(x=>`<option value="${x}"${x===num(ln.pack)?" selected":""}>${fmt(x,x%1?2:0)} ${u}</option>`).join("")}</select>`
       :packs.length===1?`<span class="mono">${fmt(packs[0],packs[0]%1?2:0)} ${u}</span>`
       :`<input type="number" id="q-k-${i}" data-i="${i}" data-f="pack" min="0" step="0.1" value="${ln.pack}" placeholder="L" aria-label="Ambalaj litre">`}</td>
-    <td class="n"><input type="number" id="q-q-${i}" data-i="${i}" data-f="qty" min="0" step="1" value="${ln.qty}" aria-label="Adet (teneke)"></td>
-    <td class="amt" id="q-tl-${i}">${lineL(ln)?fmt(lineL(ln),lineL(ln)%1?2:0)+" "+u:"—"}</td>
-    <td class="n"><input type="number" id="q-d-${i}" data-i="${i}" data-f="dens" min="0" step="0.01" value="${ln.dens}" placeholder="kg/L" aria-label="Yoğunluk kg/L" class="dens"></td>
-    <td class="amt" id="q-kg-${i}">${lineKg(ln)!=null?fmt(lineKg(ln),1)+" kg":"—"}</td>
-    <td class="n"><input type="number" id="q-p-${i}" data-i="${i}" data-f="price" min="0" step="0.01" value="${ln.price}" placeholder="0,00" aria-label="Teneke fiyatı"></td>
-    <td class="amt" id="q-a-${i}">${amt(ln)}</td>
-    <td><button type="button" class="x" data-del="${i}" aria-label="Satırı sil">×</button></td></tr>`}).join("")
-    || `<tr><td colspan="9" class="hint" style="padding:12px 6px">Henüz satır yok. Bir sistem kartından teklif oluşturun veya ürün ekleyin.</td></tr>`;
+    <td class="n" data-label="Adet"><input type="number" id="q-q-${i}" data-i="${i}" data-f="qty" min="0" step="1" value="${ln.qty}" aria-label="Adet (teneke)"></td>
+    <td class="amt" data-label="Toplam" id="q-tl-${i}">${lineL(ln)?fmt(lineL(ln),lineL(ln)%1?2:0)+" "+u:"—"}</td>
+    <td class="n" data-label="kg/L"><input type="number" id="q-d-${i}" data-i="${i}" data-f="dens" min="0" step="0.01" value="${ln.dens}" placeholder="kg/L" aria-label="Yoğunluk kg/L" class="dens"></td>
+    <td class="amt" data-label="Toplam kg" id="q-kg-${i}">${lineKg(ln)!=null?fmt(lineKg(ln),1)+" kg":"—"}</td>
+    <td class="n" data-label="Teneke fiyatı"><input type="number" id="q-p-${i}" data-i="${i}" data-f="price" min="0" step="0.01" value="${ln.price}" placeholder="0,00" aria-label="Teneke fiyatı"></td>
+    <td class="amt" data-label="Tutar" id="q-a-${i}">${amt(ln)}</td>
+    <td class="del"><button type="button" class="x" data-del="${i}" aria-label="Satırı sil">×</button></td></tr>`}).join("")
+    || `<tr><td colspan="9" class="hint" style="padding:12px 6px">Henüz ürün yok. Sistem kartından "Teklife aktar" deyin veya ürün ekleyin.</td></tr>`;
 }
 function updCells(i){const ln=Q.lines[i];const u=isKg(ln.name)?"kg":"L";
   $("#q-tl-"+i).textContent=lineL(ln)?fmt(lineL(ln),lineL(ln)%1?2:0)+" "+u:"—";
@@ -974,7 +997,7 @@ function coatTable(coats,area,loss){
   let tot=0,rows="";const items=[];
   coats.forEach((c,i)=>{tot+=c[1];const l=litres(c[0],c[1],area,loss);items.push([c[0],l]);
     rows+=`<tr><td><span class="role">${i+1}. kat · ${c[2]||""}</span><span class="prod">${esc(c[0])}</span></td><td class="n">${c[1]} µm</td><td class="n">${l!=null?l+" L":"—"}</td></tr>`;});
-  return {html:`<div class="tbl-wrap"><table><thead><tr><th>Ürün</th><th class="n">Kalınlık</th><th class="n">Gereken boya</th></tr></thead><tbody>${rows}</tbody><tfoot><tr><td>Toplam</td><td class="n">${tot} µm</td><td></td></tr></tfoot></table></div>`,items,tot};
+  return {html:`<div class="tbl-wrap"><table><thead><tr><th>Ürün</th><th class="n"><span class="u">µm</span></th><th class="n">Litre</th></tr></thead><tbody>${rows}</tbody><tfoot><tr><td>Toplam</td><td class="n">${tot} µm</td><td></td></tr></tfoot></table></div>`,items,tot};
 }
 function agg(items){const m={};items.forEach(([n,l])=>m[n]=(m[n]||0)+(l||0));return Object.entries(m)}
 function prodList(names,intro){
