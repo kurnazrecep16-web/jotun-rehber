@@ -1335,7 +1335,12 @@ $("#q-pdf").addEventListener("click",async()=>{
     }
     const cust=($("#q-customer").value.trim()||"Musteri").replace(/[^\p{L}\p{N}]+/gu,"_").slice(0,40);
     const fn=`Teklif_${Q.no||"taslak"}_${cust}.pdf`;
-    if(DL) await DL.save({filename:fn,data:pdf.output("blob")}); else pdf.save(fn);
+    const CAP=window.Capacitor;
+    if(DL) await DL.save({filename:fn,data:pdf.output("blob")});
+    else if(CAP&&CAP.isNativePlatform&&CAP.isNativePlatform()&&CAP.Plugins&&CAP.Plugins.Filesystem&&CAP.Plugins.Share){
+      const w=await CAP.Plugins.Filesystem.writeFile({path:fn,data:pdf.output("datauristring").split(",")[1],directory:"CACHE"});
+      await CAP.Plugins.Share.share({title:fn,url:w.uri,dialogTitle:"Teklifi paylaş"});
+    } else pdf.save(fn);
     btn.textContent="İndirildi"; setTimeout(()=>btn.textContent=old,1600); warn();
   }catch(e){
     const code=e&&e.code;
