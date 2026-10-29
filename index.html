@@ -152,7 +152,7 @@ a.btn{text-decoration:none;display:inline-block}
 details.adv{border-top:1px solid var(--line);padding-top:10px}
 details.adv summary,details.more summary{cursor:pointer;font-weight:600;font-size:13px;color:var(--muted)}
 .adv-in{display:flex;flex-direction:column;gap:14px;margin-top:12px}
-details.more summary{padding:4px 0}
+details.more summary{padding:4px 0;font-size:12.5px;font-weight:500}
 .more-in{display:flex;flex-direction:column;gap:16px;margin-top:12px}
 .card.best{border-color:var(--ink);border-width:2px}
 .badge{font:600 11px var(--f-body);letter-spacing:.08em;text-transform:uppercase;background:var(--ink);color:var(--bg);padding:3px 8px;border-radius:3px}
@@ -223,6 +223,11 @@ svg.art .y{stroke:var(--accent);stroke-width:2.6}svg.art .d{stroke:var(--muted);
 .rv-n{font-size:16px;font-weight:600}.rv-j{font-size:20px;font-weight:700;color:var(--steel)}.rv-t{font-size:13.5px;color:var(--muted)}
 #r-rival:not([hidden]) ~ #r-list .empty{display:none}
 .rv-arrow{font-size:20px;color:var(--red);margin:4px 0}.rv-card .q-actions{margin-top:10px}.rv-card .hint{margin-top:8px}
+.q-lines input.ral{display:block;margin-top:6px;width:100%;max-width:220px;font:13px var(--f-body);padding:5px 8px}
+.h-hist{display:flex;flex-direction:column;gap:8px}
+.h-hi-item{display:flex;align-items:center;gap:8px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.h-hi-item .t{flex:1;min-width:0}.h-hi-item b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.h-hi-item span{font-size:12.5px;color:var(--muted)}
+.h-hi-item .btn{padding:6px 10px;font-size:12.5px}
 .wz-cats .wz-opt{border:0;background:none;padding:0;border-radius:0;align-items:center;gap:6px}
 .wz-cats .wz-opt .h-lb{font-size:12.5px;color:var(--ink)}
 .tab{font:600 15px var(--f-body);color:var(--muted);text-decoration:none;padding:8px 14px;border-bottom:3px solid transparent;margin-bottom:-1px}
@@ -349,6 +354,7 @@ label.btn{display:inline-block}
   <button type="button" class="h-hero" data-go="sistem"><span class="h-hero-t"><b>Boya sistemi hesapla</b><span>ISO 12944 · kat · litre</span><span class="h-go">Başla →</span></span><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M6 46h52v8H6z"/><path d="M6 46h52v8H6z"/><path class="a" d="M6 41h52"/><path class="g" d="M6 36h52"/><path class="y" d="M6 31h52"/><path class="d" d="M50 31v-14h8M50 36v-14M50 41v-14" /><path d="M10 50h4M20 50h4M30 50h4"/></svg></button>
   <h3 class="h-sec">Ne boyanacak?</h3>
   <div class="h-cats"><button type="button" class="h-cat" data-go="what:celik"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M10 18h44v6H35v20h19v6H10v-6h19V24H10z"/><path d="M10 18h44v6H35v20h19v6H10v-6h19V24H10z"/><path class="d" d="M6 56h52M6 12h52"/><path class="a" d="M4 15v-6M60 15v-6M4 12h56"/></svg></span><span class="h-lb">Çelik yapı</span></button><button type="button" class="h-cat" data-go="what:ekipman"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><rect class="f" x="8" y="24" width="34" height="24" rx="2"/><rect x="8" y="24" width="34" height="24" rx="2"/><path d="M14 48v6M36 48v6M42 32h8l6 8v8H42"/><circle class="a" cx="25" cy="36" r="6"/><circle cx="25" cy="36" r="2"/><path class="d" d="M4 54h56"/></svg></span><span class="h-lb">Makine</span></button><button type="button" class="h-cat" data-go="what:tankdis"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><rect class="f" x="8" y="18" width="48" height="22" rx="11"/><rect x="8" y="18" width="48" height="22" rx="11"/><path d="M16 40l-4 10h12l-4-10M48 40l-4 10h12l-4-10M30 18v-8h8v8"/><path class="a" d="M8 29h48"/><path class="d" d="M4 50h56"/></svg></span><span class="h-lb">Tank dış</span></button><button type="button" class="h-cat" data-go="what:boru"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M6 24h40v16H6z"/><path d="M6 24h40v16H6zM46 20h6v24h-6zM52 26h8v12h-8"/><path class="a" d="M14 24v16M30 24v16"/><path class="d" d="M4 50h56"/></svg></span><span class="h-lb">Boru dış</span></button><button type="button" class="h-cat" data-go="what:tankic"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M14 34h36v18a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4z"/><path d="M14 10h36v42a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4z"/><path class="a" d="M14 34c6-3 12 3 18 0s12-3 18 0"/><path class="y" d="M18 14v38"/></svg></span><span class="h-lb">Tank içi</span></button><button type="button" class="h-cat" data-go="what:sicak"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M22 20h20v36H22z"/><path d="M22 20h20v36H22zM18 56h28M26 20v-6h12v6"/><path class="a" d="M26 10c-2-3 2-4 0-7M32 10c-2-3 2-4 0-7M38 10c-2-3 2-4 0-7"/><path class="d" d="M22 32h20M22 44h20"/></svg></span><span class="h-lb">Sıcak yüzey</span></button><button type="button" class="h-cat" data-go="what:zemin"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M6 38l20-12h32L38 38z"/><path d="M6 38l20-12h32L38 38zM6 38v8h32v-8M38 46l20-12v-8"/><path class="y" d="M6 42h32"/><path class="d" d="M16 34l8-5M26 34l8-5M36 34l8-5"/></svg></span><span class="h-lb">Beton zemin</span></button><button type="button" class="h-cat" data-go="what:yangin"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M26 8h12v48H26z"/><path d="M22 8h20M22 56h20M26 8v48M38 8v48"/><path class="a" d="M46 50c-6 0-9-5-7-10 1 3 3 3 3 3-1-6 3-10 6-12-1 5 4 7 4 12s-2 7-6 7z"/></svg></span><span class="h-lb">Yangın</span></button></div>
+  <div id="h-hist-wrap" hidden><h3 class="h-sec" style="margin-bottom:8px">Son teklifler</h3><div class="h-hist" id="h-hist"></div></div>
   <h3 class="h-sec">Hızlı işlemler</h3>
   <div class="h-cats h-cats3"><button type="button" class="h-cat" data-go="teklif"><span class="h-ic t"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M14 6h26l10 10v42H14z"/><path d="M14 6h26l10 10v42H14zM40 6v10h10"/><path class="d" d="M20 26h24M20 33h24M20 40h24M32 26v21"/><path class="y" d="M20 50h14"/></svg></span><span class="h-lb">Teklif</span></button><button type="button" class="h-cat" data-go="foto"><span class="h-ic t"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M8 12h40v28H24l-10 9v-9H8z"/><path d="M8 12h40v28H24l-10 9v-9H8z"/><path class="a" d="M23 22a5 5 0 1 1 7 4.6c-1.4.6-2 1.4-2 2.9V31"/><circle class="a" cx="28" cy="35.5" r=".8"/><path class="y" d="M52 24h4v26h-6l-6 6v-6"/></svg></span><span class="h-lb">Soru sor</span></button><button type="button" class="h-cat" data-go="urun"><span class="h-ic t"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M14 16h36v38a3 3 0 0 1-3 3H17a3 3 0 0 1-3-3z"/><path d="M14 16h36v38a3 3 0 0 1-3 3H17a3 3 0 0 1-3-3zM14 16c0-4 36-4 36 0M22 10h20"/><rect class="a" x="20" y="28" width="24" height="14"/><path class="y" d="M24 48h16"/></svg></span><span class="h-lb">Ürünler</span></button></div>
 </section>
@@ -458,12 +464,19 @@ label.btn{display:inline-block}
       <div class="q-actions q-main">
         <button type="button" class="btn primary" id="q-pdf" hidden>PDF indir</button>
         <a class="btn" id="q-send" href="#" target="_blank" rel="noopener">Yöneticiye gönder</a>
+        <button type="button" class="btn" id="q-cust">Müşteriye gönder</button>
         <button type="button" class="btn ghost" id="q-copy">Metni kopyala</button>
       </div>
       <p class="hint" id="q-status">Müşteriye iletmeden önce bölge yöneticinizin onayını alın.</p>
       <details class="q-prev" open><summary>Teklif önizleme</summary>
       <article class="q-doc" id="q-doc"></article>
       </details>
+      <dialog id="q-cdlg" class="q-warn" aria-labelledby="q-cdlg-t">
+        <p class="q-warn-lab">Göndermeden önce</p>
+        <h2 id="q-cdlg-t">Bölge yöneticinizin onayını aldınız mı?</h2>
+        <p>Teklif, onay alınmadan müşteriye iletilmemelidir. PDF'i göndermek için önce “PDF indir” deyip dosyayı WhatsApp'ta ekleyebilirsiniz.</p>
+        <div class="q-actions"><a class="btn primary" id="q-cdlg-ok" href="#" target="_blank" rel="noopener">Evet, onaylandı – WhatsApp'ta aç</a><button type="button" class="btn" id="q-cdlg-no">Hayır, önce onay alacağım</button></div>
+      </dialog>
       <dialog id="q-warn" class="q-warn" aria-labelledby="q-warn-t">
         <p class="q-warn-lab">Önemli uyarı</p>
         <h2 id="q-warn-t">Bölge yöneticisi onayı alınmadan iletmeyiniz</h2>
@@ -475,7 +488,7 @@ label.btn{display:inline-block}
   </div>
 </section>
 
-<details class="data" id="data" style="margin-top:20px">
+<details class="data" id="data" style="margin-top:20px" hidden>
   <summary>Ürün verileri (hacimce katı madde %)</summary>
   <div class="inner">
     <p class="hint">Sarfiyat bu değerlerle hesaplanır. Güncel TDS'ye göre değiştirebilirsiniz; değişiklik yalnızca bu tarayıcıda saklanır.</p>
@@ -796,7 +809,7 @@ function renderLines(){
   const tb=$("#q-body");
   tb.innerHTML = Q.lines.map((ln,i)=>{const packs=packsOf(ln.name);const u=isKg(ln.name)?"kg":"L";
    return `<tr>
-    <td>${ln.key?`<span class="prod">${esc(ln.name)}</span>`:`<input type="text" id="q-n-${i}" data-i="${i}" data-f="name" value="${esc(ln.name)}" placeholder="Ürün adı" aria-label="Ürün adı">`}${ln.needL?`<span class="need">İhtiyaç ≈ ${fmt(Math.ceil(ln.needL),0)} L</span>`:""}</td>
+    <td>${ln.key?`<span class="prod">${esc(ln.name)}</span>`:`<input type="text" id="q-n-${i}" data-i="${i}" data-f="name" value="${esc(ln.name)}" placeholder="Ürün adı" aria-label="Ürün adı">`}${ln.needL?`<span class="need">İhtiyaç ≈ ${fmt(Math.ceil(ln.needL),0)} L</span>`:""}<input type="text" class="ral" id="q-r-${i}" data-i="${i}" data-f="ral" value="${esc(ln.ral||"")}" placeholder="Renk (örn. RAL 7035)" aria-label="Renk"></td>
     <td class="n" data-label="Ambalaj">${packs.length>1?`<select id="q-k-${i}" data-i="${i}" data-f="pack" aria-label="Ambalaj">${packs.map(x=>`<option value="${x}"${x===num(ln.pack)?" selected":""}>${fmt(x,x%1?2:0)} ${u}</option>`).join("")}</select>`
       :packs.length===1?`<span class="mono">${fmt(packs[0],packs[0]%1?2:0)} ${u}</span>`
       :`<input type="number" id="q-k-${i}" data-i="${i}" data-f="pack" min="0" step="0.1" value="${ln.pack}" placeholder="L" aria-label="Ambalaj litre">`}</td>
@@ -857,7 +870,7 @@ function fields(){
 function renderDoc(){
   const f=fields(), t=totals();
   const rows = Q.lines.filter(l=>l.name).map((l,i)=>{const q=num(l.qty),p=num(l.price),u=isKg(l.name)?"kg":"L",kg=isKg(l.name)?lineL(l):lineKg(l);
-    return `<tr><td>${i+1}</td><td>${esc(l.name)}</td><td class="n">${num(l.pack)?fmt(num(l.pack),num(l.pack)%1?2:0)+" "+u:"—"}</td><td class="n">${fmt(q,0)}</td><td class="n">${lineL(l)?fmt(lineL(l),lineL(l)%1?2:0)+" "+u:"—"}</td><td class="n">${kg!=null?fmt(kg,1):"—"}</td><td class="n">${p>0?money(p):"—"}</td><td class="n">${kgPrice(l)!=null?money(kgPrice(l)):"—"}</td><td class="n">${lineAmt(l)>0?money(lineAmt(l)):"—"}</td></tr>`}).join("");
+    return `<tr><td>${i+1}</td><td>${esc(l.name)}${l.ral?`<br><small style="color:#4b5b74">${esc(l.ral)}</small>`:""}</td><td class="n">${num(l.pack)?fmt(num(l.pack),num(l.pack)%1?2:0)+" "+u:"—"}</td><td class="n">${fmt(q,0)}</td><td class="n">${lineL(l)?fmt(lineL(l),lineL(l)%1?2:0)+" "+u:"—"}</td><td class="n">${kg!=null?fmt(kg,1):"—"}</td><td class="n">${p>0?money(p):"—"}</td><td class="n">${kgPrice(l)!=null?money(kgPrice(l)):"—"}</td><td class="n">${lineAmt(l)>0?money(lineAmt(l)):"—"}</td></tr>`}).join("");
   const missing = Q.lines.some(l=>l.name&&!(parseFloat(l.price)>0));
   $("#q-doc").innerHTML = `
    <div class="top"><div><div class="lab">Fiyat teklifi</div><div class="dealer">${f.dealer?esc(f.dealer):"Bayi adı"}</div></div>
@@ -873,15 +886,19 @@ function renderDoc(){
   if(window.__gate)window.__gate();
 }
 
-$("#q-copy").addEventListener("click",()=>{
-  const f=fields(), t=totals(), btn=$("#q-copy");
+function custText(){
+  const f=fields(), t=totals();
   const L=[`FİYAT TEKLİFİ – ${f.dealer||"Bayi"}`,`Teklif no: ${Q.no||"-"} | Tarih: ${f.date} | Geçerlilik: ${f.until}`,`Sayın ${f.customer||"Müşteri"}${f.project?" – "+f.project:""}`,""];
-  Q.lines.filter(l=>l.name).forEach((l,i)=>{const q=num(l.qty),p=num(l.price),u=isKg(l.name)?"kg":"L",kg=isKg(l.name)?lineL(l):lineKg(l);L.push(`${i+1}. ${l.name} – ${fmt(q,0)} × ${num(l.pack)?fmt(num(l.pack),num(l.pack)%1?2:0)+" "+u:"-"} = ${lineL(l)?fmt(lineL(l),lineL(l)%1?2:0)+" "+u:"-"}${kg!=null?" ("+fmt(kg,1)+" kg)":""} × ${p>0?money(p)+"/L"+(kgPrice(l)!=null?" ("+money(kgPrice(l))+"/kg)":""):"-"} = ${lineAmt(l)>0?money(lineAmt(l)):"-"}`)});
+  Q.lines.filter(l=>l.name).forEach((l,i)=>{const q=num(l.qty),p=num(l.price),u=isKg(l.name)?"kg":"L",kg=isKg(l.name)?lineL(l):lineKg(l);L.push(`${i+1}. ${l.name}${l.ral?" ("+l.ral+")":""} – ${fmt(q,0)} × ${num(l.pack)?fmt(num(l.pack),num(l.pack)%1?2:0)+" "+u:"-"} = ${lineL(l)?fmt(lineL(l),lineL(l)%1?2:0)+" "+u:"-"}${kg!=null?" ("+fmt(kg,1)+" kg)":""} × ${p>0?money(p)+"/L"+(kgPrice(l)!=null?" ("+money(kgPrice(l))+"/kg)":""):"-"} = ${lineAmt(l)>0?money(lineAmt(l)):"-"}`)});
   L.push("",`Toplam: ${fmt(t.adet,0)} ambalaj, ${fmt(t.lt,t.lt%1?2:0)} L${t.kg?", "+fmt(t.kg,1)+" kg"+(t.kgKnown?"":" (yoğunluğu girilenler)"):""}`);
   L.push("",`Ara toplam: ${money(t.sub)}`,`KDV (%${fmt(t.kdvR,0)}): ${money(t.kdv)}`,`GENEL TOPLAM: ${money(t.grand)}`);
   if(Q.sys)L.push("",`Önerilen sistem: ISO 12944-5/${Q.sys.iso} – ${Q.sys.coats} (toplam ${Q.sys.dft} µm KFK)`,`${Q.sys.sub}, ortam ${Q.sys.env}, ${Q.sys.dur}, alan ${fmt(Q.sys.area,0)} m², yüzey hazırlığı ${Q.sys.prep}`);
   L.push("","Fiyatlar litre başınadır. Adetler teorik sarfiyat + fire payına göre yukarı yuvarlanmıştır.");
-  const text=L.join("\n");
+  return L.join("\n");
+}
+$("#q-copy").addEventListener("click",()=>{
+  const btn=$("#q-copy"); saveHist();
+  const text=custText();
   const done=()=>{const o=btn.textContent;btn.textContent="Kopyalandı";setTimeout(()=>btn.textContent=o,1600)};
   const fb=()=>{const ta=document.createElement("textarea");ta.value=text;ta.style.position="fixed";ta.style.opacity="0";document.body.appendChild(ta);ta.select();try{document.execCommand("copy");done()}catch(e){}ta.remove()};
   try{navigator.clipboard.writeText(text).then(done,fb)}catch(e){fb()}
@@ -939,12 +956,32 @@ $("#r-cats").addEventListener("click",e=>{const b=e.target.closest("[data-c]");i
 ["#r-list","#r-rival"].forEach(id=>$(id).addEventListener("click",e=>{const b=e.target.closest("[data-addq]");if(!b)return;const nm=CATALOG[+b.dataset.addq].name;
   addLine(nm,null);
   if(!Q.no)newNo(); renderLines(); renderDoc(); b.textContent="Teklife eklendi ✓"; setTimeout(()=>b.textContent="Teklife ekle",1500);}));
+/* ---------- Son teklifler (yalnızca bu cihazda) ---------- */
+let HIST=load("q-hist",[]);
+function saveHist(){
+  const f=fields(); if(!Q.lines.some(l=>l.name)) return; if(!Q.no) newNo();
+  const sn={no:Q.no,date:+Q.date,customer:f.customer,project:f.project,valid:f.valid,kdv:$("#q-kdv").value,cur:$("#q-cur").value,sys:Q.sys,lines:JSON.parse(JSON.stringify(Q.lines)),total:totals().grand};
+  HIST=[sn,...HIST.filter(h=>h.no!==sn.no)].slice(0,10); store("q-hist",HIST);
+}
+function loadSnap(sn,asNew){
+  Q.lines=JSON.parse(JSON.stringify(sn.lines)); Q.sys=sn.sys||null;
+  if(asNew){Q.no="";newNo();} else {Q.no=sn.no;Q.date=new Date(sn.date);}
+  $("#q-customer").value=asNew?"":(sn.customer||""); $("#q-project").value=asNew?"":(sn.project||"");
+  if(sn.valid)$("#q-valid").value=sn.valid; if(sn.kdv)$("#q-kdv").value=sn.kdv; if(sn.cur)$("#q-cur").value=sn.cur;
+  renderLines(); renderDoc(); go("teklif");
+}
+function histRender(){
+  const el=$("#h-hist"), wrap=$("#h-hist-wrap"); if(!el) return;
+  wrap.hidden=!HIST.length;
+  el.innerHTML=HIST.map((h,i)=>`<div class="h-hi-item"><div class="t"><b>${esc(h.customer||"Müşterisiz teklif")}</b><span>${new Date(h.date).toLocaleDateString("tr-TR")} · ${h.lines.filter(l=>l.name).length} ürün${h.total>0?" · "+h.total.toLocaleString("tr-TR",{maximumFractionDigits:0})+" "+(CUR[h.cur]||""):""}</span></div><button type="button" class="btn" data-hopen="${i}">Aç</button><button type="button" class="btn ghost" data-hcopy="${i}">Kopyala</button></div>`).join("");
+}
+document.addEventListener("click",e=>{const o=e.target.closest("[data-hopen]"),c=e.target.closest("[data-hcopy]");if(o)loadSnap(HIST[+o.dataset.hopen],false);if(c)loadSnap(HIST[+c.dataset.hcopy],true);});
 function route(){
   const V=["ana","sistem","danisman","urunler"];
   const h=(location.hash||"#ana").slice(1), v=V.includes(h)?h:"ana";
   const changed=route.last!==v; route.last=v;
   V.forEach(k=>{$("#v-"+k).hidden=k!==v; const t=$("#t-"+k); if(k===v)t.setAttribute("aria-current","page"); else t.removeAttribute("aria-current");});
-  if(v==="ana") homeRender();
+  if(v==="ana"){ homeRender(); histRender(); }
   if(changed&&!route.keep) window.scrollTo(0,0); route.keep=false;
 }
 /* ---------- Ana sayfa ---------- */
@@ -1571,6 +1608,7 @@ let DL=null;
 (async()=>{try{DL=window.claude&&window.claude.use?await window.claude.use("downloads"):null}catch(e){DL=null}
   if(window.__gate)window.__gate();})();
 $("#q-pdf").addEventListener("click",async()=>{
+  saveHist();
   const btn=$("#q-pdf"), old=btn.textContent; btn.disabled=true; btn.textContent="Hazırlanıyor…";
   const host=document.createElement("div");
   host.style.cssText="position:fixed;left:-10000px;top:0;width:794px;background:#fff";
@@ -1612,7 +1650,7 @@ function quoteText(){
   const f=fields(), t=totals();
   const L=["*JOTUN TEKLİF – ONAY İÇİN*",`Bayi: ${f.dealer||"-"}`,`Müşteri: ${f.customer||"-"}${f.project?" – "+f.project:""}`,`Teklif no: ${Q.no||"-"} | Geçerlilik: ${f.valid} gün`,"","Ürünler:"];
   Q.lines.filter(l=>l.name).forEach((l,i)=>{const q=num(l.qty),p=num(l.price),u=isKg(l.name)?"kg":"L",kg=isKg(l.name)?lineL(l):lineKg(l);
-    L.push(`${i+1}. ${l.name} – ${fmt(q,0)} × ${num(l.pack)?fmt(num(l.pack),num(l.pack)%1?2:0)+" "+u:"-"} = ${lineL(l)?fmt(lineL(l),lineL(l)%1?2:0)+" "+u:"-"}${kg!=null?" ("+fmt(kg,1)+" kg)":""} × ${p>0?money(p)+"/L":"fiyat yok"} = ${lineAmt(l)>0?money(lineAmt(l)):"-"}`)});
+    L.push(`${i+1}. ${l.name}${l.ral?" ("+l.ral+")":""} – ${fmt(q,0)} × ${num(l.pack)?fmt(num(l.pack),num(l.pack)%1?2:0)+" "+u:"-"} = ${lineL(l)?fmt(lineL(l),lineL(l)%1?2:0)+" "+u:"-"}${kg!=null?" ("+fmt(kg,1)+" kg)":""} × ${p>0?money(p)+"/L":"fiyat yok"} = ${lineAmt(l)>0?money(lineAmt(l)):"-"}`)});
   L.push("",`Toplam: ${fmt(t.adet,0)} ambalaj, ${fmt(t.lt,t.lt%1?2:0)} L${t.kg?", "+fmt(t.kg,1)+" kg":""}`,`Ara toplam: ${money(t.sub)} | KDV %${fmt(t.kdvR,0)}: ${money(t.kdv)}`,`GENEL TOPLAM: ${money(t.grand)}`);
   if(Q.sys)L.push("",`Sistem: ISO 12944-5/${Q.sys.iso} – ${Q.sys.coats} (${Q.sys.dft} µm), ${Q.sys.env}, ${Q.sys.dur}, ${fmt(Q.sys.area,0)} m²`);
   if(ASK.length){L.push("","Danışman'da sorduğu / istedikleri:");ASK.slice(-8).forEach(a=>L.push("• "+a));}
@@ -1624,7 +1662,10 @@ function gate(){
   $("#q-pdf").hidden=!((DL||!window.claude)&&window.html2canvas&&window.jspdf);
 }
 window.__gate=gate;
-["#q-send","#q-warn-send"].forEach(id=>$(id).addEventListener("click",()=>{if(!Q.no)newNo();$(id).href=waQuote();}));
+["#q-send","#q-warn-send"].forEach(id=>$(id).addEventListener("click",()=>{if(!Q.no)newNo();saveHist();$(id).href=waQuote();}));
+$("#q-cust").addEventListener("click",()=>{if(!Q.no)newNo();saveHist();$("#q-cdlg-ok").href="https://wa.me/?text="+encodeURIComponent(custText());const d=$("#q-cdlg");try{d.showModal()}catch(e){d.setAttribute("open","")}});
+const cdClose=()=>{const d=$("#q-cdlg");try{d.close()}catch(e){d.removeAttribute("open")}};
+$("#q-cdlg-no").addEventListener("click",cdClose);$("#q-cdlg-ok").addEventListener("click",()=>setTimeout(cdClose,300));
 function warn(){const d=$("#q-warn");try{d.showModal()}catch(e){d.setAttribute("open","")}}
 $("#q-warn-ok").addEventListener("click",()=>{const d=$("#q-warn");try{d.close()}catch(e){d.removeAttribute("open")}});
 $("#q-warn-send").addEventListener("click",()=>setTimeout(()=>$("#q-warn-ok").click(),300));
@@ -1640,6 +1681,7 @@ $("#f").addEventListener("change",render);
 $("#f").addEventListener("submit",e=>e.preventDefault());
 renderProducts(); render();
 if(LAST.list.length) quoteFromSystem(LAST.list[0],LAST.s,true); else {renderLines();renderDoc();}
+if(matchMedia("(max-width:700px)").matches){const pv=$(".q-prev");if(pv)pv.open=false;}
 })();
 </script>
 <div id="pwa-bar" hidden><img src="icon-192.png" alt=""><div class="t"><b>JTN Endüstri Rehber'i yükle</b><span id="pwa-msg">Telefonunda uygulama olarak açılsın.</span></div><button type="button" id="pwa-in">Yükle</button><button type="button" id="pwa-x" aria-label="Kapat">×</button></div>
