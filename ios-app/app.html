@@ -775,7 +775,7 @@ const Q = {lines:[], sys:null, no:"", date:new Date()};
 const ASK=[];
 const CUR = {TRY:"₺",EUR:"€",USD:"$"};
 const money = x=>{const c=$("#q-cur").value;return x.toLocaleString("tr-TR",{minimumFractionDigits:2,maximumFractionDigits:2})+" "+CUR[c]};
-function newNo(){const d=new Date(),p=n=>String(n).padStart(2,"0");Q.date=d;Q.no=`TKL-${d.getFullYear()}${p(d.getMonth()+1)}${p(d.getDate())}-${p(d.getHours())}${p(d.getMinutes())}`}
+function newNo(){const d=new Date(),p=n=>String(n).padStart(2,"0");Q.date=d;Q.thOff={};Q.no=`TKL-${d.getFullYear()}${p(d.getMonth()+1)}${p(d.getDate())}-${p(d.getHours())}${p(d.getMinutes())}`}
 
 const DENS_SRC = {"Barrier 80S": 2.3, "Resist 86": 2.6, "Penguard Express ZP": 1.6, "Penguard Express": 1.6, "Penguard Express LITE": 1.6, "Penguard Universal": 1.4, "Jotamastic 87": 1.4, "Jotamastic 87 GF": 1.4, "Jotamastic 85": 1.4, "Jotamastic 90": 1.4, "Hardtop XP": 1.4, "Hardtop XP II": 1.5, "Futura Classic": 1.4, "Pilot QD Primer": 1.6, "Pilot II": 1.1, "Hardtop AX": 1.4, "Penguard Express Mio": 1.6, "Penguard Primer": 1.3, "Jotamastic 80": 1.5, "Conseal T/U": 1.2, "Pioner Topcoat": 1.1, "Pilot ACR": 1.5, "Barrier": 2.5, "Barrier Plus": 2.8, "Resist 78": 2.5, "Hardtop Flexi": 1.2, "Hardtop HB": 1.2, "Penguard HSP": 1.6, "Marathon": 1.26, "Penguard HSP ZP": 1.6, "Alkydprimer": 1.3, "Steelmaster 600 WF": 1.4, "Barrier 90": 2.9, "Steelmaster 900 WF": 1.4, "Barrier Smart Pack": 2.4, "Penguard Midcoat": 1.7, "Penguard Tie Coat 100": 1.4, "Jotun Thinner N° 10": 0.9, "Jotacote Universal N 10": 1.37, "Tankguard Storage": 1.6, "Tankguard Special Ultra": 1.6, "Tankguard DW": 1.4, "Muki EPS": 1.1, "Jotafloor SL Pro": 1.65, "Jotamastic 70": 1.6, "Balloxy HB Light": 1.4, "Jota Armour": 2.5, "Vinyguard": 1.14, "SeaForce 90": 1.7, "Jotafix PU TC": 1.4, "Penguard Clear Sealer": 0.97, "Aluminium Paint HR": 0.9, "Solvalitt": 1.3, "Penguard Midcoat M20": 1.6, "Penguard Topcoat": 1.3, "Steelmaster 1200 WF": 1.4, "Jotatemp 210": 1.4, "Megafiller": 0.6, "Pilot WF": 1.2, "Pilot WF Primer": 1.3, "Penguard WF": 1.3, "Penguard Pro GF": 1.4, "Penguard FC": 1.4, "Marathon 550": 1.6, "Hardtop Eco": 1.5, "Hardtop Optima": 1.4, "Hardtop Pro": 1.4, "Jotafloor Anti-Static": 1.3, "Jotafloor Anti-Static Primer": 1.1, "Jotafloor PU Flex": 1.3, "Jotafloor Topcoat E": 1.29, "Jotafloor Screed Primer": 1.13, "Jotamastic Smart Pack HB": 1.4, "Tankguard 412": 1.5, "Tankguard Holding Primer": 1.3, "Jotacote F60": 1.4, "Jotafloor PU Topcoat": 1.3, "Tankguard Plus": 1.6, "Marathon 1000 GF": 1.4, "Penguard Express CF": 1.5, "Penguard HSP Mio": 1.6, "Hardtop Clear": 1.0, "Tankguard Zinc": 2.6, "Barrier 77": 2.2, "Barrier ZEP": 1.8, "Marathon IQ2": 1.5, "Hardtop XPL": 1.4, "Jotatemp 250": 1.5, "Penguard Midcoat Mio": 1.8, "Jotamastic SF": 1.5, "Jotacote Universal": 1.3, "Tankguard HB Classic": 1.5, "Tankguard SF": 1.5, "Baltoflake": 1.2, "SeaForce 30 M": 1.6, "SeaQuantum Ultra S": 1.8, "Jotamastic 90 GF": 1.4, "Hardtop XPF": 1.4, "Barrier 80": 2.5, "Jotamastic Plus": 1.4};
 const DENS = Object.assign({}, DENS_SRC, load("q-dens",{}));
@@ -793,6 +793,28 @@ function addLine(name,needL){
   else Q.lines.push(mkLine(name,needL));
 }
 const lineL = l=>num(l.pack)*num(l.qty);
+/* İnceltici: boya litresinin en az %15'i kadar, ürünün TDS'indeki inceltici numarasıyla otomatik eklenir */
+const THIN_RATE=0.15;
+const thinNo=n=>{const c=CATALOG.find(p=>p.name===n);if(!c||!c.th||!c.th.length)return null;const m=String(c.th[0]).match(/\d+/);return m?m[0]:null};
+const thinName=no=>`Jotun Thinner N° ${no}`;
+function bestPack(need,packs){
+  const ps=packs.filter(p=>p>0).sort((a,b)=>b-a); if(!ps.length) return 0;
+  let best=null; for(const p of ps){ if(p===1&&need>5) continue; const tot=Math.ceil(need/p)*p; if(!best||tot<best.tot) best={p,tot}; }
+  return best?best.p:ps[0];
+}
+function syncThinner(){
+  if(!Q.thOff) Q.thOff={};
+  const need={};
+  Q.lines.forEach(l=>{ if(!l.name||l.auto||/Thinner/i.test(l.name)) return; const no=thinNo(l.name); if(!no) return; need[no]=(need[no]||0)+lineL(l); });
+  Q.lines=Q.lines.filter(l=>!l.auto||(need[l.thNo]&&!Q.thOff[l.thNo]));
+  Object.entries(need).forEach(([no,L])=>{
+    const nm=thinName(no); if(Q.thOff[no]||!CATALOG.some(p=>p.name===nm)||L<=0) return;
+    const req=L*THIN_RATE; let ln=Q.lines.find(l=>l.auto&&l.thNo===no);
+    if(!ln){ ln=mkLine(nm,req,"th"); ln.auto=true; ln.thNo=no; Q.lines.push(ln); }
+    ln.needL=req;
+    if(!ln.manual){ const pk=bestPack(req,packsOf(nm)); if(pk){ ln.pack=pk; ln.qty=Math.max(1,Math.ceil(req/pk)); } }
+  });
+}
 const lineKg = l=>num(l.dens)>0?lineL(l)*num(l.dens):null;
 const amt = l=>{const v=lineAmt(l);return v>0?money(v):"—"};
 
@@ -808,10 +830,11 @@ function quoteFromSystem(sy,s,silent){
 }
 
 function renderLines(){
+  syncThinner();
   const tb=$("#q-body");
   tb.innerHTML = Q.lines.map((ln,i)=>{const packs=packsOf(ln.name);const u=isKg(ln.name)?"kg":"L";
    return `<tr>
-    <td>${ln.key?`<span class="prod">${esc(ln.name)}</span>`:`<input type="text" id="q-n-${i}" data-i="${i}" data-f="name" value="${esc(ln.name)}" placeholder="Ürün adı" aria-label="Ürün adı">`}${ln.needL?`<span class="need">İhtiyaç ≈ ${fmt(Math.ceil(ln.needL),0)} L</span>`:""}<input type="text" class="ral" id="q-r-${i}" data-i="${i}" data-f="ral" value="${esc(ln.ral||"")}" placeholder="Renk – isteğe bağlı (örn. RAL 7035)" aria-label="Renk"></td>
+    <td>${ln.key?`<span class="prod">${esc(ln.name)}</span>`:`<input type="text" id="q-n-${i}" data-i="${i}" data-f="name" value="${esc(ln.name)}" placeholder="Ürün adı" aria-label="Ürün adı">`}${ln.auto?`<span class="need">Boyanın %15'i · İhtiyaç ≈ ${fmt(Math.ceil(ln.needL),0)} L</span>`:ln.needL?`<span class="need">İhtiyaç ≈ ${fmt(Math.ceil(ln.needL),0)} L</span>`:""}${ln.auto?"":`<input type="text" class="ral" id="q-r-${i}" data-i="${i}" data-f="ral" value="${esc(ln.ral||"")}" placeholder="Renk – isteğe bağlı (örn. RAL 7035)" aria-label="Renk">`}</td>
     <td class="n" data-label="Ambalaj">${packs.length>1?`<select id="q-k-${i}" data-i="${i}" data-f="pack" aria-label="Ambalaj">${packs.map(x=>`<option value="${x}"${x===num(ln.pack)?" selected":""}>${fmt(x,x%1?2:0)} ${u}</option>`).join("")}</select>`
       :packs.length===1?`<span class="mono">${fmt(packs[0],packs[0]%1?2:0)} ${u}</span>`
       :`<input type="number" id="q-k-${i}" data-i="${i}" data-f="pack" min="0" step="0.1" value="${ln.pack}" placeholder="L" aria-label="Ambalaj litre">`}</td>
@@ -836,12 +859,16 @@ function onLine(e){
   if(f==="pack"){ if(ln.needL&&num(ln.pack)){ln.qty=Math.ceil(ln.needL/num(ln.pack));const qi=$("#q-q-"+i);if(qi)qi.value=ln.qty;}
     }
   if(f==="price"&&ln.name){const v=num(t.value);if(v>0){PRICES[ln.name]=v;store("q-prices-l",PRICES)}}
+  if(ln.auto&&(f==="qty"||f==="pack")) ln.manual=true;
+  if(!ln.auto&&(f==="qty"||f==="pack")){ const before=Q.lines.length; syncThinner();
+    if(Q.lines.length!==before){ renderLines(); renderDoc(); return; }
+    Q.lines.forEach((l,k)=>{ if(!l.auto) return; const qi=$("#q-q-"+k); if(qi&&document.activeElement!==qi) qi.value=l.qty; const ki=$("#q-k-"+k); if(ki&&ki.tagName==="SELECT") ki.value=l.pack; const nd=$("#q-body").rows[k]&&$("#q-body").rows[k].querySelector(".need"); if(nd) nd.textContent=`Boyanın %15'i · İhtiyaç ≈ ${fmt(Math.ceil(l.needL),0)} L`; updCells(k); }); }
   if(f==="dens"&&ln.name){const v=num(t.value);if(v>0){DENS[ln.name]=v;store("q-dens",Object.fromEntries(Object.entries(DENS)))}}
   updCells(i); renderDoc();
 }
 $("#q-body").addEventListener("input",onLine);
 $("#q-body").addEventListener("change",e=>{if(e.target.tagName==="SELECT")onLine(e);});
-$("#q-body").addEventListener("click",e=>{const d=e.target.closest("[data-del]");if(!d)return;Q.lines.splice(+d.dataset.del,1);renderLines();renderDoc();});
+$("#q-body").addEventListener("click",e=>{const d=e.target.closest("[data-del]");if(!d)return;const ln=Q.lines[+d.dataset.del];if(ln&&ln.auto){Q.thOff=Q.thOff||{};Q.thOff[ln.thNo]=true;}Q.lines.splice(+d.dataset.del,1);renderLines();renderDoc();});
 $("#q-add-sel").innerHTML = Object.keys(CATS).map(c=>{const items=CATALOG.map((p,i)=>[p,i]).filter(([p])=>p.cat===c&&c!=="MCI Tinter");return items.length?`<optgroup label="${CATS[c][0]}">${items.map(([p,i])=>`<option value="c:${i}">${esc(p.name)}</option>`).join("")}</optgroup>`:""}).join("")+`<option value="__free">Diğer ürün (elle yaz)</option>`;
 $("#q-add").addEventListener("click",()=>{
   const k=$("#q-add-sel").value;
@@ -849,7 +876,7 @@ $("#q-add").addEventListener("click",()=>{
   else addLine(k.startsWith("c:")?CATALOG[+k.slice(2)].name:PRODUCTS[k].name,null);
   if(!Q.no)newNo(); renderLines(); renderDoc();
 });
-$("#q-clear").addEventListener("click",()=>{Q.lines=[];Q.sys=null;renderLines();renderDoc();});
+$("#q-clear").addEventListener("click",()=>{Q.lines=[];Q.sys=null;Q.thOff={};renderLines();renderDoc();});
 
 const dealerEl=$("#q-dealer"); dealerEl.value=load("q-dealer","");
 ["#q-dealer","#q-customer","#q-project","#q-valid","#q-kdv","#q-cur"].forEach(id=>$(id).addEventListener("input",()=>{if(id==="#q-dealer")store("q-dealer",dealerEl.value);if(id==="#q-cur")renderLines();renderDoc();}));
