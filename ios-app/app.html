@@ -245,6 +245,17 @@ input[type=search]{width:100%;font:500 16px var(--f-body);padding:10px 12px;bord
 .modes label{padding:8px 10px;font-size:14px}
 [hidden]{display:none!important}
 .dpanel{display:flex;flex-direction:column;gap:14px}
+.ch-bar{display:flex;align-items:flex-end;gap:6px;background:var(--bg);border:1px solid var(--line);border-radius:22px;padding:5px}
+.ch-bar textarea{flex:1;min-width:0;border:0!important;background:transparent!important;resize:none;font:16px/1.35 var(--f-body);padding:8px 4px;max-height:140px;outline:none;color:var(--ink)}
+.ic-btn{display:flex!important;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;cursor:pointer;flex:none;color:var(--muted)}
+.ic-btn:hover{background:var(--panel);color:var(--ink)}
+.ic-btn svg,.send-btn svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.send-btn{width:38px;height:38px;border-radius:50%;border:0;background:var(--accent);color:#031e45;display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none}
+.send-btn:disabled{opacity:.5}.send-btn.stop{background:var(--ink);color:var(--bg)}
+.msg.rich{white-space:normal}
+.ch-chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px}.ch-chips .chip{white-space:nowrap}
+.h-cats.h-cats3{grid-template-columns:repeat(3,1fr)}
+@media (min-width:701px){.h-cats.h-cats3{grid-template-columns:repeat(8,1fr)}}
 .up-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .up-btn{display:flex!important;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-align:center;min-height:72px;padding:10px;border:2px dashed var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:600 14px var(--f-body);cursor:pointer}
 .up-btn svg{width:26px;height:26px;stroke:var(--steel);fill:none;stroke-width:1.8}
@@ -322,7 +333,7 @@ label.btn{display:inline-block}
   <h3 class="h-sec">Ne boyanacak?</h3>
   <div class="h-cats"><button type="button" class="h-cat" data-go="what:celik"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M10 18h44v6H35v20h19v6H10v-6h19V24H10z"/><path d="M10 18h44v6H35v20h19v6H10v-6h19V24H10z"/><path class="d" d="M6 56h52M6 12h52"/><path class="a" d="M4 15v-6M60 15v-6M4 12h56"/></svg></span><span class="h-lb">Çelik yapı</span></button><button type="button" class="h-cat" data-go="what:ekipman"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><rect class="f" x="8" y="24" width="34" height="24" rx="2"/><rect x="8" y="24" width="34" height="24" rx="2"/><path d="M14 48v6M36 48v6M42 32h8l6 8v8H42"/><circle class="a" cx="25" cy="36" r="6"/><circle cx="25" cy="36" r="2"/><path class="d" d="M4 54h56"/></svg></span><span class="h-lb">Makine</span></button><button type="button" class="h-cat" data-go="what:tankdis"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><rect class="f" x="8" y="18" width="48" height="22" rx="11"/><rect x="8" y="18" width="48" height="22" rx="11"/><path d="M16 40l-4 10h12l-4-10M48 40l-4 10h12l-4-10M30 18v-8h8v8"/><path class="a" d="M8 29h48"/><path class="d" d="M4 50h56"/></svg></span><span class="h-lb">Tank dış</span></button><button type="button" class="h-cat" data-go="what:boru"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M6 24h40v16H6z"/><path d="M6 24h40v16H6zM46 20h6v24h-6zM52 26h8v12h-8"/><path class="a" d="M14 24v16M30 24v16"/><path class="d" d="M4 50h56"/></svg></span><span class="h-lb">Boru dış</span></button><button type="button" class="h-cat" data-go="what:tankic"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M14 34h36v18a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4z"/><path d="M14 10h36v42a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4z"/><path class="a" d="M14 34c6-3 12 3 18 0s12-3 18 0"/><path class="y" d="M18 14v38"/></svg></span><span class="h-lb">Tank içi</span></button><button type="button" class="h-cat" data-go="what:sicak"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M22 20h20v36H22z"/><path d="M22 20h20v36H22zM18 56h28M26 20v-6h12v6"/><path class="a" d="M26 10c-2-3 2-4 0-7M32 10c-2-3 2-4 0-7M38 10c-2-3 2-4 0-7"/><path class="d" d="M22 32h20M22 44h20"/></svg></span><span class="h-lb">Sıcak yüzey</span></button><button type="button" class="h-cat" data-go="what:zemin"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M6 38l20-12h32L38 38z"/><path d="M6 38l20-12h32L38 38zM6 38v8h32v-8M38 46l20-12v-8"/><path class="y" d="M6 42h32"/><path class="d" d="M16 34l8-5M26 34l8-5M36 34l8-5"/></svg></span><span class="h-lb">Beton zemin</span></button><button type="button" class="h-cat" data-go="what:yangin"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M26 8h12v48H26z"/><path d="M22 8h20M22 56h20M26 8v48M38 8v48"/><path class="a" d="M46 50c-6 0-9-5-7-10 1 3 3 3 3 3-1-6 3-10 6-12-1 5 4 7 4 12s-2 7-6 7z"/></svg></span><span class="h-lb">Yangın</span></button></div>
   <h3 class="h-sec">Hızlı işlemler</h3>
-  <div class="h-cats"><button type="button" class="h-cat" data-go="teklif"><span class="h-ic t"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M14 6h26l10 10v42H14z"/><path d="M14 6h26l10 10v42H14zM40 6v10h10"/><path class="d" d="M20 26h24M20 33h24M20 40h24M32 26v21"/><path class="y" d="M20 50h14"/></svg></span><span class="h-lb">Teklif</span></button><button type="button" class="h-cat" data-go="foto"><span class="h-ic t"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M8 12h40v28H24l-10 9v-9H8z"/><path d="M8 12h40v28H24l-10 9v-9H8z"/><path class="a" d="M23 22a5 5 0 1 1 7 4.6c-1.4.6-2 1.4-2 2.9V31"/><circle class="a" cx="28" cy="35.5" r=".8"/><path class="y" d="M52 24h4v26h-6l-6 6v-6"/></svg></span><span class="h-lb">Soru sor</span></button><button type="button" class="h-cat" data-go="fotocek"><span class="h-ic t"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M8 20h12l4-6h16l4 6h12v32H8z"/><path d="M8 20h12l4-6h16l4 6h12v32H8z"/><circle cx="32" cy="35" r="10"/><circle class="a" cx="32" cy="35" r="5"/><path class="d" d="M48 26h4"/></svg></span><span class="h-lb">Fotoğrafla sor</span></button><button type="button" class="h-cat" data-go="urun"><span class="h-ic t"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M14 16h36v38a3 3 0 0 1-3 3H17a3 3 0 0 1-3-3z"/><path d="M14 16h36v38a3 3 0 0 1-3 3H17a3 3 0 0 1-3-3zM14 16c0-4 36-4 36 0M22 10h20"/><rect class="a" x="20" y="28" width="24" height="14"/><path class="y" d="M24 48h16"/></svg></span><span class="h-lb">Ürünler</span></button></div>
+  <div class="h-cats h-cats3"><button type="button" class="h-cat" data-go="teklif"><span class="h-ic t"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M14 6h26l10 10v42H14z"/><path d="M14 6h26l10 10v42H14zM40 6v10h10"/><path class="d" d="M20 26h24M20 33h24M20 40h24M32 26v21"/><path class="y" d="M20 50h14"/></svg></span><span class="h-lb">Teklif</span></button><button type="button" class="h-cat" data-go="foto"><span class="h-ic t"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M8 12h40v28H24l-10 9v-9H8z"/><path d="M8 12h40v28H24l-10 9v-9H8z"/><path class="a" d="M23 22a5 5 0 1 1 7 4.6c-1.4.6-2 1.4-2 2.9V31"/><circle class="a" cx="28" cy="35.5" r=".8"/><path class="y" d="M52 24h4v26h-6l-6 6v-6"/></svg></span><span class="h-lb">Soru sor</span></button><button type="button" class="h-cat" data-go="urun"><span class="h-ic t"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M14 16h36v38a3 3 0 0 1-3 3H17a3 3 0 0 1-3-3z"/><path d="M14 16h36v38a3 3 0 0 1-3 3H17a3 3 0 0 1-3-3zM14 16c0-4 36-4 36 0M22 10h20"/><rect class="a" x="20" y="28" width="24" height="14"/><path class="y" d="M24 48h16"/></svg></span><span class="h-lb">Ürünler</span></button></div>
 </section>
 <div id="v-sistem">
 
@@ -462,7 +473,7 @@ label.btn{display:inline-block}
   <div class="seg modes" id="d-mode" role="tablist">
     <input type="radio" name="dmode" id="dm-w" value="w" checked><label for="dm-w">Adım adım</label>
     <input type="radio" name="dmode" id="dm-r" value="r" hidden><label for="dm-r" hidden>Rakibe karşı</label>
-    <input type="radio" name="dmode" id="dm-c" value="c"><label for="dm-c">Soru · Foto</label>
+    <input type="radio" name="dmode" id="dm-c" value="c"><label for="dm-c">Soru sor</label>
   </div>
 
   <div id="d-w" class="dpanel">
@@ -489,18 +500,21 @@ label.btn{display:inline-block}
 
   <div id="d-c" class="dpanel" hidden>
     <div class="dbox">
-      <div class="chat" id="ch-log"><div class="msg bot">Merhaba. Ne boyanacak, nerede duracak ve ne kadar dayanması gerekiyor? Bilmediğiniz yerleri ben sorarım.</div></div>
+      <div class="chat" id="ch-log"><div class="msg bot">Ne boyanacak, nerede duracak, kaç yıl dayanmalı? Yazın; rakip ürün, şartname veya fotoğraf da ekleyebilirsiniz.</div></div>
       <div class="ch-in" id="ch-drop">
         <div class="att" id="ch-att" hidden></div>
-        <textarea id="ch-text" rows="2" placeholder="Örn: Tekirdağ'da deniz kenarında depo çatı makası, paslı, kumlama yok — veya sadece rakip etiketin fotoğrafını ekleyin"></textarea>
-        <div class="up-row">
-          <label class="up-btn" for="ch-cam"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>Fotoğraf çek</label>
-          <label class="up-btn" for="ch-file" id="ch-file-lbl"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M12 11v6M9 14l3-3 3 3"/></svg>Fotoğraf / dosya seç</label>
+        <div class="ch-chips" id="ch-chips"><button type="button" class="chip" data-tpl="Hempadur 15570 yerine ne verebiliriz? ">Rakip ürüne karşılık</button><button type="button" class="chip" data-tpl="Şartname: ">Şartnameye göre sistem</button><button type="button" class="chip" data-tpl="Depo çatı makası, C4, paslı, kumlama yok, 500 m2">Örnek soru</button></div>
+        <div class="ch-bar">
+          <label class="ic-btn" for="ch-cam" title="Fotoğraf çek" aria-label="Fotoğraf çek"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg></label>
+          <label class="ic-btn" for="ch-file" id="ch-file-lbl" title="Fotoğraf veya dosya ekle" aria-label="Fotoğraf veya dosya ekle"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5l-8 8a5 5 0 0 1-7-7l8.5-8.5a3.5 3.5 0 0 1 5 5L10 17.5a2 2 0 0 1-3-3l7.5-7.5"/></svg></label>
+          <textarea id="ch-text" rows="1" placeholder="Sorunuzu yazın…" aria-label="Soru"></textarea>
+          <button type="button" class="send-btn" id="ch-send" aria-label="Gönder"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button>
+          <button type="button" class="send-btn stop" id="ch-stop" hidden aria-label="Durdur"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="1"/></svg></button>
         </div>
         <input type="file" id="ch-cam" accept="image/*" capture="environment" hidden>
         <input type="file" id="ch-file" multiple accept="image/*,.pdf,.txt,.csv,.md" hidden>
-        <p class="hint" id="ch-file-hint">Rakip ürün etiketi, rakip teklifi, şartname (PDF) veya yüzey fotoğrafı ekleyin. Fotoğraftaki yazılar okunur.</p>
-        <div class="q-actions"><button type="button" class="btn primary" id="ch-send">Gönder</button><button type="button" class="btn ghost" id="ch-stop" hidden>Durdur</button><button type="button" class="btn ghost" id="ch-new">Yeni sohbet</button><a class="btn ghost" id="ch-fwd" href="#" target="_blank" rel="noopener" hidden>Sorularımı bölge yöneticisine ilet</a></div></div>
+        <p class="hint" id="ch-file-hint">Yazın veya etiket, şartname, yüzey fotoğrafı ekleyin.</p>
+        <div class="q-actions"><button type="button" class="btn ghost" id="ch-new">Yeni sohbet</button><a class="btn ghost" id="ch-fwd" href="#" target="_blank" rel="noopener" hidden>Sorularımı bölge yöneticisine ilet</a></div></div>
     </div>
   </div>
   <p class="hint ai-off" id="ai-off" hidden></p>
@@ -1417,7 +1431,7 @@ async function offSend(text){
   offAsk();
 }
 
-function chAdd(cls,html){const d=document.createElement("div");d.className="msg "+cls;d.innerHTML=html;$("#ch-log").appendChild(d);d.scrollIntoView({block:"nearest"});return d;}
+function chAdd(cls,html){const d=document.createElement("div");d.className="msg "+cls+(/<(p|div|table|h4|ul)[\s>]/.test(html)?" rich":"");d.innerHTML=html;$("#ch-log").appendChild(d);d.scrollIntoView({block:"nearest"});return d;}
 /* ekler: fotoğraf, PDF, metin */
 let ATT=[], IMG_OK=false, IMG_MAX=4, IMG_TYPES=["image/jpeg","image/png","image/webp","image/gif"];
 (async()=>{ for(let i=0;i<40&&!SAMPLE;i++) await new Promise(r=>setTimeout(r,300)); if(!SAMPLE) return;
@@ -1489,7 +1503,7 @@ async function chSend(text){
   ATT=[]; renderAtt();
   const turnsBase=CH.slice(-16,-1);
   const bot=chAdd("bot","<span class='think'>Düşünüyor…</span>");
-  chCtl=new AbortController(); $("#ch-stop").hidden=false; $("#ch-send").disabled=true;
+  chCtl=new AbortController(); $("#ch-stop").hidden=false; $("#ch-send").hidden=true;
   try{
     const prev=turnsBase[0]&&turnsBase[0].role==="assistant"?turnsBase.slice(1):turnsBase;
     const opts={cache:false,signal:chCtl.signal,onText:({text})=>{bot.innerHTML=md(text);bindChoices(bot);}};
@@ -1497,7 +1511,7 @@ async function chSend(text){
     const {text:ans,truncated}=await SAMPLE([{role:"user",content:RULES},...prev,{role:"user",content}],opts);
     CH.push({role:"assistant",content:ans}); bot.innerHTML=md(ans)+(truncated?"<p class='hint'>Cevap kısa kesildi; devamını isteyin.</p>":""); bindChoices(bot);
   }catch(e){const m=aiFail(e); if(OFFLINE&&!(e&&e.text)){bot.remove();CH.pop();const ln=[...$("#ch-log").children].pop();if(ln&&ln.classList.contains("me"))ln.remove();ASK.pop();finOff=true;}else{bot.innerHTML=(e&&e.text?md(e.text):"")+(m?`<p class="note">${m}</p>`:""); if(!e||!e.text)CH.pop();}}
-  finally{$("#ch-stop").hidden=true;$("#ch-send").disabled=false;chCtl=null;}
+  finally{$("#ch-stop").hidden=true;$("#ch-send").hidden=false;chCtl=null;}
   if(finOff){finOff=false;offSend(text);}
 }
 let finOff=false;
@@ -1508,8 +1522,11 @@ function bindChoices(bot){
   bot.innerHTML=lines.map(l=>{const m=l.match(/^\s*(\d)\)\s+(.*)$/);return m?`<button type="button" class="choice" data-ans="${m[2].replace(/<[^>]+>/g,"").replace(/"/g,"&quot;")}">${m[1]}) ${m[2]}</button>`:l}).join("\n");
   bot.querySelectorAll(".choice").forEach(b=>b.onclick=()=>{if(chCtl)return;chSend(b.dataset.ans);});
 }
-$("#ch-send").onclick=()=>{const t=$("#ch-text").value;$("#ch-text").value="";chSend(t);};
+$("#ch-send").onclick=()=>{const t=$("#ch-text").value;$("#ch-text").value="";chGrow();chSend(t);};
 $("#ch-text").addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();$("#ch-send").click();}});
+const chGrow=()=>{const t=$("#ch-text");t.style.height="auto";t.style.height=Math.min(140,t.scrollHeight)+"px";};
+$("#ch-text").addEventListener("input",chGrow);
+$("#ch-chips").addEventListener("click",e=>{const b=e.target.closest("[data-tpl]");if(!b)return;const t=$("#ch-text");t.value=b.dataset.tpl;chGrow();t.focus();t.setSelectionRange(t.value.length,t.value.length);});
 $("#ch-stop").onclick=()=>chCtl&&chCtl.abort();
 $("#ch-new").onclick=()=>{if(chCtl)chCtl.abort();CH=[];CW.ans={};$("#ch-log").innerHTML=`<div class="msg bot">Yeni sohbet. Ne boyanacak, nerede duracak ve ne kadar dayanması gerekiyor?</div>`;};
 $("#rv-photo").onclick=()=>{$("#dm-c").checked=true;$("#d-mode").dispatchEvent(new Event("change"));setTimeout(()=>$("#ch-file-lbl").focus(),0);};
