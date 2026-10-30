@@ -707,6 +707,14 @@ body[data-view="urunler"] #app-bg{height:min(560px,70vh)!important;opacity:1!imp
 #v-urunler .r-item .r-body dt{color:#5d6b82}
 #v-urunler .r-item .r-body .btn:not(.primary){background:#fff;color:#0b1f45;border-color:#c5cfdd}
 #r-count{color:#8b97a8}
+#v-urunler .r-item>summary{height:150px}
+#v-urunler .ri-m{overflow:hidden}
+@media (max-width:700px){.ri-tags i:nth-child(n+3){display:none}#v-urunler .r-name{font-size:16px}}
+#v-urunler .ri-img{width:132px!important;max-width:none!important;min-height:0!important;height:150px;background-size:auto 150px!important;background-position:22% 50%!important}
+.ri-tags{flex-wrap:nowrap!important;overflow:hidden}
+.ri-tags i{white-space:nowrap;flex:none}
+#v-urunler .r-note{-webkit-line-clamp:2}
+@media (min-width:701px){#v-urunler .r-item>summary{height:150px}#v-urunler .ri-img{width:160px!important;height:150px;background-size:auto 150px!important}}
 #v-urunler .r-item .r-body dl{display:grid;grid-template-columns:max-content 1fr;gap:8px 16px;margin:0 0 12px}
 #v-urunler .r-item .r-body dt{margin:0;font:600 12px/1.5 var(--f-body);letter-spacing:.04em;text-transform:uppercase;padding-top:1px}
 #v-urunler .r-item .r-body dd{margin:0;font-size:14.5px;line-height:1.45}
