@@ -580,7 +580,7 @@ html{background:var(--bg)}
 body{-webkit-font-smoothing:antialiased;font-family:var(--f-body)}
 #app-bg{position:absolute!important;inset:0 0 auto 0!important;height:min(760px,100vh);z-index:-1;background:linear-gradient(180deg,rgba(7,13,21,.55) 0%,rgba(7,13,21,.35) 28%,rgba(7,13,21,.7) 58%,var(--bg) 100%),linear-gradient(0deg,rgba(10,20,45,.35),rgba(10,20,45,.35)),var(--bg-img) 62% 30%/cover no-repeat!important;filter:brightness(.78) saturate(1.1)}
 body:not([data-view="ana"]) #app-bg{height:min(420px,60vh);opacity:.55}
-.hd{display:flex!important;align-items:center!important;flex-wrap:nowrap!important;gap:12px!important;border:0!important;padding:calc(10px + env(safe-area-inset-top,0px)) 0 12px!important;margin:0 0 14px!important;background:transparent}
+.hd{display:flex!important;justify-content:flex-start!important;align-items:center!important;flex-wrap:nowrap!important;gap:12px!important;border:0!important;padding:calc(10px + env(safe-area-inset-top,0px)) 0 12px!important;margin:0 0 14px!important;background:transparent}
 .hd .brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
 .hd-logo{width:96px;height:33px;flex:none}
 .hd-sep{width:1px;height:26px;background:rgba(255,255,255,.35);flex:none}
@@ -689,7 +689,7 @@ body:not([data-view="ana"]) #app-bg{height:min(420px,60vh);opacity:.55}
 </div>
 <div class="wrap">
 <header class="hd">
-  <a href="#ana" class="hd-btn hd-home" aria-label="Ana sayfa"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h11"/></svg></a>
+  <a href="#ana" class="hd-btn hd-home" aria-label="Ana sayfa" title="Ana sayfa"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h11"/></svg></a>
   <a href="#ana" class="brand" aria-label="Jotun Endüstri ana sayfa"><span class="ico ic-logo hd-logo" role="img" aria-label="JOTUN"></span><span class="hd-sep"></span><span class="hd-t">Endüstri</span></a>
   <nav class="tabs" aria-label="Bölümler">
   <a href="#ana" id="t-ana" class="tab" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg><span>Ana Sayfa</span></a>
@@ -699,7 +699,6 @@ body:not([data-view="ana"]) #app-bg{height:min(420px,60vh);opacity:.55}
   <a href="#danisman" id="t-danisman" class="tab"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></svg><span>Danışman</span></a>
   <a href="#urunler" id="t-urunler" class="tab"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M4 7.5l8 4.5 8-4.5M12 12v9"/></svg><span>Ürünler</span></a>
 </nav>
-  <div class="hd-pill"><button type="button" id="hd-search" aria-label="Ürün ara"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg></button><button type="button" id="hd-share" aria-label="Paylaş"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V4M8 8l4-4 4 4"/><path d="M5 12v7h14v-7"/></svg></button><button type="button" id="hd-more" aria-label="Diğer"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5.5" cy="12" r="1.3"/><circle cx="12" cy="12" r="1.3"/><circle cx="18.5" cy="12" r="1.3"/></svg></button></div>
 </header>
 
 <section id="v-ana">
@@ -713,7 +712,7 @@ body:not([data-view="ana"]) #app-bg{height:min(420px,60vh);opacity:.55}
   <h3 class="hm-sec">Ne boyanacak?</h3>
   <div class="hm-cats"><button type="button" class="hm-tile" data-go="what:celik"><span class="ico ic-celik hm-ti"></span><span class="hm-tl">Çelik yapı</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:ekipman"><span class="ico ic-makine hm-ti"></span><span class="hm-tl">Makine</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:tankdis"><span class="ico ic-tankdis hm-ti"></span><span class="hm-tl">Tank dış</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:boru"><span class="ico ic-boru hm-ti"></span><span class="hm-tl">Boru dış</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:tankic"><span class="ico ic-tankici hm-ti"></span><span class="hm-tl">Tank içi</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:sicak"><span class="ico ic-sicak hm-ti"></span><span class="hm-tl">Sıcak yüzey</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:zemin"><span class="ico ic-beton hm-ti"></span><span class="hm-tl">Beton zemin</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:yangin"><span class="ico ic-yangin hm-ti"></span><span class="hm-tl">Yangın</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
   <div id="h-hist-wrap" hidden><h3 class="hm-sec" style="margin-bottom:8px">Son teklifler</h3><div class="h-hist" id="h-hist"></div></div>
-  <div class="hm-foot"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><div><span>Son güncelleme 30.10.2026 · 23:45</span><span><span id="role-lbl"></span> · <button type="button" class="linkbtn" id="role-chg">değiştir</button></span></div></div>
+  <div class="hm-foot"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><div><span>Son güncelleme 30.10.2026 · 23:55</span><span><span id="role-lbl"></span> · <button type="button" class="linkbtn" id="role-chg">değiştir</button></span></div></div>
 </section>
 <div id="v-sistem">
 
@@ -2217,16 +2216,7 @@ function quoteText(){
 }
 const waQuote=()=>"https://wa.me/"+WA+"?text="+encodeURIComponent(quoteText());
 /* ---------- Üst çubuk ---------- */
-$("#hd-search").addEventListener("click",()=>{location.hash="#urunler";setTimeout(()=>{const q=$("#r-q");if(q)q.focus();},120);});
-$("#hd-share").addEventListener("click",async()=>{const url=location.href.split("#")[0];try{if(navigator.share){await navigator.share({title:"Jotun Endüstri",url});return;}}catch(e){if(e&&e.name==="AbortError")return;}
-  try{await navigator.clipboard.writeText(url);toast("Bağlantı kopyalandı");}catch(e){toast(url);}});
-$("#hd-more").addEventListener("click",()=>{const d=sheet("Menü",`<div class="mn">
-  <button type="button" class="mn-i" data-m="role">Rolü değiştir <small>${UROLE==="s"?"Jotun Sorumlusu":"Bayi"}</small></button>
-  <button type="button" class="mn-i" data-m="urun">Ürün rehberi</button>
-  <button type="button" class="mn-i" data-m="code">Erişim kodunu değiştir</button>
-  <p class="hint" style="margin:6px 2px 0">Son güncelleme 30.10.2026 · 23:45</p></div>`);
-  d.querySelector(".mn").addEventListener("click",e=>{const b=e.target.closest("[data-m]");if(!b)return;d.close();const m=b.dataset.m;
-    if(m==="role")roleGate(true);else if(m==="urun")location.hash="#urunler";else if(m==="code"){store("acc","");$("#cg-in").value="";accAsk();}});});
+document.querySelectorAll(".hd-home,.hd .brand").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();if(location.hash!=="#ana"&&location.hash!=="")location.hash="#ana";else{route();window.scrollTo({top:0,behavior:"smooth"});}}));
 
 /* ---------- Erişim kodu ---------- */
 const ACC=["05c9784de8a231f0712dc436", "07459e76dc81023c0a0e6607", "1ae151552aeb2c6d806d1bc1", "1dccf2cf50b8807fb54fc19c", "1e907805a9128505091a2c46", "285bca4cd6e6f4dee21e4861", "3a17ee28d3c0ea4971df2734", "4f7078770f35442a7d578cc2", "56531a5fb22c5f65b3649d8a", "6018857fa908282fdeb67939", "694ff5bb971ccc498e924d8b", "6f0d1cc379ccf3f2844d7727", "831e248aa8cfa0f2569c17f8", "881395f5e292321a39bcc6f7", "8e5daec8b4052572b990fc73", "996cf640222871a728a15764", "9d3b4024bc3d8ca44aaa8d2f", "ac4771d464ecfef970079f79", "ae1d19db04f203bb6f1dfda8", "c7e9d09d95f44ab3ca83d0ba", "cc4e1e178dfbda167dcb2e7b", "cf86e3fb3bc64651a6f9ed04"], ACC_SALT="jtn-endustri-2026";
