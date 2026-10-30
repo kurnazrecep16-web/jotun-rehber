@@ -180,6 +180,16 @@ details.more summary{padding:4px 0;font-size:12.5px;font-weight:500}
   #v-ana .h-ic{width:clamp(56px,38%,104px);aspect-ratio:1;padding:0;background:none;box-shadow:none}
   #v-ana .h-lb{font-size:15px}
 }
+.h-top{display:flex;flex-direction:column;gap:inherit}
+@media (min-width:701px){
+  .h-top{display:grid;grid-template-columns:1.7fr 1fr;gap:14px}
+  .h-top .h-hero{min-height:132px}
+  .h-top .h-alt{flex-direction:column;align-items:flex-start;justify-content:center;gap:12px;padding:18px 20px}
+  .h-top .h-alt-ic{margin-left:0}
+  .h-top .h-alt-go{position:absolute;right:16px;top:16px}
+  .h-top .h-alt-t b{font-size:17px}
+  .h-top .h-alt-t span{white-space:normal;font-size:13px}
+}
 @media (min-width:701px) and (orientation:portrait){
   #v-ana .h-cats{grid-template-columns:1fr 1fr}
   #v-ana .h-cat{flex-direction:row;justify-content:flex-start;gap:20px;padding:16px 28px}
@@ -192,8 +202,9 @@ details.more summary{padding:4px 0;font-size:12.5px;font-weight:500}
   #v-ana .h-hero h2,#v-ana .h-hero b{font-size:18px}
   #v-ana .h-hero svg.art{width:70px;height:52px}
   #v-ana .h-hero .h-go{display:none}
-  #v-ana .h-hero::after{content:"›";font-size:28px;color:var(--accent);margin-left:4px;line-height:1}
-  #v-ana .h-alt{padding:8px 12px}
+  #v-ana .h-hero::after{content:"›";flex:none;width:30px;height:30px;border-radius:50%;border:1px solid rgba(255,255,255,.35);display:grid;place-items:center;font:500 22px/1 var(--f-body);color:#fff;padding-bottom:3px;box-sizing:border-box;margin-left:4px}
+  #v-ana .h-alt{padding:9px 12px 9px 10px}
+  #v-ana .h-alt-ic{width:42px;height:42px}
   #v-ana .h-sec{margin:0}
   #v-ana .h-ic{width:38px;height:38px}
   #h-greet{font-size:20px;margin:0}
@@ -433,12 +444,18 @@ textarea:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
 .q-miss{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#fff8e6;border:1px solid #f0d48a;color:#6b4a00;border-radius:12px;padding:10px 12px;font-size:14px;margin:8px 0}
 .q-miss button{flex:none}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .q-miss{background:#2a2414;border-color:#5c4a1c;color:#f3d88f}}
-.h-alt{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:10px 14px;box-shadow:var(--shadow);color:var(--ink);font:inherit;cursor:pointer}
-.h-alt-ic{width:38px;height:38px;flex:none;border-radius:10px;background:rgba(213,43,30,.08);display:grid;place-items:center}
-.h-alt-ic svg{width:22px;height:22px;fill:none;stroke:var(--red);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.h-alt-t{flex:1;display:flex;flex-direction:column;gap:1px}.h-alt-t b{font:600 15px var(--f-body)}.h-alt-t span{font-size:12.5px;color:var(--muted)}
-.h-alt-go{font-size:24px;color:var(--muted);line-height:1}
+.h-alt{position:relative;display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:12px 14px 12px 12px;box-shadow:var(--shadow);color:var(--ink);font:inherit;cursor:pointer;overflow:hidden;transition:border-color .15s,box-shadow .15s}
+.h-alt::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:3px;border-radius:0 3px 3px 0;background:var(--accent)}
+.h-alt:hover{border-color:var(--steel)}
+.h-alt-ic{width:46px;height:46px;flex:none;border-radius:12px;background:rgba(3,30,69,.06);display:grid;place-items:center;margin-left:4px}
+.h-alt-ic svg{width:34px;height:34px;fill:none;stroke:var(--steel);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.h-alt-ic .lid{stroke-width:2.2}.h-alt-ic .lb{stroke:var(--muted)}
+.h-alt-ic .pl{fill:var(--accent);stroke:var(--panel);stroke-width:1.5}.h-alt-ic .pk{stroke:#031e45;stroke-width:1.8}
+.h-alt-t{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}.h-alt-t b{font:700 15.5px/1.2 var(--f-body);color:var(--ink)}.h-alt-t span{font-size:12.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.h-alt-go{width:30px;height:30px;flex:none;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center}
+.h-alt-go svg{width:16px;height:16px;fill:none;stroke:var(--steel);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .h-alt:active{transform:scale(.98)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .h-alt-ic{background:rgba(143,179,255,.10)}}
 .sheet-in>*{flex-shrink:0}
 .pk-q{width:100%;font-size:16px;padding:10px 12px}
 .pk-cats{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}.pk-cats::-webkit-scrollbar{display:none}
@@ -483,12 +500,12 @@ label.btn{display:inline-block}
 <section id="v-ana">
   <p class="h-hi" id="h-greet">Hoş geldiniz</p>
   <div class="h-resume" id="h-resume" hidden></div>
-  <button type="button" class="h-hero" data-go="sistem"><span class="h-hero-t"><b>Boya sistemi hesapla</b><span>ISO 12944 · kat · litre</span><span class="h-go">Başla →</span></span><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M6 46h52v8H6z"/><path d="M6 46h52v8H6z"/><path class="a" d="M6 41h52"/><path class="g" d="M6 36h52"/><path class="y" d="M6 31h52"/><path class="d" d="M50 31v-14h8M50 36v-14M50 41v-14" /><path d="M10 50h4M20 50h4M30 50h4"/></svg></button>
-  <button type="button" class="h-alt" data-go="kendi"><span class="h-alt-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M12 11v6M9 14h6"/></svg></span><span class="h-alt-t"><b>Kendi teklifini hazırla</b><span>Ürünleri sen seç · tiner ve litre otomatik</span></span><span class="h-alt-go" aria-hidden="true">›</span></button>
+  <div class="h-top"><button type="button" class="h-hero" data-go="sistem"><span class="h-hero-t"><b>Boya sistemi hesapla</b><span>ISO 12944 · kat · litre</span><span class="h-go">Başla →</span></span><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M6 46h52v8H6z"/><path d="M6 46h52v8H6z"/><path class="a" d="M6 41h52"/><path class="g" d="M6 36h52"/><path class="y" d="M6 31h52"/><path class="d" d="M50 31v-14h8M50 36v-14M50 41v-14" /><path d="M10 50h4M20 50h4M30 50h4"/></svg></button>
+  <button type="button" class="h-alt" data-go="kendi"><span class="h-alt-ic"><svg viewBox="0 0 32 32" aria-hidden="true"><path class="lid" d="M6 11.5h15"/><path d="M7 11.5v13.2c0 .9.7 1.6 1.6 1.6h9.8c.9 0 1.6-.7 1.6-1.6V11.5"/><path d="M9.5 11.5V9.8a4 4 0 0 1 8 0v1.7"/><path class="lb" d="M10 17.5h7M10 21h4.5"/><circle class="pl" cx="24" cy="9" r="5"/><path class="pk" d="M24 6.6v4.8M21.6 9h4.8"/></svg></span><span class="h-alt-t"><b>Kendi teklifini hazırla</b><span>Ürünü seç, fiyatı gir · tiner otomatik</span></span><span class="h-alt-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span></button></div>
   <h3 class="h-sec">Ne boyanacak?</h3>
   <div class="h-cats"><button type="button" class="h-cat" data-go="what:celik"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M10 18h44v6H35v20h19v6H10v-6h19V24H10z"/><path d="M10 18h44v6H35v20h19v6H10v-6h19V24H10z"/><path class="d" d="M6 56h52M6 12h52"/><path class="a" d="M4 15v-6M60 15v-6M4 12h56"/></svg></span><span class="h-lb">Çelik yapı</span></button><button type="button" class="h-cat" data-go="what:ekipman"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><rect class="f" x="8" y="24" width="34" height="24" rx="2"/><rect x="8" y="24" width="34" height="24" rx="2"/><path d="M14 48v6M36 48v6M42 32h8l6 8v8H42"/><circle class="a" cx="25" cy="36" r="6"/><circle cx="25" cy="36" r="2"/><path class="d" d="M4 54h56"/></svg></span><span class="h-lb">Makine</span></button><button type="button" class="h-cat" data-go="what:tankdis"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><rect class="f" x="8" y="18" width="48" height="22" rx="11"/><rect x="8" y="18" width="48" height="22" rx="11"/><path d="M16 40l-4 10h12l-4-10M48 40l-4 10h12l-4-10M30 18v-8h8v8"/><path class="a" d="M8 29h48"/><path class="d" d="M4 50h56"/></svg></span><span class="h-lb">Tank dış</span></button><button type="button" class="h-cat" data-go="what:boru"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M6 24h40v16H6z"/><path d="M6 24h40v16H6zM46 20h6v24h-6zM52 26h8v12h-8"/><path class="a" d="M14 24v16M30 24v16"/><path class="d" d="M4 50h56"/></svg></span><span class="h-lb">Boru dış</span></button><button type="button" class="h-cat" data-go="what:tankic"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M14 34h36v18a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4z"/><path d="M14 10h36v42a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4z"/><path class="a" d="M14 34c6-3 12 3 18 0s12-3 18 0"/><path class="y" d="M18 14v38"/></svg></span><span class="h-lb">Tank içi</span></button><button type="button" class="h-cat" data-go="what:sicak"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M22 20h20v36H22z"/><path d="M22 20h20v36H22zM18 56h28M26 20v-6h12v6"/><path class="a" d="M26 10c-2-3 2-4 0-7M32 10c-2-3 2-4 0-7M38 10c-2-3 2-4 0-7"/><path class="d" d="M22 32h20M22 44h20"/></svg></span><span class="h-lb">Sıcak yüzey</span></button><button type="button" class="h-cat" data-go="what:zemin"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M6 38l20-12h32L38 38z"/><path d="M6 38l20-12h32L38 38zM6 38v8h32v-8M38 46l20-12v-8"/><path class="y" d="M6 42h32"/><path class="d" d="M16 34l8-5M26 34l8-5M36 34l8-5"/></svg></span><span class="h-lb">Beton zemin</span></button><button type="button" class="h-cat" data-go="what:yangin"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M26 8h12v48H26z"/><path d="M22 8h20M22 56h20M26 8v48M38 8v48"/><path class="a" d="M46 50c-6 0-9-5-7-10 1 3 3 3 3 3-1-6 3-10 6-12-1 5 4 7 4 12s-2 7-6 7z"/></svg></span><span class="h-lb">Yangın</span></button></div>
   <div id="h-hist-wrap" hidden><h3 class="h-sec" style="margin-bottom:8px">Son teklifler</h3><div class="h-hist" id="h-hist"></div></div>
-  <p class="foot" style="text-align:center;margin-top:8px">Sürüm 30.10.2026 · 15:00</p>
+  <p class="foot" style="text-align:center;margin-top:8px">Sürüm 30.10.2026 · 15:30</p>
 </section>
 <div id="v-sistem">
 
