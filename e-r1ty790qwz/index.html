@@ -598,8 +598,8 @@ body{-webkit-font-smoothing:antialiased;font-family:var(--f-body)}
 #app-bg{position:absolute!important;inset:0 0 auto 0!important;height:min(760px,100vh);z-index:-1;background:linear-gradient(180deg,rgba(7,13,21,.55) 0%,rgba(7,13,21,.35) 28%,rgba(7,13,21,.7) 58%,var(--bg) 100%),linear-gradient(0deg,rgba(10,20,45,.35),rgba(10,20,45,.35)),var(--bg-img) 62% 30%/cover no-repeat!important;filter:brightness(.78) saturate(1.1)}
 body:not([data-view="ana"]) #app-bg{height:min(420px,60vh);opacity:.55}
 .hd{display:flex!important;justify-content:flex-start!important;align-items:center!important;flex-wrap:nowrap!important;gap:12px!important;border:0!important;padding:calc(10px + env(safe-area-inset-top,0px)) 0 12px!important;margin:0 0 14px!important;background:transparent}
-.hd .brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
-.hd-logo{width:96px;height:33px;flex:none}
+.hd .brand{display:flex;align-items:center;gap:14px;text-decoration:none;min-width:0;padding:4px 0;cursor:pointer}
+.hd-logo{width:110px;height:38px;flex:none;border-radius:2px}
 .hd-sep{width:1px;height:26px;background:rgba(255,255,255,.35);flex:none}
 .hd-t{font:600 19px var(--f-body);color:#fff;white-space:nowrap;letter-spacing:-.01em}
 .hd-btn{width:44px;height:44px;flex:none;border-radius:50%;display:grid;place-items:center;background:rgba(15,22,30,.55);border:1px solid rgba(255,255,255,.12);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
@@ -719,7 +719,6 @@ body:not([data-view="ana"]) #app-bg{height:min(420px,60vh);opacity:.55}
 </div>
 <div class="wrap">
 <header class="hd">
-  <a href="#ana" class="hd-btn hd-home" aria-label="Ana sayfa" title="Ana sayfa"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h11"/></svg></a>
   <a href="#ana" class="brand" aria-label="Jotun Endüstri ana sayfa"><span class="ico ic-logo hd-logo" role="img" aria-label="JOTUN"></span><span class="hd-sep"></span><span class="hd-t">Endüstri</span></a>
   <nav class="tabs" aria-label="Bölümler">
   <a href="#ana" id="t-ana" class="tab" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg><span>Ana Sayfa</span></a>
@@ -2246,7 +2245,7 @@ function quoteText(){
 }
 const waQuote=()=>"https://wa.me/"+WA+"?text="+encodeURIComponent(quoteText());
 /* ---------- Üst çubuk ---------- */
-document.querySelectorAll(".hd-home,.hd .brand").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();if(location.hash!=="#ana"&&location.hash!=="")location.hash="#ana";else{route();window.scrollTo({top:0,behavior:"smooth"});}}));
+document.querySelectorAll(".hd .brand").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();if(location.hash!=="#ana"&&location.hash!=="")location.hash="#ana";else{route();window.scrollTo({top:0,behavior:"smooth"});}}));
 
 /* ---------- Erişim kodu ---------- */
 const ACC=["05c9784de8a231f0712dc436", "07459e76dc81023c0a0e6607", "1ae151552aeb2c6d806d1bc1", "1dccf2cf50b8807fb54fc19c", "1e907805a9128505091a2c46", "285bca4cd6e6f4dee21e4861", "3a17ee28d3c0ea4971df2734", "4f7078770f35442a7d578cc2", "56531a5fb22c5f65b3649d8a", "6018857fa908282fdeb67939", "694ff5bb971ccc498e924d8b", "6f0d1cc379ccf3f2844d7727", "831e248aa8cfa0f2569c17f8", "881395f5e292321a39bcc6f7", "8e5daec8b4052572b990fc73", "996cf640222871a728a15764", "9d3b4024bc3d8ca44aaa8d2f", "ac4771d464ecfef970079f79", "ae1d19db04f203bb6f1dfda8", "c7e9d09d95f44ab3ca83d0ba", "cc4e1e178dfbda167dcb2e7b", "cf86e3fb3bc64651a6f9ed04"], ACC_SALT="jtn-endustri-2026";
