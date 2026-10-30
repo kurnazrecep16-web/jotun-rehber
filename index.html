@@ -1,6 +1,6 @@
 <!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <link rel="manifest" href="manifest.webmanifest">
-<meta name="theme-color" content="#f2f2f7">
+<meta name="theme-color" content="#f2f2f7" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -1884,7 +1884,11 @@ if(matchMedia("(max-width:700px)").matches){const pv=$(".q-prev");if(pv)pv.open=
   document.getElementById("pwa-x").onclick=function(){bar.hidden=true;try{localStorage.setItem("pwa-x","1")}catch(e){}};
   addEventListener("beforeinstallprompt",function(e){e.preventDefault();ev=e;bar.hidden=false;});
   inst.onclick=function(){ if(ev){ev.prompt();ev.userChoice.then(function(){bar.hidden=true;ev=null;});} };
-  var ios=/iphone|ipad|ipod/i.test(navigator.userAgent);
+  var ua=navigator.userAgent, ios=/iphone|ipad|ipod/i.test(ua)||(/Macintosh/.test(ua)&&navigator.maxTouchPoints>1), android=/android/i.test(ua), mobile=ios||android||/mobi/i.test(ua);
+  if(!mobile) msg.textContent="Bilgisayarında ayrı bir uygulama penceresinde açılsın.";
+  if(android) msg.innerHTML="Telefonunda uygulama olarak açılsın. <a href='https://github.com/kurnazrecep16-web/jotun-rehber/releases/download/android/JotunEndustri.apk' style='color:#f0ab00'>APK indir</a>";
+  var mac=/Macintosh/.test(ua)&&!ios&&/Safari/.test(ua)&&!/Chrome|Edg/.test(ua);
+  if(mac){ msg.innerHTML="Menüden <b style='display:inline'>Dosya → Dock'a Ekle</b>'yi seçin."; inst.hidden=true; bar.hidden=false; }
   if(ios){ msg.innerHTML="Alttaki <b style='display:inline'>Paylaş</b> düğmesine basın, sonra <b style='display:inline'>Ana Ekrana Ekle</b>'yi seçin."; inst.hidden=true; bar.hidden=false; }
   addEventListener("appinstalled",function(){bar.hidden=true;});
 })();

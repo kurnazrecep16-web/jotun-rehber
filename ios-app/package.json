@@ -6,6 +6,7 @@
     "build:www": "sh build-www.sh"
   },
   "dependencies": {
+    "@capacitor/android": "^7.6.10",
     "@capacitor/core": "7.6.10",
     "@capacitor/filesystem": "7.1.9",
     "@capacitor/ios": "7.6.10",

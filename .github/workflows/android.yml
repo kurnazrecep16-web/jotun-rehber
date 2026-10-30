@@ -1,0 +1,81 @@
+name: Android uygulamasını derle
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["ios-app/**", ".github/workflows/android.yml"]
+
+permissions:
+  contents: write
+
+jobs:
+  android:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ios-app
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Paketleri kur
+        run: npm ci
+
+      - name: Uygulama sayfasını hazırla
+        run: sh build-www.sh
+
+      - name: Android projesini güncelle
+        run: npx cap sync android
+
+      - name: İmza anahtarı
+        env:
+          KS: ${{ secrets.ANDROID_KEYSTORE_B64 }}
+        run: |
+          if [ -n "$KS" ]; then
+            printf '%s' "$KS" | base64 -d > "$RUNNER_TEMP/jotun.jks"
+            echo "ANDROID_KEYSTORE_FILE=$RUNNER_TEMP/jotun.jks" >> "$GITHUB_ENV"
+            echo "IMZALI=evet" >> "$GITHUB_ENV"
+          else
+            echo "İmza anahtarı eklenmedi; test (debug) imzalı APK üretilecek."
+            echo "IMZALI=hayir" >> "$GITHUB_ENV"
+          fi
+
+      - name: Derle
+        working-directory: ios-app/android
+        env:
+          VERSION_CODE: ${{ github.run_number }}
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+        run: |
+          chmod +x gradlew
+          mkdir -p "$RUNNER_TEMP/out"
+          if [ "$IMZALI" = evet ]; then
+            ./gradlew --no-daemon assembleRelease bundleRelease
+            cp app/build/outputs/apk/release/app-release.apk "$RUNNER_TEMP/out/JotunEndustri.apk"
+            cp app/build/outputs/bundle/release/app-release.aab "$RUNNER_TEMP/out/JotunEndustri-PlayStore.aab"
+          else
+            ./gradlew --no-daemon assembleDebug
+            cp app/build/outputs/apk/debug/app-debug.apk "$RUNNER_TEMP/out/JotunEndustri.apk"
+          fi
+          ls -la "$RUNNER_TEMP/out"
+
+      - name: İndirme sayfasına koy
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view android >/dev/null 2>&1 || gh release create android --title "Jotun Endüstri – Android" --notes "Android telefona kurulacak uygulama dosyası (APK). Telefonda açın ve kurun." --latest=false
+          gh release upload android "$RUNNER_TEMP"/out/* --clobber
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: android
+          path: ${{ runner.temp }}/out/*
