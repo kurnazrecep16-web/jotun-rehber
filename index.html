@@ -261,6 +261,7 @@ svg.art .y{stroke:var(--steel);stroke-width:2}svg.art .d{stroke:var(--muted);str
   .q-lines td:nth-child(1){grid-column:1/-1;grid-row:1}
   .q-lines td:nth-child(1) .prod{font-size:16px}
   .q-lines td:nth-child(1) .ral{max-width:none;margin-top:8px;padding:7px 10px;font-size:14px}
+  .q-lines td:nth-child(1) .calc{margin-right:-30px}
   .q-lines td:nth-child(2){grid-column:1;grid-row:2}
   .q-lines td:nth-child(3){grid-column:2/-1;grid-row:2}
   .q-lines td:nth-child(2) select,.q-lines td:nth-child(3) input{height:42px;font-size:16px}
@@ -450,6 +451,20 @@ textarea:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
 .h-alt:active{transform:scale(.98)}
 
 .sheet-in>*{flex-shrink:0}
+.calc{margin-top:8px;border:1px solid var(--line);border-radius:10px;background:var(--bg)}
+.calc>summary{list-style:none;display:flex;align-items:center;gap:8px;padding:9px 12px;font:600 14px var(--f-body);color:var(--steel);cursor:pointer}
+.calc>summary::-webkit-details-marker{display:none}
+.calc>summary::after{content:"";margin-left:auto;width:7px;height:7px;border:solid var(--muted);border-width:0 2px 2px 0;transform:rotate(45deg);transition:transform .15s}
+.calc[open]>summary::after{transform:rotate(-135deg)}
+.calc>summary small{font-weight:400;color:var(--muted);font-size:12px}
+.calc>summary svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.calc-g{display:grid;grid-template-columns:1fr 1fr 82px;gap:8px;padding:0 12px}
+.calc-g label{display:flex;flex-direction:column;gap:3px;font:500 11.5px var(--f-body);color:var(--muted)}
+.calc-in{position:relative;display:block}
+.calc-in input{width:100%!important;min-width:0!important;height:40px;font:600 16px var(--f-body)!important;padding:6px 28px 6px 10px!important;text-align:left!important;background:var(--panel)}
+.calc-in i{position:absolute;right:9px;top:50%;transform:translateY(-50%);font:500 13px var(--f-body);color:var(--muted);font-style:normal;pointer-events:none}
+.calc-r{display:block;padding:8px 12px 10px;font-size:13.5px;color:var(--ink)}.calc-r b{color:var(--steel);font-size:15px}.calc-r.muted{color:var(--muted);font-size:12.5px}
+@media (min-width:701px){.q-lines td:first-child .calc{max-width:420px}}
 .pk-q{width:100%;font-size:16px;padding:10px 12px}
 .pk-cats{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}.pk-cats::-webkit-scrollbar{display:none}
 .pk-cats button{flex:none;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:20px;padding:6px 12px;font:500 13px var(--f-body);cursor:pointer}
@@ -498,7 +513,7 @@ label.btn{display:inline-block}
   <h3 class="h-sec">Ne boyanacak?</h3>
   <div class="h-cats"><button type="button" class="h-cat" data-go="what:celik"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M10 18h44v6H35v20h19v6H10v-6h19V24H10z"/><path d="M10 18h44v6H35v20h19v6H10v-6h19V24H10z"/><path class="d" d="M6 56h52M6 12h52"/><path class="a" d="M4 15v-6M60 15v-6M4 12h56"/></svg></span><span class="h-lb">Çelik yapı</span></button><button type="button" class="h-cat" data-go="what:ekipman"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><rect class="f" x="8" y="24" width="34" height="24" rx="2"/><rect x="8" y="24" width="34" height="24" rx="2"/><path d="M14 48v6M36 48v6M42 32h8l6 8v8H42"/><circle class="a" cx="25" cy="36" r="6"/><circle cx="25" cy="36" r="2"/><path class="d" d="M4 54h56"/></svg></span><span class="h-lb">Makine</span></button><button type="button" class="h-cat" data-go="what:tankdis"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><rect class="f" x="8" y="18" width="48" height="22" rx="11"/><rect x="8" y="18" width="48" height="22" rx="11"/><path d="M16 40l-4 10h12l-4-10M48 40l-4 10h12l-4-10M30 18v-8h8v8"/><path class="a" d="M8 29h48"/><path class="d" d="M4 50h56"/></svg></span><span class="h-lb">Tank dış</span></button><button type="button" class="h-cat" data-go="what:boru"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M6 24h40v16H6z"/><path d="M6 24h40v16H6zM46 20h6v24h-6zM52 26h8v12h-8"/><path class="a" d="M14 24v16M30 24v16"/><path class="d" d="M4 50h56"/></svg></span><span class="h-lb">Boru dış</span></button><button type="button" class="h-cat" data-go="what:tankic"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M14 34h36v18a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4z"/><path d="M14 10h36v42a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4z"/><path class="a" d="M14 34c6-3 12 3 18 0s12-3 18 0"/><path class="y" d="M18 14v38"/></svg></span><span class="h-lb">Tank içi</span></button><button type="button" class="h-cat" data-go="what:sicak"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M22 20h20v36H22z"/><path d="M22 20h20v36H22zM18 56h28M26 20v-6h12v6"/><path class="a" d="M26 10c-2-3 2-4 0-7M32 10c-2-3 2-4 0-7M38 10c-2-3 2-4 0-7"/><path class="d" d="M22 32h20M22 44h20"/></svg></span><span class="h-lb">Sıcak yüzey</span></button><button type="button" class="h-cat" data-go="what:zemin"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M6 38l20-12h32L38 38z"/><path d="M6 38l20-12h32L38 38zM6 38v8h32v-8M38 46l20-12v-8"/><path class="y" d="M6 42h32"/><path class="d" d="M16 34l8-5M26 34l8-5M36 34l8-5"/></svg></span><span class="h-lb">Beton zemin</span></button><button type="button" class="h-cat" data-go="what:yangin"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M26 8h12v48H26z"/><path d="M22 8h20M22 56h20M26 8v48M38 8v48"/><path class="a" d="M46 50c-6 0-9-5-7-10 1 3 3 3 3 3-1-6 3-10 6-12-1 5 4 7 4 12s-2 7-6 7z"/></svg></span><span class="h-lb">Yangın</span></button></div>
   <div id="h-hist-wrap" hidden><h3 class="h-sec" style="margin-bottom:8px">Son teklifler</h3><div class="h-hist" id="h-hist"></div></div>
-  <p class="foot" style="text-align:center;margin-top:8px">Sürüm 30.10.2026 · 15:45</p>
+  <p class="foot" style="text-align:center;margin-top:8px">Sürüm 30.10.2026 · 16:15</p>
 </section>
 <div id="v-sistem">
 
@@ -993,6 +1008,22 @@ function specChip(ln){
   if(c.mix&&c.mix[0]) a.push(`Karışım ${c.mix[0]}`); const t=thinNo(ln.name); if(t) a.push(`Tiner N° ${t}`);
   return a.length?`<span class="spec-chip">${a.map(x=>`<span>${esc(x)}</span>`).join("")}</span>`:"";
 }
+/* İsteğe bağlı sarfiyat: alan (m²) × kuru film kalınlığı (µm) ÷ (katı madde % × 10) ÷ (1 − fire) */
+const lineVS=n=>{const c=CATALOG.find(p=>p.name===n);return c&&c.vs&&c.vs[0]?num(c.vs[0]):0};
+function calcNeed(ln){const vs=lineVS(ln.name),m=num(ln.m2),d=num(ln.dft),f=Math.min(80,Math.max(0,num(ln.loss)));return vs&&m>0&&d>0?m*d/(vs*10)/(1-f/100):null}
+function calcRes(ln){const n=calcNeed(ln);if(n==null)return `<span class="calc-r muted">Alan ve kalınlığı girin; adet otomatik hesaplanır.</span>`;
+  const pk=num(ln.pack);return `<span class="calc-r"><b>≈ ${fmt(Math.ceil(n),0)} L</b> boya gerekli${pk?` · ${fmt(Math.ceil(n/pk),0)} × ${fmt(pk,pk%1?2:0)} L`:""}</span>`}
+function calcCell(ln,i){
+  const vs=lineVS(ln.name); if(!vs||isKg(ln.name)) return "";
+  if(ln.loss==null||ln.loss==="") ln.loss=$("#loss")?num($("#loss").value):0;
+  const on=num(ln.m2)>0||num(ln.dft)>0||ln.calcOpen;
+  return `<details class="calc" data-i="${i}"${on?" open":""}><summary><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M12 11h2M16 11h0M8 15h2M12 15h2M8 18h2M12 18h2M16 15v3"/></svg>Sarfiyat hesapla <small>isteğe bağlı</small></summary>
+   <div class="calc-g">
+    <label><span>Alan</span><span class="calc-in"><input type="number" inputmode="decimal" min="0" step="1" id="q-m2-${i}" data-i="${i}" data-f="m2" value="${ln.m2||""}" placeholder="0"><i>m²</i></span></label>
+    <label><span>Kalınlık (kuru)</span><span class="calc-in"><input type="number" inputmode="decimal" min="0" step="5" id="q-dft-${i}" data-i="${i}" data-f="dft" value="${ln.dft||""}" placeholder="0"><i>µm</i></span></label>
+    <label><span>Fire</span><span class="calc-in"><input type="number" inputmode="decimal" min="0" max="80" step="5" id="q-ls-${i}" data-i="${i}" data-f="loss" value="${ln.loss}"><i>%</i></span></label>
+   </div><div id="q-cr-${i}">${calcRes(ln)}</div></details>`;
+}
 function missUpd(){
   const el=$("#q-miss"); if(!el) return; const n=Q.lines.filter(l=>l.name&&!(num(l.price)>0)).length;
   el.hidden=!n; if(n) el.innerHTML=`<span><b>${n} üründe fiyat eksik.</b> Litre fiyatını sarı kutulara girin.</span><button type="button" class="btn" id="q-miss-go">Fiyat gir</button>`;
@@ -1002,7 +1033,7 @@ function renderLines(){
   const tb=$("#q-body");
   tb.innerHTML = Q.lines.map((ln,i)=>{const packs=packsOf(ln.name);const u=isKg(ln.name)?"kg":"L";
    return `<tr${ln.auto?' class="auto"':""}>
-    <td>${ln.key?`<span class="prod">${esc(ln.name)}</span>`:`<input type="text" id="q-n-${i}" data-i="${i}" data-f="name" value="${esc(ln.name)}" placeholder="Ürün adı" aria-label="Ürün adı">`}${ln.auto?`<span class="need">Boyanın %15'i · İhtiyaç ≈ ${fmt(Math.ceil(ln.needL),0)} L</span>`:ln.needL?`<span class="need">İhtiyaç ≈ ${fmt(Math.ceil(ln.needL),0)} L</span>`:""}${ln.auto?"":specChip(ln)}${ln.auto?"":colorCell(ln,i)}</td>
+    <td>${ln.key?`<span class="prod">${esc(ln.name)}</span>`:`<input type="text" id="q-n-${i}" data-i="${i}" data-f="name" value="${esc(ln.name)}" placeholder="Ürün adı" aria-label="Ürün adı">`}${ln.auto?`<span class="need">Boyanın %15'i · İhtiyaç ≈ ${fmt(Math.ceil(ln.needL),0)} L</span>`:ln.needL&&!ln.m2?`<span class="need">İhtiyaç ≈ ${fmt(Math.ceil(ln.needL),0)} L</span>`:""}${ln.auto?"":specChip(ln)}${ln.auto?"":calcCell(ln,i)}${ln.auto?"":colorCell(ln,i)}</td>
     <td class="n" data-label="Ambalaj">${packs.length>1?`<select id="q-k-${i}" data-i="${i}" data-f="pack" aria-label="Ambalaj">${packs.map(x=>`<option value="${x}"${x===num(ln.pack)?" selected":""}>${fmt(x,x%1?2:0)} ${u}</option>`).join("")}</select>`
       :packs.length===1?`<span class="mono">${fmt(packs[0],packs[0]%1?2:0)} ${u}</span>`
       :`<input type="number" id="q-k-${i}" data-i="${i}" data-f="pack" min="0" step="0.1" value="${ln.pack}" placeholder="L" aria-label="Ambalaj litre">`}</td>
@@ -1023,9 +1054,12 @@ function updCells(i){const ln=Q.lines[i];const u=isKg(ln.name)?"kg":"L";
   $("#q-a-"+i).textContent=amt(ln);
   const kp=$("#q-kp-"+i); if(kp) kp.textContent=kgPrice(ln)!=null?money(kgPrice(ln)):"";}
 function onLine(e){
-  const t=e.target, f=t.dataset.f; if(f==null)return; const i=+t.dataset.i, ln=Q.lines[i];
+  const t=e.target; let f=t.dataset.f; if(f==null)return; const i=+t.dataset.i, ln=Q.lines[i];
   ln[f]=t.value;
-  if(f==="pack"){ if(ln.needL&&num(ln.pack)){ln.qty=Math.ceil(ln.needL/num(ln.pack));const qi=$("#q-q-"+i);if(qi)qi.value=ln.qty;}
+  if(f==="m2"||f==="dft"||f==="loss"){ const n=calcNeed(ln); ln.needL=n;
+    if(n!=null&&num(ln.pack)){ ln.qty=Math.max(1,Math.ceil(n/num(ln.pack))); const qi=$("#q-q-"+i); if(qi) qi.value=ln.qty; }
+    const cr=$("#q-cr-"+i); if(cr) cr.innerHTML=calcRes(ln); f="qty"; }
+  if(f==="pack"){ const cr=$("#q-cr-"+i); if(ln.m2&&cr) setTimeout(()=>{cr.innerHTML=calcRes(ln)},0); if(ln.needL&&num(ln.pack)){ln.qty=Math.ceil(ln.needL/num(ln.pack));const qi=$("#q-q-"+i);if(qi)qi.value=ln.qty;}
     }
   if(f==="price"&&ln.name){const v=num(t.value);if(v>0){PRICES[ln.name]=v;store("q-prices-l",PRICES)}}
   if(ln.auto&&(f==="qty"||f==="pack")) ln.manual=true;
@@ -1036,6 +1070,7 @@ function onLine(e){
   updCells(i); renderDoc(); if(f==="price") missUpd();
 }
 $("#q-body").addEventListener("input",onLine);
+$("#q-body").addEventListener("toggle",e=>{const d=e.target;if(d.classList&&d.classList.contains("calc")){const ln=Q.lines[+d.dataset.i];if(ln)ln.calcOpen=d.open;}},true);
 $("#q-body").addEventListener("change",e=>{if(e.target.tagName==="SELECT")onLine(e);});
 $("#q-body").addEventListener("click",e=>{const d=e.target.closest("[data-del]");if(!d)return;const ln=Q.lines[+d.dataset.del];if(ln&&ln.auto){Q.thOff=Q.thOff||{};Q.thOff[ln.thNo]=true;}Q.lines.splice(+d.dataset.del,1);renderLines();renderDoc();});
 $("#q-add-sel").innerHTML = Object.keys(CATS).map(c=>{const items=CATALOG.map((p,i)=>[p,i]).filter(([p])=>p.cat===c&&c!=="MCI Tinter");return items.length?`<optgroup label="${CATS[c][0]}">${items.map(([p,i])=>`<option value="c:${i}">${esc(p.name)}</option>`).join("")}</optgroup>`:""}).join("")+`<option value="__free">Diğer ürün (elle yaz)</option>`;
@@ -1102,7 +1137,7 @@ function fields(){
 function renderDoc(){
   const f=fields(), t=totals();
   const rows = Q.lines.filter(l=>l.name).map((l,i)=>{const q=num(l.qty),p=num(l.price),u=isKg(l.name)?"kg":"L",kg=isKg(l.name)?lineL(l):lineKg(l);
-    return `<tr><td>${i+1}</td><td>${esc(l.name)}${l.ral?`<br><small style="color:#4b5b74">${esc(l.ral)}</small>`:""}</td><td class="n">${num(l.pack)?fmt(num(l.pack),num(l.pack)%1?2:0)+" "+u:"—"}</td><td class="n">${fmt(q,0)}</td><td class="n">${lineL(l)?fmt(lineL(l),lineL(l)%1?2:0)+" "+u:"—"}</td><td class="n">${kg!=null?fmt(kg,1):"—"}</td><td class="n">${p>0?money(p):"—"}</td><td class="n">${kgPrice(l)!=null?money(kgPrice(l)):"—"}</td><td class="n">${lineAmt(l)>0?money(lineAmt(l)):"—"}</td></tr>`}).join("");
+    return `<tr><td>${i+1}</td><td>${esc(l.name)}${l.ral?`<br><small style="color:#4b5b74">${esc(l.ral)}</small>`:""}${num(l.m2)>0&&num(l.dft)>0?`<br><small style="color:#4b5b74">${fmt(num(l.m2),0)} m² · ${fmt(num(l.dft),0)} µm</small>`:""}</td><td class="n">${num(l.pack)?fmt(num(l.pack),num(l.pack)%1?2:0)+" "+u:"—"}</td><td class="n">${fmt(q,0)}</td><td class="n">${lineL(l)?fmt(lineL(l),lineL(l)%1?2:0)+" "+u:"—"}</td><td class="n">${kg!=null?fmt(kg,1):"—"}</td><td class="n">${p>0?money(p):"—"}</td><td class="n">${kgPrice(l)!=null?money(kgPrice(l)):"—"}</td><td class="n">${lineAmt(l)>0?money(lineAmt(l)):"—"}</td></tr>`}).join("");
   const missing = Q.lines.some(l=>l.name&&!(parseFloat(l.price)>0));
   $("#q-doc").innerHTML = `
    <div class="top"><div><div class="lab">Fiyat teklifi</div><div class="dealer">${f.dealer?esc(f.dealer):"Bayi adı"}</div></div>
