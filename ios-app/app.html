@@ -229,7 +229,7 @@ svg.art .y{stroke:var(--steel);stroke-width:2}svg.art .d{stroke:var(--muted);str
 .q-set{border:1px solid var(--line);border-radius:8px;padding:8px 10px;background:var(--panel)}.q-set>summary{cursor:pointer;font-size:13.5px;font-weight:600;color:var(--muted)}.q-set .row3{margin-top:8px}
 .q-main{margin-bottom:6px}.q-main #q-pdf{flex:1 1 100%;padding:12px;font-size:16px}
 .q-prev>summary{cursor:pointer;font-weight:600;font-size:14px;color:var(--steel);margin:10px 0 8px}
-@media (max-width:700px){
+@media all{
   .q-lines thead{display:none}
   .q-lines,.q-lines tbody{display:block}
   .q-lines tr{display:grid;grid-template-columns:repeat(3,1fr);gap:8px 10px;border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:10px;background:var(--panel);position:relative}
@@ -266,6 +266,8 @@ svg.art .y{stroke:var(--steel);stroke-width:2}svg.art .d{stroke:var(--muted);str
   .q-lines td:nth-child(9)::before{display:inline!important;font-size:13px!important;font-weight:600;margin:0!important}
   .q-lines td.del{grid-row:1}
   .q-lines tr.auto td:nth-child(5),.q-lines tr.auto td:nth-child(6),.q-lines tr.auto td:nth-child(8){display:none!important}
+}
+@media (max-width:700px){
   .q-head{display:none}
   header{margin-bottom:10px!important;padding-bottom:6px!important}
   h1{font-size:24px!important}
@@ -475,12 +477,45 @@ textarea:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
 label.btn{display:inline-block}
 .linkbtn{background:none;border:0;padding:0;font:inherit;color:var(--ink);text-decoration:underline;cursor:pointer}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* ---------- Bilgisayar / tablet yerleşimi ---------- */
+@media (min-width:701px){
+  .wrap{max-width:1240px;padding-top:0}
+  header{position:sticky;top:0;z-index:60;background:var(--bg);flex-wrap:nowrap;align-items:center;padding:14px 0 12px;margin-bottom:22px}
+  h1{font-size:30px}
+  header .tabs{margin:0;border:0;gap:2px;flex-wrap:nowrap}
+  header .tab{padding:8px 14px;border:0;border-radius:10px;margin:0;font-size:14.5px;white-space:nowrap}
+  header .tab[aria-current="page"]{background:rgba(3,30,69,.07);color:var(--steel);border:0}
+  header .tab:hover{color:var(--ink);background:rgba(3,30,69,.04)}
+  header .tab svg{display:none}
+  .q-grid{grid-template-columns:minmax(420px,1fr) minmax(0,1.25fr);gap:24px}
+  .q-doc-wrap{position:sticky;top:96px;max-height:calc(100vh - 116px);overflow:auto;padding-bottom:12px}
+  .q-head{display:flex;align-items:baseline;gap:14px;border-top:0!important;padding-top:0!important}
+  .q-head h2{font-size:26px}
+  #v-teklif .quote{margin-top:0;border-top:0;padding-top:0}
+  .q-lines tr{grid-template-columns:110px 110px 1fr;gap:6px 12px}
+  .q-lines td:nth-child(2){grid-column:1;grid-row:2}
+  .q-lines td:nth-child(3){grid-column:2;grid-row:2}
+  .q-lines td:nth-child(7){grid-column:3;grid-row:2;margin-top:0}
+  .q-lines td:nth-child(7)::before{font-size:11.5px!important;font-weight:500!important;color:var(--muted)!important;margin-bottom:3px}
+  .q-lines td:nth-child(7) input{height:42px!important;font-size:17px!important}
+  .q-lines td:nth-child(7)::after{bottom:12px}
+  .q-lines td:nth-child(4),.q-lines td:nth-child(6),.q-lines td:nth-child(8){grid-row:3}
+  .q-lines td:nth-child(5){grid-row:4}
+  .q-lines td:nth-child(9){grid-row:5;font-size:16px!important;padding-top:6px}
+  .wz-cats{grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+  .wz-cats .wz-opt{flex-direction:row;justify-content:flex-start;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px 14px;box-shadow:var(--shadow);text-align:left}
+  .wz-cats .wz-opt .h-ic{width:52px;height:52px;flex:none;aspect-ratio:auto;padding:4px;background:none;box-shadow:none}
+  .wz-cats .wz-opt .h-lb{font-size:15px;text-align:left}
+  .wz-cats .wz-opt:hover{border-color:var(--steel)}
+  .r-cgrid{grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+  .r-cg:hover,.h-cat:hover,.h-alt:hover{border-color:var(--steel)}
+}
+@media (prefers-color-scheme:dark) and (min-width:701px){:root:not([data-theme="light"]) header .tab[aria-current="page"]{background:rgba(143,179,255,.12)}}
 </style>
 
 <div class="wrap">
 <header>
   <a href="#ana" class="brand" aria-label="Ana sayfa"><h1>JOTUN <span>ENDÜSTRİ</span></h1></a>
-</header>
 <nav class="tabs" aria-label="Bölümler">
   <a href="#ana" id="t-ana" class="tab" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg><span>Ana Sayfa</span></a>
   <a href="#sistem" id="t-sistem" class="tab"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg><span class="lg">Sistem &amp; Teklif</span><span class="sm">Sistem</span></a>
@@ -488,6 +523,8 @@ label.btn{display:inline-block}
   <a href="#danisman" id="t-danisman" class="tab"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></svg><span>Danışman</span></a>
   <a href="#urunler" id="t-urunler" class="tab"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5"/></svg><span>Ürünler</span></a>
 </nav>
+</header>
+
 <section id="v-ana">
   <p class="h-hi" id="h-greet">Hoş geldiniz</p>
   <div class="h-resume" id="h-resume" hidden></div>
@@ -496,7 +533,7 @@ label.btn{display:inline-block}
   <h3 class="h-sec">Ne boyanacak?</h3>
   <div class="h-cats"><button type="button" class="h-cat" data-go="what:celik"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M10 18h44v6H35v20h19v6H10v-6h19V24H10z"/><path d="M10 18h44v6H35v20h19v6H10v-6h19V24H10z"/><path class="d" d="M6 56h52M6 12h52"/><path class="a" d="M4 15v-6M60 15v-6M4 12h56"/></svg></span><span class="h-lb">Çelik yapı</span></button><button type="button" class="h-cat" data-go="what:ekipman"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><rect class="f" x="8" y="24" width="34" height="24" rx="2"/><rect x="8" y="24" width="34" height="24" rx="2"/><path d="M14 48v6M36 48v6M42 32h8l6 8v8H42"/><circle class="a" cx="25" cy="36" r="6"/><circle cx="25" cy="36" r="2"/><path class="d" d="M4 54h56"/></svg></span><span class="h-lb">Makine</span></button><button type="button" class="h-cat" data-go="what:tankdis"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><rect class="f" x="8" y="18" width="48" height="22" rx="11"/><rect x="8" y="18" width="48" height="22" rx="11"/><path d="M16 40l-4 10h12l-4-10M48 40l-4 10h12l-4-10M30 18v-8h8v8"/><path class="a" d="M8 29h48"/><path class="d" d="M4 50h56"/></svg></span><span class="h-lb">Tank dış</span></button><button type="button" class="h-cat" data-go="what:boru"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M6 24h40v16H6z"/><path d="M6 24h40v16H6zM46 20h6v24h-6zM52 26h8v12h-8"/><path class="a" d="M14 24v16M30 24v16"/><path class="d" d="M4 50h56"/></svg></span><span class="h-lb">Boru dış</span></button><button type="button" class="h-cat" data-go="what:tankic"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M14 34h36v18a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4z"/><path d="M14 10h36v42a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4z"/><path class="a" d="M14 34c6-3 12 3 18 0s12-3 18 0"/><path class="y" d="M18 14v38"/></svg></span><span class="h-lb">Tank içi</span></button><button type="button" class="h-cat" data-go="what:sicak"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M22 20h20v36H22z"/><path d="M22 20h20v36H22zM18 56h28M26 20v-6h12v6"/><path class="a" d="M26 10c-2-3 2-4 0-7M32 10c-2-3 2-4 0-7M38 10c-2-3 2-4 0-7"/><path class="d" d="M22 32h20M22 44h20"/></svg></span><span class="h-lb">Sıcak yüzey</span></button><button type="button" class="h-cat" data-go="what:zemin"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M6 38l20-12h32L38 38z"/><path d="M6 38l20-12h32L38 38zM6 38v8h32v-8M38 46l20-12v-8"/><path class="y" d="M6 42h32"/><path class="d" d="M16 34l8-5M26 34l8-5M36 34l8-5"/></svg></span><span class="h-lb">Beton zemin</span></button><button type="button" class="h-cat" data-go="what:yangin"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M26 8h12v48H26z"/><path d="M22 8h20M22 56h20M26 8v48M38 8v48"/><path class="a" d="M46 50c-6 0-9-5-7-10 1 3 3 3 3 3-1-6 3-10 6-12-1 5 4 7 4 12s-2 7-6 7z"/></svg></span><span class="h-lb">Yangın</span></button></div>
   <div id="h-hist-wrap" hidden><h3 class="h-sec" style="margin-bottom:8px">Son teklifler</h3><div class="h-hist" id="h-hist"></div></div>
-  <p class="foot" style="text-align:center;margin-top:8px">Sürüm 30.10.2026 · 16:15</p>
+  <p class="foot" style="text-align:center;margin-top:8px">Sürüm 30.10.2026 · 17:45</p>
 </section>
 <div id="v-sistem">
 
