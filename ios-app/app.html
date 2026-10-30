@@ -531,6 +531,11 @@ body[data-role="s"] #t-teklif,body[data-role="s"] #h-resume,body[data-role="s"] 
 .sf-f select{padding-right:12px;font-size:15.5px}
 .sf-in i{position:absolute;right:12px;top:50%;transform:translateY(-50%);font:500 13.5px var(--f-body);color:var(--muted);font-style:normal;pointer-events:none}
 .sf-ab{height:44px;white-space:nowrap}
+.sf-g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sf-g2 input{width:100%;min-width:0;height:44px;font:500 15.5px var(--f-body);padding:6px 12px;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:10px}
+@media (max-width:520px){.sf-g2{grid-template-columns:1fr}}
+.sf-sum .btn.primary{flex:1 1 100%}
+#sf-doc{display:none}
 .sf-chips{display:flex;flex-wrap:wrap;gap:6px}
 .sf-chips button{flex:1 1 0;min-width:56px;height:38px;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:10px;font:600 14px var(--f-body);cursor:pointer}
 .sf-chips button small{display:block;font:500 10.5px var(--f-body);color:inherit;opacity:.75}
@@ -640,7 +645,7 @@ body[data-role="s"] #t-teklif,body[data-role="s"] #h-resume,body[data-role="s"] 
   <h3 class="h-sec">Ne boyanacak?</h3>
   <div class="h-cats"><button type="button" class="h-cat" data-go="what:celik"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M10 18h44v6H35v20h19v6H10v-6h19V24H10z"/><path d="M10 18h44v6H35v20h19v6H10v-6h19V24H10z"/><path class="d" d="M6 56h52M6 12h52"/><path class="a" d="M4 15v-6M60 15v-6M4 12h56"/></svg></span><span class="h-lb">Çelik yapı</span></button><button type="button" class="h-cat" data-go="what:ekipman"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><rect class="f" x="8" y="24" width="34" height="24" rx="2"/><rect x="8" y="24" width="34" height="24" rx="2"/><path d="M14 48v6M36 48v6M42 32h8l6 8v8H42"/><circle class="a" cx="25" cy="36" r="6"/><circle cx="25" cy="36" r="2"/><path class="d" d="M4 54h56"/></svg></span><span class="h-lb">Makine</span></button><button type="button" class="h-cat" data-go="what:tankdis"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><rect class="f" x="8" y="18" width="48" height="22" rx="11"/><rect x="8" y="18" width="48" height="22" rx="11"/><path d="M16 40l-4 10h12l-4-10M48 40l-4 10h12l-4-10M30 18v-8h8v8"/><path class="a" d="M8 29h48"/><path class="d" d="M4 50h56"/></svg></span><span class="h-lb">Tank dış</span></button><button type="button" class="h-cat" data-go="what:boru"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M6 24h40v16H6z"/><path d="M6 24h40v16H6zM46 20h6v24h-6zM52 26h8v12h-8"/><path class="a" d="M14 24v16M30 24v16"/><path class="d" d="M4 50h56"/></svg></span><span class="h-lb">Boru dış</span></button><button type="button" class="h-cat" data-go="what:tankic"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M14 34h36v18a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4z"/><path d="M14 10h36v42a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4z"/><path class="a" d="M14 34c6-3 12 3 18 0s12-3 18 0"/><path class="y" d="M18 14v38"/></svg></span><span class="h-lb">Tank içi</span></button><button type="button" class="h-cat" data-go="what:sicak"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M22 20h20v36H22z"/><path d="M22 20h20v36H22zM18 56h28M26 20v-6h12v6"/><path class="a" d="M26 10c-2-3 2-4 0-7M32 10c-2-3 2-4 0-7M38 10c-2-3 2-4 0-7"/><path class="d" d="M22 32h20M22 44h20"/></svg></span><span class="h-lb">Sıcak yüzey</span></button><button type="button" class="h-cat" data-go="what:zemin"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M6 38l20-12h32L38 38z"/><path d="M6 38l20-12h32L38 38zM6 38v8h32v-8M38 46l20-12v-8"/><path class="y" d="M6 42h32"/><path class="d" d="M16 34l8-5M26 34l8-5M36 34l8-5"/></svg></span><span class="h-lb">Beton zemin</span></button><button type="button" class="h-cat" data-go="what:yangin"><span class="h-ic"><svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M26 8h12v48H26z"/><path d="M22 8h20M22 56h20M26 8v48M38 8v48"/><path class="a" d="M46 50c-6 0-9-5-7-10 1 3 3 3 3 3-1-6 3-10 6-12-1 5 4 7 4 12s-2 7-6 7z"/></svg></span><span class="h-lb">Yangın</span></button></div>
   <div id="h-hist-wrap" hidden><h3 class="h-sec" style="margin-bottom:8px">Son teklifler</h3><div class="h-hist" id="h-hist"></div></div>
-  <p class="foot" style="text-align:center;margin-top:8px">Sürüm 30.10.2026 · 22:20 · <span id="role-lbl"></span> · <button type="button" class="linkbtn" id="role-chg">değiştir</button></p>
+  <p class="foot" style="text-align:center;margin-top:8px">Sürüm 30.10.2026 · 22:45 · <span id="role-lbl"></span> · <button type="button" class="linkbtn" id="role-chg">değiştir</button></p>
 </section>
 <div id="v-sistem">
 
@@ -797,6 +802,8 @@ body[data-role="s"] #t-teklif,body[data-role="s"] #h-resume,body[data-role="s"] 
     <div class="sf-main">
       <div class="sf-card">
         <h3 class="sf-h">Proje</h3>
+        <div class="sf-g2"><label class="sf-f"><span>Proje / firma</span><input type="text" id="sf-proj" placeholder="Örn. ABC Çelik – depo"></label>
+        <label class="sf-f"><span>Hazırlayan</span><input type="text" id="sf-who" placeholder="Ad Soyad"></label></div>
         <div class="sf-row">
           <label class="sf-f"><span>Boyanacak alan</span><span class="sf-in"><input type="number" inputmode="decimal" min="0" id="sf-area" placeholder="0"><i>m²</i></span></label>
           <button type="button" class="btn ghost sf-ab" id="sf-areab">Alanı hesapla</button>
@@ -815,6 +822,7 @@ body[data-role="s"] #t-teklif,body[data-role="s"] #h-resume,body[data-role="s"] 
       <button type="button" class="btn sf-add" id="sf-add">＋ Kat ekle</button>
     </div>
     <aside class="sf-sum" id="sf-sum"></aside>
+    <article class="q-doc" id="sf-doc"></article>
   </div>
   <p class="foot">Teorik yayılma = katı madde % × 10 ÷ KFK. Islak film = KFK × 100 ÷ katı madde %. Pürüzlülük payı ISO 19840 düzeltme değerleridir (ince 10 · orta 25 · kaba 40 µm). Nihai değerler için ürün TDS'ine bakın.</p>
 </section>
@@ -2086,12 +2094,11 @@ wzRender(); rvRender();
 let DL=null;
 (async()=>{try{DL=window.claude&&window.claude.use?await window.claude.use("downloads"):null}catch(e){DL=null}
   if(window.__gate)window.__gate();})();
-$("#q-pdf").addEventListener("click",async()=>{
-  saveHist();
-  const btn=$("#q-pdf"), old=btn.textContent; btn.disabled=true; btn.textContent="Hazırlanıyor…";
+async function pdfFromEl(src,fn,btn,shareTitle,done){
+  const old=btn.textContent; btn.disabled=true; btn.textContent="Hazırlanıyor…";
   const host=document.createElement("div");
   host.style.cssText="position:fixed;left:-10000px;top:0;width:794px;background:#fff";
-  const clone=$("#q-doc").cloneNode(true); clone.removeAttribute("id"); clone.style.border="0"; clone.style.boxShadow="none"; clone.style.padding="40px";
+  const clone=src.cloneNode(true); clone.removeAttribute("id"); clone.hidden=false; clone.style.border="0"; clone.style.boxShadow="none"; clone.style.padding="40px";
   clone.querySelectorAll(".tbl-wrap").forEach(t=>t.style.overflow="visible");
   host.appendChild(clone); document.body.appendChild(host);
   try{
@@ -2105,22 +2112,26 @@ $("#q-pdf").addEventListener("click",async()=>{
       if(!first) pdf.addPage();
       pdf.addImage(c.toDataURL("image/jpeg",0.92),"JPEG",m,m,w,h/pxPerMm);
     }
-    const cust=($("#q-customer").value.trim()||"Musteri").replace(/[^\p{L}\p{N}]+/gu,"_").slice(0,40);
-    const fn=`Teklif_${Q.no||"taslak"}_${cust}.pdf`;
     const CAP=window.Capacitor;
     if(DL) await DL.save({filename:fn,data:pdf.output("blob")});
     else if(CAP&&CAP.isNativePlatform&&CAP.isNativePlatform()&&CAP.Plugins&&CAP.Plugins.Filesystem&&CAP.Plugins.Share){
       const w=await CAP.Plugins.Filesystem.writeFile({path:fn,data:pdf.output("datauristring").split(",")[1],directory:"CACHE"});
-      await CAP.Plugins.Share.share({title:fn,url:w.uri,dialogTitle:"Teklifi paylaş"});
+      await CAP.Plugins.Share.share({title:fn,url:w.uri,dialogTitle:shareTitle});
     } else pdf.save(fn);
-    btn.textContent="İndirildi"; setTimeout(()=>btn.textContent=old,1600); warn();
+    btn.textContent="İndirildi"; setTimeout(()=>btn.textContent=old,1600); if(done) done();
   }catch(e){
     const code=e&&e.code;
     if(code==="declined"){btn.textContent=old}
     else if(code==="rate_limited"){btn.textContent="Biraz bekleyin"; setTimeout(()=>btn.textContent=old,2000)}
-    else if(code==="unavailable"||code==="not_granted"||code==="capability_disabled"||code==="capability_removed"){btn.hidden=true}
+    else if(code==="unavailable"||code==="not_granted"||code==="capability_disabled"||code==="capability_removed"){btn.textContent=old;toast("Bu ortamda PDF indirilemiyor")}
     else {btn.textContent="PDF oluşturulamadı"; setTimeout(()=>btn.textContent=old,2500)}
   }finally{host.remove(); btn.disabled=false;}
+}
+const pdfReady=()=>!!((DL||!window.claude)&&window.html2canvas&&window.jspdf);
+$("#q-pdf").addEventListener("click",async()=>{
+  saveHist();
+  const cust=($("#q-customer").value.trim()||"Musteri").replace(/[^\p{L}\p{N}]+/gu,"_").slice(0,40);
+  await pdfFromEl($("#q-doc"),`Teklif_${Q.no||"taslak"}_${cust}.pdf`,$("#q-pdf"),"Teklifi paylaş",warn);
 });
 
 /* ---------- Bölge yöneticisine gönder / uyarı ---------- */
@@ -2181,7 +2192,7 @@ function sfCoat(c,i){
    <div class="sf-res" id="sf-r-${i}">${sfResHTML(c,i)}</div></div>`;
 }
 /* Ambalaj: fazla boya oranı ile teneke sayısını birlikte en aza indirir */
-function sfPack(need,packs){let best=null;packs.filter(p=>p>0).forEach(p=>{const n=Math.ceil(need/p),sc=(n*p-need)/need+n*0.01;if(!best||sc<best.sc)best={p,sc};});return best?best.p:0}
+function sfPack(need,packs){let best=null;packs.filter(p=>p>0&&!(p<=1&&need>5)).forEach(p=>{const n=Math.ceil(need/p),sc=(n*p-need)/need+n*0.03;if(!best||sc<best.sc)best={p,sc};});return best?best.p:0}
 function calcCoat(c,i){
   const vs=lineVS(c.name), d=num(c.dft), A=num(SF.area), loss=Math.min(80,Math.max(0,num(SF.loss)))/100, pr=i===0?num(SF.prof):0;
   if(!vs) return null;
@@ -2203,25 +2214,68 @@ function sfTotals(){
     if(r.need){L+=r.need; if(r.kg)kg+=r.kg; else kgOk=false; rows.push([c.name,num(c.dft),r]); if(r.thNo) th[r.thNo]=(th[r.thNo]||0)+r.need;} });
   return {A,L,kg,kgOk,dft,th,rows,lpm:A>0&&L>0?L/A:null};
 }
+/* Malzeme listesi: aynı ürün birden çok katta ise toplanır; inceltici tenekeye çevrilir */
+function sfMat(){
+  const t=sfTotals(); const agg={}; const order=[];
+  t.rows.forEach(([n,d,r])=>{ if(!agg[n]){agg[n]={need:0};order.push(n);} agg[n].need+=r.need; });
+  const rows=order.map(n=>{const need=agg[n].need, packs=packsOf(n), pk=sfPack(need,packs), q=pk?Math.ceil(need/pk):0, d=num(DENS[n])||null;
+    return {n,need,pk,q,L:q*pk,kg:d&&q?q*pk*d:null,th:false};});
+  Object.entries(t.th).forEach(([no,l])=>{const nm=thinName(no), need=l*THIN_RATE, packs=packsOf(nm), pk=sfPack(need,packs), q=pk?Math.ceil(need/pk):0;
+    rows.push({n:CATALOG.some(p=>p.name===nm)?nm:`İnceltici N° ${no}`,need,pk,q,L:q*pk,kg:null,th:true});});
+  return rows;
+}
+function sfDoc(){
+  const t=sfTotals(), M=sfMat(), d=new Date(), pad=n=>String(n).padStart(2,"0");
+  const no=`SF-${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}-${pad(d.getHours())}${pad(d.getMinutes())}`;
+  const proj=(SF.proj||"").trim(), who=(load("sf-who","")||"").trim();
+  const f0=(x,k)=>x!=null&&isFinite(x)?fmt(x,k):"—";
+  const coats=SF.coats.map((c,i)=>[c,i]).filter(([c])=>c.name&&num(c.dft)>0).map(([c,i])=>{const r=calcCoat(c,i);
+    return `<tr><td>${i+1}</td><td>${esc(c.name)}</td><td class="n">${fmt(num(c.dft),0)}</td><td class="n">${f0(r.wft,0)}</td><td class="n">${f0(r.th,1)}</td><td class="n">${f0(r.pt,1)}</td><td class="n">${r.need?fmt(Math.ceil(r.need),0):"—"}</td></tr>`}).join("");
+  const mats=M.map((m,i)=>`<tr><td>${i+1}</td><td>${esc(m.n)}${m.th?' <small style="color:#4b5b74">(≈ %15)</small>':""}</td><td class="n">${m.pk?fmt(m.pk,m.pk%1?2:0)+" L":"—"}</td><td class="n"><b>${m.q||"—"}</b></td><td class="n">${m.L?fmt(m.L,m.L%1?2:0):"—"}</td><td class="n">${fmt(Math.ceil(m.need),0)}</td><td class="n">${m.kg?fmt(m.kg,0):"—"}</td></tr>`).join("");
+  const tq=M.reduce((a,m)=>a+m.q,0), tL=M.reduce((a,m)=>a+m.L,0), tkg=M.reduce((a,m)=>a+(m.kg||0),0);
+  const sys=SF.sys?`<div class="sys"><b>Sistem: ISO 12944-5 / ${esc(SF.sys.iso)}</b><br>${esc(SF.sys.sub)} · Ortam ${esc(SF.sys.env)} · ${esc(SF.sys.dur)}${SF.sys.prep?` · Yüzey hazırlığı: ${esc(SF.sys.prep)}`:""}</div>`:"";
+  $("#sf-doc").innerHTML=`
+   <div class="top"><div><div class="lab">Sarfiyat ve malzeme listesi</div><div class="dealer">${proj?esc(proj):"Proje"}</div></div>
+     <div class="meta">${no}<br>Tarih: ${d.toLocaleDateString("tr-TR")}${who?`<br>Hazırlayan: ${esc(who)}`:""}</div></div>
+   <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 16px">
+     ${[["Alan",fmt(t.A,0)+" m²"],["Fire",`%${fmt(num(SF.loss),0)}${num(SF.prof)?` · +${SF.prof} µm`:""}`],["Toplam KFK",fmt(t.dft,0)+" µm"],["m² başına",t.lpm?fmt(t.lpm,3)+" L":"—"]].map(([k,v])=>`<div style="background:#f1f3f7;border-radius:6px;padding:8px 10px"><div class="lab">${k}</div><b style="font-size:15px">${v}</b></div>`).join("")}</div>
+   <div class="lab" style="margin:6px 0 4px">Katlar</div>
+   <div class="tbl-wrap"><table><thead><tr><th>#</th><th>Ürün</th><th class="n">KFK <span style="text-transform:none">µm</span></th><th class="n">Islak <span style="text-transform:none">µm</span></th><th class="n">Teorik <span style="text-transform:none">m²/L</span></th><th class="n">Pratik <span style="text-transform:none">m²/L</span></th><th class="n">Gerekli L</th></tr></thead><tbody>${coats}</tbody></table></div>
+   <div class="lab" style="margin:16px 0 4px">Malzeme listesi (sipariş)</div>
+   <div class="tbl-wrap"><table><thead><tr><th>#</th><th>Ürün</th><th class="n">Ambalaj</th><th class="n">Teneke</th><th class="n">Toplam L</th><th class="n">Gerekli L</th><th class="n">≈ <span style="text-transform:none">kg</span></th></tr></thead><tbody>${mats}</tbody>
+   <tfoot><tr><td></td><td>Toplam</td><td></td><td class="n">${tq}</td><td class="n">${fmt(tL,tL%1?2:0)}</td><td class="n">${fmt(Math.ceil(t.L+M.filter(m=>m.th).reduce((a,m)=>a+m.need,0)),0)}</td><td class="n">${tkg?fmt(tkg,0):"—"}</td></tr></tfoot></table></div>
+   ${sys}
+   <ul class="notes"><li>Gerekli litre = alan × (KFK${num(SF.prof)?" + pürüzlülük payı":""}) ÷ (katı madde % × 10) ÷ (1 − fire). Islak film = KFK × 100 ÷ katı madde %.</li>
+   <li>Teneke adedi, gerekli litreye en az artanla ulaşacak ambalajla yukarı yuvarlanmıştır. İnceltici, boya litresinin %15'i olarak tahmin edilmiştir.</li>
+   <li>Teorik değerlerdir; uygulama yöntemi, hava koşulları ve yüzey durumu sarfiyatı etkiler. Uygulama için ürün teknik föyüne (TDS) uyulmalıdır.</li></ul>`;
+  return proj;
+}
 function sfSum(){
   const t=sfTotals();
   $("#sf-sum").innerHTML=`<h3>Özet</h3>
    <div class="sf-kpi"><div><span>Toplam boya</span><b>${t.L?fmt(Math.ceil(t.L),0)+" L":"—"}</b></div><div><span>Toplam KFK</span><b>${t.dft?fmt(t.dft,0)+" µm":"—"}</b></div>
    <div><span>Ağırlık</span><b>${t.kg?(t.kgOk?"":"≥ ")+fmt(t.kg,0)+" kg":"—"}</b></div><div><span>m² başına</span><b>${t.lpm?fmt(t.lpm,3)+" L":"—"}</b></div></div>
-   ${t.rows.length?`<div class="sf-list">${t.rows.map(([n,d,r])=>`<div><span>${esc(n)} · ${fmt(d,0)} µm</span><span>${fmt(Math.ceil(r.need),0)} L · ${r.qty}×${fmt(r.pk,r.pk%1?2:0)}</span></div>`).join("")}
-   ${Object.entries(t.th).map(([no,l])=>`<div><span>İnceltici N° ${no} <small style="opacity:.7">(≈ %15)</small></span><span>${fmt(Math.ceil(l*THIN_RATE),0)} L</span></div>`).join("")}</div>`:`<p class="hint">Alan, ürün ve kalınlık girildikçe sonuç burada görünür.</p>`}
-   <div class="q-actions"><button type="button" class="btn primary" id="sf-wa">WhatsApp'ta paylaş</button><button type="button" class="btn ghost" id="sf-copy">Kopyala</button></div>
+   ${t.rows.length?`<h3>Malzeme listesi</h3><div class="sf-list">${sfMat().map(m=>`<div><span>${esc(m.n)}${m.th?' <small style="opacity:.7">(≈ %15)</small>':""}</span><span>${m.q?`${m.q} × ${fmt(m.pk,m.pk%1?2:0)} L`:fmt(Math.ceil(m.need),0)+" L"}</span></div>`).join("")}</div>`:`<p class="hint">Alan, ürün ve kalınlık girildikçe sonuç burada görünür.</p>`}
+   <div class="q-actions">${pdfReady()?`<button type="button" class="btn primary" id="sf-pdf">PDF indir</button>`:""}<button type="button" class="btn ghost" id="sf-wa">WhatsApp</button><button type="button" class="btn ghost" id="sf-copy">Kopyala</button></div>
    <button type="button" class="linkbtn" id="sf-clr" style="color:rgba(255,255,255,.7);align-self:flex-start">Temizle</button>`;
   $("#sf-wa").onclick=()=>window.open("https://wa.me/?text="+encodeURIComponent(sfText()),"_blank");
+  const pb=$("#sf-pdf"); if(pb) pb.onclick=()=>sfPdf(pb);
   $("#sf-copy").onclick=()=>{try{navigator.clipboard.writeText(sfText());toast("Kopyalandı");}catch(e){}};
-  $("#sf-clr").onclick=()=>{SF={area:"",loss:SF.loss,prof:0,coats:[{name:"",dft:""}]};sfSave();sfRender();};
+  $("#sf-clr").onclick=()=>{SF={area:"",loss:SF.loss,prof:0,proj:"",sys:null,coats:[{name:"",dft:""}]};sfSave();sfRender();};
+  const bg=$("#sf-bar-go"); if(bg&&!bg.disabled) bg.textContent=pdfReady()?"PDF indir":"WhatsApp'ta paylaş";
   const bv=$("#sf-bar-v"); if(bv) bv.textContent=t.L?`${fmt(Math.ceil(t.L),0)} L · ${fmt(t.dft,0)} µm`:"—";
 }
+async function sfPdf(btn){
+  if(!sfTotals().L){toast("Önce alan, ürün ve kalınlık girin");return;}
+  const proj=sfDoc(); const d=new Date(),pad=n=>String(n).padStart(2,"0");
+  const fn=`Sarfiyat_${(proj||"proje").replace(/[^\p{L}\p{N}]+/gu,"_").slice(0,40)}_${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}.pdf`;
+  await pdfFromEl($("#sf-doc"),fn,btn,"Sarfiyatı paylaş");
+}
 function sfText(){
-  const t=sfTotals(); const L=["SARFİYAT HESABI – JOTUN",`Alan: ${fmt(t.A,0)} m² · Fire: %${fmt(num(SF.loss),0)}${num(SF.prof)?` · Pürüzlülük payı: ${SF.prof} µm`:""}`,""];
+  const t=sfTotals(); const L=["SARFİYAT HESABI – JOTUN"+(SF.proj?` · ${SF.proj}`:""),`Alan: ${fmt(t.A,0)} m² · Fire: %${fmt(num(SF.loss),0)}${num(SF.prof)?` · Pürüzlülük payı: ${SF.prof} µm`:""}`,""];
   SF.coats.forEach((c,i)=>{if(!c.name)return;const r=calcCoat(c,i);L.push(`${i+1}. ${c.name} – ${fmt(num(c.dft),0)} µm KFK (ıslak ${r.wft?fmt(r.wft,0):"—"} µm)`);L.push(`   Teorik ${r.th?fmt(r.th,1):"—"} m²/L · Pratik ${r.pt?fmt(r.pt,1):"—"} m²/L · Gerekli ${r.need?fmt(Math.ceil(r.need),0):"—"} L${r.qty?` (${r.qty} × ${fmt(r.pk,r.pk%1?2:0)} L)`:""}`);});
   L.push("",`Toplam KFK: ${fmt(t.dft,0)} µm · Toplam boya: ${fmt(Math.ceil(t.L),0)} L${t.kg?` · ≈ ${fmt(t.kg,0)} kg`:""}`);
-  Object.entries(t.th).forEach(([no,l])=>L.push(`İnceltici N° ${no}: ≈ ${fmt(Math.ceil(l*THIN_RATE),0)} L (%15)`));
+  L.push("","MALZEME LİSTESİ"); sfMat().forEach(m=>L.push(`• ${m.n}: ${m.q?`${m.q} teneke × ${fmt(m.pk,m.pk%1?2:0)} L = ${fmt(m.L,m.L%1?2:0)} L`:`≈ ${fmt(Math.ceil(m.need),0)} L`}${m.th?" (≈ %15)":""}`));
   L.push("","Teorik değerlerdir; nihai uygulama için ürün TDS'ine bakın."); return L.join("\n");
 }
 function sfChips(){
@@ -2231,18 +2285,21 @@ function sfChips(){
 }
 function sfUpd(){ SF.coats.forEach((c,i)=>{const el=$("#sf-r-"+i); if(el) el.innerHTML=sfResHTML(c,i);}); sfSum(); sfSave(); }
 function sfRender(){
-  $("#sf-area").value=SF.area||""; sfChips();
+  $("#sf-area").value=SF.area||""; $("#sf-proj").value=SF.proj||""; $("#sf-who").value=load("sf-who",""); sfChips();
   $("#sf-coats").innerHTML=SF.coats.map(sfCoat).join(""); sfSum(); sfSave();
 }
 function sfFromSystem(sy,s){
   SF.area=s.area; SF.loss=s.loss; SF.coats=sy.coats.map(c=>({name:PRODUCTS[c.key].name,dft:c.dft}));
+  SF.sys={iso:sy.iso,env:s.env==="Im"?"Im1–Im3":s.env,dur:DUR[s.dur],sub:s.sub==="cs"?"Karbon çelik":"Sıcak daldırma galvaniz",prep:s.sub==="cs"?"Sa 2½ (ISO 8501-1)":"Süpürme raspa (ISO 12944-4)"};
   sfRender(); location.hash="#sarfiyat"; toast("Sarfiyata aktarıldı");
 }
 $("#sf-area").addEventListener("input",e=>{SF.area=e.target.value;sfUpd();});
+$("#sf-proj").addEventListener("input",e=>{SF.proj=e.target.value;sfSave();});
+$("#sf-who").addEventListener("input",e=>store("sf-who",e.target.value));
 $("#sf-loss").addEventListener("click",e=>{const b=e.target.closest("[data-loss]");if(!b)return;SF.loss=+b.dataset.loss;sfChips();sfUpd();});
 $("#sf-loss").addEventListener("input",e=>{if(e.target.id!=="sf-lossc")return;SF.loss=num(e.target.value);$("#sf-loss").querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed","false"));sfUpd();});
 $("#sf-prof").addEventListener("click",e=>{const b=e.target.closest("[data-prof]");if(!b)return;SF.prof=+b.dataset.prof;sfChips();sfUpd();});
-$("#sf-coats").addEventListener("input",e=>{const t=e.target,k=t.dataset.k;if(!k)return;const i=+t.dataset.i;SF.coats[i][k]=t.value;if(k==="name"){sfRender();return;}sfUpd();});
+$("#sf-coats").addEventListener("input",e=>{const t=e.target,k=t.dataset.k;if(!k)return;const i=+t.dataset.i;SF.coats[i][k]=t.value;SF.sys=null;if(k==="name"){sfRender();return;}sfUpd();});
 $("#sf-coats").addEventListener("change",e=>{const t=e.target;if(t.tagName==="SELECT"&&t.dataset.k){SF.coats[+t.dataset.i].name=t.value;sfRender();}});
 $("#sf-coats").addEventListener("click",e=>{const b=e.target.closest("[data-rm]");if(!b)return;SF.coats.splice(+b.dataset.rm,1);sfRender();});
 $("#sf-add").addEventListener("click",()=>{SF.coats.push({name:"",dft:""});sfRender();const s=$("#sf-coats").lastElementChild.querySelector("select");if(s)s.focus();});
@@ -2264,7 +2321,7 @@ sfRender();
 
 function gate(){
   const fwd=$("#ch-fwd"); if(fwd) fwd.hidden=!ASK.length;
-  $("#q-pdf").hidden=!((DL||!window.claude)&&window.html2canvas&&window.jspdf);
+  $("#q-pdf").hidden=!pdfReady(); if(typeof sfSum==="function") sfSum();
 }
 window.__gate=gate;
 ["#q-send","#q-warn-send"].forEach(id=>$(id).addEventListener("click",()=>{if(!Q.no)newNo();saveHist();$(id).href=waQuote();}));
@@ -2292,8 +2349,8 @@ if(matchMedia("(max-width:700px)").matches){const pv=$(".q-prev");if(pv)pv.open=
   $("#q-bar-pdf").onclick=()=>{if($("#q-bar-pdf").dataset.miss){const x=[...document.querySelectorAll("#q-body input.price")].find(i=>!(num(i.value)>0));if(x){x.scrollIntoView({block:"center",behavior:"smooth"});setTimeout(()=>x.focus(),250);return;}} const b=$("#q-pdf"); if(b&&!b.hidden) b.click(); else $("#q-copy").click();};
   const sb=document.createElement("div"); sb.id="s-bar"; sb.className="m-bar"; sb.innerHTML=`<div><span class="k">Önerilen sistem</span><b class="v" id="s-bar-v"></b></div><button type="button" class="btn primary" id="s-bar-go">Teklife aktar →</button>`; document.body.appendChild(sb);
   $("#s-bar-go").onclick=()=>{const b=document.querySelector('#out [data-quote="0"]'); if(b) b.click();};
-  const fb=document.createElement("div"); fb.id="sf-bar"; fb.className="m-bar"; fb.innerHTML=`<div><span class="k">Toplam boya</span><b class="v" id="sf-bar-v">—</b></div><button type="button" class="btn primary" id="sf-bar-go">WhatsApp'ta paylaş</button>`; document.body.appendChild(fb);
-  $("#sf-bar-go").onclick=()=>{ if(!sfTotals().L){toast("Önce alan, ürün ve kalınlık girin");return;} window.open("https://wa.me/?text="+encodeURIComponent(sfText()),"_blank"); };
+  const fb=document.createElement("div"); fb.id="sf-bar"; fb.className="m-bar"; fb.innerHTML=`<div><span class="k">Toplam boya</span><b class="v" id="sf-bar-v">—</b></div><button type="button" class="btn primary" id="sf-bar-go">PDF indir</button>`; document.body.appendChild(fb);
+  $("#sf-bar-go").onclick=()=>{ if(!sfTotals().L){toast("Önce alan, ürün ve kalınlık girin");return;} if(pdfReady()) sfPdf($("#sf-bar-go")); else window.open("https://wa.me/?text="+encodeURIComponent(sfText()),"_blank"); };
   sfSum(); applyRole();
   accOk(load("acc","")).then(ok=>{ if(ok){ $("#code-gate").hidden=true; roleGate(true); } else accAsk(); });
   render(); badgeUpd(); route();})();
