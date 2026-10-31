@@ -2533,7 +2533,7 @@ async function offSend(text){
   if(rows.length>=2 || (rows.length && rows.some(r=>r.brand||r.vs))){ const b=chAdd("bot",rivalHTML(rows,info)); bindRes(b); return; }
   if(rows.length && (!info.what||/yerine|karşılı|muadil|alternatif|şartname|isteniyor|talep/i.test(all))){ const b=chAdd("bot",rivalHTML(rows,info)); bindRes(b); return; }
   const k=knownLine(CW.ans);
-  if(!Object.keys(info).length && usable.length && !rows.length){if(!usable.some(a=>a.ocrErr))chAdd("bot","Dosyada boya ürünü veya iş bilgisi bulamadım. Ne boyanacağını yazın ya da adım adım ilerleyelim.");}
+  if(!Object.keys(info).length && usable.length && !rows.length){if(!usable.some(a=>a.ocrErr))chAdd("bot","Dosyada boya ürünü veya iş bilgisi bulamadım. Ne boyanacağını yazın ya da Sistem sayfasından adım adım ilerleyin.");}
   else if(k) chAdd("bot",`Anladıklarım: <b>${esc(k)}</b>`);
   offAsk();
 }
