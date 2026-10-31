@@ -1116,6 +1116,21 @@ body.sx-special #s-bar{display:none!important}
 
 #v-danisman .ch-in>.q-actions{order:4}
 #v-danisman .ch-bar textarea:placeholder-shown{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* Sistem – özel işler tek sayfa */
+.wq-c{margin:0 0 12px}
+.wq{display:grid;grid-template-columns:1fr;gap:8px}
+@media (min-width:560px){.wq{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.wq button{position:relative;display:flex;align-items:center;gap:12px;min-height:58px;padding:10px 40px 10px 12px;border-radius:12px;border:1px solid #dbe2ec;background:#fff;color:#0b1f45;text-align:left;cursor:pointer}
+.wq button svg{width:24px;height:24px;flex:none;fill:none;stroke:#3b5a86;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.wq button b{display:block;font:600 14.5px/1.25 var(--f-body)}
+.wq button small{display:block;margin-top:2px;font:500 12px/1.3 var(--f-body);color:#5d6b82}
+.wq button.sel{background:#0b2350;border-color:#0b2350;color:#fff}
+.wq button.sel svg{stroke:#fff}.wq button.sel small{color:rgba(255,255,255,.75)}
+.wq button.sel::after{content:"";position:absolute;right:12px;top:50%;transform:translateY(-50%);width:18px;height:18px;border-radius:50%;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12l4 4 8-8' fill='none' stroke='%230b2350' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/13px no-repeat}
+.wq-wait{margin:4px 2px 12px;color:rgba(214,224,240,.7);font-size:14px;text-align:center}
+#sx-wz #wz{gap:0!important}
+#sx-wz .wh-res{margin-top:4px}
 </style>
 
 <div id="app-bg" aria-hidden="true"></div>
@@ -2125,21 +2140,22 @@ const WZ_DEF=wi('<circle cx="12" cy="12" r="8"/><path d="M9 12l2 2 4-4"/>');
   "30":wi('<circle cx="12" cy="12" r="8"/><path d="M12 8v4l2 2"/>'),"60":wi('<circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/>'),"90":wi('<circle cx="12" cy="12" r="8"/><path d="M12 7v5l4 2"/>'),prem:wi('<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/>')});}
 const wzTitle=o=>o.replace(/\s*\(.*?\)\s*/g," ").trim();
 function wzRender(){
-  const el=$("#wz"), st=wzStep(), ph=st?WZ_PH[st.k]||2:4;
-  const stp=`<div class="wh-st">${WZ_STEPS.map((t,i)=>`<div class="wh-s${i+1<ph?" done":i+1===ph?" on":""}"><b>${i+1<ph?"✓":i+1}</b><span>${t}</span></div>`).join("")}</div>`;
-  const hero=`<div class="wh-hero"><span class="wh-img cgi-tank"></span><h2>Projenizi Tanımlayın</h2><p>Doğru Jotun sistemini önermek için birkaç basit bilgi yeterli.</p><button type="button" class="wh-help" id="wz-help" aria-label="Soru sor">?</button></div>`;
-  let body="";
-  if(st){
-    const pend=W.pend!=null?W.pend:W.ans[st.k];
-    body=`<p class="wh-q">${st.q}</p>`;
-    if(st.num) body+=`<label class="wh-num"><span class="sf-ic0">${wi('<path d="M4 8V4h4M16 4h4v4M20 16v4h-4M8 20H4v-4"/>')}</span><input type="number" id="wz-area" min="1" step="10" value="${W.ans.area||500}" inputmode="decimal" aria-label="Alan m²"><i>m²</i></label>`;
-    else if(st.k==="what") body+=`<div class="wh-ph">${st.o.map(o=>`<button type="button" class="wh-pt${pend===o[0]?" sel":""}" data-k="${st.k}" data-v="${o[0]}"><span class="wh-bg cgi-${WZ_BG[o[0]]||"gen"}"></span><span class="wh-pl">${WZ_IC[o[0]]||WZ_DEF}<b>${esc(WZ_SHORT[o[0]]||wzTitle(o[1]))}</b></span></button>`).join("")}</div>`;
-    else body+=`<div class="wh-ti${st.o.length>4?" w3":""}">${st.o.map(o=>`<button type="button" class="wh-t${pend===o[0]?" sel":""}" data-k="${st.k}" data-v="${o[0]}">${WZ_IC[o[0]]||WZ_DEF}<span><b>${esc(o[1])}</b>${o[2]?`<small>${esc(o[2])}</small>`:""}</span></button>`).join("")}</div>`;
-    const ok=st.num||pend!=null;
-    body+=`<div class="wh-nav">${W.hist.length?`<button type="button" class="wh-back" id="wz-back" aria-label="Geri">${wi('<path d="M15 5l-7 7 7 7"/>')}</button>`:""}<button type="button" class="wh-go" id="wz-next"${ok?"":" disabled"}>${st.num?"Öneriyi Göster":"Devam Et"}${wi('<path d="M5 12h14M13 6l6 6-6 6"/>')}</button></div>`;
-  } else body=`<div class="wh-res">${wzResult()}</div><div class="wh-nav"><button type="button" class="wh-back" id="wz-back" aria-label="Geri">${wi('<path d="M15 5l-7 7 7 7"/>')}</button><button type="button" class="wh-ob" id="wz-reset">Yeni proje</button></div>`;
-  el.innerHTML=stp+body;
-  bindWz();
+  const el=$("#wz"), a=W.ans; if(a.area==null) a.area=500;
+  const cur={what:a.what}; if(a.surf==="maint") cur.surf="maint";
+  const cards=[]; let n=2, done=false;
+  for(let g=0;g<10;g++){
+    const st=wzStep(cur); if(!st){done=true;break;}
+    if(st.num){ cur.area=a.area; cards.push(`<section class="sx-card sx-row wq-c"><h3 class="sx-h">${wi('<path d="M4 4v16h16"/><path d="M4 9h4M4 14h4M9 20v-4M14 20v-4M8 4v12h12"/>').replace('<svg','<svg class="sx-i"')}<label for="wz-area">${n++}. Alan (m²)</label></h3><div class="sx-in"><input type="number" inputmode="decimal" id="wz-area" min="0" step="10" value="${a.area}"><i>m²</i></div></section>`); continue; }
+    const v=a[st.k];
+    cards.push(`<section class="sx-card wq-c"><h3 class="sx-h"><span>${n++}. ${esc(st.q)}</span></h3><div class="wq">${st.o.map(o=>`<button type="button" class="${v===o[0]?"sel":""}" data-qk="${st.k}" data-qv="${o[0]}">${WZ_IC[o[0]]||WZ_DEF}<span><b>${esc(o[1])}</b>${o[2]?`<small>${esc(o[2])}</small>`:""}</span></button>`).join("")}</div></section>`);
+    if(v==null) break; cur[st.k]=v;
+  }
+  el.innerHTML=cards.join("")+`<div id="wz-out">${done?`<div class="wh-res">${wzResult(cur)}</div>`:`<p class="wq-wait">Seçimleri yaptıkça önerilen sistem burada görünecek.</p>`}</div>`;
+  W.cur=cur; bindWz();
+  el.querySelectorAll("[data-qk]").forEach(b=>b.onclick=()=>{const had=!!$("#wz-out .wh-res"); W.ans[b.dataset.qk]=b.dataset.qv; wzRender();
+    const r=$("#wz-out .wh-res"); if(r&&!had) setTimeout(()=>r.scrollIntoView({behavior:"smooth",block:"start"}),60);
+    else{ const nx=[...el.querySelectorAll(".wq-c")].find(c=>!c.querySelector(".sel")&&!c.querySelector("#wz-area")); if(nx) setTimeout(()=>nx.scrollIntoView({behavior:"smooth",block:"center"}),60);} });
+  const ar=$("#wz-area"); if(ar) ar.oninput=()=>{ W.ans.area=Math.max(0,parseFloat(ar.value)||0); if(W.cur){W.cur.area=W.ans.area; const o=$("#wz-out"); if(o&&o.querySelector(".wh-res")){o.innerHTML=`<div class="wh-res">${wzResult(W.cur)}</div>`; bindWz();}} };
 }
 function bindWz(){
   const el=$("#wz");
