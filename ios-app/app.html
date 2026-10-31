@@ -2871,19 +2871,8 @@ function wxPill(){
   b.hidden=false; b.innerHTML=`<svg viewBox="0 0 24 24" aria-hidden="true">${WXI[k]}</svg><b>${Math.round(c.temperature_2m)}°</b><span class="wx-il">${esc(WX.il||"")}</span><i class="wx-d ${ev[0]}"></i>`;
 }
 async function wxLoad(force){
-  if(!force&&WX&&Date.now()-WX.ts<30*60e3){wxPill();return;}
-  let loc=WXLOC&&Date.now()-WXLOC.ts<12*3600e3?WXLOC:null;
-  if(!loc){
-    try{const pos=await new Promise((ok,no)=>{if(!navigator.geolocation)return no();navigator.geolocation.getCurrentPosition(ok,no,{timeout:8000,maximumAge:3600e3})});
-      loc={lat:pos.coords.latitude,lon:pos.coords.longitude,src:"gps"};}catch(e){}
-    if(!loc){try{const r=await fetch("https://ipapi.co/json/");const j=await r.json();if(j&&j.latitude)loc={lat:j.latitude,lon:j.longitude,src:"ip"};}catch(e){}}
-    if(!loc) loc={lat:41.01,lon:28.98,src:"def"};
-    loc.il=nearestIl(loc.lat,loc.lon);
-    try{const r=await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${loc.lat}&longitude=${loc.lon}&localityLanguage=tr`);const j=await r.json();
-      const n=(j.principalSubdivision||"").replace(/\s*(İli|ili|Province)$/,"").trim(); if(n&&PROVS.some(p=>p.n===n)) loc.il=n;}catch(e){}
-    loc.ts=Date.now(); WXLOC=loc; store("wx-loc",loc);
-  }
-  await wxFetch(loc.lat,loc.lon,loc.il);
+  if(!force&&WX&&WX.il==="İstanbul"&&Date.now()-WX.ts<30*60e3){wxPill();return;}
+  await wxFetch(41.01,28.98,"İstanbul");
 }
 async function wxFetch(lat,lon,il){
   try{const r=await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,dew_point_2m,weather_code,wind_speed_10m,is_day&timezone=auto`);
@@ -2897,10 +2886,8 @@ $("#hd-wx").addEventListener("click",()=>{ if(!WX) return; const c=WX.c, k=wxKin
     <div class="wx-g"><div><span>Nem</span><b>%${Math.round(c.relative_humidity_2m)}</b></div><div><span>Çiğ noktası</span><b>${fmt(c.dew_point_2m,1)}°C</b></div><div><span>Rüzgâr</span><b>${Math.round(c.wind_speed_10m)} km/s</b></div></div>
     <div id="wx-ev">${body()}</div>
     <label class="wx-in"><span>Çelik yüzey sıcaklığı (ölçtüyseniz)</span><span class="sx-in"><input type="number" inputmode="decimal" id="wx-s" placeholder="${Math.round(c.temperature_2m)}"><i>°C</i></span></label>
-    <label class="wx-in"><span>İl</span><select id="wx-il">${PROVS.map(p=>`<option${p.n===WX.il?" selected":""}>${p.n}</option>`).join("")}</select></label>
     <p class="hint" style="margin:10px 2px 0">ISO 8502-4: yüzey sıcaklığı çiğ noktasının en az 3 °C üstünde, bağıl nem en fazla %85 olmalı. Ürünün TDS'indeki sıcaklık sınırlarını da kontrol edin. Veri: Open-Meteo.</p>`);
   $("#wx-s").oninput=()=>{$("#wx-ev").innerHTML=body();};
-  $("#wx-il").onchange=async e=>{const p=PROVS.find(x=>x.n===e.target.value); WXLOC={lat:p.lat,lon:p.lon,il:p.n,src:"user",ts:Date.now()}; store("wx-loc",WXLOC); await wxFetch(p.lat,p.lon,p.n); d.close(); $("#hd-wx").click();};
 });
 wxLoad();
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)wxLoad();});
