@@ -1091,6 +1091,30 @@ body.sx-special #s-bar{display:none!important}
 
 #s-bar{display:none!important}
 #v-sarfiyat .sf-toq{width:100%}
+
+/* Şartname ve Sistem Analizi */
+.dn-hero{min-height:200px!important;padding-top:18px!important}
+.dn-hero h2{font:800 34px/1.08 var(--f-body)!important;letter-spacing:-.015em;max-width:72%}
+.dn-hero p{font-size:16px!important;line-height:1.4!important;max-width:62%!important;margin-top:12px!important;color:rgba(225,232,245,.85)!important}
+@media (min-width:701px){.dn-hero h2{font-size:46px!important}.dn-hero{min-height:240px!important}}
+#v-danisman #d-c .dbox{background:linear-gradient(180deg,rgba(22,40,74,.62),rgba(12,26,52,.75))!important;border:1px solid rgba(120,160,230,.2)!important;border-radius:22px!important;padding:18px!important;gap:14px}
+#v-danisman .chat{gap:12px}
+.msg.dn-intro{display:flex;align-items:center;gap:16px;background:none!important;border:0!important;padding:4px 2px!important;max-width:100%!important;white-space:normal;font-size:15.5px;line-height:1.45;color:#e6ecf6}
+.dn-ic{flex:none;width:56px;height:56px;border-radius:16px;display:grid;place-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08)}
+.dn-ic svg{width:28px;height:28px;fill:none;stroke:#f5b818;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+#v-danisman .ch-in{border-top:0!important;padding-top:0!important}
+#v-danisman .ch-bar{align-items:center;background:rgba(5,12,26,.6)!important;border:1px solid rgba(140,170,220,.25)!important;border-radius:999px!important;padding:6px 6px 6px 10px!important;gap:4px}
+#v-danisman .ch-bar .ic-btn{width:42px;height:42px;color:#c9d4e6}
+#v-danisman .ch-bar label[for="ch-cam"]{border-right:1px solid rgba(255,255,255,.12);border-radius:0;margin-right:2px}
+#v-danisman .ch-bar textarea{color:#fff!important;font-size:16px;padding:10px 6px}
+#v-danisman .ch-bar textarea::placeholder{color:rgba(200,212,232,.6)}
+#v-danisman .send-btn{width:52px;height:52px;background:linear-gradient(180deg,#f9c22e,#f0ab00)}
+#v-danisman .send-btn svg{width:24px;height:24px;stroke-width:2.2}
+#v-danisman .ch-chips{order:3}
+#v-danisman .ch-chips .chip{background:rgba(5,12,26,.45);border:1px solid rgba(140,170,220,.22);color:#dfe7f5;border-radius:999px}
+#v-danisman #ch-new{background:none;border:0;color:rgba(214,224,240,.65);text-decoration:underline;padding:4px 2px}
+
+#v-danisman .ch-in>.q-actions{order:4}
 </style>
 
 <div id="app-bg" aria-hidden="true"></div>
@@ -1346,23 +1370,23 @@ body.sx-special #s-bar{display:none!important}
     </div>
   </div>
 
-  <div class="sx-hero dn-hero"><h2>Rakip &amp;<br>Şartname</h2><p>Rakip ürünün, şartnamenin ya da etiketin Jotun karşılığını bulun.</p></div>
+  <div class="sx-hero dn-hero"><h2>Şartname ve<br>Sistem Analizi</h2><p>Şartnameyi yükleyin,<br>Jotun boya sistemini bulun.</p></div>
   <div id="d-c" class="dpanel">
     <div class="dbox">
-      <div class="chat" id="ch-log"><div class="msg bot">Rakip ürün adını ve kalınlığını yazın, şartnameyi yapıştırın ya da etiket / teknik föy fotoğrafı ekleyin; Jotun karşılığını ve sistemi çıkarayım.</div></div>
+      <div class="chat" id="ch-log"><div class="msg bot dn-intro"><span class="dn-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span><span>Şartname metnini yapıştırın veya dosya / fotoğraf ekleyin. Rakip ürün adını ve kalınlığını da yazabilirsiniz.</span></div></div>
       <div class="ch-in" id="ch-drop">
         <div class="att" id="ch-att" hidden></div>
         <div class="ch-chips" id="ch-chips"><button type="button" class="chip" data-tpl="Hempadur 15570 yerine ne verebiliriz? ">Rakip ürüne karşılık</button><button type="button" class="chip" data-tpl="Şartname: ">Şartnameye göre sistem</button><button type="button" class="chip" data-tpl="Hempadur Zinc 17360 60 µm + Hempadur 47300 120 µm + Hempathane 55610 60 µm, C4">Rakip sistem (çok kat)</button></div>
         <div class="ch-bar">
           <label class="ic-btn" for="ch-cam" title="Fotoğraf çek" aria-label="Fotoğraf çek"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg></label>
           <label class="ic-btn" for="ch-file" id="ch-file-lbl" title="Fotoğraf veya dosya ekle" aria-label="Fotoğraf veya dosya ekle"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5l-8 8a5 5 0 0 1-7-7l8.5-8.5a3.5 3.5 0 0 1 5 5L10 17.5a2 2 0 0 1-3-3l7.5-7.5"/></svg></label>
-          <textarea id="ch-text" rows="1" placeholder="Sorunuzu yazın…" aria-label="Soru"></textarea>
+          <textarea id="ch-text" rows="1" placeholder="Şartnameyi ekleyin…" aria-label="Soru"></textarea>
           <button type="button" class="send-btn" id="ch-send" aria-label="Gönder"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button>
           <button type="button" class="send-btn stop" id="ch-stop" hidden aria-label="Durdur"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="1"/></svg></button>
         </div>
         <input type="file" id="ch-cam" accept="image/*" capture="environment" hidden>
         <input type="file" id="ch-file" multiple accept="image/*,.pdf,.txt,.csv,.md" hidden>
-        <p class="hint" id="ch-file-hint">Yazın veya etiket, şartname, yüzey fotoğrafı ekleyin.</p>
+        <p class="hint" id="ch-file-hint" hidden></p>
         <div class="q-actions"><button type="button" class="btn ghost" id="ch-new">Yeni sohbet</button><a class="btn ghost" id="ch-fwd" href="#" target="_blank" rel="noopener" hidden>Sorularımı bölge yöneticisine ilet</a></div></div>
     </div>
   </div>
@@ -2639,7 +2663,7 @@ const chGrow=()=>{const t=$("#ch-text");t.style.height="auto";t.style.height=Mat
 $("#ch-text").addEventListener("input",chGrow);
 $("#ch-chips").addEventListener("click",e=>{const b=e.target.closest("[data-tpl]");if(!b)return;const t=$("#ch-text");t.value=b.dataset.tpl;chGrow();t.focus();t.setSelectionRange(t.value.length,t.value.length);});
 $("#ch-stop").onclick=()=>chCtl&&chCtl.abort();
-$("#ch-new").onclick=()=>{if(chCtl)chCtl.abort();CH=[];CW.ans={};$("#ch-log").innerHTML=`<div class="msg bot">Yeni sohbet. Ne boyanacak, nerede duracak ve ne kadar dayanması gerekiyor?</div>`;};
+$("#ch-new").onclick=()=>{if(chCtl)chCtl.abort();CH=[];CW.ans={};$("#ch-log").innerHTML=`<div class="msg bot dn-intro"><span class="dn-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span><span>Şartname metnini yapıştırın veya dosya / fotoğraf ekleyin. Rakip ürün adını ve kalınlığını da yazabilirsiniz.</span></div>`;};
 $("#rv-photo").onclick=()=>{$("#dm-c").checked=true;$("#d-mode").dispatchEvent(new Event("change"));setTimeout(()=>$("#ch-file-lbl").focus(),0);};
 /* rakip AI */
 let rvCtl=null;
