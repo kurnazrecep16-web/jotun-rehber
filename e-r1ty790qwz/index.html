@@ -1164,6 +1164,52 @@ body.sx-special #s-bar{display:none!important}
 .sx-col .hm-tile:not(.sel){display:none!important}
 .sx-col .hm-tile.sel .sx-chgl{display:inline}
 .sx-col .hm-tile.sel .chev{stroke:#f5b818}
+
+/* Ana sayfa: fırsatlar ve haberler */
+.hm-shead{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.hm-upd{font-size:12px;color:var(--muted)}
+.hm-opps{display:grid;grid-template-columns:1fr;gap:10px}
+@media (min-width:760px){.hm-opps{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.hm-opp{background:rgba(19,25,33,.82);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:8px;color:#fff}
+.ho-top{display:flex;gap:12px;align-items:center}
+.ho-ic{width:52px;height:46px;flex:none}
+.ho-h{display:flex;flex-direction:column;gap:2px;min-width:0}
+.ho-pl{font:600 11.5px var(--f-body);letter-spacing:.04em;color:#f5b818;text-transform:uppercase}
+.ho-h b{font:700 16px/1.25 var(--f-body)}
+.ho-w,.ho-f{margin:0;font-size:13.5px;line-height:1.45;color:rgba(225,232,245,.82)}
+.ho-f b{color:#fff}
+.ho-b{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:2px}
+.ho-go{height:36px;padding:0 14px;border:0;border-radius:10px;background:linear-gradient(180deg,#f9c22e,#f0ab00);color:#0b1f45;font:700 13.5px var(--f-body);cursor:pointer}
+.ho-sh{height:36px;padding:0 14px;border-radius:10px;border:1px solid rgba(255,255,255,.25);background:transparent;color:#fff;font:600 13.5px var(--f-body);cursor:pointer}
+.ho-src{margin-left:auto;font-size:12px;color:rgba(214,224,240,.6);text-decoration:none}
+.hm-news{display:flex;flex-direction:column;gap:8px}
+.hm-nw{display:flex;flex-direction:column;gap:3px;padding:12px 14px;border-radius:14px;background:rgba(19,25,33,.82);border:1px solid rgba(255,255,255,.08);color:#fff;text-decoration:none}
+.hm-nw b{font:600 14.5px/1.35 var(--f-body)}
+.hm-nw span{font-size:12px;color:rgba(214,224,240,.6)}
+.hm-empty{margin:0;color:var(--muted);font-size:13.5px}
+/* Hava durumu */
+.hd-wx{margin-left:auto;display:flex;align-items:center;gap:6px;height:40px;padding:0 12px 0 10px;border-radius:22px;background:rgba(15,22,30,.6);border:1px solid rgba(255,255,255,.14);color:#fff;cursor:pointer;flex:none;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.hd-wx[hidden]{display:none!important}
+.hd-wx svg{width:22px;height:22px;fill:none;stroke:#f5b818;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.hd-wx b{font:700 16px var(--f-body)}
+.wx-il{font:500 12.5px var(--f-body);color:rgba(214,224,240,.75);max-width:84px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.wx-d{width:9px;height:9px;border-radius:50%;flex:none}
+.wx-d.g,.wx-st.g{--c:#2fbf71}.wx-d.y,.wx-st.y{--c:#f5b818}.wx-d.r,.wx-st.r{--c:#ff5a4e}
+.wx-d{background:var(--c)}
+@media (min-width:901px){.hd .tabs{margin-left:auto!important}.hd-wx{margin-left:12px}}
+@media (max-width:480px){.wx-il{display:none}.hd-wx{height:36px;padding:0 10px 0 8px;gap:5px}.hd-wx b{font-size:15px}}
+.wx-in select{font-family:var(--f-body)!important}
+.wx-big{display:flex;align-items:center;gap:12px;margin:4px 0 12px}
+.wx-big svg{width:44px;height:44px;fill:none;stroke:#f5b818;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.wx-big b{font:800 34px var(--f-body)}
+.wx-big span{color:var(--muted)}
+.wx-g{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.wx-g div{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:8px 10px;display:flex;flex-direction:column;gap:2px}
+.wx-g span{font-size:11.5px;color:var(--muted)}.wx-g b{font:700 16px var(--f-body)}
+.wx-st{border-left:4px solid var(--c);background:var(--bg);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:3px;margin-bottom:12px}
+.wx-st b{color:var(--c);font-size:15px}.wx-st span{font-size:13.5px}
+.wx-in{display:flex;flex-direction:column;gap:5px;margin-bottom:10px;font-size:13px;color:var(--muted)}
+.wx-in select{height:44px;border-radius:10px}
 </style>
 
 <div id="app-bg" aria-hidden="true"></div>
@@ -1187,6 +1233,7 @@ body.sx-special #s-bar{display:none!important}
 <div class="wrap">
 <header class="hd">
   <a href="#ana" class="brand" aria-label="Jotun Endüstri ana sayfa"><span class="ico ic-logo hd-logo" role="img" aria-label="JOTUN"></span><span class="hd-sep"></span><span class="hd-t">Endüstri</span><span class="hd-tag">PROTECTS PROPERTY</span></a>
+  <button type="button" class="hd-wx" id="hd-wx" hidden aria-label="Hava durumu ve uygulama koşulları"></button>
   <nav class="tabs" aria-label="Bölümler">
   <a href="#ana" id="t-ana" class="tab" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg><span>Ana Sayfa</span></a>
   <a href="#sistem" id="t-sistem" class="tab"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg><span class="lg">Sistem</span><span class="sm">Sistem</span></a>
@@ -1205,8 +1252,12 @@ body.sx-special #s-bar{display:none!important}
     <button type="button" class="hm-card role-b" data-go="kendi"><span class="hm-ic hm-svg"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M28 8H15a3 3 0 0 0-3 3v26a3 3 0 0 0 3 3h18a3 3 0 0 0 3-3V16z" fill="none" stroke="#e8eef8" stroke-width="2.6" stroke-linejoin="round"/><path d="M28 8v8h8" fill="none" stroke="#e8eef8" stroke-width="2.6" stroke-linejoin="round"/><path d="M24 22v12M18 28h12" stroke="#e8352a" stroke-width="3.2" stroke-linecap="round"/></svg></span><span class="hm-t"><b>Kendi teklifini hazırla</b></span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
     <button type="button" class="hm-card" data-go="sarfiyat"><span class="ico ic-sarf hm-ic"></span><span class="hm-t"><b>Sarfiyat hesapla</b></span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
   </div>
+  <div class="hm-shead"><h3 class="hm-sec">Haftalık iş fırsatları</h3><span class="hm-upd" id="h-opp-upd"></span></div>
+  <div class="hm-opps" id="h-opps"></div>
   <h3 class="hm-sec">Ne boyanacak?</h3>
   <div class="hm-cats"><button type="button" class="hm-tile" data-go="what:celik"><span class="ico ic-celik hm-ti"></span><span class="hm-tl">Çelik yapı</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:ekipman"><span class="ico ic-makine hm-ti"></span><span class="hm-tl">Makine</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:tankdis"><span class="ico ic-tankdis hm-ti"></span><span class="hm-tl">Tank dış</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:boru"><span class="ico ic-boru hm-ti"></span><span class="hm-tl">Boru dış</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:bakim"><span class="ico ic-bakim hm-ti"></span><span class="hm-tl">Paslı / bakım</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:tankic"><span class="ico ic-tankici hm-ti"></span><span class="hm-tl">Tank içi</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:sicak"><span class="ico ic-sicak hm-ti"></span><span class="hm-tl">Sıcak yüzey</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:zemin"><span class="ico ic-beton hm-ti"></span><span class="hm-tl">Beton zemin</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:tekne"><span class="ico ic-tekne hm-ti"></span><span class="hm-tl">Tekne</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:yangin"><span class="ico ic-yangin hm-ti"></span><span class="hm-tl">Yangın</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
+  <h3 class="hm-sec">Sektör haberleri</h3>
+  <div class="hm-news" id="h-news"></div>
   <div id="h-hist-wrap" hidden><h3 class="hm-sec" style="margin-bottom:8px">Son teklifler</h3><div class="h-hist" id="h-hist"></div></div>
   <div class="hm-foot"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><div><span>Son güncelleme 30.10.2026 · 23:55</span><span><span id="role-lbl"></span> · <button type="button" class="linkbtn" id="role-chg">değiştir</button></span></div></div>
 </section>
@@ -2795,8 +2846,84 @@ $("#sx-what").addEventListener("click",e=>{const b=e.target.closest("[data-sxw]"
   if(w.classList.contains("sx-col")&&b.classList.contains("sel")){w.classList.remove("sx-col");return;}
   sxWhat(b.dataset.sxw); setTimeout(()=>w.scrollIntoView({behavior:"smooth",block:"start"}),50);});
 sxWhat("celik");
+
+/* ---------- Ana sayfa: iş fırsatları ve haberler ---------- */
+const HOME_DEF={"updated": "2026-10-31", "projects": [{"t": "Döküm fabrikası – 40 milyon $", "place": "Edirne · Uzunköprü Atatürk OSB", "what": "Çin merkezli döküm firması fabrika kuracak; sözleşme imzalandı, temel kısa sürede atılacak. Üretim 2027 Eylül hedefleniyor, ~500 istihdam.", "why": "Yeni fabrika binası çelik konstrüksiyon ve ekipman boyası; döküm alanında ısıya dayanıklı sistem ihtiyacı olabilir.", "cat": "celik", "date": "2026-10-22", "src": "Ekonomi Dünya", "url": "https://www.ekonomidunya.com/cin-dokum-firmasindan-edirneye-40-milyon-dolarlik-yatirim/113997"}, {"t": "Atıksu arıtma tesisi + OSB altyapısı", "place": "Kırklareli · Lüleburgaz Evrensekiz OSB", "what": "Günlük 22.200 m³ kapasiteli atıksu arıtma tesisi (~725 milyon TL) ve 196 hektarlık OSB altyapısının temeli atıldı.", "why": "Arıtma havuzları, beton ve çelik tank iç yüzeyleri, boru ve ekipman kaplaması.", "cat": "tankic", "date": "2026-09-27", "src": "Yeşilyurt Gazetesi", "url": "https://www.yesilyurtgazete.com/bakan-kacir-kirklarelinde-yatirim-atagini-acikladi/122313"}, {"t": "64 bin m² tekstil tesisi", "place": "Kırklareli OSB", "what": "TYH Uluslararası Tekstil, Kırklareli OSB'de yaklaşık 64 bin m² tesis kuracak. Yatırım tutarı ve takvim açıklanmadı.", "why": "Büyük fabrika binası: çelik konstrüksiyon, çatı makasları ve beton zemin.", "cat": "celik", "date": "2026-09-01", "src": "Marmara Haber", "url": "https://marmarahaber.com.tr/haber/28621561/kirklareli-osbye-64-bin-metrekarelik-yeni-tekstil-yatirimi"}], "news": [{"t": "Jotun ilk 8 ayda gelirini %2, faaliyet kârını %4 artırdı", "src": "jotun.com", "date": "2026-09-24", "url": "https://www.jotun.com/gb-en/news-and-insights/corporate/continued-growth-for-jotun"}, {"t": "Lojistik depo talebi Arnavutköy–Hadımköy–Silivri hattında yoğunlaşıyor; mevcut depoların modernizasyonu öne çıkıyor", "src": "Para Dergi", "date": "2026-10-07", "url": "https://www.paradergi.com.tr/sektorler/2026/10/12/depo-yatirimi-konuta-rakip-oldu/amp"}, {"t": "Kırklareli'nde 5 tesis açıldı, Evrensekiz OSB ve arıtma tesisinin temeli atıldı", "src": "Yeşilyurt Gazetesi", "date": "2026-09-27", "url": "https://www.yesilyurtgazete.com/bakan-kacir-kirklarelinde-yatirim-atagini-acikladi/122313"}]};
+let HOME=load("home-data",null)||HOME_DEF; if(!HOME.updated||HOME.updated<HOME_DEF.updated) HOME=HOME_DEF;
+const trDate=d=>{try{return new Date(d+"T12:00:00").toLocaleDateString("tr-TR",{day:"numeric",month:"short"})}catch(e){return d}};
+const CAT_IMG={celik:"celik",ekipman:"makine",tankdis:"tankdis",boru:"boru",bakim:"bakim",tankic:"tankici",sicak:"sicak",zemin:"beton",tekne:"tekne",yangin:"yangin"};
+function homeFeed(){
+  const P=(HOME.projects||[]).slice(0,6), N=(HOME.news||[]).slice(0,4);
+  $("#h-opp-upd").textContent=HOME.updated?`Güncelleme ${trDate(HOME.updated)}`:"";
+  $("#h-opps").innerHTML=P.length?P.map((o,i)=>`<article class="hm-opp"><div class="ho-top"><span class="ico ic-${CAT_IMG[o.cat]||"celik"} ho-ic"></span><div class="ho-h"><span class="ho-pl">${esc(o.place)}</span><b>${esc(o.t)}</b></div></div>
+    <p class="ho-w">${esc(o.what)}</p><p class="ho-f"><b>Boya fırsatı:</b> ${esc(o.why)}</p>
+    <div class="ho-b"><button type="button" class="ho-go" data-go="what:${esc(o.cat||"celik")}">Sistem öner</button><button type="button" class="ho-sh" data-opp="${i}">${isSor()?"Bayiye ilet":"Paylaş"}</button><a class="ho-src" href="${esc(o.url)}" target="_blank" rel="noopener">${esc(o.src)} · ${trDate(o.date)} ↗</a></div></article>`).join("")
+    :`<p class="hm-empty">Bu hafta için yeni fırsat eklenmedi.</p>`;
+  $("#h-news").innerHTML=N.length?N.map(n=>`<a class="hm-nw" href="${esc(n.url)}" target="_blank" rel="noopener"><b>${esc(n.t)}</b><span>${esc(n.src)} · ${trDate(n.date)}</span></a>`).join(""):`<p class="hm-empty">Henüz haber yok.</p>`;
+}
+document.addEventListener("click",e=>{const b=e.target.closest("[data-opp]");if(!b)return;const o=(HOME.projects||[])[+b.dataset.opp];if(!o)return;
+  const t=`*İş fırsatı – ${o.t}*\n${o.place}\n${o.what}\nBoya fırsatı: ${o.why}\nKaynak: ${o.url}`;
+  if(navigator.share){navigator.share({text:t}).catch(()=>{});} else window.open("https://wa.me/?text="+encodeURIComponent(t),"_blank");});
+homeFeed();
+fetch("home.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=>{if(d&&d.updated&&(!HOME.updated||d.updated>=HOME.updated)){HOME=d;store("home-data",d);homeFeed();}}).catch(()=>{});
+
+/* ---------- Hava durumu ve uygulama koşulları ---------- */
+const PROVS="Adana:37.00,35.32;Adıyaman:37.76,38.28;Afyonkarahisar:38.76,30.54;Ağrı:39.72,43.05;Aksaray:38.37,34.03;Amasya:40.65,35.83;Ankara:39.93,32.86;Antalya:36.89,30.71;Ardahan:41.11,42.70;Artvin:41.18,41.82;Aydın:37.85,27.84;Balıkesir:39.65,27.88;Bartın:41.64,32.34;Batman:37.88,41.13;Bayburt:40.26,40.23;Bilecik:40.14,29.98;Bingöl:38.88,40.50;Bitlis:38.40,42.11;Bolu:40.74,31.61;Burdur:37.72,30.29;Bursa:40.19,29.06;Çanakkale:40.15,26.41;Çankırı:40.60,33.62;Çorum:40.55,34.95;Denizli:37.78,29.09;Diyarbakır:37.91,40.24;Düzce:40.84,31.16;Edirne:41.68,26.56;Elazığ:38.67,39.22;Erzincan:39.75,39.49;Erzurum:39.90,41.27;Eskişehir:39.78,30.52;Gaziantep:37.07,37.38;Giresun:40.91,38.39;Gümüşhane:40.46,39.48;Hakkari:37.58,43.74;Hatay:36.20,36.16;Iğdır:39.92,44.04;Isparta:37.76,30.55;İstanbul:41.01,28.98;İzmir:38.42,27.14;Kahramanmaraş:37.58,36.94;Karabük:41.20,32.62;Karaman:37.18,33.22;Kars:40.60,43.10;Kastamonu:41.38,33.78;Kayseri:38.73,35.49;Kilis:36.72,37.12;Kırıkkale:39.85,33.51;Kırklareli:41.73,27.22;Kırşehir:39.15,34.16;Kocaeli:40.77,29.92;Konya:37.87,32.48;Kütahya:39.42,29.98;Malatya:38.35,38.31;Manisa:38.61,27.43;Mardin:37.31,40.74;Mersin:36.81,34.64;Muğla:37.22,28.36;Muş:38.74,41.49;Nevşehir:38.62,34.71;Niğde:37.97,34.68;Ordu:40.98,37.88;Osmaniye:37.07,36.25;Rize:41.02,40.52;Sakarya:40.78,30.40;Samsun:41.29,36.33;Siirt:37.93,41.94;Sinop:42.03,35.15;Sivas:39.75,37.02;Şanlıurfa:37.16,38.79;Şırnak:37.52,42.46;Tekirdağ:40.98,27.51;Tokat:40.31,36.55;Trabzon:41.00,39.72;Tunceli:39.11,39.55;Uşak:38.68,29.41;Van:38.49,43.38;Yalova:40.65,29.27;Yozgat:39.82,34.81;Zonguldak:41.45,31.79".split(";").map(x=>{const [n,c]=x.split(":");const [a,b]=c.split(",");return {n,lat:+a,lon:+b};});
+const nearestIl=(lat,lon)=>PROVS.reduce((m,p)=>{const d=(p.lat-lat)**2+((p.lon-lon)*Math.cos(lat*Math.PI/180))**2;return d<m.d?{p,d}:m},{p:PROVS[0],d:1e9}).p.n;
+let WX=load("wx",null), WXLOC=load("wx-loc",null);
+const WXI={sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',moon:'<path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/>',pc:'<path d="M8 6.5a3.5 3.5 0 0 1 6.6-1.6"/><path d="M7 19h10a4 4 0 0 0 .4-8 5.5 5.5 0 0 0-10.6 1.6A3.2 3.2 0 0 0 7 19z"/>',cloud:'<path d="M7 19h10a4 4 0 0 0 .4-8 5.5 5.5 0 0 0-10.6 1.6A3.2 3.2 0 0 0 7 19z"/>',rain:'<path d="M7 15h10a4 4 0 0 0 .4-8 5.5 5.5 0 0 0-10.6 1.6A3.2 3.2 0 0 0 7 15z"/><path d="M9 18l-1 3M13 18l-1 3M17 18l-1 3"/>',snow:'<path d="M7 15h10a4 4 0 0 0 .4-8 5.5 5.5 0 0 0-10.6 1.6A3.2 3.2 0 0 0 7 15z"/><path d="M9 19h.01M13 20h.01M17 19h.01"/>',storm:'<path d="M7 15h10a4 4 0 0 0 .4-8 5.5 5.5 0 0 0-10.6 1.6A3.2 3.2 0 0 0 7 15z"/><path d="M12 15l-2 4h3l-2 4"/>',fog:'<path d="M4 9h16M3 13h18M5 17h14"/>'};
+const wxKind=(c,day)=>c===0||c===1?(day?"sun":"moon"):c===2?"pc":c===3?"cloud":c===45||c===48?"fog":(c>=71&&c<=77)||c===85||c===86?"snow":c>=95?"storm":c>=51?"rain":"cloud";
+const WX_TR={sun:"Açık",moon:"Açık",pc:"Parçalı bulutlu",cloud:"Bulutlu",rain:"Yağışlı",snow:"Karlı",storm:"Fırtına",fog:"Sisli"};
+function wxEval(T,RH,Td,code,surf){
+  const s=surf!=null&&surf!==""?+surf:T, dT=s-Td, wet=code>=51&&!(code>=71&&code<=77);
+  if(wet) return ["r","Uygun değil","Yağış var; dış mekânda uygulama yapmayın."];
+  if(dT<3) return ["r","Uygun değil",`Yüzey sıcaklığı çiğ noktasının yalnızca ${fmt(dT,1)} °C üstünde (en az 3 °C olmalı).`];
+  if(RH>85) return ["r","Uygun değil",`Bağıl nem %${Math.round(RH)} (en fazla %85).`];
+  if(dT<5||RH>80||s<5) return ["y","Dikkat",s<5?`Yüzey ${fmt(s,1)} °C; ürünün TDS'indeki en düşük uygulama sıcaklığını kontrol edin.`:`Sınırda: çiğ noktası farkı ${fmt(dT,1)} °C, nem %${Math.round(RH)}.`];
+  return ["g","Uygun",`Çiğ noktası farkı ${fmt(dT,1)} °C, nem %${Math.round(RH)}.`];
+}
+function wxPill(){
+  const b=$("#hd-wx"); if(!WX||!WX.c){b.hidden=true;return;}
+  const c=WX.c, k=wxKind(c.weather_code,c.is_day), ev=wxEval(c.temperature_2m,c.relative_humidity_2m,c.dew_point_2m,c.weather_code);
+  b.hidden=false; b.innerHTML=`<svg viewBox="0 0 24 24" aria-hidden="true">${WXI[k]}</svg><b>${Math.round(c.temperature_2m)}°</b><span class="wx-il">${esc(WX.il||"")}</span><i class="wx-d ${ev[0]}"></i>`;
+}
+async function wxLoad(force){
+  if(!force&&WX&&Date.now()-WX.ts<30*60e3){wxPill();return;}
+  let loc=WXLOC&&Date.now()-WXLOC.ts<12*3600e3?WXLOC:null;
+  if(!loc){
+    try{const pos=await new Promise((ok,no)=>{if(!navigator.geolocation)return no();navigator.geolocation.getCurrentPosition(ok,no,{timeout:8000,maximumAge:3600e3})});
+      loc={lat:pos.coords.latitude,lon:pos.coords.longitude,src:"gps"};}catch(e){}
+    if(!loc){try{const r=await fetch("https://ipapi.co/json/");const j=await r.json();if(j&&j.latitude)loc={lat:j.latitude,lon:j.longitude,src:"ip"};}catch(e){}}
+    if(!loc) loc={lat:41.01,lon:28.98,src:"def"};
+    loc.il=nearestIl(loc.lat,loc.lon);
+    try{const r=await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${loc.lat}&longitude=${loc.lon}&localityLanguage=tr`);const j=await r.json();
+      const n=(j.principalSubdivision||"").replace(/\s*(İli|ili|Province)$/,"").trim(); if(n&&PROVS.some(p=>p.n===n)) loc.il=n;}catch(e){}
+    loc.ts=Date.now(); WXLOC=loc; store("wx-loc",loc);
+  }
+  await wxFetch(loc.lat,loc.lon,loc.il);
+}
+async function wxFetch(lat,lon,il){
+  try{const r=await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,dew_point_2m,weather_code,wind_speed_10m,is_day&timezone=auto`);
+    const j=await r.json(); if(j&&j.current){WX={c:j.current,il,ts:Date.now()};store("wx",WX);}}catch(e){}
+  wxPill();
+}
+$("#hd-wx").addEventListener("click",()=>{ if(!WX) return; const c=WX.c, k=wxKind(c.weather_code,c.is_day);
+  const body=()=>{const sv=($("#wx-s")||{}).value; const ev=wxEval(c.temperature_2m,c.relative_humidity_2m,c.dew_point_2m,c.weather_code,sv);
+    return `<div class="wx-st ${ev[0]}"><b>Boya uygulaması: ${ev[1]}</b><span>${ev[2]}</span></div>`;};
+  const d=sheet(`${esc(WX.il)} · şimdi`,`<div class="wx-big"><svg viewBox="0 0 24 24" aria-hidden="true">${WXI[k]}</svg><b>${Math.round(c.temperature_2m)}°C</b><span>${WX_TR[k]}</span></div>
+    <div class="wx-g"><div><span>Nem</span><b>%${Math.round(c.relative_humidity_2m)}</b></div><div><span>Çiğ noktası</span><b>${fmt(c.dew_point_2m,1)}°C</b></div><div><span>Rüzgâr</span><b>${Math.round(c.wind_speed_10m)} km/s</b></div></div>
+    <div id="wx-ev">${body()}</div>
+    <label class="wx-in"><span>Çelik yüzey sıcaklığı (ölçtüyseniz)</span><span class="sx-in"><input type="number" inputmode="decimal" id="wx-s" placeholder="${Math.round(c.temperature_2m)}"><i>°C</i></span></label>
+    <label class="wx-in"><span>İl</span><select id="wx-il">${PROVS.map(p=>`<option${p.n===WX.il?" selected":""}>${p.n}</option>`).join("")}</select></label>
+    <p class="hint" style="margin:10px 2px 0">ISO 8502-4: yüzey sıcaklığı çiğ noktasının en az 3 °C üstünde, bağıl nem en fazla %85 olmalı. Ürünün TDS'indeki sıcaklık sınırlarını da kontrol edin. Veri: Open-Meteo.</p>`);
+  $("#wx-s").oninput=()=>{$("#wx-ev").innerHTML=body();};
+  $("#wx-il").onchange=async e=>{const p=PROVS.find(x=>x.n===e.target.value); WXLOC={lat:p.lat,lon:p.lon,il:p.n,src:"user",ts:Date.now()}; store("wx-loc",WXLOC); await wxFetch(p.lat,p.lon,p.n); d.close(); $("#hd-wx").click();};
+});
+wxLoad();
+document.addEventListener("visibilitychange",()=>{if(!document.hidden)wxLoad();});
+
 /* Yeni sürüm yayınlandıysa uygulama açıkken kendini yeniler */
-(()=>{const B="1793469566"; if(!/^\d+$/.test(B)) return;
+(()=>{const B="1793470322"; if(!/^\d+$/.test(B)) return;
   const chk=()=>fetch(location.pathname+"?b="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const B="(\d+)"/); if(m&&+m[1]>+B) location.reload();}).catch(()=>{});
   document.addEventListener("visibilitychange",()=>{if(!document.hidden)chk();}); setTimeout(chk,4000);})();
 
@@ -2874,10 +3001,10 @@ $("#cg-f").addEventListener("submit",async e=>{e.preventDefault();const v=$("#cg
 /* ---------- Rol: Bayi / Jotun Sorumlusu ---------- */
 var UROLE=load("role","");
 function applyRole(){
-  document.body.dataset.role=UROLE==="s"?"s":"b"; try{renderRehber()}catch(e){}
+  document.body.dataset.role=UROLE==="s"?"s":"b"; try{renderRehber()}catch(e){} try{homeFeed()}catch(e){}
   $("#t-teklif").hidden=UROLE==="s"; $("#t-sarfiyat").hidden=false;
   const l=$("#role-lbl"); if(l) l.textContent=UROLE==="s"?"Jotun Sorumlusu":"Bayi";
-  const lg=$("#t-sistem .lg"); if(lg) lg.textContent=UROLE==="s"?"Sistem":"Sistem & Teklif";
+  const lg=$("#t-sistem .lg"); if(lg) lg.textContent="Sistem";
   relabel();
 }
 function relabel(){
