@@ -1221,6 +1221,29 @@ body.sx-special #s-bar{display:none!important}
 .hm-oppw[open]>summary{border-color:rgba(245,184,24,.45)}
 .hm-oppw .hm-opps{margin-top:10px;animation:hoIn .2s ease}
 @keyframes hoIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+/* Ana sayfa: açılır İş fırsatları / Sektör haberleri */
+.hx{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.hx-b{position:relative;overflow:hidden;display:flex;align-items:center;gap:0;min-height:76px;padding:10px 10px 10px 0;border-radius:18px;border:1px solid rgba(110,150,230,.35);background:linear-gradient(160deg,#173a7a 0%,#0e2a5c 55%,#0b2149 100%);color:#fff;text-align:left;cursor:pointer;font:inherit}
+.hx-b::after{content:"";position:absolute;right:-30px;bottom:-34px;width:150px;height:70px;border-radius:50%;border-top:1.5px solid rgba(120,170,255,.28);transform:rotate(-12deg);pointer-events:none}
+.hx-b::before{content:"";position:absolute;right:-50px;bottom:-46px;width:190px;height:80px;border-radius:50%;border-top:1px solid rgba(120,170,255,.16);transform:rotate(-12deg);pointer-events:none}
+.hx-ic{flex:none;width:56px;display:grid;place-items:center;border-right:1px solid rgba(255,255,255,.18);align-self:stretch;margin-right:10px}
+.hx-ic svg{width:30px;height:30px;fill:none;stroke:#7fb0ff;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.hx-t{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
+.hx-t b{font:700 15.5px/1.15 var(--f-body);letter-spacing:-.01em}
+.hx-t span{font-size:12.5px;color:rgba(214,226,245,.75)}
+.hx-chev{width:20px;height:20px;flex:none;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s}
+.hx-b[aria-expanded="true"]{border-color:rgba(245,184,24,.6)}
+.hx-b[aria-expanded="true"] .hx-chev{transform:rotate(180deg)}
+.hx-p{animation:hoIn .2s ease}
+.hx-p[hidden]{display:none!important}
+@media (min-width:560px){.hx-b{min-height:86px}.hx-ic{width:70px}.hx-t b{font-size:17px}.hx-t span{font-size:13.5px}}
+
+@media (max-width:559px){.hx{gap:8px}.hx-b{min-height:70px;padding:10px 24px 10px 0}.hx-ic{width:44px;margin-right:9px}.hx-ic svg{width:25px;height:25px}
+.hx-t b{font-size:13.5px;letter-spacing:-.02em;white-space:nowrap}.hx-t span{font-size:11.5px;white-space:nowrap}
+.hx-chev{position:absolute;right:7px;top:50%;width:16px;height:16px;margin-top:-8px}}
+
+@media (max-width:374px){.hx-t b{font-size:12.5px}.hx-ic{width:40px;margin-right:7px}}
 </style>
 
 <div id="app-bg" aria-hidden="true"></div>
@@ -1263,12 +1286,14 @@ body.sx-special #s-bar{display:none!important}
     <button type="button" class="hm-card role-b" data-go="kendi"><span class="hm-ic hm-svg"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M28 8H15a3 3 0 0 0-3 3v26a3 3 0 0 0 3 3h18a3 3 0 0 0 3-3V16z" fill="none" stroke="#e8eef8" stroke-width="2.6" stroke-linejoin="round"/><path d="M28 8v8h8" fill="none" stroke="#e8eef8" stroke-width="2.6" stroke-linejoin="round"/><path d="M24 22v12M18 28h12" stroke="#e8352a" stroke-width="3.2" stroke-linecap="round"/></svg></span><span class="hm-t"><b>Kendi teklifini hazırla</b></span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
     <button type="button" class="hm-card" data-go="sarfiyat"><span class="ico ic-sarf hm-ic"></span><span class="hm-t"><b>Sarfiyat hesapla</b></span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
   </div>
-  <details class="hm-oppw" id="h-oppw"><summary class="hm-card"><span class="hm-ic hm-svg ho-sic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V10l5-3v14M10 21V5l9 4v12"/><path d="M13 11h3M13 14h3M13 17h3"/></svg></span><span class="hm-t"><b>Haftalık iş fırsatları</b><span id="h-opp-upd"></span></span><svg class="chev ho-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
-  <div class="hm-opps" id="h-opps"></div></details>
+  <div class="hx">
+    <button type="button" class="hx-b" data-hx="opp" aria-expanded="false"><span class="hx-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M3 12.5h18M10.5 12.5v1.5h3v-1.5"/></svg></span><span class="hx-t"><b>İş fırsatları</b><span id="h-opp-upd"></span></span><svg class="hx-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+    <button type="button" class="hx-b" data-hx="news" aria-expanded="false"><span class="hx-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="15" rx="2"/><rect x="6" y="7.5" width="5" height="4.5" rx=".5"/><path d="M13.5 8h4.5M13.5 11h4.5M6 15h12M7 19v1.5M17 19v1.5"/></svg></span><span class="hx-t"><b>Sektör haberleri</b><span id="h-news-upd"></span></span><svg class="hx-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+  </div>
+  <div class="hx-p hm-opps" id="h-opps" hidden></div>
+  <div class="hx-p hm-news" id="h-news" hidden></div>
   <h3 class="hm-sec">Ne boyanacak?</h3>
   <div class="hm-cats"><button type="button" class="hm-tile" data-go="what:celik"><span class="ico ic-celik hm-ti"></span><span class="hm-tl">Çelik yapı</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:ekipman"><span class="ico ic-makine hm-ti"></span><span class="hm-tl">Makine</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:tankdis"><span class="ico ic-tankdis hm-ti"></span><span class="hm-tl">Tank dış</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:boru"><span class="ico ic-boru hm-ti"></span><span class="hm-tl">Boru dış</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:bakim"><span class="ico ic-bakim hm-ti"></span><span class="hm-tl">Paslı / bakım</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:tankic"><span class="ico ic-tankici hm-ti"></span><span class="hm-tl">Tank içi</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:sicak"><span class="ico ic-sicak hm-ti"></span><span class="hm-tl">Sıcak yüzey</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:zemin"><span class="ico ic-beton hm-ti"></span><span class="hm-tl">Beton zemin</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:tekne"><span class="ico ic-tekne hm-ti"></span><span class="hm-tl">Tekne</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:yangin"><span class="ico ic-yangin hm-ti"></span><span class="hm-tl">Yangın</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
-  <h3 class="hm-sec">Sektör haberleri</h3>
-  <div class="hm-news" id="h-news"></div>
   <div id="h-hist-wrap" hidden><h3 class="hm-sec" style="margin-bottom:8px">Son teklifler</h3><div class="h-hist" id="h-hist"></div></div>
   <div class="hm-foot"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><div><span>Son güncelleme 30.10.2026 · 23:55</span><span><span id="role-lbl"></span> · <button type="button" class="linkbtn" id="role-chg">değiştir</button></span></div></div>
 </section>
@@ -2865,7 +2890,7 @@ const trDate=d=>{try{return new Date(d+"T12:00:00").toLocaleDateString("tr-TR",{
 const CAT_IMG={celik:"celik",ekipman:"makine",tankdis:"tankdis",boru:"boru",bakim:"bakim",tankic:"tankici",sicak:"sicak",zemin:"beton",tekne:"tekne",yangin:"yangin"};
 function homeFeed(){
   const P=(HOME.projects||[]).slice(0,6), N=(HOME.news||[]).slice(0,4);
-  $("#h-opp-upd").textContent=`${P.length} yeni proje${HOME.updated?" · "+trDate(HOME.updated):""}`;
+  $("#h-opp-upd").textContent=`${P.length} yeni proje`; $("#h-news-upd").textContent=`${N.length} yeni haber`;
   $("#h-opps").innerHTML=P.length?P.map((o,i)=>`<article class="hm-opp"><div class="ho-top"><span class="ico ic-${CAT_IMG[o.cat]||"celik"} ho-ic"></span><div class="ho-h"><span class="ho-pl">${esc(o.place)}</span><b>${esc(o.t)}</b></div></div>
     <p class="ho-w">${esc(o.what)}</p><p class="ho-f"><b>Boya fırsatı:</b> ${esc(o.why)}</p>
     <div class="ho-b"><button type="button" class="ho-go" data-go="what:${esc(o.cat||"celik")}">Sistem öner</button><button type="button" class="ho-sh" data-opp="${i}">${isSor()?"Bayiye ilet":"Paylaş"}</button><a class="ho-src" href="${esc(o.url)}" target="_blank" rel="noopener">${esc(o.src)} · ${trDate(o.date)} ↗</a></div></article>`).join("")
@@ -2876,6 +2901,10 @@ document.addEventListener("click",e=>{const b=e.target.closest("[data-opp]");if(
   const t=`*İş fırsatı – ${o.t}*\n${o.place}\n${o.what}\nBoya fırsatı: ${o.why}\nKaynak: ${o.url}`;
   if(navigator.share){navigator.share({text:t}).catch(()=>{});} else window.open("https://wa.me/?text="+encodeURIComponent(t),"_blank");});
 homeFeed();
+document.addEventListener("click",e=>{const b=e.target.closest("[data-hx]");if(!b)return;const k=b.dataset.hx, open=b.getAttribute("aria-expanded")!=="true";
+  document.querySelectorAll("[data-hx]").forEach(x=>x.setAttribute("aria-expanded",String(open&&x===b)));
+  $("#h-opps").hidden=!(open&&k==="opp"); $("#h-news").hidden=!(open&&k==="news");
+  if(open) setTimeout(()=>$(k==="opp"?"#h-opps":"#h-news").scrollIntoView({behavior:"smooth",block:"nearest"}),60);});
 fetch("home.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=>{if(d&&d.updated&&(!HOME.updated||d.updated>=HOME.updated)){HOME=d;store("home-data",d);homeFeed();}}).catch(()=>{});
 
 /* ---------- Hava durumu ve uygulama koşulları ---------- */
@@ -2921,7 +2950,7 @@ wxLoad();
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)wxLoad();});
 
 /* Yeni sürüm yayınlandıysa uygulama açıkken kendini yeniler */
-(()=>{const B="1793470723"; if(!/^\d+$/.test(B)) return;
+(()=>{const B="1793471135"; if(!/^\d+$/.test(B)) return;
   const chk=()=>fetch(location.pathname+"?b="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const B="(\d+)"/); if(m&&+m[1]>+B) location.reload();}).catch(()=>{});
   document.addEventListener("visibilitychange",()=>{if(!document.hidden)chk();}); setTimeout(chk,4000);})();
 
