@@ -928,6 +928,88 @@ form.sx details.adv{background:rgba(19,25,33,.85);border:1px solid rgba(255,255,
 .sf-ob{height:54px;border-radius:16px;border:1px solid rgba(140,170,220,.35);background:rgba(5,14,32,.45);color:#fff;font:700 16px var(--f-body);display:flex;align-items:center;justify-content:center;gap:10px;cursor:pointer}
 #v-sarfiyat .sf-clr{color:rgba(214,224,240,.7);align-self:center;font-size:13.5px}
 @media (max-width:700px){body[data-view="sarfiyat"] #sf-bar{display:none!important}body[data-view="sarfiyat"]{padding-bottom:calc(24px + env(safe-area-inset-bottom,0px))!important}#v-sarfiyat .sf-res{grid-template-columns:repeat(2,1fr)}}
+
+/* Teklif yeni tasarım */
+#quote [hidden],#v-teklif [hidden]{display:none!important}
+#quote .q-form{background:none;border:0;box-shadow:none;padding:0;gap:14px}
+#quote .q-info{gap:14px}
+#quote .q-g3{grid-template-columns:1fr}
+@media (min-width:560px){#quote .q-g3{grid-template-columns:1fr 1fr}#quote .q-g3>label:last-child{grid-column:1/-1}}
+#quote .q-g3>.hint{grid-column:1/-1;margin:0;color:rgba(214,224,240,.85)}
+#quote .sf-f{color:rgba(214,224,240,.85);font-size:13.5px;font-weight:500;display:flex;flex-direction:column;gap:5px;min-width:0}
+#quote .sf-ii input,#quote .sf-ii select{flex:1;min-width:0;width:100%;height:auto;border:0!important;background:transparent!important;color:#fff;font:500 16px var(--f-body);padding:0 14px;border-radius:0;outline:0;box-shadow:none}
+#quote .sf-ii select option{color:#0b1f45;background:#fff}
+#quote .q-set{border:1px solid rgba(140,170,220,.22);border-radius:12px;background:rgba(5,14,32,.4);padding:0}
+#quote .q-set>summary{display:flex;align-items:center;gap:10px;padding:12px 14px;color:rgba(214,224,240,.9);font:600 14px var(--f-body);list-style:none}
+#quote .q-set>summary::-webkit-details-marker{display:none}
+#quote .q-set>summary::after{content:"";margin-left:auto;width:7px;height:7px;border:solid rgba(214,224,240,.7);border-width:0 2px 2px 0;transform:rotate(45deg)}
+#quote .q-set[open]>summary::after{transform:rotate(-135deg)}
+#quote .q-set>summary svg{width:20px;height:20px;fill:none;stroke:#dfe7f5;stroke-width:1.7;stroke-linecap:round}
+#quote .q-set .row3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:0;padding:0 12px 12px}
+#quote .q-set .sf-ii{min-height:44px}
+.q-lh{display:flex;align-items:center;gap:12px;margin:4px 2px -2px}
+.q-lh h3{margin:0;font:700 19px var(--f-body);color:#fff}
+#quote .tbl-wrap{overflow:visible;border:0;background:none}
+#q-body tr{--ink:#0b1f45;--muted:#5d6b82;--line:#dbe2ec;--panel:#fff;--bg:#fff;--steel:#1d4fd8;background:#f4f7fb!important;border:0!important;border-radius:20px!important;padding:16px!important;margin-bottom:14px!important;box-shadow:0 10px 30px rgba(0,0,0,.3);color:#0b1f45;counter-increment:qln}
+#q-body{counter-reset:qln}
+#q-body td:first-child{position:relative;padding-left:46px!important;min-height:36px;padding-right:48px!important}
+#q-body td:first-child::before{content:counter(qln);position:absolute;left:0;top:0;width:36px;height:36px;border-radius:50%;background:#1d4fd8;color:#fff;font:700 16px/36px var(--f-body);text-align:center}
+#q-body tr.auto td:first-child::before{background:#8a96a8}
+#q-body td:first-child .prod{font:700 18px/1.2 var(--f-body)!important;color:#0b1f45;display:block;padding-top:7px}
+#q-body td:first-child>input[type=text]{margin-top:2px}
+#q-body .need{color:#5d6b82}
+#q-body .calc,#q-body .ral,#q-body .spec-chip{margin-left:-46px}
+#q-body .calc{max-width:none;margin-right:-48px!important;background:#fff;border-color:#dbe2ec}
+#q-body .spec-chip span{background:#e6edf7;color:#24406e}
+#q-body input,#q-body select{background:#fff!important;color:#0b1f45!important;border:1px solid #dbe2ec!important;border-radius:12px!important}
+#q-body td:nth-child(2) .mono{color:#0b1f45}
+#q-body input.price{border:2px solid #efa21a!important}
+#q-body input.price:placeholder-shown{background:#fff8e6!important}
+#q-body input::placeholder{color:#9aa5b5}
+#q-body td.del{top:16px!important;right:16px!important}
+#q-body .x{width:40px;height:40px;border-radius:11px;border:0;background:#fde4e4;display:grid;place-items:center;cursor:pointer;padding:0}
+#q-body .x svg{width:20px;height:20px;fill:none;stroke:#e0352b;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+#q-body td:nth-child(9){border-top-color:#dbe2ec!important;color:#0b1f45!important}
+#q-body td[colspan]{color:#5d6b82}
+#quote .q-miss{border-radius:16px;padding:12px 14px}
+#quote .q-miss .btn{background:none;color:#f3d88f;border:1px solid #f3d88f;border-radius:10px}
+#quote .q-form>.q-actions{flex-direction:column;align-items:stretch;gap:10px;margin:0}
+#quote .q-addb{align-self:stretch;width:100%;height:54px;border-radius:16px;border:1.5px dashed rgba(170,195,240,.45);background:rgba(5,14,32,.35);color:#fff;font:700 16px var(--f-body);display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer}
+#quote .q-addb svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round}
+#quote .q-clr{align-self:center;color:rgba(214,224,240,.7);font-size:13.5px}
+#quote .q-main{display:flex;flex-direction:column;align-items:stretch;gap:10px;margin:0 0 6px}
+#quote .q-main .sf-pdfb[hidden]{display:none}
+#quote a.sf-ob{text-decoration:none}
+#quote .sf-ob{font-size:15px;padding:0 10px;text-align:center}
+#quote .q-cpy{width:100%}
+#quote #q-status{color:rgba(214,224,240,.75);text-align:center;margin:4px 0 0}
+#quote .q-prev>summary{color:#8fb3ff}
+.q-empty{background:linear-gradient(180deg,rgba(22,40,74,.78),rgba(12,26,52,.82))!important;border:1px solid rgba(120,160,230,.18)!important;border-radius:20px!important;padding:28px 18px!important;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.q-eic{width:64px!important;height:64px!important;border-radius:18px!important;margin:0 auto 12px}
+.q-eic svg{width:32px!important;height:32px!important}
+.q-empty h3{color:#fff;font-size:20px!important}
+.q-empty p{color:rgba(214,224,240,.8)!important}
+.q-eb{display:flex;flex-direction:column;gap:10px;max-width:420px;margin:0 auto}
+.q-eb .sf-ob svg,.q-eb .sf-pdfb svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+/* Danışman uyumu */
+#v-danisman .wz,#v-danisman .dbox{background:linear-gradient(180deg,rgba(22,40,74,.78),rgba(12,26,52,.82))!important;border:1px solid rgba(120,160,230,.18)!important;border-radius:20px!important;box-shadow:0 10px 30px rgba(0,0,0,.3)!important}
+#v-danisman .wz-cats .wz-opt{background:rgba(5,14,32,.5)!important;border:1px solid rgba(140,170,220,.22)!important;border-radius:16px!important}
+#v-danisman .wz-cats .wz-opt:hover{border-color:#3d82ff!important}
+#v-danisman .wz-opt{background:rgba(5,14,32,.5);border-color:rgba(140,170,220,.22);border-radius:14px}
+#v-danisman .wz-q{text-transform:none;font:800 26px/1.15 var(--f-body);letter-spacing:-.01em}
+#v-danisman .wz-go{background:rgba(61,130,255,.22)}
+#d-mode{background:rgba(5,14,32,.5)!important;border:1px solid rgba(140,170,220,.22)!important;border-radius:14px!important;padding:4px!important;gap:4px}
+#d-mode label{border:0!important;background:transparent!important;color:rgba(214,224,240,.85)!important;border-radius:10px!important;height:44px;display:flex!important;align-items:center;justify-content:center;font:700 15px var(--f-body)!important}
+#d-mode input:checked+label{background:linear-gradient(180deg,#2f6bff,#1d4fd8)!important;color:#fff!important}
+
+#quote{border-top:0!important;padding-top:0!important}
+#quote .sfd{background:linear-gradient(180deg,rgba(22,40,74,.78),rgba(12,26,52,.82));border:1px solid rgba(120,160,230,.18);border-radius:20px;padding:16px;box-shadow:0 10px 30px rgba(0,0,0,.3);display:flex;flex-direction:column}
+#quote .sf-ob{font-size:14px;gap:8px;white-space:nowrap}
+#quote .sf-ob svg{width:20px;height:20px}
+#q-body input,#q-body select,#q-body .mono{font-family:var(--f-body)!important}
+
+#quote .q-head{display:none!important}
+#d-mode label[hidden],#d-mode input[hidden]{display:none!important}
 </style>
 
 <div id="app-bg" aria-hidden="true"></div>
@@ -1039,17 +1121,21 @@ form.sx details.adv{background:rgba(19,25,33,.85);border:1px solid rgba(255,255,
   </div>
   <div class="q-grid">
     <div class="q-form">
-      <div class="row2">
-        <p class="hint" id="q-dealer-show" hidden></p><fieldset id="q-dealer-fs"><label class="lbl" for="q-dealer">Bayi adı</label><input type="text" id="q-dealer" placeholder="Bayi ünvanınız (bir kez)"></fieldset>
-        <fieldset><label class="lbl" for="q-customer">Müşteri adı</label><input type="text" id="q-customer" placeholder="Firma / kişi"></fieldset>
+      <div class="sf-card sfd q-info">
+        <div class="sf-hd"><span class="sf-ic b"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><h3>Teklif Bilgileri</h3><p>Müşteri ve proje bilgilerini girin.</p></div>
+        <div class="sf-g2 q-g3">
+          <p class="hint" id="q-dealer-show" hidden></p><label class="sf-f" id="q-dealer-fs"><span>Bayi adı</span><span class="sf-ii"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V5l8-2v18M12 21V9l8 2v10M3 21h18M7 8h2M7 12h2M7 16h2M15 14h2M15 17h2"/></svg></i><input type="text" id="q-dealer" placeholder="Bayi ünvanınız (bir kez)"></span></label>
+          <label class="sf-f"><span>Müşteri adı</span><span class="sf-ii"><i><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4.5 4.5-6.5 8-6.5s7 2 8 6.5"/></svg></i><input type="text" id="q-customer" placeholder="Firma / kişi"></span></label>
+          <label class="sf-f"><span>Proje (isteğe bağlı)</span><span class="sf-ii"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8V4h4M16 4h4v4M20 16v4h-4M8 20H4v-4" /><path d="M10 4h4M10 20h4M4 10v4M20 10v4" stroke-dasharray="2 2"/></svg></i><input type="text" id="q-project" placeholder="Örn. depo çelik yapı"></span></label>
+        </div>
+        <details class="q-set"><summary><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg><span>Geçerlilik · KDV · Para birimi</span></summary>
+        <div class="row3">
+          <label class="sf-f"><span>Geçerlilik (gün)</span><span class="sf-ii"><input type="number" id="q-valid" min="1" step="1" value="15"></span></label>
+          <label class="sf-f"><span>KDV (%)</span><span class="sf-ii"><input type="number" id="q-kdv" min="0" max="100" step="1" value="20"></span></label>
+          <label class="sf-f"><span>Para birimi</span><span class="sf-ii"><select id="q-cur"><option value="TRY">₺ TL</option><option value="EUR">€ EUR</option><option value="USD">$ USD</option></select></span></label>
+        </div></details>
       </div>
-      <fieldset><label class="lbl" for="q-project">Proje (isteğe bağlı)</label><input type="text" id="q-project" placeholder="Örn. depo çelik yapı"></fieldset>
-      <details class="q-set"><summary>Geçerlilik · KDV · Para birimi</summary>
-      <div class="row3">
-        <fieldset><label class="lbl" for="q-valid">Geçerlilik (gün)</label><input type="number" id="q-valid" min="1" step="1" value="15"></fieldset>
-        <fieldset><label class="lbl" for="q-kdv">KDV (%)</label><input type="number" id="q-kdv" min="0" max="100" step="1" value="20"></fieldset>
-        <fieldset><label class="lbl" for="q-cur">Para birimi</label><select id="q-cur"><option value="TRY">₺ TL</option><option value="EUR">€ EUR</option><option value="USD">$ USD</option></select></fieldset>
-      </div></details>
+      <div class="q-lh"><span class="sf-ic v"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="7" ry="2.5"/><path d="M5 5.5v13c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-13"/><path d="M9 12h6"/></svg></span><h3>Ürünler</h3></div>
       <div class="tbl-wrap">
         <table class="q-lines">
           <thead><tr><th>Ürün</th><th class="n">Ambalaj</th><th class="n">Adet</th><th class="n">Toplam L</th><th class="n">kg/L</th><th class="n">Toplam kg</th><th class="n th-price">Litre fiyatı</th><th class="n">kg fiyatı</th><th class="n">Tutar</th><th></th></tr></thead>
@@ -1058,19 +1144,19 @@ form.sx details.adv{background:rgba(19,25,33,.85);border:1px solid rgba(255,255,
       </div>
       <div class="q-miss" id="q-miss" hidden></div>
       <div class="q-actions">
-        <button type="button" class="btn primary" id="q-pick">＋ Ürün ekle</button>
+        <button type="button" class="sf-add q-addb" id="q-pick"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Ürün ekle</button>
         <select id="q-add-sel" aria-label="Eklenecek ürün" hidden></select>
         <button type="button" class="btn" id="q-add" hidden>Ürün ekle</button>
-        <button type="button" class="btn ghost" id="q-clear">Temizle</button>
+        <button type="button" class="linkbtn q-clr" id="q-clear">Temizle</button>
       </div>
     </div>
 
     <div class="q-doc-wrap">
       <div class="q-actions q-main">
-        <button type="button" class="btn primary" id="q-pdf" hidden>PDF indir</button>
-        <a class="btn" id="q-send" href="#" target="_blank" rel="noopener">Yöneticiye gönder</a>
-        <button type="button" class="btn" id="q-cust">Müşteriye gönder</button>
-        <button type="button" class="btn ghost" id="q-copy">Metni kopyala</button>
+        <button type="button" class="sf-pdfb" id="q-pdf" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 13h6M9 17h4"/></svg>PDF İndir</button>
+        <div class="sf-2b"><a class="sf-ob" id="q-send" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 3L10 14M21 3l-7 18-4-7-7-4z"/></svg>Yöneticiye gönder</a>
+        <button type="button" class="sf-ob" id="q-cust"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8a4 4 0 0 1-1.8-1.8l.8-1-1-2z"/></svg>Müşteriye gönder</button></div>
+        <button type="button" class="sf-ob q-cpy" id="q-copy"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg>Metni kopyala</button>
       </div>
       <p class="hint" id="q-status">Müşteriye iletmeden önce bölge yöneticinizin onayını alın.</p>
       <details class="q-prev" open><summary>Teklif önizleme</summary>
@@ -1106,9 +1192,9 @@ form.sx details.adv{background:rgba(19,25,33,.85);border:1px solid rgba(255,255,
 </div>
 <section id="v-teklif" hidden>
   <div class="q-empty" id="q-empty" hidden>
-    <svg class="art" viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M14 6h26l10 10v42H14z"/><path d="M14 6h26l10 10v42H14zM40 6v10h10"/><path class="d" d="M20 26h24M20 33h24M20 40h24M32 26v21"/><path class="y" d="M20 50h14"/></svg>
+    <span class="sf-ic b q-eic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span>
     <h3>Teklif henüz boş</h3><p>Önerilen sistemi aktarın ya da ürünleri kendiniz seçin.</p>
-    <div class="q-actions" style="justify-content:center"><button type="button" class="btn primary" data-go="kendi">＋ Ürünleri kendim seçeyim</button><button type="button" class="btn" data-go="sistem">Sistem hesapla</button></div>
+    <div class="q-eb"><button type="button" class="sf-pdfb" data-go="kendi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Ürünleri kendim seçeyim</button><button type="button" class="sf-ob" data-go="sistem"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 12l9 5 9-5"/><path d="M3 16l9 5 9-5"/></svg>Sistem hesapla</button></div>
   </div>
 </section>
 <section id="v-sarfiyat" hidden>
@@ -1552,7 +1638,7 @@ function renderLines(){
     <td class="n" data-label="${u==="kg"?"Kg fiyatı":"Litre fiyatı"} – siz girin" data-cur="${CUR[$("#q-cur").value]}/${u}"><input type="number" inputmode="decimal" class="price" id="q-p-${i}" data-i="${i}" data-f="price" min="0" step="0.01" value="${ln.price}" placeholder="Fiyat girin" aria-label="Litre fiyatı"></td>
     <td class="amt" data-label="kg fiyatı" id="q-kp-${i}">${kgPrice(ln)!=null?money(kgPrice(ln)):""}</td>
     <td class="amt" data-label="Tutar" id="q-a-${i}">${amt(ln)}</td>
-    <td class="del"><button type="button" class="x" data-del="${i}" aria-label="Satırı sil">×</button></td></tr>`}).join("")
+    <td class="del"><button type="button" class="x" data-del="${i}" aria-label="Satırı sil"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></svg></button></td></tr>`}).join("")
     || `<tr><td colspan="10" class="hint" style="padding:12px 6px">Henüz ürün yok. Sistem kartından "Teklife aktar" deyin veya ürün ekleyin.</td></tr>`;
   missUpd();
 }
