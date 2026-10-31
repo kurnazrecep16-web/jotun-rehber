@@ -1267,6 +1267,14 @@ body.sx-special #s-bar{display:none!important}
 .fp-chev{transition:transform .2s}
 #h-fp[open] .fp-chev{transform:rotate(90deg)}
 #h-fp[open]>summary{border-color:rgba(245,184,24,.55)!important}
+
+/* Logo altı yazı: logo genişliğinde, iki yana yaslı */
+.hd .brand{grid-template-columns:auto auto auto!important;row-gap:4px!important}
+.hd-tag{grid-column:1!important;width:100%;font:500 7.6px/1 var(--f-body)!important;letter-spacing:.08em!important;text-align:justify;text-align-last:justify;-moz-text-align-last:justify;white-space:normal!important;overflow:hidden;color:rgba(255,255,255,.75)!important}
+.hd-logo{width:112px!important;height:39px!important}
+@media (min-width:701px){.hd-logo{width:128px!important;height:44px!important}.hd-tag{font-size:8.8px!important}}
+
+.hd-tag{text-align:left!important;text-align-last:auto!important;-moz-text-align-last:auto!important;white-space:nowrap!important;overflow:visible!important;width:auto!important;justify-self:start}
 </style>
 
 <div id="app-bg" aria-hidden="true"></div>
@@ -2173,6 +2181,7 @@ function route(){
   const changed=route.last!==v; route.last=v;
   V.forEach(k=>{$("#v-"+k).hidden=k!==v; const t=$("#t-"+k); if(k===v)t.setAttribute("aria-current","page"); else t.removeAttribute("aria-current");});
   document.body.dataset.view=v;
+  try{fitTag()}catch(e){}
   if(v==="ana"){ homeRender(); histRender(); }
   if(v==="teklif") badgeUpd();
   if(changed&&!route.keep) window.scrollTo(0,0); route.keep=false;
@@ -2907,6 +2916,11 @@ $("#sx-what").addEventListener("click",e=>{const b=e.target.closest("[data-sxw]"
   if(w.classList.contains("sx-col")&&b.classList.contains("sel")){w.classList.remove("sx-col");return;}
   sxWhat(b.dataset.sxw); setTimeout(()=>w.scrollIntoView({behavior:"smooth",block:"start"}),50);});
 sxWhat("celik");
+/* Logo altı yazıyı logo genişliğine yay */
+function fitTag(){document.querySelectorAll(".hd .brand").forEach(br=>{const t=br.querySelector(".hd-tag"),l=br.querySelector(".hd-logo");if(!t||!l)return;
+  t.style.setProperty("letter-spacing","0px","important");t.style.setProperty("margin-right","0px","important");const n=t.textContent.length,w=l.getBoundingClientRect().width,b=t.getBoundingClientRect().width;
+  if(!w||!b||n<2)return;const ls=Math.max(0,(w-b)/(n-1));t.style.setProperty("letter-spacing",ls+"px","important");t.style.setProperty("margin-right",(-ls)+"px","important");});}
+fitTag(); addEventListener("resize",fitTag); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fitTag); setTimeout(fitTag,600);
 
 /* ---------- Ana sayfa: iş fırsatları ve haberler ---------- */
 const HOME_DEF={"updated": "2026-10-31", "projects": [{"t": "Döküm fabrikası – 40 milyon $", "place": "Edirne · Uzunköprü Atatürk OSB", "what": "Çin merkezli döküm firması fabrika kuracak; sözleşme imzalandı, temel kısa sürede atılacak. Üretim 2027 Eylül hedefleniyor, ~500 istihdam.", "why": "Yeni fabrika binası çelik konstrüksiyon ve ekipman boyası; döküm alanında ısıya dayanıklı sistem ihtiyacı olabilir.", "cat": "celik", "date": "2026-10-22", "src": "Ekonomi Dünya", "url": "https://www.ekonomidunya.com/cin-dokum-firmasindan-edirneye-40-milyon-dolarlik-yatirim/113997"}, {"t": "Atıksu arıtma tesisi + OSB altyapısı", "place": "Kırklareli · Lüleburgaz Evrensekiz OSB", "what": "Günlük 22.200 m³ kapasiteli atıksu arıtma tesisi (~725 milyon TL) ve 196 hektarlık OSB altyapısının temeli atıldı.", "why": "Arıtma havuzları, beton ve çelik tank iç yüzeyleri, boru ve ekipman kaplaması.", "cat": "tankic", "date": "2026-09-27", "src": "Yeşilyurt Gazetesi", "url": "https://www.yesilyurtgazete.com/bakan-kacir-kirklarelinde-yatirim-atagini-acikladi/122313"}, {"t": "64 bin m² tekstil tesisi", "place": "Kırklareli OSB", "what": "TYH Uluslararası Tekstil, Kırklareli OSB'de yaklaşık 64 bin m² tesis kuracak. Yatırım tutarı ve takvim açıklanmadı.", "why": "Büyük fabrika binası: çelik konstrüksiyon, çatı makasları ve beton zemin.", "cat": "celik", "date": "2026-09-01", "src": "Marmara Haber", "url": "https://marmarahaber.com.tr/haber/28621561/kirklareli-osbye-64-bin-metrekarelik-yeni-tekstil-yatirimi"}], "news": [{"t": "Jotun ilk 8 ayda gelirini %2, faaliyet kârını %4 artırdı", "src": "jotun.com", "date": "2026-09-24", "url": "https://www.jotun.com/gb-en/news-and-insights/corporate/continued-growth-for-jotun"}, {"t": "Lojistik depo talebi Arnavutköy–Hadımköy–Silivri hattında yoğunlaşıyor; mevcut depoların modernizasyonu öne çıkıyor", "src": "Para Dergi", "date": "2026-10-07", "url": "https://www.paradergi.com.tr/sektorler/2026/10/12/depo-yatirimi-konuta-rakip-oldu/amp"}, {"t": "Kırklareli'nde 5 tesis açıldı, Evrensekiz OSB ve arıtma tesisinin temeli atıldı", "src": "Yeşilyurt Gazetesi", "date": "2026-09-27", "url": "https://www.yesilyurtgazete.com/bakan-kacir-kirklarelinde-yatirim-atagini-acikladi/122313"}]};
@@ -2984,7 +2998,7 @@ wxLoad();
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)wxLoad();});
 
 /* Yeni sürüm yayınlandıysa uygulama açıkken kendini yeniler */
-(()=>{const B="1793472950"; if(!/^\d+$/.test(B)) return;
+(()=>{const B="1793473199"; if(!/^\d+$/.test(B)) return;
   const chk=()=>fetch(location.pathname+"?b="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const B="(\d+)"/); if(m&&+m[1]>+B) location.reload();}).catch(()=>{});
   document.addEventListener("visibilitychange",()=>{if(!document.hidden)chk();}); setTimeout(chk,4000);})();
 
