@@ -1210,6 +1210,17 @@ body.sx-special #s-bar{display:none!important}
 .wx-st b{color:var(--c);font-size:15px}.wx-st span{font-size:13.5px}
 .wx-in{display:flex;flex-direction:column;gap:5px;margin-bottom:10px;font-size:13px;color:var(--muted)}
 .wx-in select{height:44px;border-radius:10px}
+
+.hm-oppw{display:flex;flex-direction:column}
+.hm-oppw>summary{list-style:none;cursor:pointer}
+.hm-oppw>summary::-webkit-details-marker{display:none}
+.ho-sic{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,#f9c22e,#f0ab00);flex:none}
+.ho-sic svg{width:28px;height:28px;fill:none;stroke:#0b1f45;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ho-chev{transition:transform .2s}
+.hm-oppw[open] .ho-chev{transform:rotate(180deg)}
+.hm-oppw[open]>summary{border-color:rgba(245,184,24,.45)}
+.hm-oppw .hm-opps{margin-top:10px;animation:hoIn .2s ease}
+@keyframes hoIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
 </style>
 
 <div id="app-bg" aria-hidden="true"></div>
@@ -1252,8 +1263,8 @@ body.sx-special #s-bar{display:none!important}
     <button type="button" class="hm-card role-b" data-go="kendi"><span class="hm-ic hm-svg"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M28 8H15a3 3 0 0 0-3 3v26a3 3 0 0 0 3 3h18a3 3 0 0 0 3-3V16z" fill="none" stroke="#e8eef8" stroke-width="2.6" stroke-linejoin="round"/><path d="M28 8v8h8" fill="none" stroke="#e8eef8" stroke-width="2.6" stroke-linejoin="round"/><path d="M24 22v12M18 28h12" stroke="#e8352a" stroke-width="3.2" stroke-linecap="round"/></svg></span><span class="hm-t"><b>Kendi teklifini hazırla</b></span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
     <button type="button" class="hm-card" data-go="sarfiyat"><span class="ico ic-sarf hm-ic"></span><span class="hm-t"><b>Sarfiyat hesapla</b></span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
   </div>
-  <div class="hm-shead"><h3 class="hm-sec">Haftalık iş fırsatları</h3><span class="hm-upd" id="h-opp-upd"></span></div>
-  <div class="hm-opps" id="h-opps"></div>
+  <details class="hm-oppw" id="h-oppw"><summary class="hm-card"><span class="hm-ic hm-svg ho-sic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V10l5-3v14M10 21V5l9 4v12"/><path d="M13 11h3M13 14h3M13 17h3"/></svg></span><span class="hm-t"><b>Haftalık iş fırsatları</b><span id="h-opp-upd"></span></span><svg class="chev ho-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+  <div class="hm-opps" id="h-opps"></div></details>
   <h3 class="hm-sec">Ne boyanacak?</h3>
   <div class="hm-cats"><button type="button" class="hm-tile" data-go="what:celik"><span class="ico ic-celik hm-ti"></span><span class="hm-tl">Çelik yapı</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:ekipman"><span class="ico ic-makine hm-ti"></span><span class="hm-tl">Makine</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:tankdis"><span class="ico ic-tankdis hm-ti"></span><span class="hm-tl">Tank dış</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:boru"><span class="ico ic-boru hm-ti"></span><span class="hm-tl">Boru dış</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:bakim"><span class="ico ic-bakim hm-ti"></span><span class="hm-tl">Paslı / bakım</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:tankic"><span class="ico ic-tankici hm-ti"></span><span class="hm-tl">Tank içi</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:sicak"><span class="ico ic-sicak hm-ti"></span><span class="hm-tl">Sıcak yüzey</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:zemin"><span class="ico ic-beton hm-ti"></span><span class="hm-tl">Beton zemin</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:tekne"><span class="ico ic-tekne hm-ti"></span><span class="hm-tl">Tekne</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:yangin"><span class="ico ic-yangin hm-ti"></span><span class="hm-tl">Yangın</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
   <h3 class="hm-sec">Sektör haberleri</h3>
@@ -2854,7 +2865,7 @@ const trDate=d=>{try{return new Date(d+"T12:00:00").toLocaleDateString("tr-TR",{
 const CAT_IMG={celik:"celik",ekipman:"makine",tankdis:"tankdis",boru:"boru",bakim:"bakim",tankic:"tankici",sicak:"sicak",zemin:"beton",tekne:"tekne",yangin:"yangin"};
 function homeFeed(){
   const P=(HOME.projects||[]).slice(0,6), N=(HOME.news||[]).slice(0,4);
-  $("#h-opp-upd").textContent=HOME.updated?`Güncelleme ${trDate(HOME.updated)}`:"";
+  $("#h-opp-upd").textContent=`${P.length} yeni proje${HOME.updated?" · "+trDate(HOME.updated):""}`;
   $("#h-opps").innerHTML=P.length?P.map((o,i)=>`<article class="hm-opp"><div class="ho-top"><span class="ico ic-${CAT_IMG[o.cat]||"celik"} ho-ic"></span><div class="ho-h"><span class="ho-pl">${esc(o.place)}</span><b>${esc(o.t)}</b></div></div>
     <p class="ho-w">${esc(o.what)}</p><p class="ho-f"><b>Boya fırsatı:</b> ${esc(o.why)}</p>
     <div class="ho-b"><button type="button" class="ho-go" data-go="what:${esc(o.cat||"celik")}">Sistem öner</button><button type="button" class="ho-sh" data-opp="${i}">${isSor()?"Bayiye ilet":"Paylaş"}</button><a class="ho-src" href="${esc(o.url)}" target="_blank" rel="noopener">${esc(o.src)} · ${trDate(o.date)} ↗</a></div></article>`).join("")
@@ -2910,7 +2921,7 @@ wxLoad();
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)wxLoad();});
 
 /* Yeni sürüm yayınlandıysa uygulama açıkken kendini yeniler */
-(()=>{const B="1793470584"; if(!/^\d+$/.test(B)) return;
+(()=>{const B="1793470723"; if(!/^\d+$/.test(B)) return;
   const chk=()=>fetch(location.pathname+"?b="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const B="(\d+)"/); if(m&&+m[1]>+B) location.reload();}).catch(()=>{});
   document.addEventListener("visibilitychange",()=>{if(!document.hidden)chk();}); setTimeout(chk,4000);})();
 
