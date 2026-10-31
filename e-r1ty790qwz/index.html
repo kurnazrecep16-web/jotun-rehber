@@ -1390,10 +1390,10 @@ body.sx-special #s-bar{display:none!important}
   <div class="sx-hero dn-hero"><h2>Şartname ve<br>Sistem Analizi</h2><p>Şartnameyi yükleyin,<br>Jotun boya sistemini bulun.</p></div>
   <div id="d-c" class="dpanel">
     <div class="dbox">
-      <div class="chat" id="ch-log"><div class="msg bot dn-intro"><span class="dn-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span><span>Şartname metnini yapıştırın veya dosya / fotoğraf ekleyin. Rakip ürün adını ve kalınlığını da yazabilirsiniz.</span></div></div>
+      <div class="chat" id="ch-log"><div class="msg bot dn-intro"><span class="dn-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span><span>Şartname metnini yapıştırın veya dosya / fotoğraf ekleyin. Ürün adını ve kalınlığını da yazabilirsiniz.</span></div></div>
       <div class="ch-in" id="ch-drop">
         <div class="att" id="ch-att" hidden></div>
-        <div class="ch-chips" id="ch-chips"><button type="button" class="chip" data-tpl="Hempadur 15570 yerine ne verebiliriz? ">Rakip ürüne karşılık</button><button type="button" class="chip" data-tpl="Şartname: ">Şartnameye göre sistem</button><button type="button" class="chip" data-tpl="Hempadur Zinc 17360 60 µm + Hempadur 47300 120 µm + Hempathane 55610 60 µm, C4">Rakip sistem (çok kat)</button></div>
+        <div class="ch-chips" id="ch-chips"><button type="button" class="chip" data-tpl="Hempadur 15570 yerine ne verebiliriz? ">Ürün karşılığı bul</button><button type="button" class="chip" data-tpl="Şartname: ">Şartnameye göre sistem</button><button type="button" class="chip" data-tpl="Hempadur Zinc 17360 60 µm + Hempadur 47300 120 µm + Hempathane 55610 60 µm, C4">Çok katlı sistem</button></div>
         <div class="ch-bar">
           <label class="ic-btn" for="ch-cam" title="Fotoğraf çek" aria-label="Fotoğraf çek"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg></label>
           <label class="ic-btn" for="ch-file" id="ch-file-lbl" title="Fotoğraf veya dosya ekle" aria-label="Fotoğraf veya dosya ekle"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5l-8 8a5 5 0 0 1-7-7l8.5-8.5a3.5 3.5 0 0 1 5 5L10 17.5a2 2 0 0 1-3-3l7.5-7.5"/></svg></label>
@@ -1913,9 +1913,9 @@ function rivalCard(raw){
   const r=rivalLookup(raw); if(!r) return "";
   const j=TJOT[r.type], dft=TYPE_DFT[r.type], ci=CATALOG.findIndex(p=>p.name===j);
   const tds="https://www.google.com/search?q="+encodeURIComponent(raw.trim()+" TDS technical data sheet pdf");
-  return `<div class="rv-card"><p class="rv-k">Rakip ürün${r.brand?` · <span class="u">${esc(r.brand)}</span>`:""}</p><p class="rv-n">${esc(raw.trim())}</p><p class="rv-t">${TNAME[r.type]}</p>
+  return `<div class="rv-card"><p class="rv-k">Aranan ürün${r.brand?` · <span class="u">${esc(r.brand)}</span>`:""}</p><p class="rv-n">${esc(raw.trim())}</p><p class="rv-t">${TNAME[r.type]}</p>
     <div class="rv-arrow">↓</div><p class="rv-k">Önerimiz</p><p class="rv-j">${esc(j)}</p><p class="rv-t">${r.type==="fire"?"Kalınlığı Jotun hesaplar":`Aynı kalınlıkta uygulayın (tipik ${dft} µm)`}</p>
-    <div class="q-actions">${ci>=0?`<button type="button" class="btn primary" data-addq="${ci}">${isSor()?"Sarfiyata ekle":"Teklife ekle"}</button>`:""}<a class="btn" href="${tds}" target="_blank" rel="noopener">Rakip TDS'ini aç</a></div>
+    <div class="q-actions">${ci>=0?`<button type="button" class="btn primary" data-addq="${ci}">${isSor()?"Sarfiyata ekle":"Teklife ekle"}</button>`:""}<a class="btn" href="${tds}" target="_blank" rel="noopener">Ürünün TDS'ini aç</a></div>
     <p class="hint">Eşleştirme ürün tipine göredir; güncel Jotun TDS ile teyit ediniz.</p></div>`;
 }
 const isSor=()=>{try{return UROLE==="s"}catch(e){return false}};
@@ -2501,7 +2501,7 @@ function offAsk(){
     const go=b.querySelector(".cw-go"); if(go) go.onclick=()=>{if(b.dataset.done)return;b.dataset.done=1;const v=Math.max(0,parseFloat(b.querySelector(".cw-area").value)||0);chAdd("me",fmt(v,0)+" m²");CW.ans.area=v;offAsk();};
   } else {
     const b=chAdd("bot",wzResult(CW.ans)+`<div class="q-actions" style="margin-top:8px"><button type="button" class="btn ghost cw-new">Yeni soru</button></div>`);
-    bindRes(b); b.querySelector(".cw-new").onclick=()=>{CW.ans={};chAdd("bot","Ne boyanacak, nerede duracak? Yazın veya rakip ürün adını / fotoğrafını ekleyin.");};
+    bindRes(b); b.querySelector(".cw-new").onclick=()=>{CW.ans={};chAdd("bot","Ne boyanacak, nerede duracak? Yazın veya ürün adını / fotoğrafını ekleyin.");};
   }
 }
 function bindRes(el){
@@ -2514,7 +2514,7 @@ function rivalOne(r,info){
   const pk=pickJotun(r,info.text||""), c=catByName(pk.cat), area=info.area||0;
   const l=r.type==="fire"?null:(pk.vs&&area?Math.ceil(area*pk.dft/(pk.vs*10)/0.7):litres(pk.cat,pk.dft,area,30));
   const tech=c?[(pk.vs||c.vs[0])?`%${pk.vs||c.vs[0]} katı madde`:"",c.mix.length?(c.mix[0]==="tek bileşen"?"tek bileşen":`karışım ${c.mix[0]}`):"",c.th.length?`inceltici No. ${c.th[0]}`:""].filter(Boolean).join(" · "):"";
-  return `<p class="rv-k">${r.brand?`Rakip ürün · <span class="u">${esc(r.brand)}</span>`:"İstenen ürün"}</p><p><b>${esc(r.src)}</b><br><span class="hint">Tipi: ${TNAME[r.type]}${r.vs?` · %${r.vs} katı madde`:""}${r.dftGuess?"":` · ${r.dft} µm`}</span></p>
+  return `<p class="rv-k">${r.brand?`Şartnamedeki ürün · <span class="u">${esc(r.brand)}</span>`:"İstenen ürün"}</p><p><b>${esc(r.src)}</b><br><span class="hint">Tipi: ${TNAME[r.type]}${r.vs?` · %${r.vs} katı madde`:""}${r.dftGuess?"":` · ${r.dft} µm`}</span></p>
    <p class="rv-k" style="margin-top:8px">Önerimiz</p><p class="rv-j" style="margin:0">${esc(pk.name)}</p>${tech?`<p class="hint" style="margin:2px 0 0">${tech}</p>`:""}${pk.alt?`<p class="hint" style="margin:2px 0 0">Alternatif: ${esc(pk.alt)}</p>`:""}
    <p style="margin:8px 0 0">${r.type==="fire"?"Yangın boyasında kalınlık profil ve süreye göre Jotun tarafından hesaplanır.":`${pk.dft} µm uygulayın${r.dftGuess?" (tipik değer; şartnamedeki kalınlığı kullanın)":""}${l!=null?` · ${fmt(area,0)} m² için ≈ ${l} L`:""}.`}</p>
    ${pk.notes.length?`<ul class="hint" style="margin:6px 0 0;padding-left:18px">${pk.notes.map(n=>`<li>${esc(n)}</li>`).join("")}</ul>`:""}
@@ -2569,7 +2569,7 @@ async function offSend(text){
   const k=knownLine(CW.ans);
   if(!Object.keys(info).length && usable.length && !rows.length){if(!usable.some(a=>a.ocrErr))chAdd("bot","Dosyada boya ürünü veya iş bilgisi bulamadım. Ne boyanacağını yazın ya da Sistem sayfasından adım adım ilerleyin.");}
   else if(k){ const b=chAdd("bot",`<p>Anladıklarım: <b>${esc(k)}</b></p><p>Bu bir sistem seçimi. Seçimleri doldurup <b>Sistem</b> sayfasında açıyorum; eksik kalan soruları orada tamamlayın.</p><div class="q-actions"><button type="button" class="btn primary cw-sys">Sistem'de aç →</button></div>`); b.querySelector(".cw-sys").onclick=()=>sysFromAns(CW.ans); return; }
-  else chAdd("bot","Rakip ürün adını ve kalınlığını yazın (örn. <b>Hempadur 15570 100 µm</b>), şartnameyi yapıştırın ya da etiket fotoğrafı ekleyin; Jotun karşılığını çıkarayım. Yeni bir sistem seçimi için <b>Sistem</b> sayfasını kullanın.");
+  else chAdd("bot","Ürün adını ve kalınlığını yazın (örn. <b>Hempadur 15570 100 µm</b>), şartnameyi yapıştırın ya da etiket fotoğrafı ekleyin; Jotun karşılığını çıkarayım. Yeni bir sistem seçimi için <b>Sistem</b> sayfasını kullanın.");
 }
 function sysFromAns(a){
   const k=a.surf==="maint"?"bakim":(a.what||"celik"); location.hash="#sistem"; sxWhat(k);
@@ -2680,16 +2680,16 @@ const chGrow=()=>{const t=$("#ch-text");t.style.height="auto";t.style.height=Mat
 $("#ch-text").addEventListener("input",chGrow);
 $("#ch-chips").addEventListener("click",e=>{const b=e.target.closest("[data-tpl]");if(!b)return;const t=$("#ch-text");t.value=b.dataset.tpl;chGrow();t.focus();t.setSelectionRange(t.value.length,t.value.length);});
 $("#ch-stop").onclick=()=>chCtl&&chCtl.abort();
-$("#ch-new").onclick=()=>{if(chCtl)chCtl.abort();CH=[];CW.ans={};$("#ch-log").innerHTML=`<div class="msg bot dn-intro"><span class="dn-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span><span>Şartname metnini yapıştırın veya dosya / fotoğraf ekleyin. Rakip ürün adını ve kalınlığını da yazabilirsiniz.</span></div>`;};
+$("#ch-new").onclick=()=>{if(chCtl)chCtl.abort();CH=[];CW.ans={};$("#ch-log").innerHTML=`<div class="msg bot dn-intro"><span class="dn-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span><span>Şartname metnini yapıştırın veya dosya / fotoğraf ekleyin. Ürün adını ve kalınlığını da yazabilirsiniz.</span></div>`;};
 $("#rv-photo").onclick=()=>{$("#dm-c").checked=true;$("#d-mode").dispatchEvent(new Event("change"));setTimeout(()=>$("#ch-file-lbl").focus(),0);};
 /* rakip AI */
 let rvCtl=null;
 $("#rv-ask").onclick=async()=>{
   const t=$("#rv-text").value.trim(); if(!t)return;
-  if(!SAMPLE||OFFLINE){const out=$("#rv-out");out.hidden=false;const rows=rivalParse(t);ASK.push("Rakip alternatifi: "+t.slice(0,200));if(window.__gate)window.__gate();
+  if(!SAMPLE||OFFLINE){const out=$("#rv-out");out.hidden=false;const rows=rivalParse(t);ASK.push("Ürün karşılığı: "+t.slice(0,200));if(window.__gate)window.__gate();
     if(!rows.length){out.innerHTML="<p>Ürünleri tanıyamadım. Aşağıdaki “Ürün tipine göre eşleştir” bölümünde her katın tipini seçin.</p>";return;}
     out.innerHTML=rivalHTML(rows,infoParse(t));bindRes(out);return;}
-  ASK.push("Rakip alternatifi: "+t.slice(0,200)); if(window.__gate)window.__gate();
+  ASK.push("Ürün karşılığı: "+t.slice(0,200)); if(window.__gate)window.__gate();
   const out=$("#rv-out"); out.hidden=false; out.innerHTML="<span class='think'>Düşünüyor…</span>";
   rvCtl=new AbortController(); $("#rv-stop").hidden=false; $("#rv-ask").disabled=true;
   try{
