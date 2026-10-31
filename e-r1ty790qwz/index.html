@@ -2540,7 +2540,7 @@ function rivalHTML(rows,info){
 }
 let TESS=null;
 async function ocr(blob){
-  if(!TESS){await loadScript("https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js");TESS=await window.Tesseract.createWorker("eng");}
+  if(!TESS){await loadScript("https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js");TESS=await window.Tesseract.createWorker("tur+eng");}
   const r=await TESS.recognize(blob); return (r&&r.data&&r.data.text||"").trim();
 }
 async function offSend(text){
@@ -2593,26 +2593,39 @@ let ATT=[], IMG_OK=false, IMG_MAX=4, IMG_TYPES=["image/jpeg","image/png","image/
 })();
 let pdfLib=null;
 function loadScript(src){return new Promise((ok,no)=>{const el=document.createElement("script");el.src=src;el.onload=ok;el.onerror=no;document.head.appendChild(el);});}
-async function pdfText(file){
-  if(!pdfLib){ await loadScript("https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js"); await loadScript("https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"); pdfLib=window.pdfjsLib; }
-  const doc=await pdfLib.getDocument({data:new Uint8Array(await file.arrayBuffer())}).promise;
-  let out=""; for(let i=1;i<=Math.min(doc.numPages,30)&&out.length<24000;i++){const pg=await doc.getPage(i);const tc=await pg.getTextContent();out+=tc.items.map(x=>x.str).join(" ")+"\n";}
-  return out.trim();
+const PDFJS="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/";
+async function pdfDoc(file){
+  if(!pdfLib){ await loadScript(PDFJS+"pdf.min.js"); pdfLib=window.pdfjsLib; pdfLib.GlobalWorkerOptions.workerSrc=PDFJS+"pdf.worker.min.js"; }
+  return pdfLib.getDocument({data:new Uint8Array(await file.arrayBuffer())}).promise;
+}
+async function pdfText(file,onStep){
+  const doc=await pdfDoc(file);
+  let out=""; for(let i=1;i<=Math.min(doc.numPages,30)&&out.length<24000;i++){const pg=await doc.getPage(i);const tc=await pg.getTextContent();let ly=null;for(const x of tc.items){const y=x.transform?x.transform[5]:null;if(ly!=null&&y!=null&&Math.abs(y-ly)>2)out+="\n";else if(out&&!out.endsWith("\n"))out+=" ";out+=x.str;if(x.hasEOL){out+="\n";ly=null;}else ly=y;}out+="\n";}
+  out=out.trim();
+  if(out.replace(/\s+/g,"").length<40){ // taranmış PDF: sayfaları görüntüye çevirip OCR
+    out=""; const n=Math.min(doc.numPages,6);
+    for(let i=1;i<=n;i++){ if(onStep) onStep(`sayfa ${i}/${n} okunuyor`); const pg=await doc.getPage(i); const vp=pg.getViewport({scale:2});
+      const cv=document.createElement("canvas"); cv.width=vp.width; cv.height=vp.height; await pg.render({canvasContext:cv.getContext("2d"),viewport:vp}).promise;
+      const blob=await new Promise(r=>cv.toBlob(r,"image/png")); out+=(await ocr(blob))+"\n"; }
+    out=out.trim();
+  }
+  return out;
 }
 function renderAtt(){
   const el=$("#ch-att"); el.hidden=!ATT.length;
-  el.innerHTML=ATT.map((a,i)=>`<span class="chip-att">${a.kind==="img"?`<img src="${a.url}" alt="">`:`<b>${a.kind.toUpperCase()}</b>`}<span>${esc(a.name)}${a.busy?" · okunuyor…":a.err?" · "+esc(a.err):""}</span><button type="button" class="x" data-rm="${i}" aria-label="Kaldır">×</button></span>`).join("");
+  el.innerHTML=ATT.map((a,i)=>`<span class="chip-att">${a.kind==="img"?`<img src="${a.url}" alt="">`:`<b>${a.kind.toUpperCase()}</b>`}<span>${esc(a.name)}${a.busy?" · "+(a.step||"okunuyor…"):a.err?" · "+esc(a.err):""}</span><button type="button" class="x" data-rm="${i}" aria-label="Kaldır">×</button></span>`).join("");
 }
 async function addFiles(files){
   for(const f of files){
     const t=(f.type||"").toLowerCase(), n=f.name.toLowerCase();
     if(t.startsWith("image/")){
-      if(!IMG_OK&&SAMPLE&&!OFFLINE){ATT.push({kind:"img",name:f.name,err:"bu görünümde fotoğraf gönderilemiyor",url:""});continue;}
+      if(!IMG_OK&&SAMPLE&&!OFFLINE){ const a={kind:"img",name:f.name,blob:f,url:URL.createObjectURL(f),ocrOnly:true,busy:true}; ATT.push(a); renderAtt();
+        try{a.text=await ocr(f); if(!a.text) a.err="yazı okunamadı";}catch(e){a.err="okunamadı";} a.busy=false; renderAtt(); continue; }
       if(ATT.filter(a=>a.kind==="img"&&!a.err).length>=IMG_MAX){ATT.push({kind:"img",name:f.name,err:`en fazla ${IMG_MAX} fotoğraf`,url:""});continue;}
       ATT.push({kind:"img",name:f.name,blob:f,url:URL.createObjectURL(f)});
     } else if(t==="application/pdf"||n.endsWith(".pdf")){
       const a={kind:"pdf",name:f.name,busy:true}; ATT.push(a); renderAtt();
-      try{a.text=await pdfText(f); if(!a.text) a.err="metin bulunamadı (taranmış olabilir; fotoğrafını ekleyin)";}catch(e){a.err="okunamadı";}
+      try{a.text=await pdfText(f,st=>{a.step=st;renderAtt();}); if(!a.text) a.err="yazı okunamadı";}catch(e){a.err="okunamadı";}
       a.busy=false;
     } else if(/\.(txt|csv|md)$/.test(n)||t.startsWith("text/")){
       ATT.push({kind:"txt",name:f.name,text:(await f.text()).slice(0,24000)});
@@ -2636,16 +2649,16 @@ const ATT_RULE=`Bu mesajla birlikte dosya/fotoğraf gönderildi. Şu sırayla ç
 5) Öneriyi kat kat ürün, kalınlık ve yüzey hazırlığı ile ver; alan biliniyorsa litre hesapla. Sonra "Neden bu öneri?" başlığıyla her ürünün neden seçildiğini 2–4 kısa maddede özetle.`;
 
 async function chSend(text){
+  if(ATT.some(a=>a.busy)){ toast("Dosya okunuyor, biraz bekleyin"); return; }
   if(!SAMPLE||OFFLINE) return offSend(text);
-  if(ATT.some(a=>a.busy)) return;
   const usable=ATT.filter(a=>!a.err);
   if(!text.trim()&&!usable.length) return;
-  const imgs=usable.filter(a=>a.kind==="img").map(a=>a.blob);
-  const docs=usable.filter(a=>a.kind!=="img");
+  const imgs=usable.filter(a=>a.kind==="img"&&!a.ocrOnly).map(a=>a.blob);
+  const docs=usable.filter(a=>a.kind!=="img"||a.ocrOnly);
   let content=text.trim()||"Ekteki dosyalara göre boya sistemi önerisi yap.";
   if(usable.length){
     content+="\n\n"+ATT_RULE;
-    if(imgs.length) content+=`\n\nEkli fotoğraf(lar): ${usable.filter(a=>a.kind==="img").map(a=>a.name).join(", ")}`;
+    if(imgs.length) content+=`\n\nEkli fotoğraf(lar): ${usable.filter(a=>a.kind==="img"&&!a.ocrOnly).map(a=>a.name).join(", ")}`;
     docs.forEach(a=>content+=`\n\n[Ek dosya: ${a.name}]\n${a.text}`);
   }
   const shown=esc(text.trim()||"(Dosya ile öneri istendi)")+(usable.length?`<div class="att sent">${usable.map(a=>a.kind==="img"?`<img src="${a.url}" alt="${esc(a.name)}">`:`<span class="chip-att"><b>${a.kind.toUpperCase()}</b><span>${esc(a.name)}</span></span>`).join("")}</div>`:"");
