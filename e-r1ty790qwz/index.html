@@ -1154,6 +1154,16 @@ body.sx-special #s-bar{display:none!important}
 .sx-wt button.sel .sx-wim{filter:drop-shadow(0 0 6px rgba(255,255,255,.12))}
 @media (min-width:901px){.sx-wim{height:52px}.sx-wt button{min-height:104px!important}}
 .hm-ti,.wz-img{-webkit-mask-image:none!important;mask-image:none!important}
+
+/* Sistem: kategori seçimi ana sayfa kutularıyla aynı */
+.sx-wsec{margin:0 0 14px;display:flex;flex-direction:column;gap:10px;scroll-margin-top:80px}
+.sx-wsec .hm-sec{margin:0 2px}
+.sx-wsec .hm-tile.sel{border-color:#f5b818!important;box-shadow:0 0 0 2px rgba(245,184,24,.25)}
+.sx-chgl{display:none;font:600 13px var(--f-body);color:#f5b818;white-space:nowrap}
+.sx-col #sx-what{grid-template-columns:1fr!important}
+.sx-col .hm-tile:not(.sel){display:none!important}
+.sx-col .hm-tile.sel .sx-chgl{display:inline}
+.sx-col .hm-tile.sel .chev{stroke:#f5b818}
 </style>
 
 <div id="app-bg" aria-hidden="true"></div>
@@ -1202,7 +1212,7 @@ body.sx-special #s-bar{display:none!important}
 </section>
 <div id="v-sistem">
 <div class="sx-hero"><h2>Kaplama Sistemi<br>Oluşturun</h2><p>Ne boyanacağını, ortamı ve dayanım süresini seçin; size en uygun Jotun sistemini bulalım.</p></div>
-<section class="sx-card sx-wcard"><h3 class="sx-h"><svg class="sx-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4l6 6-7 7-6-6z"/><path d="M7 11l-3 3c-1 1-1 3 0 4s3 1 4 0l3-3"/></svg><span>1. Ne boyanacak?</span></h3><div class="sx-wt" id="sx-what"></div></section>
+<section class="sx-wsec sx-col" id="sx-wsec"><h3 class="hm-sec">1. Ne boyanacak?</h3><div class="hm-cats" id="sx-what"></div></section>
 <div id="sx-wz" hidden></div>
 
 <div class="grid">
@@ -2775,15 +2785,18 @@ let SXK="celik";
 function sxWhat(k){
   SXK=k; const metal=SX_METAL.includes(k);
   const IMG={celik:"celik",ekipman:"makine",tankdis:"tankdis",boru:"boru",bakim:"bakim",tankic:"tankici",sicak:"sicak",zemin:"beton",tekne:"tekne",yangin:"yangin"};
-  $("#sx-what").innerHTML=SXW.map(([v,t])=>`<button type="button" class="${v===k?"sel":""}" data-sxw="${v}"><span class="ico ic-${IMG[v]} sx-wim"></span><span>${t}</span></button>`).join("");
+  $("#sx-what").innerHTML=SXW.map(([v,t])=>`<button type="button" class="hm-tile${v===k?" sel":""}" data-sxw="${v}"><span class="ico ic-${IMG[v]} hm-ti"></span><span class="hm-tl">${t}</span><span class="sx-chgl">Değiştir</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>`).join("");
+  $("#sx-wsec").classList.add("sx-col");
   document.querySelector("#v-sistem>.grid").hidden=!metal; $("#sx-wz").hidden=metal; document.body.classList.toggle("sx-special",!metal);
   if(!metal){ W.ans=k==="bakim"?{what:"celik",surf:"maint"}:{what:k}; W.hist=["what"]; W.pend=null; wzRender(); }
 }
 $("#sx-wz").appendChild($("#wz"));
-$("#sx-what").addEventListener("click",e=>{const b=e.target.closest("[data-sxw]");if(!b)return;sxWhat(b.dataset.sxw);});
+$("#sx-what").addEventListener("click",e=>{const b=e.target.closest("[data-sxw]");if(!b)return; const w=$("#sx-wsec");
+  if(w.classList.contains("sx-col")&&b.classList.contains("sel")){w.classList.remove("sx-col");return;}
+  sxWhat(b.dataset.sxw); setTimeout(()=>w.scrollIntoView({behavior:"smooth",block:"start"}),50);});
 sxWhat("celik");
 /* Yeni sürüm yayınlandıysa uygulama açıkken kendini yeniler */
-(()=>{const B="1793466276"; if(!/^\d+$/.test(B)) return;
+(()=>{const B="1793469566"; if(!/^\d+$/.test(B)) return;
   const chk=()=>fetch(location.pathname+"?b="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const B="(\d+)"/); if(m&&+m[1]>+B) location.reload();}).catch(()=>{});
   document.addEventListener("visibilitychange",()=>{if(!document.hidden)chk();}); setTimeout(chk,4000);})();
 
