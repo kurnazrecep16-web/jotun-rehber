@@ -1913,11 +1913,10 @@ function rivalLookup(raw){
 function rivalCard(raw){
   const r=rivalLookup(raw); if(!r) return "";
   const j=TJOT[r.type], dft=TYPE_DFT[r.type], ci=CATALOG.findIndex(p=>p.name===j);
-  const tds="https://www.google.com/search?q="+encodeURIComponent(raw.trim()+" TDS technical data sheet pdf");
-  return `<div class="rv-card"><p class="rv-k">Aranan ürün${r.brand?` · <span class="u">${esc(r.brand)}</span>`:""}</p><p class="rv-n">${esc(raw.trim())}</p><p class="rv-t">${TNAME[r.type]}</p>
+  return `<div class="rv-card"><p class="rv-k">Aranan ürünün tipi</p><p class="rv-n">${rtype(r)}${r.guess?" (tahmin)":""}</p>
     <div class="rv-arrow">↓</div><p class="rv-k">Önerimiz</p><p class="rv-j">${esc(j)}</p><p class="rv-t">${r.type==="fire"?"Kalınlığı Jotun hesaplar":`Aynı kalınlıkta uygulayın (tipik ${dft} µm)`}</p>
-    <div class="q-actions">${ci>=0?`<button type="button" class="btn primary" data-addq="${ci}">${isSor()?"Sarfiyata ekle":"Teklife ekle"}</button>`:""}<a class="btn" href="${tds}" target="_blank" rel="noopener">Ürünün TDS'ini aç</a></div>
-    <p class="hint">Eşleştirme ürün tipine göredir; güncel Jotun TDS ile teyit ediniz.</p></div>`;
+    <div class="q-actions">${ci>=0?`<button type="button" class="btn primary" data-addq="${ci}">${isSor()?"Sarfiyata ekle":"Teklife ekle"}</button>`:""}</div>
+    <p class="hint">Eşleştirme ürün tipine göredir, teyit edilmedi. Teyit için o ürünün TDS'ini Danışman'a ekleyin.</p></div>`;
 }
 const isSor=()=>{try{return UROLE==="s"}catch(e){return false}};
 function renderRehber(){
@@ -1949,7 +1948,7 @@ function renderRehber(){
         ${row("Yoğunluk",DENS_SRC[p.name]?fmt(DENS_SRC[p.name],1)+" kg/L":"")}
         ${row("Ambalaj",p.packs.length?p.packs.join(" / ")+(p.name.includes("(*kg)")?" kg":" L"):"")}
         ${row("Renk / baz",esc(p.colors.join(", ")))}
-      </dl><div class="q-actions">${p.cat!=="MCI Tinter"?`<button type="button" class="btn primary" data-addq="${i}">${isSor()?"Sarfiyata ekle":"Teklife ekle"}</button>`:""}<a class="btn tds-btn" target="_blank" rel="noopener" href="${tdsUrl(p.name)}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>TDS'i aç</a></div></div></details>`}).join("")||`<p class="empty">“${esc($("#r-q").value)}” için ürün bulunamadı.</p>`;
+      </dl><div class="q-actions">${p.cat!=="MCI Tinter"?`<button type="button" class="btn primary" data-addq="${i}">${isSor()?"Sarfiyata ekle":"Teklife ekle"}</button>`:""}<a class="btn tds-btn" target="_blank" rel="noopener" href="${tdsUrl(p.name)}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>TDS'i aç</a></div></div></details>`}).join("")||`<p class="empty">Jotun listesinde bu adla ürün bulunamadı.</p>`;
 }
 $("#r-q").addEventListener("input",renderRehber);
 $("#r-cats").addEventListener("click",e=>{const b=e.target.closest("[data-c]");if(!b)return;rCat=b.dataset.c;renderCats();renderRehber();});
@@ -2273,6 +2272,7 @@ const KB = (()=>{
 })();
 const RULES=`Sen bir Jotun endüstriyel boya bayisinin teknik satış asistanısın. Türkçe, kısa ve uygulanabilir yaz.
 Kurallar:
+- Okuyamadığın, net göremediğin veya teyit edemediğin bilgiyi tahmin edip kesinmiş gibi yazma; açıkça "okuyamadım" veya "teyit edemedim" de ve hangi kısım olduğunu belirt.
 - Sadece aşağıdaki Jotun ürün listesindeki ürünleri öner. Listede olmayan Jotun ürünü uydurma.
 - Eksik bilgi varsa önce SIRAYLA tek tek sor (ne boyanacak, iç/dış ortam ve deniz/sanayi yakınlığı, yüzey durumu ve kumlama yapılıp yapılamayacağı, beklenen ömür, uygulama yöntemi, alan m²). Her mesajda en fazla bir soru sor ve 2–5 kısa seçenek sun (her biri ayrı satırda "1) ..." şeklinde).
 - Bilgi yeterli olunca: korozyon kategorisi (ISO 12944-2), dayanım, yüzey hazırlığı (ISO 8501-1, örn. Sa 2½ veya St 2–St 3), kat kat ürün ve kuru film kalınlığı (µm), toplam kalınlık ve uygunsa ISO 12944-5 sistem numarası ver. Alan verilmişse litre hesabı: litre = m² × µm / (katı% × 10), %30 fire ekle.
@@ -2342,12 +2342,12 @@ const RIVAL=[
  [/hempadur\s*quattro|17634|hempaprime/i,"ep_pr","Hempel"],
  [/amercoat\s*68/i,"zn_ep","PPG"],[/dimetcote/i,"zn_esi","PPG"],[/amerlock/i,"mastic","PPG"],[/amercoat\s*45\d/i,"pu","PPG"],[/amercoat\s*385/i,"ep_mid","PPG"],
  [/dura-?plate/i,"ep_mid","Sherwin-Williams"],
- [/teknozinc/i,"zn_ep","Teknos"],[/teknodur/i,"pu","Teknos"],[/teknoplast|inerta/i,"ep_mid","Teknos"],
+ [/teknozinc/i,"zn_ep","Teknos"],[/teknodur/i,"pu","Teknos"],[/teknoplast|inerta/i,"ep_mid","Teknos",1],
  [/intergard\s*740/i,"ep_tc","International"],[/interbond/i,"mastic","International"],
  [/galvosil/i,"zn_esi","Hempel"],
  [/hempadur\s*mastic|4588\d|45753/i,"mastic","Hempel"],
  [/hempadur.*mio|hempadur.*4720\d/i,"ep_mio","Hempel"],
- [/hempadur/i,"ep_mid","Hempel"],
+ [/hempadur/i,"ep_mid","Hempel",1],
  [/hempathane/i,"pu","Hempel"],
  [/hempaxane/i,"psx","Hempel"],
  [/hempalin.*(primer|astar)|hempel'?s?\s*primer/i,"ak_pr","Hempel"],
@@ -2358,7 +2358,7 @@ const RIVAL=[
  [/interzinc/i,"zn_ep","International"],
  [/intergard\s*475|intergard.*mio/i,"ep_mio","International"],
  [/intergard\s*(251|269)/i,"ep_pr","International"],
- [/intergard|interzone/i,"ep_mid","International"],
+ [/intergard|interzone/i,"ep_mid","International",1],
  [/interseal|interplus/i,"mastic","International"],
  [/interthane/i,"pu","International"],
  [/interfine/i,"psx","International"],
@@ -2367,19 +2367,19 @@ const RIVAL=[
  [/interlac/i,"ak_tc","International"],
  [/zinc\s*clad\s*(ii|2)\b/i,"zn_esi","Sherwin-Williams"],
  [/zinc\s*clad/i,"zn_ep","Sherwin-Williams"],
- [/macropoxy/i,"ep_mid","Sherwin-Williams"],
+ [/macropoxy/i,"ep_mid","Sherwin-Williams",1],
  [/acrolon/i,"pu","Sherwin-Williams"],
  [/sher-?loxane/i,"psx","Sherwin-Williams"],
  [/firetex/i,"fire","Sherwin-Williams"],
  [/sigmazinc/i,"zn_ep","PPG Sigma"],
- [/sigmacover|sigmafast|sigmaprime/i,"ep_mid","PPG Sigma"],
+ [/sigmacover|sigmafast|sigmaprime/i,"ep_mid","PPG Sigma",1],
  [/sigmadur/i,"pu","PPG Sigma"],
  [/psx\s*700/i,"psx","PPG"],
  [/steelguard/i,"fire","PPG"],
  [/carbozinc\s*11/i,"zn_esi","Carboline"],
  [/carbozinc/i,"zn_ep","Carboline"],
  [/carbomastic/i,"mastic","Carboline"],
- [/carboguard/i,"ep_mid","Carboline"],
+ [/carboguard/i,"ep_mid","Carboline",1],
  [/carbothane/i,"pu","Carboline"],
  [/carboxane/i,"psx","Carboline"],
  [/thermo-?sorb/i,"hr","Carboline"]
@@ -2426,6 +2426,7 @@ const SPEC={
 const TDS_MIN={"Penguard Express ZP":75,"Penguard Express":75,"Penguard Universal":75,"Epoxy HR":100,"Hardtop XP":50,"Solvalitt":20,"Solvalitt Midtherm":20};
 const TDS_TYP={"Solvalitt":30,"Solvalitt Midtherm":40};
 function pickJotun(r,allText){
+  if(r.jotun){ const c=catByName(r.jotun); return {name:r.jotun,cat:r.jotun,vs:c&&c.vs[0]||null,alt:null,dft:r.dft,notes:r.dftGuess?["Kalınlığı bulamadım; tipik değer, teyit edilmedi."]:[]}; }
   const notes=[]; let name=TJOT[r.type], cat=name, vs=null, alt=null;
   if(r.type==="hr"){const tc=(r.temp!=null?r.temp:(allText.match(/(\d{3})\s*°?\s*c\b/i)||[])[1]);name=cat=(tc&&+tc<=260)?"Solvalitt Midtherm":"Solvalitt";notes.push("RAL renkleri için Jotun'dan teyit alın.");}
   if(r.type==="ep_hr") notes.push("Epoxy HR fiyat listesinde yok; Jotun'a sorun. TDS: sürekli 205 °C, kat başına 100–200 µm.");
@@ -2442,22 +2443,30 @@ function pickJotun(r,allText){
   return {name,cat,vs,alt,dft,notes};
 }
 const tnorm=t=>t.replace(/İ/g,"i").toLowerCase();
+const rtype=r=>r.tlabel||TNAME[r.type]||"Ürün";
+let JNAMES=null; const jotunIn=t=>{ if(!JNAMES) JNAMES=CATALOG.filter(p=>p.cat!=="MCI Tinter"&&!/thinner/i.test(p.name)).map(p=>[tnorm(p.name),p]).sort((a,b)=>b[0].length-a[0].length);
+  for(const [n,p] of JNAMES){ const i=t.indexOf(n); if(i>=0&&!/[a-z0-9]/.test(t[i+n.length]||"")&&!/[a-z0-9]/.test(t[i-1]||"")) return p; } return null; };
 function rivalParse(text){
   const segs=text.split(/\n|\+|;|\s\/\s|•|,(?=\s*[A-ZÇĞİÖŞÜ])/).map(s=>s.trim()).filter(s=>s.length>2);
-  const out=[];
+  const out=[], unk=[];
   const dftOf=sg=>{const d=sg.match(/(\d{2,4})\s*(µm|μm|µ|μ|um|mikron|micron|mic)\b/i)||sg.match(/(?:dft|kfk|kalınlı[gğ]ı?)\D{0,6}(\d{2,4})/i);return d?+d[1]:null};
   const vsOf=sg=>{const v=sg.match(/(?:katı\s*madde|kati\s*madde|volume\s*solids|\bvs\b)[^\d%]{0,40}%?\s*(\d{2})/i)||sg.match(/%\s*(\d{2})\s*(?:olan|katı|vs)/i);return v?+v[1]:null};
   const tempOf=sg=>{const m=sg.match(/(\d{3})\s*°?\s*c\b/i);return m?+m[1]:null};
   segs.forEach(sg=>{
-    const t=tnorm(sg); let hit=null;
-    for(const [re,ty,br] of RIVAL){const m=t.match(re);if(m){hit={type:ty,brand:br};break;}}
+    const t=tnorm(sg); let hit=null; const jp=jotunIn(t);
+    if(jp){ const d0=dftOf(sg); out.push({src:jp.name,jotun:jp.name,type:"jotun",tlabel:"Jotun "+jp.name,dft:d0||80,dftGuess:!d0,vs:vsOf(sg),temp:tempOf(sg)}); return; }
+    for(const [re,ty,br,gs] of RIVAL){const m=t.match(re);if(m){hit={type:ty,brand:br,guess:!!gs};break;}}
     if(!hit) for(const [re,ty] of GENERIC){if(re.test(t)){hit={type:ty,brand:""};break;}}
     const d=dftOf(sg), v=vsOf(sg), tc=tempOf(sg), last=out[out.length-1];
-    if(!hit){ if(last&&!/toplam|total/i.test(sg)){ if(d&&last.dftGuess){last.dft=d;last.dftGuess=false;} if(v&&!last.vs) last.vs=v; if(tc&&last.temp==null) last.temp=tc; } return; }
+    if(!hit){ const rest=sg.replace(/\d{2,4}\s*(µm|μm|µ|μ|um|mikron|micron|mic)\b/ig,"").replace(/%\s*\d{2}|\d{3}\s*°?\s*c\b/ig,"");
+      const prodLike=d&&/[a-zçğıöşü]{2,}[\s-]*\d{3,5}\b|\b\d{3,5}[\s-]*[a-zçğıöşü]{2,}/i.test(rest)&&!/toplam|total/i.test(sg);
+      if(prodLike){ unk.push(sg.slice(0,80)); return; }
+      if(last&&!/toplam|total/i.test(sg)){ if(d&&last.dftGuess){last.dft=d;last.dftGuess=false;} if(v&&!last.vs) last.vs=v; if(tc&&last.temp==null) last.temp=tc; }
+      return; }
     const clean=sg.replace(/\b(yerine|karşılığı|karşılık|muadili|muadil|ne\s+verebiliriz|ne\s+önerirsin|ne\s+öneriyorsun|ne\s+olur|alternatifi|alternatif|için|nedir|var\s*mı|hangisi|bizim|ürünümüz|rakip(in)?|ürünü|kullanıyor|kullanılıyor)\b/gi," ").replace(/[?!.]+/g," ").replace(/\s+/g," ").trim();
-    out.push({src:(clean||sg).slice(0,80),type:hit.type,brand:hit.brand,dft:d||TYPE_DFT[hit.type]||80,dftGuess:!d,vs:v,temp:tc});
+    out.push({src:(clean||sg).slice(0,80),type:hit.type,brand:hit.brand,guess:hit.guess,dft:d||TYPE_DFT[hit.type]||80,dftGuess:!d,vs:v,temp:tc});
   });
-  return out;
+  out.unk=unk; return out;
 }
 function infoParse(text){
   const t=tnorm(text), a={};
@@ -2515,24 +2524,29 @@ function rivalOne(r,info){
   const pk=pickJotun(r,info.text||""), c=catByName(pk.cat), area=info.area||0;
   const l=r.type==="fire"?null:(pk.vs&&area?Math.ceil(area*pk.dft/(pk.vs*10)/0.7):litres(pk.cat,pk.dft,area,30));
   const tech=c?[(pk.vs||c.vs[0])?`%${pk.vs||c.vs[0]} katı madde`:"",c.mix.length?(c.mix[0]==="tek bileşen"?"tek bileşen":`karışım ${c.mix[0]}`):"",c.th.length?`inceltici No. ${c.th[0]}`:""].filter(Boolean).join(" · "):"";
-  return `<p class="rv-k">${r.brand?`Şartnamedeki ürün · <span class="u">${esc(r.brand)}</span>`:"Şartnamedeki ürün"}</p><p><b>${esc(r.src)}</b><br><span class="hint">Tipi: ${TNAME[r.type]}${r.vs?` · %${r.vs} katı madde`:""}${r.dftGuess?"":` · ${r.dft} µm`}</span></p>
+  return `<p class="rv-k">Şartnamede istenen</p><p><b>${rtype(r)}</b>${r.guess?" <span class=\"hint\">(tahmin, teyit edilmedi)</span>":""}${(r.vs||!r.dftGuess)?`<br><span class="hint">${[r.vs?`%${r.vs} katı madde`:"",r.dftGuess?"":`${r.dft} µm`].filter(Boolean).join(" · ")}</span>`:""}</p>
    <p class="rv-k" style="margin-top:8px">Önerimiz</p><p class="rv-j" style="margin:0">${esc(pk.name)}</p>${tech?`<p class="hint" style="margin:2px 0 0">${tech}</p>`:""}${pk.alt?`<p class="hint" style="margin:2px 0 0">Alternatif: ${esc(pk.alt)}</p>`:""}
-   <p style="margin:8px 0 0">${r.type==="fire"?"Yangın boyasında kalınlık profil ve süreye göre Jotun tarafından hesaplanır.":`${pk.dft} µm uygulayın${r.dftGuess?" (tipik değer; şartnamedeki kalınlığı kullanın)":""}${l!=null?` · ${fmt(area,0)} m² için ≈ ${l} L`:""}.`}</p>
+   <p style="margin:8px 0 0">${r.type==="fire"?"Yangın boyasında kalınlık profil ve süreye göre Jotun tarafından hesaplanır.":`${pk.dft} µm uygulayın${r.dftGuess?" (kalınlığı şartnamede bulamadım; tipik değer, teyit edilmedi)":""}${l!=null?` · ${fmt(area,0)} m² için ≈ ${l} L`:""}.`}</p>
+   ${r.brand?`<p class="note">${r.guess?"Teyit edemedim: şartnamedeki ürünün tipini tam belirleyemedim. ":""}Eşleştirme ürün tipine göredir. Teyit için şartnamedeki ürünün TDS'ini ekleyin.</p>`:""}
    ${pk.notes.length?`<ul class="hint" style="margin:6px 0 0;padding-left:18px">${pk.notes.map(n=>`<li>${esc(n)}</li>`).join("")}</ul>`:""}
-   ${whyHTML([pk.cat],{head:`İstenen ürün ${TNAME[r.type].toLocaleLowerCase("tr-TR")} tipindedir${r.vs?` ve %${r.vs} hacimce katı madde istenmektedir`:""}. Aynı görevi gören${r.vs?", katı madde şartını karşılayan":""} Jotun ürünü seçildi. Birebir aynı ürün değildir; güncel Jotun TDS ile teyit ediniz.`})}
+   ${r.jotun?"":whyHTML([pk.cat],{head:`İstenen ürün ${rtype(r).toLocaleLowerCase("tr-TR")} tipindedir${r.vs?` ve %${r.vs} hacimce katı madde istenmektedir`:""}. Aynı görevi gören${r.vs?", katı madde şartını karşılayan":""} Jotun ürünü seçildi. Birebir aynı ürün değildir; güncel Jotun TDS ile teyit ediniz.`})}
    ${c?`<div class="q-actions" style="margin-top:8px"><button type="button" class="btn primary" data-wzq='${esc(JSON.stringify([[pk.cat,l]]))}'>Teklife aktar</button></div>`:""}`;
 }
+function unkHTML(u){ return u&&u.length?`<p class="note">Tanıyamadım: şartnamede ${u.length} satırdaki ürünü belirleyemedim, bunlar için öneri vermedim. O ürünlerin TDS'ini ekleyin veya tipini yazın (ör. epoksi ara kat 120 µm).</p>`:""; }
 function rivalHTML(rows,info){
-  if(rows.length===1) return rivalOne(rows[0],info);
+  if(rows.length===1) return rivalOne(rows[0],info)+unkHTML(rows.unk);
   const area=info.area||0, loss=30, notes=[];
   const items=[]; let tot=0;
   const tr=rows.map((r,i)=>{const pk=pickJotun(r,info.text||"");pk.notes.forEach(n=>notes.push(n));if(pk.alt)notes.push(`${i+1}. kat alternatifi: ${pk.alt}`);
     tot+=r.type==="fire"?0:pk.dft;const l=r.type==="fire"?null:(pk.vs&&area?Math.ceil(area*pk.dft/(pk.vs*10)/(1-loss/100)):litres(pk.cat,pk.dft,area,loss));items.push([pk.cat,l]);
-    return `<tr><td>${esc(r.src)}<br><span class="hint">${r.brand?esc(r.brand)+" · ":""}${TNAME[r.type]}${r.vs?` · %${r.vs} VS`:""}</span></td><td><b>${esc(pk.name)}</b></td><td class="n">${r.type==="fire"?"Jotun hesaplar":pk.dft+" µm"+(r.dftGuess?"*":"")}</td><td class="n">${l!=null?l+" L":"—"}</td></tr>`}).join("");
-  const guess=rows.some(r=>r.dftGuess), fire=rows.some(r=>r.type==="fire"), uniq=[...new Set(notes)];
+    return `<tr><td>${i+1}. kat<br><span class="hint">${rtype(r)}${r.guess?" (tahmin)":""}${r.vs?` · %${r.vs} VS`:""}</span></td><td><b>${esc(pk.name)}</b></td><td class="n">${r.type==="fire"?"Jotun hesaplar":pk.dft+" µm"+(r.dftGuess?"*":"")}</td><td class="n">${l!=null?l+" L":"—"}</td></tr>`}).join("");
+  const guess=rows.some(r=>r.dftGuess), fire=rows.some(r=>r.type==="fire"), uniq=[...new Set(notes)], tg=rows.filter(r=>r.guess);
   return `<p><b>İstenen sisteme Jotun karşılığı</b></p><div class="tbl-wrap"><table><thead><tr><th>İstenen</th><th>Önerimiz</th><th class="n">Kalınlık</th><th class="n">Litre</th></tr></thead><tbody>${tr}</tbody>${tot?`<tfoot><tr><td>Toplam</td><td></td><td class="n">${tot} µm</td><td></td></tr></tfoot>`:""}</table></div>
    ${uniq.length?`<ul class="hint" style="margin:6px 0 0;padding-left:18px">${uniq.map(n=>`<li>${esc(n)}</li>`).join("")}</ul>`:""}
-   ${guess?`<p class="hint">* Kalınlık yazılmadığı için tipik kalınlık kullanıldı.</p>`:""}
+   ${guess?`<p class="note">* Bu katların kalınlığını şartnamede bulamadım; tipik kalınlık yazıldı, teyit edilmedi.</p>`:""}
+   ${tg.length?`<p class="note">Teyit edemedim: ${tg.map(r=>rows.indexOf(r)+1+". kat").join(", ")} — ürünün tipini tam belirleyemedim, “(tahmin)” yazdım. Teyit için o ürünün TDS'ini ekleyin.</p>`:""}
+   ${rows.some(r=>r.brand)&&!tg.length?`<p class="hint">Eşleştirme ürün tipine göredir. Teyit için şartnamedeki ürünlerin TDS'lerini ekleyebilirsiniz.</p>`:""}
+   ${unkHTML(rows.unk)}
    ${area?`<p class="hint">Litreler ${fmt(area,0)} m² ve %${loss} fire ile.</p>`:`<p class="hint">Litre için alanı da yazın (örn. “500 m2”).</p>`}
    ${fire?`<p class="note">Yangın boyasında kalınlık profil ve yangın süresine göre Jotun tarafından hesaplanır.</p>`:""}
    ${whyHTML(items.map(x=>x[0]),{head:"Şartnamedeki her katın tipine (görevine), katı madde ve kalınlık şartına göre aynı işi gören Jotun ürünü seçildi. TDS'teki en düşük kalınlığın altında kalan katlar TDS minimumuna çıkarıldı. Birebir aynı ürün değildir; güncel Jotun TDS ile teyit ediniz."})}
@@ -2541,11 +2555,20 @@ function rivalHTML(rows,info){
 let TESS=null;
 async function ocr(blob){
   if(!TESS){await loadScript("https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js");TESS=await window.Tesseract.createWorker("tur+eng");}
-  const r=await TESS.recognize(blob); return (r&&r.data&&r.data.text||"").trim();
+  const r=await TESS.recognize(blob); const d=(r&&r.data)||{}; ocr.drop=0;
+  if(!d.text||(d.confidence!=null&&d.confidence<40)){ ocr.drop=(d.lines||[]).length; return ""; }
+  const L=(d.lines||[]).filter(l=>l.text.trim()); if(!L.length) return (d.text||"").trim();
+  const ok=L.filter(l=>l.confidence==null||l.confidence>=55); ocr.drop=L.length-ok.length;
+  return ok.map(l=>l.text.trim()).join("\n").trim();
+}
+function attNotes(list){
+  const bad=list.filter(a=>a.err&&a.name), part=list.filter(a=>!a.err&&a.drop>0);
+  if(bad.length) chAdd("bot",`<p class="note">Okuyamadım: ${bad.map(a=>`<b>${esc(a.name)}</b> (${esc(a.err)})`).join(", ")}. Daha net bir fotoğraf ya da metin olarak ekleyin; bu dosyalara göre bir şey önermedim.</p>`);
+  if(part.length) chAdd("bot",`<p class="note">Kısmen okuyabildim: ${part.map(a=>`<b>${esc(a.name)}</b> (net olmayan ${a.drop} satır)`).join(", ")}. Net okuyamadığım satırları değerlendirmedim; eksik kat varsa yazın.</p>`);
 }
 async function offSend(text){
-  const usable=ATT.filter(a=>!a.err);
-  if(!text.trim()&&!usable.length) return;
+  const usable=ATT.filter(a=>!a.err), allAtt=ATT.slice();
+  if(!text.trim()&&!usable.length){ if(allAtt.length){ attNotes(allAtt); ATT=[]; renderAtt(); } return; }
   chAdd("me",esc(text.trim()||"(Dosya ile öneri istendi)")+(usable.length?`<div class="att sent">${usable.map(a=>a.kind==="img"?`<img src="${a.url}" alt="${esc(a.name)}">`:`<span class="chip-att"><b>${a.kind.toUpperCase()}</b><span>${esc(a.name)}</span></span>`).join("")}</div>`:""));
   ASK.push(((text.trim()||"Dosya ile öneri istendi")+(usable.length?` [Ekler: ${usable.map(a=>a.name).join(", ")}]`:"")).slice(0,220)); if(window.__gate)window.__gate();
   ATT=[]; renderAtt();
@@ -2553,12 +2576,13 @@ async function offSend(text){
   if(usable.length){
     const wait=chAdd("bot","<span class='think'>Dosyalar okunuyor…</span>");
     for(const a of usable){
-      if(a.kind==="img"){try{const t=await ocr(a.blob);all+="\n"+t;}catch(e){a.ocrErr=1;}}
+      if(a.kind==="img"&&!a.ocrOnly){try{const t=await ocr(a.blob); a.drop=ocr.drop||0; if(!t){a.err="yazı okunamadı";} else all+="\n"+t;}catch(e){a.err="okunamadı";}}
       else all+="\n"+(a.text||"");
     }
     wait.remove();
-    if(usable.some(a=>a.ocrErr)) chAdd("bot","Fotoğraftaki yazıları okuyamadım. Etiketteki ürün adını ve kalınlığı yazarsanız eşleştiririm.");
   }
+  attNotes(allAtt);
+  if(allAtt.length&&!text.trim()&&allAtt.every(a=>a.err)) return;
   const rows=rivalParse(all), info=infoParse(all);
   Object.assign(CW.ans,Object.fromEntries(Object.entries(info).filter(([k,v])=>v!=null)));
   info.text=all;
@@ -2568,7 +2592,8 @@ async function offSend(text){
   if(rows.length>=2 || (rows.length && rows.some(r=>r.brand||r.vs))){ const b=chAdd("bot",rivalHTML(rows,info)); bindRes(b); return; }
   if(rows.length && (!info.what||/yerine|karşılı|muadil|alternatif|şartname|isteniyor|talep/i.test(all))){ const b=chAdd("bot",rivalHTML(rows,info)); bindRes(b); return; }
   const k=knownLine(CW.ans);
-  if(!Object.keys(info).length && usable.length && !rows.length){if(!usable.some(a=>a.ocrErr))chAdd("bot","Dosyada boya ürünü veya iş bilgisi bulamadım. Ne boyanacağını yazın ya da Sistem sayfasından adım adım ilerleyin.");}
+  if(!rows.length && rows.unk && rows.unk.length){ chAdd("bot",unkHTML(rows.unk)); return; }
+  if(!Object.keys(info).length && usable.length && !rows.length){if(usable.some(a=>!a.err))chAdd("bot","Dosyada boya ürünü veya iş bilgisi bulamadım. Ne boyanacağını yazın ya da Sistem sayfasından adım adım ilerleyin.");}
   else if(k){ const b=chAdd("bot",`<p>Anladıklarım: <b>${esc(k)}</b></p><p>Bu bir sistem seçimi. Seçimleri doldurup <b>Sistem</b> sayfasında açıyorum; eksik kalan soruları orada tamamlayın.</p><div class="q-actions"><button type="button" class="btn primary cw-sys">Sistem'de aç →</button></div>`); b.querySelector(".cw-sys").onclick=()=>sysFromAns(CW.ans); return; }
   else chAdd("bot","Ürün adını ve kalınlığını yazın (örn. <b>epoksi ara kat 125 µm</b>), şartnameyi yapıştırın ya da etiket fotoğrafı ekleyin; Jotun karşılığını çıkarayım. Yeni bir sistem seçimi için <b>Sistem</b> sayfasını kullanın.");
 }
@@ -2599,14 +2624,14 @@ async function pdfDoc(file){
   return pdfLib.getDocument({data:new Uint8Array(await file.arrayBuffer())}).promise;
 }
 async function pdfText(file,onStep){
-  const doc=await pdfDoc(file);
+  pdfText.drop=0; pdfText.ocr=false; const doc=await pdfDoc(file);
   let out=""; for(let i=1;i<=Math.min(doc.numPages,30)&&out.length<24000;i++){const pg=await doc.getPage(i);const tc=await pg.getTextContent();let ly=null;for(const x of tc.items){const y=x.transform?x.transform[5]:null;if(ly!=null&&y!=null&&Math.abs(y-ly)>2)out+="\n";else if(out&&!out.endsWith("\n"))out+=" ";out+=x.str;if(x.hasEOL){out+="\n";ly=null;}else ly=y;}out+="\n";}
   out=out.trim();
   if(out.replace(/\s+/g,"").length<40){ // taranmış PDF: sayfaları görüntüye çevirip OCR
-    out=""; const n=Math.min(doc.numPages,6);
+    out=""; pdfText.drop=0; pdfText.ocr=true; const n=Math.min(doc.numPages,6);
     for(let i=1;i<=n;i++){ if(onStep) onStep(`sayfa ${i}/${n} okunuyor`); const pg=await doc.getPage(i); const vp=pg.getViewport({scale:2});
       const cv=document.createElement("canvas"); cv.width=vp.width; cv.height=vp.height; await pg.render({canvasContext:cv.getContext("2d"),viewport:vp}).promise;
-      const blob=await new Promise(r=>cv.toBlob(r,"image/png")); out+=(await ocr(blob))+"\n"; }
+      const blob=await new Promise(r=>cv.toBlob(r,"image/png")); out+=(await ocr(blob))+"\n"; pdfText.drop+=ocr.drop||0; }
     out=out.trim();
   }
   return out;
@@ -2620,12 +2645,12 @@ async function addFiles(files){
     const t=(f.type||"").toLowerCase(), n=f.name.toLowerCase();
     if(t.startsWith("image/")){
       if(!IMG_OK&&SAMPLE&&!OFFLINE){ const a={kind:"img",name:f.name,blob:f,url:URL.createObjectURL(f),ocrOnly:true,busy:true}; ATT.push(a); renderAtt();
-        try{a.text=await ocr(f); if(!a.text) a.err="yazı okunamadı";}catch(e){a.err="okunamadı";} a.busy=false; renderAtt(); continue; }
+        try{a.text=await ocr(f); a.drop=ocr.drop||0; if(!a.text) a.err="yazı okunamadı";}catch(e){a.err="okunamadı";} a.busy=false; renderAtt(); continue; }
       if(ATT.filter(a=>a.kind==="img"&&!a.err).length>=IMG_MAX){ATT.push({kind:"img",name:f.name,err:`en fazla ${IMG_MAX} fotoğraf`,url:""});continue;}
       ATT.push({kind:"img",name:f.name,blob:f,url:URL.createObjectURL(f)});
     } else if(t==="application/pdf"||n.endsWith(".pdf")){
       const a={kind:"pdf",name:f.name,busy:true}; ATT.push(a); renderAtt();
-      try{a.text=await pdfText(f,st=>{a.step=st;renderAtt();}); if(!a.text) a.err="yazı okunamadı";}catch(e){a.err="okunamadı";}
+      try{a.text=await pdfText(f,st=>{a.step=st;renderAtt();}); a.drop=pdfText.drop||0; if(!a.text) a.err="yazı okunamadı";}catch(e){a.err="dosya açılamadı";}
       a.busy=false;
     } else if(/\.(txt|csv|md)$/.test(n)||t.startsWith("text/")){
       ATT.push({kind:"txt",name:f.name,text:(await f.text()).slice(0,24000)});
@@ -2643,7 +2668,7 @@ drop.addEventListener("drop",e=>{e.preventDefault();drop.classList.remove("drag"
 $("#ch-text").addEventListener("paste",e=>{const fs=[...(e.clipboardData?.files||[])];if(fs.length){e.preventDefault();addFiles(fs);}});
 const ATT_RULE=`Bu mesajla birlikte dosya/fotoğraf gönderildi. Şu sırayla çalış:
 1) Fotoğraftaki/dosyadaki YAZILARI oku: teneke etiketi, ürün adı ve markası, teknik föy, şartname sayfası, teklif veya keşif listesi, el yazısı not olabilir. Okuduğun önemli bilgileri kısaca listele (marka, ürün adı, kalınlık µm, kat sayısı, korozyon kategorisi, dayanım, renk, miktar). Okunamayan kısmı "okunamadı" diye belirt, uydurma.
-2) Başka marka ürünü varsa (Hempel, International/AkzoNobel, Sigma/PPG, Carboline, Sherwin-Williams, Teknos, Marshall, Filli Boya, Polisan, Kansai vb.): kullanıcının yazdığı veya şartnamede geçen ürünü adıyla anabilir, araştırıp karşılığını verebilirsin; ancak kendiliğinden başka marka veya ürün adı önerme, örnek verme ya da alternatif olarak sunma — önerilerin yalnızca Jotun ürünü olsun. Her ürünün jenerik tipini (ör. çinkoca zengin epoksi astar, epoksi MIO ara kat, alifatik poliüretan son kat) yaz ve karşısına aynı tip ve aynı kalınlıkta Jotun ürününü koy. Bunun jenerik tipe göre eşleşme olduğunu, birebir aynı ürün olmadığını belirt. Ürün tipinden emin değilsen tahmin olduğunu söyle.
+2) Başka marka ürünü varsa (Hempel, International/AkzoNobel, Sigma/PPG, Carboline, Sherwin-Williams, Teknos, Marshall, Filli Boya, Polisan, Kansai vb.): yanıtında başka marka veya ürün adı hiç yazma (kullanıcı yazmış olsa bile); sadece jenerik tipini yaz ve karşılığında Jotun ürününü öner. Emin olamıyorsan teyit için o ürünün TDS'ini iste. Asla başka marka önerme, örnek verme ya da alternatif olarak sunma. Her ürünün jenerik tipini (ör. çinkoca zengin epoksi astar, epoksi MIO ara kat, alifatik poliüretan son kat) yaz ve karşısına aynı tip ve aynı kalınlıkta Jotun ürününü koy. Bunun jenerik tipe göre eşleşme olduğunu, birebir aynı ürün olmadığını belirt. Ürün tipinden emin değilsen tahmin olduğunu söyle.
 3) Yüzey fotoğrafıysa: yüzeyin durumu (ISO 8501-1 pas sınıfı A–D tahmini, mevcut boya, kabarma/dökülme), yapının türü ve ortam ipuçları (deniz, sanayi, iç mekân).
 4) Kesin anlaşılamayan ve öneriyi değiştirecek bir bilgi varsa tek bir soru sor.
 5) Öneriyi kat kat ürün, kalınlık ve yüzey hazırlığı ile ver; alan biliniyorsa litre hesapla. Sonra "Neden bu öneri?" başlığıyla her ürünün neden seçildiğini 2–4 kısa maddede özetle.`;
@@ -2661,12 +2686,13 @@ async function chSend(text){
     if(imgs.length) content+=`\n\nEkli fotoğraf(lar): ${usable.filter(a=>a.kind==="img"&&!a.ocrOnly).map(a=>a.name).join(", ")}`;
     docs.forEach(a=>content+=`\n\n[Ek dosya: ${a.name}]\n${a.text}`);
   }
+  const partN=usable.filter(a=>a.drop>0); if(partN.length) content+=`\n\n[Not: ${partN.map(a=>a.name+" dosyasında "+a.drop+" satır net okunamadı").join("; ")}. Bu satırları tahmin etme; kullanıcıya okunamadığını söyle.]`;
   const shown=esc(text.trim()||"(Dosya ile öneri istendi)")+(usable.length?`<div class="att sent">${usable.map(a=>a.kind==="img"?`<img src="${a.url}" alt="${esc(a.name)}">`:`<span class="chip-att"><b>${a.kind.toUpperCase()}</b><span>${esc(a.name)}</span></span>`).join("")}</div>`:"");
   chAdd("me",shown);
   // geçmişe dosya metni yerine kısa not yazılır; fotoğraflar sadece bu turda gider
   const histNote=(text.trim()||"Ekteki dosyalara göre öneri istendi.")+(usable.length?` [Ekler: ${usable.map(a=>a.name).join(", ")}]`:"");
   CH.push({role:"user",content:histNote}); ASK.push(histNote.slice(0,220)); if(window.__gate)window.__gate();
-  ATT=[]; renderAtt();
+  const allA=ATT.slice(); ATT=[]; renderAtt(); attNotes(allA);
   const turnsBase=CH.slice(-16,-1);
   const bot=chAdd("bot","<span class='think'>Düşünüyor…</span>");
   chCtl=new AbortController(); $("#ch-stop").hidden=false; $("#ch-send").hidden=true;
@@ -2733,6 +2759,10 @@ function sxWhat(k){
 $("#sx-wz").appendChild($("#wz"));
 $("#sx-what").addEventListener("click",e=>{const b=e.target.closest("[data-sxw]");if(!b)return;sxWhat(b.dataset.sxw);});
 sxWhat("celik");
+/* Yeni sürüm yayınlandıysa uygulama açıkken kendini yeniler */
+(()=>{const B="1793451876"; if(!/^\d+$/.test(B)) return;
+  const chk=()=>fetch(location.pathname+"?b="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const B="(\d+)"/); if(m&&+m[1]>+B) location.reload();}).catch(()=>{});
+  document.addEventListener("visibilitychange",()=>{if(!document.hidden)chk();}); setTimeout(chk,4000);})();
 
 /* ---------- PDF ---------- */
 let DL=null;
