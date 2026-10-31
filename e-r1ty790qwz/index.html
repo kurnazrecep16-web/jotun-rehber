@@ -1084,6 +1084,23 @@ form.sx details.adv{background:rgba(19,25,33,.85);border:1px solid rgba(255,255,
 
 .wh-img{-webkit-mask-image:radial-gradient(ellipse 75% 70% at 75% 45%,#000 25%,transparent 72%)!important;mask-image:radial-gradient(ellipse 75% 70% at 75% 45%,#000 25%,transparent 72%)!important;border-radius:0!important;width:58%!important}
 #v-danisman #d-w,#v-danisman #wz{width:100%}
+
+/* Sistem: ne boyanacak */
+.sx-wcard{margin:0 0 12px}
+.sx-wt{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.sx-wt button{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;min-height:76px;padding:8px 3px;border-radius:12px;border:1px solid #dbe2ec;background:#fff;color:#0b1f45;cursor:pointer;font:600 12px/1.15 var(--f-body);text-align:center}
+.sx-wt button svg{width:24px;height:24px;fill:none;stroke:#3b5a86;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.sx-wt button.sel{background:#0b2350;border-color:#0b2350;color:#fff}
+.sx-wt button.sel svg{stroke:#fff}
+.sx-wt button.sel::after{content:"";position:absolute;top:4px;right:4px;width:14px;height:14px;border-radius:50%;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12l4 4 8-8' fill='none' stroke='%230b2350' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/11px no-repeat}
+@media (min-width:901px){.sx-wt{grid-template-columns:repeat(10,minmax(0,1fr))}.sx-wt button{font-size:13px;min-height:84px}}
+#v-sistem>.grid[hidden],#sx-wz[hidden]{display:none!important}
+#sx-wz #wz{background:none!important;border:0!important;box-shadow:none!important;padding:0!important;display:flex;flex-direction:column;gap:16px}
+@media (min-width:901px){#sx-wz{max-width:880px;margin:0 auto}}
+body.sx-special #s-bar{display:none!important}
+#v-danisman #d-mode[hidden]{display:none!important}
+
+.dn-hero{min-height:120px}
 </style>
 
 <div id="app-bg" aria-hidden="true"></div>
@@ -1131,22 +1148,24 @@ form.sx details.adv{background:rgba(19,25,33,.85);border:1px solid rgba(255,255,
   <div class="hm-foot"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><div><span>Son güncelleme 30.10.2026 · 23:55</span><span><span id="role-lbl"></span> · <button type="button" class="linkbtn" id="role-chg">değiştir</button></span></div></div>
 </section>
 <div id="v-sistem">
-<div class="sx-hero"><h2>Kaplama Sistemi<br>Oluşturun</h2><p>Ortam, dayanım süresi ve alan bilgilerini seçerek size en uygun Jotun sistemini bulun.</p></div>
+<div class="sx-hero"><h2>Kaplama Sistemi<br>Oluşturun</h2><p>Ne boyanacağını, ortamı ve dayanım süresini seçin; size en uygun Jotun sistemini bulalım.</p></div>
+<section class="sx-card sx-wcard"><h3 class="sx-h"><svg class="sx-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4l6 6-7 7-6-6z"/><path d="M7 11l-3 3c-1 1-1 3 0 4s3 1 4 0l3-3"/></svg><span>1. Ne boyanacak?</span></h3><div class="sx-wt" id="sx-what"></div></section>
+<div id="sx-wz" hidden></div>
 
 <div class="grid">
 <form class="rail sx" id="f" autocomplete="off">
   <section class="sx-card">
-    <h3 class="sx-h"><svg class="sx-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V8l5-3v16M10 21V3l9 4v14"/><path d="M13 9h3M13 13h3M13 17h3"/></svg><span>1. Ortam</span><button type="button" class="sx-info" data-info="env" aria-label="Bilgi"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg></button></h3>
+    <h3 class="sx-h"><svg class="sx-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V8l5-3v16M10 21V3l9 4v14"/><path d="M13 9h3M13 13h3M13 17h3"/></svg><span>2. Ortam</span><button type="button" class="sx-info" data-info="env" aria-label="Bilgi"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg></button></h3>
     <div class="seg sx-tiles sx-env" id="env"><input type="radio" name="env" id="env-C2" value="C2"><label for="env-C2"><svg class="sx-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg><b>C2</b><small>İç mekân</small></label><input type="radio" name="env" id="env-C3" value="C3"><label for="env-C3"><svg class="sx-i" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="3" width="12" height="18" rx="1"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2M11 21v-3h2v3"/></svg><b>C3</b><small>Şehir</small></label><input type="radio" name="env" id="env-C4" value="C4" checked><label for="env-C4"><svg class="sx-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21V11l5 3v-3l5 3V7h3l1-4h2v18z"/><path d="M7 18h2M12 18h2"/></svg><b>C4</b><small>Sanayi, kıyı</small></label><input type="radio" name="env" id="env-C5" value="C5"><label for="env-C5"><svg class="sx-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 15l2 5h14l2-5z"/><path d="M6 15V9h12v6M9 9V5h6v4"/><path d="M2 21c2 1 4 1 6 0s4-1 6 0 4 1 6 0"/></svg><b>C5</b><small>Deniz, kimya</small></label><input type="radio" name="env" id="env-Im" value="Im"><label for="env-Im"><svg class="sx-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21h16M6 21v-6h12v6M8 15V9h8v6M12 9V4M10 4h4M9 12h6"/></svg><b>Im</b><small>Su altı</small></label></div>
     <p class="hint" id="env-hint"></p>
   </section>
   <section class="sx-card">
-    <h3 class="sx-h"><svg class="sx-i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>2. Kaç yıl dayansın?</span><button type="button" class="sx-info" data-info="dur" aria-label="Bilgi"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg></button></h3>
+    <h3 class="sx-h"><svg class="sx-i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>3. Kaç yıl dayansın?</span><button type="button" class="sx-info" data-info="dur" aria-label="Bilgi"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg></button></h3>
     <div class="seg sx-tiles sx-dur" id="dur"><input type="radio" name="dur" id="dur-l" value="l"><label for="dur-l"><b>≤7 yıl</b><small>L</small></label><input type="radio" name="dur" id="dur-m" value="m"><label for="dur-m"><b>7–15 yıl</b><small>M</small></label><input type="radio" name="dur" id="dur-h" value="h" checked><label for="dur-h"><b>15–25 yıl</b><small>H</small></label><input type="radio" name="dur" id="dur-vh" value="vh"><label for="dur-vh"><b>25+ yıl</b><small>VH</small></label></div>
     <p class="hint" id="dur-hint"></p>
   </section>
   <section class="sx-card sx-row">
-    <h3 class="sx-h"><svg class="sx-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4v16h16"/><path d="M4 9h4M4 14h4M9 20v-4M14 20v-4M8 4v12h12"/></svg><label for="area">3. Alan (m²)</label></h3>
+    <h3 class="sx-h"><svg class="sx-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4v16h16"/><path d="M4 9h4M4 14h4M9 20v-4M14 20v-4M8 4v12h12"/></svg><label for="area">4. Alan (m²)</label></h3>
     <div class="sx-in"><input type="number" inputmode="decimal" id="area" min="0" step="10" value="500"><i>m²</i></div>
   </section>
   <section class="sx-card sx-row">
@@ -1309,13 +1328,13 @@ form.sx details.adv{background:rgba(19,25,33,.85);border:1px solid rgba(255,255,
   <p class="foot">Bilgiler bilgilendirme amaçlıdır. Uygulamadan önce ilgili ürünün güncel Jotun teknik föyünü (TDS) kontrol ediniz.</p>
 </section>
 <section id="v-danisman" hidden>
-  <div class="seg modes" id="d-mode" role="tablist">
-    <input type="radio" name="dmode" id="dm-w" value="w" checked><label for="dm-w">Adım adım</label>
+  <div class="seg modes" id="d-mode" role="tablist" hidden>
+    <input type="radio" name="dmode" id="dm-w" value="w" hidden><label for="dm-w" hidden>Adım adım</label>
     <input type="radio" name="dmode" id="dm-r" value="r" hidden><label for="dm-r" hidden>Rakibe karşı</label>
-    <input type="radio" name="dmode" id="dm-c" value="c"><label for="dm-c">Soru sor</label>
+    <input type="radio" name="dmode" id="dm-c" value="c" checked><label for="dm-c">Soru sor</label>
   </div>
 
-  <div id="d-w" class="dpanel">
+  <div id="d-w" class="dpanel" hidden>
     <div class="wz" id="wz"></div>
   </div>
 
@@ -1337,7 +1356,8 @@ form.sx details.adv{background:rgba(19,25,33,.85);border:1px solid rgba(255,255,
     </div>
   </div>
 
-  <div id="d-c" class="dpanel" hidden>
+  <div class="sx-hero dn-hero"><h2>Danışmana<br>Sorun</h2><p>Rakip ürün, şartname veya yüzey fotoğrafı ekleyin; Jotun karşılığını ve sistemi birlikte bulalım.</p></div>
+  <div id="d-c" class="dpanel">
     <div class="dbox">
       <div class="chat" id="ch-log"><div class="msg bot">Ne boyanacak, nerede duracak, kaç yıl dayanmalı? Yazın; rakip ürün, şartname veya fotoğraf da ekleyebilirsiniz.</div></div>
       <div class="ch-in" id="ch-drop">
@@ -1991,10 +2011,10 @@ function homeRender(){
 }
 function go(where){
   const dm=k=>{$("#dm-"+k).checked=true;$("#d-mode").dispatchEvent(new Event("change"));};
-  if(where.startsWith("what:")){W.ans={what:where.slice(5)};W.hist=["what"];W.pend=null;dm("w");wzRender();location.hash="#danisman";return;}
+  if(where.startsWith("what:")){location.hash="#sistem";sxWhat(where.slice(5));setTimeout(()=>{const c=$(".sx-wcard");if(c)c.scrollIntoView({behavior:"smooth",block:"start"});},120);return;}
   if(where==="sistem"){location.hash="#sistem";}
   else if(where==="teklif"){location.hash="#teklif";}
-  else if(where==="wizard"){dm("w");location.hash="#danisman";}
+  else if(where==="wizard"){location.hash="#sistem";}
   else if(where==="rakip"){dm("r");location.hash="#danisman";setTimeout(()=>$("#rv-text").focus(),80);}
   else if(where==="foto"){dm("c");location.hash="#danisman";}
   else if(where==="fotocek"){dm("c");location.hash="#danisman";$("#ch-file").click();}
@@ -2079,7 +2099,13 @@ const WZ_IC={celik:wi('<path d="M4 5h16v3h-6.5v8H20v3H4v-3h6.5V8H4z"/>'),ekipman
  new:wi('<path d="M4 5h16v3h-6.5v8H20v3H4v-3h6.5V8H4z"/>'),maint:wi('<path d="M14 4l6 6-7 7-6-6z"/><path d="M7 11l-3 3c-1 1-1 3 0 4s3 1 4 0l3-3"/>'),hdg:wi('<path d="M12 3l9 5-9 5-9-5z"/><path d="M3 12l9 5 9-5"/><path d="M3 16l9 5 9-5"/>'),
  spray:wi('<path d="M4 9h9v6H4zM13 11h4l3-3M17 13l3 3M8 15v5"/>'),brush:wi('<rect x="6" y="3" width="12" height="7" rx="1.5"/><path d="M12 10v4M10 14h4v7h-4z"/>'),
  l:wi('<circle cx="12" cy="12" r="8"/><path d="M12 8v4l2 2"/>'),m:wi('<circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/>'),h:wi('<circle cx="12" cy="12" r="8"/><path d="M12 7v5l4 2"/>'),vh:wi('<path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/>')};
-const WZ_DEF=wi('<circle cx="12" cy="12" r="8"/><path d="M8 12h8"/>');
+const WZ_DEF=wi('<circle cx="12" cy="12" r="8"/><path d="M9 12l2 2 4-4"/>');
+{const drop=wi('<path d="M12 3c3 4.2 6 7.6 6 11a6 6 0 0 1-12 0c0-3.4 3-6.8 6-11z"/>'),th=wi('<path d="M10 14V5a2 2 0 0 1 4 0v9a4 4 0 1 1-4 0z"/><path d="M12 9v7"/>');
+ Object.assign(WZ_IC,{dw:drop,water:wi('<path d="M2 9c2 0 2-1.5 4-1.5S8 9 10 9s2-1.5 4-1.5S16 9 18 9s2-1.5 4-1.5M2 15c2 0 2-1.5 4-1.5s2 1.5 4 1.5 2-1.5 4-1.5 2 1.5 4 1.5 2-1.5 4-1.5"/>'),
+  fuel:wi('<path d="M5 21V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v16M3 21h14M8 8h4M15 9l3 2v7a1.5 1.5 0 0 0 3 0V8l-3-3"/>'),chem:wi('<path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-9V3"/><path d="M7.5 15h9"/>'),
+  "120":th,"250":th,"540":th,hi:th,light:wi('<circle cx="12" cy="5" r="2"/><path d="M12 7v7l-3 7M12 14l3 7M8 10h8"/>'),heavy:wi('<path d="M3 18V8h8v10M11 12h5l3 3v3h-8"/><circle cx="7" cy="19" r="2"/><circle cx="16" cy="19" r="2"/>'),
+  smooth:wi('<path d="M4 17h16M6 13l3-6 3 6 3-6 3 6"/>'),food:wi('<path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M16 3c-2 2-2 6 0 8v10"/>'),static:wi('<path d="M13 2L4 14h7l-1 8 9-12h-7z"/>'),
+  "30":wi('<circle cx="12" cy="12" r="8"/><path d="M12 8v4l2 2"/>'),"60":wi('<circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/>'),"90":wi('<circle cx="12" cy="12" r="8"/><path d="M12 7v5l4 2"/>'),prem:wi('<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/>')});}
 const wzTitle=o=>o.replace(/\s*\(.*?\)\s*/g," ").trim();
 function wzRender(){
   const el=$("#wz"), st=wzStep(), ph=st?WZ_PH[st.k]||2:4;
@@ -2095,7 +2121,7 @@ function wzRender(){
     const ok=st.num||pend!=null;
     body+=`<div class="wh-nav">${W.hist.length?`<button type="button" class="wh-back" id="wz-back" aria-label="Geri">${wi('<path d="M15 5l-7 7 7 7"/>')}</button>`:""}<button type="button" class="wh-go" id="wz-next"${ok?"":" disabled"}>${st.num?"Öneriyi Göster":"Devam Et"}${wi('<path d="M5 12h14M13 6l6 6-6 6"/>')}</button></div>`;
   } else body=`<div class="wh-res">${wzResult()}</div><div class="wh-nav"><button type="button" class="wh-back" id="wz-back" aria-label="Geri">${wi('<path d="M15 5l-7 7 7 7"/>')}</button><button type="button" class="wh-ob" id="wz-reset">Yeni proje</button></div>`;
-  el.innerHTML=hero+stp+body;
+  el.innerHTML=stp+body;
   bindWz();
 }
 function bindWz(){
@@ -2106,8 +2132,8 @@ function bindWz(){
     if(st.num){W.hist.push("area");W.ans.area=Math.max(0,parseFloat($("#wz-area").value)||0);}
     else{const v=W.pend!=null?W.pend:W.ans[st.k]; if(v==null) return; W.hist.push(st.k); W.ans[st.k]=v;}
     W.pend=null; wzRender(); $("#wz").scrollIntoView({behavior:"smooth",block:"start"});};
-  const bk=$("#wz-back"); if(bk) bk.onclick=()=>{const k=W.hist.pop();W.pend=W.ans[k];delete W.ans[k];wzRender();};
-  const rs=$("#wz-reset"); if(rs) rs.onclick=()=>{W.ans={};W.hist=[];W.pend=null;wzRender();};
+  const bk=$("#wz-back"); if(bk) bk.onclick=()=>{const k=W.hist.pop();W.pend=W.ans[k];delete W.ans[k];if(!W.ans.what){sxWhat("celik");return;}wzRender();};
+  const rs=$("#wz-reset"); if(rs) rs.onclick=()=>{sxWhat("celik");window.scrollTo({top:0,behavior:"smooth"});};
   const hp=$("#wz-help"); if(hp) hp.onclick=()=>{const r=$("#dm-c"); if(r){r.checked=true; r.dispatchEvent(new Event("change",{bubbles:true}));} window.scrollTo({top:0,behavior:"smooth"});};
   el.querySelectorAll("[data-wzq]").forEach(b=>b.onclick=()=>{
     const items=JSON.parse(b.dataset.wzq); Q.lines=[]; Q.sys=null; newNo(); items.forEach(([nm,q])=>addLine(nm,q||null));
@@ -2629,6 +2655,19 @@ $("#rv-ask").onclick=async()=>{
 };
 $("#rv-stop").onclick=()=>rvCtl&&rvCtl.abort();
 wzRender(); rvRender();
+/* Sistem: ne boyanacak → metal ise ISO formu, özel iş ise adım adım */
+const SXW=[["celik","Çelik yapı"],["ekipman","Makine"],["tankdis","Tank dış"],["boru","Boru dış"],["bakim","Paslı / bakım"],["tankic","Tank içi"],["sicak","Sıcak yüzey"],["zemin","Beton zemin"],["tekne","Tekne"],["yangin","Yangın"]];
+const SX_METAL=["celik","ekipman","tankdis","boru"];
+let SXK="celik";
+function sxWhat(k){
+  SXK=k; const metal=SX_METAL.includes(k);
+  $("#sx-what").innerHTML=SXW.map(([v,t])=>`<button type="button" class="${v===k?"sel":""}" data-sxw="${v}">${WZ_IC[v==="bakim"?"maint":v]||WZ_DEF}<span>${t}</span></button>`).join("");
+  document.querySelector("#v-sistem>.grid").hidden=!metal; $("#sx-wz").hidden=metal; document.body.classList.toggle("sx-special",!metal);
+  if(!metal){ W.ans=k==="bakim"?{what:"celik",surf:"maint"}:{what:k}; W.hist=["what"]; W.pend=null; wzRender(); }
+}
+$("#sx-wz").appendChild($("#wz"));
+$("#sx-what").addEventListener("click",e=>{const b=e.target.closest("[data-sxw]");if(!b)return;sxWhat(b.dataset.sxw);});
+sxWhat("celik");
 
 /* ---------- PDF ---------- */
 let DL=null;
