@@ -1355,18 +1355,18 @@ body.sx-special #s-bar{display:none!important}
 
   <div id="d-r" class="dpanel" hidden>
     <div class="dbox">
-      <label class="lbl" for="rv-text">Rakip sistemi yazın</label>
+      <label class="lbl" for="rv-text">Şartnamedeki sistemi yazın</label>
       <textarea id="rv-text" rows="3" placeholder="Örn: çinkolu epoksi astar 60 µm + epoksi ara kat 120 µm + poliüretan son kat 60 µm, C4"></textarea>
       <div class="q-actions"><button type="button" class="btn primary" id="rv-ask">Jotun alternatifini öner</button><button type="button" class="btn ghost" id="rv-stop" hidden>Durdur</button></div>
       <div class="ai-out" id="rv-out" hidden></div>
-      <p class="hint">Rakip ürünün etiketi, teknik föyü veya rakip teklifi elinizdeyse fotoğrafını çekip <button type="button" class="linkbtn" id="rv-photo">Soru / fotoğraf / dosya</button> bölümüne yükleyin; yazıları okuyup Jotun karşılığını çıkarır.</p>
+      <p class="hint">Ürünün etiketi, teknik föyü veya teklifi elinizdeyse fotoğrafını çekip <button type="button" class="linkbtn" id="rv-photo">Soru / fotoğraf / dosya</button> bölümüne yükleyin; yazıları okuyup Jotun karşılığını çıkarır.</p>
     </div>
     <div class="dbox">
       <p class="dtitle">Ürün tipine göre eşleştir</p>
-      <p class="hint">Rakip sistemin her katının tipini ve kalınlığını seçin; aynı tipteki Jotun ürünü ve litre çıkar.</p>
+      <p class="hint">Şartnamedeki sistemin her katının tipini ve kalınlığını seçin; aynı tipteki Jotun ürünü ve litre çıkar.</p>
       <div class="row2"><fieldset><label class="lbl" for="rv-area">Alan (m²)</label><input type="number" id="rv-area" min="0" step="10" value="500"></fieldset>
       <fieldset><label class="lbl" for="rv-loss">Fire (%)</label><input type="number" id="rv-loss" min="0" max="80" step="5" value="30"></fieldset></div>
-      <div class="tbl-wrap"><table class="q-lines"><thead><tr><th>Rakip kat tipi</th><th class="n">µm</th><th>Jotun karşılığı</th><th class="n">Litre</th><th></th></tr></thead><tbody id="rv-body"></tbody></table></div>
+      <div class="tbl-wrap"><table class="q-lines"><thead><tr><th>Şartnamedeki kat tipi</th><th class="n">µm</th><th>Jotun karşılığı</th><th class="n">Litre</th><th></th></tr></thead><tbody id="rv-body"></tbody></table></div>
       <div class="q-actions"><button type="button" class="btn" id="rv-addrow">Kat ekle</button><button type="button" class="btn primary" id="rv-toq">Teklife aktar</button></div>
     </div>
   </div>
@@ -2259,7 +2259,7 @@ Kurallar:
 - Sadece aşağıdaki Jotun ürün listesindeki ürünleri öner. Listede olmayan Jotun ürünü uydurma.
 - Eksik bilgi varsa önce SIRAYLA tek tek sor (ne boyanacak, iç/dış ortam ve deniz/sanayi yakınlığı, yüzey durumu ve kumlama yapılıp yapılamayacağı, beklenen ömür, uygulama yöntemi, alan m²). Her mesajda en fazla bir soru sor ve 2–5 kısa seçenek sun (her biri ayrı satırda "1) ..." şeklinde).
 - Bilgi yeterli olunca: korozyon kategorisi (ISO 12944-2), dayanım, yüzey hazırlığı (ISO 8501-1, örn. Sa 2½ veya St 2–St 3), kat kat ürün ve kuru film kalınlığı (µm), toplam kalınlık ve uygunsa ISO 12944-5 sistem numarası ver. Alan verilmişse litre hesabı: litre = m² × µm / (katı% × 10), %30 fire ekle.
-- Rakip ürün sorulursa: rakip ürünün jenerik tipini (çinkoca zengin epoksi, epoksi MIO ara kat, poliüretan son kat vb.) belirt, aynı tip ve kalınlıktaki Jotun karşılığını kat kat ver, eşleşmenin jenerik tipe göre olduğunu ve birebir aynı ürün olmadığını belirt. Emin olmadığın rakip ürün için tipini kullanıcıya sor.
+- Başka marka ürün sorulursa: o ürünün jenerik tipini (çinkoca zengin epoksi, epoksi MIO ara kat, poliüretan son kat vb.) belirt, aynı tip ve kalınlıktaki Jotun karşılığını kat kat ver, eşleşmenin jenerik tipe göre olduğunu ve birebir aynı ürün olmadığını belirt. Emin olmadığın ürün için kullanıcıdan TDS'ini iste. Yanıtlarında "rakip" kelimesini kullanma.
 - ISO 12944-5'e uygunluk önceliklidir. Uygun seçenekler arasında: alkid sistemleri öncelikli önerme (müşteri özellikle istemedikçe epoksi/çinkolu sistem öner); kat sayısı az olan sistemi tercih et; sonra en ekonomik olanı seç. Aşağıdaki "Öneri sırası" satırları bu kurala göre sıralanmıştır; ilkini öner, müşteri özel bir şey istemedikçe.
 - Fiyat, indirim veya maliyet bilgisi verme; sorulursa bayinin fiyat listesine yönlendir.
 - Jotun teknik ekibinin (TSS) yerleşik kuralları:
@@ -2651,7 +2651,7 @@ drop.addEventListener("drop",e=>{e.preventDefault();drop.classList.remove("drag"
 $("#ch-text").addEventListener("paste",e=>{const fs=[...(e.clipboardData?.files||[])];if(fs.length){e.preventDefault();addFiles(fs);}});
 const ATT_RULE=`Bu mesajla birlikte dosya/fotoğraf gönderildi. Şu sırayla çalış:
 1) Fotoğraftaki/dosyadaki YAZILARI oku: teneke etiketi, ürün adı ve markası, teknik föy, şartname sayfası, teklif veya keşif listesi, el yazısı not olabilir. Okuduğun önemli bilgileri kısaca listele (marka, ürün adı, kalınlık µm, kat sayısı, korozyon kategorisi, dayanım, renk, miktar). Okunamayan kısmı "okunamadı" diye belirt, uydurma.
-2) Başka marka ürünü varsa (Hempel, International/AkzoNobel, Sigma/PPG, Carboline, Sherwin-Williams, Teknos, Marshall, Filli Boya, Polisan, Kansai vb.): yanıtında başka marka veya ürün adı hiç yazma (kullanıcı yazmış olsa bile); sadece jenerik tipini yaz ve karşılığında Jotun ürününü öner. Emin olamıyorsan teyit için o ürünün TDS'ini iste. Asla başka marka önerme, örnek verme ya da alternatif olarak sunma. Her ürünün jenerik tipini (ör. çinkoca zengin epoksi astar, epoksi MIO ara kat, alifatik poliüretan son kat) yaz ve karşısına aynı tip ve aynı kalınlıkta Jotun ürününü koy. Bunun jenerik tipe göre eşleşme olduğunu, birebir aynı ürün olmadığını belirt. Ürün tipinden emin değilsen tahmin olduğunu söyle.
+2) Başka marka ürünü varsa: yanıtında başka marka veya ürün adı hiç yazma (kullanıcı yazmış olsa bile); sadece jenerik tipini yaz ve karşılığında Jotun ürününü öner. Emin olamıyorsan teyit için o ürünün TDS'ini iste. Asla başka marka önerme, örnek verme ya da alternatif olarak sunma. Her ürünün jenerik tipini (ör. çinkoca zengin epoksi astar, epoksi MIO ara kat, alifatik poliüretan son kat) yaz ve karşısına aynı tip ve aynı kalınlıkta Jotun ürününü koy. Bunun jenerik tipe göre eşleşme olduğunu, birebir aynı ürün olmadığını belirt. Ürün tipinden emin değilsen tahmin olduğunu söyle.
 3) Yüzey fotoğrafıysa: yüzeyin durumu (ISO 8501-1 pas sınıfı A–D tahmini, mevcut boya, kabarma/dökülme), yapının türü ve ortam ipuçları (deniz, sanayi, iç mekân).
 4) Kesin anlaşılamayan ve öneriyi değiştirecek bir bilgi varsa tek bir soru sor.
 5) Öneriyi kat kat ürün, kalınlık ve yüzey hazırlığı ile ver; alan biliniyorsa litre hesapla. Sonra "Neden bu öneri?" başlığıyla her ürünün neden seçildiğini 2–4 kısa maddede özetle.`;
@@ -2716,7 +2716,7 @@ $("#rv-ask").onclick=async()=>{
   const out=$("#rv-out"); out.hidden=false; out.innerHTML="<span class='think'>Düşünüyor…</span>";
   rvCtl=new AbortController(); $("#rv-stop").hidden=false; $("#rv-ask").disabled=true;
   try{
-    const {text}=await SAMPLE(RULES+`\n\nGÖREV: Aşağıdaki rakip boya sistemine Jotun alternatifi hazırla. Önce rakip sistemi kat kat jenerik tipiyle yaz, sonra karşısına Jotun ürününü ve aynı kuru film kalınlığını yaz, toplam kalınlığı ver. Ortam belirtilmemişse en sona ortamı soran tek bir soru ekle. Kısa tut.\n\nRakip sistem: ${t}`,{signal:rvCtl.signal,onText:({text})=>{out.innerHTML=md(text)}});
+    const {text}=await SAMPLE(RULES+`\n\nGÖREV: Aşağıdaki şartnamedeki boya sistemine Jotun karşılığı hazırla. Önce sistemi kat kat jenerik tipiyle yaz, sonra karşısına Jotun ürününü ve aynı kuru film kalınlığını yaz, toplam kalınlığı ver. Ortam belirtilmemişse en sona ortamı soran tek bir soru ekle. Kısa tut.\n\nŞartnamedeki sistem: ${t}`,{signal:rvCtl.signal,onText:({text})=>{out.innerHTML=md(text)}});
     out.innerHTML=md(text);
   }catch(e){const m=aiFail(e); if(OFFLINE&&!(e&&e.text)){const rows=rivalParse(t);out.innerHTML=rows.length?rivalHTML(rows,infoParse(t)):"<p>Ürünleri tanıyamadım. Aşağıdaki “Ürün tipine göre eşleştir” bölümünde her katın tipini seçin.</p>";bindRes(out);} else out.innerHTML=(e&&e.text?md(e.text):"")+(m?`<p class="note">${m}</p>`:"");}
   finally{$("#rv-stop").hidden=true;$("#rv-ask").disabled=false;rvCtl=null;}
