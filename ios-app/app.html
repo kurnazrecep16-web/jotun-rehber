@@ -1242,6 +1242,14 @@ body.sx-special #s-bar{display:none!important}
 .fp-b{display:flex;gap:8px}
 .fp-b .ho-sh{color:#0b1f45;border-color:#c5cfdd;display:inline-flex;align-items:center;text-decoration:none}
 .fp-n{margin:0;font-size:11.5px;color:#5d6b82}
+
+.fp-card{background:linear-gradient(160deg,#143a7c 0%,#0e2c62 55%,#0b2350 100%)!important;border:1px solid rgba(110,150,230,.4)!important}
+.fp-card .hm-t b{letter-spacing:.02em;font-weight:800}
+.fp-ic{width:56px;height:56px;border-radius:14px;display:grid;place-items:center;flex:none;background:linear-gradient(160deg,#1d4fa8,#123a80);border:1.5px solid #3d82ff;box-shadow:0 0 0 3px rgba(61,130,255,.12)}
+.fp-ic svg{width:28px;height:28px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.fp-chev{transition:transform .2s}
+#h-fp[open] .fp-chev{transform:rotate(90deg)}
+#h-fp[open]>summary{border-color:rgba(245,184,24,.55)!important}
 </style>
 
 <div id="app-bg" aria-hidden="true"></div>
@@ -1290,7 +1298,7 @@ body.sx-special #s-bar{display:none!important}
   </div>
   <div class="hx-p hm-opps role-s" id="h-opps" hidden></div>
   <div class="hx-p hm-news role-s" id="h-news" hidden></div>
-  <details class="hm-oppw role-b" id="h-fp"><summary class="hm-card"><span class="hm-ic hm-svg ho-sic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.5"/></svg></span><span class="hm-t"><b>Fırsat ürünü</b><span>Conseal Touch Up · Base 6</span></span><svg class="chev ho-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+  <details class="hm-oppw role-b" id="h-fp"><summary class="hm-card fp-card"><span class="hm-ic hm-svg fp-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.5"/></svg></span><span class="hm-t"><b>FIRSAT</b><span>Conseal Touch Up · Base 6</span></span><svg class="chev fp-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></summary>
   <div class="fp-c" id="h-fp-c"></div></details>
   <h3 class="hm-sec">Ne boyanacak?</h3>
   <div class="hm-cats"><button type="button" class="hm-tile" data-go="what:celik"><span class="ico ic-celik hm-ti"></span><span class="hm-tl">Çelik yapı</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:ekipman"><span class="ico ic-makine hm-ti"></span><span class="hm-tl">Makine</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:tankdis"><span class="ico ic-tankdis hm-ti"></span><span class="hm-tl">Tank dış</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:boru"><span class="ico ic-boru hm-ti"></span><span class="hm-tl">Boru dış</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:bakim"><span class="ico ic-bakim hm-ti"></span><span class="hm-tl">Paslı / bakım</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:tankic"><span class="ico ic-tankici hm-ti"></span><span class="hm-tl">Tank içi</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:sicak"><span class="ico ic-sicak hm-ti"></span><span class="hm-tl">Sıcak yüzey</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:zemin"><span class="ico ic-beton hm-ti"></span><span class="hm-tl">Beton zemin</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:tekne"><span class="ico ic-tekne hm-ti"></span><span class="hm-tl">Tekne</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:yangin"><span class="ico ic-yangin hm-ti"></span><span class="hm-tl">Yangın</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
