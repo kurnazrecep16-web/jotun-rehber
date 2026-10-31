@@ -856,6 +856,95 @@ form.sx details.adv{background:rgba(19,25,33,.85);border:1px solid rgba(255,255,
 }
 @media (min-width:701px){:root:not([data-theme="light"]) header .tab[aria-current="page"]{background:rgba(143,179,255,.12)}}
 @media (min-width:701px){:root:not([data-theme="light"]) header{background:rgba(0,0,0,.6)}}
+
+.hd .brand{display:grid!important;grid-template-columns:auto auto auto;column-gap:14px;row-gap:3px;align-items:center}
+.hd-tag{grid-column:1/-1;font:500 8.5px/1 var(--f-body);letter-spacing:.42em;color:rgba(255,255,255,.62);white-space:nowrap}
+@media (min-width:701px){.hd-tag{font-size:9.5px}}
+#v-sarfiyat .sf-main{gap:14px}
+#v-sarfiyat .sfd{background:linear-gradient(180deg,rgba(22,40,74,.78),rgba(12,26,52,.82));border:1px solid rgba(120,160,230,.18);border-radius:20px;padding:16px;box-shadow:0 10px 30px rgba(0,0,0,.3);gap:14px;--ink:#fff;--muted:rgba(214,224,240,.78)}
+.sf-hd{display:grid;grid-template-columns:40px 1fr;column-gap:12px;align-items:center}
+.sf-hd h3{margin:0;font:700 19px var(--f-body);color:#fff;letter-spacing:-.01em}
+.sf-hd p{grid-column:2;margin:2px 0 0;font-size:12.5px;line-height:1.3;color:rgba(214,224,240,.75)}
+@media (min-width:560px){.sf-hd{grid-template-columns:40px auto 1fr}.sf-hd p{grid-column:3;text-align:right;margin:0}}
+.sf-ic{grid-row:span 2;width:40px;height:40px;border-radius:11px;display:grid;place-items:center}
+@media (min-width:560px){.sf-ic{grid-row:auto}}
+.sf-ic svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.sf-ic.b{background:linear-gradient(135deg,#3b7bff,#1f4fd1)}.sf-ic.v{background:linear-gradient(135deg,#8b6cff,#5b3fd6)}.sf-ic.r{background:linear-gradient(135deg,#ff6a55,#e0352b)}
+#v-sarfiyat .sfd .sf-f{color:rgba(214,224,240,.85);font-size:13.5px}
+.sf-ii{display:flex;align-items:stretch;border:1px solid rgba(140,170,220,.25);border-radius:12px;background:rgba(5,14,32,.55);overflow:hidden;min-height:50px}
+.sf-ii>i{flex:none;width:48px;display:grid;place-items:center;background:rgba(255,255,255,.04);border-right:1px solid rgba(140,170,220,.18)}
+.sf-ii>i svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;color:#dfe7f5}
+#v-sarfiyat .sf-ii input,#v-sarfiyat .sf-ii select{flex:1;min-width:0;width:100%;height:auto;border:0!important;background:transparent!important;color:#fff;font:500 16px var(--f-body);padding:0 14px;border-radius:0;outline:0}
+#v-sarfiyat .sf-ii select option,#v-sarfiyat .sf-ii select optgroup{color:#0b1f45;background:#fff}
+#v-sarfiyat .sf-ii .sf-in{flex:1;display:flex}
+#v-sarfiyat .sf-g2{grid-template-columns:1fr;gap:12px}
+@media (min-width:560px){#v-sarfiyat .sf-g2{grid-template-columns:1.25fr 1fr}}
+.sf-arow{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center}
+.sf-lb{grid-column:1/-1;display:flex;align-items:center;gap:10px;font:500 14px var(--f-body);color:rgba(214,224,240,.9)}
+@media (min-width:560px){.sf-arow{grid-template-columns:auto 1fr auto}.sf-lb{grid-column:auto}}
+.sf-ic0{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;border:1px solid rgba(140,170,220,.22);background:rgba(255,255,255,.04)}
+.sf-ic0 svg{width:22px;height:22px;fill:none;stroke:#dfe7f5;stroke-width:1.7;stroke-linecap:round}
+#v-sarfiyat .sf-arow .sf-in input{height:52px;background:rgba(5,14,32,.55);border:1px solid rgba(140,170,220,.25);border-radius:12px;color:#fff;font:600 19px var(--f-body);padding:0 48px 0 16px}
+#v-sarfiyat .sf-in i{color:rgba(214,224,240,.8)}
+.sf-ab{height:52px;display:flex;align-items:center;gap:8px;padding:0 14px;border-radius:12px;border:1px solid rgba(110,160,255,.4);background:rgba(40,90,200,.25);color:#fff;font:600 14px/1.15 var(--f-body);cursor:pointer;text-align:left}
+.sf-ab svg{width:24px;height:24px;flex:none;fill:none;stroke:#fff;stroke-width:1.7;stroke-linecap:round}
+.sf-ab span{display:block;width:62px;white-space:normal}
+#v-sarfiyat .sf-area{background:rgba(5,14,32,.45);border-color:rgba(140,170,220,.25)}
+#v-sarfiyat .sf-area input{background:rgba(5,14,32,.55)!important;color:#fff;border-color:rgba(140,170,220,.25)!important}
+.sf-kp{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sf-k{display:flex;gap:8px;align-items:stretch;min-width:0}
+.sf-k>i{flex:none;width:44px;border-radius:12px;display:grid;place-items:center;border:1px solid rgba(140,170,220,.22);background:rgba(255,255,255,.04)}
+.sf-k>i svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.sf-k>div{flex:1;min-width:0;border:1px solid rgba(140,170,220,.22);border-radius:12px;background:rgba(5,14,32,.5);padding:7px 11px}
+.sf-k span{display:block;font-size:11.5px;color:rgba(214,224,240,.78);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sf-k b{display:flex;align-items:baseline;justify-content:space-between;gap:6px;font:700 18px var(--f-body);color:#fff;white-space:nowrap}
+.sf-k b small{font:500 12.5px var(--f-body);color:rgba(214,224,240,.8)}
+.sf-pr{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media (min-width:560px){.sf-pr{grid-template-columns:repeat(4,1fr)}}
+.sf-pr button{display:flex;align-items:center;gap:10px;padding:8px;border-radius:14px;border:1px solid rgba(140,170,220,.22);background:rgba(5,14,32,.5);color:#fff;font:600 15px/1.2 var(--f-body);text-align:left;cursor:pointer;min-width:0}
+.sf-pr button small{display:block;font:500 13px var(--f-body);color:rgba(214,224,240,.75)}
+.sf-pr button[aria-pressed="true"]{border:2px solid #3d82ff;padding:7px;background:rgba(40,90,200,.28);box-shadow:0 0 0 3px rgba(61,130,255,.15)}
+.tx{flex:none;width:42px;height:42px;border-radius:9px;background-size:cover;box-shadow:inset 0 0 0 1px rgba(255,255,255,.15)}
+.tx0{background-image:url(data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAwBQCdASpgAGAAPrVaqVAnJSOioOgA4BaJaQAAB9FCXVoyxKFBbx43bUC5X17Kg88yAAD+6kXuTcbumwg2KOVh4twVE8ZSWSCDFVwsGhbsn1MHqA3s7JgA)}.tx10{background-image:url(data:image/webp;base64,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)}.tx25{background-image:url(data:image/webp;base64,UklGRnYEAABXRUJQVlA4IGoEAACQGgCdASpgAGAAPp1EmUmlpCKhN/l9ULATiWkAFGP9k96PmtAHHcYJ6f/Jxcoxla77EULSlOgcv1pcEtPD2y9Lq+5f5uxT6I2tewz7qWuAB3KXv2mWvd2lte5GBuQeox+g5lZjP19LYx9Yob4oxkIWNDmaHB7/zqvC2dEV7lBSecd0Q/Gg85poxmrR3aaHollNlU72MHh7fhCYpU12Jo/EHcEAYyOZlD9yXhw9RAhu7RrX37LUaPb68kRYXOCRzta+4xfHwMJr559EH8+P+crPzn7ecOIHvRAj0RluQAD+6zVHvr6E7WHv4HxUd+dX0a1fXAQpAUczPooctlXbeooSKWbRlYjhOmR5qpncEB/RRU/M9kAUDq5agPxPSQ0DFm9HbBp1q1zORBmtHs8VnOds2AZwev9wYFkZLBMKSpT9T8I+YXka1acdKLMFo8i+TfkS6KLHMpcT7FxkeH8ekyW6Y0mpsd0lzU8n/iNBV3r7m12504d0l0abFVOB737two7ENcwfHzPN2kjbH8Oyykj7o6Agk0d+ZknWrtAuTfOZLM3YNIHFhga0yIy0TW0jVJFhCOET+0bRxcfFkW+j1yR4IkfZ9O1fhr5hTrYTQkCjCm24V6Tr4v6cJzYyI6OYdhGntvQpAk1bjLeEOmbQCGrFykX4zHCQCQecpVEG0ve085ss6ZsnIkmR4XbOwRavJT/mmgGN65DJHqryMPswa1vnPIyqblbLhqMolohx2olQfNHI4gNdmWKmNzIBVm9TuOhQ4VCzX0IBCIk9cWe2fxQQyUVx3XBjFYovWiRSP3chlw/B6p2TF0A2XmbvY3Zx6vaLcxT3eiB8fKKPW+KnnH0PqWyuCb4WN9OPppTcBX+MX6gjewnNl+xH6lVBMWWphvjoAcu2fhCfdDlE0Nrl6MyfMzNxI9lONEqlelZpEewmE9F/GPpS/pqhFMJzjRQvtDqyj6n2qSyEYqhxPTykMxfjZvMVFlzWnA8g8ZnUJfc54HtjFQ0W7ZeqwMOjHs7DfsUa41Ajn4Lx034b5ZaBEjAr/KqXYMVjkBnyw1KtFikgySxYWMbecU2OhVUWQuond4QqkuNJrLFFbzsNCzquY90wKqMWm/BzCq6V/HebD5SG6W0lnHJ6eqkU9KDFncFK6Ds0YZj92Ikk0wQ8RZ9IA4FLYH5PsozRHKoweUe9QBiqV5NhY7mcevhFHBT3ORJoCmBlxZwG1pJjdrrl/CZzOqXli2qsFK1PFK47kg3eh/sOGqpqvMgqOkd0/jees4KUF1FW0gn1Z6r05a7GVA99pN2dQ78YteO8c7mJbU2CrKcFhPR0FfPQQKYqDxd2Z7RtYmj8K/8PJBxm3ss1aU4Jb/4P4McIVmpxqzW2wo22MDxUZFxU2JnN4O0NUf2GuSmd4NZmAUUUgAwh7BgHHPBCPD8O3M1I7dwJBCNNu8gMylgkQMBONXNog+7VmkXonWmhYvRyhyS/X2SgqXLs7+Kyl/6WwWkXZG7/gGAAAA==)}.tx40{background-image:url(data:image/webp;base64,UklGRpoDAABXRUJQVlA4II4DAAAQHACdASpgAGAAPpVCmEmlpKKhO5hOYLASiWkAFGh92d9fl1DjqRY2qxA//y409n24xlz/kgIONjYPZAIGAtLl8HQLtOPkj8xHWZ1BBLyYeaWUFLDIsuqVBaeojlxMD08pJDCL/1fRyJZOrbru/nQ6lpyG0sKg0DjlolL80t6ITQLffv1AhLKGHKgJlfsR7NkB5buRKjmolToUVWY0ldf55H73nOCBMsrp7dOUaEhmt46u94GDR+3a8gHG17os+LeZ0XYBxkJR1RDAQx802gsUQ/X6FgnVqtRWe+RgubIq16FZZT/sh047gAD9vzYicO1mRmf0aSDsNNC+zSei5Km46JzQ/USw2jAM7MSCOyJ2ji/xxb6CINrXotHvgkM+A8ZYDrVQtsM9NfJXSUmFdXgKvlCtRAR/NFFF9r5FixMHMxnHfw7cFxDe2LrxQqxt4QnTWDGtU+7CGPCHwxNaLNeDRFmJ3e7a/47g/ezShgbtpLYAZzUPXzHYaibYev9RL0qMXyzRWpOAayNVWXEEHUBfctw+9sJMfsLrwcbSe1DM2jAzR3n19x18MPSWva5SbjBMZndfaoPHGPbiL4qhoRGlEDR9eAd3Cn0sAhlAWlrOr2iYmRTS8PFqob3+fE98PbtQ/bRgVXD/st6EjcbGHeOkG2rhYwTY1FtIG8wusJrKBa4J0g6azv9IPmbFpmNWwZvdjAdAxVBZ8xwpDA1ewjIBH/7BkWCQjxXFr2dpXJkalPal6XnR6V+sppejIQncl6p8h9zZ3Q23QmI2h/M2PeyVkPA0mreubNjGXzIagy3CzlGv0W9GSSegJNNf3mhmSZvE2brDjR1aqdQWVcBdeFHj3+6fyZ6ddvoV1Y18wg1l5kjun8ooEh56cBz/i5644KI46SHxuQiLGMRdvLCNWH+jztA41p0Qr6SxlZF8abbcg31nuPbGw757gSUe2a+eq0Cs6+nVhFPNeOaGGsTk049grjkwuojFex9MU4zts+b4piJGlBtdKyxAcK9NbvmWL3fo2a8pCbSJH9mUmci2KzNJsTzg0Pu0yZ6+OmH1xN33TRN6mpbPUVnqpAmOZ5Yoq6xAqvoVoiZoitAXCQGZZLwYSocbFK2/Bgb6P1gcCWn7+cEFC5C0u1Oe94U9peFmJibTD/npf2QWQUvnZoHnEd53PGWP/L3op6xI/Om5NTCwNcjPQqX7qjw+0/sBWbQA)}
+#v-sarfiyat .sf-chips{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+@media (min-width:480px){#v-sarfiyat .sf-chips{grid-template-columns:repeat(6,1fr)}}
+#v-sarfiyat .sf-chips button,#v-sarfiyat .sf-chips input{height:46px;border-radius:12px;border:1px solid rgba(140,170,220,.22);background:rgba(5,14,32,.5);color:#fff;font:700 15px var(--f-body);min-width:0;width:100%}
+#v-sarfiyat .sf-chips input::placeholder{color:#fff;opacity:1;font-weight:700}
+#v-sarfiyat .sf-chips button[aria-pressed="true"]{background:linear-gradient(180deg,#2f6bff,#1d4fd8);border-color:#2f6bff}
+.sf-coat{background:#f4f7fb;border-radius:22px;padding:16px;display:flex;flex-direction:column;gap:12px;color:#0b1f45;box-shadow:0 10px 30px rgba(0,0,0,.3);--ink:#0b1f45;--muted:#5d6b82}
+#sf-coats{display:flex;flex-direction:column;gap:14px}.sf-ch{display:flex;align-items:center;gap:12px}
+.sf-ch .n{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#1d4fd8;color:#fff;font:700 16px var(--f-body);flex:none}
+.sf-ch h3{margin:0;flex:1;font:700 19px var(--f-body);color:#0b1f45}
+#v-sarfiyat .sf-x{width:40px;height:40px;border-radius:11px;border:0;background:#fde4e4;display:grid;place-items:center;cursor:pointer;padding:0}
+.sf-x svg{width:20px;height:20px;fill:none;stroke:#e0352b;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+#v-sarfiyat .sf-coat .sf-g{display:grid;grid-template-columns:1fr;gap:10px}
+@media (min-width:560px){#v-sarfiyat .sf-coat .sf-g{grid-template-columns:1.3fr 1fr}}
+#v-sarfiyat .sf-coat .sf-f{color:#3d4b63;font-size:13.5px;font-weight:600}
+#v-sarfiyat .sf-coat .sf-ii{background:#fff;border-color:#dbe2ec}
+#v-sarfiyat .sf-coat .sf-ii>i{background:#f4f7fb;border-color:#dbe2ec}
+#v-sarfiyat .sf-coat .sf-ii>i svg{color:#4b5b74}
+#v-sarfiyat .sf-coat .sf-ii input,#v-sarfiyat .sf-coat .sf-ii select{color:#0b1f45;font-size:16px}
+#v-sarfiyat .sf-coat .sf-in{position:relative}
+#v-sarfiyat .sf-coat .sf-in input{padding-right:46px}
+#v-sarfiyat .sf-coat .sf-in i{color:#4b5b74}
+#v-sarfiyat .sf-coat .spec-chip span{background:#e6edf7;color:#24406e}
+#v-sarfiyat .sf-res{background:#dbe2ec;border-color:#dbe2ec}
+#v-sarfiyat .sf-res>div{background:#fff}
+#v-sarfiyat .sf-res span{color:#5d6b82}#v-sarfiyat .sf-res b{color:#0b1f45}#v-sarfiyat .sf-res .hl b{color:#1d4fd8}
+#v-sarfiyat .sf-res>.sf-empty{grid-column:1/-1;display:flex;flex-direction:row;align-items:center;gap:12px;padding:12px 14px;color:#5d6b82;font-size:14px;margin:0}
+.sf-empty svg{width:22px;height:22px;flex:none;fill:none;stroke:#4b5b74;stroke-width:1.6;stroke-linecap:round}
+#v-sarfiyat .sf-empty span{font-size:14px;color:#5d6b82;white-space:normal;overflow:visible}
+#v-sarfiyat .sf-add{align-self:stretch;height:54px;border-radius:16px;border:1.5px dashed rgba(170,195,240,.45);background:rgba(5,14,32,.35);color:#fff;font:700 16px var(--f-body);display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer}
+.sf-add svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round}
+#v-sarfiyat .sf-sum{background:none;box-shadow:none;padding:0;gap:12px}
+.sf-ml{background:linear-gradient(180deg,rgba(22,40,74,.78),rgba(12,26,52,.82));border:1px solid rgba(120,160,230,.18);border-radius:18px;padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.sf-ml h3{margin:0;font:600 12.5px var(--f-body);letter-spacing:.06em;text-transform:uppercase;color:rgba(214,224,240,.75)}
+.sf-pdfb{height:56px;border:0;border-radius:16px;background:linear-gradient(180deg,#f7b733,#efa21a);color:#0b1f45;font:700 17px var(--f-body);display:flex;align-items:center;justify-content:center;gap:10px;cursor:pointer;width:100%}
+.sf-pdfb svg,.sf-ob svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.sf-2b{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sf-ob{height:54px;border-radius:16px;border:1px solid rgba(140,170,220,.35);background:rgba(5,14,32,.45);color:#fff;font:700 16px var(--f-body);display:flex;align-items:center;justify-content:center;gap:10px;cursor:pointer}
+#v-sarfiyat .sf-clr{color:rgba(214,224,240,.7);align-self:center;font-size:13.5px}
+@media (max-width:700px){body[data-view="sarfiyat"] #sf-bar{display:none!important}body[data-view="sarfiyat"]{padding-bottom:calc(24px + env(safe-area-inset-bottom,0px))!important}#v-sarfiyat .sf-res{grid-template-columns:repeat(2,1fr)}}
 </style>
 
 <div id="app-bg" aria-hidden="true"></div>
@@ -878,7 +967,7 @@ form.sx details.adv{background:rgba(19,25,33,.85);border:1px solid rgba(255,255,
 </div>
 <div class="wrap">
 <header class="hd">
-  <a href="#ana" class="brand" aria-label="Jotun Endüstri ana sayfa"><span class="ico ic-logo hd-logo" role="img" aria-label="JOTUN"></span><span class="hd-sep"></span><span class="hd-t">Endüstri</span></a>
+  <a href="#ana" class="brand" aria-label="Jotun Endüstri ana sayfa"><span class="ico ic-logo hd-logo" role="img" aria-label="JOTUN"></span><span class="hd-sep"></span><span class="hd-t">Endüstri</span><span class="hd-tag">PROTECTS PROPERTY</span></a>
   <nav class="tabs" aria-label="Bölümler">
   <a href="#ana" id="t-ana" class="tab" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg><span>Ana Sayfa</span></a>
   <a href="#sistem" id="t-sistem" class="tab"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg><span class="lg">Sistem &amp; Teklif</span><span class="sm">Sistem</span></a>
@@ -1042,13 +1131,16 @@ form.sx details.adv{background:rgba(19,25,33,.85);border:1px solid rgba(255,255,
 <section id="v-sarfiyat" hidden>
   <div class="sf">
     <div class="sf-main">
-      <div class="sf-card">
-        <h3 class="sf-h">Proje</h3>
-        <div class="sf-g2"><label class="sf-f"><span>Proje / firma</span><input type="text" id="sf-proj" placeholder="Örn. ABC Çelik – depo"></label>
-        <label class="sf-f"><span>Hazırlayan</span><input type="text" id="sf-who" placeholder="Ad Soyad"></label></div>
-        <div class="sf-row">
-          <label class="sf-f"><span>Boyanacak alan</span><span class="sf-in"><input type="number" inputmode="decimal" min="0" id="sf-area" placeholder="0"><i>m²</i></span></label>
-          <button type="button" class="btn ghost sf-ab" id="sf-areab">Alanı hesapla</button>
+      <div class="sf-card sfd">
+        <div class="sf-hd"><span class="sf-ic b"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><h3>Proje Bilgileri</h3><p>Hesaplamak istediğiniz proje detaylarını girin.</p></div>
+        <div class="sf-g2">
+          <label class="sf-f"><span>Proje / Firma</span><span class="sf-ii"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V5l8-2v18M12 21V9l8 2v10M3 21h18M7 8h2M7 12h2M7 16h2M15 14h2M15 17h2"/></svg></i><input type="text" id="sf-proj" placeholder="Örn. ABC Çelik – depo"></span></label>
+          <label class="sf-f"><span>Hazırlayan</span><span class="sf-ii"><i><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4.5 4.5-6.5 8-6.5s7 2 8 6.5"/></svg></i><input type="text" id="sf-who" placeholder="Ad Soyad"></span></label>
+        </div>
+        <div class="sf-arow">
+          <span class="sf-lb"><i class="sf-ic0"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8V4h4M16 4h4v4M20 16v4h-4M8 20H4v-4" /><path d="M10 4h4M10 20h4M4 10v4M20 10v4" stroke-dasharray="2 2"/></svg></i>Boyanacak Alan</span>
+          <span class="sf-in"><input type="number" inputmode="decimal" min="0" id="sf-area" placeholder="0"><i>m²</i></span>
+          <button type="button" class="sf-ab" id="sf-areab"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h1M11.5 11h1M15 11h1M8 14.5h1M11.5 14.5h1M15 14.5h1M8 18h1M11.5 18h1M15 18h1"/></svg><span>Alanı hesapla</span></button>
         </div>
         <div class="sf-area" id="sf-areaw" hidden>
           <div class="sf-tabs" id="sf-at"><button type="button" data-a="boru" aria-pressed="true">Boru</button><button type="button" data-a="tank" aria-pressed="false">Tank</button><button type="button" data-a="ton" aria-pressed="false">Çelik (ton)</button></div>
@@ -1057,11 +1149,16 @@ form.sx details.adv{background:rgba(19,25,33,.85);border:1px solid rgba(255,255,
           <div class="sf-ag" data-a="ton" hidden><label class="sf-f"><span>Çelik miktarı</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-tn" placeholder="0"><i>ton</i></span></label><label class="sf-f"><span>Ton başına yüzey</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-tf" placeholder="0"><i>m²/t</i></span></label><p class="hint sf-tip">Ton başına yüzey profile göre değişir; proje çiziminden veya profil tablosundan alın.</p></div>
           <div class="sf-ares"><span id="sf-ar">—</span><span class="sf-abtns"><button type="button" class="btn" id="sf-aadd">Alana ekle</button><button type="button" class="btn primary" id="sf-aset">Alan olarak kullan</button></span></div>
         </div>
-        <div class="sf-f"><span>Fire (kayıp)</span><div class="sf-chips" id="sf-loss"></div></div>
-        <div class="sf-f"><span>Yüzey pürüzlülüğü <small>(ISO 8503 · ilk kata eklenir)</small></span><div class="sf-chips" id="sf-prof"></div></div>
+        <div class="sf-kp" id="sf-kp"></div>
+      </div>
+      <div class="sf-card sfd">
+        <div class="sf-hd"><span class="sf-ic v"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4l6 6-7 7-6-6z"/><path d="M7 11l-3 3c-1 1-1 3 0 4s3 1 4 0l3-3"/></svg></span><h3>Yüzey Hazırlığı</h3><p>ISO 8503'e göre yüzey pürüzlülüğünü seçin.</p></div>
+        <div class="sf-pr" id="sf-prof"></div>
+        <div class="sf-hd"><span class="sf-ic r"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21c-4 0-6.5-2.6-6.5-6.2 0-3.4 2.6-5.3 3.6-8.3 1.6 1.3 2.4 2.8 2.6 4.4 1-1 1.6-2.4 1.6-4.4 3 2 5.2 5.2 5.2 8.3 0 3.6-2.5 6.2-6.5 6.2z"/></svg></span><h3>Fire (Kayıp)</h3><p>Uygulama sırasında oluşacak fire oranını seçin.</p></div>
+        <div class="sf-chips" id="sf-loss"></div>
       </div>
       <div id="sf-coats"></div>
-      <button type="button" class="btn sf-add" id="sf-add">＋ Kat ekle</button>
+      <button type="button" class="sf-add" id="sf-add"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Kat ekle</button>
     </div>
     <aside class="sf-sum" id="sf-sum"></aside>
     <article class="q-doc" id="sf-doc"></article>
@@ -2454,15 +2551,15 @@ $("#role-chg").addEventListener("click",()=>roleGate(true));
 
 /* ---------- Sarfiyat hesabı ---------- */
 const SF_LOSS=[0,10,20,30,40], SF_PROF=[[0,"Yok",""],[10,"İnce","10 µm"],[25,"Orta","25 µm"],[40,"Kaba","40 µm"]];
+const SFI={"doc": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"5\" y=\"3\" width=\"14\" height=\"18\" rx=\"2\"/><path d=\"M9 8h6M9 12h6M9 16h3\"/></svg>", "bld": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 21V5l8-2v18M12 21V9l8 2v10M3 21h18M7 8h2M7 12h2M7 16h2M15 14h2M15 17h2\"/></svg>", "usr": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"8\" r=\"4\"/><path d=\"M4 21c1-4.5 4.5-6.5 8-6.5s7 2 8 6.5\"/></svg>", "area": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 8V4h4M16 4h4v4M20 16v4h-4M8 20H4v-4\" /><path d=\"M10 4h4M10 20h4M4 10v4M20 10v4\" stroke-dasharray=\"2 2\"/></svg>", "calc": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"5\" y=\"3\" width=\"14\" height=\"18\" rx=\"2\"/><path d=\"M8 7h8M8 11h1M11.5 11h1M15 11h1M8 14.5h1M11.5 14.5h1M15 14.5h1M8 18h1M11.5 18h1M15 18h1\"/></svg>", "can": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><ellipse cx=\"12\" cy=\"5.5\" rx=\"7\" ry=\"2.5\"/><path d=\"M5 5.5v13c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-13\"/><path d=\"M9 12h6\"/></svg>", "lay": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 3l9 5-9 5-9-5z\"/><path d=\"M3 12l9 5 9-5\"/><path d=\"M3 16l9 5 9-5\"/></svg>", "kg": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M6 9h12l2 11H4z\"/><circle cx=\"12\" cy=\"6\" r=\"2.5\"/></svg>", "pen": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 20h16\"/><path d=\"M14.5 4.5l4 4L9 18H5v-4z\"/></svg>", "brush": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M14 4l6 6-7 7-6-6z\"/><path d=\"M7 11l-3 3c-1 1-1 3 0 4s3 1 4 0l3-3\"/></svg>", "fire": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 21c-4 0-6.5-2.6-6.5-6.2 0-3.4 2.6-5.3 3.6-8.3 1.6 1.3 2.4 2.8 2.6 4.4 1-1 1.6-2.4 1.6-4.4 3 2 5.2 5.2 5.2 8.3 0 3.6-2.5 6.2-6.5 6.2z\"/></svg>", "trash": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3\"/></svg>", "rul": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"2.5\" y=\"8.5\" width=\"19\" height=\"7\" rx=\"1.5\" transform=\"rotate(-45 12 12)\"/><path d=\"M9 9l1.5 1.5M11.5 6.5l1.5 1.5M6.5 11.5L8 13M14 4l1.5 1.5\"/></svg>", "pdf": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M14 3H6v18h12V7z\"/><path d=\"M14 3v4h4M9 13h6M9 17h4\"/></svg>", "wa": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 20l1.3-4A8 8 0 1 1 8 18.7z\"/><path d=\"M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8a4 4 0 0 1-1.8-1.8l.8-1-1-2z\"/></svg>", "cp": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"8\" y=\"8\" width=\"12\" height=\"12\" rx=\"2\"/><path d=\"M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3\"/></svg>", "plus": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 5v14M5 12h14\"/></svg>"};
 let SF=load("sf",null)||{area:"",loss:20,prof:0,coats:[{name:"",dft:""}]};
 const sfSave=()=>store("sf",SF);
 const sfOpts=sel=>`<option value="">Ürün seçin</option>`+Object.keys(CATS).map(c=>{const it=CATALOG.filter(p=>p.cat===c&&c!=="MCI Tinter"&&!/Thinner/i.test(p.name)&&!isKg(p.name)&&p.vs&&p.vs[0]);return it.length?`<optgroup label="${esc(CATS[c][0])}">${it.map(p=>`<option${p.name===sel?" selected":""}>${esc(p.name)}</option>`).join("")}</optgroup>`:""}).join("");
 function sfCoat(c,i){
-  const n=c.name?calcCoat(c,i):null;
-  return `<div class="sf-card sf-coat" data-i="${i}">
-   <h3 class="sf-h"><span><span class="n">${i+1}</span>${i===0?"Astar / 1. kat":i+1+". kat"}</span>${SF.coats.length>1?`<button type="button" class="sf-x" data-rm="${i}" aria-label="Katı sil">×</button>`:""}</h3>
-   <div class="sf-g"><label class="sf-f"><span>Ürün</span><select data-k="name" data-i="${i}">${sfOpts(c.name)}</select></label>
-   <label class="sf-f"><span>Kuru film (KFK)</span><span class="sf-in"><input type="number" inputmode="decimal" min="0" step="5" data-k="dft" data-i="${i}" value="${esc(c.dft||"")}" placeholder="0"><i>µm</i></span></label></div>
+  return `<div class="sf-coat" data-i="${i}">
+   <div class="sf-ch"><span class="n">${i+1}</span><h3>${i===0?"Astar / 1. kat":i+1+". kat"}</h3><button type="button" class="sf-x" data-rm="${i}" aria-label="Katı sil">${SFI.trash}</button></div>
+   <div class="sf-g"><label class="sf-f"><span>Ürün</span><span class="sf-ii"><i>${SFI.can}</i><select data-k="name" data-i="${i}">${sfOpts(c.name)}</select></span></label>
+   <label class="sf-f"><span>Kuru film kalınlığı (KFK)</span><span class="sf-ii"><i>${SFI.lay}</i><span class="sf-in"><input type="number" inputmode="decimal" min="0" step="5" data-k="dft" data-i="${i}" value="${esc(c.dft||"")}" placeholder="0"><i>µm</i></span></span></label></div>
    ${c.name?specChip({name:c.name}):""}
    <div class="sf-res" id="sf-r-${i}">${sfResHTML(c,i)}</div></div>`;
 }
@@ -2479,7 +2576,7 @@ function calcCoat(c,i){
 }
 function sfResHTML(c,i){
   const r=c.name?calcCoat(c,i):null; const v=(x,d,u)=>x!=null&&isFinite(x)?`${fmt(x,d)}${u?" "+u:""}`:"—";
-  if(!c.name) return `<div style="grid-column:1/-1"><p class="sf-empty">Ürün ve kuru film kalınlığını girin.</p></div>`;
+  if(!c.name||!(num(c.dft)>0)) return `<div class="sf-empty">${SFI.rul}<span>Ürün ve kuru film kalınlığını girin.</span></div>`;
   return `<div><span>Islak film</span><b>${v(r.wft,0,"µm")}</b></div><div><span>Teorik yayılma</span><b>${v(r.th,1,"m²/L")}</b></div><div><span>Pratik yayılma</span><b>${v(r.pt,1,"m²/L")}</b></div>
    <div class="hl"><span>Gerekli boya</span><b>${r.need?fmt(Math.ceil(r.need),0)+" L":"—"}</b></div><div><span>Ambalaj</span><b>${r.qty?`${r.qty} × ${fmt(r.pk,r.pk%1?2:0)} L`:"—"}</b></div><div><span>Ağırlık</span><b>${r.kg?fmt(r.kg,0)+" kg":"—"}</b></div>`;
 }
@@ -2524,13 +2621,13 @@ function sfDoc(){
   return proj;
 }
 function sfSum(){
-  const t=sfTotals();
-  $("#sf-sum").innerHTML=`<h3>Özet</h3>
-   <div class="sf-kpi"><div><span>Toplam boya</span><b>${t.L?fmt(Math.ceil(t.L),0)+" L":"—"}</b></div><div><span>Toplam KFK</span><b>${t.dft?fmt(t.dft,0)+" µm":"—"}</b></div>
-   <div><span>Ağırlık</span><b>${t.kg?(t.kgOk?"":"≥ ")+fmt(t.kg,0)+" kg":"—"}</b></div><div><span>m² başına</span><b>${t.lpm?fmt(t.lpm,3)+" L":"—"}</b></div></div>
-   ${t.rows.length?`<h3>Malzeme listesi</h3><div class="sf-list">${sfMat().map(m=>`<div><span>${esc(m.n)}${m.th?' <small style="opacity:.7">(≈ %15)</small>':""}</span><span>${m.q?`${m.q} × ${fmt(m.pk,m.pk%1?2:0)} L`:fmt(Math.ceil(m.need),0)+" L"}</span></div>`).join("")}</div>`:`<p class="hint">Alan, ürün ve kalınlık girildikçe sonuç burada görünür.</p>`}
-   <div class="q-actions">${pdfReady()?`<button type="button" class="btn primary" id="sf-pdf">PDF indir</button>`:""}<button type="button" class="btn ghost" id="sf-wa">WhatsApp</button><button type="button" class="btn ghost" id="sf-copy">Kopyala</button></div>
-   <button type="button" class="linkbtn" id="sf-clr" style="color:rgba(255,255,255,.7);align-self:flex-start">Temizle</button>`;
+  const t=sfTotals(); const box=(ic,k,v,u)=>`<div class="sf-k"><i>${SFI[ic]}</i><div><span>${k}</span><b>${v}<small>${u}</small></b></div></div>`;
+  $("#sf-kp").innerHTML=box("can","Toplam Boya",t.L?fmt(Math.ceil(t.L),0):"—","L")+box("lay","Toplam KFK",t.dft?fmt(t.dft,0):"—","µm")
+   +box("kg","Ağırlık",t.kg?(t.kgOk?"":"≥ ")+fmt(t.kg,0):"—","kg")+box("pen","m² Başına",t.lpm?fmt(t.lpm,3):"—","L/m²");
+  $("#sf-sum").innerHTML=`${t.rows.length?`<div class="sf-ml"><h3>Malzeme listesi</h3><div class="sf-list">${sfMat().map(m=>`<div><span>${esc(m.n)}${m.th?' <small style="opacity:.7">(≈ %15)</small>':""}</span><span>${m.q?`${m.q} × ${fmt(m.pk,m.pk%1?2:0)} L`:fmt(Math.ceil(m.need),0)+" L"}</span></div>`).join("")}</div></div>`:""}
+   ${pdfReady()?`<button type="button" class="sf-pdfb" id="sf-pdf">${SFI.pdf}PDF İndir</button>`:""}
+   <div class="sf-2b"><button type="button" class="sf-ob" id="sf-wa">${SFI.wa}WhatsApp</button><button type="button" class="sf-ob" id="sf-copy">${SFI.cp}Kopyala</button></div>
+   <button type="button" class="linkbtn sf-clr" id="sf-clr">Temizle</button>`;
   $("#sf-wa").onclick=()=>window.open("https://wa.me/?text="+encodeURIComponent(sfText()),"_blank");
   const pb=$("#sf-pdf"); if(pb) pb.onclick=()=>sfPdf(pb);
   $("#sf-copy").onclick=()=>{try{navigator.clipboard.writeText(sfText());toast("Kopyalandı");}catch(e){}};
@@ -2554,7 +2651,7 @@ function sfText(){
 function sfChips(){
   const lv=num(SF.loss);
   $("#sf-loss").innerHTML=SF_LOSS.map(x=>`<button type="button" data-loss="${x}" aria-pressed="${x===lv}">%${x}</button>`).join("")+`<input type="number" inputmode="decimal" min="0" max="80" id="sf-lossc" placeholder="Diğer" value="${SF_LOSS.includes(lv)?"":lv}" aria-label="Fire yüzdesi">`;
-  $("#sf-prof").innerHTML=SF_PROF.map(([v,a,b])=>`<button type="button" data-prof="${v}" aria-pressed="${v===num(SF.prof)}">${a}${b?`<small>${b}</small>`:""}</button>`).join("");
+  $("#sf-prof").innerHTML=SF_PROF.map(([v,a,b])=>`<button type="button" data-prof="${v}" aria-pressed="${v===num(SF.prof)}"><i class="tx tx${v}"></i><span>${a}${b?`<small>${b}</small>`:""}</span></button>`).join("");
 }
 function sfUpd(){ SF.coats.forEach((c,i)=>{const el=$("#sf-r-"+i); if(el) el.innerHTML=sfResHTML(c,i);}); sfSum(); sfSave(); }
 function sfRender(){
@@ -2574,7 +2671,7 @@ $("#sf-loss").addEventListener("input",e=>{if(e.target.id!=="sf-lossc")return;SF
 $("#sf-prof").addEventListener("click",e=>{const b=e.target.closest("[data-prof]");if(!b)return;SF.prof=+b.dataset.prof;sfChips();sfUpd();});
 $("#sf-coats").addEventListener("input",e=>{const t=e.target,k=t.dataset.k;if(!k)return;const i=+t.dataset.i;SF.coats[i][k]=t.value;SF.sys=null;if(k==="name"){sfRender();return;}sfUpd();});
 $("#sf-coats").addEventListener("change",e=>{const t=e.target;if(t.tagName==="SELECT"&&t.dataset.k){SF.coats[+t.dataset.i].name=t.value;sfRender();}});
-$("#sf-coats").addEventListener("click",e=>{const b=e.target.closest("[data-rm]");if(!b)return;SF.coats.splice(+b.dataset.rm,1);sfRender();});
+$("#sf-coats").addEventListener("click",e=>{const b=e.target.closest("[data-rm]");if(!b)return;if(SF.coats.length>1)SF.coats.splice(+b.dataset.rm,1);else SF.coats=[{name:"",dft:""}];SF.sys=null;sfRender();});
 $("#sf-add").addEventListener("click",()=>{SF.coats.push({name:"",dft:""});sfRender();const s=$("#sf-coats").lastElementChild.querySelector("select");if(s)s.focus();});
 /* Alan yardımcısı */
 let SFA="boru";
