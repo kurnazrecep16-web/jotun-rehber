@@ -1288,6 +1288,17 @@ body:not([data-role="s"]) .hm-top .ic-sistem{background:rgba(255,255,255,.06) ur
 .mg-m{margin:0;font-size:12.5px;color:rgba(214,224,240,.62)}
 .mg-sub{margin:8px 2px 0;font:600 12.5px var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 .hm-opps>.mg-h,.hm-opps>.mg-sub{grid-column:1/-1}
+
+#pdfv{position:fixed;inset:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:#0b1320;color:#fff;z-index:200}
+#pdfv::backdrop{background:#0b1320}
+.pv-bar{position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:10px;justify-content:space-between;padding:calc(10px + env(safe-area-inset-top,0px)) 12px 10px;background:rgba(11,19,32,.95);border-bottom:1px solid rgba(255,255,255,.1)}
+.pv-bar b{font-size:15px;flex:1;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pv-x,.pv-sh{height:38px;padding:0 14px;border-radius:10px;border:1px solid rgba(255,255,255,.25);background:transparent;color:#fff;font:600 15px var(--f-body);cursor:pointer}
+.pv-x{background:#f0ab00;color:#0b1f45;border-color:#f0ab00}
+.pv-body{display:flex;flex-direction:column;align-items:center;gap:8px;padding:8px 8px calc(24px + env(safe-area-inset-bottom,0px));overflow:auto;height:calc(100% - 60px)}
+.pv-body canvas{background:#fff;border-radius:4px;box-shadow:0 4px 16px rgba(0,0,0,.4)}
+.pv-wait{color:rgba(214,224,240,.8);margin:40px 0 12px}
+button.mg-pdf{border:0;cursor:pointer}
 </style>
 
 <div id="app-bg" aria-hidden="true"></div>
@@ -2929,6 +2940,31 @@ $("#sx-what").addEventListener("click",e=>{const b=e.target.closest("[data-sxw]"
   if(w.classList.contains("sx-col")&&b.classList.contains("sel")){w.classList.remove("sx-col");return;}
   sxWhat(b.dataset.sxw); setTimeout(()=>w.scrollIntoView({behavior:"smooth",block:"start"}),50);});
 sxWhat("celik");
+/* Uygulama içi PDF görüntüleyici (uygulamadan çıkmadan) */
+async function pdfView(url,title){
+  let d=$("#pdfv"); if(!d){d=document.createElement("dialog");d.id="pdfv";document.body.appendChild(d);}
+  d.innerHTML=`<div class="pv-bar"><button type="button" class="pv-x" data-pvx>‹ Geri</button><b>${esc(title||"PDF")}</b><button type="button" class="pv-sh" data-pvs>Paylaş</button></div><div class="pv-body"><p class="pv-wait">Yükleniyor…</p></div>`;
+  try{d.showModal()}catch(e){d.setAttribute("open","")}
+  try{history.pushState({pv:1},"",location.href)}catch(e){}
+  d.querySelector("[data-pvx]").onclick=()=>{ if(history.state&&history.state.pv) history.back(); else pvClose(); };
+  d.oncancel=e=>{e.preventDefault(); d.querySelector("[data-pvx]").click();};
+  let blob=null;
+  d.querySelector("[data-pvs]").onclick=async()=>{try{ if(!blob){const r=await fetch(url);blob=await r.blob();} const f=new File([blob],url.split("/").pop(),{type:"application/pdf"});
+    if(navigator.canShare&&navigator.canShare({files:[f]})) await navigator.share({files:[f],title:title}); else window.open(url,"_blank","noopener"); }catch(e){window.open(url,"_blank","noopener");}};
+  const body=d.querySelector(".pv-body");
+  try{
+    if(!pdfLib){ await loadScript(PDFJS+"pdf.min.js"); pdfLib=window.pdfjsLib; pdfLib.GlobalWorkerOptions.workerSrc=PDFJS+"pdf.worker.min.js"; }
+    const r=await fetch(url,{cache:"no-store"}); if(!r.ok) throw 0; blob=await r.blob();
+    const doc=await pdfLib.getDocument({data:new Uint8Array(await blob.arrayBuffer())}).promise; body.innerHTML="";
+    const W=Math.min(body.clientWidth||window.innerWidth,900)-16, dpr=Math.min(window.devicePixelRatio||1,2);
+    for(let i=1;i<=doc.numPages;i++){const pg=await doc.getPage(i); const v0=pg.getViewport({scale:1}); const sc=W/v0.width; const vp=pg.getViewport({scale:sc*dpr});
+      const cv=document.createElement("canvas"); cv.width=vp.width; cv.height=vp.height; cv.style.width=(vp.width/dpr)+"px"; cv.style.height=(vp.height/dpr)+"px"; body.appendChild(cv);
+      await pg.render({canvasContext:cv.getContext("2d"),viewport:vp}).promise;}
+  }catch(e){ body.innerHTML=`<p class="pv-wait">PDF burada açılamadı.</p><a class="ho-go" href="${esc(url)}" target="_blank" rel="noopener">Tarayıcıda aç</a>`; }
+}
+function pvClose(){const d=$("#pdfv");if(d&&d.open){try{d.close()}catch(e){d.removeAttribute("open")}}}
+window.addEventListener("popstate",pvClose);
+document.addEventListener("click",e=>{const b=e.target.closest("[data-pdfv]");if(!b)return;e.preventDefault();pdfView(b.dataset.pdfv,"Yatırımlar Dergisi özeti");});
 /* TDS: dokununca doğrudan PDF indir */
 async function tdsGet(n,el){
   const j=JT[n]||{}, u=j.tds; if(!u) return false;
@@ -2961,7 +2997,8 @@ function homeFeed(){
   const P=(HOME.projects||[]).filter(fresh).slice(0,6), N=(HOME.news||[]).filter(fresh).sort((a,b)=>(b.date||"").localeCompare(a.date||"")).slice(0,6);
 
   const MG=HOME.magazine, CC={A:"#1E8E5A",B:"#C98A00",C:"#7A869C"};
-  const magHTML=MG&&MG.items&&MG.items.length?`<div class="mg-h"><div><b>Sayı ${esc(MG.issue)} · ${trDate(MG.date)}</b><span>Bölgedeki ilk ${MG.items.length} iş · puan ve öneri</span></div>${MG.pdf?`<a class="ho-go mg-pdf" href="${esc(MG.pdf)}" target="_blank" rel="noopener">Özet PDF</a>`:""}</div>`+MG.items.map((o,i)=>`<article class="hm-opp"><div class="ho-top"><span class="mg-rk">${i+1}</span><div class="ho-h"><span class="ho-pl">${esc(o.place)}</span><b>${esc(o.t)}</b></div><span class="mg-sc" style="border-color:${CC[o.cls]};color:${CC[o.cls]}">${o.score}<small>${o.cls}</small></span></div>
+  const MGI=MG&&MG.items?MG.items.slice(0,5):[];
+  const magHTML=MGI.length?`<div class="mg-h"><div><b>Sayı ${esc(MG.issue)} · ${trDate(MG.date)}</b><span>En önemli 5 iş · tüm liste PDF’te</span></div>${MG.pdf?`<button type="button" class="ho-go mg-pdf" data-pdfv="${esc(MG.pdf)}">Özet PDF</button>`:""}</div>`+MGI.map((o,i)=>`<article class="hm-opp"><div class="ho-top"><span class="mg-rk">${i+1}</span><div class="ho-h"><span class="ho-pl">${esc(o.place)}</span><b>${esc(o.t)}</b></div><span class="mg-sc" style="border-color:${CC[o.cls]};color:${CC[o.cls]}">${o.score}<small>${o.cls}</small></span></div>
     <p class="mg-m">${esc(o.stage)}${o.budget&&!/belirtilmemi/.test(o.budget)?" · "+esc(o.budget):""}</p><p class="ho-w">${esc(o.what)}</p><p class="ho-f"><b>Boya fırsatı:</b> ${esc(o.why)}</p><p class="ho-f"><b>Önerilen:</b> ${esc(o.sys)}</p><p class="mg-m">${esc(o.who)}</p>
     <div class="ho-b"><button type="button" class="ho-go" data-go="what:${esc(o.cat||"celik")}">Sistem öner</button><button type="button" class="ho-sh" data-mg="${i}">${isSor()?"Bayiye ilet":"Paylaş"}</button></div></article>`).join(""):"";
   $("#h-opps").innerHTML=magHTML+(magHTML&&P.length?`<h4 class="mg-sub">Günlük fırsatlar</h4>`:"")+(P.length?P.map((o,i)=>`<article class="hm-opp"><div class="ho-top"><span class="ico ic-${CAT_IMG[o.cat]||"celik"} ho-ic"></span><div class="ho-h"><span class="ho-pl">${esc(o.place)}</span><b>${esc(o.t)}</b></div></div>
