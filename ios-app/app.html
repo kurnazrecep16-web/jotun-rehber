@@ -3224,7 +3224,7 @@ $("#sf-prof").addEventListener("click",e=>{const b=e.target.closest("[data-prof]
 $("#sf-coats").addEventListener("input",e=>{const t=e.target,k=t.dataset.k;if(!k)return;const i=+t.dataset.i;SF.coats[i][k]=t.value;SF.sys=null;if(k==="name"){sfRender();return;}sfUpd();});
 $("#sf-coats").addEventListener("change",e=>{const t=e.target;if(t.tagName==="SELECT"&&t.dataset.k){SF.coats[+t.dataset.i].name=t.value;sfRender();}});
 $("#sf-coats").addEventListener("click",e=>{const b=e.target.closest("[data-rm]");if(!b)return;if(SF.coats.length>1)SF.coats.splice(+b.dataset.rm,1);else SF.coats=[{name:"",dft:""}];SF.sys=null;sfRender();});
-$("#sf-add").addEventListener("click",()=>{SF.coats.push({name:"",dft:""});sfRender();const s=$("#sf-coats").lastElementChild.querySelector("select");if(s)s.focus();});
+$("#sf-add").addEventListener("click",()=>{SF.coats.push({name:"",dft:""});sfRender();const c=$("#sf-coats").lastElementChild;if(c)c.scrollIntoView({behavior:"smooth",block:"center"});});
 /* Alan yardımcısı */
 let SFA="boru";
 function sfArea(){
