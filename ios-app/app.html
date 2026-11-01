@@ -2934,7 +2934,7 @@ async function tdsGet(n,el){
   finally{ if(el) el.style.opacity=""; }
   return true;
 }
-document.addEventListener("click",e=>{const a=e.target.closest("a[data-tds]");if(!a)return;const n=a.dataset.tds;if(!(JT[n]&&JT[n].tds))return;e.preventDefault();tdsGet(n,a);});
+/* TDS bağlantıları doğrudan PDF'e gider (yeni sekmede açılır, oradan indirilir) */
 /* Logo altı yazıyı logo genişliğine yay */
 function fitTag(){document.querySelectorAll(".hd .brand").forEach(br=>{const t=br.querySelector(".hd-tag"),l=br.querySelector(".hd-logo");if(!t||!l)return;
   t.style.setProperty("letter-spacing","0px","important");t.style.setProperty("margin-right","0px","important");const n=t.textContent.length,w=l.getBoundingClientRect().width,b=t.getBoundingClientRect().width;
