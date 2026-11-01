@@ -2964,7 +2964,8 @@ let HOME=load("home-data",null)||HOME_DEF; if(!HOME.updated||HOME.updated<HOME_D
 const trDate=d=>{try{return new Date(d+"T12:00:00").toLocaleDateString("tr-TR",{day:"numeric",month:"short"})}catch(e){return d}};
 const CAT_IMG={celik:"celik",ekipman:"makine",tankdis:"tankdis",boru:"boru",bakim:"bakim",tankic:"tankici",sicak:"sicak",zemin:"beton",tekne:"tekne",yangin:"yangin"};
 function homeFeed(){
-  const P=(HOME.projects||[]).slice(0,6), N=(HOME.news||[]).slice(0,4);
+  const lim=new Date(Date.now()-60*864e5).toISOString().slice(0,10), fresh=x=>!x.date||x.date>=lim;
+  const P=(HOME.projects||[]).filter(fresh).slice(0,6), N=(HOME.news||[]).filter(fresh).sort((a,b)=>(b.date||"").localeCompare(a.date||"")).slice(0,6);
 
   $("#h-opps").innerHTML=P.length?P.map((o,i)=>`<article class="hm-opp"><div class="ho-top"><span class="ico ic-${CAT_IMG[o.cat]||"celik"} ho-ic"></span><div class="ho-h"><span class="ho-pl">${esc(o.place)}</span><b>${esc(o.t)}</b></div></div>
     <p class="ho-w">${esc(o.what)}</p><p class="ho-f"><b>Boya fırsatı:</b> ${esc(o.why)}</p>
@@ -3034,7 +3035,7 @@ wxLoad();
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)wxLoad();});
 
 /* Yeni sürüm yayınlandıysa uygulama açıkken kendini yeniler */
-(()=>{const B="1793524792"; if(!/^\d+$/.test(B)) return;
+(()=>{const B="1793525608"; if(!/^\d+$/.test(B)) return;
   const chk=()=>fetch(location.pathname+"?b="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const B="(\d+)"/); if(m&&+m[1]>+B) location.reload();}).catch(()=>{});
   document.addEventListener("visibilitychange",()=>{if(!document.hidden)chk();}); setTimeout(chk,4000);})();
 
