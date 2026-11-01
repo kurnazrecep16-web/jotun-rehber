@@ -1316,6 +1316,15 @@ body:not([data-role="s"]) .hm-top .ic-sistem{background:rgba(255,255,255,.06) ur
 .pv-body canvas{background:#fff;border-radius:4px;box-shadow:0 4px 16px rgba(0,0,0,.4)}
 .pv-wait{color:rgba(214,224,240,.8);margin:40px 0 12px}
 button.mg-pdf{border:0;cursor:pointer}
+
+.mf{width:100%;max-width:640px;display:flex;flex-direction:column;gap:10px;color:#0b1f45}
+.mf-hd{background:#fff;border-radius:12px;padding:16px;border-top:4px solid #f0ab00}
+.mf-hd small{color:#5a6a85;font-size:12px}.mf-hd h2{font-size:20px;margin:4px 0 12px;color:#0b1f45}
+.mf-st{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.mf-st div{background:#0b1f45;color:#fff;border-radius:10px;padding:10px}
+.mf-st b{display:block;font-size:22px;color:#f0ab00}.mf-st span{font-size:12px;opacity:.85}
+.mf-it{background:#fff;border-radius:12px;padding:14px;font-size:14px;line-height:1.45}
+.mf-t{display:flex;gap:10px;align-items:flex-start;margin-bottom:6px}.mf-t>div{flex:1}.mf-t b{display:block;font-size:15px}.mf-t small{color:#5a6a85;font-size:12px}
+.mf-it p{margin:4px 0;color:#2b3a57}.mf-it i{font-style:normal;font-weight:700;color:#0b1f45}
 </style>
 
 <div id="app-bg" aria-hidden="true"></div>
@@ -2977,7 +2986,18 @@ async function pdfView(url,title){
     for(let i=1;i<=doc.numPages;i++){const pg=await doc.getPage(i); const v0=pg.getViewport({scale:1}); const sc=W/v0.width; const vp=pg.getViewport({scale:sc*dpr});
       const cv=document.createElement("canvas"); cv.width=vp.width; cv.height=vp.height; cv.style.width=(vp.width/dpr)+"px"; cv.style.height=(vp.height/dpr)+"px"; body.appendChild(cv);
       await pg.render({canvasContext:cv.getContext("2d"),viewport:vp}).promise;}
-  }catch(e){ body.innerHTML=`<p class="pv-wait">PDF burada açılamadı.</p><a class="ho-go" href="${esc(url)}" target="_blank" rel="noopener">Tarayıcıda aç</a>`; }
+  }catch(e){ const M=HOME&&HOME.magazine; body.innerHTML=(M&&M.items&&M.pdf===url)?mgFull(M):`<p class="pv-wait">PDF burada açılamadı.</p><a class="ho-go" href="${esc(url)}" target="_blank" rel="noopener">Tarayıcıda aç</a>`; }
+}
+/* PDF yüklenemezse aynı özet uygulama içinde gösterilir */
+function mgFull(M){
+  const CC={A:"#1E8E5A",B:"#C98A00",C:"#7A869C"}, its=M.items||[];
+  const n=k=>its.filter(o=>o.cls===k).length;
+  return `<div class="mf"><div class="mf-hd"><small>Sayı ${esc(M.issue)} · ${trDate(M.date)} · İstanbul &amp; Trakya</small><h2>Yatırımlar Dergisi Haftalık Özeti</h2>
+  <div class="mf-st"><div><b>${its.length}</b><span>Bölgedeki iş</span></div><div><b>${n("A")}</b><span>A sınıfı</span></div><div><b>${n("B")}</b><span>B sınıfı</span></div></div></div>`+
+  its.map((o,i)=>`<section class="mf-it"><div class="mf-t"><span class="mg-rk">${i+1}</span><div><b>${esc(o.t)}</b><small>${esc(o.place)}</small></div><span class="mg-sc" style="border-color:${CC[o.cls]};color:${CC[o.cls]}">${o.score}<small>${o.cls}</small></span></div>
+  <p><i>Aşama:</i> ${esc(o.stage||"-")}</p><p><i>Bütçe:</i> ${esc(o.budget||"-")}</p>${o.who?`<p><i>Taraf:</i> ${esc(o.who)}</p>`:""}
+  <p>${esc(o.what||"")}</p><p><i>Boya fırsatı:</i> ${esc(o.why||"")}</p>${o.sys?`<p><i>Önerilen yaklaşım:</i> ${esc(o.sys)}</p>`:""}</section>`).join("")+
+  `<section class="mf-it mf-m"><b>Puanlama</b><p>Boya potansiyeli %35 · Zamanlama %25 · Sistem değeri %20 · Ulaşılabilirlik %20</p><p>A ≥ 75 · B 55–74 · C &lt; 55</p></section></div>`;
 }
 function pvClose(){const d=$("#pdfv");if(d&&d.open){try{d.close()}catch(e){d.removeAttribute("open")}}}
 window.addEventListener("popstate",pvClose);
@@ -3089,7 +3109,7 @@ wxLoad();
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)wxLoad();});
 
 /* Yeni sürüm yayınlandıysa uygulama açıkken kendini yeniler */
-(()=>{const B="1793526950"; if(!/^\d+$/.test(B)) return;
+(()=>{const B="1793527140"; if(!/^\d+$/.test(B)) return;
   const chk=()=>fetch(location.pathname+"?b="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const B="(\d+)"/); if(m&&+m[1]>+B) location.reload();}).catch(()=>{});
   document.addEventListener("visibilitychange",()=>{if(!document.hidden)chk();}); setTimeout(chk,4000);})();
 
