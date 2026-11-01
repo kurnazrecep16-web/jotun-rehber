@@ -2113,11 +2113,11 @@ function rivalCard(raw){
 const isSor=()=>{try{return UROLE==="s"}catch(e){return false}};
 function renderRehber(){
   const rawQ=$("#r-q").value, q=norm(rawQ.trim());
-  const list=CATALOG.map((p,i)=>[p,i]).filter(([p])=>(rCat==="all"||p.cat===rCat)&&(!q||norm(p.name+" "+(p.note||"")+" "+CATS[p.cat][0]+" "+CATS[p.cat][2]).includes(q)));
+  const list=CATALOG.map((p,i)=>[p,i]).filter(([p])=>q?norm(p.name+" "+(p.note||"")+" "+CATS[p.cat][0]+" "+CATS[p.cat][2]+" "+((JT[p.name]||{}).desc||"")+" "+(((JT[p.name]||{}).uses)||[]).join(" ")).includes(q):(rCat==="all"||p.cat===rCat));
   const info=$("#r-catinfo");
-  if(rCat!=="all"){info.hidden=false;info.innerHTML=`<svg class="ci-ic" viewBox="0 0 24 24" aria-hidden="true">${CG_IC[rCat]||CG_IC.Other}</svg><div class="ci-t"><b>${CATS[rCat][0]}</b><span>${CATS[rCat][1]}</span></div>${CATS[rCat][2]?`<div class="ci-w"><em>Nerede kullanılır?</em><p><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20V10l5 3V10l5 3V6h4l1-3h2v17z"/><path d="M7 17h2M12 17h2"/></svg><span>${CATS[rCat][2]}</span></p></div>`:""}`}else info.hidden=true;
+  if(rCat!=="all"&&!q){info.hidden=false;info.innerHTML=`<svg class="ci-ic" viewBox="0 0 24 24" aria-hidden="true">${CG_IC[rCat]||CG_IC.Other}</svg><div class="ci-t"><b>${CATS[rCat][0]}</b><span>${CATS[rCat][1]}</span></div>${CATS[rCat][2]?`<div class="ci-w"><em>Nerede kullanılır?</em><p><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20V10l5 3V10l5 3V6h4l1-3h2v17z"/><path d="M7 17h2M12 17h2"/></svg><span>${CATS[rCat][2]}</span></p></div>`:""}`}else info.hidden=true;
   const rc=""; $("#r-rival").innerHTML=rc; $("#r-rival").hidden=!rc;
-  $("#r-count").textContent=rc&&!list.length?"":`${list.length} ürün`;
+  $("#r-count").textContent=rc&&!list.length?"":`${list.length} ürün${q?" · tüm ürünlerde arandı":""}`;
   if(rCat==="all"&&!q){
     const cats=Object.keys(CATS).filter(c=>c!=="MCI Tinter"&&CATALOG.some(p=>p.cat===c));
     $("#r-count").textContent="";
