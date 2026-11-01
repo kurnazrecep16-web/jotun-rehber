@@ -1,6 +1,16 @@
 {
- "updated": "2026-10-31",
+ "updated": "2026-11-01",
  "projects": [
+  {
+   "t": "Reysaş GYO Tuzla lojistik deposu",
+   "place": "İstanbul · Tuzla Aydınlı",
+   "what": "67.686 m² arsa üzerinde 98.258 m² kapalı alanlı lojistik depo için ruhsat alındı; inşaat 2 Kasım 2026'da başlıyor, 30 Eylül 2027'de devreye alınması hedefleniyor.",
+   "why": "Depo çelik konstrüksiyonu (korozyon ve pasif yangın koruma) ile forklift trafiğine dayanıklı endüstriyel zemin kaplaması.",
+   "cat": "celik",
+   "date": "2026-10-23",
+   "src": "Taşınmaz Haber / KAP",
+   "url": "https://tasinmazhaber.com/reysas-gyo-tuzla-depo-projesi-icin-ruhsat-alindi-insaat-2-kasim-2026da-basliyor/"
+  },
   {
    "t": "Edirne'ye 40 milyon $'lık döküm fabrikası",
    "place": "Edirne · Uzunköprü Atatürk OSB",
@@ -20,6 +30,16 @@
    "date": "2026-10-14",
    "src": "Haberler.com / ANKA",
    "url": "https://www.haberler.com/guncel/iski-esenyurt-ta-40-bin-metrekupluk-depo-ve-11-20326823-haberi/"
+  },
+  {
+   "t": "İSKİ Avrupa Yakası içme suyu depoları ve isale hattı ihalesi",
+   "place": "İstanbul · Silivri / Çatalca",
+   "what": "Avrupa Bölgesi İçme Suyu Arıtma Tesisi depoları ile Çatalca sistemi depoları ve isale hattı inşaatı ihaleye çıktı; teklifler 5 Kasım 2026'da, işin süresi 1.095 gün (İKN 2026/1878744).",
+   "why": "Betonarme su depolarının iç yüzeyleri için içme suyu onaylı kaplama, isale hattı çelik boru ve vana/ekipman koruması.",
+   "cat": "tankic",
+   "date": "2026-10-11",
+   "src": "Yeni Akit (resmi ilan)",
+   "url": "https://www.yeniakit.com.tr/haber/istanbul-su-ve-kanalizasyon-idaresi-genel-mudurlugu-iski-catalca-ihale-avrupa-bolgesi-icme-suyu-aritma-tesisi-depo-2027458.html"
   },
   {
    "t": "Atıksu arıtma tesisi + OSB altyapısı",
@@ -50,16 +70,58 @@
    "url": "https://www.aa.com.tr/tr/ekonomi/turkiyenin-ham-celik-uretimi-9-ayda-yuzde-6-1-artisla-29-8-milyon-tona-cikti/4106220"
   },
   {
-   "t": "İSKİ'nin Büyükçekmece–Kıraç tüneli (3 m çelik boru) sisteme bağlandı; Hadımköy terfi merkezi Kasım sonunda devrede",
-   "src": "Haberler.com / ANKA",
-   "date": "2026-10-14",
-   "url": "https://www.haberler.com/guncel/iski-esenyurt-ta-40-bin-metrekupluk-depo-ve-11-20326823-haberi/"
+   "t": "Kansai Paint, Polisan Kansai Boya'nın kalan %50 payını 93 milyon $'a alarak tamamına sahip oldu; şirket borç kapatma için sermaye artırımına gidecek — Türkiye boya pazarında yabancı sermayenin ağırlığı artıyor",
+   "src": "European Coatings",
+   "date": "2026-10-28",
+   "url": "https://www.european-coatings.com/news/markets-companies/kansai-paint-completes-acquisition-of-polisan-kansai-boya/"
+  },
+  {
+   "t": "PPG 3. çeyrekte satışlarını %7 artırarak 4,35 milyar $'a çıkardı; koruyucu ve deniz kaplamalarında organik satışlar yüksek tek hanede büyüdü, hacim artışı 14. çeyreğe ulaştı — koruyucu/marine segmenti boya sektörünün en güçlü alanı olmaya devam ediyor",
+   "src": "PPG / SEC",
+   "date": "2026-10-27",
+   "url": "https://www.sec.gov/Archives/edgar/data/0000079879/000007987926000315/exhibit99-3q2026earningsre.htm"
+  },
+  {
+   "t": "Sherwin-Williams 3. çeyrekte satışlarını %7,9 artırdı (6,86 milyar $); koruyucu ve deniz kaplamaları çift haneli büyürken hammadde ve tedarik maliyetleri marjları daralttı, 2027 için talep 'durgun' öngörülüyor — maliyet baskısı yeni fiyat ayarlamalarını gündeme getirebilir",
+   "src": "Sherwin-Williams / SEC",
+   "date": "2026-10-27",
+   "url": "https://www.sec.gov/Archives/edgar/data/0000089800/000008980026000054/shwearningsrelease3q2026.htm"
+  },
+  {
+   "t": "AkzoNobel 3. çeyrekte 2,54 milyar € gelirle beklentinin altında kaldı, fiyat artışlarıyla FAVÖK marjı %15,3'e yükseldi; Axalta birleşmesinin 2027 başında tamamlanması bekleniyor — sektörde fiyat disiplini hacimden önde",
+   "src": "Foreks",
+   "date": "2026-10-21",
+   "url": "https://www.foreks.com/haber/detay/6ad8506358b1b941c208dfa4/PICNEWS/tr/akzonobel-in-ucuncu-ceyrek-geliri-beklentilerin-altinda-kaldi-kar-marji-yukseldi-21-10-26/"
+  },
+  {
+   "t": "Türkiye boya pazarı yıllık ~1 milyon tonda; hacim tek haneli geriledi, hammaddenin %80'inden fazlası ithal ve TL bazında maliyetler %30'un üzerinde arttı (Marshall Boya GM Özgür Orçunus) — büyüme hacimden çok katma değerli ürünlerden gelecek",
+   "src": "Ekonomi Gazetesi",
+   "date": "2026-10-15",
+   "url": "https://www.ekonomigazetesi.com/sektor-haberleri/boyada-buyume-hacimde-degil-katma-deger-ve-inovatif-urunde-89739"
+  },
+  {
+   "t": "Saint-Gobain Yapı Kimyasalları Tuzla'da 12. fabrikasını açtı; reçine esaslı zemin sistemleri, koruyucu kaplamalar ve epoksi harçlar üretecek — İstanbul'da endüstriyel zemin kaplamada yerli arz artıyor",
+   "src": "Ekonomi Politikası",
+   "date": "2026-10-15",
+   "url": "https://ekonomipolitikasi.com.tr/saint-gobain-yapi-kimyasallari-tuzlada-12-fabrikasini-devreye-aldi/"
+  },
+  {
+   "t": "AkzoNobel–Axalta birleşmesinde AB onayı, AkzoNobel'in oto tamir boyası işini satmasına bağlanabilir; toz boya örtüşmesine ilişkin endişelerin giderildiği bildiriliyor — 17 milyar $'lık yeni dev oluşum küresel kaplama pazarının dengesini değiştirecek",
+   "src": "European Coatings",
+   "date": "2026-10-13",
+   "url": "https://www.european-coatings.com/news/markets-companies/akzo-nobel-axalta-merger-eu-approval-may-hinge-on-sale-of-akzonobels-vehicle-refinish-business/"
   },
   {
    "t": "Jotun ilk 8 ayda gelirini %2, faaliyet kârını %4 artırdı",
    "src": "jotun.com",
    "date": "2026-09-24",
    "url": "https://www.jotun.com/gb-en/news-and-insights/corporate/continued-growth-for-jotun"
+  },
+  {
+   "t": "Çin'de TiO2 üreticileri 2026'nın 6. toplu fiyat artışına gitti (yurt içi +700 RMB/ton, ihracat +100 $/ton); son bir yılda ~600 bin ton küresel kapasite devreden çıktı — beyaz pigment maliyetleri boya fiyatlarına yansıyabilir",
+   "src": "Blooming Global",
+   "date": "2026-09-15",
+   "url": "https://www.bloominglobal.com/media/detail/titanium-dioxide-price-increase-chinas-2026-tio2-rally"
   }
  ],
  "magazine": {
