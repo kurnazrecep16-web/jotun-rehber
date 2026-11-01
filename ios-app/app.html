@@ -630,10 +630,18 @@ body:not([data-view="ana"]) #app-bg{height:min(420px,60vh);opacity:.55}
 .hm-tile .chev{width:18px;height:18px;stroke:rgba(255,255,255,.55)}
 .hm-tile:active,.hm-card:active{transform:scale(.98)}
 .hm-tile:hover,.hm-card:hover{border-color:rgba(255,255,255,.22)}
-.hm-foot{display:flex;align-items:center;gap:14px;background:#0f161e;border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:14px 16px;margin-top:6px}
-.hm-foot svg{width:26px;height:26px;flex:none;fill:none;stroke:var(--muted);stroke-width:1.6;stroke-linecap:round}
-.hm-foot div{display:flex;flex-direction:column;gap:2px;font-size:13.5px;color:var(--muted)}
-.hm-foot .linkbtn{color:#fff}
+.hm-foot{display:flex;align-items:center;gap:12px;background:linear-gradient(135deg,#13203a,#0f161e);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:14px;margin-top:6px}
+.hf-av{width:44px;height:44px;flex:none;border-radius:50%;display:grid;place-items:center;background:rgba(240,171,0,.14);border:1px solid rgba(240,171,0,.35)}
+.hf-av svg{width:24px;height:24px;fill:none;stroke:#f0ab00;stroke-width:1.7;stroke-linecap:round}
+.hf-tx{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px}
+.hf-tx small{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.hf-tx b{font-size:15.5px;color:#fff;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hf-up{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);margin-top:2px;white-space:nowrap}
+.hf-up i{flex:none}
+.hf-up i{width:7px;height:7px;border-radius:50%;background:#2fbf71;box-shadow:0 0 0 3px rgba(47,191,113,.18)}
+.hf-sw{flex:none;display:inline-flex;align-items:center;gap:6px;height:38px;padding:0 11px;border-radius:11px;white-space:nowrap;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:#fff;font:600 13.5px var(--f-body);cursor:pointer}
+.hf-sw svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.hf-sw:active{background:rgba(255,255,255,.12)}
 #v-ana{display:flex;flex-direction:column;gap:12px}
 .wz-img,.hm-ti{-webkit-mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 72%,transparent 100%);mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 72%,transparent 100%)}
 .wz-img{background-size:contain!important;background-color:transparent!important;box-shadow:none!important}
@@ -1361,7 +1369,7 @@ button.mg-pdf{border:0;cursor:pointer}
   <h3 class="hm-sec">Ne boyanacak?</h3>
   <div class="hm-cats"><button type="button" class="hm-tile" data-go="what:celik"><span class="ico ic-celik hm-ti"></span><span class="hm-tl">Çelik yapı</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:ekipman"><span class="ico ic-makine hm-ti"></span><span class="hm-tl">Makine</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:tankdis"><span class="ico ic-tankdis hm-ti"></span><span class="hm-tl">Tank dış</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:boru"><span class="ico ic-boru hm-ti"></span><span class="hm-tl">Boru dış</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:bakim"><span class="ico ic-bakim hm-ti"></span><span class="hm-tl">Paslı / bakım</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:tankic"><span class="ico ic-tankici hm-ti"></span><span class="hm-tl">Tank içi</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:sicak"><span class="ico ic-sicak hm-ti"></span><span class="hm-tl">Sıcak yüzey</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:zemin"><span class="ico ic-beton hm-ti"></span><span class="hm-tl">Beton zemin</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:tekne"><span class="ico ic-tekne hm-ti"></span><span class="hm-tl">Tekne</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:yangin"><span class="ico ic-yangin hm-ti"></span><span class="hm-tl">Yangın</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
   <div id="h-hist-wrap" hidden><h3 class="hm-sec" style="margin-bottom:8px">Son teklifler</h3><div class="h-hist" id="h-hist"></div></div>
-  <div class="hm-foot"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><div><span>Son güncelleme 30.10.2026 · 23:55</span><span><span id="role-lbl"></span> · <button type="button" class="linkbtn" id="role-chg">değiştir</button></span></div></div>
+  <div class="hm-foot"><span class="hf-av" id="role-av" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.6"/><path d="M4.8 19.5c1.3-3.4 4-5 7.2-5s5.9 1.6 7.2 5"/></svg></span><div class="hf-tx"><small>Oturum</small><b id="role-lbl"></b><span class="hf-up"><i></i><span id="hf-upd">Güncel</span></span></div><button type="button" class="hf-sw" id="role-chg" aria-label="Kullanıcı rolünü değiştir"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h11l-3-3M17 17H6l3 3"/></svg>Rolü değiştir</button></div>
 </section>
 <div id="v-sistem">
 <div class="sx-hero"><h2>Kaplama Sistemi<br>Oluşturun</h2><p>Ne boyanacağını, ortamı ve dayanım süresini seçin; size en uygun Jotun sistemini bulalım.</p></div>
@@ -3012,7 +3020,8 @@ const HOME_DEF={"updated": "2026-10-31", "projects": [{"t": "Edirne'ye 40 milyon
 let HOME=load("home-data",null)||HOME_DEF; if(!HOME.updated||HOME.updated<HOME_DEF.updated) HOME=HOME_DEF;
 const trDate=d=>{try{return new Date(d+"T12:00:00").toLocaleDateString("tr-TR",{day:"numeric",month:"short"})}catch(e){return d}};
 const CAT_IMG={celik:"celik",ekipman:"makine",tankdis:"tankdis",boru:"boru",bakim:"bakim",tankic:"tankici",sicak:"sicak",zemin:"beton",tekne:"tekne",yangin:"yangin"};
-function homeFeed(){
+function hfUpd(){ const u=$("#hf-upd"); if(!u) return; let d=""; try{d=HOME&&HOME.updated||""}catch(e){} u.textContent=d?"Güncel · "+new Date(d+"T12:00").toLocaleDateString("tr-TR",{day:"numeric",month:"short",year:"numeric"}):"Güncel"; }
+function homeFeed(){ hfUpd();
   const lim=new Date(Date.now()-60*864e5).toISOString().slice(0,10), fresh=x=>!x.date||x.date>=lim;
   const P=(HOME.projects||[]).filter(fresh).slice(0,6), N=(HOME.news||[]).filter(fresh).sort((a,b)=>(b.date||"").localeCompare(a.date||"")).slice(0,6);
 
@@ -3173,6 +3182,7 @@ function applyRole(){
   document.body.dataset.role=UROLE==="s"?"s":"b"; try{renderRehber()}catch(e){} try{homeFeed()}catch(e){}
   $("#t-teklif").hidden=UROLE==="s"; $("#t-sarfiyat").hidden=false;
   const l=$("#role-lbl"); if(l) l.textContent=UROLE==="s"?"Jotun Sorumlusu":"Bayi";
+  hfUpd();
   const lg=$("#t-sistem .lg"); if(lg) lg.textContent="Sistem";
   relabel();
 }
