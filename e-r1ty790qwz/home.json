@@ -76,9 +76,7 @@
     "what": "Çeşitli çelik isale hatlarında katodik koruma sisteminin revizyonu. Yaklaşık maliyet 397,4 milyon TL; 5 geçerli teklif.",
     "why": "Revizyonda açılan çelik boru yüzeylerinde kaplama onarımı gerekir; gömülü/su ile temas eden boru → yüksek değerli epoksi sistemler.",
     "sys": "Boru dış · bakım: yüzey toleranslı epoksi mastik (Jotamastic 87)",
-    "cat": "boru",
-    "score": 82,
-    "cls": "A"
+    "cat": "boru"
    },
    {
     "t": "TEİAŞ Ambarlı 400 kV GIS trafo merkezi yapımı",
@@ -89,9 +87,7 @@
     "what": "İTM.565 referanslı 400 kV gaz izoleli (GIS) trafo merkezi yapımı.",
     "why": "Trafo merkezi binası, çelik konstrüksiyon, portaller ve ekipman; deniz kıyısında C5 ortam. İhaleyi alacak yükleniciye erken temas.",
     "sys": "Çelik yapı · C5: çinkolu epoksi + epoksi + poliüretan",
-    "cat": "celik",
-    "score": 76,
-    "cls": "A"
+    "cat": "celik"
    },
    {
     "t": "TEİAŞ Çekmeköy 400 kV GIS trafo merkezi yapımı",
@@ -102,9 +98,7 @@
     "what": "İTM.564 referanslı 400 kV gaz izoleli (GIS) trafo merkezi yapımı.",
     "why": "Trafo merkezi binası, çelik konstrüksiyon, portaller ve ekipman koruması; C4 ortam.",
     "sys": "Çelik yapı · C4: çinkolu epoksi + epoksi + poliüretan",
-    "cat": "celik",
-    "score": 72,
-    "cls": "B"
+    "cat": "celik"
    },
    {
     "t": "İBB Avrupa Yakası kamu binaları bakım-onarım-tadilat (XVII. grup)",
@@ -115,9 +109,7 @@
     "what": "Avrupa Yakası kamu binalarında bakım, onarım, tadilat ve ek hizmet yapıları inşaatı. Yaklaşık maliyet 654,9 milyon TL.",
     "why": "Bakım-onarımda çelik aksam, korkuluk, çatı ve ek yapılar için yüzey toleranslı bakım boyası ve son kat ihtiyacı.",
     "sys": "Paslı / bakım: Jotamastic 87 + Hardtop XP",
-    "cat": "bakim",
-    "score": 70,
-    "cls": "B"
+    "cat": "bakim"
    },
    {
     "t": "EH Enerji Kapaklı RES ve Elektrik Depolama Tesisi",
@@ -128,9 +120,7 @@
     "what": "8 türbin, 50 MW rüzgar santrali ve 50 MW/50 MWh depolama tesisi; yılda 200 milyon kWh üretim.",
     "why": "Trafo merkezi, depolama konteynerleri, çelik konstrüksiyon ve saha ekipmanında C4–C5 koruma; türbin kuleleri genelde fabrikada boyanır.",
     "sys": "Çelik yapı · C4–C5: çinkolu epoksi + epoksi + poliüretan",
-    "cat": "celik",
-    "score": 64,
-    "cls": "B"
+    "cat": "celik"
    },
    {
     "t": "Eze Enerji Mandak RES ve Elektrik Depolama Tesisi",
@@ -141,9 +131,7 @@
     "what": "10 türbin, 60 MW rüzgar santrali ve 60 MW/60 MWh depolama tesisi; yılda 240 milyon kWh üretim.",
     "why": "Trafo, depolama, çelik konstrüksiyon ve ekipman koruması; kıyıya yakın ve açık sahada C4–C5.",
     "sys": "Çelik yapı · C4–C5: çinkolu epoksi + epoksi + poliüretan",
-    "cat": "celik",
-    "score": 64,
-    "cls": "B"
+    "cat": "celik"
    },
    {
     "t": "Kartal Kauçuk kauçuk ürünleri ve endüstriyel komponent tesisi",
@@ -154,9 +142,7 @@
     "what": "5.255,6 m² parselde 4.988 m² yapı ile kauçuk ürün ve endüstriyel komponent üretim tesisi.",
     "why": "Yeni fabrika binası: çelik konstrüksiyon, çatı makasları ve üretim alanı zemin kaplaması.",
     "sys": "Çelik yapı · C3 + beton zemin (Jotafloor)",
-    "cat": "celik",
-    "score": 62,
-    "cls": "B"
+    "cat": "celik"
    },
    {
     "t": "Enez Belediyesi atıksu arıtma SAİS kabini ve ekipman alımı",
@@ -167,9 +153,7 @@
     "what": "Atıksu arıtma tesisinde kullanılacak sürekli atıksu izleme sistemi (SAİS) kabini ve ekipmanı.",
     "why": "Küçük ölçekli; arıtma tesisinin bakım ve tank içi kaplama ihtiyaçları için temas fırsatı.",
     "sys": "Tank içi / arıtma: epoksi tank kaplaması",
-    "cat": "tankic",
-    "score": 52,
-    "cls": "C"
+    "cat": "tankic"
    },
    {
     "t": "Kınalı Ayrımı–Çorlu DYA–Marmaraereğlisi devlet yolu",
@@ -180,9 +164,7 @@
     "what": "13,1 km devlet yolu, 7 kavşak; proje hızı 110 km/saat.",
     "why": "Kavşak köprüleri, çelik korkuluk, sinyalizasyon ve aydınlatma direkleri; ihale sonrası yüklenici ile temas.",
     "sys": "Çelik yapı · C4 · 15–25 yıl (Sistem sayfası)",
-    "cat": "celik",
-    "score": 51,
-    "cls": "C"
+    "cat": "celik"
    },
    {
     "t": "DSİ İstanbul–Yenişamlar Barajı proje danışmanlık hizmeti",
@@ -193,9 +175,7 @@
     "what": "Barajın proje hazırlanması için danışmanlık ihalesi; inşaat aşaması yıllar sonra.",
     "why": "Baraj kapakları, cebri borular ve su altı çelik aksam için uzun vadeli şartname fırsatı.",
     "sys": "Su altı (Im) çelik sistemleri",
-    "cat": "celik",
-    "score": 50,
-    "cls": "C"
+    "cat": "celik"
    }
   ],
   "title": "Yatırımlar Dergisi"
