@@ -2,6 +2,16 @@
  "updated": "2026-11-02",
  "projects": [
   {
+   "t": "Ambarlı İleri Biyolojik Atıksu Arıtma Tesisi II. Kademe ve deniz deşarjı",
+   "place": "İstanbul · Ambarlı",
+   "what": "İSKİ'nin II. kademe inşaat ve deniz deşarjı işinin sözleşmesi 5 Ekim 2026'da 18,88 milyar TL bedelle KUZU TOPLU + İSTCON ortaklığıyla imzalandı.",
+   "why": "Beton havuz ve kanal iç yüzeyleri, çamur/proses tankları, deniz deşarj hattı çelik boruları ve deniz suyuna maruz ekipman.",
+   "cat": "tankic",
+   "date": "2026-10-28",
+   "src": "Taahhüt Haber",
+   "url": "https://taahhuthaber.com/28-ekim-2026-carsamba-tarih-ve-3995-sayili-taahhut-haber/"
+  },
+  {
    "t": "Reysaş GYO Tuzla lojistik deposu",
    "place": "İstanbul · Tuzla Aydınlı",
    "what": "67.686 m² arsa üzerinde 98.258 m² kapalı alanlı lojistik depo için ruhsat alındı; inşaat 2 Kasım 2026'da başlıyor, 30 Eylül 2027'de devreye alınması hedefleniyor.",
@@ -20,16 +30,6 @@
    "date": "2026-10-22",
    "src": "Ekonomi Dünya",
    "url": "https://www.ekonomidunya.com/cin-dokum-firmasindan-edirneye-40-milyon-dolarlik-yatirim/113997"
-  },
-  {
-   "t": "İSKİ Esenyurt su deposu, terfi merkezi ve iletim hattı",
-   "place": "İstanbul · Esenyurt / İkitelli / Hadımköy",
-   "what": "Mevcut 10 bin m³ depo yerine 2×20 bin m³ depo ve 11 pompalı terfi merkezi yapılıyor (~%54 ilerleme); İkitelli–Esenyurt 2. iletim hattının ~4 km'si kaldı, Hadımköy terfi merkezi Kasım sonu hedefleniyor.",
-   "why": "Çelik iletim boruları, terfi merkezi pompa/ekipman ve depo iç yüzeyleri için içme suyu uyumlu kaplama ihtiyacı.",
-   "cat": "boru",
-   "date": "2026-10-14",
-   "src": "Haberler.com / ANKA",
-   "url": "https://www.haberler.com/guncel/iski-esenyurt-ta-40-bin-metrekupluk-depo-ve-11-20326823-haberi/"
   },
   {
    "t": "İSKİ Avrupa Yakası içme suyu depoları ve isale hattı ihalesi",
@@ -70,22 +70,34 @@
    "url": "https://coatingsturkiye.com/haberler/finans-haberleri/evonik-basfin-12-milyar-dolarlik-satin-alma-teklifini-reddetti"
   },
   {
-   "t": "AkzoNobel Kuzey Amerika'da 60 milyon $'lık toz boya yatırımı yaptı — toz boya kapasitesinde küresel büyüme devam ediyor",
-   "src": "Coatings Türkiye",
-   "date": "2026-11-02",
-   "url": "https://coatingsturkiye.com/haberler/finans-haberleri/akzonobelden-kuzey-amerikaya-60-milyon-dolarlik-toz-boya-yatirimi"
-  },
-  {
    "t": "Türkiye'nin ham çelik üretimi 9 ayda %6,1 artışla 29,8 milyon tona çıktı; Eylül'de nihai tüketim %6,9 geriledi",
    "src": "Anadolu Ajansı",
    "date": "2026-10-30",
    "url": "https://www.aa.com.tr/tr/ekonomi/turkiyenin-ham-celik-uretimi-9-ayda-yuzde-6-1-artisla-29-8-milyon-tona-cikti/4106220"
   },
   {
+   "t": "Olin 3. çeyrekte epoksi satışlarını %17,9 artırarak 412 milyon $'a çıkardı, epoksi fiyat artışı ve tüm bölgelerde yakıt ek ücreti duyurdu; AB'de epoksi için koruma önlemi gündemde, Huntsman birleşmesi 2027'nin ilk çeyreğine çekildi — epoksi bazlı astar ve zemin sistemlerinde maliyet baskısı artabilir",
+   "src": "Olin / The Motley Fool",
+   "date": "2026-10-30",
+   "url": "https://fool.com/earnings/call-transcripts/2026/10/30/olin-oln-q3-2026-earnings-call-transcript"
+  },
+  {
+   "t": "Çin'de TiO2 pazarı Eylül-Ekim sezonunda beklentinin altında kaldı: rutil ~13.550 yuan/ton, fabrika stokları ~330 bin ton; 9 aylık ihracat %13,8 artışla 1,53 milyon ton — bu yılki art arda zamlardan sonra kısa vadede fiyatlar zayıf seyredebilir",
+   "src": "SMM",
+   "date": "2026-10-30",
+   "url": "https://news.metal.com/newscontent/104189057-september-october-peak-season-disappoints-titanium-market-sees-short-term-tug-of-war-between-longs-and-shorts-smm-analysis"
+  },
+  {
    "t": "Axalta 3. çeyrekte satışlarını %2 artırarak 1,31 milyar $'a çıkardı; AkzoNobel ile 'Axanzo' adlı birleşmede düzenleyici onay süreci sürüyor (AB ve İngiltere kararları Kasım'da, kapanış 2027 başı) — birleşme, endüstriyel kaplama tedarik dengesini değiştirebilir",
    "src": "Axalta / SEC",
    "date": "2026-10-29",
    "url": "https://www.sec.gov/Archives/edgar/data/0001616862/000161686226000008/a920268-kquarterlyxex99.htm"
+  },
+  {
+   "t": "Stabilize çinko pul teknolojisiyle su bazlı korozyon astarlarında metalik çinko %50'den fazla azaltılabiliyor, tuz testinde 1.500 saate ulaşıldı; C3–C4 ortamlara uygun, C5/CX için geliştirme sürüyor — boru, tank ve hafif makinelerde düşük VOC seçeneği olabilir",
+   "src": "European Coatings",
+   "date": "2026-10-29",
+   "url": "https://www.european-coatings.com/news/coatings-technologies/stabilised-zinc-flakes-enable-sustainable-water-borne-anti-corrosion-coatings/"
   },
   {
    "t": "Kansai Paint, Polisan Kansai Boya'nın kalan %50 payını 93 milyon $'a alarak tamamına sahip oldu; şirket borç kapatma için sermaye artırımına gidecek — Türkiye boya pazarında yabancı sermayenin ağırlığı artıyor",
@@ -100,22 +112,10 @@
    "url": "https://www.sec.gov/Archives/edgar/data/0000079879/000007987926000315/exhibit99-3q2026earningsre.htm"
   },
   {
-   "t": "Sherwin-Williams 3. çeyrekte satışlarını %7,9 artırdı (6,86 milyar $); koruyucu ve deniz kaplamaları çift haneli büyürken hammadde ve tedarik maliyetleri marjları daralttı, 2027 için talep 'durgun' öngörülüyor — maliyet baskısı yeni fiyat ayarlamalarını gündeme getirebilir",
-   "src": "Sherwin-Williams / SEC",
-   "date": "2026-10-27",
-   "url": "https://www.sec.gov/Archives/edgar/data/0000089800/000008980026000054/shwearningsrelease3q2026.htm"
-  },
-  {
-   "t": "Jotun 2027 global renk koleksiyonu \"Yolculuklar\"ı tanıttı",
-   "src": "Coatings Türkiye",
+   "t": "LME'de üç aylık çinko %2,1 artışla 3.821 $/tona çıktı; Şanghay stokları Mart'tan beri en düşük düzeyde, konsantre işleme ücretleri rekor düşükte — çinkoca zengin astarların hammadde maliyeti yukarı yönlü",
+   "src": "Discovery Alert",
    "date": "2026-10-26",
-   "url": "https://coatingsturkiye.com/arastirma/renk-trendleri-ve-tahminleri/jotun-2027-global-renk-koleksiyonu-yolculuklari-tanitti"
-  },
-  {
-   "t": "AkzoNobel 3. çeyrekte 2,54 milyar € gelirle beklentinin altında kaldı, fiyat artışlarıyla FAVÖK marjı %15,3'e yükseldi; Axalta birleşmesi 2027 başı hedefleniyor, AB onayının oto tamir boyası işinin satışına bağlanabileceği bildiriliyor — sektörde fiyat disiplini hacimden önde",
-   "src": "Foreks",
-   "date": "2026-10-21",
-   "url": "https://www.foreks.com/haber/detay/6ad8506358b1b941c208dfa4/PICNEWS/tr/akzonobel-in-ucuncu-ceyrek-geliri-beklentilerin-altinda-kaldi-kar-marji-yukseldi-21-10-26/"
+   "url": "https://discoveryalert.com/news/zinc-price-lme-stockpiles-october-2026/"
   },
   {
    "t": "Saint-Gobain Yapı Kimyasalları Tuzla'da 12. fabrikasını açtı; reçine esaslı zemin sistemleri, koruyucu kaplamalar ve epoksi harçlar üretecek — İstanbul'da endüstriyel zemin kaplamada yerli arz artıyor",
@@ -134,12 +134,6 @@
    "src": "Ekonomi Gazetesi",
    "date": "2026-09-18",
    "url": "https://www.ekonomigazetesi.com/sektor-haberleri/boya-sektorunde-rekabetin-rengi-yeniden-sekilleniyor-87777"
-  },
-  {
-   "t": "Çin'de TiO2 üreticileri 2026'nın 6. toplu fiyat artışına gitti (yurt içi +700 RMB/ton, ihracat +100 $/ton); son bir yılda ~600 bin ton küresel kapasite devreden çıktı — beyaz pigment maliyetleri boya fiyatlarına yansıyabilir",
-   "src": "Blooming Global",
-   "date": "2026-09-15",
-   "url": "https://www.bloominglobal.com/media/detail/titanium-dioxide-price-increase-chinas-2026-tio2-rally"
   }
  ],
  "magazine": {
