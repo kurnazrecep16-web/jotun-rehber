@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01",
+ "updated": "2026-11-02",
  "projects": [
   {
    "t": "Reysaş GYO Tuzla lojistik deposu",
@@ -64,6 +64,18 @@
  ],
  "news": [
   {
+   "t": "Evonik, BASF'ın 12,5 milyar $'lık satın alma teklifini reddetti — kimya/hammadde tarafında konsolidasyon baskısı sürüyor",
+   "src": "Coatings Türkiye",
+   "date": "2026-11-02",
+   "url": "https://coatingsturkiye.com/haberler/finans-haberleri/evonik-basfin-12-milyar-dolarlik-satin-alma-teklifini-reddetti"
+  },
+  {
+   "t": "AkzoNobel Kuzey Amerika'da 60 milyon $'lık toz boya yatırımı yaptı — toz boya kapasitesinde küresel büyüme devam ediyor",
+   "src": "Coatings Türkiye",
+   "date": "2026-11-02",
+   "url": "https://coatingsturkiye.com/haberler/finans-haberleri/akzonobelden-kuzey-amerikaya-60-milyon-dolarlik-toz-boya-yatirimi"
+  },
+  {
    "t": "Türkiye'nin ham çelik üretimi 9 ayda %6,1 artışla 29,8 milyon tona çıktı; Eylül'de nihai tüketim %6,9 geriledi",
    "src": "Anadolu Ajansı",
    "date": "2026-10-30",
@@ -92,6 +104,12 @@
    "src": "Sherwin-Williams / SEC",
    "date": "2026-10-27",
    "url": "https://www.sec.gov/Archives/edgar/data/0000089800/000008980026000054/shwearningsrelease3q2026.htm"
+  },
+  {
+   "t": "Jotun 2027 global renk koleksiyonu \"Yolculuklar\"ı tanıttı",
+   "src": "Coatings Türkiye",
+   "date": "2026-10-26",
+   "url": "https://coatingsturkiye.com/arastirma/renk-trendleri-ve-tahminleri/jotun-2027-global-renk-koleksiyonu-yolculuklari-tanitti"
   },
   {
    "t": "AkzoNobel 3. çeyrekte 2,54 milyar € gelirle beklentinin altında kaldı, fiyat artışlarıyla FAVÖK marjı %15,3'e yükseldi; Axalta birleşmesi 2027 başı hedefleniyor, AB onayının oto tamir boyası işinin satışına bağlanabileceği bildiriliyor — sektörde fiyat disiplini hacimden önde",
