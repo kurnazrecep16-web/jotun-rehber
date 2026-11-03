@@ -2586,6 +2586,7 @@ function go(where){
   const dm=k=>{$("#dm-"+k).checked=true;$("#d-mode").dispatchEvent(new Event("change"));};
   if(where.startsWith("what:")){location.hash="#sistem";sxWhat(where.slice(5));setTimeout(()=>{const c=$(".sx-wcard");if(c)c.scrollIntoView({behavior:"smooth",block:"start"});},120);return;}
   if(where==="isler"){location.hash="#isler";return;}
+  if(where==="yangin"){location.hash="#yangin";return;}
   if(where==="sistem"){location.hash="#sistem";}
   else if(where==="teklif"){location.hash="#teklif";}
   else if(where==="wizard"){location.hash="#sistem";}
@@ -3448,7 +3449,7 @@ wxLoad();
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)wxLoad();});
 
 /* Yeni sürüm yayınlandıysa uygulama açıkken kendini yeniler */
-(()=>{const B="1793728954"; if(!/^\d+$/.test(B)) return;
+(()=>{const B="1793729202"; if(!/^\d+$/.test(B)) return;
   const chk=()=>fetch(location.pathname+"?b="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const B="(\d+)"/); if(m&&+m[1]>+B) location.reload();}).catch(()=>{});
   document.addEventListener("visibilitychange",()=>{if(!document.hidden)chk();}); setTimeout(chk,4000);})();
 
