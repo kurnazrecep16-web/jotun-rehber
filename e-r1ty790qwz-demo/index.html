@@ -1630,6 +1630,10 @@ button.dm-it{cursor:pointer}
 .yg-nav{display:grid;grid-template-columns:1fr 2fr;gap:8px;margin-top:16px}
 .yg-nav button{min-height:48px;border-radius:24px;border:1px solid rgba(207,224,255,.45);background:rgba(5,14,32,.45);color:#fff;font:700 14px var(--f-body);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:4px}
 .yg-nav .nx{background:#f0ab00;border-color:#f0ab00;color:#0b1f45}.yg-nav svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.4}
+
+.yg-wz{margin-bottom:12px}
+.yg-h1{display:flex;align-items:center;gap:10px;margin:0 0 12px}.yg-h1 .n{width:26px;height:26px;border-radius:50%;background:#f0ab00;color:#0b1f45;font:800 13px var(--f-body);display:flex;align-items:center;justify-content:center}.yg-h1 b{font:800 16px var(--f-body);color:#fff;flex:1}.yg-h1 .ok{color:#3ecf8e;font-weight:800}
+.yg-wz .yg-g:first-of-type{margin-top:12px}
 .demo-rb{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(70px + env(safe-area-inset-bottom,0px));z-index:80;background:#f0ab00;color:#0b1f45;font:800 11px var(--f-body);letter-spacing:.08em;padding:4px 10px;border-radius:8px;pointer-events:none}
 </style>
 
@@ -3542,7 +3546,7 @@ wxLoad();
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)wxLoad();});
 
 /* Yeni sürüm yayınlandıysa uygulama açıkken kendini yeniler */
-(()=>{const B="1793740893"; if(!/^\d+$/.test(B)) return;
+(()=>{const B="1793741261"; if(!/^\d+$/.test(B)) return;
   const chk=()=>fetch(location.pathname+"?b="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const B="(\d+)"/); if(m&&+m[1]>+B) location.reload();}).catch(()=>{});
   document.addEventListener("visibilitychange",()=>{if(!document.hidden)chk();}); setTimeout(chk,4000);})();
 
@@ -4263,31 +4267,31 @@ function ygReq(){ const f=YG.f, A=YG.a, to=YG.to, std=A.fam in STD, st=YG.stp;
   const hc=(f.curve||"").startsWith("Hidro");
   const sel=(id,opts,v)=>`<select id="${id}">${opts.map(([a,b])=>`<option value="${a}"${String(a)===String(v)?" selected":""}>${b}</option>`).join("")}</select>`;
   const G=(l,body)=>`<div class="yg-g"><span class="yg-gl">${l} <i class="req">*</i></span>${body}</div>`;
-  let body;
-  if(st===0) body=`<div class="yg-fm">${I("proj","Proje adı","bld","örn. Lojistik deposu çelik çatı",{w2:1,req:1})}${I("cust","Müşteri / firma","users","Firma adı")}${I("city","Şehir","pin","Seçin",{list:"yg-il"})}</div><datalist id="yg-il">${YG_IL.map(x=>`<option value="${x}">`).join("")}</datalist>
+  const B=[];
+  B[0]=`<div class="yg-fm">${I("proj","Proje adı","bld","örn. Lojistik deposu çelik çatı",{w2:1,req:1})}${I("cust","Müşteri / firma","users","Firma adı")}${I("city","Şehir","pin","Seçin",{list:"yg-il"})}</div><datalist id="yg-il">${YG_IL.map(x=>`<option value="${x}">`).join("")}</datalist>
    ${G("Yangın tipi",ygChips("curve"))}<div class="yg-warn" id="yg-hcw"${hc?"":" hidden"}>${ygI("info")}<span>Steelmaster bu yangın tipi için uygun değildir; talep Jotachar değerlendirmesi için gider.</span></div>
    ${G("Dayanım süresi",ygChips("rate",["R30","R60","R90","R120","R180","Bilmiyorum"]))}
    ${G("Ortam",ygChips("env"))}
    <details class="yg-fx yg-more"${YG.more?" open":""}><summary>Ek bilgiler <small>isteğe bağlı</small></summary><div class="yg-fm">${I("cont","Yetkili kişi","user","Ad soyad")}${I("tel","Telefon","tel","+90 5xx",{type:"tel"})}${S("crit","Kritik sıcaklık","therm")}${S("cor","Korozivite","shield")}${S("app","Uygulama yeri","fac")}${S("surf","Yüzey durumu","roll")}${S("std","Test standardı","std",{w2:1})}${I("top","Son kat / renk","pal","örn. RAL 7035",{w2:1})}</div></details>`;
-  else if(st===1) body=`<div class="yg-pc"><div class="yg-pv" id="yg-pv">${ygPrevHTML()}</div><div class="yg-pf yg-fm">
+  B[1]=`<div class="yg-pc"><div class="yg-pv" id="yg-pv">${ygPrevHTML()}</div><div class="yg-pf yg-fm">
    <label>Profil${sel("yg-afam",[...Object.keys(STD).map(k=>[k,k]),["kutu","Kutu profil"],["boru","Boru"]],A.fam)}</label>
    ${std?`<label>Ölçü${sel("yg-asz",STD[A.fam].map(p=>[p[0],A.fam+" "+p[0]]),A.s)}</label>`:`<label>${A.fam==="boru"?"Çap":"Kenar a"} (mm)<input type="number" inputmode="decimal" id="yg-aa" value="${esc(String(A.a||""))}"></label>${A.fam==="kutu"?`<label>Kenar b (mm)<input type="number" inputmode="decimal" id="yg-ab" value="${esc(String(A.b||""))}"></label>`:""}<label>Et kalınlığı (mm)<input type="number" inputmode="decimal" id="yg-at" value="${esc(String(A.th||""))}"></label>`}
    <label>Maruziyet${sel("yg-aexp",[[4,"4 yüz"],[3,"3 yüz"]],A.exp)}</label><label>Eleman${sel("yg-ael",YG_EL.map(e=>[e,e]),A.el)}</label>
    <label>Boy (m)<input type="number" inputmode="decimal" id="yg-aL" value="${esc(String(A.L||""))}" placeholder="0,00"></label><label>Adet<input type="number" inputmode="decimal" id="yg-an" value="${esc(String(A.n||1))}"></label></div></div>
    <div class="yg-bt2"><button type="button" class="a" id="yg-aadd">${ygI("plus")}Profil ekle</button><label class="u"><input type="file" id="yg-upf" accept=".pdf,image/*,.xlsx,.xls,.csv,.txt" hidden>${ygI("up")}<span>Çelik listesi yükle<small>PDF, fotoğraf veya Excel</small></span></label></div>
    <div class="yg-rows" id="yg-rows">${ygRowsHTML()}</div>`;
-  else body=`<div id="yg-ana">${ygAnaHTML()}</div>
+  B[2]=`<div id="yg-ana">${ygAnaHTML()}</div>
    <div class="yg-fm" style="margin-top:10px"><label class="w2"><span>Not</span><span class="yg-in" style="display:block"><textarea data-ygf="note" rows="2" placeholder="örn. Statik rapor ayrıca gönderilecek; termin 3 hafta">${esc(f.note||"")}</textarea></span></label></div>
    <label class="yg-dz"><input type="file" id="yg-fa" multiple hidden>${ygI("up")}<span><b>Dosya ekle</b> (statik rapor, çizim, şartname)</span></label><div class="yg-files" id="yg-files">${ygFilesHTML()}</div>
    <div class="yg-bar2"><div class="yg-rcp"><span>Alıcı: <b>${to.name?esc(to.name):"seçilmedi"}</b>${to.name&&(to.wa||to.mail)?" · "+[to.wa,to.mail].filter(Boolean).map(esc).join(" · "):""}</span><button type="button" class="linkbtn" id="yg-toedit">${to.name?"Değiştir":"Alıcı ekle"}</button></div>
    <div class="yg-acts"><button type="button" id="yg-clr">${ygI("reset")}Temizle</button><button type="button" id="yg-pdf">${ygI("pdf")}PDF</button><a id="yg-mail">${ygI("mail")}E-posta</a><a class="wa" id="yg-wa" target="_blank" rel="noopener">${ygI("wa")}WhatsApp ile gönder</a></div></div>`;
-  const nav=st<2?`<div class="yg-nav">${st>0?`<button type="button" data-ys="${st-1}">Geri</button>`:"<span></span>"}<button type="button" class="nx" data-ys="${st+1}">İleri: ${YG_STEPS[st+1][1]}<svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button></div>`:`<div class="yg-nav"><button type="button" data-ys="1">Geri</button><span></span></div>`;
-  return `<div class="yg-step yg-step3" id="yg-step">${ygStepHTML()}</div><div class="yg-sec yg-wz" id="yg-wz">${body}${nav}</div>`; }
+  const H=(i,ic)=>`<div class="yg-h1"><span class="n">${i+1}</span><b>${YG_STEPS[i][1]}</b>${i<2?`<span class="ok" id="yg-ok${i}"${ygDone()[YG_STEPS[i][0]]?"":" hidden"}>✓</span>`:""}</div>`;
+  return B.map((x,i)=>`<section class="yg-sec yg-wz" id="yg-b${i}">${H(i)}${x}</section>`).join(""); }
 function ygFilesHTML(){ return YG.files.map((f,i)=>`<div>${ygI("clip").replace("<svg",'<svg style="width:16px;height:16px;fill:none;stroke:#cfe0ff;stroke-width:2"')}<span>${esc(f.name)}</span><small>${fmt(f.size/1048576,1)} MB</small><button type="button" class="x" data-ygfd="${i}" aria-label="Kaldır" style="background:none;border:0;color:#fff;font-size:18px">×</button></div>`).join(""); }
 function ygLinks(){ const wa=$("#yg-wa"), ml=$("#yg-mail"); if(!wa) return; const t=ygText(), n=(YG.to.wa||"").replace(/\D/g,"");
   wa.href=(n?"https://wa.me/"+n:"https://wa.me/")+"?text="+encodeURIComponent(t);
   ml.href=`mailto:${encodeURIComponent(YG.to.mail||"")}?subject=${encodeURIComponent("Yangın koruma analiz talebi"+(YG.f.proj?" – "+YG.f.proj:""))}&body=${encodeURIComponent(t.replace(/\*/g,""))}`;
-  const st=$("#yg-step"); if(st) st.innerHTML=ygStepHTML(); 
+  const dn=ygDone(); [0,1].forEach(i=>{const e=$("#yg-ok"+i); if(e) e.hidden=!dn[YG_STEPS[i][0]];}); 
   const a=$("#yg-ana"); if(a) a.innerHTML=ygAnaHTML(); }
 function ygAnaUpd(){ const a=$("#yg-ana"); if(a) a.innerHTML=ygAnaHTML(); }
 function ygRowsUpd(){ const el=$("#yg-rows"); if(el) el.innerHTML=ygRowsHTML(); ygSave(); ygLinks(); ygAnaUpd(); }
