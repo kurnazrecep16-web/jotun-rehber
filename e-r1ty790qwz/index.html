@@ -2119,8 +2119,8 @@ $("#q-body").addEventListener("click",e=>{const rb=e.target.closest("[data-raln]
   Q.lines[i].name=b.dataset.cbn; cbClose(i); pickName(i);});
 try{if(!document.querySelector(".sb-cover"))document.body.insertAdjacentHTML("afterbegin",'<div class="sb-cover" aria-hidden="true"></div>')}catch(e){}
 document.addEventListener("click",e=>{if(e.target.id==="q-miss-go"){const x=[...document.querySelectorAll("#q-body input.price")].find(i=>!(num(i.value)>0));if(x){x.scrollIntoView({block:"center",behavior:"smooth"});setTimeout(()=>x.focus(),250);}}});
-$("#q-clear").addEventListener("click",()=>{ if(!Q.lines.length){toast("Teklif zaten boş");return;}
-  const bak=JSON.stringify({lines:Q.lines,sys:Q.sys,thOff:Q.thOff}); Q.lines=[];Q.sys=null;Q.thOff={};renderLines();renderDoc();
+$("#q-clear").addEventListener("click",()=>{ if(!Q.lines.some(l=>l.name)){toast("Teklif zaten boş");return;}
+  const bak=JSON.stringify({lines:Q.lines,sys:Q.sys,thOff:Q.thOff}); Q.lines=[{key:null,name:"",pack:"",qty:1,needL:null,dens:"",price:""}];Q.sys=null;Q.thOff={};renderLines();renderDoc();
   undoToast("Teklif ürünleri temizlendi",()=>{const o=JSON.parse(bak);Q.lines=o.lines;Q.sys=o.sys;Q.thOff=o.thOff;renderLines();renderDoc();});});
 
 const dealerEl=$("#q-dealer"); dealerEl.value=load("q-dealer","");
@@ -3209,7 +3209,7 @@ wxLoad();
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)wxLoad();});
 
 /* Yeni sürüm yayınlandıysa uygulama açıkken kendini yeniler */
-(()=>{const B="1793699937"; if(!/^\d+$/.test(B)) return;
+(()=>{const B="1793700114"; if(!/^\d+$/.test(B)) return;
   const chk=()=>fetch(location.pathname+"?b="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const B="(\d+)"/); if(m&&+m[1]>+B) location.reload();}).catch(()=>{});
   document.addEventListener("visibilitychange",()=>{if(!document.hidden)chk();}); setTimeout(chk,4000);})();
 
