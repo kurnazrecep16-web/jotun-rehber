@@ -473,18 +473,6 @@ textarea:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
 .calc-in i{position:absolute;right:9px;top:50%;transform:translateY(-50%);font:500 13px var(--f-body);color:var(--muted);font-style:normal;pointer-events:none}
 .calc-r{display:block;padding:8px 12px 10px;font-size:13.5px;color:var(--ink)}.calc-r b{color:var(--steel);font-size:15px}.calc-r.muted{color:var(--muted);font-size:12.5px}
 @media (min-width:701px){.q-lines td:first-child .calc{max-width:420px}}
-.pk-q{width:100%;font-size:16px;padding:10px 12px}
-.pk-cats{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}.pk-cats::-webkit-scrollbar{display:none}
-.pk-cats button{flex:none;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:20px;padding:6px 12px;font:500 13px var(--f-body);cursor:pointer}
-.pk-cats button[aria-pressed="true"]{background:var(--sel);border-color:var(--sel-b);color:#fff}
-.pk-list{display:flex;flex-direction:column;gap:6px;min-height:200px}
-.pk-it{display:flex;align-items:center;gap:10px;width:100%;text-align:left;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:12px;padding:10px 12px;font:inherit;cursor:pointer}
-.pk-it .t{flex:1;min-width:0}.pk-it b{display:block;font:600 15px var(--f-body)}.pk-it small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
-.pk-it .add{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#031e45;font:700 20px/1 var(--f-body)}
-.pk-it.on{border-color:var(--steel)}.pk-it.on .add{background:var(--sel);color:#fff;font-size:14px;width:auto;padding:0 10px;border-radius:17px}
-.pk-foot{position:sticky;bottom:calc(-18px - env(safe-area-inset-bottom,0px));background:var(--panel);padding:10px 0 4px;display:flex;gap:8px;align-items:center;border-top:1px solid var(--line)}
-.pk-foot .btn{flex:1}
-.pk-new{font-size:13px}
 .mono{font-family:var(--f-mono);white-space:nowrap}
 .q-lines input.dens{width:72px}
 .q-lines select{width:auto;font-family:var(--f-mono)}
@@ -1995,7 +1983,7 @@ function renderLines(){
   const tb=$("#q-body");
   tb.innerHTML = Q.lines.map((ln,i)=>{const packs=packsOf(ln.name);const u=isKg(ln.name)?"kg":"L";
    return `<tr${ln.auto?' class="auto"':""}>
-    <td>${ln.key?`<span class="prod">${esc(ln.name)}</span>`:`<input type="text" id="q-n-${i}" data-i="${i}" data-f="name" value="${esc(ln.name)}" placeholder="Ürün adı" aria-label="Ürün adı">`}${ln.auto?`<span class="need">Boyanın %15'i · İhtiyaç ≈ ${fmt(Math.ceil(ln.needL),0)} L</span>`:ln.needL&&!ln.m2?`<span class="need">İhtiyaç ≈ ${fmt(Math.ceil(ln.needL),0)} L</span>`:""}${ln.auto?"":specChip(ln)}${ln.auto?"":colorCell(ln,i)}${tintCell(ln,i)}</td>
+    <td>${ln.key?`<span class="prod">${esc(ln.name)}</span>`:`<input type="text" id="q-n-${i}" data-i="${i}" data-f="name" value="${esc(ln.name)}" placeholder="Ürün adını yazın (örn. Hardtop XP)" aria-label="Ürün adı" list="q-dl" autocomplete="off">`}${ln.auto?`<span class="need">Boyanın %15'i · İhtiyaç ≈ ${fmt(Math.ceil(ln.needL),0)} L</span>`:ln.needL&&!ln.m2?`<span class="need">İhtiyaç ≈ ${fmt(Math.ceil(ln.needL),0)} L</span>`:""}${ln.auto?"":specChip(ln)}${ln.auto?"":colorCell(ln,i)}${tintCell(ln,i)}</td>
     <td class="n" data-label="Ambalaj">${packs.length>1?`<select id="q-k-${i}" data-i="${i}" data-f="pack" aria-label="Ambalaj">${packs.map(x=>`<option value="${x}"${x===num(ln.pack)?" selected":""}>${fmt(x,x%1?2:0)} ${u}</option>`).join("")}</select>`
       :packs.length===1?`<span class="mono">${fmt(packs[0],packs[0]%1?2:0)} ${u}</span>`
       :`<input type="number" id="q-k-${i}" data-i="${i}" data-f="pack" min="0" step="0.1" value="${ln.pack}" placeholder="L" aria-label="Ambalaj litre">`}</td>
@@ -2019,6 +2007,7 @@ function updCells(i){const ln=Q.lines[i];const u=isKg(ln.name)?"kg":"L";
 function onLine(e){
   const t=e.target; let f=t.dataset.f; if(f==null)return; const i=+t.dataset.i, ln=Q.lines[i];
   ln[f]=t.value;
+  if(f==="name"&&!ln.key&&(e.type==="change"||!e.inputType||e.inputType==="insertReplacementText")&&pickName(i)) return;
   if(f==="m2"||f==="dft"||f==="loss"){ const n=calcNeed(ln); ln.needL=n;
     if(n!=null&&num(ln.pack)){ ln.qty=Math.max(1,Math.ceil(n/num(ln.pack))); const qi=$("#q-q-"+i); if(qi) qi.value=ln.qty; }
     const cr=$("#q-cr-"+i); if(cr) cr.innerHTML=calcRes(ln); f="qty"; }
@@ -2034,7 +2023,7 @@ function onLine(e){
 }
 $("#q-body").addEventListener("input",onLine);
 $("#q-body").addEventListener("toggle",e=>{const d=e.target;if(d.classList&&d.classList.contains("calc")){const ln=Q.lines[+d.dataset.i];if(ln)ln.calcOpen=d.open;} if(d.classList&&d.classList.contains("tint")){const ln=Q.lines[+d.dataset.i];if(ln)ln.tintOpen=d.open;}},true);
-$("#q-body").addEventListener("change",e=>{if(e.target.tagName==="SELECT")onLine(e);});
+$("#q-body").addEventListener("change",e=>{if(e.target.tagName==="SELECT"||e.target.dataset.f==="name")onLine(e);});
 $("#q-body").addEventListener("click",e=>{const d=e.target.closest("[data-del]");if(!d)return;const ln=Q.lines[+d.dataset.del];if(ln&&ln.auto){Q.thOff=Q.thOff||{};Q.thOff[ln.thNo]=true;}Q.lines.splice(+d.dataset.del,1);renderLines();renderDoc();});
 $("#q-add-sel").innerHTML = Object.keys(CATS).map(c=>{const items=CATALOG.map((p,i)=>[p,i]).filter(([p])=>p.cat===c&&c!=="MCI Tinter");return items.length?`<optgroup label="${CATS[c][0]}">${items.map(([p,i])=>`<option value="c:${i}">${esc(p.name)}</option>`).join("")}</optgroup>`:""}).join("")+`<option value="__free">Diğer ürün (elle yaz)</option>`;
 $("#q-add").addEventListener("click",()=>{
@@ -2043,40 +2032,20 @@ $("#q-add").addEventListener("click",()=>{
   else addLine(k.startsWith("c:")?CATALOG[+k.slice(2)].name:PRODUCTS[k].name,null);
   if(!Q.no)newNo(); renderLines(); renderDoc();
 });
-/* Ürün seçerek teklif: bayi ürünü seçer; katı madde, yoğunluk, ambalaj ve tiner otomatik gelir */
-let PK={cat:"all",q:""};
-function pkItems(){
-  const q=tnormS(PK.q);
-  return CATALOG.map((p,i)=>[p,i]).filter(([p])=>p.cat!=="MCI Tinter"&&!/Thinner/i.test(p.name)&&(PK.cat==="all"||p.cat===PK.cat)&&(!q||tnormS(p.name+" "+(CATS[p.cat]?CATS[p.cat][0]:"")).includes(q)));
-}
-function tnormS(x){return String(x).toLocaleLowerCase("tr").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/ı/g,"i")}
-function pkList(){
-  const L=$("#pk-list"); if(!L) return; const it=pkItems();
-  L.innerHTML=it.map(([p,i])=>{const n=Q.lines.filter(l=>l.name===p.name).reduce((a,l)=>a+num(l.qty),0);const d=num(DENS[p.name]);const t=thinNo(p.name);
-    const info=[CATS[p.cat]?CATS[p.cat][0]:"",p.vs&&p.vs[0]?`Katı madde %${p.vs[0]}`:"",d?`${fmt(d,d%1?2:0)} kg/L`:"",p.packs&&p.packs.length?p.packs.join(" / ")+(isKg(p.name)?" kg":" L"):"",t?`Tiner N° ${t}`:""].filter(Boolean).join(" · ");
-    return `<button type="button" class="pk-it${n?" on":""}" data-pk="${i}"><span class="t"><b>${esc(p.name)}</b><small>${esc(info)}</small></span><span class="add">${n?"✓ "+n:"+"}</span></button>`}).join("")||`<p class="hint">Ürün bulunamadı.</p>`;
-  
-}
+/* Ürün ekle: teklif ekranında yeni satır açılır, ürün adı yazılır (listeden öneri çıkar) */
+const tnormS=x=>String(x).toLocaleLowerCase("tr").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/ı/g,"i");
 function pickOpen(){
-  const cats=["all",...Object.keys(CATS).filter(c=>c!=="MCI Tinter"&&CATALOG.some(p=>p.cat===c&&!/Thinner/i.test(p.name)))];
-  const has=Q.lines.some(l=>l.name);
-  const d=sheet("Ürün seç",`<input type="search" class="pk-q" id="pk-q" placeholder="Ürün ara (örn. Penguard, Hardtop)" autocomplete="off">
-   <div class="pk-cats" id="pk-cats">${cats.map(c=>`<button type="button" data-c="${c}" aria-pressed="${c===PK.cat}">${c==="all"?"Tümü":esc(CATS[c][0])}</button>`).join("")}</div>
-   ${has?`<p class="hint pk-new">Dokunduğunuz ürün mevcut teklife eklenir. <button type="button" class="linkbtn" id="pk-reset">Boş teklifle başla</button></p>`:`<p class="hint pk-new">Ürüne dokunun, teklife eklenir. Katı madde, yoğunluk, ambalaj ve tiner otomatik gelir; adet ve fiyatı siz girersiniz.</p>`}
-   <div class="pk-list" id="pk-list"></div>
-   <div class="pk-foot"><button type="button" class="btn ghost" id="pk-free">Listede yok, elle yaz</button><button type="button" class="btn" id="pk-done">Kapat</button></div>`,"full");
-  pkList();
-  $("#pk-q").addEventListener("input",e=>{PK.q=e.target.value;pkList();});
-  $("#pk-cats").addEventListener("click",e=>{const b=e.target.closest("[data-c]");if(!b)return;PK.cat=b.dataset.c;$("#pk-cats").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b));pkList();});
-  $("#pk-list").addEventListener("click",e=>{const b=e.target.closest("[data-pk]");if(!b)return;const p=CATALOG[+b.dataset.pk];
-    if(!Q.no)newNo(); addLine(p.name,null); renderLines(); renderDoc(); d.close(); if(location.hash!=="#teklif") location.hash="#teklif";
-    const k=Q.lines.findIndex(l=>l.name===p.name);
-    setTimeout(()=>{const r=$("#q-body").rows[k]; if(!r) return; r.scrollIntoView({block:"center",behavior:"smooth"}); r.classList.add("just"); setTimeout(()=>r.classList.remove("just"),1600);},180);});
-  const rs=$("#pk-reset"); if(rs) rs.onclick=()=>{Q.lines=[];Q.sys=null;Q.thOff={};newNo();renderLines();renderDoc();rs.parentElement.textContent="Boş teklif başlatıldı. Ürünleri seçin.";pkList();};
-  $("#pk-free").onclick=()=>{Q.lines.push({key:null,name:"",pack:"",qty:1,needL:null,dens:"",price:""});if(!Q.no)newNo();renderLines();renderDoc();d.close();location.hash="#teklif";setTimeout(()=>{const x=$("#q-body").querySelector('input[data-f="name"]');if(x)x.focus();},150);};
-  $("#pk-done").onclick=()=>{d.close();if(location.hash!=="#teklif")location.hash="#teklif";};
+  Q.lines.push({key:null,name:"",pack:"",qty:1,needL:null,dens:"",price:""});
+  if(!Q.no)newNo(); renderLines(); renderDoc(); if(location.hash!=="#teklif") location.hash="#teklif";
+  const k=Q.lines.length-1;
+  setTimeout(()=>{const r=$("#q-body").rows[k]; if(!r) return; r.scrollIntoView({block:"center",behavior:"smooth"}); const x=r.querySelector('input[data-f="name"]'); if(x) x.focus();},200);
 }
+function pickName(i){const ln=Q.lines[i]; if(!ln||ln.key) return false; const v=tnormS(ln.name.trim()); if(!v) return false;
+  const c=CATALOG.find(p=>tnormS(p.name)===v&&p.cat!=="MCI Tinter"); if(!c) return false;
+  const q=num(ln.qty)||1; Q.lines[i]=mkLine(c.name,null); Q.lines[i].qty=q; renderLines(); renderDoc();
+  setTimeout(()=>{const r=$("#q-body").rows[i]; if(r){r.classList.add("just"); setTimeout(()=>r.classList.remove("just"),1400); const qi=r.querySelector('input[data-f="qty"]'); if(qi) qi.focus();}},60); return true;}
 $("#q-pick").addEventListener("click",pickOpen);
+try{const dl=document.createElement("datalist");dl.id="q-dl";dl.innerHTML=CATALOG.filter(p=>p.cat!=="MCI Tinter").map(p=>`<option value="${esc(p.name)}">`).join("");document.body.appendChild(dl);}catch(e){}
 try{if(!document.querySelector(".sb-cover"))document.body.insertAdjacentHTML("afterbegin",'<div class="sb-cover" aria-hidden="true"></div>')}catch(e){}
 document.addEventListener("click",e=>{if(e.target.id==="q-miss-go"){const x=[...document.querySelectorAll("#q-body input.price")].find(i=>!(num(i.value)>0));if(x){x.scrollIntoView({block:"center",behavior:"smooth"});setTimeout(()=>x.focus(),250);}}});
 $("#q-clear").addEventListener("click",()=>{Q.lines=[];Q.sys=null;Q.thOff={};renderLines();renderDoc();});
@@ -2249,8 +2218,8 @@ function toast(msg,link){
 function dealerUI(){const v=dealerEl.value.trim(),sh=$("#q-dealer-show"),fs=$("#q-dealer-fs");if(!sh||!fs)return;if(v&&document.activeElement!==dealerEl){fs.hidden=true;sh.hidden=false;sh.innerHTML=`Bayi: <b>${esc(v)}</b> · <button type="button" class="linkbtn" id="q-dealer-ed">değiştir</button>`;$("#q-dealer-ed").onclick=()=>{fs.hidden=false;sh.hidden=true;dealerEl.focus();};}else if(!v){fs.hidden=false;sh.hidden=true;}}
 function badgeUpd(){ dealerUI();
   const n=Q.lines.filter(l=>l.name&&!l.auto).length, b=$("#t-badge"); if(b){b.hidden=!n;b.textContent=n;}
-  const e=$("#q-empty"); if(e) e.hidden=Q.lines.some(l=>l.name);
-  const qs=$("#quote"); if(qs) qs.hidden=!Q.lines.some(l=>l.name);
+  const e=$("#q-empty"); if(e) e.hidden=Q.lines.length>0;
+  const qs=$("#quote"); if(qs) qs.hidden=!Q.lines.length;
   const bar=$("#q-bar"); if(bar){const t=totals();bar.querySelector(".v").textContent=t.grand>0?money(t.grand):`${fmt(t.lt,0)} L`;bar.querySelector(".k").textContent=t.grand>0?"Genel toplam":"Toplam";const ms=Q.lines.filter(l=>l.name&&!(num(l.price)>0)).length,bb=$("#q-bar-pdf");if(bb){bb.textContent=ms?`Fiyat gir (${ms})`:"PDF indir";bb.dataset.miss=ms?"1":"";}}
 }
 /* ---------- Son teklifler (yalnızca bu cihazda) ---------- */
@@ -3158,7 +3127,7 @@ wxLoad();
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)wxLoad();});
 
 /* Yeni sürüm yayınlandıysa uygulama açıkken kendini yeniler */
-(()=>{const B="1793697828"; if(!/^\d+$/.test(B)) return;
+(()=>{const B="1793698070"; if(!/^\d+$/.test(B)) return;
   const chk=()=>fetch(location.pathname+"?b="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const B="(\d+)"/); if(m&&+m[1]>+B) location.reload();}).catch(()=>{});
   document.addEventListener("visibilitychange",()=>{if(!document.hidden)chk();}); setTimeout(chk,4000);})();
 
