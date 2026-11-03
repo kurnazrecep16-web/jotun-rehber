@@ -1342,6 +1342,8 @@ dialog.sheet .x:focus:not(:focus-visible){outline:none}
 .sb-cover{position:fixed;top:0;left:0;right:0;height:env(safe-area-inset-top,0px);background:var(--bg,#0b1320);z-index:90;pointer-events:none}
 
 #q-body td:first-child{position:relative}
+#q-body td:first-child>.cb{left:-46px;right:-52px}
+#q-body td:first-child:has(> input[data-f="name"]){padding-top:64px!important}
 .cb{position:absolute;left:0;right:0;z-index:30;margin-top:6px;max-height:min(52vh,420px);overflow-y:auto;-webkit-overflow-scrolling:touch;background:#fff;border:1px solid #d7dde8;border-radius:14px;box-shadow:0 12px 32px rgba(3,20,50,.28);padding:6px}
 .cb-h{margin:8px 8px 4px;font:700 11.5px var(--f-body);letter-spacing:.06em;text-transform:uppercase;color:#7a869c}
 .cb-it{display:block;width:100%;text-align:left;border:0;background:none;border-radius:10px;padding:9px 10px;cursor:pointer;color:#0b1f45;font:inherit}
@@ -1352,6 +1354,9 @@ dialog.sheet .x:focus:not(:focus-visible){outline:none}
 #q-body .ral-w>.cb{left:-46px;right:0}
 .cb-it .sw{display:inline-block;width:14px;height:14px;border-radius:4px;border:1px solid rgba(0,0,0,.2);margin-right:8px;vertical-align:-2px}
 .tint-w{color:#c0392b;font-weight:600}
+
+#q-body input[data-f="name"]{display:block;width:calc(100% + 46px + 52px);margin:0 0 4px -46px!important;box-sizing:border-box;height:58px;font:600 17px var(--f-body);padding:0 16px;border-radius:14px;border:1.5px solid #c9d3e3}
+#q-body input[data-f="name"]::placeholder{font-weight:500}
 </style>
 
 <div id="app-bg" aria-hidden="true"></div>
@@ -2082,6 +2087,7 @@ function cbRender(i){
   else { const order=[want,...["p","i","t","o","z"].filter(r=>r!==want)];
     html=order.map(r=>{const g=all.filter(([p])=>roleOf(p)===r);return g.length?`<p class="cb-h">${r===want?"Önerilen · ":""}${ROLE_T[r]}</p>`+g.map(item).join(""):""}).join(""); }
   box.innerHTML=html||`<p class="cb-h">Listede yok — yazdığınız adla eklenir.</p>`;
+  box.style.left=inp.offsetLeft+"px"; box.style.right="auto"; box.style.width=inp.offsetWidth+"px"; box.style.top=(inp.offsetTop+inp.offsetHeight)+"px";
   box.hidden=false; inp.setAttribute("aria-expanded","true");
 }
 function ralRender(i){
@@ -3184,7 +3190,7 @@ wxLoad();
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)wxLoad();});
 
 /* Yeni sürüm yayınlandıysa uygulama açıkken kendini yeniler */
-(()=>{const B="1793699358"; if(!/^\d+$/.test(B)) return;
+(()=>{const B="1793699618"; if(!/^\d+$/.test(B)) return;
   const chk=()=>fetch(location.pathname+"?b="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const B="(\d+)"/); if(m&&+m[1]>+B) location.reload();}).catch(()=>{});
   document.addEventListener("visibilitychange",()=>{if(!document.hidden)chk();}); setTimeout(chk,4000);})();
 
