@@ -1814,6 +1814,23 @@ div.yg-tb{margin-top:14px;display:flex;flex-direction:column;gap:6px}
 .yg-si .cv{flex:none;width:20px;height:20px;fill:none;stroke:#e6eefc;stroke-width:2;transition:transform .2s}.yg-si[open] .cv{transform:rotate(90deg)}
 .yg-si .x{padding:0 12px 12px 18px;font-size:12.5px;line-height:1.5;color:#cfe0ff;border-top:1px solid rgba(140,170,220,.14);padding-top:9px;margin:0 0 0 0}
 .yg-snt{margin-top:4px}
+/* ---- v10 detay kartları ---- */
+button.yg-si{display:flex;align-items:center;gap:10px;width:100%;padding:10px 10px 10px 18px;text-align:left;color:inherit;font-family:inherit;cursor:pointer}
+button.yg-si:before{content:"";position:absolute;left:9px;top:12px;bottom:12px;width:3.5px;border-radius:3px;background:var(--ac)}
+button.yg-si:active{background:rgba(31,95,214,.18)}
+.yg-tap [data-ygx],.yg-lyr [data-ygx]{cursor:pointer;position:relative;transition:transform .12s,border-color .15s}
+.yg-tap [data-ygx]:active,.yg-lyr [data-ygx]:active{transform:scale(.97)}
+.yg-tap [data-ygx]:after,.yg-lyr [data-ygx]:after{content:"";position:absolute;right:7px;top:7px;width:5px;height:5px;border-right:1.6px solid rgba(214,224,240,.55);border-top:1.6px solid rgba(214,224,240,.55);transform:rotate(45deg)}
+.sheet.yg-xs{background:linear-gradient(180deg,#14284f,#0a1631);color:#e8eef8;border:1px solid rgba(110,150,230,.3)}
+.sheet.yg-xs .sheet-h h3{color:#fff;font:800 19px var(--f-body)}.sheet.yg-xs .x{color:#cfe0ff}
+.yg-xb .s{margin:0;font-size:14.5px;line-height:1.5;color:#e6eefc}
+.yg-xb .kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:7px;margin:12px 0 4px}
+.yg-xb .kv>div{padding:9px 10px;border-radius:12px;background:rgba(4,12,30,.5);border:1px solid rgba(140,170,220,.22)}
+.yg-xb .kv span{display:block;font-size:11.5px;color:rgba(214,224,240,.7)}.yg-xb .kv b{display:block;margin-top:2px;font:800 14.5px var(--f-body);color:#f0ab00}
+.yg-xb ul{margin:10px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px}
+.yg-xb li{position:relative;padding-left:16px;font-size:13.5px;line-height:1.5;color:rgba(226,234,246,.9)}.yg-xb li:before{content:"";position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:#4f8cff}
+.yg-xb .n{display:flex;gap:9px;margin-top:12px;padding:10px 12px;border-radius:12px;background:rgba(240,171,0,.1);border:1px solid rgba(240,171,0,.4);font-size:13px;line-height:1.45;color:#ffe3a3}
+.yg-xb .n svg{flex:none;width:18px;height:18px;fill:none;stroke:#f0ab00;stroke-width:1.8;margin-top:1px}
 .demo-rb{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(70px + env(safe-area-inset-bottom,0px));z-index:80;background:#f0ab00;color:#0b1f45;font:800 11px var(--f-body);letter-spacing:.08em;padding:4px 10px;border-radius:8px;pointer-events:none}
 </style>
 
@@ -3726,7 +3743,7 @@ wxLoad();
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)wxLoad();});
 
 /* Yeni sürüm yayınlandıysa uygulama açıkken kendini yeniler */
-(()=>{const B="1793746134"; if(!/^\d+$/.test(B)) return;
+(()=>{const B="1793746479"; if(!/^\d+$/.test(B)) return;
   const chk=()=>fetch(location.pathname+"?b="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const B="(\d+)"/); if(m&&+m[1]>+B) location.reload();}).catch(()=>{});
   document.addEventListener("visibilitychange",()=>{if(!document.hidden)chk();}); setTimeout(chk,4000);})();
 
@@ -4308,24 +4325,24 @@ const ygI=k=>`<svg viewBox="0 0 24 24" aria-hidden="true">${YGI[k]||""}</svg>`;
 function ygHow(){ const M=YG.m; return `
 <div class="yg-c"><div class="yg-hh"><div><h3><span class="tn">${ygI("therm")}</span>Çelik yanmaz, ama yangında güç kaybeder</h3>
 <p>Yapı çeliği 400 °C'ye kadar dayanımını korur; 550–600 °C civarında kritik seviyeye ulaşır. Korumasız ince bir profil, bina yangınında 10–15 dakikada bu sınıra gelebilir.</p></div>${ygBeam("hot","ygb1")}</div>
-<div class="yg-k4"><div><b>400 °C</b><span>%100</span></div><div><b>500 °C</b><span>%78</span></div><div><b>600 °C</b><span>%47</span></div><div><b>700 °C</b><span>%23</span></div></div>
+<div class="yg-k4 yg-tap"><div data-ygx="k400"><b>400 °C</b><span>%100</span></div><div data-ygx="k500"><b>500 °C</b><span>%78</span></div><div data-ygx="k600"><b>600 °C</b><span>%47</span></div><div data-ygx="k700"><b>700 °C</b><span>%23</span></div></div>
 <small>Akma dayanımının kalan oranı · EN 1993-1-2</small></div>
 
 <div class="yg-c"><h3><span class="tn">${ygI("fire")}</span>Yangının tipi, korumayı belirler</h3>
-<div class="yg-ft"><div><i style="background:#1f5fd6"></i><p><b>Selülozik</b><span>Ahşap, kâğıt, eşya yangını · depo, fabrika, AVM, okul, otopark</span></p><em>Steelmaster</em></div>
-<div><i style="background:#d9452b"></i><p><b>Hidrokarbon</b><span>Akaryakıt ve gaz yangını · rafineri, petrokimya, tank sahası</span></p><em class="o">Jotachar</em></div>
-<div><i style="background:#d9452b"></i><p><b>Jet yangını</b><span>Basınçlı gaz alevi · gaz hattı, LNG, offshore</span></p><em class="o">Jotachar</em></div></div>
+<div class="yg-ft yg-tap"><div data-ygx="fcel"><i style="background:#1f5fd6"></i><p><b>Selülozik</b><span>Ahşap, kâğıt, eşya yangını · depo, fabrika, AVM, okul, otopark</span></p><em>Steelmaster</em></div>
+<div data-ygx="fhc"><i style="background:#d9452b"></i><p><b>Hidrokarbon</b><span>Akaryakıt ve gaz yangını · rafineri, petrokimya, tank sahası</span></p><em class="o">Jotachar</em></div>
+<div data-ygx="fjet"><i style="background:#d9452b"></i><p><b>Jet yangını</b><span>Basınçlı gaz alevi · gaz hattı, LNG, offshore</span></p><em class="o">Jotachar</em></div></div>
 <p><small>Hidrokarbon ve jet yangını projeleri doğrudan Jotun teknik ekibiyle değerlendirilir.</small></p></div>
 
 <div class="yg-c"><div class="yg-hh"><div><h3><span class="tn">${ygI("shield")}</span>Steelmaster, ısının çeliğe ulaşmasını geciktirir</h3>
 <p>Normalde ince bir boya filmidir. Yangında yaklaşık 200–250 °C'de kabararak ilk kalınlığının onlarca katı, ısıyı çok kötü ileten bir kömür köpüğüne dönüşür.</p></div>${ygBeam("coat","ygb2")}</div>
 <div class="yg-sw" aria-hidden="true"><div class="fl"></div><div class="ch"></div><div class="pr"></div><div class="st"></div><span class="lb" style="bottom:50px">Köpük kömür tabakası</span><span class="lb" style="bottom:10px">Çelik</span></div>
 <p>Boya yangını söndürmez; çeliğe tahliye ve müdahale için <b>zaman kazandırır</b>.</p>
-<div class="yg-pr"><span><b>600 WF</b>60 dk · su bazlı</span><span><b>900 WF</b>90 dk · su bazlı</span><span><b>1200 WF</b>120 dk · su bazlı</span><span><b>1200 HPE</b>120 dk · epoksi, dış ortam</span></div>
+<div class="yg-pr yg-tap"><span data-ygx="p600"><b>600 WF</b>60 dk · su bazlı</span><span data-ygx="p900"><b>900 WF</b>90 dk · su bazlı</span><span data-ygx="p1200"><b>1200 WF</b>120 dk · su bazlı</span><span data-ygx="p1200h"><b>1200 HPE</b>120 dk · epoksi, dış ortam</span></div>
 <small>Steelmaster serisi · EN 13381-8, BS 476-20/21 sertifikalı</small></div>
 
 <div class="yg-c yg-c2"><div class="yg-hd2"><span class="ti">${ygI("bars")}</span><div><h3>Kalınlık dört bilgiyle belirlenir</h3><p>Profil, yangın süresi ve kritik sıcaklık, gereken kuru film kalınlığını belirler. Kendin dene:</p><i class="bar"></i></div></div>
-<div class="yg-q4b"><div>${ygI("fire")}<p><b>R60</b><span>Yangın süresi</span></p></div><div>${ygI("lay")}<p><b>Hp/A</b><span>Kesit faktörü</span></p></div><div>${ygI("cube")}<p><b>4 yüz</b><span>Maruziyet</span></p></div><div>${ygI("therm")}<p><b>θcr</b><span>Kritik sıcaklık</span></p></div></div>
+<div class="yg-q4b yg-tap"><div data-ygx="qR">${ygI("fire")}<p><b>R60</b><span>Yangın süresi</span></p></div><div data-ygx="qHp">${ygI("lay")}<p><b>Hp/A</b><span>Kesit faktörü</span></p></div><div data-ygx="qExp">${ygI("cube")}<p><b>4 yüz</b><span>Maruziyet</span></p></div><div data-ygx="qT">${ygI("therm")}<p><b>θcr</b><span>Kritik sıcaklık</span></p></div></div>
 <div class="yg-ctl2"><label>Profil<select id="yg-fam">${ygFamOpts(M.fam)}</select></label><label>Ölçü<select id="yg-sz">${ygSizeOpts(M.fam,M.s)}</select></label><label>Maruziyet<select id="yg-exp"><option value="4"${M.exp==4?" selected":""}>4 yüz</option><option value="3"${M.exp==3?" selected":""}>3 yüz</option></select></label>
  <label class="sl"><span id="yg-mu-v">Kullanım oranı</span><input type="range" id="yg-mu" min="0.2" max="0.9" step="0.01" value="${M.mu}"></label></div>
 <div class="yg-res2" id="yg-res"></div>
@@ -4342,10 +4359,10 @@ Kesit faktörü:  Hp/A = ısıya açık çevre / kesit alanı
 
 <div class="yg-c yg-c2 yg-sys"><img class="ph" src="ill/sys-steel.webp" alt="" aria-hidden="true"><div class="yg-hd2"><span class="ti">${ygI("lay")}</span><div><h3>Doğru sistem, doğru ortam</h3><p>Ortam koşullarına uygun sistem seçimiyle uzun ömürlü koruma sağlanır.</p><i class="bar"></i></div></div>
 <div class="yg-lyr"><img src="ill/layers.webp" alt="Çelik üzerinde astar, Steelmaster ve son kat katmanları" width="376" height="454"><div class="ls">
- <div class="l1">${ygI("brush")}<p><b>Son kat</b><span>Nem, kir ve UV'ye karşı</span></p></div>
- <div class="l2">${ygI("shield")}<p><b>Steelmaster</b><span>Yangın koruması</span></p></div>
- <div class="l3">${ygI("shield")}<p><b>Astar</b><span>Korozyon koruması</span></p></div>
- <div class="l4">${ygI("ibeam")}<p><b>Çelik</b><span>Sa 2½ yüzey hazırlığı</span></p></div></div></div>
+ <div class="l1" data-ygx="lTop">${ygI("brush")}<p><b>Son kat</b><span>Nem, kir ve UV'ye karşı</span></p></div>
+ <div class="l2" data-ygx="lSm">${ygI("shield")}<p><b>Steelmaster</b><span>Yangın koruması</span></p></div>
+ <div class="l3" data-ygx="lPr">${ygI("shield")}<p><b>Astar</b><span>Korozyon koruması</span></p></div>
+ <div class="l4" data-ygx="lSt">${ygI("ibeam")}<p><b>Çelik</b><span>Sa 2½ yüzey hazırlığı</span></p></div></div></div>
 <div class="yg-nt2">${ygI("info")}<span>Astar ve son kat, Steelmaster ile birlikte test edilmiş onaylı ürünlerden seçilir. Ortam ağırlaştıkça son kat şartı değişir.</span></div>
 <div class="yg-env" id="yg-env">${YG_ENV.map(([k,ic,l],i)=>`<button type="button" data-ygenv="${i}" class="${i===(YG.envI||0)?"on":""}">${ygI(ic)}<b>${k}</b><span>${l}</span></button>`).join("")}</div>
 <p class="yg-envd" id="yg-envd">${YG_ENV[YG.envI||0][3]}</p>
@@ -4361,14 +4378,48 @@ function ygHowUpd(){ const el=$("#yg-ch"); if(!el) return; const M=YG.m, r={t:M.
   const rows=[100,150,200,250], cols=[500,550,600,650], ri=rows.reduce((b,x,i)=>Math.abs(x-HpA)<Math.abs(rows[b]-HpA)?i:b,0), ci=cols.reduce((b,x,i)=>Math.abs(x-Tc)<Math.abs(cols[b]-Tc)?i:b,0);
   $("#yg-lt").innerHTML=`<tr><th>Hp/A · θcr</th>${cols.map(x=>`<th>${x} °C</th>`).join("")}</tr>`+rows.map((x,i)=>`<tr><th>${x}</th>${cols.map((y,j)=>`<td class="${i===ri&&j===ci?"h":""}">●</td>`).join("")}</tr>`).join(""); }
 
+/* ---- Detay kartları (dokununca açılan özet bilgi) ---- */
+const YG_X={
+ "EN 13381-8":{t:"EN 13381-8",s:"Reaktif (intümesan) kaplamaların çelik elemanlara kattığı yangın dayanımını belirleyen test ve değerlendirme standardı.",k:[["Kapsam","Reaktif kaplamalı çelik"],["Çıktı","Yükleme tabloları"],["Yangın eğrisi","Selülozik (ISO 834)"]],p:["Yüklü kirişler ve kısa kolon numuneleri fırında test edilir; çelik sıcaklıkları ölçülür.","Sonuç; Hp/A, dayanım süresi ve kritik sıcaklığa göre gereken kuru film kalınlığını gösteren tablolardır.","I/H profiller ile kutu ve boru profiller için ayrı tablolar bulunur."],n:"Kalınlık bu tablolardan okunur; tablo kapsamı dışında kalan profilleri Jotun teknik ekibi değerlendirir."},
+ "EN 1363-1 · ISO 834":{t:"EN 1363-1 · ISO 834",s:"Yangın dayanım testlerinin genel koşulları ve bina yangınlarını temsil eden standart zaman-sıcaklık eğrisi.",k:[["30 dk","≈ 842 °C"],["60 dk","≈ 945 °C"],["90 dk","≈ 1006 °C"],["120 dk","≈ 1049 °C"]],p:["Eğri: θg = 20 + 345·log₁₀(8t + 1); t dakika cinsinden.","Ahşap, kâğıt, tekstil gibi malzemelerin yandığı selülozik yangını temsil eder.","Steelmaster testleri bu eğriyle yapılır."],n:"Hidrokarbon yangınında sıcaklık çok daha hızlı yükselir; o durumda farklı eğri ve ürün gerekir."},
+ "EN 13501-2":{t:"EN 13501-2",s:"Yapı elemanlarının yangın dayanım sınıflandırması.",k:[["R","Taşıyıcılık"],["E","Bütünlük"],["I","Isı yalıtımı"]],p:["Süre dakika cinsindendir: R15, R30, R45, R60, R90, R120, R180, R240.","Taşıyıcı çelik kolon ve kirişlerde R sınıfı istenir; yangın duvarlarında REI aranır.","Örnek: R60, elemanın 60 dakika taşıyıcılığını koruması demektir."],n:"Projede istenen sınıf, yönetmelik ve proje şartnamesinden gelir."},
+ "EAD 350402 · ETA · CE":{t:"EAD 350402 · ETA · CE",s:"Reaktif kaplamalar için Avrupa Değerlendirme Belgesi; ürün bu belgeye göre ETA alır ve CE işareti taşır.",k:[["X","Dış ortam"],["Y","Yarı açık"],["Z1","İç, yüksek nem"],["Z2","İç, normal nem"]],p:["ETA; ürünün yangın performansını, dayanıklılığını ve kullanılabileceği ortam sınıflarını gösterir.","Hangi ortamda hangi astar ve son katla kullanılabileceği ETA'da yazar."],n:"Sistem seçiminde ortam sınıfı ve ETA'daki onaylı kombinasyon birlikte kontrol edilir."},
+ "BS 476-20/21 · UL 263":{t:"BS 476-20/21 · UL 263",s:"İngiliz ve Amerikan selülozik yangın test standartları.",k:[["BS 476-20","Genel test yöntemi"],["BS 476-21","Taşıyıcı elemanlar"],["UL 263","ABD · ASTM E119"]],p:["BS 476, İngiliz şartnameli ve bazı uluslararası projelerde istenebilir.","UL 263, ASTM E119 eğrisini kullanır; ABD şartnameli projelerde karşınıza çıkar.","Avrupa ve Türkiye projelerinde esas standart EN 13381-8'dir."],n:"Şartnamede hangi standart yazıyorsa kalınlık o standardın sertifikasına göre belirlenir."},
+ "EN 1993-1-2":{t:"EN 1993-1-2 · Eurocode 3",s:"Çelik yapıların yangın altında tasarımı: dayanım kaybı, kritik sıcaklık ve ısınma hesabı.",k:[["μ₀ 0,4","≈ 620 °C"],["μ₀ 0,5","≈ 585 °C"],["μ₀ 0,6","≈ 554 °C"],["μ₀ 0,7","≈ 526 °C"]],p:["Kritik sıcaklık, elemanın yangındaki kullanım oranından (μ₀) hesaplanır; yük azaldıkça kritik sıcaklık yükselir.","Kesit faktörü Hp/A, çeliğin ne kadar hızlı ısınacağını belirler.","Korumasız ve korumalı çeliğin ısınması adım adım hesaplanır."],n:"Kritik sıcaklık statik projeden alınmalıdır; bilinmiyorsa değeri teknik ekip belirler."},
+ "ISO 12944":{t:"ISO 12944",s:"Çelik yapıların boya sistemleriyle korozyondan korunması.",k:[["C1–C2","Düşük"],["C3","Orta"],["C4","Yüksek"],["C5 · CX","Çok yüksek · Ekstrem"]],p:["Bölüm 2 ortamın korozivite sınıfını, bölüm 5 boya sistemlerini tanımlar.","Dayanıklılık sınıfları: L, M, H, VH.","Yangın sisteminde astar, ortamın korozivite sınıfına göre seçilir."],n:"Astar ve son kat, Steelmaster ile uyumlu onaylı ürünlerden seçilir."},
+ "ISO 8501-1":{t:"ISO 8501-1",s:"Boya öncesi çelik yüzeyin görsel temizlik dereceleri.",k:[["St 2 · St 3","El / mekanik"],["Sa 2","Kapsamlı raspa"],["Sa 2½","Çok kapsamlı raspa"],["Sa 3","Görsel temiz"]],p:["Sa 2½: yüzeyde yağ, kir, tufal, pas ve eski boya kalmaz; yalnızca hafif gölgeler kabul edilir.","Yangın sistemlerinde genellikle Sa 2½ hedeflenir."],n:"Yüzey hazırlığı, sistemin yapışması ve ömrü için belirleyicidir."},
+ "ISO 2808 · ISO 19840":{t:"ISO 2808 · ISO 19840",s:"Kuru film kalınlığının ölçümü ve kabulü.",k:[["ISO 2808","Ölçüm yöntemleri"],["ISO 19840","Pürüzlü yüzeyde ölçüm"]],p:["ISO 2808 kalınlık ölçüm yöntemlerini tanımlar.","ISO 19840, raspa yapılmış yüzeyde ölçümü ve genel kabul kriterlerini tanımlar.","Her profil, kendi tablo kalınlığına göre ölçülür."],n:"Yangın kaplamasında kabul kriteri ürün ve şartnameye göre teknik ekiple belirlenir."},
+ "Binaların Yangından Korunması Hakkında Yönetmelik":{t:"Yangından Korunma Yönetmeliği",s:"Türkiye'de binaların yangın güvenliği şartlarını belirleyen yönetmelik.",p:["Taşıyıcı sistemden beklenen yangın dayanım süresi, bina kullanım sınıfı ve yüksekliğine göre belirlenir.","Kesin süre proje müellifi ve proje şartnamesiyle netleşir."],n:"Analiz talebinde dayanım süresi bu kaynaklardan alınmalıdır."},
+ "TS EN 13381-8 · TS EN 13501-2":{t:"TS EN standartları",s:"Avrupa standartlarının Türk Standardı olarak kabul edilmiş karşılıkları.",p:["İçerik Avrupa standartlarıyla aynıdır.","Türkiye'deki şartnamelerde bu numaralarla anılır."]},
+ "UL 1709 · EN 1363-2 · ISO 22899-1":{t:"Hidrokarbon ve jet yangını",s:"Akaryakıt ve gaz yangınlarına karşı test standartları.",k:[["UL 1709","Hızlı yükselen HC"],["EN 1363-2","HC eğrisi"],["ISO 22899-1","Jet yangını"]],p:["Hidrokarbon yangınında sıcaklık birkaç dakika içinde 1000 °C'nin üzerine çıkar.","Jet yangını, yüksek ısıya ek olarak basınçlı alevin aşındırıcı etkisini içerir.","Rafineri, petrokimya, LNG ve offshore yapılarında istenir."],n:"Bu projelerde Steelmaster değil Jotachar değerlendirilir; Jotun teknik ekibiyle ele alınır."},
+ "k400":{t:"400 °C",s:"Yapı çeliği bu sıcaklığa kadar akma dayanımını büyük ölçüde korur.",k:[["Kalan dayanım","%100"]],p:["EN 1993-1-2'ye göre akma dayanımı azaltma katsayısı 400 °C'de 1,0'dır."]},
+ "k500":{t:"500 °C",s:"Dayanım kaybı belirginleşir.",k:[["Kalan dayanım","%78"]],p:["Elastisite modülü de belirgin şekilde düşer; eleman daha fazla şekil değiştirir."]},
+ "k600":{t:"600 °C",s:"Çelik dayanımının yarısından fazlasını kaybeder.",k:[["Kalan dayanım","%47"]],p:["Kritik sıcaklıklar çoğu zaman 500–600 °C aralığına düşer; korumanın amacı çeliği bu sınırın altında tutmaktır."]},
+ "k700":{t:"700 °C",s:"Çelik taşıma kapasitesinin büyük kısmını yitirir.",k:[["Kalan dayanım","%23"]],p:["Korumasız ince profiller bina yangınında bu sıcaklığa kısa sürede ulaşabilir."]},
+ "fcel":{t:"Selülozik yangın",s:"Ahşap, kâğıt, tekstil ve eşya gibi malzemelerin yandığı bina yangını.",k:[["Eğri","ISO 834"],["Ürün","Steelmaster"]],p:["Depo, fabrika, AVM, okul, hastane, otopark gibi yapılarda esas alınır.","Sıcaklık yükselişi hidrokarbon yangınına göre daha yavaştır."]},
+ "fhc":{t:"Hidrokarbon yangını",s:"Akaryakıt, solvent ve gaz gibi hidrokarbonların yandığı yangın.",k:[["Eğri","UL 1709 · EN 1363-2"],["Ürün","Jotachar"]],p:["Sıcaklık birkaç dakika içinde 1000 °C'nin üzerine çıkar.","Rafineri, petrokimya ve tank sahalarında görülür."],n:"Steelmaster bu yangın tipi için uygun değildir."},
+ "fjet":{t:"Jet yangını",s:"Basınçlı gaz veya sıvının yüksek hızla yandığı alev.",k:[["Test","ISO 22899-1"],["Ürün","Jotachar"]],p:["Yüksek ısıya ek olarak alevin aşındırıcı etkisi vardır.","Gaz hatları, LNG tesisleri ve offshore yapılarda istenir."]},
+ "p600":{t:"Steelmaster 600 WF",s:"Su bazlı, iç mekân çelik yangın koruma boyası.",k:[["Dayanım","60 dakikaya kadar"],["Yangın tipi","Selülozik"]],p:["Kalınlık, profile göre yükleme tablosundan belirlenir."]},
+ "p900":{t:"Steelmaster 900 WF",s:"Su bazlı, iç mekân çelik yangın koruma boyası.",k:[["Dayanım","90 dakikaya kadar"],["Yangın tipi","Selülozik"]],p:["Kalınlık, profile göre yükleme tablosundan belirlenir."]},
+ "p1200":{t:"Steelmaster 1200 WF",s:"Su bazlı, iç mekân çelik yangın koruma boyası.",k:[["Dayanım","120 dakikaya kadar"],["Yangın tipi","Selülozik"]],p:["Kalınlık, profile göre yükleme tablosundan belirlenir."]},
+ "p1200h":{t:"Steelmaster 1200 HPE",s:"Epoksi esaslı çelik yangın koruma boyası; zorlu ve dış ortamlar için.",k:[["Dayanım","120 dakikaya kadar"],["Yangın tipi","Selülozik"]],p:["Dış ortam ve yüksek korozivite koşullarına yönelik geliştirilmiştir.","Kalınlık, profile göre yükleme tablosundan belirlenir."]},
+ "qR":{t:"Yangın süresi (R)",s:"Elemanın yangında taşıyıcılığını koruması gereken süre.",p:["R30, R60, R90, R120 gibi dakika cinsinden ifade edilir.","Süre uzadıkça gereken boya kalınlığı artar."],n:"Değer yönetmelikten ve proje şartnamesinden gelir."},
+ "qHp":{t:"Kesit faktörü (Hp/A)",s:"Isıya açık çevrenin kesit alanına oranı (m⁻¹).",p:["Yüksek Hp/A: ince ve çevresi geniş profil, hızlı ısınır, daha kalın boya ister.","Düşük Hp/A: kalın ve masif profil, yavaş ısınır, daha az boya ister.","Aynı profil için 3 yüz maruziyette Hp/A düşer."]},
+ "qExp":{t:"Maruziyet",s:"Profilin kaç yüzünün yangına açık olduğu.",k:[["4 yüz","Tüm çevre açık"],["3 yüz","Bir yüz döşemeye/duvara bitişik"]],p:["Beton döşeme taşıyan kirişlerde üst flanş yüzeyi genellikle 3 yüz kabul edilir.","Boru ve dolu yuvarlakta tüm çevre hesaba katılır."]},
+ "qT":{t:"Kritik sıcaklık (θcr)",s:"Elemanın taşıma kapasitesini yitirdiği çelik sıcaklığı.",p:["Elemanın kullanım oranından (μ₀) EN 1993-1-2'ye göre hesaplanır.","Yük azaldıkça kritik sıcaklık yükselir, daha az boya gerekir."],n:"Statik projeden alınmalıdır."},
+ "lTop":{t:"Son kat",s:"Steelmaster'ı nem, kir ve UV'ye karşı koruyan üst kat.",p:["Ortam ağırlaştıkça son kat şartı değişir.","Steelmaster ile birlikte onaylı ürünlerden seçilir."]},
+ "lSm":{t:"Steelmaster",s:"Yangında kabararak çeliği ısıdan yalıtan intümesan katman.",p:["Yaklaşık 200–250 °C'de kabarmaya başlar ve kalınlığının onlarca katı köpük oluşturur.","Kalınlığı profile göre yükleme tablosundan belirlenir."]},
+ "lPr":{t:"Astar",s:"Çeliği korozyondan koruyan ve Steelmaster'ın yapışmasını sağlayan ilk kat.",p:["Ortamın korozivite sınıfına göre seçilir.","Steelmaster ile uyumlu onaylı ürünlerden olmalıdır."]},
+ "lSt":{t:"Çelik yüzey",s:"Sistemin ömrü yüzey hazırlığıyla başlar.",p:["ISO 8501-1'e göre genellikle Sa 2½ raspa hedeflenir.","Yağ, kir ve tuzlardan arındırılmış olmalıdır."]}
+};
+function ygXOpen(k){ const x=YG_X[k]; if(!x) return; sheet(esc(x.t),`<div class="yg-xb"><p class="s">${esc(x.s)}</p>${x.k?`<div class="kv">${x.k.map(([a,b])=>`<div><span>${esc(a)}</span><b>${esc(b)}</b></div>`).join("")}</div>`:""}${x.p?`<ul>${x.p.map(t=>`<li>${esc(t)}</li>`).join("")}</ul>`:""}${x.n?`<div class="n">${ygI("info")}<span>${esc(x.n)}</span></div>`:""}</div>`,"yg-xs"); }
 const YG_STD=[
  ["Test ve sertifika","std","b","cta-steel",[["EN 13381-8","Çelikte intümesan korumanın yangın testi; yükleme tabloları buradan çıkar.","Steelmaster'ın kalınlık tabloları bu teste göre hazırlanır. Kalınlık; profilin Hp/A değeri, dayanım süresi ve kritik sıcaklıkla tablodan okunur."],["EN 1363-1 · ISO 834","Standart selülozik yangın eğrisi ve test koşulları.","Bina yangınlarını temsil eden zaman-sıcaklık eğrisidir; 60. dakikada fırın sıcaklığı yaklaşık 945 °C'ye ulaşır."],["EN 13501-2","Yangın dayanım sınıfı: R30, R60, R90, R120…","R taşıyıcılığı, E bütünlüğü, I yalıtımı ifade eder. Taşıyıcı çelik elemanlarda R sınıfı istenir."],["EAD 350402 · ETA · CE","Avrupa onayı; X, Y, Z1, Z2 ortam sınıfları.","Ürünün ETA belgesi, hangi ortam sınıfında hangi astar ve son katla kullanılabileceğini gösterir."],["BS 476-20/21 · UL 263","İngiliz ve Amerikan selülozik yangın testleri; bazı şartnamelerde istenir.","BS 476 İngiliz, UL 263 (ASTM E119) Amerikan şartnameli projelerde karşınıza çıkar."]]],
  ["Tasarım","comp","y","std-tas",[["EN 1993-1-2","Eurocode 3: yangında çelik dayanımı, kritik sıcaklık ve ısınma hesabı.","Kritik sıcaklık, elemanın kullanım oranından (μ₀) hesaplanır. Bu değer statik projeden gelir."]]],
  ["Uygulama","lay","b","std-uyg",[["ISO 12944","Korozyon koruması ve ortam sınıfı (C1–CX).","Astar seçimi ve sistemin dayanıklılığı, ortamın korozivite sınıfına göre belirlenir."],["ISO 8501-1","Yüzey hazırlığı (Sa 2½).","Boya öncesi yüzeyin temizlik derecesini tanımlar; raspa sonrası Sa 2½ hedeflenir."],["ISO 2808 · ISO 19840","Kuru film kalınlığı ölçümü.","ISO 2808 ölçüm yöntemlerini, ISO 19840 pürüzlü yüzeyde ölçümü ve kabul kriterlerini tanımlar."]]],
  ["Türkiye","shield","y","std-tr",[["Binaların Yangından Korunması Hakkında Yönetmelik","Bina sınıfı ve yüksekliğine göre gereken dayanım süresini belirler.","Projede istenen R süresi yönetmelikten ve proje şartnamesinden alınır."],["TS EN 13381-8 · TS EN 13501-2","Avrupa standartlarının Türk Standardı karşılıkları.","İçerik Avrupa standartlarıyla aynıdır; Türkiye'deki projelerde bu numaralarla anılır."]]],
  ["Diğer yangın tipleri","fire","o","std-dig",[["UL 1709 · EN 1363-2 · ISO 22899-1","Hidrokarbon ve jet yangını testleri (Jotachar).","UL 1709 hızla yükselen hidrokarbon yangınını, EN 1363-2 hidrokarbon eğrisini, ISO 22899-1 jet yangınını test eder. Bu projelerde Jotachar değerlendirilir."]]]];
-function ygStd(){ return YG_STD.map(([h,ic,c,img,L])=>`<section class="yg-sc"><img class="ph" src="ill/${img}.webp" alt="" aria-hidden="true"><div class="hd">${ygI(ic)}<h3>${h}</h3></div>${L.map(([k,d,x])=>`<details class="yg-si ${c}"><summary><p><b>${esc(k)}</b><span>${esc(d)}</span></p><svg class="cv" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></summary><div class="x">${esc(x)}</div></details>`).join("")}</section>`).join("")
-  +`<div class="yg-nt2 yg-snt">${ygI("info")}<span>Bu ekran bilgilendirme amaçlıdır; kalınlık hesabı yapmaz. Yangın koruma kalınlığı, ürünün sertifikalı yükleme tablolarına göre Jotun teknik ekibi tarafından belirlenir.</span></div>`; }
+function ygStd(){ return YG_STD.map(([h,ic,c,img,L])=>`<section class="yg-sc"><img class="ph" src="ill/${img}.webp" alt="" aria-hidden="true"><div class="hd">${ygI(ic)}<h3>${h}</h3></div>${L.map(([k,d])=>`<button type="button" class="yg-si ${c}" data-ygx="${esc(k)}"><p><b>${esc(k)}</b><span>${esc(d)}</span></p><svg class="cv" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>`).join("")}</section>`).join(""); }
 
 /* ---- Analiz talebi ---- */
 const YG_SEL={curve:["Selülozik (ISO 834)","Hidrokarbon / jet"],
@@ -4516,6 +4567,7 @@ $("#yg-body").addEventListener("change",e=>{ const t=e.target, M=YG.m, A=YG.a;
   else if(t.id==="yg-fa"){ [...t.files].forEach(f=>YG.files.push(f)); t.value=""; ygRender(); toast(`${YG.files.length} dosya eklendi`); }
   else if(t.dataset.yge!=null&&t.tagName==="SELECT"){ const r=YG.rows[+t.dataset.yge]; r[t.dataset.k]=t.dataset.k==="exp"?+t.value:t.value; ygRowsUpd(); } });
 $("#yg-body").addEventListener("click",async e=>{ const t=e.target.closest("button,a")||e.target;
+  { const xe=e.target.closest("[data-ygx]"); if(xe){ ygXOpen(xe.dataset.ygx); return; } }
   if(t.dataset.ygenv!=null){ YG.envI=+t.dataset.ygenv; $("#yg-env").querySelectorAll("button").forEach((b,i)=>b.classList.toggle("on",i===YG.envI)); $("#yg-envd").textContent=YG_ENV[YG.envI][3]; return; }
   if(t.dataset.ygto){ YG.tab=t.dataset.ygto; ygRender(); window.scrollTo(0,0); return; }
   if(t.dataset.ys!=null){ YG.stp=Math.max(0,Math.min(2,+t.dataset.ys)); store("yg-stp",YG.stp); ygRender(); const st=$("#yg-step"); if(st) st.scrollIntoView({block:"start"}); return; }
