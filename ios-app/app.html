@@ -1330,6 +1330,11 @@ dialog.sheet .x:focus:not(:focus-visible){outline:none}
 .cb-it{display:block;width:100%;text-align:left;border:0;background:none;border-radius:10px;padding:9px 10px;cursor:pointer;color:#0b1f45;font:inherit}
 .cb-it:active,.cb-it:hover{background:#eef3fb}
 .cb-it b{display:block;font:600 15px var(--f-body)}.cb-it small{display:block;color:#5d6b82;font-size:12px;margin-top:1px}
+
+.ral-w{position:relative}
+#q-body .ral-w>.cb{left:-46px;right:0}
+.cb-it .sw{display:inline-block;width:14px;height:14px;border-radius:4px;border:1px solid rgba(0,0,0,.2);margin-right:8px;vertical-align:-2px}
+.tint-w{color:#c0392b;font-weight:600}
 </style>
 
 <div id="app-bg" aria-hidden="true"></div>
@@ -1860,18 +1865,18 @@ const store=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
 const PRICES = load("q-prices-l",{}); /* litre (kg) başına birim fiyat, ürün adına göre */
 /* Renklendirme (sadece baz ürünler): teneke başına renk gramı ve maliyeti (teklif para biriminde) */
 const canTint=n=>{const c=CATALOG.find(p=>p.name===n);return !!(c&&c.colors&&c.colors.some(x=>/^Base\b/i.test(x)))};
-const tintG=l=>canTint(l.name)?Math.max(0,num(l.tg)):0, tintC=l=>canTint(l.name)?Math.max(0,num(l.tc)):0;
-const hasTint=l=>tintG(l)>0||tintC(l)>0;
+const tintL=l=>canTint(l.name)?Math.max(0,num(l.tl)):0, tintC=l=>canTint(l.name)?Math.max(0,num(l.tc)):0;
+const hasTint=l=>tintL(l)>0||tintC(l)>0;
 function lineAmt(l){const L=lineL(l),p=num(l.price);return L>0&&p>0?L*p+tintC(l)*num(l.qty):0}
-function kgPrice(l){const a=lineAmt(l),k=lineKg(l);if(!(a>0))return null;if(isKg(l.name)){const kk=lineL(l)+tintG(l)*num(l.qty)/1000;return kk>0?a/kk:null}return k>0?a/k:null}
+function kgPrice(l){const a=lineAmt(l);if(!(a>0))return null;if(isKg(l.name)){const kk=lineL(l);return kk>0?a/kk:null}const k=lineKg(l);return k>0?a/k:null}
 const unitP=l=>{const L=lineL(l);return L>0&&lineAmt(l)>0?lineAmt(l)/L:num(l.price)};
-const packKg=l=>{const pk=num(l.pack);if(!pk)return null;if(isKg(l.name))return pk+tintG(l)/1000;const d=num(l.dens);return d>0?pk*d+tintG(l)/1000:null};
-function tintRes(l){const pk=num(l.pack),p=num(l.price),q=num(l.qty);if(!hasTint(l))return "Makinedeki teneke başı değerleri girin.";
-  const k=packKg(l), tp=p>0&&pk?pk*p+tintC(l):null;
-  return `Renklendirilmiş teneke: ${k!=null?"<b>"+fmt(k,2)+" kg</b>":"kg için yoğunluk girin"} · ${tp!=null?"<b>"+money(tp)+"</b> / teneke · satır <b>"+money(tp*q)+"</b>":"fiyat girince hesaplanır"}`;}
-function tintCell(ln,i){if(!canTint(ln.name)||ln.auto)return "";const c=CUR[$("#q-cur").value];
+const packEff=l=>num(l.pack)+tintL(l);
+function tintRes(l){const pk=num(l.pack),p=num(l.price),q=num(l.qty),u=isKg(l.name)?"kg":"L";if(!hasTint(l))return "Makinedeki teneke başı değerleri girin.";
+  const pe=packEff(l), tp=p>0&&pk?pe*p+tintC(l):null;
+  return `Renklendirilmiş teneke: <b>${fmt(pk,pk%1?2:0)} → ${fmt(pe,pe%1?2:0)} ${u}</b> · ${tp!=null?"<b>"+money(tp)+"</b> / teneke · satır <b>"+money(tp*q)+"</b>":"fiyat girince hesaplanır"}${!l.ral?'<br><span class="tint-w">⚠ Yukarıdan RAL kodunu seçin.</span>':""}`;}
+function tintCell(ln,i){if(!canTint(ln.name)||ln.auto)return "";const c=CUR[$("#q-cur").value],u=isKg(ln.name)?"kg":"L";
   return `<details class="tint" data-i="${i}"${ln.tintOpen||hasTint(ln)?" open":""}><summary>Renklendirme${hasTint(ln)?" ✓":""}</summary>
-  <div class="tint-g"><label><span>Renk (g / teneke)</span><input type="number" inputmode="decimal" min="0" step="1" id="q-tg-${i}" data-i="${i}" data-f="tg" value="${esc(ln.tg||"")}" placeholder="ör. 85"></label>
+  <div class="tint-g"><label><span>Eklenen renk (${u} / teneke)</span><input type="number" inputmode="decimal" min="0" step="0.01" id="q-tli-${i}" data-i="${i}" data-f="tl" value="${esc(ln.tl||"")}" placeholder="ör. 0,5"></label>
   <label><span>Maliyet (${c} / teneke)</span><input type="number" inputmode="decimal" min="0" step="0.01" id="q-tc-${i}" data-i="${i}" data-f="tc" value="${esc(ln.tc||"")}" placeholder="makinedeki tutar"></label></div>
   <p class="tint-r" id="q-tr-${i}">${tintRes(ln)}</p></details>`;}
 const Q = {lines:[], sys:null, no:"", date:new Date()};
@@ -1895,7 +1900,7 @@ function addLine(name,needL){
   if(ex){ if(needL){ex.needL=(ex.needL||0)+needL; if(num(ex.pack)) ex.qty=Math.ceil(ex.needL/num(ex.pack));} else ex.qty=num(ex.qty)+1; }
   else Q.lines.push(mkLine(name,needL));
 }
-const lineL = l=>num(l.pack)*num(l.qty);
+const lineL = l=>(num(l.pack)+tintL(l))*num(l.qty);
 /* İnceltici: boya litresinin en az %15'i kadar, ürünün TDS'indeki inceltici numarasıyla otomatik eklenir */
 const THIN_RATE=0.15;
 const thinNo=n=>{const c=CATALOG.find(p=>p.name===n);if(!c||!c.th||!c.th.length)return null;const m=String(c.th[0]).match(/\d+/);return m?m[0]:null};
@@ -1918,7 +1923,7 @@ function syncThinner(){
     if(!ln.manual){ const pk=bestPack(req,packsOf(nm)); if(pk){ ln.pack=pk; ln.qty=Math.max(1,Math.ceil(req/pk)); } }
   });
 }
-const lineKg = l=>num(l.dens)>0?lineL(l)*num(l.dens)+tintG(l)*num(l.qty)/1000:null;
+const lineKg = l=>num(l.dens)>0?lineL(l)*num(l.dens):null;
 const amt = l=>{const v=lineAmt(l);return v>0?money(v):"—"};
 
 function quoteFromSystem(sy,s,silent){
@@ -1937,7 +1942,7 @@ function quoteFromSystem(sy,s,silent){
 function colorCell(ln,i){
   const c=CATALOG.find(p=>p.name===ln.name); const cols=c?c.colors:[];
   const fixed=cols.filter(x=>!/^Base\b/i.test(x)&&!/transparent/i.test(x)), tint=cols.some(x=>/^Base\b/i.test(x));
-  if(tint) return `<input type="text" class="ral" id="q-r-${i}" data-i="${i}" data-f="ral" list="dl-${i}" value="${esc(ln.ral||"")}" placeholder="Renk / RAL kodu (renklendirilebilir)" aria-label="Renk"><datalist id="dl-${i}">${fixed.map(x=>`<option value="${esc(x)}">`).join("")}</datalist>`;
+  if(tint) return `<div class="ral-w"><input type="text" class="ral" id="q-r-${i}" data-i="${i}" data-f="ral" value="${esc(ln.ral||"")}" placeholder="RAL seçin (örn. RAL 7035)" aria-label="RAL kodu" autocomplete="off" role="combobox"><div class="cb" id="q-rc-${i}" hidden></div></div>`;
   if(fixed.length===1){ if(!ln.ral) ln.ral=fixed[0]; return `<span class="need">Renk: ${esc(fixed[0])} (renklendirilmez)</span>`; }
   if(fixed.length>1) return `<select class="ral" id="q-r-${i}" data-i="${i}" data-f="ral" aria-label="Renk"><option value="">Renk seçin</option>${fixed.map(x=>`<option${x===ln.ral?" selected":""}>${esc(x)}</option>`).join("")}</select>`;
   return "";
@@ -1998,6 +2003,7 @@ function onLine(e){
   const t=e.target; let f=t.dataset.f; if(f==null)return; const i=+t.dataset.i, ln=Q.lines[i];
   ln[f]=t.value;
   if(f==="name"&&!ln.key&&e.type==="input") cbRender(i);
+  if(f==="ral"&&e.type==="input"&&$("#q-rc-"+i)) ralRender(i);
   if(f==="name"&&!ln.key&&(e.type==="change"||!e.inputType||e.inputType==="insertReplacementText")&&pickName(i)) return;
   if(f==="m2"||f==="dft"||f==="loss"){ const n=calcNeed(ln); ln.needL=n;
     if(n!=null&&num(ln.pack)){ ln.qty=Math.max(1,Math.ceil(n/num(ln.pack))); const qi=$("#q-q-"+i); if(qi) qi.value=ln.qty; }
@@ -2042,6 +2048,8 @@ const roleOf=p=>{const t=(p.name+" "+(p.note||"")).toLowerCase(); if(p.cat==="Fl
   if(p.cat==="Polyurethane"||p.cat==="Acrylic"||/son kat|topcoat|finish/.test(t)) return "t";
   if(["Epoxy","Modified Epoxy","Glass Flake Epoxy","Alkyd"].includes(p.cat)) return "i";
   return "o";};
+const RAL=[["1000", "Green beige"], ["1001", "Beige"], ["1002", "Sand yellow"], ["1003", "Signal yellow"], ["1004", "Golden yellow"], ["1005", "Honey yellow"], ["1006", "Maize yellow"], ["1007", "Daffodil yellow"], ["1011", "Brown beige"], ["1012", "Lemon yellow"], ["1013", "Oyster white"], ["1014", "Ivory"], ["1015", "Light ivory"], ["1016", "Sulfur yellow"], ["1017", "Saffron yellow"], ["1018", "Zinc yellow"], ["1019", "Grey beige"], ["1020", "Olive yellow"], ["1021", "Rape yellow"], ["1023", "Traffic yellow"], ["1024", "Ochre yellow"], ["1026", "Luminous yellow"], ["1027", "Curry"], ["1028", "Melon yellow"], ["1032", "Broom yellow"], ["1033", "Dahlia yellow"], ["1034", "Pastel yellow"], ["1035", "Pearl beige"], ["1036", "Pearl gold"], ["1037", "Sun yellow"], ["2000", "Yellow orange"], ["2001", "Red orange"], ["2002", "Vermilion"], ["2003", "Pastel orange"], ["2004", "Pure orange"], ["2005", "Luminous orange"], ["2007", "Luminous bright orange"], ["2008", "Bright red orange"], ["2009", "Traffic orange"], ["2010", "Signal orange"], ["2011", "Deep orange"], ["2012", "Salmon orange"], ["2013", "Pearl orange"], ["2017", "RAL orange"], ["3000", "Flame red"], ["3001", "Signal red"], ["3002", "Carmine red"], ["3003", "Ruby red"], ["3004", "Purple red"], ["3005", "Wine red"], ["3007", "Black red"], ["3009", "Oxide red"], ["3011", "Brown red"], ["3012", "Beige red"], ["3013", "Tomato red"], ["3014", "Antique pink"], ["3015", "Light pink"], ["3016", "Coral red"], ["3017", "Rose"], ["3018", "Strawberry red"], ["3020", "Traffic red"], ["3022", "Salmon pink"], ["3024", "Luminous red"], ["3026", "Luminous bright red"], ["3027", "Raspberry red"], ["3028", "Pure red"], ["3031", "Orient red"], ["3032", "Pearl ruby red"], ["3033", "Pearl pink"], ["4001", "Red lilac"], ["4002", "Red violet"], ["4003", "Heather violet"], ["4004", "Claret violet"], ["4005", "Blue lilac"], ["4006", "Traffic purple"], ["4007", "Purple violet"], ["4008", "Signal violet"], ["4009", "Pastel violet"], ["4010", "Telemagenta"], ["4011", "Pearl violet"], ["4012", "Pearl blackberry"], ["5000", "Violet blue"], ["5001", "Green blue"], ["5002", "Ultramarine blue"], ["5003", "Sapphire blue"], ["5004", "Black blue"], ["5005", "Signal blue"], ["5007", "Brilliant blue"], ["5008", "Grey blue"], ["5009", "Azure blue"], ["5010", "Gentian blue"], ["5011", "Steel blue"], ["5012", "Light blue"], ["5013", "Cobalt blue"], ["5014", "Pigeon blue"], ["5015", "Sky blue"], ["5017", "Traffic blue"], ["5018", "Turquoise blue"], ["5019", "Capri blue"], ["5020", "Ocean blue"], ["5021", "Water blue"], ["5022", "Night blue"], ["5023", "Distant blue"], ["5024", "Pastel blue"], ["5025", "Pearl gentian blue"], ["5026", "Pearl night blue"], ["6000", "Patina green"], ["6001", "Emerald green"], ["6002", "Leaf green"], ["6003", "Olive green"], ["6004", "Blue green"], ["6005", "Moss green"], ["6006", "Grey olive"], ["6007", "Bottle green"], ["6008", "Brown green"], ["6009", "Fir green"], ["6010", "Grass green"], ["6011", "Reseda green"], ["6012", "Black green"], ["6013", "Reed green"], ["6014", "Yellow olive"], ["6015", "Black olive"], ["6016", "Turquoise green"], ["6017", "May green"], ["6018", "Yellow green"], ["6019", "Pastel green"], ["6020", "Chrome green"], ["6021", "Pale green"], ["6022", "Olive drab"], ["6024", "Traffic green"], ["6025", "Fern green"], ["6026", "Opal green"], ["6027", "Light green"], ["6028", "Pine green"], ["6029", "Mint green"], ["6032", "Signal green"], ["6033", "Mint turquoise"], ["6034", "Pastel turquoise"], ["6035", "Pearl green"], ["6036", "Pearl opal green"], ["6037", "Pure green"], ["6038", "Luminous green"], ["6039", "Fibrous green"], ["7000", "Squirrel grey"], ["7001", "Silver grey"], ["7002", "Olive grey"], ["7003", "Moss grey"], ["7004", "Signal grey"], ["7005", "Mouse grey"], ["7006", "Beige grey"], ["7008", "Khaki grey"], ["7009", "Green grey"], ["7010", "Tarpaulin grey"], ["7011", "Iron grey"], ["7012", "Basalt grey"], ["7013", "Brown grey"], ["7015", "Slate grey"], ["7016", "Anthracite grey"], ["7021", "Black grey"], ["7022", "Umbra grey"], ["7023", "Concrete grey"], ["7024", "Graphite grey"], ["7026", "Granite grey"], ["7030", "Stone grey"], ["7031", "Blue grey"], ["7032", "Pebble grey"], ["7033", "Cement grey"], ["7034", "Yellow grey"], ["7035", "Light grey"], ["7036", "Platinum grey"], ["7037", "Dusty grey"], ["7038", "Agate grey"], ["7039", "Quartz grey"], ["7040", "Window grey"], ["7042", "Traffic grey A"], ["7043", "Traffic grey B"], ["7044", "Silk grey"], ["7045", "Telegrey 1"], ["7046", "Telegrey 2"], ["7047", "Telegrey 4"], ["7048", "Pearl mouse grey"], ["8000", "Green brown"], ["8001", "Ochre brown"], ["8002", "Signal brown"], ["8003", "Clay brown"], ["8004", "Copper brown"], ["8007", "Fawn brown"], ["8008", "Olive brown"], ["8011", "Nut brown"], ["8012", "Red brown"], ["8014", "Sepia brown"], ["8015", "Chestnut brown"], ["8016", "Mahogany brown"], ["8017", "Chocolate brown"], ["8019", "Grey brown"], ["8022", "Black brown"], ["8023", "Orange brown"], ["8024", "Beige brown"], ["8025", "Pale brown"], ["8028", "Terra brown"], ["8029", "Pearl copper"], ["9001", "Cream"], ["9002", "Grey white"], ["9003", "Signal white"], ["9004", "Signal black"], ["9005", "Jet black"], ["9006", "White aluminium"], ["9007", "Grey aluminium"], ["9010", "Pure white"], ["9011", "Graphite black"], ["9012", "Cleanroom white"], ["9016", "Traffic white"], ["9017", "Traffic black"], ["9018", "Papyrus white"], ["9022", "Pearl light grey"], ["9023", "Pearl dark grey"]];
+const RAL_TOP=["9010","9016","9005","9001","9002","9003","7035","7016","7032","7040","7001","7024","7030","7047","5010","5015","3000","3020","1023","6005","6018","8017","2004","1015"];
 const ROLE_T={p:"Astarlar (1. kat)",i:"Ara katlar (2. kat)",t:"Son katlar",z:"Zemin (Jotafloor)",o:"Diğer ürünler"};
 const CAT_PRI=["Zinc Rich","Modified Epoxy","Epoxy","Alkyd","Polyurethane","Acrylic","Glass Flake Epoxy","Tank Coating","Heat Resistant","Fire Protection","Shopprimer","General Industry","Anti-Fouling","Reflected","Other"];
 const catPri=c=>{const k=CAT_PRI.indexOf(c);return k<0?99:k};
@@ -2059,11 +2067,24 @@ function cbRender(i){
   box.innerHTML=html||`<p class="cb-h">Listede yok — yazdığınız adla eklenir.</p>`;
   box.hidden=false; inp.setAttribute("aria-expanded","true");
 }
-function cbClose(i){const box=$("#q-cb-"+i), inp=$("#q-n-"+i); if(box) box.hidden=true; if(inp) inp.setAttribute("aria-expanded","false");}
-$("#q-body").addEventListener("focusin",e=>{const t=e.target; if(t.dataset&&t.dataset.f==="name"&&t.id){ cbRender(+t.dataset.i); setTimeout(()=>{const y=t.getBoundingClientRect().top+window.scrollY-90; window.scrollTo({top:y,behavior:"smooth"});},60);} });
-$("#q-body").addEventListener("focusout",e=>{const t=e.target; if(t.dataset&&t.dataset.f==="name") setTimeout(()=>cbClose(+t.dataset.i),180);});
+function ralRender(i){
+  const box=$("#q-rc-"+i), inp=$("#q-r-"+i); if(!box||!inp) return; const ln=Q.lines[i];
+  const c=CATALOG.find(p=>p.name===ln.name); const fixed=(c?c.colors:[]).filter(x=>!/^Base\b/i.test(x)&&!/transparent/i.test(x));
+  const q=tnormS(inp.value.replace(/^\s*ral\s*/i,"").trim());
+  const it=([k,n])=>`<button type="button" class="cb-it" data-raln="RAL ${k}"><b>RAL ${k}</b><small>${esc(n)}</small></button>`;
+  const fx=x=>`<button type="button" class="cb-it" data-raln="${esc(x)}"><b>${esc(x)}</b><small>Hazır renk</small></button>`;
+  let h="";
+  if(q){ const m=RAL.filter(([k,n])=>k.startsWith(q)||tnormS(n).includes(q)); h=fixed.filter(x=>tnormS(x).includes(q)).map(fx).join("")+m.map(it).join(""); }
+  else { const top=RAL_TOP.map(k=>RAL.find(r=>r[0]===k)).filter(Boolean);
+    h=(fixed.length?`<p class="cb-h">Hazır renkler</p>`+fixed.map(fx).join(""):"")+`<p class="cb-h">Sık kullanılan RAL</p>`+top.map(it).join("")+`<p class="cb-h">Tüm RAL Classic</p>`+RAL.filter(r=>!RAL_TOP.includes(r[0])).map(it).join(""); }
+  box.innerHTML=h||`<p class="cb-h">Bulunamadı — yazdığınız kod kullanılır.</p>`; box.hidden=false;
+}
+function cbClose(i){const rb=$("#q-rc-"+i); if(rb) rb.hidden=true;const box=$("#q-cb-"+i), inp=$("#q-n-"+i); if(box) box.hidden=true; if(inp) inp.setAttribute("aria-expanded","false");}
+$("#q-body").addEventListener("focusin",e=>{const t=e.target; if(t.dataset&&t.dataset.f==="ral"&&t.getAttribute("role")==="combobox"){ ralRender(+t.dataset.i); return; } if(t.dataset&&t.dataset.f==="name"&&t.id){ cbRender(+t.dataset.i); setTimeout(()=>{const y=t.getBoundingClientRect().top+window.scrollY-90; window.scrollTo({top:y,behavior:"smooth"});},60);} });
+$("#q-body").addEventListener("focusout",e=>{const t=e.target; if(t.dataset&&(t.dataset.f==="name"||t.dataset.f==="ral")) setTimeout(()=>cbClose(+t.dataset.i),180);});
 $("#q-body").addEventListener("pointerdown",e=>{if(e.target.closest(".cb")) e.preventDefault();});
-$("#q-body").addEventListener("click",e=>{const b=e.target.closest("[data-cbn]"); if(!b) return; const box=b.closest(".cb"); const i=+box.id.split("-").pop();
+$("#q-body").addEventListener("click",e=>{const rb=e.target.closest("[data-raln]"); if(rb){const box=rb.closest(".cb"); const i=+box.id.split("-").pop(); Q.lines[i].ral=rb.dataset.raln; const inp=$("#q-r-"+i); if(inp){inp.value=rb.dataset.raln; inp.blur();} cbClose(i); updCells(i); renderDoc(); return;}
+  const b=e.target.closest("[data-cbn]"); if(!b) return; const box=b.closest(".cb"); const i=+box.id.split("-").pop();
   Q.lines[i].name=b.dataset.cbn; cbClose(i); pickName(i);});
 try{if(!document.querySelector(".sb-cover"))document.body.insertAdjacentHTML("afterbegin",'<div class="sb-cover" aria-hidden="true"></div>')}catch(e){}
 document.addEventListener("click",e=>{if(e.target.id==="q-miss-go"){const x=[...document.querySelectorAll("#q-body input.price")].find(i=>!(num(i.value)>0));if(x){x.scrollIntoView({block:"center",behavior:"smooth"});setTimeout(()=>x.focus(),250);}}});
@@ -2079,7 +2100,7 @@ function totals(){
   const sub=L.reduce((a,l)=>a+lineAmt(l),0);
   const kdvR=Math.max(0,num($("#q-kdv").value)); const kdv=sub*kdvR/100;
   const adet=L.reduce((a,l)=>a+num(l.qty),0), lt=L.filter(l=>!isKg(l.name)).reduce((a,l)=>a+lineL(l),0);
-  const kgKnown=L.every(l=>lineKg(l)!=null||isKg(l.name)), kg=L.reduce((a,l)=>a+(isKg(l.name)?lineL(l)+tintG(l)*num(l.qty)/1000:(lineKg(l)||0)),0);
+  const kgKnown=L.every(l=>lineKg(l)!=null||isKg(l.name)), kg=L.reduce((a,l)=>a+(isKg(l.name)?lineL(l):(lineKg(l)||0)),0);
   return {sub,kdvR,kdv,grand:sub+kdv,adet,lt,kg,kgKnown};
 }
 function fields(){
@@ -2090,8 +2111,8 @@ function fields(){
 }
 function renderDoc(){
   const f=fields(), t=totals();
-  const rows = Q.lines.filter(l=>l.name).map((l,i)=>{const q=num(l.qty),p=num(l.price),u=isKg(l.name)?"kg":"L",kg=isKg(l.name)?lineL(l)+tintG(l)*num(l.qty)/1000:lineKg(l);
-    return `<tr><td>${i+1}</td><td>${esc(l.name)}${l.ral?`<br><small style="color:#4b5b74">${esc(l.ral)}</small>`:""}${num(l.m2)>0&&num(l.dft)>0?`<br><small style="color:#4b5b74">${fmt(num(l.m2),0)} m² · ${fmt(num(l.dft),0)} µm</small>`:""}</td><td class="n">${num(l.pack)?fmt(num(l.pack),num(l.pack)%1?2:0)+" "+u:"—"}</td><td class="n">${fmt(q,0)}</td><td class="n">${lineL(l)?fmt(lineL(l),lineL(l)%1?2:0)+" "+u:"—"}</td><td class="n">${kg!=null?fmt(kg,1):"—"}</td><td class="n">${p>0?money(unitP(l)):"—"}</td><td class="n">${kgPrice(l)!=null?money(kgPrice(l)):"—"}</td><td class="n">${lineAmt(l)>0?money(lineAmt(l)):"—"}</td></tr>`}).join("");
+  const rows = Q.lines.filter(l=>l.name).map((l,i)=>{const q=num(l.qty),p=num(l.price),u=isKg(l.name)?"kg":"L",kg=isKg(l.name)?lineL(l):lineKg(l);
+    return `<tr><td>${i+1}</td><td>${esc(l.name)}${l.ral?`<br><small style="color:#4b5b74">${esc(l.ral)}</small>`:""}${num(l.m2)>0&&num(l.dft)>0?`<br><small style="color:#4b5b74">${fmt(num(l.m2),0)} m² · ${fmt(num(l.dft),0)} µm</small>`:""}</td><td class="n">${num(l.pack)?fmt(packEff(l),packEff(l)%1?2:0)+" "+u:"—"}</td><td class="n">${fmt(q,0)}</td><td class="n">${lineL(l)?fmt(lineL(l),lineL(l)%1?2:0)+" "+u:"—"}</td><td class="n">${kg!=null?fmt(kg,1):"—"}</td><td class="n">${p>0?money(unitP(l)):"—"}</td><td class="n">${kgPrice(l)!=null?money(kgPrice(l)):"—"}</td><td class="n">${lineAmt(l)>0?money(lineAmt(l)):"—"}</td></tr>`}).join("");
   const missing = Q.lines.some(l=>l.name&&!(parseFloat(l.price)>0));
   $("#q-doc").innerHTML = `
    <div class="top"><div><div class="lab">Fiyat teklifi</div><div class="dealer">${f.dealer?esc(f.dealer):"Bayi adı"}</div></div>
@@ -2111,7 +2132,7 @@ function renderDoc(){
 function custText(){
   const f=fields(), t=totals();
   const L=[`FİYAT TEKLİFİ – ${f.dealer||"Bayi"}`,`Teklif no: ${Q.no||"-"} | Tarih: ${f.date} | Geçerlilik: ${f.until}`,`Sayın ${f.customer||"Müşteri"}${f.project?" – "+f.project:""}`,""];
-  Q.lines.filter(l=>l.name).forEach((l,i)=>{const q=num(l.qty),p=num(l.price),u=isKg(l.name)?"kg":"L",kg=isKg(l.name)?lineL(l)+tintG(l)*num(l.qty)/1000:lineKg(l);L.push(`${i+1}. ${l.name}${l.ral?" ("+l.ral+")":""} – ${fmt(q,0)} × ${num(l.pack)?fmt(num(l.pack),num(l.pack)%1?2:0)+" "+u:"-"} = ${lineL(l)?fmt(lineL(l),lineL(l)%1?2:0)+" "+u:"-"}${kg!=null?" ("+fmt(kg,1)+" kg)":""} × ${p>0?money(unitP(l))+"/L"+(kgPrice(l)!=null?" ("+money(kgPrice(l))+"/kg)":""):"-"} = ${lineAmt(l)>0?money(lineAmt(l)):"-"}`)});
+  Q.lines.filter(l=>l.name).forEach((l,i)=>{const q=num(l.qty),p=num(l.price),u=isKg(l.name)?"kg":"L",kg=isKg(l.name)?lineL(l):lineKg(l);L.push(`${i+1}. ${l.name}${l.ral?" ("+l.ral+")":""} – ${fmt(q,0)} × ${num(l.pack)?fmt(packEff(l),packEff(l)%1?2:0)+" "+u:"-"} = ${lineL(l)?fmt(lineL(l),lineL(l)%1?2:0)+" "+u:"-"}${kg!=null?" ("+fmt(kg,1)+" kg)":""} × ${p>0?money(unitP(l))+"/L"+(kgPrice(l)!=null?" ("+money(kgPrice(l))+"/kg)":""):"-"} = ${lineAmt(l)>0?money(lineAmt(l)):"-"}`)});
   L.push("",`Toplam: ${fmt(t.adet,0)} ambalaj, ${fmt(t.lt,t.lt%1?2:0)} L${t.kg?", "+fmt(t.kg,1)+" kg"+(t.kgKnown?"":" (yoğunluğu girilenler)"):""}`);
   L.push("",`Ara toplam: ${money(t.sub)}`,`KDV (%${fmt(t.kdvR,0)}): ${money(t.kdv)}`,`GENEL TOPLAM: ${money(t.grand)}`);
   if(Q.sys)L.push("",`Önerilen sistem: ISO 12944-5/${Q.sys.iso} – ${Q.sys.coats} (toplam ${Q.sys.dft} µm KFK)`,`${Q.sys.sub}, ortam ${Q.sys.env}, ${Q.sys.dur}, alan ${fmt(Q.sys.area,0)} m², yüzey hazırlığı ${Q.sys.prep}`);
@@ -3199,8 +3220,8 @@ const WA="905359750483";
 function quoteText(){
   const f=fields(), t=totals();
   const L=["*JOTUN TEKLİF – ONAY İÇİN*",`Bayi: ${f.dealer||"-"}`,`Müşteri: ${f.customer||"-"}${f.project?" – "+f.project:""}`,`Teklif no: ${Q.no||"-"} | Geçerlilik: ${f.valid} gün`,"","Ürünler:"];
-  Q.lines.filter(l=>l.name).forEach((l,i)=>{const q=num(l.qty),p=num(l.price),u=isKg(l.name)?"kg":"L",kg=isKg(l.name)?lineL(l)+tintG(l)*num(l.qty)/1000:lineKg(l);
-    L.push(`${i+1}. ${l.name}${l.ral?" ("+l.ral+")":""} – ${fmt(q,0)} × ${num(l.pack)?fmt(num(l.pack),num(l.pack)%1?2:0)+" "+u:"-"} = ${lineL(l)?fmt(lineL(l),lineL(l)%1?2:0)+" "+u:"-"}${kg!=null?" ("+fmt(kg,1)+" kg)":""} × ${p>0?money(p)+"/L":"fiyat yok"}${hasTint(l)?` + renklendirme ${money(tintC(l))}/teneke (${fmt(tintG(l),0)} g)`:""} = ${lineAmt(l)>0?money(lineAmt(l)):"-"}`)});
+  Q.lines.filter(l=>l.name).forEach((l,i)=>{const q=num(l.qty),p=num(l.price),u=isKg(l.name)?"kg":"L",kg=isKg(l.name)?lineL(l):lineKg(l);
+    L.push(`${i+1}. ${l.name}${l.ral?" ("+l.ral+")":""} – ${fmt(q,0)} × ${num(l.pack)?fmt(packEff(l),packEff(l)%1?2:0)+" "+u:"-"} = ${lineL(l)?fmt(lineL(l),lineL(l)%1?2:0)+" "+u:"-"}${kg!=null?" ("+fmt(kg,1)+" kg)":""} × ${p>0?money(p)+"/L":"fiyat yok"}${hasTint(l)?` + renklendirme ${money(tintC(l))}/teneke (+${fmt(tintL(l),2)} ${u} renk)`:""} = ${lineAmt(l)>0?money(lineAmt(l)):"-"}`)});
   L.push("",`Toplam: ${fmt(t.adet,0)} ambalaj, ${fmt(t.lt,t.lt%1?2:0)} L${t.kg?", "+fmt(t.kg,1)+" kg":""}`,`Ara toplam: ${money(t.sub)} | KDV %${fmt(t.kdvR,0)}: ${money(t.kdv)}`,`GENEL TOPLAM: ${money(t.grand)}`);
   if(Q.sys)L.push("",`Sistem: ISO 12944-5/${Q.sys.iso} – ${Q.sys.coats} (${Q.sys.dft} µm), ${Q.sys.env}, ${Q.sys.dur}, ${fmt(Q.sys.area,0)} m²`);
   if(ASK.length){L.push("","Danışman'da sorduğu / istedikleri:");ASK.slice(-8).forEach(a=>L.push("• "+a));}
