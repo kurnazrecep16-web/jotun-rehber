@@ -1340,6 +1340,13 @@ dialog.sheet .x:focus:not(:focus-visible){outline:none}
 
 #q-body input[data-f="name"]{display:block;width:calc(100% + 46px + 52px);margin:0 0 4px -46px!important;box-sizing:border-box;height:58px;font:600 17px var(--f-body);padding:0 16px;border-radius:14px;border:1.5px solid #c9d3e3}
 #q-body input[data-f="name"]::placeholder{font-weight:500}
+
+.has-clr{position:relative}
+.has-clr>.sf-hd{padding-right:104px}
+@media (min-width:560px){.has-clr>.sf-hd p{display:none}}
+.clr-pill{position:absolute;top:16px;right:16px;display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 12px;border-radius:17px;border:1px solid rgba(255,120,110,.45);background:rgba(215,38,46,.12);color:#ffb3ad;font:600 13.5px var(--f-body);cursor:pointer;z-index:2}
+.clr-pill svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.clr-pill:active{background:rgba(215,38,46,.25)}
 </style>
 
 <div id="app-bg" aria-hidden="true"></div>
@@ -1462,7 +1469,8 @@ dialog.sheet .x:focus:not(:focus-visible){outline:none}
   </div>
   <div class="q-grid">
     <div class="q-form">
-      <div class="sf-card sfd q-info">
+      <div class="sf-card sfd q-info has-clr">
+        <button type="button" class="clr-pill" id="q-clear"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4h4"/></svg>Sıfırla</button>
         <div class="sf-hd"><span class="sf-ic b"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><h3>Teklif Bilgileri</h3><p>Müşteri ve proje bilgilerini girin.</p></div>
         <div class="sf-g2 q-g3">
           <p class="hint" id="q-dealer-show" hidden></p><label class="sf-f" id="q-dealer-fs"><span>Bayi adı</span><span class="sf-ii"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V5l8-2v18M12 21V9l8 2v10M3 21h18M7 8h2M7 12h2M7 16h2M15 14h2M15 17h2"/></svg></i><input type="text" id="q-dealer" placeholder="Bayi ünvanınız (bir kez)"></span></label>
@@ -1488,7 +1496,6 @@ dialog.sheet .x:focus:not(:focus-visible){outline:none}
         <button type="button" class="sf-add q-addb" id="q-pick"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Ürün ekle</button>
         <select id="q-add-sel" aria-label="Eklenecek ürün" hidden></select>
         <button type="button" class="btn" id="q-add" hidden>Ürün ekle</button>
-        <button type="button" class="linkbtn q-clr" id="q-clear">Temizle</button>
       </div>
     </div>
 
@@ -1541,7 +1548,8 @@ dialog.sheet .x:focus:not(:focus-visible){outline:none}
 <section id="v-sarfiyat" hidden>
   <div class="sf">
     <div class="sf-main">
-      <div class="sf-card sfd">
+      <div class="sf-card sfd has-clr">
+        <button type="button" class="clr-pill" id="sf-clr"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4h4"/></svg>Sıfırla</button>
         <div class="sf-hd"><span class="sf-ic b"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><h3>Proje Bilgileri</h3><p>Hesaplamak istediğiniz proje detaylarını girin.</p></div>
         <div class="sf-g2">
           <label class="sf-f"><span>Proje / Firma</span><span class="sf-ii"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V5l8-2v18M12 21V9l8 2v10M3 21h18M7 8h2M7 12h2M7 16h2M15 14h2M15 17h2"/></svg></i><input type="text" id="sf-proj" placeholder="Örn. ABC Çelik – depo"></span></label>
@@ -2094,7 +2102,9 @@ $("#q-body").addEventListener("click",e=>{const rb=e.target.closest("[data-raln]
   Q.lines[i].name=b.dataset.cbn; cbClose(i); pickName(i);});
 try{if(!document.querySelector(".sb-cover"))document.body.insertAdjacentHTML("afterbegin",'<div class="sb-cover" aria-hidden="true"></div>')}catch(e){}
 document.addEventListener("click",e=>{if(e.target.id==="q-miss-go"){const x=[...document.querySelectorAll("#q-body input.price")].find(i=>!(num(i.value)>0));if(x){x.scrollIntoView({block:"center",behavior:"smooth"});setTimeout(()=>x.focus(),250);}}});
-$("#q-clear").addEventListener("click",()=>{Q.lines=[];Q.sys=null;Q.thOff={};renderLines();renderDoc();});
+$("#q-clear").addEventListener("click",()=>{ if(!Q.lines.length){toast("Teklif zaten boş");return;}
+  const bak=JSON.stringify({lines:Q.lines,sys:Q.sys,thOff:Q.thOff}); Q.lines=[];Q.sys=null;Q.thOff={};renderLines();renderDoc();
+  undoToast("Teklif ürünleri temizlendi",()=>{const o=JSON.parse(bak);Q.lines=o.lines;Q.sys=o.sys;Q.thOff=o.thOff;renderLines();renderDoc();});});
 
 const dealerEl=$("#q-dealer"); dealerEl.value=load("q-dealer","");
 dealerEl.addEventListener("blur",()=>setTimeout(dealerUI,100));
@@ -2256,6 +2266,15 @@ function cmpOpen(list,s){
 }
 /* ---------- Bildirim, rozet, alt çubuklar ---------- */
 let toastT=null;
+function undoToast(msg,fn){
+  let t=$("#toast"); if(!t){t=document.createElement("div");t.id="toast";t.setAttribute("role","status");document.body.appendChild(t);}
+  t.innerHTML=esc(msg)+` <button type="button" id="toast-undo">Geri al</button>`;
+  t.querySelector("#toast-undo").onclick=()=>{fn();t.classList.remove("on");};
+  t.classList.add("on"); clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove("on"),5000);
+}
+document.addEventListener("click",e=>{if(e.target.closest("#sf-clr")){ const bak=JSON.stringify(SF);
+  SF={area:"",loss:SF.loss,prof:0,proj:"",sys:null,coats:[{name:"",dft:""}]};sfSave();sfRender();
+  undoToast("Sarfiyat hesabı sıfırlandı",()=>{SF=JSON.parse(bak);sfSave();sfRender();});}});
 function toast(msg,link){
   let t=$("#toast"); if(!t){t=document.createElement("div");t.id="toast";t.setAttribute("role","status");document.body.appendChild(t);}
   t.innerHTML=esc(msg)+(link?` <button type="button" data-go="teklif">Teklife git</button>`:"");
@@ -3347,8 +3366,7 @@ function sfSum(){
   $("#sf-sum").innerHTML=`${t.rows.length?`<div class="sf-ml"><h3>Malzeme listesi</h3><div class="sf-list">${sfMat().map(m=>`<div><span>${esc(m.n)}${m.th?' <small style="opacity:.7">(≈ %15)</small>':""}</span><span>${m.q?`${m.q} × ${fmt(m.pk,m.pk%1?2:0)} L`:fmt(Math.ceil(m.need),0)+" L"}</span></div>`).join("")}</div></div>`:""}
    ${pdfReady()?`<button type="button" class="sf-pdfb" id="sf-pdf">${SFI.pdf}PDF İndir</button>`:""}
    ${t.rows.length?`<button type="button" class="sf-ob sf-toq role-b" id="sf-toq">${SFI.doc}Teklife aktar</button>`:""}
-   <div class="sf-2b"><button type="button" class="sf-ob" id="sf-wa">${SFI.wa}WhatsApp</button><button type="button" class="sf-ob" id="sf-copy">${SFI.cp}Kopyala</button></div>
-   <button type="button" class="linkbtn sf-clr" id="sf-clr">Temizle</button>`;
+   <div class="sf-2b"><button type="button" class="sf-ob" id="sf-wa">${SFI.wa}WhatsApp</button><button type="button" class="sf-ob" id="sf-copy">${SFI.cp}Kopyala</button></div>`;
   $("#sf-wa").onclick=()=>window.open("https://wa.me/?text="+encodeURIComponent(sfText()),"_blank");
   const tq=$("#sf-toq"); if(tq) tq.onclick=()=>{ const M=sfMat().filter(m=>!m.th&&m.need>0); if(!M.length) return;
     Q.lines=[]; Q.sys=null; Q.thOff={}; newNo(); M.forEach(m=>addLine(m.n,m.need));
@@ -3356,7 +3374,6 @@ function sfSum(){
     renderLines(); renderDoc(); location.hash="#teklif"; toast("Sarfiyat teklife aktarıldı"); };
   const pb=$("#sf-pdf"); if(pb) pb.onclick=()=>sfPdf(pb);
   $("#sf-copy").onclick=()=>{try{navigator.clipboard.writeText(sfText());toast("Kopyalandı");}catch(e){}};
-  $("#sf-clr").onclick=()=>{SF={area:"",loss:SF.loss,prof:0,proj:"",sys:null,coats:[{name:"",dft:""}]};sfSave();sfRender();};
   const bg=$("#sf-bar-go"); if(bg&&!bg.disabled) bg.textContent=pdfReady()?"PDF indir":"WhatsApp'ta paylaş";
   const bv=$("#sf-bar-v"); if(bv) bv.textContent=t.L?`${fmt(Math.ceil(t.L),0)} L · ${fmt(t.dft,0)} µm`:"—";
 }
