@@ -1863,7 +1863,7 @@ button.dm-it{cursor:pointer}
   <div id="is-body"></div>
 </section>
 <section id="v-yangin" hidden>
-  <div class="dm-hero"><span class="dm-tag">DEMO</span><h2>Yangın koruma</h2><p>Selülozik (bina) yangınında çelik koruma: boyanın çalışma mantığı, standartlar ve kalınlık analizi talebi.</p></div>
+  <div class="dm-hero"><span class="dm-tag">DEMO</span><h2>Yangın koruma</h2><p>Çeliğin yangında nasıl korunduğu, Steelmaster’ın çalışma mantığı, standartlar ve kalınlık analizi talebi.</p></div>
   <div class="dm-tabs" id="yg-tabs"><button type="button" data-yt="how" aria-pressed="true">Nasıl çalışır</button><button type="button" data-yt="math" aria-pressed="false">Hesap mantığı</button><button type="button" data-yt="std" aria-pressed="false">Standartlar</button><button type="button" data-yt="req" aria-pressed="false">Analiz talebi</button></div>
   <div id="yg-body"></div>
   <p class="foot" style="margin-top:14px">Bu ekran bilgilendirme amaçlıdır; kalınlık hesabı yapmaz. Yangın koruma kalınlığı yalnızca ürünün sertifikalı yükleme tablolarına göre Jotun teknik ekibi tarafından belirlenir.</p>
@@ -3449,7 +3449,7 @@ wxLoad();
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)wxLoad();});
 
 /* Yeni sürüm yayınlandıysa uygulama açıkken kendini yeniler */
-(()=>{const B="1793730259"; if(!/^\d+$/.test(B)) return;
+(()=>{const B="1793730766"; if(!/^\d+$/.test(B)) return;
   const chk=()=>fetch(location.pathname+"?b="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const B="(\d+)"/); if(m&&+m[1]>+B) location.reload();}).catch(()=>{});
   document.addEventListener("visibilitychange",()=>{if(!document.hidden)chk();}); setTimeout(chk,4000);})();
 
@@ -4013,34 +4013,42 @@ const ygFamOpts=sel=>Object.keys(STD).map(k=>`<option value="${k}"${k===sel?" se
 const ygSizeOpts=(fam,sel)=>STD[fam].map(p=>`<option value="${p[0]}"${String(p[0])===String(sel)?" selected":""}>${fam} ${p[0]}</option>`).join("");
 
 function ygHow(){ return `
-<div class="yg-c"><h3>Çelik neden korunur?</h3>
-<p>Çelik yanmaz ama ısındıkça taşıma gücünü kaybeder. EN 1993-1-2'ye göre yapı çeliği yaklaşık <b>500 °C'de akma dayanımının %22'sini, 600 °C'de yarısından fazlasını</b> kaybeder. Bina yangınında gaz sıcaklığı 30 dakikada 840 °C'yi geçer; korumasız ince bir profil 10–15 dakikada kritik sıcaklığa ulaşabilir.</p>
-<div class="yg-k"><div><b>400 °C</b><span>Akma dayanımı ≈ %100</span></div><div><b>500 °C</b><span>≈ %78</span></div><div><b>600 °C</b><span>≈ %47</span></div><div><b>700 °C</b><span>≈ %23</span></div></div>
-<small>Tablo: EN 1993-1-2 Tablo 3.1, karbon çeliği akma dayanımı azaltma katsayısı k<sub>y,θ</sub>.</small></div>
-<div class="yg-c"><h3>İntümesan boya nasıl çalışır?</h3>
+<div class="yg-c"><h3><span class="n">1</span>Çelik yanmaz, ama yangında güç kaybeder</h3>
+<p>Yapı çeliği ısındıkça taşıma gücünü yitirir. 400 °C'ye kadar dayanımını korur; 500 °C'nin üzerinde hızla zayıflar ve 600 °C'de gücünün yarısından fazlasını kaybeder. Korumasız ince bir profil, bina yangınında 10–15 dakika içinde bu sınıra ulaşabilir.</p>
+<div class="yg-k"><div><b>400 °C</b><span>Dayanım ≈ %100</span></div><div><b>500 °C</b><span>≈ %78</span></div><div><b>600 °C</b><span>≈ %47</span></div><div><b>700 °C</b><span>≈ %23</span></div></div>
+<small>EN 1993-1-2 Tablo 3.1 · karbon çeliği akma dayanımı azaltma katsayısı.</small>
+<p>Yangın koruma boyasının görevi bu süreyi uzatmaktır: insanların tahliyesi ve itfaiyenin müdahalesi için gereken 30, 60, 90 ya da 120 dakikayı kazandırmak.</p></div>
+
+<div class="yg-c"><h3><span class="n">2</span>Her yangın aynı değildir</h3>
+<p>Korumanın nasıl tasarlanacağını, yangının nasıl büyüdüğü belirler. Üç temel tip vardır:</p>
+<div class="yg-std"><b>Selülozik yangın</b><p>Ahşap, kâğıt, tekstil, plastik eşya gibi malzemelerin yanması. Sıcaklık giderek yükselir; 30 dakikada 840 °C'yi, 2 saatte 1050 °C'yi bulur. Depo, fabrika binası, AVM, okul, otopark, havalimanı gibi yapılarda beklenen yangın budur.</p></div>
+<div class="yg-std hc"><b>Hidrokarbon yangını</b><p>Akaryakıt ve gaz yangını. Sıcaklık birkaç dakikada 1000 °C'yi aşar. Rafineri, petrokimya ve tank sahalarında görülür.</p></div>
+<div class="yg-std hc"><b>Jet yangını</b><p>Basınçlı gaz kaçağının alev jeti. Aşırı ısıya ek olarak yüzeyi aşındıran bir kuvveti vardır. Gaz hatları, LNG ve offshore tesislerinde görülür.</p></div>
+<p>Hidrokarbon ve jet yangını için Jotun'un çözümü epoksi esaslı <b>Jotachar</b> serisidir; bu projeler doğrudan Jotun teknik ekibiyle değerlendirilir. Binalarda karşılaşılan selülozik yangın için ise <b>Steelmaster</b> serisi geliştirilmiştir.</p></div>
+
+<div class="yg-c"><h3><span class="n">3</span>Steelmaster ne yapar?</h3>
 <div class="yg-sw" aria-hidden="true"><div class="fl"></div><div class="ch"></div><div class="pr"></div><div class="st"></div><span class="lb" style="bottom:50px">Köpük kömür tabakası</span><span class="lb" style="bottom:10px">Çelik</span></div>
-<p>İntümesan (kabaran) kaplama normal koşulda ince bir boya filmidir. Sıcaklık yaklaşık <b>200–250 °C</b>'ye çıkınca film yumuşar ve kimyasal tepkime başlar:</p>
-<ul><li><b>Asit kaynağı</b> (genelde amonyum polifosfat) ayrışır ve asit açığa çıkarır.</li><li><b>Karbon kaynağı</b> (ör. pentaeritritol) bu asitle kömürleşir.</li><li><b>Şişirici</b> (ör. melamin) gaz verir; yumuşamış kütle köpük gibi kabarır.</li></ul>
-<p>Sonuçta ilk kalınlığın onlarca katı kalınlıkta, ısıyı çok kötü ileten, gözenekli bir <b>kömür köpüğü</b> oluşur. Bu tabaka çeliğe ulaşan ısıyı yavaşlatır ve çeliğin kritik sıcaklığa varma süresini uzatır. Boya yangını söndürmez; çeliğe <b>zaman kazandırır</b>.</p></div>
-<div class="yg-c"><h3>Sistem katmanları</h3>
-<div class="yg-ly"><div style="background:#e6ecf5">Son kat <small>· nem, kirlilik ve UV'ye karşı korur, renk verir (ortama göre gerekli olabilir)</small></div><div style="background:#f6e7c7">İntümesan kat <small>· yangın koruma; kalınlığı sertifikalı tablodan gelir</small></div><div style="background:#f3cfc8">Astar <small>· korozyon koruması; intümesanla uyumu onaylı olmalı</small></div><div style="background:#aab4c3">Çelik <small>· ISO 8501-1 Sa 2½ ya da astar föyündeki hazırlık</small></div></div>
-<p>Astar ve son kat, yangın testinde intümesanla birlikte denenmiş ve onaylanmış ürünlerden seçilmelidir. Onaysız bir astar ya da son kat, köpüğün tutunmasını ve kabarmasını bozabilir.</p></div>
-<div class="yg-c"><h3>Bu ekran selülozik yangın içindir</h3>
-<div class="yg-std"><b>Selülozik yangın</b><span class="rg">Binalar</span><p>Ahşap, kâğıt, tekstil, plastik eşya gibi malzemelerin yanması: depolar, fabrika binaları, AVM, okul, otopark, havalimanı. Sıcaklık standart eğriyle yükselir (ISO 834 / EN 1363-1). Steelmaster ince film intümesan boyalar bu yangın tipi için test edilip sertifikalandırılmıştır.</p></div>
-<p><small>Hidrokarbon ve jet yangını hakkında kısa bilgi bu sekmenin sonundadır.</small></p></div>
-<div class="yg-c"><h3>Ortam sınıfları (EAD 350402)</h3>
-<p>Avrupa onayında (ETA) intümesan sistemin hangi ortamda dayanıklı olduğu belirtilir:</p>
+<p>Steelmaster, normal koşulda çeliğin üzerinde ince bir boya filmidir. Yangında sıcaklık yaklaşık <b>200–250 °C</b>'ye ulaştığında film yumuşar ve içindeki bileşenler birlikte çalışmaya başlar:</p>
+<ul><li><b>Asit kaynağı</b> ayrışarak asit açığa çıkarır,</li><li><b>karbon kaynağı</b> bu asitle kömürleşir,</li><li><b>şişirici</b> gaz vererek yumuşamış kütleyi köpük gibi kabartır.</li></ul>
+<p>Birkaç dakika içinde boya, ilk kalınlığının onlarca katına çıkan, gözenekli ve ısıyı çok kötü ileten bir <b>kömür köpüğüne</b> dönüşür. Bu köpük çeliği alevden yalıtır; çeliğin kritik sıcaklığa varma süresini uzatır. Boya yangını söndürmez, çeliğe <b>zaman kazandırır</b>.</p></div>
+
+<div class="yg-c"><h3><span class="n">4</span>Steelmaster serisi</h3>
+<p>Tümü EN 13381-8 ve BS 476-20/21'e göre test edilmiş, selülozik yangın için sertifikalı intümesan kaplamalardır:</p>
+<div class="yg-k"><div><b>Steelmaster 600 WF</b><span>Su bazlı · 60 dakikaya kadar</span></div><div><b>Steelmaster 900 WF</b><span>Su bazlı · 90 dakikaya kadar</span></div><div><b>Steelmaster 1200 WF</b><span>Su bazlı · 120 dakikaya kadar</span></div><div><b>Steelmaster 1200 HPE</b><span>Epoksi · 120 dakikaya kadar · atölye uygulaması, C5'e kadar dış ortam</span></div></div>
+<p>Hangi ürünün ve hangi kalınlığın kullanılacağı; profilin kesit faktörü, maruziyeti, istenen yangın süresi ve kritik sıcaklığa göre Jotun teknik ekibince belirlenir.</p></div>
+
+<div class="yg-c"><h3><span class="n">5</span>Bir sistem olarak düşünün</h3>
+<div class="yg-ly"><div style="background:#e6ecf5">Son kat <small>· nem, kir ve UV'ye karşı korur, renk verir</small></div><div style="background:#f6e7c7">Steelmaster <small>· yangın koruma; kalınlığı sertifikalı tablodan gelir</small></div><div style="background:#f3cfc8">Astar <small>· korozyon koruması</small></div><div style="background:#aab4c3">Çelik <small>· Sa 2½ ya da astar föyündeki yüzey hazırlığı</small></div></div>
+<p>Steelmaster tek başına uygulanmaz. Altındaki astar ve üstündeki son kat, yangın testinde Steelmaster ile birlikte denenmiş ve onaylanmış ürünlerden seçilmelidir; uyumsuz bir astar ya da son kat köpüğün tutunmasını ve kabarmasını bozabilir.</p></div>
+
+<div class="yg-c"><h3><span class="n">6</span>Ortam belirler: iç mekân mı, dış ortam mı?</h3>
+<p>Avrupa onayında (ETA) sistemin hangi ortamda dayanıklı olduğu dört sınıfla belirtilir:</p>
 <div class="yg-k"><div><b>Z2</b><span>İç mekân, normal nem</span></div><div><b>Z1</b><span>İç mekân, yüksek nem (≥ %85 BN)</span></div><div><b>Y</b><span>Yarı açık; yağmura doğrudan maruz değil</span></div><div><b>X</b><span>Dış ortam, tüm koşullar</span></div></div>
-<p>Ortam sınıfı arttıkça çoğu zaman uygun son kat şart olur. Korozyon tarafı için ISO 12944 korozivite sınıfı (C1–CX) ayrıca belirlenir.</p></div>
-<div class="yg-c"><h3>Jotun Steelmaster serisi · selülozik</h3>
-<p>Selülozik yangında yapısal çeliği koruyan intümesan kaplamalar (EN 13381-8, BS 476-20/21):</p>
-<div class="yg-k"><div><b>Steelmaster 600 WF</b><span>Su bazlı · 60 dakikaya kadar</span></div><div><b>Steelmaster 900 WF</b><span>Su bazlı · 90 dakikaya kadar</span></div><div><b>Steelmaster 1200 WF</b><span>Su bazlı · 120 dakikaya kadar</span></div><div><b>Steelmaster 1200 HPE</b><span>Epoksi · 120 dakikaya kadar · atölye uygulaması, dış ortam C5'e kadar</span></div></div>
-<p>Ürün ve kalınlık; profil, maruziyet, yangın süresi ve kritik sıcaklığa göre Jotun teknik ekibince belirlenir.</p></div>
-<div class="yg-c"><h3>Uygulama ve kontrol</h3>
-<ul><li>Kat başına uygulanabilecek maksimum ıslak kalınlık ve katlar arası bekleme süresi ürün föyünden (TDS) alınır.</li><li>Kuru film kalınlığı ISO 2808 / ISO 19840'a göre ölçülür; intümesanda ölçüm sıklığı ve kabul kriteri ürünün uygulama kılavuzunda tanımlıdır.</li><li>Her profilin boyası, o profilin yükleme tablosundaki kalınlığa göre ayrı ayrı hedeflenir; tüm yapıya tek kalınlık verilmez.</li><li>Kalınlık eksikliği yangın süresini doğrudan kısaltır; fazlası ise maliyeti ve kuruma süresini artırır.</li></ul></div>
-<div class="yg-c" style="border-color:rgba(217,69,43,.5)"><h3>Kısaca: hidrokarbon ve jet yangını</h3>
-<p><b>Steelmaster bu yangın tiplerinde kullanılmaz.</b> Akaryakıt/gaz yangınında sıcaklık birkaç dakikada 1000 °C'yi geçer (UL 1709, EN 1363-2); jet yangınında buna alevin aşındırıcı gücü eklenir (ISO 22899-1).</p>
-<p>Jotun'un bu alandaki çözümü <b>Jotachar</b> serisi epoksi esaslı pasif yangın korumasıdır: rafineri, petrokimya, LNG, tank sahası ve offshore projeleri. Bu projeleri analiz talebiyle doğrudan Jotun teknik ekibine iletin.</p></div>`; }
+<p>Ortam ağırlaştıkça son kat çoğu zaman şart olur. Korozyon tarafı için ISO 12944 korozivite sınıfı (C1–CX) ayrıca belirlenir.</p></div>
+
+<div class="yg-c"><h3><span class="n">7</span>Uygulama ve kontrol</h3>
+<ul><li>Her profil, kendi yükleme tablosundaki kalınlığa göre boyanır; tüm yapıya tek kalınlık verilmez.</li><li>Kat başına ıslak kalınlık ve katlar arası bekleme süresi ürün föyünden (TDS) alınır.</li><li>Kuru film kalınlığı ISO 2808 / ISO 19840'a göre ölçülür; ölçüm sıklığı ve kabul kriteri ürünün uygulama kılavuzunda tanımlıdır.</li><li>Eksik kalınlık yangın süresini doğrudan kısaltır; fazlası maliyeti ve kuruma süresini artırır.</li></ul>
+<p>Projenin kalınlık hesabı için <b>Analiz talebi</b> sekmesinden bilgileri Jotun teknik ekibine gönderebilirsiniz.</p></div>`; }
 
 function ygMath(){ const M=YG.m; return `
 <div class="yg-c"><h3><span class="n">1</span>Yangın eğrisi: gaz sıcaklığı</h3>
