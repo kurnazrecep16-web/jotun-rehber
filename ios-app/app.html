@@ -1325,6 +1325,13 @@ details.tint>summary::before{content:"🎨 ";}
 .tint-g input{width:100%;font:15px var(--f-body);padding:7px 8px}
 .tint-r{font-size:12.5px;margin:8px 0 10px;line-height:1.45}
 #q-body details.tint{margin-left:-46px}
+
+dialog.sheet::backdrop{background:rgba(3,12,28,.72);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+@media (max-width:700px){
+ dialog.sheet.full{margin:0;max-width:none;width:100%;height:100%;max-height:none;border-radius:0}
+ dialog.sheet.full .sheet-in{max-height:none;height:100%;box-sizing:border-box;padding-top:calc(14px + env(safe-area-inset-top,0px))}
+}
+dialog.sheet .x:focus:not(:focus-visible){outline:none}
 </style>
 
 <div id="app-bg" aria-hidden="true"></div>
@@ -2037,7 +2044,7 @@ function pickOpen(){
    <div class="pk-cats" id="pk-cats">${cats.map(c=>`<button type="button" data-c="${c}" aria-pressed="${c===PK.cat}">${c==="all"?"Tümü":esc(CATS[c][0])}</button>`).join("")}</div>
    ${has?`<p class="hint pk-new">Mevcut teklife eklenir. <button type="button" class="linkbtn" id="pk-reset">Boş teklifle başla</button></p>`:`<p class="hint pk-new">Ürüne dokunun; katı madde, yoğunluk, ambalaj ve tiner otomatik gelir. Adet ve fiyatı siz girersiniz.</p>`}
    <div class="pk-list" id="pk-list"></div>
-   <div class="pk-foot"><button type="button" class="btn ghost" id="pk-free">Listede yok, elle yaz</button><button type="button" class="btn primary" id="pk-done">Kapat</button></div>`);
+   <div class="pk-foot"><button type="button" class="btn ghost" id="pk-free">Listede yok, elle yaz</button><button type="button" class="btn primary" id="pk-done">Kapat</button></div>`,"full");
   pkList();
   $("#pk-q").addEventListener("input",e=>{PK.q=e.target.value;pkList();});
   $("#pk-cats").addEventListener("click",e=>{const b=e.target.closest("[data-c]");if(!b)return;PK.cat=b.dataset.c;$("#pk-cats").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b));pkList();});
@@ -2175,10 +2182,13 @@ $("#r-list").addEventListener("click",e=>{const b=e.target.closest(".r-cg");if(!
   addLine(nm,null);
   if(!Q.no)newNo(); renderLines(); renderDoc(); b.textContent="Teklife eklendi ✓"; setTimeout(()=>b.textContent="Teklife ekle",1500); toast(nm+" teklife eklendi",true);}));
 /* ---------- Şartname metni ve karşılaştırma (Grundfos "tender text" mantığı) ---------- */
-function sheet(title,html){
+function sheet(title,html,cls){
   let d=$("#sheet"); if(!d){d=document.createElement("dialog");d.id="sheet";d.className="sheet";document.body.appendChild(d);d.addEventListener("click",e=>{if(e.target===d||e.target.closest("[data-close]"))d.close();});}
+  d.className="sheet"+(cls?" "+cls:"");
   d.innerHTML=`<div class="sheet-in"><div class="sheet-h"><h3>${title}</h3><button type="button" class="x" data-close aria-label="Kapat">×</button></div>${html}</div>`;
-  try{d.showModal()}catch(e){d.setAttribute("open","")} return d;
+  try{d.showModal()}catch(e){d.setAttribute("open","")}
+  try{const a=document.activeElement; if(a&&d.contains(a)&&a.classList.contains("x")) a.blur();}catch(e){}
+  return d;
 }
 function specText(sy,s){
   const hdg=s.sub==="hdg", envT={C2:"C2 (düşük)",C3:"C3 (orta)",C4:"C4 (yüksek)",C5:"C5 (çok yüksek)",Im:"Im1–Im3 (daldırma)"}[s.env];
