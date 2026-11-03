@@ -1899,18 +1899,19 @@ const store=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
 const PRICES = load("q-prices-l",{}); /* litre (kg) başına birim fiyat, ürün adına göre */
 /* Renklendirme (sadece baz ürünler): teneke başına renk gramı ve maliyeti (teklif para biriminde) */
 const canTint=n=>{const c=CATALOG.find(p=>p.name===n);return !!(c&&c.colors&&c.colors.some(x=>/^Base\b/i.test(x)))};
-const tintL=l=>canTint(l.name)?Math.max(0,num(l.tl)):0, tintC=l=>canTint(l.name)?Math.max(0,num(l.tc)):0;
-const hasTint=l=>tintL(l)>0||tintC(l)>0;
+const tintT=l=>canTint(l.name)?Math.max(0,num(l.tt)):0, tintL=l=>tintT(l)>0?tintT(l)-num(l.pack):0, tintC=l=>canTint(l.name)?Math.max(0,num(l.tc)):0;
+const hasTint=l=>tintT(l)>0||tintC(l)>0;
 function lineAmt(l){const L=lineL(l),p=num(l.price);return L>0&&p>0?L*p+tintC(l)*num(l.qty):0}
 function kgPrice(l){const a=lineAmt(l);if(!(a>0))return null;if(isKg(l.name)){const kk=lineL(l);return kk>0?a/kk:null}const k=lineKg(l);return k>0?a/k:null}
 const unitP=l=>{const L=lineL(l);return L>0&&lineAmt(l)>0?lineAmt(l)/L:num(l.price)};
-const packEff=l=>num(l.pack)+tintL(l);
-function tintRes(l){const pk=num(l.pack),p=num(l.price),q=num(l.qty),u=isKg(l.name)?"kg":"L";if(!hasTint(l))return "Makinedeki teneke başı değerleri girin.";
+const packEff=l=>tintT(l)>0?tintT(l):num(l.pack);
+function tintRes(l){const pk=num(l.pack),p=num(l.price),q=num(l.qty),u=isKg(l.name)?"kg":"L";if(!hasTint(l))return l.ral?'<span class="tint-w">⚠ Renklendirme makinesindeki renk dahil toplam litreyi ve maliyeti girin.</span>':"Makinedeki teneke başı değerleri girin.";
+  if(!(tintT(l)>0)&&l.ral) return '<span class="tint-w">⚠ Renk dahil toplam litreyi girin.</span>';
   const pe=packEff(l), tp=p>0&&pk?pe*p+tintC(l):null;
   return `Renklendirilmiş teneke: <b>${fmt(pk,pk%1?2:0)} → ${fmt(pe,pe%1?2:0)} ${u}</b> · ${tp!=null?"<b>"+money(tp)+"</b> / teneke · satır <b>"+money(tp*q)+"</b>":"fiyat girince hesaplanır"}${!l.ral?'<br><span class="tint-w">⚠ Yukarıdan RAL kodunu seçin.</span>':""}`;}
 function tintCell(ln,i){if(!canTint(ln.name)||ln.auto)return "";const c=CUR[$("#q-cur").value],u=isKg(ln.name)?"kg":"L";
-  return `<details class="tint" data-i="${i}"${ln.tintOpen||hasTint(ln)?" open":""}><summary>Renklendirme${hasTint(ln)?" ✓":""}</summary>
-  <div class="tint-g"><label><span>Eklenen renk (${u} / teneke)</span><input type="number" inputmode="decimal" min="0" step="0.01" id="q-tli-${i}" data-i="${i}" data-f="tl" value="${esc(ln.tl||"")}" placeholder="ör. 0,5"></label>
+  return `<details class="tint" data-i="${i}"${ln.tintOpen||hasTint(ln)||ln.ral?" open":""}><summary>Renklendirme${hasTint(ln)?" ✓":""}</summary>
+  <div class="tint-g"><label><span>Toplam ${u} / teneke</span><input type="number" inputmode="decimal" min="0" step="0.01" id="q-tli-${i}" data-i="${i}" data-f="tt" value="${esc(ln.tt||"")}" placeholder="makinedeki toplam, ör. ${num(ln.pack)?fmt(num(ln.pack)+0.5,1):"16,5"}"></label>
   <label><span>Maliyet (${c} / teneke)</span><input type="number" inputmode="decimal" min="0" step="0.01" id="q-tc-${i}" data-i="${i}" data-f="tc" value="${esc(ln.tc||"")}" placeholder="makinedeki tutar"></label></div>
   <p class="tint-r" id="q-tr-${i}">${tintRes(ln)}</p></details>`;}
 const Q = {lines:[], sys:null, no:"", date:new Date()};
@@ -1934,7 +1935,7 @@ function addLine(name,needL){
   if(ex){ if(needL){ex.needL=(ex.needL||0)+needL; if(num(ex.pack)) ex.qty=Math.ceil(ex.needL/num(ex.pack));} else ex.qty=num(ex.qty)+1; }
   else Q.lines.push(mkLine(name,needL));
 }
-const lineL = l=>(num(l.pack)+tintL(l))*num(l.qty);
+const lineL = l=>packEff(l)*num(l.qty);
 /* İnceltici: boya litresinin en az %15'i kadar, ürünün TDS'indeki inceltici numarasıyla otomatik eklenir */
 const THIN_RATE=0.15;
 const thinNo=n=>{const c=CATALOG.find(p=>p.name===n);if(!c||!c.th||!c.th.length)return null;const m=String(c.th[0]).match(/\d+/);return m?m[0]:null};
@@ -2122,7 +2123,7 @@ $("#q-body").addEventListener("focusout",e=>{const t=e.target; if(t.dataset&&(t.
 $("#q-body").addEventListener("click",e=>{const b=e.target.closest("[data-chg]"); if(!b) return; const i=+b.dataset.chg; Q.lines.forEach(l=>l.edit=false); Q.lines[i].edit=true; renderLines();
   const x=$("#q-n-"+i); if(x){ x.focus(); cbRender(i); }});
 $("#q-body").addEventListener("pointerdown",e=>{if(e.target.closest(".cb")) e.preventDefault();});
-$("#q-body").addEventListener("click",e=>{const rb=e.target.closest("[data-raln]"); if(rb){const box=rb.closest(".cb"); const i=+box.id.split("-").pop(); Q.lines[i].ral=rb.dataset.raln; const inp=$("#q-r-"+i); if(inp){inp.value=rb.dataset.raln; inp.blur();} cbClose(i); updCells(i); renderDoc(); return;}
+$("#q-body").addEventListener("click",e=>{const rb=e.target.closest("[data-raln]"); if(rb){const box=rb.closest(".cb"); const i=+box.id.split("-").pop(); Q.lines[i].ral=rb.dataset.raln; const inp=$("#q-r-"+i); if(inp){inp.value=rb.dataset.raln; inp.blur();} cbClose(i); updCells(i); renderDoc(); const dt=$("#q-body").rows[i]&&$("#q-body").rows[i].querySelector("details.tint"); if(dt&&!dt.open){dt.open=true; const ti=dt.querySelector('input[data-f="tt"]'); if(ti) setTimeout(()=>ti.focus(),50);} return;}
   const b=e.target.closest("[data-cbn]"); if(!b) return; const box=b.closest(".cb"); const i=+box.id.split("-").pop();
   cbClose(i); if(Q.lines[i].edit) pickName(i,b.dataset.cbn); else { Q.lines[i].name=b.dataset.cbn; pickName(i); }});
 try{if(!document.querySelector(".sb-cover"))document.body.insertAdjacentHTML("afterbegin",'<div class="sb-cover" aria-hidden="true"></div>')}catch(e){}
@@ -3217,7 +3218,7 @@ wxLoad();
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)wxLoad();});
 
 /* Yeni sürüm yayınlandıysa uygulama açıkken kendini yeniler */
-(()=>{const B="1793700290"; if(!/^\d+$/.test(B)) return;
+(()=>{const B="1793702622"; if(!/^\d+$/.test(B)) return;
   const chk=()=>fetch(location.pathname+"?b="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const B="(\d+)"/); if(m&&+m[1]>+B) location.reload();}).catch(()=>{});
   document.addEventListener("visibilitychange",()=>{if(!document.hidden)chk();}); setTimeout(chk,4000);})();
 
@@ -3271,7 +3272,7 @@ function quoteText(){
   const f=fields(), t=totals();
   const L=["*JOTUN TEKLİF – ONAY İÇİN*",`Bayi: ${f.dealer||"-"}`,`Müşteri: ${f.customer||"-"}${f.project?" – "+f.project:""}`,`Teklif no: ${Q.no||"-"} | Geçerlilik: ${f.valid} gün`,"","Ürünler:"];
   Q.lines.filter(l=>l.name).forEach((l,i)=>{const q=num(l.qty),p=num(l.price),u=isKg(l.name)?"kg":"L",kg=isKg(l.name)?lineL(l):lineKg(l);
-    L.push(`${i+1}. ${l.name}${l.ral?" ("+l.ral+")":""} – ${fmt(q,0)} × ${num(l.pack)?fmt(packEff(l),packEff(l)%1?2:0)+" "+u:"-"} = ${lineL(l)?fmt(lineL(l),lineL(l)%1?2:0)+" "+u:"-"}${kg!=null?" ("+fmt(kg,1)+" kg)":""} × ${p>0?money(p)+"/L":"fiyat yok"}${hasTint(l)?` + renklendirme ${money(tintC(l))}/teneke (+${fmt(tintL(l),2)} ${u} renk)`:""} = ${lineAmt(l)>0?money(lineAmt(l)):"-"}`)});
+    L.push(`${i+1}. ${l.name}${l.ral?" ("+l.ral+")":""} – ${fmt(q,0)} × ${num(l.pack)?fmt(packEff(l),packEff(l)%1?2:0)+" "+u:"-"} = ${lineL(l)?fmt(lineL(l),lineL(l)%1?2:0)+" "+u:"-"}${kg!=null?" ("+fmt(kg,1)+" kg)":""} × ${p>0?money(p)+"/L":"fiyat yok"}${hasTint(l)?` + renklendirme ${money(tintC(l))}/teneke (renk dahil ${fmt(packEff(l),2)} ${u}/teneke)`:""} = ${lineAmt(l)>0?money(lineAmt(l)):"-"}`)});
   L.push("",`Toplam: ${fmt(t.adet,0)} ambalaj, ${fmt(t.lt,t.lt%1?2:0)} L${t.kg?", "+fmt(t.kg,1)+" kg":""}`,`Ara toplam: ${money(t.sub)} | KDV %${fmt(t.kdvR,0)}: ${money(t.kdv)}`,`GENEL TOPLAM: ${money(t.grand)}`);
   if(Q.sys)L.push("",`Sistem: ISO 12944-5/${Q.sys.iso} – ${Q.sys.coats} (${Q.sys.dft} µm), ${Q.sys.env}, ${Q.sys.dur}, ${fmt(Q.sys.area,0)} m²`);
   if(ASK.length){L.push("","Danışman'da sorduğu / istedikleri:");ASK.slice(-8).forEach(a=>L.push("• "+a));}
