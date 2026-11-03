@@ -1323,6 +1323,13 @@ dialog.sheet .x:focus:not(:focus-visible){outline:none}
 
 #q-body tr.just{box-shadow:0 0 0 3px #f0ab00;transition:box-shadow .3s}
 .sb-cover{position:fixed;top:0;left:0;right:0;height:env(safe-area-inset-top,0px);background:var(--bg,#0b1320);z-index:90;pointer-events:none}
+
+#q-body td:first-child{position:relative}
+.cb{position:absolute;left:0;right:0;z-index:30;margin-top:6px;max-height:min(52vh,420px);overflow-y:auto;-webkit-overflow-scrolling:touch;background:#fff;border:1px solid #d7dde8;border-radius:14px;box-shadow:0 12px 32px rgba(3,20,50,.28);padding:6px}
+.cb-h{margin:8px 8px 4px;font:700 11.5px var(--f-body);letter-spacing:.06em;text-transform:uppercase;color:#7a869c}
+.cb-it{display:block;width:100%;text-align:left;border:0;background:none;border-radius:10px;padding:9px 10px;cursor:pointer;color:#0b1f45;font:inherit}
+.cb-it:active,.cb-it:hover{background:#eef3fb}
+.cb-it b{display:block;font:600 15px var(--f-body)}.cb-it small{display:block;color:#5d6b82;font-size:12px;margin-top:1px}
 </style>
 
 <div id="app-bg" aria-hidden="true"></div>
@@ -1966,7 +1973,7 @@ function renderLines(){
   const tb=$("#q-body");
   tb.innerHTML = Q.lines.map((ln,i)=>{const packs=packsOf(ln.name);const u=isKg(ln.name)?"kg":"L";
    return `<tr${ln.auto?' class="auto"':""}>
-    <td>${ln.key?`<span class="prod">${esc(ln.name)}</span>`:`<input type="text" id="q-n-${i}" data-i="${i}" data-f="name" value="${esc(ln.name)}" placeholder="Ürün adını yazın (örn. Hardtop XP)" aria-label="Ürün adı" list="q-dl" autocomplete="off">`}${ln.auto?`<span class="need">Boyanın %15'i · İhtiyaç ≈ ${fmt(Math.ceil(ln.needL),0)} L</span>`:ln.needL&&!ln.m2?`<span class="need">İhtiyaç ≈ ${fmt(Math.ceil(ln.needL),0)} L</span>`:""}${ln.auto?"":specChip(ln)}${ln.auto?"":colorCell(ln,i)}${tintCell(ln,i)}</td>
+    <td>${ln.key?`<span class="prod">${esc(ln.name)}</span>`:`<input type="text" id="q-n-${i}" data-i="${i}" data-f="name" value="${esc(ln.name)}" placeholder="Ürün seçin veya yazın" aria-label="Ürün adı" autocomplete="off" role="combobox" aria-expanded="false"><div class="cb" id="q-cb-${i}" hidden></div>`}${ln.auto?`<span class="need">Boyanın %15'i · İhtiyaç ≈ ${fmt(Math.ceil(ln.needL),0)} L</span>`:ln.needL&&!ln.m2?`<span class="need">İhtiyaç ≈ ${fmt(Math.ceil(ln.needL),0)} L</span>`:""}${ln.auto?"":specChip(ln)}${ln.auto?"":colorCell(ln,i)}${tintCell(ln,i)}</td>
     <td class="n" data-label="Ambalaj">${packs.length>1?`<select id="q-k-${i}" data-i="${i}" data-f="pack" aria-label="Ambalaj">${packs.map(x=>`<option value="${x}"${x===num(ln.pack)?" selected":""}>${fmt(x,x%1?2:0)} ${u}</option>`).join("")}</select>`
       :packs.length===1?`<span class="mono">${fmt(packs[0],packs[0]%1?2:0)} ${u}</span>`
       :`<input type="number" id="q-k-${i}" data-i="${i}" data-f="pack" min="0" step="0.1" value="${ln.pack}" placeholder="L" aria-label="Ambalaj litre">`}</td>
@@ -1990,6 +1997,7 @@ function updCells(i){const ln=Q.lines[i];const u=isKg(ln.name)?"kg":"L";
 function onLine(e){
   const t=e.target; let f=t.dataset.f; if(f==null)return; const i=+t.dataset.i, ln=Q.lines[i];
   ln[f]=t.value;
+  if(f==="name"&&!ln.key&&e.type==="input") cbRender(i);
   if(f==="name"&&!ln.key&&(e.type==="change"||!e.inputType||e.inputType==="insertReplacementText")&&pickName(i)) return;
   if(f==="m2"||f==="dft"||f==="loss"){ const n=calcNeed(ln); ln.needL=n;
     if(n!=null&&num(ln.pack)){ ln.qty=Math.max(1,Math.ceil(n/num(ln.pack))); const qi=$("#q-q-"+i); if(qi) qi.value=ln.qty; }
@@ -2028,7 +2036,35 @@ function pickName(i){const ln=Q.lines[i]; if(!ln||ln.key) return false; const v=
   const q=num(ln.qty)||1; Q.lines[i]=mkLine(c.name,null); Q.lines[i].qty=q; renderLines(); renderDoc();
   setTimeout(()=>{const r=$("#q-body").rows[i]; if(r){r.classList.add("just"); setTimeout(()=>r.classList.remove("just"),1400); const qi=r.querySelector('input[data-f="qty"]'); if(qi) qi.focus();}},60); return true;}
 $("#q-pick").addEventListener("click",pickOpen);
-try{const dl=document.createElement("datalist");dl.id="q-dl";dl.innerHTML=CATALOG.filter(p=>p.cat!=="MCI Tinter").map(p=>`<option value="${esc(p.name)}">`).join("");document.body.appendChild(dl);}catch(e){}
+/* Ürün açılır listesi: yazarak arama + kaydırmalı liste; satır sırasına göre öneri (1. kat astar, 2. ara kat, 3.+ son kat) */
+const roleOf=p=>{const t=(p.name+" "+(p.note||"")).toLowerCase(); if(p.cat==="Flooring") return "z";
+  if(p.cat==="Zinc Rich"||p.cat==="Shopprimer"||/primer|astar|sealer/.test(t)) return "p";
+  if(p.cat==="Polyurethane"||p.cat==="Acrylic"||/son kat|topcoat|finish/.test(t)) return "t";
+  if(["Epoxy","Modified Epoxy","Glass Flake Epoxy","Alkyd"].includes(p.cat)) return "i";
+  return "o";};
+const ROLE_T={p:"Astarlar (1. kat)",i:"Ara katlar (2. kat)",t:"Son katlar",z:"Zemin (Jotafloor)",o:"Diğer ürünler"};
+const CAT_PRI=["Zinc Rich","Modified Epoxy","Epoxy","Alkyd","Polyurethane","Acrylic","Glass Flake Epoxy","Tank Coating","Heat Resistant","Fire Protection","Shopprimer","General Industry","Anti-Fouling","Reflected","Other"];
+const catPri=c=>{const k=CAT_PRI.indexOf(c);return k<0?99:k};
+function cbRender(i){
+  const box=$("#q-cb-"+i), inp=$("#q-n-"+i); if(!box||!inp) return;
+  const q=tnormS(inp.value.trim());
+  const pos=Q.lines.slice(0,i).filter(l=>!l.auto).length; const want=pos===0?"p":pos===1?"i":"t";
+  const all=CATALOG.map((p,k)=>[p,k]).sort((a,b)=>catPri(a[0].cat)-catPri(b[0].cat)||(a[0].offlist?1:0)-(b[0].offlist?1:0)||a[1]-b[1]).filter(([p])=>p.cat!=="MCI Tinter"&&!/Thinner/i.test(p.name)&&(!q||tnormS(p.name+" "+(CATS[p.cat]?CATS[p.cat][0]:"")).includes(q)));
+  const item=([p,k])=>{const info=[CATS[p.cat]?CATS[p.cat][0]:"",p.vs&&p.vs[0]?`%${p.vs[0]} katı`:"",p.packs&&p.packs.length?p.packs.join(" / ")+(isKg(p.name)?" kg":" L"):""].filter(Boolean).join(" · ");
+    return `<button type="button" class="cb-it" data-cbn="${esc(p.name)}"><b>${esc(p.name)}</b><small>${esc(info)}</small></button>`;};
+  let html="";
+  if(q){ html=all.slice(0,80).map(item).join(""); }
+  else { const order=[want,...["p","i","t","o","z"].filter(r=>r!==want)];
+    html=order.map(r=>{const g=all.filter(([p])=>roleOf(p)===r);return g.length?`<p class="cb-h">${r===want?"Önerilen · ":""}${ROLE_T[r]}</p>`+g.map(item).join(""):""}).join(""); }
+  box.innerHTML=html||`<p class="cb-h">Listede yok — yazdığınız adla eklenir.</p>`;
+  box.hidden=false; inp.setAttribute("aria-expanded","true");
+}
+function cbClose(i){const box=$("#q-cb-"+i), inp=$("#q-n-"+i); if(box) box.hidden=true; if(inp) inp.setAttribute("aria-expanded","false");}
+$("#q-body").addEventListener("focusin",e=>{const t=e.target; if(t.dataset&&t.dataset.f==="name"&&t.id){ cbRender(+t.dataset.i); setTimeout(()=>{const y=t.getBoundingClientRect().top+window.scrollY-90; window.scrollTo({top:y,behavior:"smooth"});},60);} });
+$("#q-body").addEventListener("focusout",e=>{const t=e.target; if(t.dataset&&t.dataset.f==="name") setTimeout(()=>cbClose(+t.dataset.i),180);});
+$("#q-body").addEventListener("pointerdown",e=>{if(e.target.closest(".cb")) e.preventDefault();});
+$("#q-body").addEventListener("click",e=>{const b=e.target.closest("[data-cbn]"); if(!b) return; const box=b.closest(".cb"); const i=+box.id.split("-").pop();
+  Q.lines[i].name=b.dataset.cbn; cbClose(i); pickName(i);});
 try{if(!document.querySelector(".sb-cover"))document.body.insertAdjacentHTML("afterbegin",'<div class="sb-cover" aria-hidden="true"></div>')}catch(e){}
 document.addEventListener("click",e=>{if(e.target.id==="q-miss-go"){const x=[...document.querySelectorAll("#q-body input.price")].find(i=>!(num(i.value)>0));if(x){x.scrollIntoView({block:"center",behavior:"smooth"});setTimeout(()=>x.focus(),250);}}});
 $("#q-clear").addEventListener("click",()=>{Q.lines=[];Q.sys=null;Q.thOff={};renderLines();renderDoc();});
