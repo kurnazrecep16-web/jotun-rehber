@@ -1903,6 +1903,24 @@ html body #v-ana .hm-t b span,html body #v-ana .hm-sec span,html body #v-ana .hm
 html body #v-ana #h-fp .hm-t>span{font-size:13.5px!important}
 html body #v-ana .hm-foot .hf-tx b{white-space:normal;overflow:visible;text-overflow:clip;line-height:1.2}
 html body #v-ana .hm-foot .hf-sw{padding:0 12px;white-space:nowrap;flex:none}
+/* ---- Sarfiyat profil önizlemesi ---- */
+.sf-pvw{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:10px;margin:2px 0 12px;padding:10px 12px 10px 6px;border-radius:18px;background:radial-gradient(90% 110% at 28% 50%,rgba(79,140,255,.22),rgba(79,140,255,0) 62%),linear-gradient(180deg,rgba(16,34,68,.85),rgba(5,14,32,.8));border:1px solid rgba(120,160,230,.3);color:#e8eef8}
+.sf-pvw[hidden]{display:none}
+.sfp-im{position:relative;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center}
+.sfp-im:after{content:"";position:absolute;left:14%;right:14%;bottom:6%;height:10%;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.45),rgba(0,0,0,0))}
+.sfp-im img{position:relative;z-index:1;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 6px 10px rgba(0,0,0,.35));animation:sfpi .25s ease}
+@keyframes sfpi{from{opacity:.2;transform:scale(.97)}to{opacity:1;transform:none}}
+.sfp-in{min-width:0;display:flex;flex-direction:column;gap:3px}
+.sfp-k{font:700 10.5px var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:#f0ab00}
+.sfp-in b{font:800 17px/1.2 var(--f-body);color:#fff;word-break:break-word}
+.sfp-s{font-size:12px;line-height:1.35;color:rgba(214,224,240,.72)}
+.sfp-in dl{margin:7px 0 0;display:grid;gap:5px}
+.sfp-in dl div{display:flex;justify-content:space-between;align-items:baseline;gap:6px;padding:5px 8px;border-radius:9px;background:rgba(4,12,30,.5);border:1px solid rgba(140,170,220,.16)}
+.sfp-in dt{font-size:11.5px;color:rgba(214,224,240,.65)}.sfp-in dd{margin:0;font:800 13.5px var(--f-body);color:#fff;white-space:nowrap}.sfp-in dd small{font-weight:600;font-size:10.5px;color:rgba(214,224,240,.6)}
+@media (max-width:340px){.sf-pvw{grid-template-columns:1fr}}
+
+.sfp-in dt{white-space:nowrap}
+.sf-area:has(.sf-pvw:not([hidden])) .sf-ag:not([hidden]) .sf-tip[id]{display:none}
 </style>
 
 <div id="app-bg" aria-hidden="true"></div>
@@ -2142,6 +2160,7 @@ html body #v-ana .hm-foot .hf-sw{padding:0 12px;white-space:nowrap;flex:none}
             <p class="hint sf-tip">Düz sacta 1. Trapez / oluklu sacta üreticinin verdiği açınım oranını girin (açılmış genişlik ÷ örtme genişliği). Sac ve levha: EN 10029 / EN 10051.</p></div>
           <div class="sf-ag" data-a="tank" hidden><label class="sf-f"><span>Çap</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-td" placeholder="0"><i>m</i></span></label><label class="sf-f"><span>Yükseklik</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-th" placeholder="0"><i>m</i></span></label><div class="sf-chk"><label><input type="checkbox" id="sf-tt" checked> Tavan</label><label><input type="checkbox" id="sf-tb"> Taban</label></div></div>
           <div class="sf-ag" data-a="ton" hidden><label class="sf-f"><span>Çelik miktarı</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-tn" placeholder="0"><i>ton</i></span></label><div class="sf-chips sf-tfc" id="sf-tfc"><button type="button" data-tf="15" aria-pressed="false">Ağır<small>≈15 m²/t</small></button><button type="button" data-tf="25" aria-pressed="false">Orta<small>≈25 m²/t</small></button><button type="button" data-tf="35" aria-pressed="false">Hafif<small>≈35 m²/t</small></button></div><label class="sf-f"><span>Ton başına yüzey</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-tf" placeholder="0"><i>m²/t</i></span></label><p class="hint sf-tip">Profil tipini bilmiyorsanız yaklaşık değer seçin. Ağır: kalın kolon/kiriş, Orta: karışık konstrüksiyon, Hafif: ince profil, makas, korkuluk. Profil biliniyorsa "Profil" sekmesi daha doğrudur.</p></div>
+          <div class="sf-pvw" id="sf-pvw" hidden></div>
           <div class="sf-ares"><span id="sf-ar">—</span><span class="sf-abtns"><button type="button" class="btn" id="sf-aadd">Alana ekle</button><button type="button" class="btn primary" id="sf-aset">Alan olarak kullan</button></span></div>
           <label class="sf-up"><input type="file" id="sf-upf" accept=".pdf,image/*,.xlsx,.xls,.csv,.txt" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.5l-8.5 8.5a5 5 0 0 1-7-7L14 5.5a3.3 3.3 0 0 1 4.7 4.7l-8.5 8.5a1.7 1.7 0 0 1-2.4-2.4l7.8-7.8"/></svg><span><b>Çelik listesi yükle</b><small>PDF, fotoğraf veya Excel – profiller okunup listeye eklenir</small></span></label>
           <div class="sf-alist" id="sf-alist"></div>
@@ -3813,7 +3832,7 @@ wxLoad();
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)wxLoad();});
 
 /* Yeni sürüm yayınlandıysa uygulama açıkken kendini yeniler */
-(()=>{const B="1793748726"; if(!/^\d+$/.test(B)) return;
+(()=>{const B="1793749112"; if(!/^\d+$/.test(B)) return;
   const chk=()=>fetch(location.pathname+"?b="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const B="(\d+)"/); if(m&&+m[1]>+B) location.reload();}).catch(()=>{});
   document.addEventListener("visibilitychange",()=>{if(!document.hidden)chk();}); setTimeout(chk,4000);})();
 
@@ -4659,6 +4678,31 @@ $("#yg-body").addEventListener("click",async e=>{ const t=e.target.closest("butt
   else if(t.id==="yg-clr"){ if(!YG.rows.length&&!Object.keys(YG.f).length) return; const bk={f:YG.f,rows:YG.rows,files:YG.files}; YG.f={}; YG.rows=[]; YG.files=[]; YG.sent=false; ygSave(); ygRender(); undoToast("Form temizlendi",()=>{YG.f=bk.f;YG.rows=bk.rows;YG.files=bk.files;ygSave();ygRender();}); } });
 
 try{document.body.insertAdjacentHTML("beforeend",'<div class="demo-rb">DEMO SÜRÜM</div>')}catch(e){}
+/* ---- Sarfiyat: profil görsel önizlemesi (demo) ---- */
+(function(){
+  const IMG={IPE:"ipe",INP:"ipe",HEA:"hea",HEB:"heb",HEM:"hem",UPN:"upn",UPE:"upn",boru:"boru",mil:"mil",lama:"lama",karedolu:"kare-dolu"};
+  const img=r=>r.t==="kutu"?(num(r.b)&&num(r.b)!==num(r.a)?"kutu-dik":"kutu-kare"):r.t==="kose"?(num(r.b)&&num(r.b)!==num(r.a)?"l-farkli":"l-esit"):(IMG[r.t]||"heb");
+  const NM={IPE:"IPE",INP:"INP",HEA:"HEA",HEB:"HEB",HEM:"HEM",UPN:"UPN",UPE:"UPE",kutu:"Kutu profil",boru:"Boru",kose:"Köşebent (L)",lama:"Lama",karedolu:"Kare dolu",mil:"Dolu yuvarlak"};
+  ["ipe","hea","heb","hem","upn","kutu-kare","kutu-dik","boru","l-esit","l-farkli","lama","mil","kare-dolu"].forEach(n=>{ const i=new Image(); i.src=`prof/${n}.webp`; });
+  function sfPv(){ const el=$("#sf-pvw"); if(!el) return; const tab=typeof SFA!=="undefined"?SFA:"prof";
+    if(!["prof","hol","bar"].includes(tab)){ el.hidden=true; return; } let r=null; try{ r=sfRow(); }catch(e){} if(!r){ el.hidden=true; return; }
+    el.hidden=false; let s=null; try{ s=secOf(r); }catch(e){}
+    const p=s?s.p:0, kg=s&&s.A>0?s.A*7850:0, row=(r.t in STD)?STD[r.t].find(x=>String(x[0])===String(r.s)):null;
+    const ok=!!s; const lbl=ok?stLbl(Object.assign({},r,{exp:4,inner:false})):NM[r.t]||r.t;
+    const sub=row?`Başlık genişliği b = ${fmt(row[3],0)} mm`:ok?"":"Ölçüleri girin";
+    const fi=n=>n>0?n:null, v=(x,d)=>x?fmt(x,d):"—";
+    const tm=kg?p/kg*1000:0;
+    const src=`prof/${img(r)}.webp`, im=el.querySelector("img");
+    if(im&&im.getAttribute("src")===src&&el.dataset.k===lbl+sub+p+kg){ return; }
+    el.dataset.k=lbl+sub+p+kg;
+    el.innerHTML=`<div class="sfp-im"><img src="${src}" alt="${esc(lbl)}" width="480" height="360" decoding="async"></div>
+     <div class="sfp-in"><span class="sfp-k">${esc(NM[r.t]||"")}</span><b>${esc(lbl)}</b>${sub?`<span class="sfp-s">${esc(sub)}</span>`:""}
+      <dl><div><dt>Alan</dt><dd>${v(p,3)}<small> m²/m</small></dd></div><div><dt>Ağırlık</dt><dd>${v(kg,kg<10?2:1)}<small> kg/m</small></dd></div><div><dt>Ton başı</dt><dd>${v(tm,1)}<small> m²/t</small></dd></div></dl></div>`; }
+  const w=$("#sf-areaw"); if(w){ ["input","change","click"].forEach(ev=>w.addEventListener(ev,()=>setTimeout(sfPv,0))); }
+  const b=$("#sf-areab"); if(b) b.addEventListener("click",()=>setTimeout(sfPv,30));
+  window.addEventListener("hashchange",()=>setTimeout(sfPv,60)); setTimeout(sfPv,200);
+})();
+
 })();
 </script>
 <div id="pwa-bar" hidden><img src="icon-192.png" alt=""><div class="t"><b>Jotun Endüstri'yi yükle</b><span id="pwa-msg">Telefonunda uygulama olarak açılsın.</span></div><button type="button" id="pwa-in">Yükle</button><button type="button" id="pwa-x" aria-label="Kapat">×</button></div>
