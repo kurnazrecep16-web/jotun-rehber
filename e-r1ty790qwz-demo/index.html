@@ -1542,6 +1542,72 @@ button.dm-it{cursor:pointer}
 .yg-doc table{width:100%;border-collapse:collapse}.yg-doc td,.yg-doc th{border:1px solid #c9d3e3;padding:4px 6px;text-align:left;font-size:12px}.yg-doc th{background:#eef3fa}
 .hm-card.yg-hcard .hm-ic svg{width:30px;height:30px}
 @media (max-width:420px){.yg-row .ed{grid-template-columns:1fr 1fr}}
+/* ---- v2 tasarım ---- */
+.yg-hero{position:relative;padding:4px 2px 14px}
+.yg-back{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:12px;border:1px solid rgba(140,170,220,.3);background:rgba(5,14,32,.45);margin-bottom:10px}
+.yg-back svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.yg-ht{display:flex;gap:14px;align-items:flex-start}.yg-fi{flex:none;width:64px;height:64px;border-radius:16px;background:linear-gradient(160deg,#173a73,#0c2147);border:1px solid rgba(240,171,0,.45);display:flex;align-items:center;justify-content:center;box-shadow:0 0 24px rgba(240,171,0,.18)}.yg-fi svg{width:38px;height:38px}
+.yg-hero h2{margin:6px 0 4px;color:#fff;font:800 27px/1.15 var(--f-body)}.yg-hero p{margin:0;color:rgba(214,224,240,.85);font-size:15px;line-height:1.45}
+.yg-bar{display:block;width:44px;height:4px;border-radius:2px;background:#f0ab00;margin-top:12px}
+.yg-tabs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:4px 0 14px}
+.yg-tabs button{display:flex;align-items:center;justify-content:center;gap:10px;height:52px;border-radius:26px;border:1px solid rgba(140,170,220,.32);background:rgba(5,14,32,.35);color:#fff;font:700 15px var(--f-body);cursor:pointer}
+.yg-tabs button svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.yg-tabs button[aria-pressed="true"]{background:linear-gradient(180deg,#2f6ff0,#1f5fd6);border-color:#4f8cff;box-shadow:0 6px 18px rgba(31,95,214,.35)}
+.yg-c{background:linear-gradient(180deg,rgba(23,42,78,.55),rgba(12,24,48,.55));border-radius:18px}
+.yg-c h3 .n{width:30px;height:30px;font:800 15px/30px var(--f-body);box-shadow:0 0 0 4px rgba(31,95,214,.18)}
+.yg-hc{position:relative;overflow:hidden;min-height:150px}.yg-hc .yg-tx{position:relative;z-index:1;max-width:64%}
+.yg-hc .yg-il{position:absolute;right:-6px;bottom:-4px;width:46%;max-width:190px;pointer-events:none}
+.yg-hc.wide .yg-tx{max-width:100%}
+.yg-step{display:flex;justify-content:space-between;position:relative;background:rgba(5,14,32,.45);border:1px solid rgba(140,170,220,.22);border-radius:16px;padding:12px 8px 10px;margin-bottom:12px}
+.yg-step:before{content:"";position:absolute;left:9%;right:9%;top:27px;height:2px;background:rgba(140,170,220,.3)}
+.yg-step button{position:relative;z-index:1;flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;background:none;border:0;color:rgba(214,224,240,.8);font:600 12.5px var(--f-body);cursor:pointer;padding:0}
+.yg-step button i{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font:800 13px var(--f-body);font-style:normal;background:#13264a;border:1.5px solid rgba(140,170,220,.45);color:#fff}
+.yg-step button.on i{background:#f0ab00;border-color:#f0ab00;color:#0b1f45;box-shadow:0 0 0 4px rgba(240,171,0,.2)}.yg-step button.on{color:#fff}
+.yg-step button.ok i{background:#1e8e5a;border-color:#1e8e5a}
+.yg-sec{background:linear-gradient(180deg,rgba(23,42,78,.55),rgba(12,24,48,.55));border:1px solid rgba(140,170,220,.22);border-radius:18px;margin:0 0 12px;color:#e8eef8;scroll-margin-top:80px}
+.yg-sec>summary{list-style:none;display:flex;align-items:center;gap:12px;padding:14px;cursor:pointer}.yg-sec>summary::-webkit-details-marker{display:none}
+.yg-sec>summary .ic{flex:none;width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(240,171,0,.12)}.yg-sec>summary .ic svg{width:22px;height:22px;fill:none;stroke:#f0ab00;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.yg-sec>summary b{flex:1;font:800 17px var(--f-body);color:#fff}.yg-sec>summary .cv{width:20px;height:20px;fill:none;stroke:#cfe0ff;stroke-width:2;transition:transform .2s}.yg-sec[open]>summary .cv{transform:rotate(180deg)}
+.yg-sec>summary .st{font:700 11px var(--f-body);padding:3px 8px;border-radius:8px;background:rgba(30,142,90,.25);color:#7fe0a8}
+.yg-sb{padding:0 14px 14px}
+.yg-fm .req{color:#ff6a5a;font-style:normal}
+.yg-in{position:relative;display:block}.yg-in>svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);width:19px;height:19px;fill:none;stroke:#cfe0ff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+.yg-in input,.yg-in select{padding-left:38px!important}
+.yg-warn{display:flex;gap:10px;align-items:flex-start;border:1px solid rgba(240,171,0,.6);background:rgba(240,171,0,.1);border-radius:12px;padding:10px;font-size:13px;line-height:1.4;color:#ffe2a3}.yg-warn svg{flex:none;width:20px;height:20px;fill:none;stroke:#f0ab00;stroke-width:2}
+.yg-pc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:10px;align-items:stretch}
+.yg-pv{background:rgba(5,14,32,.5);border:1px solid rgba(140,170,220,.22);border-radius:14px;padding:10px;display:flex;flex-direction:column;justify-content:center;gap:2px}
+.yg-pv svg{width:100%;max-width:150px;height:auto}.yg-pv b{font:800 19px var(--f-body);color:#fff}.yg-pv span{font-size:13px;color:rgba(214,224,240,.8)}
+.yg-pf{display:grid;grid-template-columns:1fr 1fr;gap:8px}.yg-pf label{font-size:12px}
+.yg-bt2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.yg-bt2>*{display:flex;align-items:center;justify-content:center;gap:8px;min-height:50px;border-radius:12px;font:700 14.5px var(--f-body);cursor:pointer;text-align:left}
+.yg-bt2 .a{border:1px solid rgba(207,224,255,.55);background:transparent;color:#fff}.yg-bt2 .u{border:1.5px solid #f0ab00;color:#fff;background:rgba(240,171,0,.06)}.yg-bt2 .u small{display:block;font-weight:500;font-size:11.5px;color:rgba(214,224,240,.8)}
+.yg-bt2 svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}.yg-bt2 .u svg{stroke:#f0ab00}
+.yg-sub{display:grid;grid-template-columns:1fr 1fr;background:rgba(5,14,32,.5);border:1px solid rgba(140,170,220,.22);border-radius:12px;padding:3px;margin-bottom:10px}
+.yg-sub button{height:38px;border:0;border-radius:9px;background:none;color:rgba(214,224,240,.85);font:700 13.5px var(--f-body);cursor:pointer}.yg-sub button[aria-pressed="true"]{background:#1f5fd6;color:#fff}
+.yg-an{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:10px}
+.yg-pan{background:rgba(5,14,32,.5);border:1px solid rgba(140,170,220,.22);border-radius:14px;padding:10px}.yg-pan h4{margin:0 0 6px;font:800 14px var(--f-body);color:#fff}
+.yg-sum div{display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid rgba(140,170,220,.14);font-size:12.5px;color:rgba(214,224,240,.85)}.yg-sum div:last-child{border:0}
+.yg-sum svg{flex:none;width:18px;height:18px;fill:none;stroke:#f0ab00;stroke-width:1.8}.yg-sum span{flex:1}.yg-sum b{color:#fff;font:800 14px var(--f-body);white-space:nowrap}
+.yg-ld{margin-top:10px;background:rgba(5,14,32,.5);border:1px solid rgba(140,170,220,.22);border-radius:14px}.yg-ld>summary{list-style:none;padding:10px 12px;font:800 14px var(--f-body);color:#fff;cursor:pointer;display:flex;justify-content:space-between}.yg-ld>summary::-webkit-details-marker{display:none}.yg-ld .yg-tb{margin:0 10px 10px;width:calc(100% - 20px)}
+.yg-tb td.h{color:#f0ab00;font-size:16px}
+.yg-pre{white-space:pre-wrap;font:13px/1.5 var(--f-body);background:rgba(5,14,32,.55);border:1px solid rgba(140,170,220,.2);border-radius:12px;padding:10px;max-height:320px;overflow:auto;color:#e8eef8}
+.yg-files{display:flex;flex-direction:column;gap:6px;margin-top:8px}.yg-files div{display:flex;align-items:center;gap:8px;font-size:13px;background:rgba(5,14,32,.5);border-radius:10px;padding:6px 10px}.yg-files span{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.yg-dz{display:flex;align-items:center;gap:10px;border:1px dashed rgba(207,224,255,.45);border-radius:12px;padding:12px;margin-top:10px;cursor:pointer;font-size:13.5px;color:rgba(214,224,240,.85)}.yg-dz b{color:#fff}.yg-dz svg{width:22px;height:22px;fill:none;stroke:#cfe0ff;stroke-width:2;flex:none}
+.yg-ck{list-style:none;margin:0;padding:0}.yg-ck li{display:flex;gap:10px;padding:6px 0;font-size:14px;line-height:1.45;color:rgba(226,234,246,.9)}.yg-ck li:before{content:"";flex:none;width:18px;height:18px;margin-top:1px;background:no-repeat center/18px url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f0ab00' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12.5l5 5L20 6.5'/%3E%3C/svg%3E")}
+.yg-bar2{margin:4px 0 6px}.yg-rcp{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:13px;color:rgba(214,224,240,.85);margin-bottom:8px}.yg-rcp b{color:#fff}
+.yg-acts{display:grid;grid-template-columns:1fr .8fr 1fr 1.6fr;gap:6px}
+.yg-acts>*{display:flex;align-items:center;justify-content:center;gap:5px;min-height:48px;padding:0 6px;border-radius:24px;border:1px solid rgba(207,224,255,.45);background:rgba(5,14,32,.45);color:#fff;font:700 12px/1.15 var(--f-body);cursor:pointer;text-align:center;text-decoration:none}
+.yg-acts svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2;flex:none;stroke-linecap:round;stroke-linejoin:round}
+.yg-acts .wa{background:#f0ab00;border-color:#f0ab00;color:#0b1f45}
+@media (max-width:340px){.yg-acts{grid-template-columns:1fr 1fr}.yg-an,.yg-pc{grid-template-columns:1fr}}
+@media (max-width:360px){.yg-tabs button{font-size:13.5px;gap:6px}}
+.yg-hh{display:flex;align-items:center;gap:6px}.yg-hh>div{flex:1;min-width:0}.yg-hh>svg.yg-il{position:static;flex:none;width:40%;max-width:170px;margin:-6px -8px -6px 0}
+.yg-cta{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:48px;margin-top:10px;border-radius:24px;border:0;background:#f0ab00;color:#0b1f45;font:800 15px var(--f-body);cursor:pointer}.yg-cta svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2}
+.yg-pv b{font-size:16px;line-height:1.25}
+.yg-an{grid-template-columns:1fr}
+.yg-sec,.yg-c{overflow:hidden}
+.yg-fm label>span:first-child{display:block}
+.yg-acts>*:not(.wa){white-space:nowrap}
 .demo-rb{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(70px + env(safe-area-inset-bottom,0px));z-index:80;background:#f0ab00;color:#0b1f45;font:800 11px var(--f-body);letter-spacing:.08em;padding:4px 10px;border-radius:8px;pointer-events:none}
 </style>
 
@@ -1863,8 +1929,14 @@ button.dm-it{cursor:pointer}
   <div id="is-body"></div>
 </section>
 <section id="v-yangin" hidden>
-  <div class="dm-hero"><span class="dm-tag">DEMO</span><h2>Yangın koruma</h2><p>Çeliğin yangında nasıl korunduğu, Steelmaster’ın çalışma mantığı, standartlar ve kalınlık analizi talebi.</p></div>
-  <div class="dm-tabs" id="yg-tabs"><button type="button" data-yt="how" aria-pressed="true">Nasıl çalışır</button><button type="button" data-yt="math" aria-pressed="false">Hesap mantığı</button><button type="button" data-yt="std" aria-pressed="false">Standartlar</button><button type="button" data-yt="req" aria-pressed="false">Analiz talebi</button></div>
+  <div class="yg-hero"><a href="#ana" class="yg-back" aria-label="Ana sayfaya dön"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></a>
+    <div class="yg-ht"><span class="yg-fi" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 5c4 7 12 12 12 22a12 12 0 0 1-24 0c0-6 3-9 5-12 1 4 3 6 5 6-1-6 0-11 2-16z" fill="#f0ab00"/><path d="M24 41a6 6 0 0 1-6-6c0-3 2-5 3-7 1 2 3 3 4 3 2 1 5 3 5 5a6 6 0 0 1-6 5z" fill="#fff3d1"/></svg></span>
+    <div><span class="dm-tag">DEMO</span><h2 id="yg-h">Yangın Koruma</h2><p id="yg-p"></p><i class="yg-bar"></i></div></div></div>
+  <div class="yg-tabs" id="yg-tabs">
+    <button type="button" data-yt="how" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/><path d="M3 17.5l9 5 9-5" opacity=".6"/></svg>Nasıl çalışır</button>
+    <button type="button" data-yt="math" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 12h2M12 12h2M16 12h0M8 16h2M12 16h2"/></svg>Hesap mantığı</button>
+    <button type="button" data-yt="std" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6c-2-1.5-5-2-8-1.5v13c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5v-13c-3-.5-6 0-8 1.5z"/><path d="M12 6v13"/></svg>Standartlar</button>
+    <button type="button" data-yt="req" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6v18h12V8z"/><path d="M9 12h6M9 16h3"/><path d="M14 17l5.5-5.5 2 2L16 19h-2z"/></svg>Analiz talebi</button></div>
   <div id="yg-body"></div>
   <p class="foot" style="margin-top:14px">Bu ekran bilgilendirme amaçlıdır; kalınlık hesabı yapmaz. Yangın koruma kalınlığı yalnızca ürünün sertifikalı yükleme tablolarına göre Jotun teknik ekibi tarafından belirlenir.</p>
   <div id="yg-doc" class="yg-doc" hidden></div>
@@ -3449,7 +3521,7 @@ wxLoad();
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)wxLoad();});
 
 /* Yeni sürüm yayınlandıysa uygulama açıkken kendini yeniler */
-(()=>{const B="1793730766"; if(!/^\d+$/.test(B)) return;
+(()=>{const B="1793733499"; if(!/^\d+$/.test(B)) return;
   const chk=()=>fetch(location.pathname+"?b="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const B="(\d+)"/); if(m&&+m[1]>+B) location.reload();}).catch(()=>{});
   document.addEventListener("visibilitychange",()=>{if(!document.hidden)chk();}); setTimeout(chk,4000);})();
 
@@ -3993,13 +4065,13 @@ function ygSim(HpA,R,gas,tmax){ const dt=5, out={u:[],p:[]}; let Tu=20,Tp=20; co
   return out; }
 const ygHit=(arr,T)=>{ const x=arr.find(p=>p[1]>=T); return x?x[0]:null; };
 function ygHpA(){ const M=YG.m; if(num(M.hp)>0) return num(M.hp); const r={t:M.fam,s:M.s,exp:M.exp}; const s=secOf(r); return s?hpA(r,s):0; }
-function ygChart(){ const M=YG.m, gas=ygIso, HpA=ygHpA(), Tc=ygCrit(M.mu), tmax=120, sim=ygSim(HpA,M.R,gas,tmax);
-  const W=340,H=210,L=36,B=24,T0=8,R0=8, x=t=>L+t/tmax*(W-L-R0), y=T=>H-B-T/1200*(H-B-T0);
+function ygChart(H0,T0c,Rp){ const M=YG.m, gas=ygIso, HpA=H0!=null?H0:ygHpA(), Tc=T0c!=null?T0c:ygCrit(M.mu), tmax=120, sim=ygSim(HpA,Rp!=null?Rp:M.R,gas,tmax);
+  const W=340,H=216,L=36,B=24,T0=18,R0=8, x=t=>L+t/tmax*(W-L-R0), y=T=>H-B-T/1200*(H-B-T0);
   const path=a=>a.map((p,i)=>(i?"L":"M")+x(p[0]).toFixed(1)+" "+y(Math.min(1200,p[1])).toFixed(1)).join("");
   const g=[]; for(let t=0;t<=tmax;t++) g.push([t,gas(t)]);
   const grid=[0,300,600,900,1200].map(T=>`<line x1="${L}" x2="${W-R0}" y1="${y(T)}" y2="${y(T)}" stroke="rgba(140,170,220,.18)"/><text x="${L-5}" y="${y(T)+4}" text-anchor="end" font-size="10" fill="#9fb2cf">${T}</text>`).join("")+[0,30,60,90,120].map(t=>`<line x1="${x(t)}" x2="${x(t)}" y1="${T0}" y2="${H-B}" stroke="rgba(140,170,220,.12)"/><text x="${x(t)}" y="${H-B+14}" text-anchor="middle" font-size="10" fill="#9fb2cf">${t}</text>`).join("");
   const tu=ygHit(sim.u,Tc), tp=ygHit(sim.p,Tc);
-  const svg=`<svg class="yg-svg" viewBox="0 0 ${W} ${H}" role="img" aria-label="Zaman-sıcaklık grafiği">${grid}<text x="${W-R0}" y="${H-2}" text-anchor="end" font-size="10" fill="#9fb2cf">dakika</text><text x="4" y="12" font-size="10" fill="#9fb2cf">°C</text>
+  const svg=`<svg class="yg-svg" viewBox="0 0 ${W} ${H}" role="img" aria-label="Zaman-sıcaklık grafiği">${grid}<text x="${W-R0}" y="${H-2}" text-anchor="end" font-size="10" fill="#9fb2cf">dakika</text><text x="${L}" y="10" font-size="10" fill="#9fb2cf">°C</text>
     <line x1="${L}" x2="${W-R0}" y1="${y(Tc)}" y2="${y(Tc)}" stroke="#f0ab00" stroke-dasharray="5 4" stroke-width="1.5"/>
     <path d="${path(g)}" fill="none" stroke="#ff6a3d" stroke-width="2.4"/><path d="${path(sim.u)}" fill="none" stroke="#6fa8ff" stroke-width="2.4"/><path d="${path(sim.p)}" fill="none" stroke="#3ccf8e" stroke-width="2.4"/>
     ${tu!=null?`<circle cx="${x(tu)}" cy="${y(Tc)}" r="4" fill="#6fa8ff"/>`:""}${tp!=null?`<circle cx="${x(tp)}" cy="${y(Tc)}" r="4" fill="#3ccf8e"/>`:""}</svg>`;
@@ -4012,21 +4084,44 @@ function ygMathUpd(){ const el=$("#yg-ch"); if(!el) return; const c=ygChart(), M
 const ygFamOpts=sel=>Object.keys(STD).map(k=>`<option value="${k}"${k===sel?" selected":""}>${k}</option>`).join("");
 const ygSizeOpts=(fam,sel)=>STD[fam].map(p=>`<option value="${p[0]}"${String(p[0])===String(sel)?" selected":""}>${fam} ${p[0]}</option>`).join("");
 
+/* İllüstrasyonlar */
+function ygBeam(kind,id){ const hot=kind==="hot", co=kind==="coat";
+  const g=hot?`<linearGradient id="${id}a" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#ffd27a"/><stop offset=".45" stop-color="#ff6a1a"/><stop offset="1" stop-color="#5a2a1a"/></linearGradient><linearGradient id="${id}b" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ff8a2a"/><stop offset="1" stop-color="#3a1f18"/></linearGradient><filter id="${id}g" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="5"/></filter>`
+   :`<linearGradient id="${id}a" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="${co?"#f1f3f6":"#c9d1dc"}"/><stop offset="1" stop-color="${co?"#9aa3b0":"#6b7686"}"/></linearGradient><linearGradient id="${id}b" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="${co?"#c8ced8":"#8d98a8"}"/><stop offset="1" stop-color="${co?"#7c8594":"#4c5666"}"/></linearGradient>${co?`<pattern id="${id}p" width="5" height="5" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r=".9" fill="#ffffff" opacity=".55"/><circle cx="4" cy="3.6" r=".7" fill="#7c8594" opacity=".5"/></pattern>`:""}`;
+  const F=`url(#${id}a)`, S=`url(#${id}b)`, fr=hot?"#d9d9dc":co?"#e6e9ee":"#aeb7c4", P=co?`<g fill="url(#${id}p)"><path d="M10 40L50 40L120 10L80 10Z"/><path d="M34 83L50 83L120 53L104 53Z"/></g>`:"";
+  return `<svg viewBox="0 0 130 100" class="yg-il" aria-hidden="true"><defs>${g}</defs>${hot?`<ellipse cx="85" cy="45" rx="45" ry="22" fill="#ff6a1a" opacity=".45" filter="url(#${id}g)"/>`:""}
+   <path d="M34 47L104 17L104 53L34 83Z" fill="${S}"/><path d="M34 83L50 83L120 53L104 53Z" fill="${F}"/><path d="M50 83L50 90L120 60L120 53Z" fill="${S}"/>
+   <path d="M10 40L50 40L120 10L80 10Z" fill="${F}"/><path d="M50 40L50 47L120 17L120 10Z" fill="${S}"/>${P}
+   <path d="M10 40H50V47H34V83H50V90H10V83H26V47H10Z" fill="${fr}" stroke="${hot?"#ffb36b":"#ffffff"}" stroke-opacity=".5" stroke-width=".8"/></svg>`; }
+function ygShield(){ return `<svg viewBox="0 0 120 120" class="yg-il" aria-hidden="true" style="width:38%"><defs><filter id="ygsh" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="4"/></filter><linearGradient id="ygfl" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#ffb000"/><stop offset="1" stop-color="#ff6a1a"/></linearGradient></defs>
+  <path d="M60 10l38 14v28c0 26-17 44-38 54C39 96 22 78 22 52V24z" fill="none" stroke="#f0ab00" stroke-width="7" filter="url(#ygsh)" opacity=".7"/>
+  <path d="M60 10l38 14v28c0 26-17 44-38 54C39 96 22 78 22 52V24z" fill="rgba(12,33,71,.85)" stroke="#f0ab00" stroke-width="4"/>
+  <path d="M60 30c5 9 15 14 15 27a15 15 0 0 1-30 0c0-7 4-11 6-15 1 5 4 7 6 7-1-7 0-13 3-19z" fill="url(#ygfl)"/><path d="M60 78a7 7 0 0 1-7-7c0-4 3-6 4-8 1 3 3 4 5 4 2 1 5 3 5 5a7 7 0 0 1-7 6z" fill="#ffe3a3"/></svg>`; }
+function ygBox(){ return `<svg viewBox="0 0 130 100" class="yg-il" aria-hidden="true"><path d="M50 40L120 10V60L50 90Z" fill="#6b7686"/><path d="M10 40L50 40L120 10L80 10Z" fill="#c9d1dc"/><path d="M10 40H50V90H10Z" fill="#aeb7c4"/><path d="M16 46H44V84H16Z" fill="#26344a"/><path d="M16 46H44L44 50H20V84H16Z" fill="#4c5666"/></svg>`; }
+function ygTube(){ return `<svg viewBox="0 0 130 100" class="yg-il" aria-hidden="true"><path d="M30 42L100 12A22 22 0 0 1 100 56L30 86Z" fill="#8d98a8"/><path d="M30 42L100 12" stroke="#c9d1dc" stroke-width="3"/><circle cx="30" cy="64" r="22" fill="#aeb7c4"/><circle cx="30" cy="64" r="16" fill="#26344a"/></svg>`; }
+const YGI={ doc:'<path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 12h6M9 16h4"/>', fire:'<path d="M12 3c2 4 6 6 6 11a6 6 0 0 1-12 0c0-3 2-5 3-7 0 2 1 3 2 3 0-3 0-5 1-7z"/>', lay:'<path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/>', ibeam:'<path d="M5 4h14M5 20h14M12 4v16"/><path d="M8 4v2M16 4v2M8 18v2M16 18v2"/>', calc:'<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 12h2M12 12h2M8 16h2M12 16h2"/>', clip:'<path d="M21 12.5l-8.5 8.5a5 5 0 0 1-7-7L14 5.5a3.3 3.3 0 0 1 4.7 4.7l-8.5 8.5a1.7 1.7 0 0 1-2.4-2.4l7.8-7.8"/>', check:'<rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 12l3 3 5-6"/>',
+  bld:'<path d="M4 21V7l8-4 8 4v14M9 21v-5h6v5M8 10h1M12 10h1M16 10h0"/>', user:'<circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/>', users:'<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.3-5.5 6.5-5.5s5.7 2 6.5 5.5"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 14.5c2 .6 3.2 2.5 3.6 5.5"/>', pin:'<path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>', tel:'<path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/>', std:'<path d="M14 3H6v18h12V7z"/><path d="M9 11h6M9 15h6"/>',
+  clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>', therm:'<path d="M10 14V5a2 2 0 0 1 4 0v9a4 4 0 1 1-4 0z"/><path d="M12 10v6"/>', wind:'<path d="M3 8h11a3 3 0 1 0-3-3M3 12h15a3 3 0 1 1-3 3M3 16h7"/>', shield:'<path d="M12 3l8 3v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/>', fac:'<path d="M3 21V10l5 3V10l5 3V7l8 4v10z"/><path d="M7 17h2M12 17h2M17 17h2"/>', roll:'<rect x="3" y="4" width="14" height="6" rx="1"/><path d="M17 7h3v5h-8v3M11 15h2v6h-2z"/>', pal:'<path d="M12 3a9 9 0 0 0 0 18c1.5 0 2-1 2-2s-1-2 0-3 2-.5 3-.5a4 4 0 0 0 4-4c0-4.5-4-8.5-9-8.5z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10" cy="7" r="1"/><circle cx="15" cy="7.5" r="1"/>',
+  info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/>', up:'<path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/>', plus:'<path d="M12 5v14M5 12h14"/>', reset:'<path d="M4 12a8 8 0 1 0 2.5-5.8"/><path d="M4 4v4h4"/>', pdf:'<path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 13h6M9 17h6"/>', mail:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>', wa:'<path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/><path d="M9 9c0 3 3 6 6 6l1-1.5-2-1-1 1c-1-.5-2-1.5-2.5-2.5l1-1-1-2z"/>', chev:'<path d="M6 9l6 6 6-6"/>' };
+const ygI=k=>`<svg viewBox="0 0 24 24" aria-hidden="true">${YGI[k]||""}</svg>`;
+
 function ygHow(){ return `
-<div class="yg-c"><h3><span class="n">1</span>Çelik yanmaz, ama yangında güç kaybeder</h3>
-<p>Yapı çeliği ısındıkça taşıma gücünü yitirir. 400 °C'ye kadar dayanımını korur; 500 °C'nin üzerinde hızla zayıflar ve 600 °C'de gücünün yarısından fazlasını kaybeder. Korumasız ince bir profil, bina yangınında 10–15 dakika içinde bu sınıra ulaşabilir.</p>
+<div class="yg-c"><div class="yg-hh"><div><h3><span class="n">1</span>Çelik yanmaz, ama yangında güç kaybeder</h3>
+<p>Yapı çeliği ısındıkça taşıma gücünü yitirir. 400 °C'ye kadar dayanımını korur, 550–600 °C civarında kritik seviyeye ulaşır.</p></div>${ygBeam("hot","ygb1")}</div>
+<p>Korumasız ince bir profil, bina yangınında 10–15 dakika içinde bu sınıra gelebilir.</p>
 <div class="yg-k"><div><b>400 °C</b><span>Dayanım ≈ %100</span></div><div><b>500 °C</b><span>≈ %78</span></div><div><b>600 °C</b><span>≈ %47</span></div><div><b>700 °C</b><span>≈ %23</span></div></div>
 <small>EN 1993-1-2 Tablo 3.1 · karbon çeliği akma dayanımı azaltma katsayısı.</small>
 <p>Yangın koruma boyasının görevi bu süreyi uzatmaktır: insanların tahliyesi ve itfaiyenin müdahalesi için gereken 30, 60, 90 ya da 120 dakikayı kazandırmak.</p></div>
 
 <div class="yg-c"><h3><span class="n">2</span>Her yangın aynı değildir</h3>
 <p>Korumanın nasıl tasarlanacağını, yangının nasıl büyüdüğü belirler. Üç temel tip vardır:</p>
-<div class="yg-std"><b>Selülozik yangın</b><p>Ahşap, kâğıt, tekstil, plastik eşya gibi malzemelerin yanması. Sıcaklık giderek yükselir; 30 dakikada 840 °C'yi, 2 saatte 1050 °C'yi bulur. Depo, fabrika binası, AVM, okul, otopark, havalimanı gibi yapılarda beklenen yangın budur.</p></div>
+<div class="yg-std"><b>Selülozik yangın</b><p>Ahşap, kâğıt, tekstil, plastik eşya gibi malzemelerin yanması. Sıcaklık ilk dakikalarda yükselir, 30 dakikada 840 °C'yi, 2 saatte 1050 °C'yi bulur. Depo, fabrika binası, AVM, okul, otopark, havalimanı gibi yapılarda beklenen yangın budur.</p></div>
 <div class="yg-std hc"><b>Hidrokarbon yangını</b><p>Akaryakıt ve gaz yangını. Sıcaklık birkaç dakikada 1000 °C'yi aşar. Rafineri, petrokimya ve tank sahalarında görülür.</p></div>
 <div class="yg-std hc"><b>Jet yangını</b><p>Basınçlı gaz kaçağının alev jeti. Aşırı ısıya ek olarak yüzeyi aşındıran bir kuvveti vardır. Gaz hatları, LNG ve offshore tesislerinde görülür.</p></div>
 <p>Hidrokarbon ve jet yangını için Jotun'un çözümü epoksi esaslı <b>Jotachar</b> serisidir; bu projeler doğrudan Jotun teknik ekibiyle değerlendirilir. Binalarda karşılaşılan selülozik yangın için ise <b>Steelmaster</b> serisi geliştirilmiştir.</p></div>
 
-<div class="yg-c"><h3><span class="n">3</span>Steelmaster ne yapar?</h3>
+<div class="yg-c"><div class="yg-hh"><div><h3><span class="n">3</span>Koruma, ısının çeliğe ulaşmasını geciktirir</h3>
+<p>Steelmaster, yangın anında ısı geçişini yavaşlatarak çeliğin daha uzun süre taşıma gücünü korumasını sağlar.</p></div>${ygBeam("coat","ygb2")}</div>
 <div class="yg-sw" aria-hidden="true"><div class="fl"></div><div class="ch"></div><div class="pr"></div><div class="st"></div><span class="lb" style="bottom:50px">Köpük kömür tabakası</span><span class="lb" style="bottom:10px">Çelik</span></div>
 <p>Steelmaster, normal koşulda çeliğin üzerinde ince bir boya filmidir. Yangında sıcaklık yaklaşık <b>200–250 °C</b>'ye ulaştığında film yumuşar ve içindeki bileşenler birlikte çalışmaya başlar:</p>
 <ul><li><b>Asit kaynağı</b> ayrışarak asit açığa çıkarır,</li><li><b>karbon kaynağı</b> bu asitle kömürleşir,</li><li><b>şişirici</b> gaz vererek yumuşamış kütleyi köpük gibi kabartır.</li></ul>
@@ -4046,9 +4141,9 @@ function ygHow(){ return `
 <div class="yg-k"><div><b>Z2</b><span>İç mekân, normal nem</span></div><div><b>Z1</b><span>İç mekân, yüksek nem (≥ %85 BN)</span></div><div><b>Y</b><span>Yarı açık; yağmura doğrudan maruz değil</span></div><div><b>X</b><span>Dış ortam, tüm koşullar</span></div></div>
 <p>Ortam ağırlaştıkça son kat çoğu zaman şart olur. Korozyon tarafı için ISO 12944 korozivite sınıfı (C1–CX) ayrıca belirlenir.</p></div>
 
-<div class="yg-c"><h3><span class="n">7</span>Uygulama ve kontrol</h3>
-<ul><li>Her profil, kendi yükleme tablosundaki kalınlığa göre boyanır; tüm yapıya tek kalınlık verilmez.</li><li>Kat başına ıslak kalınlık ve katlar arası bekleme süresi ürün föyünden (TDS) alınır.</li><li>Kuru film kalınlığı ISO 2808 / ISO 19840'a göre ölçülür; ölçüm sıklığı ve kabul kriteri ürünün uygulama kılavuzunda tanımlıdır.</li><li>Eksik kalınlık yangın süresini doğrudan kısaltır; fazlası maliyeti ve kuruma süresini artırır.</li></ul>
-<p>Projenin kalınlık hesabı için <b>Analiz talebi</b> sekmesinden bilgileri Jotun teknik ekibine gönderebilirsiniz.</p></div>`; }
+<div class="yg-c"><div class="yg-hh"><div><h3><span class="n">7</span>Sonuç: daha güvenli, daha uzun süre dayanım</h3>
+<p>Doğru ürün ve doğru kalınlıkla, standartlara uygun yangın dayanımı sağlanır; çelik, tahliye ve müdahale için gereken süre boyunca taşımaya devam eder.</p></div>${ygShield()}</div>
+<button type="button" class="yg-cta" data-ygto="req">${ygI("doc")}Projem için analiz talebi hazırla</button></div>`; }
 
 function ygMath(){ const M=YG.m; return `
 <div class="yg-c"><h3><span class="n">1</span>Yangın eğrisi: gaz sıcaklığı</h3>
@@ -4111,7 +4206,7 @@ const YG_STD=[
 function ygStd(){ return YG_STD.map(([h,L])=>`<div class="yg-c"><h3>${h}</h3>${L.map(([c,r,d,k])=>`<div class="yg-std ${k}"><b>${esc(c)}</b><span class="rg">${esc(r)}</span><p>${esc(d)}</p></div>`).join("")}</div>`).join(""); }
 
 /* ---- Analiz talebi ---- */
-const YG_SEL={curve:["Selülozik (bina, ISO 834)","Hidrokarbon / jet yangını"],
+const YG_SEL={curve:["Selülozik (ISO 834)","Hidrokarbon / jet"],
   rate:["R15","R30","R45","R60","R90","R120","R180","Bilmiyorum"], crit:["Danışman belirlesin","350 °C","400 °C","450 °C","500 °C","550 °C","600 °C","620 °C","650 °C","700 °C"],
   env:["İç mekân, normal nem (Z2)","İç mekân, yüksek nem (Z1)","Yarı açık (Y)","Dış ortam (X)"], cor:["C1","C2","C3","C4","C5","CX","Bilmiyorum"],
   surf:["Yeni çelik, raspa yapılacak (Sa 2½)","Atölye astarlı çelik","Galvaniz","Mevcut boyalı yüzey"], app:["Atölye","Şantiye","Atölye + şantiye"], std:["EN 13381-8","BS 476-20/21","UL 263","Şartnamede yok / bilmiyorum"]};
@@ -4127,26 +4222,6 @@ function ygRowsHTML(){ if(!YG.rows.length) return `<p class="hint">Henüz profil
      <small>Hp/A ${hp?fmt(hp,0)+" m⁻¹":"— (et kalınlığı gerekli)"} · ${fmt(ygRowM2(r),1)} m²${r.uns?" · miktarı kontrol edin":""}</small></div>`; }).join("")+`<p class="hint" style="margin:4px 0 0">Toplam ${YG.rows.length} kalem · <b style="color:#fff">${fmt(tm,1)} m²</b></p>`; }
 function ygMissing(){ const f=YG.f, m=[]; if(!f.proj) m.push("Proje adı"); if(!f.rate) m.push("Yangın dayanım süresi"); if(!f.curve) m.push("Yangın tipi"); if(!f.env) m.push("Ortam");
   if(!YG.rows.length) m.push("Profil listesi"); else if(YG.rows.some(r=>!(num(r.L)>0))) m.push("Bazı profillerde boy"); return m; }
-function ygReq(){ const f=YG.f, to=YG.to, ms=ygMissing();
-  const I=(k,l,ph,t)=>`<label${t==="w2"?' class="w2"':""}>${l}<input type="text" data-ygf="${k}" value="${esc(f[k]||"")}" placeholder="${ph||""}"></label>`;
-  const S=(k,l,w)=>`<label${w?' class="w2"':""}>${l}<select data-ygf="${k}">${ygOpts(k,f[k])}</select></label>`;
-  return `
-<div class="yg-to"><div><b>${to.name?esc(to.name):"Gönderilecek kişi seçilmedi"}</b><br><span>${to.name?[to.wa,to.mail].filter(Boolean).map(esc).join(" · "):"Analizi yapacak kişinin adı, WhatsApp ve e-postası"}</span></div><button type="button" class="btn" id="yg-toedit">${to.name?"Değiştir":"Ekle"}</button></div>
-<div class="yg-c"><h3><span class="n">1</span>Proje</h3><div class="yg-fm">${I("proj","Proje adı *","örn. Lojistik deposu çelik çatı","w2")}${I("cust","Müşteri / firma","")}${I("city","Şehir","")}${I("cont","Yetkili kişi","")}${I("tel","Telefon","")}${S("std","İstenen test standardı",1)}</div></div>
-<div class="yg-c"><h3><span class="n">2</span>Yangın gereksinimi</h3><div class="yg-fm">${S("curve","Yangın tipi *",1)}<p class="hint w2" id="yg-hcw" style="color:#ffb199;margin:0"${f.curve&&f.curve.startsWith("Hidro")?"":" hidden"}>Steelmaster bu yangın tipi için uygun değildir; talep Jotachar değerlendirmesi için Jotun teknik ekibine gider.</p>${S("rate","Dayanım süresi *")}${S("crit","Kritik sıcaklık")}</div>
-<p><small>Kritik sıcaklık statik hesaptan gelir. Bilinmiyorsa "Danışman belirlesin" seçin; kullanım oranı biliniyorsa nota yazın.</small></p></div>
-<div class="yg-c"><h3><span class="n">3</span>Ortam ve yüzey</h3><div class="yg-fm">${S("env","Ortam *",1)}${S("cor","Korozivite (ISO 12944)")}${S("app","Uygulama yeri")}${S("surf","Yüzey durumu",1)}${I("top","Son kat / renk","örn. RAL 7035 isteniyor","w2")}</div></div>
-<div class="yg-c"><h3><span class="n">4</span>Profil listesi</h3><div class="yg-rows" id="yg-rows">${ygRowsHTML()}</div>
-<div class="yg-add"><select id="yg-afam">${ygFamOpts("HEB")}<option value="kutu">Kutu profil</option><option value="boru">Boru</option></select><select id="yg-asz">${ygSizeOpts("HEB",300)}</select></div>
-<div class="yg-add yg-ad2" hidden><input type="number" inputmode="decimal" id="yg-aa" placeholder="a / çap mm"><input type="number" inputmode="decimal" id="yg-ab" placeholder="b mm (kutu)"><input type="number" inputmode="decimal" id="yg-at" placeholder="et kalınlığı mm"></div>
-<div class="yg-add"><input type="number" inputmode="decimal" id="yg-aL" placeholder="Boy (m)"><input type="number" inputmode="decimal" id="yg-an" placeholder="Adet" value="1"></div>
-<div class="yg-add"><select id="yg-ael">${YG_EL.map(e=>`<option>${e}</option>`).join("")}</select><select id="yg-aexp"><option value="4">4 yüz</option><option value="3">3 yüz</option></select></div>
-<div class="yg-act"><button type="button" class="btn w2" id="yg-aadd">+ Profili ekle</button></div>
-<label class="yg-up"><input type="file" id="yg-upf" accept=".pdf,image/*,.xlsx,.xls,.csv,.txt" hidden><span style="font-size:22px">📎</span><span><b>Çelik listesi yükle</b><small>PDF, fotoğraf veya Excel – profiller listeye eklenir</small></span></label></div>
-<div class="yg-c"><h3><span class="n">5</span>Not ve ekler</h3><div class="yg-fm"><label class="w2">Not<textarea data-ygf="note" placeholder="örn. Statik rapor ve çizimler ayrıca gönderilecek; termin 3 hafta">${esc(f.note||"")}</textarea></label></div>
-<p><small>Çizim, statik rapor ve şartname dosyalarını gönderdiğiniz mesaja ayrıca ekleyin.</small></p></div>
-<div class="yg-c"><h3>Gönder</h3><div class="yg-chk">${ms.length?ms.map(x=>`<span class="no">• Eksik: ${x}</span>`).join(""):`<span class="ok">✓ Talep analiz için hazır</span>`}</div>
-<div class="yg-act"><a class="btn primary" id="yg-wa" target="_blank" rel="noopener">WhatsApp ile gönder</a><a class="btn" id="yg-mail">E-posta ile gönder</a><button type="button" class="btn w2" id="yg-pdf">PDF indir</button><button type="button" class="linkbtn w2" id="yg-clr" style="justify-self:center">Formu temizle</button></div></div>`; }
 function ygText(){ const f=YG.f, d=new Date().toLocaleDateString("tr-TR"), L=["*YANGIN KORUMA ANALİZ TALEBİ*",d,""];
   const p=(l,v)=>{ if(v) L.push(`${l}: ${v}`); };
   p("Proje",f.proj); p("Müşteri",f.cust); p("Şehir",f.city); p("Yetkili",[f.cont,f.tel].filter(Boolean).join(" · ")); p("Bayi",(dealerEl&&dealerEl.value||"").trim());
@@ -4161,13 +4236,6 @@ function ygDoc(){ const f=YG.f, row=(l,v)=>v?`<tr><th style="width:34%">${l}</th
    <h2>Yangın gereksinimi ve ortam</h2><table>${row("Yangın tipi",f.curve)}${row("Dayanım süresi",f.rate)}${row("Kritik sıcaklık",f.crit)}${row("Test standardı",f.std)}${row("Ortam",f.env)}${row("Korozivite (ISO 12944)",f.cor)}${row("Yüzey",f.surf)}${row("Uygulama",f.app)}${row("Son kat / renk",f.top)}</table>
    ${YG.rows.length?`<h2>Profil listesi</h2><table><tr><th>#</th><th>Profil</th><th>Eleman</th><th>Maruziyet</th><th>Adet × boy</th><th>Hp/A (m⁻¹)</th><th>m²</th></tr>${YG.rows.map((r,i)=>{const hp=ygRowHp(r);return `<tr><td>${i+1}</td><td>${esc(stLbl(Object.assign({},r,{exp:4})))}</td><td>${esc(r.el||"")}</td><td>${+r.exp===3?"3":"4"} yüz</td><td>${fmt(num(r.n)||1,0)} × ${fmt(num(r.L),2)} m</td><td>${hp?fmt(hp,0):""}</td><td>${fmt(ygRowM2(r),1)}</td></tr>`;}).join("")}<tr><th colspan="6">Toplam</th><th>${fmt(YG.rows.reduce((a,r)=>a+ygRowM2(r),0),1)}</th></tr></table>`:""}
    ${f.note?`<h2>Not</h2><p>${esc(f.note)}</p>`:""}<p style="margin-top:14px;font-size:11px;color:#5a6b85">Hp/A ve m² değerleri EN 10365 profil tablolarından yaklaşık hesaplanmıştır. Kalınlık hesabı, ürünün sertifikalı yükleme tablolarına göre Jotun teknik ekibince yapılır.</p>`; }
-function ygLinks(){ const wa=$("#yg-wa"), ml=$("#yg-mail"); if(!wa) return; const t=ygText(), n=(YG.to.wa||"").replace(/\D/g,"");
-  wa.href=(n?"https://wa.me/"+n:"https://wa.me/")+"?text="+encodeURIComponent(t);
-  ml.href=`mailto:${encodeURIComponent(YG.to.mail||"")}?subject=${encodeURIComponent("Yangın koruma analiz talebi"+(YG.f.proj?" – "+YG.f.proj:""))}&body=${encodeURIComponent(t.replace(/\*/g,""))}`;
-  const ch=document.querySelector(".yg-chk"); if(ch){ const ms=ygMissing(); ch.innerHTML=ms.length?ms.map(x=>`<span class="no">• Eksik: ${x}</span>`).join(""):`<span class="ok">✓ Talep analiz için hazır</span>`; } }
-function ygRowsUpd(){ const el=$("#yg-rows"); if(el) el.innerHTML=ygRowsHTML(); ygSave(); ygLinks(); }
-function ygAddUI(){ const fam=$("#yg-afam").value, std=fam in STD; $("#yg-asz").hidden=!std; document.querySelector(".yg-ad2").hidden=std;
-  if(std) $("#yg-asz").innerHTML=ygSizeOpts(fam,$("#yg-asz").value||200); $("#yg-ab").hidden=fam==="boru"; $("#yg-aexp").disabled=fam==="boru"; }
 async function ygFile(f){ const n=f.name.toLowerCase(), t=(f.type||"").toLowerCase(); toast("Liste okunuyor…"); let text="";
   try{ if(t==="application/pdf"||n.endsWith(".pdf")) text=await pdfText(f); else if(t.startsWith("image/")) text=await steelOcr(f);
     else if(/\.(xlsx|xls)$/.test(n)){ if(!window.XLSX) await loadScript("https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"); const wb=XLSX.read(await f.arrayBuffer()); text=wb.SheetNames.map(sn=>XLSX.utils.sheet_to_json(wb.Sheets[sn],{header:1}).map(r=>r.map(c=>c==null?"":String(c)).join(" \t ")).join("\n")).join("\n"); }
@@ -4179,32 +4247,100 @@ async function ygFile(f){ const n=f.name.toLowerCase(), t=(f.type||"").toLowerCa
     const el=/KOLON|COLUMN/i.test(r.line)?"Kolon":/K[İI]R[İI][ŞS]|BEAM/i.test(r.line)?"Kiriş":/BRACE|[ÇC]APRAZ/i.test(r.line)?"Çapraz":"Diğer";
     YG.rows.push({t:r.t,s:r.s,a:r.a,b:r.b,th:r.th,d:r.d,exp:r.exp||4,el,L:Math.round(L*100)/100||"",n:nn,uns:!!r.unsure}); k++; });
   ygRowsUpd(); toast(k?`${k} profil eklendi${skip.length?` · ${skip.length} satır okunamadı`:""}`:"Listede profil okuyamadım"); }
+/* ---- Analiz talebi v2: adımlı form ---- */
+const YG_IL="Adana,Adıyaman,Afyonkarahisar,Ağrı,Aksaray,Amasya,Ankara,Antalya,Ardahan,Artvin,Aydın,Balıkesir,Bartın,Batman,Bayburt,Bilecik,Bingöl,Bitlis,Bolu,Burdur,Bursa,Çanakkale,Çankırı,Çorum,Denizli,Diyarbakır,Düzce,Edirne,Elazığ,Erzincan,Erzurum,Eskişehir,Gaziantep,Giresun,Gümüşhane,Hakkari,Hatay,Iğdır,Isparta,İstanbul,İzmir,Kahramanmaraş,Karabük,Karaman,Kars,Kastamonu,Kayseri,Kilis,Kırıkkale,Kırklareli,Kırşehir,Kocaeli,Konya,Kütahya,Malatya,Manisa,Mardin,Mersin,Muğla,Muş,Nevşehir,Niğde,Ordu,Osmaniye,Rize,Sakarya,Samsun,Şanlıurfa,Siirt,Sinop,Şırnak,Sivas,Tekirdağ,Tokat,Trabzon,Tunceli,Uşak,Van,Yalova,Yozgat,Zonguldak".split(",");
+YG.a=Object.assign({fam:"HEB",s:"300",exp:4,L:"",n:1,el:"Kolon",a:"",b:"",th:""},load("yg-a",{})); YG.st=YG.st||"an"; YG.files=YG.files||[]; YG.open=YG.open||{proj:true};
+const ygAR=()=>{ const A=YG.a; return A.fam in STD?{t:A.fam,s:A.s,exp:+A.exp}:A.fam==="boru"?{t:"boru",d:num(A.a),th:num(A.th),exp:4}:{t:"kutu",a:num(A.a),b:num(A.b)||num(A.a),th:num(A.th),exp:+A.exp}; };
+const ygCritOf=()=>{ const m=String(YG.f.crit||"").match(/(\d{3})/); return m?{T:+m[1],def:false}:{T:ygCrit(0.6),def:true}; };
+const YG_STEPS=[["proj","Proje"],["fire","Yangın"],["env","Ortam"],["prof","Profil"],["ana","Analiz"],["send","Sonuç"]];
+function ygDone(){ const f=YG.f, pr=YG.rows.length>0&&YG.rows.every(r=>num(r.L)>0);
+  return {proj:!!f.proj, fire:!!(f.curve&&f.rate), env:!!f.env, prof:pr, ana:pr, send:!!YG.sent}; }
+function ygStepHTML(){ const d=ygDone(); const act=(YG_STEPS.find(s=>!d[s[0]])||YG_STEPS[5])[0];
+  return YG_STEPS.map(([k,l],i)=>`<button type="button" data-ys="${k}" class="${d[k]?"ok":k===act?"on":""}"><i>${d[k]?"✓":i+1}</i>${l}</button>`).join(""); }
+const ygSec=(k,n,ic,t,body)=>`<details class="yg-sec" id="ys-${k}" data-sec="${k}"${YG.open[k]?" open":""}><summary><span class="ic">${ygI(ic)}</span><b>${n}. ${t}</b><span class="st" id="yst-${k}" hidden>Tamam</span><svg class="cv" viewBox="0 0 24 24">${YGI.chev}</svg></summary><div class="yg-sb">${body}</div></details>`;
+function ygPrevHTML(){ const r=ygAR(), s=secOf(r), hp=s&&s.A>0?hpA(r,s):0;
+  return `${r.t==="kutu"?ygBox():r.t==="boru"?ygTube():ygBeam("steel","ygpv")}<b>${esc(stLbl(Object.assign({},r,{exp:4})))}</b><span>${r.t==="boru"?"Çevre":(+r.exp===3?"3 yüz":"4 yüz")}</span><span>Hp/A: ${hp?fmt(hp,0)+" m⁻¹":"—"}</span>`; }
+function ygAnaHTML(){ if(YG.st==="tl"){ const ms=ygMissing();
+    return `<div class="yg-chk">${ms.length?ms.map(x=>`<span class="no">• Eksik: ${x}</span>`).join(""):`<span class="ok">✓ Talep analiz için hazır</span>`}</div><div class="yg-pre">${esc(ygText().replace(/\*/g,""))}</div>`; }
+  const r=YG.rows.length&&!secOf(ygAR())?YG.rows[0]:ygAR(), s=secOf(r), HpA=s&&s.A>0?hpA(r,s):0, C=ygCritOf(), R=0.12, c=ygChart(HpA,C.T,R);
+  const rows=[100,150,200], cols=[500,550,600], ri=rows.reduce((b,x,i)=>Math.abs(x-HpA)<Math.abs(rows[b]-HpA)?i:b,0), ci=cols.reduce((b,x,i)=>Math.abs(x-C.T)<Math.abs(cols[b]-C.T)?i:b,0);
+  return `<div class="yg-an"><div class="yg-pan"><h4>Yangın eğrisi · sıcaklık/zaman</h4>${c.svg}<div class="yg-lg"><span><i style="background:#ff6a3d"></i>Gaz (ISO 834)</span><span><i style="background:#6fa8ff"></i>Korumasız</span><span><i style="background:#3ccf8e"></i>Temsili korumalı</span><span><i style="background:#f0ab00"></i>θcr (${fmt(C.T,0)} °C)</span></div></div>
+   <div class="yg-pan yg-sum"><h4>Hesap özeti</h4><div>${ygI("ibeam")}<span>${esc(stLbl(Object.assign({},r,{exp:4})))} · Hp/A</span><b>${HpA?fmt(HpA,0)+" m⁻¹":"—"}</b></div><div>${ygI("therm")}<span>Kritik sıcaklık${C.def?" (μ₀ = 0,6 varsayımı)":""}</span><b>${fmt(C.T,0)} °C</b></div><div>${ygI("lay")}<span>Temsili koruma d/λ</span><b>${fmt(R,2)} m²K/W</b></div><div>${ygI("clock")}<span>Korumasız çelik ${fmt(C.T,0)} °C'ye</span><b>${c.tu!=null?fmt(c.tu,0)+" dk":"> 120 dk"}</b></div><div>${ygI("clock")}<span>Temsili korumalı çelik</span><b>${c.tp!=null?fmt(c.tp,0)+" dk":"> 120 dk"}</b></div></div></div>
+   <p><small>Yeşil eğri ve süresi prensibi göstermek içindir; Steelmaster'ın gerçek performansı değildir. Kalınlık yalnızca yükleme tablosundan okunur.</small></p>
+   <details class="yg-ld" open><summary>Yükleme tablosu (EN 13381-8) <svg class="cv" viewBox="0 0 24 24" style="width:18px;height:18px;fill:none;stroke:#cfe0ff;stroke-width:2">${YGI.chev}</svg></summary>
+   <table class="yg-tb"><tr><th>Hp/A ↓ · θcr →</th>${cols.map(x=>`<th>${x} °C</th>`).join("")}</tr>${rows.map((x,i)=>`<tr><th>${x}</th>${cols.map((y,j)=>`<td class="${i===ri&&j===ci?"h":""}">●</td>`).join("")}</tr>`).join("")}</table>
+   <p style="margin:0 10px 10px"><small>Sarı nokta, bu profilin tabloda okunacağı yaklaşık hücredir. Değerler ürün sertifikasındadır; analiz yapan kişi okur.</small></p></details>`; }
+function ygReq(){ const f=YG.f, A=YG.a, to=YG.to, std=A.fam in STD;
+  const I=(k,l,ic,ph,o={})=>`<label${o.w2?' class="w2"':""}><span>${l}${o.req?' <i class="req">*</i>':""}</span><span class="yg-in">${ygI(ic)}<input type="${o.type||"text"}" data-ygf="${k}" value="${esc(f[k]||"")}" placeholder="${ph||""}"${o.list?` list="${o.list}"`:""}></span></label>`;
+  const S=(k,l,ic,o={})=>`<label${o.w2?' class="w2"':""}><span>${l}${o.req?' <i class="req">*</i>':""}</span><span class="yg-in">${ygI(ic)}<select data-ygf="${k}">${ygOpts(k,f[k])}</select></span></label>`;
+  const hc=(f.curve||"").startsWith("Hidro");
+  const sel=(id,opts,v)=>`<select id="${id}">${opts.map(([a,b])=>`<option value="${a}"${String(a)===String(v)?" selected":""}>${b}</option>`).join("")}</select>`;
+  return `<div class="yg-step" id="yg-step">${ygStepHTML()}</div>
+${ygSec("proj",1,"doc","Proje bilgileri",`<div class="yg-fm">${I("proj","Proje adı","bld","örn. Lojistik deposu çelik çatı",{w2:1,req:1})}${I("cust","Müşteri / firma","users","Firma adı")}${I("city","Şehir","pin","Seçin",{list:"yg-il"})}${I("cont","Yetkili kişi","user","Ad soyad")}${I("tel","Telefon","tel","+90 (5xx) xxx xx xx",{type:"tel"})}${S("std","İstenen test standardı","std",{w2:1})}</div><datalist id="yg-il">${YG_IL.map(x=>`<option value="${x}">`).join("")}</datalist>`)}
+${ygSec("fire",2,"fire","Yangın gereksinimi",`<div class="yg-fm">${S("curve","Yangın tipi","fire",{req:1})}${S("rate","Dayanım süresi","clock",{req:1})}${S("crit","Kritik sıcaklık","therm")}<div class="yg-warn" id="yg-hcw"${hc?"":" hidden"}>${ygI("info")}<span>Steelmaster bu yangın tipi için uygun değildir; talep Jotachar değerlendirmesi için Jotun teknik ekibine gider.</span></div></div>
+ <p><small>Kritik sıcaklık statik hesaptan gelir. Bilinmiyorsa "Danışman belirlesin" seçin.</small></p>`)}
+${ygSec("env",3,"lay","Ortam ve yüzey",`<div class="yg-fm">${S("env","Ortam","wind",{req:1})}${S("cor","Korozivite (ISO 12944)","shield")}${S("app","Uygulama yeri","fac")}${S("surf","Yüzey durumu","roll")}${I("top","Son kat / renk","pal","örn. RAL 7035 isteniyor",{w2:1})}</div>`)}
+${ygSec("prof",4,"ibeam","Profil listesi",`<div class="yg-pc"><div class="yg-pv" id="yg-pv">${ygPrevHTML()}</div><div class="yg-pf yg-fm">
+   <label>Profil${sel("yg-afam",[...Object.keys(STD).map(k=>[k,k]),["kutu","Kutu profil"],["boru","Boru"]],A.fam)}</label>
+   ${std?`<label>Ölçü${sel("yg-asz",STD[A.fam].map(p=>[p[0],A.fam+" "+p[0]]),A.s)}</label>`:`<label>${A.fam==="boru"?"Çap":"Kenar a"} (mm)<input type="number" inputmode="decimal" id="yg-aa" value="${esc(String(A.a||""))}"></label>${A.fam==="kutu"?`<label>Kenar b (mm)<input type="number" inputmode="decimal" id="yg-ab" value="${esc(String(A.b||""))}"></label>`:""}<label>Et kalınlığı (mm)<input type="number" inputmode="decimal" id="yg-at" value="${esc(String(A.th||""))}"></label>`}
+   <label>Maruziyet${sel("yg-aexp",[[4,"4 yüz"],[3,"3 yüz"]],A.exp)}</label><label>Eleman${sel("yg-ael",YG_EL.map(e=>[e,e]),A.el)}</label>
+   <label>Boy (m)<input type="number" inputmode="decimal" id="yg-aL" value="${esc(String(A.L||""))}" placeholder="0,00"></label><label>Adet<input type="number" inputmode="decimal" id="yg-an" value="${esc(String(A.n||1))}"></label></div></div>
+ <div class="yg-bt2"><button type="button" class="a" id="yg-aadd">${ygI("plus")}Profil ekle</button><label class="u"><input type="file" id="yg-upf" accept=".pdf,image/*,.xlsx,.xls,.csv,.txt" hidden>${ygI("up")}<span>Çelik listesi yükle<small>PDF, fotoğraf veya Excel</small></span></label></div>
+ <div class="yg-rows" id="yg-rows">${ygRowsHTML()}</div>`)}
+${ygSec("ana",5,"calc","Hesaplama ve analiz",`<div class="yg-sub" id="yg-sub"><button type="button" data-yst="an" aria-pressed="${YG.st==="an"}">Standartlara göre analiz</button><button type="button" data-yst="tl" aria-pressed="${YG.st==="tl"}">Analiz talebi</button></div><div id="yg-ana">${ygAnaHTML()}</div>`)}
+${ygSec("note",6,"clip","Not ve ekler",`<div class="yg-fm"><label class="w2"><span class="yg-in" style="display:block"><textarea data-ygf="note" placeholder="örn. Statik rapor ve çizimler ayrıca gönderilecek; termin 3 hafta">${esc(f.note||"")}</textarea></span></label></div>
+ <label class="yg-dz"><input type="file" id="yg-fa" multiple hidden>${ygI("up")}<span><b>Dosya ekle</b> (statik rapor, çizim, şartname vb.)</span></label><div class="yg-files" id="yg-files">${ygFilesHTML()}</div>`)}
+${ygSec("chk",7,"check","Uygulama ve kontrol",`<ul class="yg-ck"><li>Her profil, kendi yükleme tablosundaki kalınlığa göre boyanır; tüm yapıya tek kalınlık verilmez.</li><li>Kat başına ıslak kalınlık ve katlar arası bekleme süresi ürün föyünden (TDS) alınır.</li><li>Kuru film kalınlığı ISO 2808 / ISO 19840'a göre ölçülür.</li><li>Eksik kalınlık yangın süresini doğrudan kısaltır; fazlası maliyeti artırır.</li></ul>`)}
+<div class="yg-bar2" id="ys-send"><div class="yg-rcp"><span>Alıcı: <b>${to.name?esc(to.name):"seçilmedi"}</b>${to.name&&(to.wa||to.mail)?" · "+[to.wa,to.mail].filter(Boolean).map(esc).join(" · "):""}</span><button type="button" class="linkbtn" id="yg-toedit">${to.name?"Değiştir":"Alıcı ekle"}</button></div>
+ <div class="yg-acts"><button type="button" id="yg-clr">${ygI("reset")}Temizle</button><button type="button" id="yg-pdf">${ygI("pdf")}PDF</button><a id="yg-mail">${ygI("mail")}E-posta</a><a class="wa" id="yg-wa" target="_blank" rel="noopener">${ygI("wa")}WhatsApp ile gönder</a></div></div>`; }
+function ygFilesHTML(){ return YG.files.map((f,i)=>`<div>${ygI("clip").replace("<svg",'<svg style="width:16px;height:16px;fill:none;stroke:#cfe0ff;stroke-width:2"')}<span>${esc(f.name)}</span><small>${fmt(f.size/1048576,1)} MB</small><button type="button" class="x" data-ygfd="${i}" aria-label="Kaldır" style="background:none;border:0;color:#fff;font-size:18px">×</button></div>`).join(""); }
+function ygLinks(){ const wa=$("#yg-wa"), ml=$("#yg-mail"); if(!wa) return; const t=ygText(), n=(YG.to.wa||"").replace(/\D/g,"");
+  wa.href=(n?"https://wa.me/"+n:"https://wa.me/")+"?text="+encodeURIComponent(t);
+  ml.href=`mailto:${encodeURIComponent(YG.to.mail||"")}?subject=${encodeURIComponent("Yangın koruma analiz talebi"+(YG.f.proj?" – "+YG.f.proj:""))}&body=${encodeURIComponent(t.replace(/\*/g,""))}`;
+  const st=$("#yg-step"); if(st) st.innerHTML=ygStepHTML(); const d=ygDone(); ["proj","fire","env","prof"].forEach(k=>{const e=$("#yst-"+k); if(e) e.hidden=!d[k];});
+  if(YG.st==="tl"){ const a=$("#yg-ana"); if(a) a.innerHTML=ygAnaHTML(); } }
+function ygAnaUpd(){ const a=$("#yg-ana"); if(a) a.innerHTML=ygAnaHTML(); }
+function ygRowsUpd(){ const el=$("#yg-rows"); if(el) el.innerHTML=ygRowsHTML(); ygSave(); ygLinks(); ygAnaUpd(); }
 function ygToEdit(){ const t=YG.to; const d=sheet("Analizi yapacak kişi",`<div class="yg-fm" style="grid-template-columns:1fr"><label>Ad soyad / ünvan<input type="text" id="yg-tn" value="${esc(t.name||"")}" placeholder="örn. Jotun yangın koruma uzmanı"></label><label>WhatsApp numarası<input type="tel" id="yg-tw" value="${esc(t.wa||"")}" placeholder="90 5xx xxx xx xx"></label><label>E-posta<input type="email" id="yg-tm" value="${esc(t.mail||"")}"></label></div><div class="q-actions"><button type="button" class="btn primary" id="yg-tok">Kaydet</button><button type="button" class="btn" data-close>Vazgeç</button></div>`);
   d.querySelector("#yg-tok").onclick=()=>{ YG.to={name:d.querySelector("#yg-tn").value.trim(),wa:d.querySelector("#yg-tw").value.trim(),mail:d.querySelector("#yg-tm").value.trim()}; store("yg-to",YG.to); d.close(); ygRender(); }; }
+const YG_HERO={how:["Yangın Koruma","Çeliğin yangında nasıl korunduğu, Steelmaster’ın çalışma mantığı, standartlar ve kalınlık analizi talebi."],math:["Hesap Mantığı","Yangın eğrisi, kritik sıcaklık ve kesit faktörüyle çeliğin nasıl ısındığı."],std:["Standartlar","Yangın korumada geçerli test, tasarım ve uygulama standartları."],req:["Kalınlık Analizi Talebi","Çelik elemanlar için gerekli bilgileri hazırlayın; yangın koruma kalınlığı analizi için Jotun teknik ekibine gönderin."]};
 function ygRender(){ const b=$("#yg-body"); if(!b) return; $("#yg-tabs").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.yt===YG.tab));
+  const H=YG_HERO[YG.tab]; $("#yg-h").textContent=H[0]; $("#yg-p").textContent=H[1];
   b.innerHTML=YG.tab==="how"?ygHow():YG.tab==="math"?ygMath():YG.tab==="std"?ygStd():ygReq();
-  if(YG.tab==="math") ygMathUpd(); if(YG.tab==="req"){ ygAddUI(); ygLinks(); } }
+  if(YG.tab==="math") ygMathUpd(); if(YG.tab==="req") ygLinks(); }
+const ygA=()=>store("yg-a",YG.a);
+function ygPvUpd(){ const p=$("#yg-pv"); if(p) p.innerHTML=ygPrevHTML(); ygA(); if(YG.st==="an") ygAnaUpd(); }
 $("#yg-tabs").addEventListener("click",e=>{const b=e.target.closest("[data-yt]"); if(!b) return; YG.tab=b.dataset.yt; ygRender(); window.scrollTo(0,0);});
-$("#yg-body").addEventListener("input",e=>{ const t=e.target, M=YG.m;
+$("#yg-body").addEventListener("toggle",e=>{ const d=e.target; if(d.dataset&&d.dataset.sec) YG.open[d.dataset.sec]=d.open; },true);
+$("#yg-body").addEventListener("input",e=>{ const t=e.target, M=YG.m, A=YG.a;
   if(t.id==="yg-mu"){ M.mu=+t.value; ygMathUpd(); } else if(t.id==="yg-R"){ M.R=+t.value; ygMathUpd(); } else if(t.id==="yg-hp"){ M.hp=t.value; ygMathUpd(); }
-  else if(t.dataset.ygf){ YG.f[t.dataset.ygf]=t.value; ygSave(); ygLinks(); }
+  else if(t.dataset.ygf){ YG.f[t.dataset.ygf]=t.value; YG.sent=false; ygSave(); ygLinks(); }
+  else if(["yg-aa","yg-ab","yg-at"].includes(t.id)){ A[{"yg-aa":"a","yg-ab":"b","yg-at":"th"}[t.id]]=t.value; ygPvUpd(); }
+  else if(t.id==="yg-aL"){ A.L=t.value; ygA(); } else if(t.id==="yg-an"){ A.n=t.value; ygA(); }
   else if(t.dataset.yge!=null&&t.tagName==="INPUT"){ const r=YG.rows[+t.dataset.yge]; r[t.dataset.k]=t.value; r.uns=false; ygSave(); ygLinks(); const sm=t.closest(".yg-row").querySelector("small"); const hp=ygRowHp(r); if(sm) sm.textContent=`Hp/A ${hp?fmt(hp,0)+" m⁻¹":"— (et kalınlığı gerekli)"} · ${fmt(ygRowM2(r),1)} m²`; } });
-$("#yg-body").addEventListener("change",e=>{ const t=e.target, M=YG.m;
+$("#yg-body").addEventListener("change",e=>{ const t=e.target, M=YG.m, A=YG.a;
   if(t.id==="yg-fam"){ M.fam=t.value; M.s=STD[M.fam].some(p=>p[0]==M.s)?M.s:String(STD[M.fam][Math.min(6,STD[M.fam].length-1)][0]); $("#yg-sz").innerHTML=ygSizeOpts(M.fam,M.s); M.hp=""; $("#yg-hp").value=""; ygMathUpd(); }
-  else if(t.id==="yg-sz"){ M.s=t.value; M.hp=""; $("#yg-hp").value=""; ygMathUpd(); } else if(t.id==="yg-exp"){ M.exp=+t.value; M.hp=""; $("#yg-hp").value=""; ygMathUpd(); } else if(t.id==="yg-cv"){ M.curve=t.value; ygMathUpd(); }
-  else if(t.dataset.ygf){ YG.f[t.dataset.ygf]=t.value; ygSave(); ygLinks(); const w=$("#yg-hcw"); if(w) w.hidden=!(YG.f.curve||"").startsWith("Hidro"); }
-  else if(t.id==="yg-afam") ygAddUI();
+  else if(t.id==="yg-sz"){ M.s=t.value; M.hp=""; $("#yg-hp").value=""; ygMathUpd(); } else if(t.id==="yg-exp"){ M.exp=+t.value; M.hp=""; $("#yg-hp").value=""; ygMathUpd(); }
+  else if(t.dataset.ygf){ YG.f[t.dataset.ygf]=t.value; YG.sent=false; ygSave(); ygLinks(); const w=$("#yg-hcw"); if(w) w.hidden=!(YG.f.curve||"").startsWith("Hidro"); if(t.dataset.ygf==="crit") ygAnaUpd(); }
+  else if(t.id==="yg-afam"){ A.fam=t.value; if(A.fam in STD&&!STD[A.fam].some(p=>p[0]==A.s)) A.s=String(STD[A.fam][Math.min(6,STD[A.fam].length-1)][0]); if(A.fam==="boru") A.exp=4; ygA(); const sc=$("#ys-prof .yg-sb"); ygRender(); }
+  else if(t.id==="yg-asz"){ A.s=t.value; ygPvUpd(); } else if(t.id==="yg-aexp"){ A.exp=+t.value; ygPvUpd(); } else if(t.id==="yg-ael"){ A.el=t.value; ygA(); }
   else if(t.id==="yg-upf"){ const f=t.files[0]; t.value=""; if(f) ygFile(f); }
+  else if(t.id==="yg-fa"){ [...t.files].forEach(f=>YG.files.push(f)); t.value=""; $("#yg-files").innerHTML=ygFilesHTML(); toast(`${YG.files.length} dosya eklendi`); }
   else if(t.dataset.yge!=null&&t.tagName==="SELECT"){ const r=YG.rows[+t.dataset.yge]; r[t.dataset.k]=t.dataset.k==="exp"?+t.value:t.value; ygRowsUpd(); } });
-$("#yg-body").addEventListener("click",e=>{ const t=e.target;
+$("#yg-body").addEventListener("click",async e=>{ const t=e.target.closest("button,a")||e.target;
+  if(t.dataset.ygto){ YG.tab=t.dataset.ygto; ygRender(); window.scrollTo(0,0); return; }
+  if(t.dataset.ys){ const k=t.dataset.ys, el=$("#ys-"+k); if(el){ if(el.tagName==="DETAILS"){ el.open=true; YG.open[k]=true; } el.scrollIntoView({behavior:"smooth",block:"start"}); } return; }
+  if(t.dataset.yst){ YG.st=t.dataset.yst; $("#yg-sub").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.yst===YG.st)); ygAnaUpd(); return; }
+  if(t.dataset.ygfd!=null){ YG.files.splice(+t.dataset.ygfd,1); $("#yg-files").innerHTML=ygFilesHTML(); return; }
   if(t.id==="yg-toedit") ygToEdit();
   else if(t.dataset.ygdel!=null){ YG.rows.splice(+t.dataset.ygdel,1); ygRowsUpd(); }
-  else if(t.id==="yg-aadd"){ const fam=$("#yg-afam").value, L=num($("#yg-aL").value), n=Math.max(1,num($("#yg-an").value)||1), el=$("#yg-ael").value, exp=+$("#yg-aexp").value; let r;
-    if(fam in STD) r={t:fam,s:$("#yg-asz").value}; else if(fam==="boru") r={t:"boru",d:num($("#yg-aa").value),th:num($("#yg-at").value)}; else r={t:"kutu",a:num($("#yg-aa").value),b:num($("#yg-ab").value)||num($("#yg-aa").value),th:num($("#yg-at").value)};
+  else if(t.id==="yg-aadd"){ const A=YG.a, r=ygAR(), L=num(A.L), n=Math.max(1,num(A.n)||1);
     if(!secOf(r)){ toast("Profil ölçüsünü girin"); return; } if(!(L>0)){ toast("Boyu girin"); $("#yg-aL").focus(); return; }
-    YG.rows.push(Object.assign(r,{exp:fam==="boru"?4:exp,el,L,n})); $("#yg-aL").value=""; $("#yg-an").value="1"; ygRowsUpd(); toast("Profil eklendi"); }
+    YG.rows.push(Object.assign(r,{el:A.el,L,n})); A.L=""; A.n=1; ygA(); $("#yg-aL").value=""; $("#yg-an").value="1"; ygRowsUpd(); toast("Profil eklendi"); }
+  else if(t.id==="yg-wa"){ YG.sent=true; ygLinks(); if(YG.files.length&&navigator.canShare&&navigator.canShare({files:YG.files})){ e.preventDefault(); try{ await navigator.share({text:ygText(),files:YG.files}); }catch(x){} } else if(YG.files.length) toast("Dosyaları WhatsApp mesajına ayrıca ekleyin"); }
+  else if(t.id==="yg-mail"){ YG.sent=true; if(YG.files.length) toast("Dosyaları e-postaya ayrıca ekleyin"); }
   else if(t.id==="yg-pdf"){ if(!pdfReady()){ toast("Bu ortamda PDF indirilemiyor"); return; } ygDoc(); const d=new Date(),pad=x=>String(x).padStart(2,"0"); pdfFromEl($("#yg-doc"),`Yangin_Analiz_Talebi_${(YG.f.proj||"proje").replace(/[^\p{L}\p{N}]+/gu,"_").slice(0,40)}_${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}.pdf`,t,"Analiz talebini paylaş"); }
-  else if(t.id==="yg-clr"){ if(!YG.rows.length&&!Object.keys(YG.f).length) return; const bk={f:YG.f,rows:YG.rows}; YG.f={}; YG.rows=[]; ygSave(); ygRender(); undoToast("Form temizlendi",()=>{YG.f=bk.f;YG.rows=bk.rows;ygSave();ygRender();}); } });
+  else if(t.id==="yg-clr"){ if(!YG.rows.length&&!Object.keys(YG.f).length) return; const bk={f:YG.f,rows:YG.rows,files:YG.files}; YG.f={}; YG.rows=[]; YG.files=[]; YG.sent=false; ygSave(); ygRender(); undoToast("Form temizlendi",()=>{YG.f=bk.f;YG.rows=bk.rows;YG.files=bk.files;ygSave();ygRender();}); } });
 
 try{document.body.insertAdjacentHTML("beforeend",'<div class="demo-rb">DEMO SÜRÜM</div>')}catch(e){}
 })();
