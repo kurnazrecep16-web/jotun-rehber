@@ -1847,6 +1847,62 @@ button.yg-si:active{background:rgba(31,95,214,.18)}
 #yg-tabs.yg-tabs3 button[aria-pressed="true"]{background:linear-gradient(180deg,#3b7cf5,#1f5fd6);border-color:#8fb4ff;box-shadow:0 8px 24px rgba(31,95,214,.5)}
 @media (min-width:620px){#yg-tabs.yg-tabs3 button{flex-direction:row;gap:12px;height:62px}}
 .demo-rb{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(70px + env(safe-area-inset-bottom,0px));z-index:80;background:#f0ab00;color:#0b1f45;font:800 11px var(--f-body);letter-spacing:.08em;padding:4px 10px;border-radius:8px;pointer-events:none}
+/* ==== Demo ana sayfa tasarımı ==== */
+html body #v-ana .hm-hero{padding-bottom:6px}
+html body #v-ana .hm-h{font-size:34px;letter-spacing:-.01em;text-shadow:0 2px 14px rgba(0,0,0,.45)}
+html body #v-ana .hm-sub{font-size:16px;color:rgba(226,234,246,.9);text-shadow:0 1px 8px rgba(0,0,0,.5)}
+html body #v-ana .hm-bar{width:60px;height:4px;border-radius:3px;background:#f0ab00}
+html body #v-ana .hm-top{gap:9px}
+html body #v-ana .hm-top .hm-card,html body #v-ana #h-fp>summary.fp-card{min-height:72px!important;padding:8px 16px 8px 8px!important;gap:0!important;border-radius:18px!important;background:linear-gradient(180deg,rgba(20,40,80,.92),rgba(10,24,52,.92))!important;border:1px solid rgba(110,150,230,.45)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 8px 20px rgba(0,0,0,.25)!important}
+html body #v-ana .hm-top .hm-card.hm-pri{min-height:84px!important;background:linear-gradient(180deg,#3d80f7 0%,#2463e0 55%,#1b52c4 100%)!important;border:1px solid #8fb4ff!important;box-shadow:0 0 0 1px rgba(143,180,255,.25),0 10px 30px rgba(31,95,214,.55)!important}
+html body #v-ana .hm-top .hm-ic,html body #v-ana #h-fp .fp-ic{width:76px!important;height:56px!important;flex:none;margin-right:26px!important;border:0!important;border-radius:0!important;box-shadow:none!important;background-color:transparent!important;background-size:contain!important;background-repeat:no-repeat!important;background-position:center!important;padding:0!important;position:relative;overflow:visible!important;filter:drop-shadow(0 4px 6px rgba(0,0,0,.35))}
+html body #v-ana .hm-top .hm-ic::after,html body #v-ana #h-fp .fp-ic::after{content:""!important;position:absolute!important;right:-13px!important;top:6px!important;bottom:6px!important;width:1px!important;background:rgba(255,255,255,.25)!important;display:block!important}
+html body #v-ana .hm-top .hm-ic svg,html body #v-ana #h-fp .fp-ic svg{display:none!important}
+html body #v-ana .hm-top .hm-pri .hm-ic{background-image:url(hm/boya.webp)!important;width:84px!important;height:64px!important}
+html body #v-ana .hm-top [data-go="kendi"] .hm-ic{background-image:url(hm/teklif.webp)!important}
+html body #v-ana .hm-top .dm-hcard .hm-ic{background-image:url(hm/isler.webp)!important}
+html body #v-ana .hm-top .yg-hcard .hm-ic{background-image:url(hm/yangin.webp)!important}
+html body #v-ana #h-fp .fp-ic{background-image:url(hm/firsat.webp)!important}
+html body #v-ana .hm-top .hm-t b,html body #v-ana #h-fp .hm-t b{font:800 19px/1.2 var(--f-body)!important;color:#fff!important;letter-spacing:-.005em}
+html body #v-ana .hm-top .hm-t>span,html body #v-ana #h-fp .hm-t>span{font-size:14px!important;color:rgba(226,234,246,.82)!important;margin-top:2px}
+html body #v-ana .hm-top .hm-pri .hm-t>span{color:rgba(255,255,255,.9)!important}
+html body #v-ana .hm-top .chev,html body #v-ana #h-fp .fp-chev{width:22px;height:22px;stroke:#fff;stroke-width:2.2;opacity:.95}
+html body #v-ana .hm-oppw{margin-top:9px}
+/* staff: Yatırımlar / Sektör kartları */
+html body #v-ana .hx{gap:9px;margin-top:9px}
+html body #v-ana .hx-b{border-radius:18px;background:linear-gradient(180deg,rgba(20,40,80,.92),rgba(10,24,52,.92));border:1px solid rgba(110,150,230,.45);box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 8px 20px rgba(0,0,0,.25)}
+html body #v-ana .hx-b .hx-ic svg{stroke:#f0ab00}
+html body #v-ana .hx-b b{font-weight:800;color:#fff}
+/* bölüm başlığı */
+html body #v-ana .hm-sec{display:flex;align-items:center;gap:10px;margin:22px 0 12px;font:800 21px var(--f-body)!important;letter-spacing:0!important;text-transform:none!important;color:#fff!important}
+html body #v-ana .hm-sec::before{content:"";flex:none;width:5px;height:22px;border-radius:3px;background:#f0ab00}
+/* uygulama alanı kutuları */
+html body #v-ana .hm-cats{gap:9px}
+html body #v-ana .hm-tile{min-height:70px;padding:6px 12px 6px 6px;gap:10px;border-radius:16px;background:linear-gradient(180deg,rgba(18,36,74,.95),rgba(9,22,48,.95));border:1px solid rgba(110,150,230,.4);box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 6px 16px rgba(0,0,0,.22)}
+html body #v-ana .hm-tile:active{transform:scale(.98)}
+html body #v-ana .hm-tile .hm-ti{width:66px!important;height:50px!important;flex:none;background-size:contain!important;background-repeat:no-repeat!important;background-position:center!important;background-color:transparent!important;border:0!important;filter:drop-shadow(0 4px 6px rgba(0,0,0,.35))}
+html body #v-ana .hm-tile .hm-tl{font:800 15px/1.2 var(--f-body);color:#fff}
+html body #v-ana .hm-tile .chev{width:20px;height:20px;stroke:#fff;opacity:.9}
+html body #v-ana .hm-tile .ic-celik{background-image:url(hm/celik.webp)!important}
+html body #v-ana .hm-tile .ic-makine{background-image:url(hm/makine.webp)!important}
+html body #v-ana .hm-tile .ic-tankdis{background-image:url(hm/tankdis.webp)!important}
+html body #v-ana .hm-tile .ic-boru{background-image:url(hm/boru.webp)!important}
+html body #v-ana .hm-tile .ic-bakim{background-image:url(hm/bakim.webp)!important}
+html body #v-ana .hm-tile .ic-tankici{background-image:url(hm/tankic.webp)!important}
+html body #v-ana .hm-tile .ic-sicak{background-image:url(hm/sicak.webp)!important}
+html body #v-ana .hm-tile .ic-beton{background-image:url(hm/beton.webp)!important}
+html body #v-ana .hm-tile .ic-tekne{background-image:url(hm/gemi.webp)!important}
+html body #v-ana .hm-tile .ic-yangin{background-image:url(hm/yangin.webp)!important}
+/* son teklifler & oturum */
+html body #v-ana .h-hist>*{border-radius:16px}
+html body #v-ana .hm-foot{border-radius:20px;background:linear-gradient(180deg,rgba(20,40,80,.92),rgba(10,24,52,.92));border:1px solid rgba(110,150,230,.4);box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 8px 20px rgba(0,0,0,.25)}
+html body #v-ana .hm-foot .hf-av{border:2px solid #f0ab00;background:rgba(240,171,0,.08)}
+html body #v-ana .hm-foot .hf-sw{border-radius:14px;border:1px solid rgba(140,170,220,.45);background:rgba(4,12,30,.45);font-weight:800}
+@media (max-width:360px){html body #v-ana .hm-top .hm-t b{font-size:17px!important}html body #v-ana .hm-tile .hm-ti{width:54px!important}html body #v-ana .hm-tile .hm-tl{font-size:14px}}
+html body #v-ana .hm-t b span,html body #v-ana .hm-sec span,html body #v-ana .hm-tl span{font:inherit!important;color:inherit!important;margin:0!important;letter-spacing:inherit}
+html body #v-ana #h-fp .hm-t>span{font-size:13.5px!important}
+html body #v-ana .hm-foot .hf-tx b{white-space:normal;overflow:visible;text-overflow:clip;line-height:1.2}
+html body #v-ana .hm-foot .hf-sw{padding:0 12px;white-space:nowrap;flex:none}
 </style>
 
 <div id="app-bg" aria-hidden="true"></div>
@@ -1873,23 +1929,23 @@ button.yg-si:active{background:rgba(31,95,214,.18)}
   <button type="button" class="hd-wx" id="hd-wx" hidden aria-label="Hava durumu ve uygulama koşulları"></button>
   <nav class="tabs" aria-label="Bölümler">
   <a href="#ana" id="t-ana" class="tab" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg><span>Ana Sayfa</span></a>
-  <a href="#sistem" id="t-sistem" class="tab"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg><span class="lg">Sistem</span><span class="sm">Sistem</span></a>
+  <a href="#sistem" id="t-sistem" class="tab"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg><span class="lg"><span class="role-b">Sistemler</span><span class="role-s">Sistem</span></span><span class="sm"><span class="role-b">Sistemler</span><span class="role-s">Sistem</span></span></a>
   <a href="#sarfiyat" id="t-sarfiyat" class="tab" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c3 4.2 6 7.6 6 11a6 6 0 0 1-12 0c0-3.4 3-6.8 6-11z"/><path d="M9.5 15h5"/></svg><span>Sarfiyat</span></a>
-  <a href="#teklif" id="t-teklif" class="tab"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg><span>Teklif</span><b class="badge-n" id="t-badge" hidden></b></a>
-  <a href="#danisman" id="t-danisman" class="tab"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></svg><span>Danışman</span></a>
+  <a href="#teklif" id="t-teklif" class="tab"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg><span>Teklifler</span><b class="badge-n" id="t-badge" hidden></b></a>
+  <a href="#danisman" id="t-danisman" class="tab"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></svg><span><span class="role-b">Teknik Destek</span><span class="role-s">Danışman</span></span></a>
   <a href="#urunler" id="t-urunler" class="tab"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M4 7.5l8 4.5 8-4.5M12 12v9"/></svg><span>Ürünler</span></a>
 </nav>
 </header>
 
 <section id="v-ana">
-  <div class="hm-hero"><h2 class="hm-h" id="h-greet">Hoş geldiniz</h2><p class="hm-sub">Endüstriyel koruma çözümleriyle daha sürdürülebilir bir gelecek.</p><i class="hm-bar"></i></div>
+  <div class="hm-hero"><h2 class="hm-h" id="h-greet">Hoş geldiniz</h2><p class="hm-sub"><span class="role-b">Endüstriyel koruma çözümleri</span><span class="role-s">Endüstriyel koruma çözümleriyle daha sürdürülebilir bir gelecek.</span></p><i class="hm-bar"></i></div>
   <div class="h-resume" id="h-resume" hidden></div>
   <div class="hm-top">
-    <button type="button" class="hm-card hm-pri" data-go="sistem"><span class="ico ic-sistem hm-ic"></span><span class="hm-t"><b>Boya sistemi hesapla</b><span>ISO 12944</span></span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
-    <button type="button" class="hm-card role-b" data-go="kendi"><span class="hm-ic hm-svg"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M28 8H15a3 3 0 0 0-3 3v26a3 3 0 0 0 3 3h18a3 3 0 0 0 3-3V16z" fill="none" stroke="#e8eef8" stroke-width="2.6" stroke-linejoin="round"/><path d="M28 8v8h8" fill="none" stroke="#e8eef8" stroke-width="2.6" stroke-linejoin="round"/><path d="M24 22v12M18 28h12" stroke="#e8352a" stroke-width="3.2" stroke-linecap="round"/></svg></span><span class="hm-t"><b>Kendi teklifini hazırla</b></span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+    <button type="button" class="hm-card hm-pri" data-go="sistem"><span class="ico ic-sistem hm-ic"></span><span class="hm-t"><b><span class="role-b">Boya Sistemi Seç</span><span class="role-s">Boya sistemi hesapla</span></b><span>ISO 12944</span></span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+    <button type="button" class="hm-card role-b" data-go="kendi"><span class="hm-ic hm-svg"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M28 8H15a3 3 0 0 0-3 3v26a3 3 0 0 0 3 3h18a3 3 0 0 0 3-3V16z" fill="none" stroke="#e8eef8" stroke-width="2.6" stroke-linejoin="round"/><path d="M28 8v8h8" fill="none" stroke="#e8eef8" stroke-width="2.6" stroke-linejoin="round"/><path d="M24 22v12M18 28h12" stroke="#e8352a" stroke-width="3.2" stroke-linecap="round"/></svg></span><span class="hm-t"><b>Teklif Oluştur</b></span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
     <button type="button" class="hm-card role-s" data-go="sarfiyat"><span class="ico ic-sarf hm-ic"></span><span class="hm-t"><b>Sarfiyat hesapla</b></span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
-    <button type="button" class="hm-card dm-hcard" data-go="isler"><span class="hm-ic hm-svg"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="11" y="10" width="26" height="30" rx="3" fill="none" stroke="#e8eef8" stroke-width="2.6"/><path d="M17 6v8M31 6v8" stroke="#e8eef8" stroke-width="2.6" stroke-linecap="round"/><path d="M17 23h14M17 30h9" stroke="#f0ab00" stroke-width="2.6" stroke-linecap="round"/></svg></span><span class="hm-t"><b>İşlerim</b><span id="dm-sub">Müşteri, ziyaret ve teklif takibi</span></span><i class="dm-bd" id="dm-bd" hidden></i><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
-    <button type="button" class="hm-card yg-hcard" data-go="yangin"><span class="hm-ic hm-svg"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6c4 7 11 11 11 20a11 11 0 0 1-22 0c0-5 3-8 5-11 1 4 3 6 5 6-1-6 0-10 1-15z" fill="none" stroke="#e8eef8" stroke-width="2.6" stroke-linejoin="round"/><path d="M24 40a5 5 0 0 1-5-5c0-3 2-4 3-6 1 2 2 3 4 3 1 1 3 2 3 3a5 5 0 0 1-5 5z" fill="#f0ab00"/></svg></span><span class="hm-t"><b>Yangın koruma</b><span>Standartlar, hesap mantığı, analiz talebi</span></span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+    <button type="button" class="hm-card dm-hcard" data-go="isler"><span class="hm-ic hm-svg"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="11" y="10" width="26" height="30" rx="3" fill="none" stroke="#e8eef8" stroke-width="2.6"/><path d="M17 6v8M31 6v8" stroke="#e8eef8" stroke-width="2.6" stroke-linecap="round"/><path d="M17 23h14M17 30h9" stroke="#f0ab00" stroke-width="2.6" stroke-linecap="round"/></svg></span><span class="hm-t"><b><span class="role-b">İş Takibim</span><span class="role-s">İşlerim</span></b><span id="dm-sub">Müşteri, ziyaret ve teklifler</span></span><i class="dm-bd" id="dm-bd" hidden></i><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+    <button type="button" class="hm-card yg-hcard" data-go="yangin"><span class="hm-ic hm-svg"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6c4 7 11 11 11 20a11 11 0 0 1-22 0c0-5 3-8 5-11 1 4 3 6 5 6-1-6 0-10 1-15z" fill="none" stroke="#e8eef8" stroke-width="2.6" stroke-linejoin="round"/><path d="M24 40a5 5 0 0 1-5-5c0-3 2-4 3-6 1 2 2 3 4 3 1 1 3 2 3 3a5 5 0 0 1-5 5z" fill="#f0ab00"/></svg></span><span class="hm-t"><b>Yangın koruma</b><span>Nasıl çalışır, standartlar, analiz talebi</span></span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
     </div>
   <div class="hx role-s">
     <button type="button" class="hx-b" data-hx="opp" aria-expanded="false"><span class="hx-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10 5 7 4.5 3 5v13c4-.5 7 0 9 1.5 2-1.5 5-2 9-1.5V5c-4-.5-7 0-9 1.5z"/><path d="M12 6.5v13"/></svg></span><span class="hx-t"><b>Yatırımlar Dergisi</b><span>Yeni yatırımlar ve projeler</span></span><svg class="hx-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
@@ -1897,12 +1953,12 @@ button.yg-si:active{background:rgba(31,95,214,.18)}
   </div>
   <div class="hx-p hm-opps role-s" id="h-opps" hidden></div>
   <div class="hx-p hm-news role-s" id="h-news" hidden></div>
-  <details class="hm-oppw role-b" id="h-fp"><summary class="hm-card fp-card"><span class="hm-ic hm-svg fp-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.5"/></svg></span><span class="hm-t"><b>FIRSAT</b><span>Conseal Touch Up · Base 6</span></span><svg class="chev fp-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></summary>
+  <details class="hm-oppw role-b" id="h-fp"><summary class="hm-card fp-card"><span class="hm-ic hm-svg fp-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.5"/></svg></span><span class="hm-t"><b>Fırsatlar</b><span>Güncel kampanyalar ve fırsatlar</span></span><svg class="chev fp-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></summary>
   <div class="fp-c" id="h-fp-c"></div></details>
-  <h3 class="hm-sec">Ne boyanacak?</h3>
-  <div class="hm-cats"><button type="button" class="hm-tile" data-go="what:celik"><span class="ico ic-celik hm-ti"></span><span class="hm-tl">Çelik yapı</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:ekipman"><span class="ico ic-makine hm-ti"></span><span class="hm-tl">Makine</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:tankdis"><span class="ico ic-tankdis hm-ti"></span><span class="hm-tl">Tank dış</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:boru"><span class="ico ic-boru hm-ti"></span><span class="hm-tl">Boru dış</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:bakim"><span class="ico ic-bakim hm-ti"></span><span class="hm-tl">Paslı / bakım</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:tankic"><span class="ico ic-tankici hm-ti"></span><span class="hm-tl">Tank içi</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:sicak"><span class="ico ic-sicak hm-ti"></span><span class="hm-tl">Sıcak yüzey</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:zemin"><span class="ico ic-beton hm-ti"></span><span class="hm-tl">Beton zemin</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:tekne"><span class="ico ic-tekne hm-ti"></span><span class="hm-tl">Gemi</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:yangin"><span class="ico ic-yangin hm-ti"></span><span class="hm-tl">Yangın</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
-  <div id="h-hist-wrap" hidden><h3 class="hm-sec" style="margin-bottom:8px">Son teklifler</h3><div class="h-hist" id="h-hist"></div></div>
-  <div class="hm-foot"><span class="hf-av" id="role-av" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.6"/><path d="M4.8 19.5c1.3-3.4 4-5 7.2-5s5.9 1.6 7.2 5"/></svg></span><div class="hf-tx"><small>Oturum</small><b id="role-lbl"></b><span class="hf-up"><i></i><span id="hf-upd">Güncel</span></span></div><button type="button" class="hf-sw" id="role-chg" aria-label="Kullanıcı rolünü değiştir"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h11l-3-3M17 17H6l3 3"/></svg>Rolü değiştir</button></div>
+  <h3 class="hm-sec"><span class="role-b">Uygulama Alanı Seçin</span><span class="role-s">Ne boyanacak?</span></h3>
+  <div class="hm-cats"><button type="button" class="hm-tile" data-go="what:celik"><span class="ico ic-celik hm-ti"></span><span class="hm-tl"><span class="role-b">Çelik Yapı</span><span class="role-s">Çelik yapı</span></span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:ekipman"><span class="ico ic-makine hm-ti"></span><span class="hm-tl"><span class="role-b">Makine &amp; Ekipman</span><span class="role-s">Makine</span></span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:tankdis"><span class="ico ic-tankdis hm-ti"></span><span class="hm-tl"><span class="role-b">Tank Dışı</span><span class="role-s">Tank dış</span></span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:boru"><span class="ico ic-boru hm-ti"></span><span class="hm-tl"><span class="role-b">Boru Dışı</span><span class="role-s">Boru dış</span></span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:bakim"><span class="ico ic-bakim hm-ti"></span><span class="hm-tl"><span class="role-b">Paslı / Bakım</span><span class="role-s">Paslı / bakım</span></span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:tankic"><span class="ico ic-tankici hm-ti"></span><span class="hm-tl"><span class="role-b">Tank İçi</span><span class="role-s">Tank içi</span></span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:sicak"><span class="ico ic-sicak hm-ti"></span><span class="hm-tl"><span class="role-b">Sıcak Yüzey</span><span class="role-s">Sıcak yüzey</span></span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:zemin"><span class="ico ic-beton hm-ti"></span><span class="hm-tl"><span class="role-b">Beton Zemin</span><span class="role-s">Beton zemin</span></span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:tekne"><span class="ico ic-tekne hm-ti"></span><span class="hm-tl">Gemi</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:yangin"><span class="ico ic-yangin hm-ti"></span><span class="hm-tl">Yangın</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
+  <div id="h-hist-wrap" hidden><h3 class="hm-sec" style="margin-bottom:8px">Son Teklifler</h3><div class="h-hist" id="h-hist"></div></div>
+  <div class="hm-foot"><span class="hf-av" id="role-av" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.6"/><path d="M4.8 19.5c1.3-3.4 4-5 7.2-5s5.9 1.6 7.2 5"/></svg></span><div class="hf-tx"><small>Oturum</small><b id="role-lbl"></b><span class="hf-up"><i></i><span id="hf-upd">Güncel</span></span></div><button type="button" class="hf-sw" id="role-chg" aria-label="Kullanıcı rolünü değiştir"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h11l-3-3M17 17H6l3 3"/></svg><span class="role-b">Rolü Değiştir</span><span class="role-s">Rolü değiştir</span></button></div>
 </section>
 <div id="v-sistem">
 <div class="sx-hero"><h2>Kaplama Sistemi<br>Oluşturun</h2><p>Ne boyanacağını, ortamı ve dayanım süresini seçin; size en uygun Jotun sistemini bulalım.</p></div>
@@ -3758,7 +3814,7 @@ wxLoad();
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)wxLoad();});
 
 /* Yeni sürüm yayınlandıysa uygulama açıkken kendini yeniler */
-(()=>{const B="1793747309"; if(!/^\d+$/.test(B)) return;
+(()=>{const B="1793747769"; if(!/^\d+$/.test(B)) return;
   const chk=()=>fetch(location.pathname+"?b="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const B="(\d+)"/); if(m&&+m[1]>+B) location.reload();}).catch(()=>{});
   document.addEventListener("visibilitychange",()=>{if(!document.hidden)chk();}); setTimeout(chk,4000);})();
 
@@ -4209,7 +4265,7 @@ function dmTodo(){ const t=today(), out=[];
   return out; }
 function dmBadge(){ const L=dmTodo(), n=L.length, b=$("#dm-bd"); if(b){ b.hidden=!n; b.textContent=n; }
   const sb=$("#dm-sub"); if(sb){ const nc=DM.c.length, nq=Object.values(DM.q).filter(q=>q.status==="gon"||q.status==="gor").length;
-    sb.innerHTML=n?`<em>Bugün ${n} takip</em> · ${esc(L[0].t)}`:(nc||nq)?[nc?nc+" müşteri":"",nq&&!isSor()?nq+" açık teklif":""].filter(Boolean).join(" · "):(isSor()?"Müşteri, ziyaret ve bayi paneli":"Müşteri, ziyaret ve teklif takibi"); } }
+    sb.innerHTML=n?`<em>Bugün ${n} takip</em> · ${esc(L[0].t)}`:(nc||nq)?[nc?nc+" müşteri":"",nq&&!isSor()?nq+" açık teklif":""].filter(Boolean).join(" · "):(isSor()?"Müşteri, ziyaret ve bayi paneli":"Müşteri, ziyaret ve teklifler"); } }
 function todayHTML(){ const L=dmTodo(); if(!L.length) return `<div class="dm-ok">Bugün için takip bekleyen iş yok.</div>`;
   return `<h3 class="dm-h3">Bugün yapılacaklar</h3>`+L.map(x=>`<div class="dm-td${x.late?" late":""}"><div><b>${esc(x.t)}</b><span>${esc(x.s)}</span></div>${x.k==="q"?`<button type="button" class="dm-mini" data-qedit="${esc(x.no)}">Güncelle</button>`:`<button type="button" class="dm-mini" data-cop="${x.ci}">Aç</button>`}</div>`).join(""); }
 let IST="c";
