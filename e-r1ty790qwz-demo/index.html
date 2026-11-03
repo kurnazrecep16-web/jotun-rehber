@@ -3855,7 +3855,7 @@ wxLoad();
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)wxLoad();});
 
 /* Yeni sürüm yayınlandıysa uygulama açıkken kendini yeniler */
-(()=>{const B="1793749528"; if(!/^\d+$/.test(B)) return;
+(()=>{const B="1793750085"; if(!/^\d+$/.test(B)) return;
   const chk=()=>fetch(location.pathname+"?b="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const B="(\d+)"/); if(m&&+m[1]>+B) location.reload();}).catch(()=>{});
   document.addEventListener("visibilitychange",()=>{if(!document.hidden)chk();}); setTimeout(chk,4000);})();
 
@@ -3994,10 +3994,11 @@ function sfMat(){
   t.rows.forEach(([n,d,r])=>{ if(!agg[n]){agg[n]={need:0};order.push(n);} agg[n].need+=r.need; });
   const rows=order.map(n=>{const need=agg[n].need, packs=packsOf(n), pk=sfPack(need,packs), q=pk?Math.ceil(need/pk):0, d=num(DENS[n])||null;
     return {n,need,pk,q,L:q*pk,kg:d&&q?q*pk*d:null,th:false};});
-  Object.entries(t.th).forEach(([no,l])=>{const nm=thinName(no), need=l*THIN_RATE, packs=packsOf(nm), pk=sfPack(need,packs), q=pk?Math.ceil(need/pk):0;
-    rows.push({n:CATALOG.some(p=>p.name===nm)?nm:`İnceltici N° ${no}`,need,pk,q,L:q*pk,kg:null,th:true});});
+  Object.entries(t.th).forEach(([no,l])=>{const nm=thinName(no), need=l*THIN_RATE, plan=thinPlan(need,packsOf(nm)), q=plan.reduce((a,x)=>a+x.qty,0), L=plan.reduce((a,x)=>a+x.qty*x.pk,0), pk=plan.length?plan[0].pk:0;
+    rows.push({n:CATALOG.some(p=>p.name===nm)?nm:`İnceltici N° ${no}`,need,pk,q,L,kg:null,th:true,mix:plan});});
   return rows;
 }
+function sfMix(m){ return m.mix&&m.mix.length?m.mix.map(x=>`${x.qty} × ${fmt(x.pk,x.pk%1?2:0)} L`).join(" + "):`${m.q} × ${fmt(m.pk,m.pk%1?2:0)} L`; }
 function sfDoc(){
   const t=sfTotals(), M=sfMat(), d=new Date(), pad=n=>String(n).padStart(2,"0");
   const no=`SF-${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}-${pad(d.getHours())}${pad(d.getMinutes())}`;
@@ -4005,7 +4006,7 @@ function sfDoc(){
   const f0=(x,k)=>x!=null&&isFinite(x)?fmt(x,k):"—";
   const coats=SF.coats.map((c,i)=>[c,i]).filter(([c])=>c.name&&num(c.dft)>0).map(([c,i])=>{const r=calcCoat(c,i);
     return `<tr><td>${i+1}</td><td>${esc(c.name)}</td><td class="n">${fmt(num(c.dft),0)}</td><td class="n">${f0(r.wft,0)}</td><td class="n">${f0(r.th,1)}</td><td class="n">${f0(r.pt,1)}</td><td class="n">${r.need?fmt(Math.ceil(r.need),0):"—"}</td></tr>`}).join("");
-  const mats=M.map((m,i)=>`<tr><td>${i+1}</td><td>${esc(m.n)}${m.th?' <small style="color:#4b5b74">(≈ %15)</small>':""}</td><td class="n">${m.pk?fmt(m.pk,m.pk%1?2:0)+" L":"—"}</td><td class="n"><b>${m.q||"—"}</b></td><td class="n">${m.L?fmt(m.L,m.L%1?2:0):"—"}</td><td class="n">${fmt(Math.ceil(m.need),0)}</td><td class="n">${m.kg?fmt(m.kg,0):"—"}</td></tr>`).join("");
+  const mats=M.map((m,i)=>`<tr><td>${i+1}</td><td>${esc(m.n)}${m.th?' <small style="color:#4b5b74">(≈ %15)</small>':""}</td><td class="n">${m.mix&&m.mix.length>1?m.mix.map(x=>fmt(x.pk,x.pk%1?2:0)+" L").join(" + "):m.pk?fmt(m.pk,m.pk%1?2:0)+" L":"—"}</td><td class="n"><b>${m.mix&&m.mix.length>1?m.mix.map(x=>x.qty).join(" + "):m.q||"—"}</b></td><td class="n">${m.L?fmt(m.L,m.L%1?2:0):"—"}</td><td class="n">${fmt(Math.ceil(m.need),0)}</td><td class="n">${m.kg?fmt(m.kg,0):"—"}</td></tr>`).join("");
   const tq=M.reduce((a,m)=>a+m.q,0), tL=M.reduce((a,m)=>a+m.L,0), tkg=M.reduce((a,m)=>a+(m.kg||0),0);
   const sys=SF.sys?`<div class="sys"><b>Sistem: ISO 12944-5 / ${esc(SF.sys.iso)}</b><br>${esc(SF.sys.sub)} · Ortam ${esc(SF.sys.env)} · ${esc(SF.sys.dur)}${SF.sys.prep?` · Yüzey hazırlığı: ${esc(SF.sys.prep)}`:""}</div>`:"";
   $("#sf-doc").innerHTML=`
@@ -4026,7 +4027,7 @@ function sfSum(){
   const t=sfTotals(); const box=(ic,k,v,u)=>`<div class="sf-k"><i>${SFI[ic]}</i><div><span>${k}</span><b>${v}<small>${u}</small></b></div></div>`;
   $("#sf-kp").innerHTML=box("can","Toplam Boya",t.L?fmt(Math.ceil(t.L),0):"—","L")+box("lay","Toplam KFK",t.dft?fmt(t.dft,0):"—","µm")
    +box("kg","Ağırlık",t.kg?(t.kgOk?"":"≥ ")+fmt(t.kg,0):"—","kg")+box("pen","m² Başına",t.lpm?fmt(t.lpm,3):"—","L/m²");
-  $("#sf-sum").innerHTML=`${t.rows.length?`<div class="sf-ml"><h3>Malzeme listesi</h3><div class="sf-list">${sfMat().map(m=>`<div><span>${esc(m.n)}${m.th?' <small style="opacity:.7">(≈ %15)</small>':""}</span><span>${m.q?`${m.q} × ${fmt(m.pk,m.pk%1?2:0)} L`:fmt(Math.ceil(m.need),0)+" L"}</span></div>`).join("")}</div></div>`:""}
+  $("#sf-sum").innerHTML=`${t.rows.length?`<div class="sf-ml"><h3>Malzeme listesi</h3><div class="sf-list">${sfMat().map(m=>`<div><span>${esc(m.n)}${m.th?' <small style="opacity:.7">(≈ %15)</small>':""}</span><span>${m.q?sfMix(m):fmt(Math.ceil(m.need),0)+" L"}</span></div>`).join("")}</div></div>`:""}
    ${pdfReady()?`<button type="button" class="sf-pdfb" id="sf-pdf">${SFI.pdf}PDF İndir</button>`:""}
    ${t.rows.length?`<button type="button" class="sf-ob sf-toq role-b" id="sf-toq">${SFI.doc}Teklife aktar</button>`:""}
    <div class="sf-2b"><button type="button" class="sf-ob" id="sf-wa">${SFI.wa}WhatsApp</button><button type="button" class="sf-ob" id="sf-copy">${SFI.cp}Kopyala</button></div>`;
@@ -4050,7 +4051,7 @@ function sfText(){
   const t=sfTotals(); const L=["SARFİYAT HESABI – JOTUN"+(SF.proj?` · ${SF.proj}`:""),`Alan: ${fmt(t.A,0)} m² · Fire: %${fmt(num(SF.loss),0)}${num(SF.prof)?` · Pürüzlülük payı: ${SF.prof} µm`:""}`,""];
   SF.coats.forEach((c,i)=>{if(!c.name)return;const r=calcCoat(c,i);L.push(`${i+1}. ${c.name} – ${fmt(num(c.dft),0)} µm KFK (ıslak ${r.wft?fmt(r.wft,0):"—"} µm)`);L.push(`   Teorik ${r.th?fmt(r.th,1):"—"} m²/L · Pratik ${r.pt?fmt(r.pt,1):"—"} m²/L · Gerekli ${r.need?fmt(Math.ceil(r.need),0):"—"} L${r.qty?` (${r.qty} × ${fmt(r.pk,r.pk%1?2:0)} L)`:""}`);});
   L.push("",`Toplam KFK: ${fmt(t.dft,0)} µm · Toplam boya: ${fmt(Math.ceil(t.L),0)} L${t.kg?` · ≈ ${fmt(t.kg,0)} kg`:""}`);
-  L.push("","MALZEME LİSTESİ"); sfMat().forEach(m=>L.push(`• ${m.n}: ${m.q?`${m.q} adet/takım × ${fmt(m.pk,m.pk%1?2:0)} L = ${fmt(m.L,m.L%1?2:0)} L`:`≈ ${fmt(Math.ceil(m.need),0)} L`}${m.th?" (≈ %15)":""}`));
+  L.push("","MALZEME LİSTESİ"); sfMat().forEach(m=>L.push(`• ${m.n}: ${m.q?`${m.mix?sfMix(m):`${m.q} adet/takım × ${fmt(m.pk,m.pk%1?2:0)} L`} = ${fmt(m.L,m.L%1?2:0)} L`:`≈ ${fmt(Math.ceil(m.need),0)} L`}${m.th?" (≈ %15)":""}`));
   L.push("","Bilgiler bilgilendirme amaçlıdır. Uygulamadan önce ilgili ürünün güncel Jotun teknik föyünü (TDS) kontrol ediniz."); return L.join("\n");
 }
 function sfChips(){
