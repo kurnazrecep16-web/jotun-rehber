@@ -1343,7 +1343,7 @@ dialog.sheet .x:focus:not(:focus-visible){outline:none}
 
 #q-body td:first-child{position:relative}
 #q-body td:first-child>.cb{left:-46px;right:-52px}
-#q-body td:first-child:has(> input[data-f="name"]){padding-top:64px!important}
+
 .cb{position:absolute;left:0;right:0;z-index:30;margin-top:6px;max-height:min(52vh,420px);overflow-y:auto;-webkit-overflow-scrolling:touch;background:#fff;border:1px solid #d7dde8;border-radius:14px;box-shadow:0 12px 32px rgba(3,20,50,.28);padding:6px}
 .cb-h{margin:8px 8px 4px;font:700 11.5px var(--f-body);letter-spacing:.06em;text-transform:uppercase;color:#7a869c}
 .cb-it{display:block;width:100%;text-align:left;border:0;background:none;border-radius:10px;padding:9px 10px;cursor:pointer;color:#0b1f45;font:inherit}
@@ -1355,7 +1355,13 @@ dialog.sheet .x:focus:not(:focus-visible){outline:none}
 .cb-it .sw{display:inline-block;width:14px;height:14px;border-radius:4px;border:1px solid rgba(0,0,0,.2);margin-right:8px;vertical-align:-2px}
 .tint-w{color:#c0392b;font-weight:600}
 
-#q-body input[data-f="name"]{display:block;width:calc(100% + 46px + 52px);margin:0 0 4px -46px!important;box-sizing:border-box;height:58px;font:600 17px var(--f-body);padding:0 16px;border-radius:14px;border:1.5px solid #c9d3e3}
+#q-body .q-ttl{display:block;font:700 21px var(--f-body);color:#0b1f45;line-height:44px;min-height:44px;padding-right:52px}
+#q-body .q-pf{display:block;margin:14px -52px 4px -46px}
+#q-body .q-pf>span:first-child{display:block;font:600 14.5px var(--f-body);color:#4b5b74;margin-bottom:6px}
+#q-body .q-pii{background:#fff!important;border:1px solid #dbe2ec!important;border-radius:14px;min-height:58px}
+#q-body .q-pii>i{background:#f4f7fb!important;border-right:1px solid #dbe2ec!important;width:58px}
+#q-body .q-pii>i svg{color:#4b5b74!important}
+#q-body .q-pii input[data-f="name"]{flex:1;min-width:0;width:100%;border:0!important;background:transparent!important;color:#0b1f45!important;font:500 17px var(--f-body);padding:0 16px;outline:0;box-shadow:none;height:auto;margin:0}
 #q-body input[data-f="name"]::placeholder{font-weight:500}
 
 .has-clr{position:relative}
@@ -2032,7 +2038,7 @@ function renderLines(){
   const tb=$("#q-body");
   tb.innerHTML = Q.lines.map((ln,i)=>{const packs=packsOf(ln.name);const u=isKg(ln.name)?"kg":"L";
    return `<tr${ln.auto?' class="auto"':""}>
-    <td>${ln.key&&!ln.edit?(ln.auto?`<span class="prod">${esc(ln.name)}</span>`:`<button type="button" class="prod prod-chg" data-chg="${i}" aria-label="${esc(ln.name)} – ürünü değiştir">${esc(ln.name)}<span class="chg">Değiştir<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span></button>`):`<input type="text" id="q-n-${i}" data-i="${i}" data-f="name" value="${ln.edit?"":esc(ln.name)}" placeholder="${ln.edit?esc(ln.name)+" yerine ürün seçin":"Ürün seçin veya yazın"}" aria-label="Ürün adı" autocomplete="off" role="combobox" aria-expanded="false"><div class="cb" id="q-cb-${i}" hidden></div>`}${ln.auto?`<span class="need">${ln.sub?"Tiner · ek ambalaj":`Boyanın %15'i · İhtiyaç ≈ ${fmt(Math.ceil(ln.needL),0)} L`}</span>${ln.manual?`<button type="button" class="th-auto" data-thauto="${i}">↺ Otomatik ambalaja dön</button>`:""}`:ln.needL&&!ln.m2?`<span class="need">İhtiyaç ≈ ${fmt(Math.ceil(ln.needL),0)} L</span>`:""}${ln.auto?"":specChip(ln)}${ln.auto?"":colorCell(ln,i)}${tintCell(ln,i)}</td>
+    <td>${ln.key&&!ln.edit?(ln.auto?`<span class="prod">${esc(ln.name)}</span>`:`<button type="button" class="prod prod-chg" data-chg="${i}" aria-label="${esc(ln.name)} – ürünü değiştir">${esc(ln.name)}<span class="chg">Değiştir<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span></button>`):`<span class="q-ttl">${(()=>{const k=Q.lines.slice(0,i).filter(l=>!l.auto).length;return k===0?"Astar / 1. kat":(k+1)+". kat";})()}</span><label class="q-pf"><span>Ürün</span><span class="sf-ii q-pii"><i><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="7" ry="2.5"/><path d="M5 5.5v13c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-13"/><path d="M9 12h6"/></svg></i><input type="text" id="q-n-${i}" data-i="${i}" data-f="name" value="${ln.edit?"":esc(ln.name)}" placeholder="${ln.edit?esc(ln.name)+" yerine ürün seçin":"Ürün seçin veya yazın"}" aria-label="Ürün adı" autocomplete="off" role="combobox" aria-expanded="false"></span></label><div class="cb" id="q-cb-${i}" hidden></div>`}${ln.auto?`<span class="need">${ln.sub?"Tiner · ek ambalaj":`Boyanın %15'i · İhtiyaç ≈ ${fmt(Math.ceil(ln.needL),0)} L`}</span>${ln.manual?`<button type="button" class="th-auto" data-thauto="${i}">↺ Otomatik ambalaja dön</button>`:""}`:ln.needL&&!ln.m2?`<span class="need">İhtiyaç ≈ ${fmt(Math.ceil(ln.needL),0)} L</span>`:""}${ln.auto?"":specChip(ln)}${ln.auto?"":colorCell(ln,i)}${tintCell(ln,i)}</td>
     <td class="n" data-label="Ambalaj">${ln.auto&&packs.length>1?`<div class="th-ch" role="group" aria-label="Tiner ambalajı">${packs.map(x=>`<button type="button" data-thp="${i}" data-v="${x}" aria-pressed="${x===num(ln.pack)}">${fmt(x,0)} L</button>`).join("")}</div>`:packs.length>1?`<select id="q-k-${i}" data-i="${i}" data-f="pack" aria-label="Ambalaj">${packs.map(x=>`<option value="${x}"${x===num(ln.pack)?" selected":""}>${fmt(x,x%1?2:0)} ${u}</option>`).join("")}</select>`
       :packs.length===1?`<span class="mono">${fmt(packs[0],packs[0]%1?2:0)} ${u}</span>`
       :`<input type="number" id="q-k-${i}" data-i="${i}" data-f="pack" min="0" step="0.1" value="${ln.pack}" placeholder="L" aria-label="Ambalaj litre">`}</td>
@@ -2125,7 +2131,8 @@ function cbRender(i){
   else { const order=[want,...["p","i","t","o","z"].filter(r=>r!==want)];
     html=order.map(r=>{const g=all.filter(([p])=>roleOf(p)===r);return g.length?`<p class="cb-h">${r===want?"Önerilen · ":""}${ROLE_T[r]}</p>`+g.map(item).join(""):""}).join(""); }
   box.innerHTML=html||`<p class="cb-h">Listede yok — yazdığınız adla eklenir.</p>`;
-  box.style.left=inp.offsetLeft+"px"; box.style.right="auto"; box.style.width=inp.offsetWidth+"px"; box.style.top=(inp.offsetTop+inp.offsetHeight)+"px";
+  { const an=inp.closest(".q-pii")||inp, td=box.offsetParent||box.parentElement, ar=an.getBoundingClientRect(), tr=td.getBoundingClientRect();
+    box.style.left=(ar.left-tr.left)+"px"; box.style.right="auto"; box.style.width=ar.width+"px"; box.style.top=(ar.bottom-tr.top)+"px"; }
   box.hidden=false; inp.setAttribute("aria-expanded","true");
 }
 function ralRender(i){
@@ -3241,7 +3248,7 @@ wxLoad();
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)wxLoad();});
 
 /* Yeni sürüm yayınlandıysa uygulama açıkken kendini yeniler */
-(()=>{const B="1793704367"; if(!/^\d+$/.test(B)) return;
+(()=>{const B="1793704519"; if(!/^\d+$/.test(B)) return;
   const chk=()=>fetch(location.pathname+"?b="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const B="(\d+)"/); if(m&&+m[1]>+B) location.reload();}).catch(()=>{});
   document.addEventListener("visibilitychange",()=>{if(!document.hidden)chk();}); setTimeout(chk,4000);})();
 
