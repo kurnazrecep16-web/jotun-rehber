@@ -2122,7 +2122,6 @@ html body #v-ana .hm-foot .hf-sw{padding:0 12px;white-space:nowrap;flex:none}
           <div class="sf-tabs" id="sf-at"><button type="button" data-a="prof" aria-pressed="true">Profil</button><button type="button" data-a="hol" aria-pressed="false">Kutu &amp; boru</button><button type="button" data-a="bar" aria-pressed="false">Dolu &amp; lama</button><button type="button" data-a="sac" aria-pressed="false">Sac</button><button type="button" data-a="ton" aria-pressed="false">Tonaj</button><button type="button" data-a="tank" aria-pressed="false">Tank</button></div>
           <div class="sf-ag" data-a="prof"><label class="sf-f sf-w2"><span>Profil ailesi</span><span class="sf-in"><select id="sf-ps"><optgroup label="I / H profiller · EN 10365"><option value="IPE">IPE</option><option value="HEA">HEA (HE A)</option><option value="HEB">HEB (HE B)</option><option value="HEM">HEM (HE M)</option><option value="INP">INP / IPN / NPI</option></optgroup><optgroup label="U profiller · EN 10365"><option value="UPN">UPN / NPU</option><option value="UPE">UPE</option></optgroup><optgroup label="Köşebent · EN 10056"><option value="kose">Köşebent (L)</option></optgroup></select></span></label>
             <label class="sf-f sf-tab1"><span>Ölçü</span><span class="sf-in"><select id="sf-pz"></select></span></label>
-            <label class="sf-f sf-w2"><span>Maruziyet (yangın boyasında)</span><span class="sf-in"><select id="sf-pe"><option value="4">4 yüz (tüm çevre)</option><option value="3">3 yüz (üst başlık döşemeye bitişik – b düşülür)</option></select></span></label>
             <label class="sf-f sf-kos" hidden><span>Kol a</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-la" placeholder="50"><i>mm</i></span></label><label class="sf-f sf-kos" hidden><span>Kol b</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-lb2" placeholder="50"><i>mm</i></span></label><label class="sf-f sf-kos" hidden><span>Kalınlık t</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-lt" placeholder="5"><i>mm</i></span></label>
             <label class="sf-f"><span>Miktar</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-pq" placeholder="0"></span></label><label class="sf-f"><span>Birim</span><span class="sf-in"><select id="sf-pu"><option value="m">metre</option><option value="ton">ton</option></select></span></label>
             <p class="hint sf-tip" id="sf-pinfo"></p></div>
@@ -2816,7 +2815,7 @@ function renderRehber(){
   const rc=""; $("#r-rival").innerHTML=rc; $("#r-rival").hidden=!rc;
   $("#r-count").textContent=rc&&!list.length?"":`${list.length} ürün${q?" · tüm ürünlerde arandı":""}`;
   if(rCat==="all"&&!q){
-    const cats=Object.keys(CATS).filter(c=>c!=="MCI Tinter"&&CATALOG.some(p=>p.cat===c));
+    const cats=Object.keys(CATS).filter(c=>c!=="MCI Tinter"&&c!=="Fire Protection"&&CATALOG.some(p=>p.cat===c));
     $("#r-count").textContent="";
     $("#r-list").innerHTML=`<div class="r-cgrid">${cats.map(c=>`<button type="button" class="r-cg cgi-${CG_IMG[c]||"gen"}" data-c="${c}"><svg class="cg-ic" viewBox="0 0 24 24" aria-hidden="true">${CG_IC[c]||CG_IC.Other}</svg><b>${CATS[c][0]}</b><span>${CATALOG.filter(p=>p.cat===c).length} ürün</span><i class="cg-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></button>`).join("")}</div>`;
     return;
@@ -3814,7 +3813,7 @@ wxLoad();
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)wxLoad();});
 
 /* Yeni sürüm yayınlandıysa uygulama açıkken kendini yeniler */
-(()=>{const B="1793747769"; if(!/^\d+$/.test(B)) return;
+(()=>{const B="1793748726"; if(!/^\d+$/.test(B)) return;
   const chk=()=>fetch(location.pathname+"?b="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const B="(\d+)"/); if(m&&+m[1]>+B) location.reload();}).catch(()=>{});
   document.addEventListener("visibilitychange",()=>{if(!document.hidden)chk();}); setTimeout(chk,4000);})();
 
@@ -3915,7 +3914,7 @@ const SF_LOSS=[0,10,20,30,40], SF_PROF=[[0,"Yok",""],[10,"İnce","10 µm"],[25,"
 const SFI={"doc": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"5\" y=\"3\" width=\"14\" height=\"18\" rx=\"2\"/><path d=\"M9 8h6M9 12h6M9 16h3\"/></svg>", "bld": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 21V5l8-2v18M12 21V9l8 2v10M3 21h18M7 8h2M7 12h2M7 16h2M15 14h2M15 17h2\"/></svg>", "usr": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"8\" r=\"4\"/><path d=\"M4 21c1-4.5 4.5-6.5 8-6.5s7 2 8 6.5\"/></svg>", "area": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 8V4h4M16 4h4v4M20 16v4h-4M8 20H4v-4\" /><path d=\"M10 4h4M10 20h4M4 10v4M20 10v4\" stroke-dasharray=\"2 2\"/></svg>", "calc": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"5\" y=\"3\" width=\"14\" height=\"18\" rx=\"2\"/><path d=\"M8 7h8M8 11h1M11.5 11h1M15 11h1M8 14.5h1M11.5 14.5h1M15 14.5h1M8 18h1M11.5 18h1M15 18h1\"/></svg>", "can": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><ellipse cx=\"12\" cy=\"5.5\" rx=\"7\" ry=\"2.5\"/><path d=\"M5 5.5v13c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-13\"/><path d=\"M9 12h6\"/></svg>", "lay": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 3l9 5-9 5-9-5z\"/><path d=\"M3 12l9 5 9-5\"/><path d=\"M3 16l9 5 9-5\"/></svg>", "kg": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M6 9h12l2 11H4z\"/><circle cx=\"12\" cy=\"6\" r=\"2.5\"/></svg>", "pen": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 20h16\"/><path d=\"M14.5 4.5l4 4L9 18H5v-4z\"/></svg>", "brush": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M14 4l6 6-7 7-6-6z\"/><path d=\"M7 11l-3 3c-1 1-1 3 0 4s3 1 4 0l3-3\"/></svg>", "fire": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 21c-4 0-6.5-2.6-6.5-6.2 0-3.4 2.6-5.3 3.6-8.3 1.6 1.3 2.4 2.8 2.6 4.4 1-1 1.6-2.4 1.6-4.4 3 2 5.2 5.2 5.2 8.3 0 3.6-2.5 6.2-6.5 6.2z\"/></svg>", "trash": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3\"/></svg>", "rul": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"2.5\" y=\"8.5\" width=\"19\" height=\"7\" rx=\"1.5\" transform=\"rotate(-45 12 12)\"/><path d=\"M9 9l1.5 1.5M11.5 6.5l1.5 1.5M6.5 11.5L8 13M14 4l1.5 1.5\"/></svg>", "pdf": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M14 3H6v18h12V7z\"/><path d=\"M14 3v4h4M9 13h6M9 17h4\"/></svg>", "wa": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 20l1.3-4A8 8 0 1 1 8 18.7z\"/><path d=\"M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8a4 4 0 0 1-1.8-1.8l.8-1-1-2z\"/></svg>", "cp": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"8\" y=\"8\" width=\"12\" height=\"12\" rx=\"2\"/><path d=\"M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3\"/></svg>", "plus": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 5v14M5 12h14\"/></svg>"};
 let SF=load("sf",null)||{area:"",loss:20,prof:0,coats:[{name:"",dft:""}]};
 const sfSave=()=>store("sf",SF);
-const sfOpts=sel=>`<option value="">Ürün seçin</option>`+Object.keys(CATS).map(c=>{const it=CATALOG.filter(p=>p.cat===c&&c!=="MCI Tinter"&&!/Thinner/i.test(p.name)&&!isKg(p.name)&&p.vs&&p.vs[0]);return it.length?`<optgroup label="${esc(CATS[c][0])}">${it.map(p=>`<option${p.name===sel?" selected":""}>${esc(p.name)}</option>`).join("")}</optgroup>`:""}).join("");
+const sfOpts=sel=>`<option value="">Ürün seçin</option>`+Object.keys(CATS).map(c=>{const it=CATALOG.filter(p=>p.cat===c&&c!=="MCI Tinter"&&c!=="Fire Protection"&&!/Thinner/i.test(p.name)&&!isKg(p.name)&&p.vs&&p.vs[0]);return it.length?`<optgroup label="${esc(CATS[c][0])}">${it.map(p=>`<option${p.name===sel?" selected":""}>${esc(p.name)}</option>`).join("")}</optgroup>`:""}).join("");
 function sfCoat(c,i){
   return `<div class="sf-coat" data-i="${i}">
    <div class="sf-ch"><span class="n">${i+1}</span><h3>${i===0?"Astar / 1. kat":i+1+". kat"}</h3><button type="button" class="sf-x" data-rm="${i}" aria-label="Katı sil">${SFI.trash}</button></div>
@@ -4071,14 +4070,14 @@ const stLbl=r=>{ const f0=x=>fmt(num(x),num(x)%1?1:0), ab=()=>`${f0(r.a)}×${f0(
     case "levha": return `Sac ${f0(r.a)}×${f0(r.b)} mm (${+r.f===1?"tek":"2"} yüz${num(r.k)>1?" ×"+fmt(num(r.k),2):""})`; case "boru": return `Boru Ø${fmt(num(r.d),1)}${r.th?"×"+f0(r.th):""} mm${r.inner?" · iç+dış":""}`; case "mil": return `Dolu mil Ø${f0(r.d)} mm`; default: return `${r.t} ${r.s}${ex}`; } };
 const hpA=(r,s)=>{ const p=secP(r,s); return s.A>0?p/s.A:0; };
 const secInfo=(r)=>{ const s=secOf(r); if(!s) return ""; const p=secP(r,s), kg=s.A*7850;
-  return `${fmt(p,3)} m²/m${kg?` · ${fmt(kg,kg<10?2:1)} kg/m · ≈ ${fmt(p/kg*1000,1)} m²/ton · Hp/A ${fmt(hpA(r,s),0)} m⁻¹`:""}${s.est?" (et kalınlığı tahmini)":""}`; };
+  return `${fmt(p,3)} m²/m${kg?` · ${fmt(kg,kg<10?2:1)} kg/m · ≈ ${fmt(p/kg*1000,1)} m²/ton`:""}${s.est?" (et kalınlığı tahmini)":""}`; };
 function sfProfUI(){ const t=$("#sf-ps").value, k=t==="kose";
-  $("#sf-pz").closest("label").hidden=k; $("#sf-pe").closest("label").hidden=k; document.querySelectorAll(".sf-kos").forEach(x=>x.hidden=!k);
+  $("#sf-pz").closest("label").hidden=k; document.querySelectorAll(".sf-kos").forEach(x=>x.hidden=!k);
   if(!k){ const cur=$("#sf-pz").value; $("#sf-pz").innerHTML=STD[t].map(p=>`<option value="${p[0]}">${t} ${p[0]}</option>`).join(""); $("#sf-pz").value=STD[t].some(p=>String(p[0])===cur)?cur:(STD[t].some(p=>p[0]===200)?"200":String(STD[t][0][0])); } }
 function sfHolUI(){ const b=$("#sf-hs").value==="boru"; document.querySelectorAll(".sf-hk").forEach(x=>x.hidden=b); $("#sf-hd").closest("label").hidden=!b; }
 function sfBarUI(){ const t=$("#sf-bs").value; $("#sf-bal").textContent=t==="lama"?"Genişlik":t==="mil"?"Çap":"Kenar"; $("#sf-bb").closest("label").hidden=t!=="lama"; }
 function sfRow(){ const v=id=>num($("#"+id).value), s=id=>$("#"+id).value;
-  if(SFA==="prof"){ const t=s("sf-ps"); return t==="kose"?{t,a:v("sf-la"),b:v("sf-lb2"),th:v("sf-lt"),q:v("sf-pq"),u:s("sf-pu")}:{t,s:s("sf-pz"),exp:+s("sf-pe"),q:v("sf-pq"),u:s("sf-pu")}; }
+  if(SFA==="prof"){ const t=s("sf-ps"); return t==="kose"?{t,a:v("sf-la"),b:v("sf-lb2"),th:v("sf-lt"),q:v("sf-pq"),u:s("sf-pu")}:{t,s:s("sf-pz"),exp:4,q:v("sf-pq"),u:s("sf-pu")}; }
   if(SFA==="hol") return s("sf-hs")==="boru"?{t:"boru",d:v("sf-hd"),th:v("sf-ht"),inner:$("#sf-hi").checked,q:v("sf-hq"),u:"m"}:{t:"kutu",a:v("sf-ha"),b:v("sf-hb"),th:v("sf-ht"),inner:$("#sf-hi").checked,q:v("sf-hq"),u:"m"};
   if(SFA==="bar"){ const t=s("sf-bs"); return t==="mil"?{t,d:v("sf-ba"),q:v("sf-bq"),u:"m"}:t==="karedolu"?{t,a:v("sf-ba"),q:v("sf-bq"),u:"m"}:{t,a:v("sf-ba"),b:v("sf-bb"),q:v("sf-bq"),u:"m"}; }
   if(SFA==="sac") return {t:"levha",a:v("sf-se"),b:v("sf-sb"),q:Math.max(1,v("sf-sn")||1),u:"adet",f:+s("sf-sf"),k:v("sf-sk")||1};
@@ -4087,7 +4086,7 @@ function sfArea(){
   const v=id=>num($("#"+id).value); let a=0; const r=sfRow();
   if(r){ a=stM2(r); const inf={prof:"#sf-pinfo",hol:"#sf-hinfo",bar:"#sf-binfo"}[SFA];
     if(inf){ const pu=$("#sf-pu"); if(SFA==="prof"){ const ok=stTonOk(r); pu.querySelector('option[value="ton"]').disabled=!ok; if(!ok&&pu.value==="ton"){ pu.value="m"; r.u="m"; a=stM2(r);} }
-      const i=secInfo(r); $(inf).textContent=i?(r.t in STD?`${r.t} ${r.s}: `:"")+i+(SFA==="prof"&&r.t in STD?" · EN 10365":""):(SFA==="hol"?"Dış yüzey çevre × uzunluk. Et kalınlığı girilirse kg/m ve Hp/A da gösterilir.":SFA==="bar"?"Çevre × uzunluk (uçlar dahil değil).":""); } }
+      const i=secInfo(r); $(inf).textContent=i?(r.t in STD?`${r.t} ${r.s}: `:"")+i+(SFA==="prof"&&r.t in STD?" · EN 10365":""):(SFA==="hol"?"Dış yüzey çevre × uzunluk. Et kalınlığı girilirse kg/m de gösterilir.":SFA==="bar"?"Çevre × uzunluk (uçlar dahil değil).":""); } }
   if(SFA==="tank"){const d=v("sf-td"),h=v("sf-th");a=Math.PI*d*h+($("#sf-tt").checked?Math.PI*d*d/4:0)+($("#sf-tb").checked?Math.PI*d*d/4:0);}
   if(SFA==="ton") a=v("sf-tn")*v("sf-tf");
   $("#sf-ar").textContent=a>0?`${fmt(a,1)} m²`:"—"; return a;
@@ -4181,12 +4180,13 @@ async function steelFile(f){
   const {rows,skip}=steelParse(text); steelReview(rows,skip,f.name,note);
 }
 function steelReview(rows,skip,name,note){
+  rows.forEach(r=>{ r.exp=4; });
   const tot=()=>rows.filter(r=>!r.off).reduce((a,r)=>a+stM2(r),0);
   const tOpts=r=>(r.t in STD?Object.keys(STD).filter(t=>STD[t].some(p=>p[0]===+r.s)):Object.keys(STN).filter(t=>!(t in STD))).map(t=>`<option value="${t}"${t===r.t?" selected":""}>${STN[t]}</option>`).join("");
   const uOpts=r=>r.t==="levha"?`<option value="adet" selected>adet</option>`:`<option value="m"${r.u==="m"?" selected":""}>metre</option>${stTonOk(r)?`<option value="ton"${r.u==="ton"?" selected":""}>ton</option>`:""}`;
   const row=(r,i)=>{ const s=r.t==="levha"?null:secOf(r), hp=s&&s.A>0?hpA(r,s):0;
-    return `<div class="st-r${r.unsure?" uns":""}"><label class="st-c"><input type="checkbox" data-sc="${i}" ${r.off?"":"checked"}></label><div class="st-m"><b>${esc(stLbl(r))}</b><small>${esc(r.line.slice(0,90))}${r.calc?" · "+esc(r.calc):""}${hp?` · Hp/A ${fmt(hp,0)} m⁻¹`:""}</small>
-     <div class="st-q"><select data-st="${i}" aria-label="Tip">${tOpts(r)}</select>${(r.t in STD)||r.t==="kutu"?`<select data-se="${i}" aria-label="Maruziyet"><option value="4"${+r.exp===3?"":" selected"}>4 yüz</option><option value="3"${+r.exp===3?" selected":""}>3 yüz</option></select>`:""}</div>
+    return `<div class="st-r${r.unsure?" uns":""}"><label class="st-c"><input type="checkbox" data-sc="${i}" ${r.off?"":"checked"}></label><div class="st-m"><b>${esc(stLbl(r))}</b><small>${esc(r.line.slice(0,90))}${r.calc?" · "+esc(r.calc):""}</small>
+     <div class="st-q"><select data-st="${i}" aria-label="Tip">${tOpts(r)}</select></div>
      <div class="st-q"><input type="number" inputmode="decimal" data-sq="${i}" value="${r.q===""?"":Math.round(num(r.q)*1000)/1000}" placeholder="miktar"><select data-su="${i}" ${r.t==="levha"?"disabled":""}>${uOpts(r)}</select><span class="st-a" id="st-a-${i}">${fmt(stM2(r),1)} m²</span></div></div></div>`; };
   const body=()=>`<div class="st-wrap"><p class="hint">${esc(name)}${note?" · "+esc(note):""}</p>
    ${rows.length?`<p class="hint">Okunan ${rows.length} kalem. Tip veya birim yanlışsa değiştirin. <b style="color:#f0ab00">Sarı</b>: emin olamadım.</p>
