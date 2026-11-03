@@ -3622,7 +3622,7 @@ wxLoad();
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)wxLoad();});
 
 /* Yeni sürüm yayınlandıysa uygulama açıkken kendini yeniler */
-(()=>{const B="1793743561"; if(!/^\d+$/.test(B)) return;
+(()=>{const B="1793743857"; if(!/^\d+$/.test(B)) return;
   const chk=()=>fetch(location.pathname+"?b="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const B="(\d+)"/); if(m&&+m[1]>+B) location.reload();}).catch(()=>{});
   document.addEventListener("visibilitychange",()=>{if(!document.hidden)chk();}); setTimeout(chk,4000);})();
 
@@ -4252,19 +4252,24 @@ function ygHowUpd(){ const el=$("#yg-ch"); if(!el) return; const M=YG.m, r={t:M.
   $("#yg-lt").innerHTML=`<tr><th>Hp/A ↓ · θcr →</th>${cols.map(x=>`<th>${x} °C</th>`).join("")}</tr>`+rows.map((x,i)=>`<tr><th>${x}</th>${cols.map((y,j)=>`<td class="${i===ri&&j===ci?"h":""}">●</td>`).join("")}</tr>`).join(""); }
 
 const YG_STD=[
- ["Test ve sertifika",[["EN 13381-8","Çelikte intümesan korumanın yangın testi; yükleme tabloları buradan çıkar."],["EN 1363-1 · ISO 834","Standart selülozik yangın eğrisi ve test koşulları."],["EN 13501-2","Yangın dayanım sınıfı: R30, R60, R90, R120…"],["EAD 350402 · ETA · CE","Avrupa onayı; X, Y, Z1, Z2 ortam sınıfları."],["BS 476-20/21 · UL 263","İngiliz ve Amerikan yangın testleri; bazı şartnamelerde istenir."]]],
+ ["Test ve sertifika",[["EN 13381-8","Çelikte intümesan korumanın yangın testi; yükleme tabloları buradan çıkar."],["EN 1363-1 · ISO 834","Standart selülozik yangın eğrisi ve test koşulları."],["EN 13501-2","Yangın dayanım sınıfı: R30, R60, R90, R120…"],["EAD 350402 · ETA · CE","Avrupa onayı; X, Y, Z1, Z2 ortam sınıfları."],["BS 476-20/21 · UL 263","İngiliz ve Amerikan selülozik yangın testleri; bazı şartnamelerde istenir."]]],
  ["Tasarım",[["EN 1993-1-2","Eurocode 3: yangında çelik dayanımı, kritik sıcaklık ve ısınma hesabı."]]],
  ["Uygulama",[["ISO 12944","Korozyon koruması ve ortam sınıfı (C1–CX)."],["ISO 8501-1","Yüzey hazırlığı (Sa 2½)."],["ISO 2808 · ISO 19840","Kuru film kalınlığı ölçümü."]]],
  ["Türkiye",[["Binaların Yangından Korunması Hakkında Yönetmelik","Bina sınıfı ve yüksekliğine göre gereken dayanım süresini belirler."],["TS EN 13381-8 · TS EN 13501-2","Avrupa standartlarının Türk Standardı karşılıkları."]]],
- ["Diğer yangın tipleri",[["UL 1709 · ISO 22899-1","Hidrokarbon ve jet yangını testleri (Jotachar)."]]]];
+ ["Diğer yangın tipleri",[["UL 1709 · EN 1363-2 · ISO 22899-1","Hidrokarbon ve jet yangını testleri (Jotachar)."]]]];
 function ygStd(){ return YG_STD.map(([h,L])=>`<div class="yg-c yg-sl"><h3>${h}</h3>${L.map(([c,d])=>`<div><b>${esc(c)}</b><span>${esc(d)}</span></div>`).join("")}</div>`).join(""); }
 
 /* ---- Analiz talebi ---- */
 const YG_SEL={curve:["Selülozik (ISO 834)","Hidrokarbon / jet"],
   rate:["R15","R30","R45","R60","R90","R120","R180","Bilmiyorum"], crit:["Danışman belirlesin","350 °C","400 °C","450 °C","500 °C","550 °C","600 °C","620 °C","650 °C","700 °C"],
   env:["İç mekân, normal nem (Z2)","İç mekân, yüksek nem (Z1)","Yarı açık (Y)","Dış ortam (X)"], cor:["C1","C2","C3","C4","C5","CX","Bilmiyorum"],
-  surf:["Yeni çelik, raspa yapılacak (Sa 2½)","Atölye astarlı çelik","Galvaniz","Mevcut boyalı yüzey"], app:["Atölye","Şantiye","Atölye + şantiye"], std:["EN 13381-8","BS 476-20/21","UL 263","Şartnamede yok / bilmiyorum"]};
-const ygOpts=(k,v)=>`<option value="">Seçin</option>`+YG_SEL[k].map(o=>`<option${o===v?" selected":""}>${esc(o)}</option>`).join("");
+  surf:["Yeni çelik, raspa yapılacak (Sa 2½)","Atölye astarlı çelik","Galvaniz","Mevcut boyalı yüzey"], app:["Atölye","Şantiye","Atölye + şantiye"], std:["EN 13381-8","BS 476-20/21","UL 263 / ASTM E119","UL 1709","EN 1363-2 (HC eğrisi)","ISO 22899-1 (jet yangını)","Şartnamede yok / bilmiyorum"]};
+const YG_STDC={cel:["EN 13381-8","BS 476-20/21","UL 263 / ASTM E119","Şartnamede yok / bilmiyorum"],hc:["UL 1709","EN 1363-2 (HC eğrisi)","ISO 22899-1 (jet yangını)","Şartnamede yok / bilmiyorum"]};
+const YG_CORE={"İç mekân, normal nem (Z2)":["C1","C2","C3"],"İç mekân, yüksek nem (Z1)":["C2","C3","C4"],"Yarı açık (Y)":["C2","C3","C4","C5"],"Dış ortam (X)":["C2","C3","C4","C5","CX"]};
+function ygList(k){ const f=YG.f; if(k==="std") return f.curve?YG_STDC[f.curve.startsWith("Hidro")?"hc":"cel"]:YG_SEL.std;
+  if(k==="cor") return f.env&&YG_CORE[f.env]?[...YG_CORE[f.env],"Bilmiyorum"]:YG_SEL.cor; return YG_SEL[k]; }
+function ygFix(){ const f=YG.f; ["std","cor"].forEach(k=>{ if(f[k]&&!ygList(k).includes(f[k])) f[k]=""; const el=document.querySelector(`[data-ygf="${k}"]`); if(el) el.innerHTML=ygOpts(k,f[k]); }); }
+const ygOpts=(k,v)=>(k==="std"&&!YG.f.curve)?`<option value="">Önce yangın tipini seçin</option>`:(k==="cor"&&!YG.f.env)?`<option value="">Önce ortamı seçin</option>`:`<option value="">Seçin</option>`+ygList(k).map(o=>`<option${o===v?" selected":""}>${esc(o)}</option>`).join("");
 const ygRowM2=r=>stM2(Object.assign({},r,{q:num(r.L)*Math.max(1,num(r.n)||1),u:"m"}));
 const ygRowHp=r=>{ const s=secOf(r); return s&&s.A>0?hpA(r,s):0; };
 const YG_EL=["Kolon","Kiriş","Çapraz","Diğer"];
@@ -4407,7 +4412,7 @@ $("#yg-body").addEventListener("click",async e=>{ const t=e.target.closest("butt
   if(t.dataset.ygpm){ YG.pm=t.dataset.ygpm; ygRender(); return; }
   if(t.dataset.yged!=null){ const i=+t.dataset.yged, r=YG.rows[i]; YG.ed=i; YG.pm="man"; Object.assign(YG.a,{fam:r.t,s:r.s!=null?String(r.s):YG.a.s,a:r.t==="boru"?(r.d||r.a||""):(r.a||""),b:r.b||"",th:r.th||"",exp:+r.exp||4,el:r.el||"Kolon",L:r.L,n:r.n||1}); ygA(); ygRender(); const c=$("#ygc-prof"); if(c) c.scrollIntoView({behavior:"smooth",block:"start"}); return; }
   if(t.id==="yg-edx"){ YG.ed=null; YG.a.L=""; YG.a.n=1; ygA(); ygRender(); return; }
-  if(t.dataset.ygc){ const k=t.dataset.ygc, v=t.dataset.v; YG.f[k]=YG.f[k]===v?"":v; YG.sent=false; ygSave(); t.parentNode.querySelectorAll("button").forEach(b=>b.classList.toggle("on",YG.f[k]===b.dataset.v)); if(k==="curve"){ const w=$("#yg-hcw"); if(w) w.hidden=!(YG.f.curve||"").startsWith("Hidro"); } ygLinks(); return; }
+  if(t.dataset.ygc){ const k=t.dataset.ygc, v=t.dataset.v; YG.f[k]=YG.f[k]===v?"":v; YG.sent=false; ygSave(); t.parentNode.querySelectorAll("button").forEach(b=>b.classList.toggle("on",YG.f[k]===b.dataset.v)); if(k==="curve"){ const w=$("#yg-hcw"); if(w) w.hidden=!(YG.f.curve||"").startsWith("Hidro"); } if(k==="curve"||k==="env"){ ygFix(); ygSave(); } ygLinks(); return; }
     if(t.dataset.ygfd!=null){ YG.files.splice(+t.dataset.ygfd,1); ygRender(); return; }
   if(t.id==="yg-toedit") ygToEdit();
   else if(t.dataset.ygdel!=null){ const i=+t.dataset.ygdel, bk=YG.rows[i]; YG.rows.splice(i,1); if(YG.ed!=null){ YG.ed=null; ygSave(); ygRender(); } else ygRowsUpd(); undoToast("Profil silindi",()=>{YG.rows.splice(i,0,bk);ygSave();ygRender();}); }
