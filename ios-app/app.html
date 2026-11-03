@@ -1316,6 +1316,15 @@ button.mg-pdf{border:0;cursor:pointer}
 .mf-it{background:#fff;border-radius:12px;padding:14px;font-size:14px;line-height:1.45}
 .mf-t{display:flex;gap:10px;align-items:flex-start;margin-bottom:6px}.mf-t>div{flex:1}.mf-t b{display:block;font-size:15px}.mf-t small{color:#5a6a85;font-size:12px}
 .mf-it p{margin:4px 0;color:#2b3a57}.mf-it i{font-style:normal;font-weight:700;color:#0b1f45}
+
+details.tint{margin-top:8px;border:1px solid var(--line,#d7dde8);border-radius:10px;padding:0 10px;background:rgba(240,171,0,.06)}
+details.tint>summary{cursor:pointer;font:600 13.5px var(--f-body);padding:8px 0;color:var(--ink,#0b1f45);list-style:none}
+details.tint>summary::before{content:"🎨 ";}
+.tint-g{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.tint-g label{display:flex;flex-direction:column;gap:3px;font-size:12px;color:var(--muted)}
+.tint-g input{width:100%;font:15px var(--f-body);padding:7px 8px}
+.tint-r{font-size:12.5px;margin:8px 0 10px;line-height:1.45}
+#q-body details.tint{margin-left:-46px}
 </style>
 
 <div id="app-bg" aria-hidden="true"></div>
@@ -1844,8 +1853,22 @@ const esc = t=>String(t??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":
 const load=(k,d)=>{try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}};
 const store=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
 const PRICES = load("q-prices-l",{}); /* litre (kg) başına birim fiyat, ürün adına göre */
-function kgPrice(l){const p=num(l.price),d=num(l.dens);return p>0&&d>0&&!isKg(l.name)?p/d:null}
-function lineAmt(l){const L=lineL(l),p=num(l.price);return L>0&&p>0?L*p:0}
+/* Renklendirme (sadece baz ürünler): teneke başına renk gramı ve maliyeti (teklif para biriminde) */
+const canTint=n=>{const c=CATALOG.find(p=>p.name===n);return !!(c&&c.colors&&c.colors.some(x=>/^Base\b/i.test(x)))};
+const tintG=l=>canTint(l.name)?Math.max(0,num(l.tg)):0, tintC=l=>canTint(l.name)?Math.max(0,num(l.tc)):0;
+const hasTint=l=>tintG(l)>0||tintC(l)>0;
+function lineAmt(l){const L=lineL(l),p=num(l.price);return L>0&&p>0?L*p+tintC(l)*num(l.qty):0}
+function kgPrice(l){const a=lineAmt(l),k=lineKg(l);if(!(a>0))return null;if(isKg(l.name)){const kk=lineL(l)+tintG(l)*num(l.qty)/1000;return kk>0?a/kk:null}return k>0?a/k:null}
+const unitP=l=>{const L=lineL(l);return L>0&&lineAmt(l)>0?lineAmt(l)/L:num(l.price)};
+const packKg=l=>{const pk=num(l.pack);if(!pk)return null;if(isKg(l.name))return pk+tintG(l)/1000;const d=num(l.dens);return d>0?pk*d+tintG(l)/1000:null};
+function tintRes(l){const pk=num(l.pack),p=num(l.price),q=num(l.qty);if(!hasTint(l))return "Makinedeki teneke başı değerleri girin.";
+  const k=packKg(l), tp=p>0&&pk?pk*p+tintC(l):null;
+  return `Renklendirilmiş teneke: ${k!=null?"<b>"+fmt(k,2)+" kg</b>":"kg için yoğunluk girin"} · ${tp!=null?"<b>"+money(tp)+"</b> / teneke · satır <b>"+money(tp*q)+"</b>":"fiyat girince hesaplanır"}`;}
+function tintCell(ln,i){if(!canTint(ln.name)||ln.auto)return "";const c=CUR[$("#q-cur").value];
+  return `<details class="tint" data-i="${i}"${ln.tintOpen||hasTint(ln)?" open":""}><summary>Renklendirme${hasTint(ln)?" ✓":""}</summary>
+  <div class="tint-g"><label><span>Renk (g / teneke)</span><input type="number" inputmode="decimal" min="0" step="1" id="q-tg-${i}" data-i="${i}" data-f="tg" value="${esc(ln.tg||"")}" placeholder="ör. 85"></label>
+  <label><span>Maliyet (${c} / teneke)</span><input type="number" inputmode="decimal" min="0" step="0.01" id="q-tc-${i}" data-i="${i}" data-f="tc" value="${esc(ln.tc||"")}" placeholder="makinedeki tutar"></label></div>
+  <p class="tint-r" id="q-tr-${i}">${tintRes(ln)}</p></details>`;}
 const Q = {lines:[], sys:null, no:"", date:new Date()};
 const ASK=[];
 const CUR = {TRY:"₺",EUR:"€",USD:"$"};
@@ -1890,7 +1913,7 @@ function syncThinner(){
     if(!ln.manual){ const pk=bestPack(req,packsOf(nm)); if(pk){ ln.pack=pk; ln.qty=Math.max(1,Math.ceil(req/pk)); } }
   });
 }
-const lineKg = l=>num(l.dens)>0?lineL(l)*num(l.dens):null;
+const lineKg = l=>num(l.dens)>0?lineL(l)*num(l.dens)+tintG(l)*num(l.qty)/1000:null;
 const amt = l=>{const v=lineAmt(l);return v>0?money(v):"—"};
 
 function quoteFromSystem(sy,s,silent){
@@ -1945,7 +1968,7 @@ function renderLines(){
   const tb=$("#q-body");
   tb.innerHTML = Q.lines.map((ln,i)=>{const packs=packsOf(ln.name);const u=isKg(ln.name)?"kg":"L";
    return `<tr${ln.auto?' class="auto"':""}>
-    <td>${ln.key?`<span class="prod">${esc(ln.name)}</span>`:`<input type="text" id="q-n-${i}" data-i="${i}" data-f="name" value="${esc(ln.name)}" placeholder="Ürün adı" aria-label="Ürün adı">`}${ln.auto?`<span class="need">Boyanın %15'i · İhtiyaç ≈ ${fmt(Math.ceil(ln.needL),0)} L</span>`:ln.needL&&!ln.m2?`<span class="need">İhtiyaç ≈ ${fmt(Math.ceil(ln.needL),0)} L</span>`:""}${ln.auto?"":specChip(ln)}${ln.auto?"":colorCell(ln,i)}</td>
+    <td>${ln.key?`<span class="prod">${esc(ln.name)}</span>`:`<input type="text" id="q-n-${i}" data-i="${i}" data-f="name" value="${esc(ln.name)}" placeholder="Ürün adı" aria-label="Ürün adı">`}${ln.auto?`<span class="need">Boyanın %15'i · İhtiyaç ≈ ${fmt(Math.ceil(ln.needL),0)} L</span>`:ln.needL&&!ln.m2?`<span class="need">İhtiyaç ≈ ${fmt(Math.ceil(ln.needL),0)} L</span>`:""}${ln.auto?"":specChip(ln)}${ln.auto?"":colorCell(ln,i)}${tintCell(ln,i)}</td>
     <td class="n" data-label="Ambalaj">${packs.length>1?`<select id="q-k-${i}" data-i="${i}" data-f="pack" aria-label="Ambalaj">${packs.map(x=>`<option value="${x}"${x===num(ln.pack)?" selected":""}>${fmt(x,x%1?2:0)} ${u}</option>`).join("")}</select>`
       :packs.length===1?`<span class="mono">${fmt(packs[0],packs[0]%1?2:0)} ${u}</span>`
       :`<input type="number" id="q-k-${i}" data-i="${i}" data-f="pack" min="0" step="0.1" value="${ln.pack}" placeholder="L" aria-label="Ambalaj litre">`}</td>
@@ -1964,7 +1987,8 @@ function updCells(i){const ln=Q.lines[i];const u=isKg(ln.name)?"kg":"L";
   $("#q-tl-"+i).textContent=lineL(ln)?fmt(lineL(ln),lineL(ln)%1?2:0)+" "+u:"—";
   $("#q-kg-"+i).textContent=lineKg(ln)!=null?fmt(lineKg(ln),1)+" kg":"—";
   $("#q-a-"+i).textContent=amt(ln);
-  const kp=$("#q-kp-"+i); if(kp) kp.textContent=kgPrice(ln)!=null?money(kgPrice(ln)):"";}
+  const kp=$("#q-kp-"+i); if(kp) kp.textContent=kgPrice(ln)!=null?money(kgPrice(ln)):"";
+  const tr=$("#q-tr-"+i); if(tr) tr.innerHTML=tintRes(ln);}
 function onLine(e){
   const t=e.target; let f=t.dataset.f; if(f==null)return; const i=+t.dataset.i, ln=Q.lines[i];
   ln[f]=t.value;
@@ -1982,7 +2006,7 @@ function onLine(e){
   updCells(i); renderDoc(); if(f==="price") missUpd();
 }
 $("#q-body").addEventListener("input",onLine);
-$("#q-body").addEventListener("toggle",e=>{const d=e.target;if(d.classList&&d.classList.contains("calc")){const ln=Q.lines[+d.dataset.i];if(ln)ln.calcOpen=d.open;}},true);
+$("#q-body").addEventListener("toggle",e=>{const d=e.target;if(d.classList&&d.classList.contains("calc")){const ln=Q.lines[+d.dataset.i];if(ln)ln.calcOpen=d.open;} if(d.classList&&d.classList.contains("tint")){const ln=Q.lines[+d.dataset.i];if(ln)ln.tintOpen=d.open;}},true);
 $("#q-body").addEventListener("change",e=>{if(e.target.tagName==="SELECT")onLine(e);});
 $("#q-body").addEventListener("click",e=>{const d=e.target.closest("[data-del]");if(!d)return;const ln=Q.lines[+d.dataset.del];if(ln&&ln.auto){Q.thOff=Q.thOff||{};Q.thOff[ln.thNo]=true;}Q.lines.splice(+d.dataset.del,1);renderLines();renderDoc();});
 $("#q-add-sel").innerHTML = Object.keys(CATS).map(c=>{const items=CATALOG.map((p,i)=>[p,i]).filter(([p])=>p.cat===c&&c!=="MCI Tinter");return items.length?`<optgroup label="${CATS[c][0]}">${items.map(([p,i])=>`<option value="c:${i}">${esc(p.name)}</option>`).join("")}</optgroup>`:""}).join("")+`<option value="__free">Diğer ürün (elle yaz)</option>`;
@@ -2037,7 +2061,7 @@ function totals(){
   const sub=L.reduce((a,l)=>a+lineAmt(l),0);
   const kdvR=Math.max(0,num($("#q-kdv").value)); const kdv=sub*kdvR/100;
   const adet=L.reduce((a,l)=>a+num(l.qty),0), lt=L.filter(l=>!isKg(l.name)).reduce((a,l)=>a+lineL(l),0);
-  const kgKnown=L.every(l=>lineKg(l)!=null||isKg(l.name)), kg=L.reduce((a,l)=>a+(isKg(l.name)?lineL(l):(lineKg(l)||0)),0);
+  const kgKnown=L.every(l=>lineKg(l)!=null||isKg(l.name)), kg=L.reduce((a,l)=>a+(isKg(l.name)?lineL(l)+tintG(l)*num(l.qty)/1000:(lineKg(l)||0)),0);
   return {sub,kdvR,kdv,grand:sub+kdv,adet,lt,kg,kgKnown};
 }
 function fields(){
@@ -2048,8 +2072,8 @@ function fields(){
 }
 function renderDoc(){
   const f=fields(), t=totals();
-  const rows = Q.lines.filter(l=>l.name).map((l,i)=>{const q=num(l.qty),p=num(l.price),u=isKg(l.name)?"kg":"L",kg=isKg(l.name)?lineL(l):lineKg(l);
-    return `<tr><td>${i+1}</td><td>${esc(l.name)}${l.ral?`<br><small style="color:#4b5b74">${esc(l.ral)}</small>`:""}${num(l.m2)>0&&num(l.dft)>0?`<br><small style="color:#4b5b74">${fmt(num(l.m2),0)} m² · ${fmt(num(l.dft),0)} µm</small>`:""}</td><td class="n">${num(l.pack)?fmt(num(l.pack),num(l.pack)%1?2:0)+" "+u:"—"}</td><td class="n">${fmt(q,0)}</td><td class="n">${lineL(l)?fmt(lineL(l),lineL(l)%1?2:0)+" "+u:"—"}</td><td class="n">${kg!=null?fmt(kg,1):"—"}</td><td class="n">${p>0?money(p):"—"}</td><td class="n">${kgPrice(l)!=null?money(kgPrice(l)):"—"}</td><td class="n">${lineAmt(l)>0?money(lineAmt(l)):"—"}</td></tr>`}).join("");
+  const rows = Q.lines.filter(l=>l.name).map((l,i)=>{const q=num(l.qty),p=num(l.price),u=isKg(l.name)?"kg":"L",kg=isKg(l.name)?lineL(l)+tintG(l)*num(l.qty)/1000:lineKg(l);
+    return `<tr><td>${i+1}</td><td>${esc(l.name)}${l.ral?`<br><small style="color:#4b5b74">${esc(l.ral)}</small>`:""}${num(l.m2)>0&&num(l.dft)>0?`<br><small style="color:#4b5b74">${fmt(num(l.m2),0)} m² · ${fmt(num(l.dft),0)} µm</small>`:""}</td><td class="n">${num(l.pack)?fmt(num(l.pack),num(l.pack)%1?2:0)+" "+u:"—"}</td><td class="n">${fmt(q,0)}</td><td class="n">${lineL(l)?fmt(lineL(l),lineL(l)%1?2:0)+" "+u:"—"}</td><td class="n">${kg!=null?fmt(kg,1):"—"}</td><td class="n">${p>0?money(unitP(l)):"—"}</td><td class="n">${kgPrice(l)!=null?money(kgPrice(l)):"—"}</td><td class="n">${lineAmt(l)>0?money(lineAmt(l)):"—"}</td></tr>`}).join("");
   const missing = Q.lines.some(l=>l.name&&!(parseFloat(l.price)>0));
   $("#q-doc").innerHTML = `
    <div class="top"><div><div class="lab">Fiyat teklifi</div><div class="dealer">${f.dealer?esc(f.dealer):"Bayi adı"}</div></div>
@@ -2061,7 +2085,7 @@ function renderDoc(){
    ${missing?`<p style="color:#b5651d;font-size:12px;margin:8px 0 0">Fiyatı girilmemiş satırlar toplama dahil edilmedi.</p>`:""}
    ${rows&&!t.kgKnown&&t.kg?`<p style="color:#4b5b74;font-size:11.5px;margin:4px 0 0">* Yoğunluğu girilmeyen ürünler kg toplamına dahil değildir.</p>`:""}
    ${Q.sys?`<div class="sys"><b>Önerilen sistem: ISO 12944-5/${Q.sys.iso}</b><br>${Q.sys.coats} · Toplam KFK ${Q.sys.dft} µm<br>${Q.sys.sub} · Ortam ${Q.sys.env} · ${Q.sys.dur} · Alan ${fmt(Q.sys.area,0)} m²<br>Yüzey hazırlığı: ${Q.sys.prep}</div>`:""}
-   <ul class="notes"><li>Fiyatlar litre başınadır; kg fiyatı bilgi amaçlıdır. KDV ayrıca gösterilmiştir.</li><li>Adet / takım miktarları teorik sarfiyat ve fire payı ile hesaplanmış ihtiyaca göre yukarı yuvarlanmıştır.</li><li>Teklif ${f.valid} gün geçerlidir. Uygulamadan önce ilgili ürünlerin güncel Jotun teknik föylerini (TDS) kontrol ediniz.</li></ul>`;
+   <ul class="notes"><li>Fiyatlar litre başınadır; kg fiyatı bilgi amaçlıdır. KDV ayrıca gösterilmiştir.</li>${Q.lines.some(l=>l.name&&hasTint(l))?"<li>Renklendirilen ürünlerde renklendirme bedeli birim fiyata dahildir.</li>":""}<li>Adet / takım miktarları teorik sarfiyat ve fire payı ile hesaplanmış ihtiyaca göre yukarı yuvarlanmıştır.</li><li>Teklif ${f.valid} gün geçerlidir. Uygulamadan önce ilgili ürünlerin güncel Jotun teknik föylerini (TDS) kontrol ediniz.</li></ul>`;
   if(window.__gate)window.__gate();
   if(typeof badgeUpd==="function") badgeUpd();
 }
@@ -2069,7 +2093,7 @@ function renderDoc(){
 function custText(){
   const f=fields(), t=totals();
   const L=[`FİYAT TEKLİFİ – ${f.dealer||"Bayi"}`,`Teklif no: ${Q.no||"-"} | Tarih: ${f.date} | Geçerlilik: ${f.until}`,`Sayın ${f.customer||"Müşteri"}${f.project?" – "+f.project:""}`,""];
-  Q.lines.filter(l=>l.name).forEach((l,i)=>{const q=num(l.qty),p=num(l.price),u=isKg(l.name)?"kg":"L",kg=isKg(l.name)?lineL(l):lineKg(l);L.push(`${i+1}. ${l.name}${l.ral?" ("+l.ral+")":""} – ${fmt(q,0)} × ${num(l.pack)?fmt(num(l.pack),num(l.pack)%1?2:0)+" "+u:"-"} = ${lineL(l)?fmt(lineL(l),lineL(l)%1?2:0)+" "+u:"-"}${kg!=null?" ("+fmt(kg,1)+" kg)":""} × ${p>0?money(p)+"/L"+(kgPrice(l)!=null?" ("+money(kgPrice(l))+"/kg)":""):"-"} = ${lineAmt(l)>0?money(lineAmt(l)):"-"}`)});
+  Q.lines.filter(l=>l.name).forEach((l,i)=>{const q=num(l.qty),p=num(l.price),u=isKg(l.name)?"kg":"L",kg=isKg(l.name)?lineL(l)+tintG(l)*num(l.qty)/1000:lineKg(l);L.push(`${i+1}. ${l.name}${l.ral?" ("+l.ral+")":""} – ${fmt(q,0)} × ${num(l.pack)?fmt(num(l.pack),num(l.pack)%1?2:0)+" "+u:"-"} = ${lineL(l)?fmt(lineL(l),lineL(l)%1?2:0)+" "+u:"-"}${kg!=null?" ("+fmt(kg,1)+" kg)":""} × ${p>0?money(unitP(l))+"/L"+(kgPrice(l)!=null?" ("+money(kgPrice(l))+"/kg)":""):"-"} = ${lineAmt(l)>0?money(lineAmt(l)):"-"}`)});
   L.push("",`Toplam: ${fmt(t.adet,0)} ambalaj, ${fmt(t.lt,t.lt%1?2:0)} L${t.kg?", "+fmt(t.kg,1)+" kg"+(t.kgKnown?"":" (yoğunluğu girilenler)"):""}`);
   L.push("",`Ara toplam: ${money(t.sub)}`,`KDV (%${fmt(t.kdvR,0)}): ${money(t.kdv)}`,`GENEL TOPLAM: ${money(t.grand)}`);
   if(Q.sys)L.push("",`Önerilen sistem: ISO 12944-5/${Q.sys.iso} – ${Q.sys.coats} (toplam ${Q.sys.dft} µm KFK)`,`${Q.sys.sub}, ortam ${Q.sys.env}, ${Q.sys.dur}, alan ${fmt(Q.sys.area,0)} m², yüzey hazırlığı ${Q.sys.prep}`);
@@ -3154,8 +3178,8 @@ const WA="905359750483";
 function quoteText(){
   const f=fields(), t=totals();
   const L=["*JOTUN TEKLİF – ONAY İÇİN*",`Bayi: ${f.dealer||"-"}`,`Müşteri: ${f.customer||"-"}${f.project?" – "+f.project:""}`,`Teklif no: ${Q.no||"-"} | Geçerlilik: ${f.valid} gün`,"","Ürünler:"];
-  Q.lines.filter(l=>l.name).forEach((l,i)=>{const q=num(l.qty),p=num(l.price),u=isKg(l.name)?"kg":"L",kg=isKg(l.name)?lineL(l):lineKg(l);
-    L.push(`${i+1}. ${l.name}${l.ral?" ("+l.ral+")":""} – ${fmt(q,0)} × ${num(l.pack)?fmt(num(l.pack),num(l.pack)%1?2:0)+" "+u:"-"} = ${lineL(l)?fmt(lineL(l),lineL(l)%1?2:0)+" "+u:"-"}${kg!=null?" ("+fmt(kg,1)+" kg)":""} × ${p>0?money(p)+"/L":"fiyat yok"} = ${lineAmt(l)>0?money(lineAmt(l)):"-"}`)});
+  Q.lines.filter(l=>l.name).forEach((l,i)=>{const q=num(l.qty),p=num(l.price),u=isKg(l.name)?"kg":"L",kg=isKg(l.name)?lineL(l)+tintG(l)*num(l.qty)/1000:lineKg(l);
+    L.push(`${i+1}. ${l.name}${l.ral?" ("+l.ral+")":""} – ${fmt(q,0)} × ${num(l.pack)?fmt(num(l.pack),num(l.pack)%1?2:0)+" "+u:"-"} = ${lineL(l)?fmt(lineL(l),lineL(l)%1?2:0)+" "+u:"-"}${kg!=null?" ("+fmt(kg,1)+" kg)":""} × ${p>0?money(p)+"/L":"fiyat yok"}${hasTint(l)?` + renklendirme ${money(tintC(l))}/teneke (${fmt(tintG(l),0)} g)`:""} = ${lineAmt(l)>0?money(lineAmt(l)):"-"}`)});
   L.push("",`Toplam: ${fmt(t.adet,0)} ambalaj, ${fmt(t.lt,t.lt%1?2:0)} L${t.kg?", "+fmt(t.kg,1)+" kg":""}`,`Ara toplam: ${money(t.sub)} | KDV %${fmt(t.kdvR,0)}: ${money(t.kdv)}`,`GENEL TOPLAM: ${money(t.grand)}`);
   if(Q.sys)L.push("",`Sistem: ISO 12944-5/${Q.sys.iso} – ${Q.sys.coats} (${Q.sys.dft} µm), ${Q.sys.env}, ${Q.sys.dur}, ${fmt(Q.sys.area,0)} m²`);
   if(ASK.length){L.push("","Danışman'da sorduğu / istedikleri:");ASK.slice(-8).forEach(a=>L.push("• "+a));}
