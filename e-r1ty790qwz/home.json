@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-02",
+ "updated": "2026-11-03",
  "projects": [
   {
    "t": "Ambarlı İleri Biyolojik Atıksu Arıtma Tesisi II. Kademe ve deniz deşarjı",
@@ -64,6 +64,24 @@
  ],
  "news": [
   {
+   "t": "DYO Boya 9 ayda 7,89 milyar TL net satış ve 20,3 milyon TL net kâr açıkladı; üretim %24, satış tonajı %22 geriledi, faaliyet kâr marjı %5'ten %3'e düştü — Türkiye boya pazarında hacim tarafındaki zayıflığa işaret ediyor",
+   "src": "Hibya / KAP",
+   "date": "2026-11-03",
+   "url": "https://hibya.com/dyo-boyanin-uretimi-yuzde-24-satis-tonaji-yuzde-22-geriledi-1080390"
+  },
+  {
+   "t": "Oxea 1 Kasım'dan itibaren çözücü ve ara ürünlerde zam yaptı: Avrupa'da butil asetat ve neopentil glikol +80 €/ton, n-/i-bütanol +90 €/ton, 2-etilheksanol +100 €/ton — çözücü bazlı sistemlerde hammadde maliyetine yansıyabilir",
+   "src": "PCI Magazine",
+   "date": "2026-11-03",
+   "url": "https://pcimag.com/articles/115472-oxea-raises-prices-across-two-chemical-portfolios"
+  },
+  {
+   "t": "Ekim'de TÜFE aylık %2,58, yıllık %29,77 oldu; konut ve enerji grubu yıllık %40,24 ile öne çıktı — enerji ve işçilik maliyetleri uygulama bütçelerinde baskı yaratmayı sürdürebilir",
+   "src": "Coatings Türkiye",
+   "date": "2026-11-03",
+   "url": "https://coatingsturkiye.com/haberler/finans-haberleri/tuik-ekim-ayi-enflasyon-rakamlarini-acikladi"
+  },
+  {
    "t": "Evonik, BASF'ın 12,5 milyar $'lık satın alma teklifini reddetti — kimya/hammadde tarafında konsolidasyon baskısı sürüyor",
    "src": "Coatings Türkiye",
    "date": "2026-11-02",
@@ -94,12 +112,6 @@
    "url": "https://www.sec.gov/Archives/edgar/data/0001616862/000161686226000008/a920268-kquarterlyxex99.htm"
   },
   {
-   "t": "Stabilize çinko pul teknolojisiyle su bazlı korozyon astarlarında metalik çinko %50'den fazla azaltılabiliyor, tuz testinde 1.500 saate ulaşıldı; C3–C4 ortamlara uygun, C5/CX için geliştirme sürüyor — boru, tank ve hafif makinelerde düşük VOC seçeneği olabilir",
-   "src": "European Coatings",
-   "date": "2026-10-29",
-   "url": "https://www.european-coatings.com/news/coatings-technologies/stabilised-zinc-flakes-enable-sustainable-water-borne-anti-corrosion-coatings/"
-  },
-  {
    "t": "Kansai Paint, Polisan Kansai Boya'nın kalan %50 payını 93 milyon $'a alarak tamamına sahip oldu; şirket borç kapatma için sermaye artırımına gidecek — Türkiye boya pazarında yabancı sermayenin ağırlığı artıyor",
    "src": "European Coatings",
    "date": "2026-10-28",
@@ -112,12 +124,6 @@
    "url": "https://www.sec.gov/Archives/edgar/data/0000079879/000007987926000315/exhibit99-3q2026earningsre.htm"
   },
   {
-   "t": "LME'de üç aylık çinko %2,1 artışla 3.821 $/tona çıktı; Şanghay stokları Mart'tan beri en düşük düzeyde, konsantre işleme ücretleri rekor düşükte — çinkoca zengin astarların hammadde maliyeti yukarı yönlü",
-   "src": "Discovery Alert",
-   "date": "2026-10-26",
-   "url": "https://discoveryalert.com/news/zinc-price-lme-stockpiles-october-2026/"
-  },
-  {
    "t": "Saint-Gobain Yapı Kimyasalları Tuzla'da 12. fabrikasını açtı; reçine esaslı zemin sistemleri, koruyucu kaplamalar ve epoksi harçlar üretecek — İstanbul'da endüstriyel zemin kaplamada yerli arz artıyor",
    "src": "Ekonomi Politikası",
    "date": "2026-10-15",
@@ -128,12 +134,6 @@
    "src": "jotun.com",
    "date": "2026-09-24",
    "url": "https://www.jotun.com/gb-en/news-and-insights/corporate/continued-growth-for-jotun"
-  },
-  {
-   "t": "BOSAD verilerine göre küresel boya pazarı 2026'da ~198 milyar $ / 48 milyon ton; Türkiye ~926 bin ton iç talep ve ~2,47 milyar $ büyüklükle Avrupa'da 5. sırada, hammaddenin yalnızca ~%35'i yerli — kur ve hammadde fiyatları maliyetlere hızla yansıyor, rekabet korozyon direnci gibi performans özelliklerine kayıyor",
-   "src": "Ekonomi Gazetesi",
-   "date": "2026-09-18",
-   "url": "https://www.ekonomigazetesi.com/sektor-haberleri/boya-sektorunde-rekabetin-rengi-yeniden-sekilleniyor-87777"
   }
  ],
  "magazine": {
