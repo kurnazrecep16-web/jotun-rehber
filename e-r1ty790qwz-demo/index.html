@@ -1608,6 +1608,17 @@ button.dm-it{cursor:pointer}
 .yg-sec,.yg-c{overflow:hidden}
 .yg-fm label>span:first-child{display:block}
 .yg-acts>*:not(.wa){white-space:nowrap}
+/* v3 */
+.yg-tabs3{grid-template-columns:1fr 1fr 1fr}.yg-tabs3 button{flex-direction:column;gap:4px;height:64px;border-radius:18px;font-size:13.5px}
+.yg-k4{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:10px 0 6px}.yg-k4>div{background:rgba(5,14,32,.5);border:1px solid rgba(140,170,220,.2);border-radius:12px;padding:8px 6px;text-align:center}.yg-k4 b{display:block;font:800 15px var(--f-body);color:#fff}.yg-k4 span{font-size:11.5px;color:rgba(214,224,240,.75);line-height:1.25;display:block;margin-top:2px}
+.yg-q4 b{color:#f0ab00}
+.yg-ft{display:flex;flex-direction:column;gap:8px;margin:8px 0}.yg-ft>div{display:flex;align-items:center;gap:10px;background:rgba(5,14,32,.45);border-radius:12px;padding:10px}.yg-ft i{flex:none;width:4px;align-self:stretch;border-radius:2px}.yg-ft p{flex:1;margin:0}.yg-ft b{display:block;color:#fff;font-size:15px}.yg-ft span{font-size:12.5px;color:rgba(214,224,240,.78)}
+.yg-ft em{flex:none;font:700 12px var(--f-body);font-style:normal;padding:4px 9px;border-radius:8px;background:rgba(31,95,214,.3);color:#cfe0ff}.yg-ft em.o{background:rgba(217,69,43,.22);color:#ffc2b5}
+.yg-pr{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:8px 0 6px}.yg-pr span{background:rgba(240,171,0,.08);border:1px solid rgba(240,171,0,.35);border-radius:12px;padding:8px 10px;font-size:12px;color:rgba(214,224,240,.85)}.yg-pr b{display:block;color:#fff;font:800 15px var(--f-body)}
+.yg-res{grid-template-columns:repeat(3,1fr);gap:6px}.yg-res>div{padding:8px}.yg-res b{font-size:17px}.yg-res span{font-size:11.5px;line-height:1.3;display:block}
+.yg-fx{margin-top:8px}.yg-fx summary{cursor:pointer;font:700 13.5px var(--f-body);color:#cfe0ff}
+.yg-sl>div{display:flex;flex-direction:column;padding:8px 0;border-top:1px solid rgba(140,170,220,.14)}.yg-sl>div:first-of-type{border-top:0}.yg-sl b{color:#fff;font-size:14.5px}.yg-sl span{font-size:13px;color:rgba(214,224,240,.78);margin-top:2px}
+#yg-tabs.yg-tabs3{grid-template-columns:1fr 1fr 1fr}
 .demo-rb{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(70px + env(safe-area-inset-bottom,0px));z-index:80;background:#f0ab00;color:#0b1f45;font:800 11px var(--f-body);letter-spacing:.08em;padding:4px 10px;border-radius:8px;pointer-events:none}
 </style>
 
@@ -1932,9 +1943,8 @@ button.dm-it{cursor:pointer}
   <div class="yg-hero"><a href="#ana" class="yg-back" aria-label="Ana sayfaya dön"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></a>
     <div class="yg-ht"><span class="yg-fi" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 5c4 7 12 12 12 22a12 12 0 0 1-24 0c0-6 3-9 5-12 1 4 3 6 5 6-1-6 0-11 2-16z" fill="#f0ab00"/><path d="M24 41a6 6 0 0 1-6-6c0-3 2-5 3-7 1 2 3 3 4 3 2 1 5 3 5 5a6 6 0 0 1-6 5z" fill="#fff3d1"/></svg></span>
     <div><span class="dm-tag">DEMO</span><h2 id="yg-h">Yangın Koruma</h2><p id="yg-p"></p><i class="yg-bar"></i></div></div></div>
-  <div class="yg-tabs" id="yg-tabs">
+  <div class="yg-tabs yg-tabs3" id="yg-tabs">
     <button type="button" data-yt="how" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/><path d="M3 17.5l9 5 9-5" opacity=".6"/></svg>Nasıl çalışır</button>
-    <button type="button" data-yt="math" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 12h2M12 12h2M16 12h0M8 16h2M12 16h2"/></svg>Hesap mantığı</button>
     <button type="button" data-yt="std" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6c-2-1.5-5-2-8-1.5v13c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5v-13c-3-.5-6 0-8 1.5z"/><path d="M12 6v13"/></svg>Standartlar</button>
     <button type="button" data-yt="req" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6v18h12V8z"/><path d="M9 12h6M9 16h3"/><path d="M14 17l5.5-5.5 2 2L16 19h-2z"/></svg>Analiz talebi</button></div>
   <div id="yg-body"></div>
@@ -3521,7 +3531,7 @@ wxLoad();
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)wxLoad();});
 
 /* Yeni sürüm yayınlandıysa uygulama açıkken kendini yeniler */
-(()=>{const B="1793733499"; if(!/^\d+$/.test(B)) return;
+(()=>{const B="1793733998"; if(!/^\d+$/.test(B)) return;
   const chk=()=>fetch(location.pathname+"?b="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const B="(\d+)"/); if(m&&+m[1]>+B) location.reload();}).catch(()=>{});
   document.addEventListener("visibilitychange",()=>{if(!document.hidden)chk();}); setTimeout(chk,4000);})();
 
@@ -4073,14 +4083,9 @@ function ygChart(H0,T0c,Rp){ const M=YG.m, gas=ygIso, HpA=H0!=null?H0:ygHpA(), T
   const tu=ygHit(sim.u,Tc), tp=ygHit(sim.p,Tc);
   const svg=`<svg class="yg-svg" viewBox="0 0 ${W} ${H}" role="img" aria-label="Zaman-sıcaklık grafiği">${grid}<text x="${W-R0}" y="${H-2}" text-anchor="end" font-size="10" fill="#9fb2cf">dakika</text><text x="${L}" y="10" font-size="10" fill="#9fb2cf">°C</text>
     <line x1="${L}" x2="${W-R0}" y1="${y(Tc)}" y2="${y(Tc)}" stroke="#f0ab00" stroke-dasharray="5 4" stroke-width="1.5"/>
-    <path d="${path(g)}" fill="none" stroke="#ff6a3d" stroke-width="2.4"/><path d="${path(sim.u)}" fill="none" stroke="#6fa8ff" stroke-width="2.4"/><path d="${path(sim.p)}" fill="none" stroke="#3ccf8e" stroke-width="2.4"/>
-    ${tu!=null?`<circle cx="${x(tu)}" cy="${y(Tc)}" r="4" fill="#6fa8ff"/>`:""}${tp!=null?`<circle cx="${x(tp)}" cy="${y(Tc)}" r="4" fill="#3ccf8e"/>`:""}</svg>`;
+    <path d="${path(g)}" fill="none" stroke="#ff6a3d" stroke-width="2.4"/><path d="${path(sim.u)}" fill="none" stroke="#6fa8ff" stroke-width="2.4"/>${Rp===0?"":`<path d="${path(sim.p)}" fill="none" stroke="#3ccf8e" stroke-width="2.4"/>`}
+    ${tu!=null?`<circle cx="${x(tu)}" cy="${y(Tc)}" r="4" fill="#6fa8ff"/>`:""}${tp!=null&&Rp!==0?`<circle cx="${x(tp)}" cy="${y(Tc)}" r="4" fill="#3ccf8e"/>`:""}</svg>`;
   return {svg,tu,tp,Tc,HpA}; }
-function ygMathUpd(){ const el=$("#yg-ch"); if(!el) return; const c=ygChart(), M=YG.m;
-  el.innerHTML=c.svg; $("#yg-tc").textContent=fmt(c.Tc,0)+" °C"; $("#yg-hpv").textContent=c.HpA?fmt(c.HpA,0)+" m⁻¹":"—";
-  $("#yg-res").innerHTML=`<div class="w"><b>${c.tu!=null?fmt(c.tu,0)+" dk":"> 120 dk"}</b><span>Korumasız çelik ${fmt(c.Tc,0)} °C'ye ulaşır</span></div><div class="g"><b>${c.tp!=null?fmt(c.tp,0)+" dk":"> 120 dk"}</b><span>Temsili korumayla (d/λ = ${fmt(M.R,2)})</span></div>`;
-  $("#yg-mu-v").textContent="μ₀ = "+fmt(M.mu,2); $("#yg-R-v").textContent=fmt(M.R,2)+" m²K/W";
-  const hp=$("#yg-hpinfo"); if(hp){ const r={t:M.fam,s:M.s,exp:M.exp}, s=secOf(r); hp.textContent=num(M.hp)>0?"Elle girilen kesit faktörü":s?`${M.fam} ${M.s} · ${M.exp} yüz · çevre ${fmt(secP(r,s),3)} m · kesit ${fmt(s.A*1e4,1)} cm² → Hp/A = ${fmt(hpA(r,s),0)} m⁻¹`:""; } }
 const ygFamOpts=sel=>Object.keys(STD).map(k=>`<option value="${k}"${k===sel?" selected":""}>${k}</option>`).join("");
 const ygSizeOpts=(fam,sel)=>STD[fam].map(p=>`<option value="${p[0]}"${String(p[0])===String(sel)?" selected":""}>${fam} ${p[0]}</option>`).join("");
 
@@ -4105,105 +4110,63 @@ const YGI={ doc:'<path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 12h6M9 16h4"/>
   info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/>', up:'<path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/>', plus:'<path d="M12 5v14M5 12h14"/>', reset:'<path d="M4 12a8 8 0 1 0 2.5-5.8"/><path d="M4 4v4h4"/>', pdf:'<path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 13h6M9 17h6"/>', mail:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>', wa:'<path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/><path d="M9 9c0 3 3 6 6 6l1-1.5-2-1-1 1c-1-.5-2-1.5-2.5-2.5l1-1-1-2z"/>', chev:'<path d="M6 9l6 6 6-6"/>' };
 const ygI=k=>`<svg viewBox="0 0 24 24" aria-hidden="true">${YGI[k]||""}</svg>`;
 
-function ygHow(){ return `
+function ygHow(){ const M=YG.m; return `
 <div class="yg-c"><div class="yg-hh"><div><h3><span class="n">1</span>Çelik yanmaz, ama yangında güç kaybeder</h3>
-<p>Yapı çeliği ısındıkça taşıma gücünü yitirir. 400 °C'ye kadar dayanımını korur, 550–600 °C civarında kritik seviyeye ulaşır.</p></div>${ygBeam("hot","ygb1")}</div>
-<p>Korumasız ince bir profil, bina yangınında 10–15 dakika içinde bu sınıra gelebilir.</p>
-<div class="yg-k"><div><b>400 °C</b><span>Dayanım ≈ %100</span></div><div><b>500 °C</b><span>≈ %78</span></div><div><b>600 °C</b><span>≈ %47</span></div><div><b>700 °C</b><span>≈ %23</span></div></div>
-<small>EN 1993-1-2 Tablo 3.1 · karbon çeliği akma dayanımı azaltma katsayısı.</small>
-<p>Yangın koruma boyasının görevi bu süreyi uzatmaktır: insanların tahliyesi ve itfaiyenin müdahalesi için gereken 30, 60, 90 ya da 120 dakikayı kazandırmak.</p></div>
+<p>Yapı çeliği 400 °C'ye kadar dayanımını korur; 550–600 °C civarında kritik seviyeye ulaşır. Korumasız ince bir profil, bina yangınında 10–15 dakikada bu sınıra gelebilir.</p></div>${ygBeam("hot","ygb1")}</div>
+<div class="yg-k4"><div><b>400 °C</b><span>%100</span></div><div><b>500 °C</b><span>%78</span></div><div><b>600 °C</b><span>%47</span></div><div><b>700 °C</b><span>%23</span></div></div>
+<small>Akma dayanımının kalan oranı · EN 1993-1-2</small></div>
 
-<div class="yg-c"><h3><span class="n">2</span>Her yangın aynı değildir</h3>
-<p>Korumanın nasıl tasarlanacağını, yangının nasıl büyüdüğü belirler. Üç temel tip vardır:</p>
-<div class="yg-std"><b>Selülozik yangın</b><p>Ahşap, kâğıt, tekstil, plastik eşya gibi malzemelerin yanması. Sıcaklık ilk dakikalarda yükselir, 30 dakikada 840 °C'yi, 2 saatte 1050 °C'yi bulur. Depo, fabrika binası, AVM, okul, otopark, havalimanı gibi yapılarda beklenen yangın budur.</p></div>
-<div class="yg-std hc"><b>Hidrokarbon yangını</b><p>Akaryakıt ve gaz yangını. Sıcaklık birkaç dakikada 1000 °C'yi aşar. Rafineri, petrokimya ve tank sahalarında görülür.</p></div>
-<div class="yg-std hc"><b>Jet yangını</b><p>Basınçlı gaz kaçağının alev jeti. Aşırı ısıya ek olarak yüzeyi aşındıran bir kuvveti vardır. Gaz hatları, LNG ve offshore tesislerinde görülür.</p></div>
-<p>Hidrokarbon ve jet yangını için Jotun'un çözümü epoksi esaslı <b>Jotachar</b> serisidir; bu projeler doğrudan Jotun teknik ekibiyle değerlendirilir. Binalarda karşılaşılan selülozik yangın için ise <b>Steelmaster</b> serisi geliştirilmiştir.</p></div>
+<div class="yg-c"><h3><span class="n">2</span>Yangının tipi, korumayı belirler</h3>
+<div class="yg-ft"><div><i style="background:#1f5fd6"></i><p><b>Selülozik</b><span>Ahşap, kâğıt, eşya yangını · depo, fabrika, AVM, okul, otopark</span></p><em>Steelmaster</em></div>
+<div><i style="background:#d9452b"></i><p><b>Hidrokarbon</b><span>Akaryakıt ve gaz yangını · rafineri, petrokimya, tank sahası</span></p><em class="o">Jotachar</em></div>
+<div><i style="background:#d9452b"></i><p><b>Jet yangını</b><span>Basınçlı gaz alevi · gaz hattı, LNG, offshore</span></p><em class="o">Jotachar</em></div></div>
+<p><small>Hidrokarbon ve jet yangını projeleri doğrudan Jotun teknik ekibiyle değerlendirilir.</small></p></div>
 
-<div class="yg-c"><div class="yg-hh"><div><h3><span class="n">3</span>Koruma, ısının çeliğe ulaşmasını geciktirir</h3>
-<p>Steelmaster, yangın anında ısı geçişini yavaşlatarak çeliğin daha uzun süre taşıma gücünü korumasını sağlar.</p></div>${ygBeam("coat","ygb2")}</div>
+<div class="yg-c"><div class="yg-hh"><div><h3><span class="n">3</span>Steelmaster, ısının çeliğe ulaşmasını geciktirir</h3>
+<p>Normalde ince bir boya filmidir. Yangında yaklaşık 200–250 °C'de kabararak ilk kalınlığının onlarca katı, ısıyı çok kötü ileten bir kömür köpüğüne dönüşür.</p></div>${ygBeam("coat","ygb2")}</div>
 <div class="yg-sw" aria-hidden="true"><div class="fl"></div><div class="ch"></div><div class="pr"></div><div class="st"></div><span class="lb" style="bottom:50px">Köpük kömür tabakası</span><span class="lb" style="bottom:10px">Çelik</span></div>
-<p>Steelmaster, normal koşulda çeliğin üzerinde ince bir boya filmidir. Yangında sıcaklık yaklaşık <b>200–250 °C</b>'ye ulaştığında film yumuşar ve içindeki bileşenler birlikte çalışmaya başlar:</p>
-<ul><li><b>Asit kaynağı</b> ayrışarak asit açığa çıkarır,</li><li><b>karbon kaynağı</b> bu asitle kömürleşir,</li><li><b>şişirici</b> gaz vererek yumuşamış kütleyi köpük gibi kabartır.</li></ul>
-<p>Birkaç dakika içinde boya, ilk kalınlığının onlarca katına çıkan, gözenekli ve ısıyı çok kötü ileten bir <b>kömür köpüğüne</b> dönüşür. Bu köpük çeliği alevden yalıtır; çeliğin kritik sıcaklığa varma süresini uzatır. Boya yangını söndürmez, çeliğe <b>zaman kazandırır</b>.</p></div>
+<p>Boya yangını söndürmez; çeliğe tahliye ve müdahale için <b>zaman kazandırır</b>.</p>
+<div class="yg-pr"><span><b>600 WF</b>60 dk · su bazlı</span><span><b>900 WF</b>90 dk · su bazlı</span><span><b>1200 WF</b>120 dk · su bazlı</span><span><b>1200 HPE</b>120 dk · epoksi, dış ortam</span></div>
+<small>Steelmaster serisi · EN 13381-8, BS 476-20/21 sertifikalı</small></div>
 
-<div class="yg-c"><h3><span class="n">4</span>Steelmaster serisi</h3>
-<p>Tümü EN 13381-8 ve BS 476-20/21'e göre test edilmiş, selülozik yangın için sertifikalı intümesan kaplamalardır:</p>
-<div class="yg-k"><div><b>Steelmaster 600 WF</b><span>Su bazlı · 60 dakikaya kadar</span></div><div><b>Steelmaster 900 WF</b><span>Su bazlı · 90 dakikaya kadar</span></div><div><b>Steelmaster 1200 WF</b><span>Su bazlı · 120 dakikaya kadar</span></div><div><b>Steelmaster 1200 HPE</b><span>Epoksi · 120 dakikaya kadar · atölye uygulaması, C5'e kadar dış ortam</span></div></div>
-<p>Hangi ürünün ve hangi kalınlığın kullanılacağı; profilin kesit faktörü, maruziyeti, istenen yangın süresi ve kritik sıcaklığa göre Jotun teknik ekibince belirlenir.</p></div>
+<div class="yg-c"><h3><span class="n">4</span>Kalınlık dört bilgiyle belirlenir</h3>
+<div class="yg-k4 yg-q4"><div><b>R60</b><span>Yangın süresi</span></div><div><b>Hp/A</b><span>Kesit faktörü</span></div><div><b>3 / 4</b><span>Maruziyet (yüz)</span></div><div><b>θcr</b><span>Kritik sıcaklık</span></div></div>
+<p>İnce ve çevresi geniş profil (yüksek Hp/A) daha hızlı ısınır, daha kalın boya ister. Elemanın yükü azaldıkça kritik sıcaklık yükselir, daha az boya gerekir. Kendin dene:</p>
+<div class="yg-ctl"><label>Profil<select id="yg-fam">${ygFamOpts(M.fam)}</select></label><label>Ölçü<select id="yg-sz">${ygSizeOpts(M.fam,M.s)}</select></label><label>Maruziyet<select id="yg-exp"><option value="4"${M.exp==4?" selected":""}>4 yüz</option><option value="3"${M.exp==3?" selected":""}>3 yüz</option></select></label><label><span id="yg-mu-v">Kullanım oranı</span><input type="range" id="yg-mu" min="0.2" max="0.9" step="0.01" value="${M.mu}"></label></div>
+<div class="yg-res" id="yg-res"></div>
+<div id="yg-ch"></div>
+<div class="yg-lg"><span><i style="background:#ff6a3d"></i>Yangın (ISO 834)</span><span><i style="background:#6fa8ff"></i>Korumasız çelik</span><span><i style="background:#f0ab00"></i>Kritik sıcaklık</span></div>
+<p>Bu dört bilgiyle ürünün sertifikalı <b>yükleme tablosundan</b> kalınlık okunur:</p>
+<table class="yg-tb" id="yg-lt"></table>
+<small>Sarı nokta, seçtiğin profilin okunacağı hücredir. Değerler sertifikadadır; kalınlığı Jotun teknik ekibi belirler.</small>
+<details class="yg-fx"><summary>Formülleri göster</summary>
+<div class="yg-f">Yangın eğrisi (ISO 834):  θg = 20 + 345·log₁₀(8t + 1)
+Kritik sıcaklık (EN 1993-1-2):  θcr = 39,19·ln[1/(0,9674·μ₀^3,833) − 1] + 482
+Kesit faktörü:  Hp/A = ısıya açık çevre / kesit alanı
+Çelik ısınması (EN 1993-1-2 §4.2.5):  Δθa = (Hp/A)/(ca·ρa) · ḣnet · Δt</div></details></div>
 
-<div class="yg-c"><h3><span class="n">5</span>Bir sistem olarak düşünün</h3>
-<div class="yg-ly"><div style="background:#e6ecf5">Son kat <small>· nem, kir ve UV'ye karşı korur, renk verir</small></div><div style="background:#f6e7c7">Steelmaster <small>· yangın koruma; kalınlığı sertifikalı tablodan gelir</small></div><div style="background:#f3cfc8">Astar <small>· korozyon koruması</small></div><div style="background:#aab4c3">Çelik <small>· Sa 2½ ya da astar föyündeki yüzey hazırlığı</small></div></div>
-<p>Steelmaster tek başına uygulanmaz. Altındaki astar ve üstündeki son kat, yangın testinde Steelmaster ile birlikte denenmiş ve onaylanmış ürünlerden seçilmelidir; uyumsuz bir astar ya da son kat köpüğün tutunmasını ve kabarmasını bozabilir.</p></div>
+<div class="yg-c"><h3><span class="n">5</span>Doğru sistem, doğru ortam</h3>
+<div class="yg-ly"><div style="background:#e6ecf5">Son kat <small>· nem, kir ve UV'ye karşı</small></div><div style="background:#f6e7c7">Steelmaster <small>· yangın koruma</small></div><div style="background:#f3cfc8">Astar <small>· korozyon koruması</small></div><div style="background:#aab4c3">Çelik <small>· Sa 2½ yüzey hazırlığı</small></div></div>
+<p>Astar ve son kat, Steelmaster ile birlikte test edilmiş onaylı ürünlerden seçilir. Ortam ağırlaştıkça son kat şart olur:</p>
+<div class="yg-k4"><div><b>Z2</b><span>İç, normal nem</span></div><div><b>Z1</b><span>İç, yüksek nem</span></div><div><b>Y</b><span>Yarı açık</span></div><div><b>X</b><span>Dış ortam</span></div></div>
+<p><small>Her profil kendi tablo kalınlığına göre boyanır; kuru film kalınlığı ISO 2808'e göre ölçülür.</small></p></div>
 
-<div class="yg-c"><h3><span class="n">6</span>Ortam belirler: iç mekân mı, dış ortam mı?</h3>
-<p>Avrupa onayında (ETA) sistemin hangi ortamda dayanıklı olduğu dört sınıfla belirtilir:</p>
-<div class="yg-k"><div><b>Z2</b><span>İç mekân, normal nem</span></div><div><b>Z1</b><span>İç mekân, yüksek nem (≥ %85 BN)</span></div><div><b>Y</b><span>Yarı açık; yağmura doğrudan maruz değil</span></div><div><b>X</b><span>Dış ortam, tüm koşullar</span></div></div>
-<p>Ortam ağırlaştıkça son kat çoğu zaman şart olur. Korozyon tarafı için ISO 12944 korozivite sınıfı (C1–CX) ayrıca belirlenir.</p></div>
-
-<div class="yg-c"><div class="yg-hh"><div><h3><span class="n">7</span>Sonuç: daha güvenli, daha uzun süre dayanım</h3>
-<p>Doğru ürün ve doğru kalınlıkla, standartlara uygun yangın dayanımı sağlanır; çelik, tahliye ve müdahale için gereken süre boyunca taşımaya devam eder.</p></div>${ygShield()}</div>
+<div class="yg-c"><div class="yg-hh"><div><h3><span class="n">6</span>Sonuç: daha güvenli, daha uzun süre dayanım</h3>
+<p>Doğru ürün ve doğru kalınlıkla, standartlara uygun yangın dayanımı sağlanır.</p></div>${ygShield()}</div>
 <button type="button" class="yg-cta" data-ygto="req">${ygI("doc")}Projem için analiz talebi hazırla</button></div>`; }
-
-function ygMath(){ const M=YG.m; return `
-<div class="yg-c"><h3><span class="n">1</span>Yangın eğrisi: gaz sıcaklığı</h3>
-<p>Testlerde fırın sıcaklığı standart bir eğriyi izler. Bina yangını için ISO 834 / EN 1363-1:</p>
-<div class="yg-f">θg = 20 + 345 · log₁₀(8t + 1)     [t: dakika]</div>
-<div class="yg-k"><div><b>842 °C</b><span>30 dk</span></div><div><b>945 °C</b><span>60 dk</span></div><div><b>1006 °C</b><span>90 dk</span></div><div><b>1049 °C</b><span>120 dk</span></div></div>
-</div>
-<div class="yg-c"><h3><span class="n">2</span>Kritik çelik sıcaklığı θcr</h3>
-<p>Çeliğin yangında göçmeden taşıyabileceği en yüksek sıcaklık. Elemanın yangın anındaki <b>kullanım oranına</b> (μ₀ = yangındaki yük etkisi ÷ başlangıçtaki taşıma kapasitesi) bağlıdır. EN 1993-1-2 Denklem 4.22:</p>
-<div class="yg-f">θcr = 39,19 · ln[ 1 / (0,9674 · μ₀^3,833) − 1 ] + 482</div>
-<div class="yg-ctl"><label><span id="yg-mu-v">μ₀</span><input type="range" id="yg-mu" min="0.2" max="0.9" step="0.01" value="${M.mu}"></label><label>Kritik sıcaklık<b id="yg-tc" style="font:800 22px var(--f-body);color:#f0ab00"></b></label></div>
-<p><small>Yük azaldıkça θcr yükselir, daha az boya gerekir. θcr'yi projenin statik hesabı belirler; bilinmiyorsa analiz talebinde boş bırakın.</small></p></div>
-<div class="yg-c"><h3><span class="n">3</span>Kesit faktörü Hp/A</h3>
-<p>Isıya açık çevrenin (Hp) kesit alanına (A) oranı. Büyük Hp/A = ince, hızlı ısınan profil = daha kalın boya.</p>
-<div class="yg-f">Hp/A = ısıya açık çevre (m) / kesit alanı (m²)   [m⁻¹]</div>
-<svg class="yg-svg" viewBox="0 0 320 120" aria-hidden="true" style="max-width:420px"><g transform="translate(30,10)"><rect x="0" y="0" width="80" height="10" fill="#5b6b82"/><rect x="35" y="10" width="10" height="70" fill="#5b6b82"/><rect x="0" y="80" width="80" height="10" fill="#5b6b82"/><path d="M-3 -3H83V13H48V77H83V93H-3V77H32V13H-3Z" fill="none" stroke="#ff6a3d" stroke-width="2.5"/><text x="40" y="108" text-anchor="middle" font-size="11" fill="#cfe0ff">4 yüz</text></g>
-<g transform="translate(190,10)"><rect x="-20" y="-8" width="120" height="8" fill="#9aa6b8"/><rect x="0" y="0" width="80" height="10" fill="#5b6b82"/><rect x="35" y="10" width="10" height="70" fill="#5b6b82"/><rect x="0" y="80" width="80" height="10" fill="#5b6b82"/><path d="M-3 3V13H32V77H-3V93H83V77H48V13H83V3" fill="none" stroke="#ff6a3d" stroke-width="2.5"/><text x="40" y="108" text-anchor="middle" font-size="11" fill="#cfe0ff">3 yüz (üst döşeme)</text></g></svg>
-<div class="yg-ctl"><label>Profil<select id="yg-fam">${ygFamOpts(M.fam)}</select></label><label>Ölçü<select id="yg-sz">${ygSizeOpts(M.fam,M.s)}</select></label><label>Maruziyet<select id="yg-exp"><option value="4"${M.exp==4?" selected":""}>4 yüz</option><option value="3"${M.exp==3?" selected":""}>3 yüz</option></select></label><label>Ya da Hp/A gir<input type="number" inputmode="decimal" id="yg-hp" placeholder="m⁻¹" value="${esc(String(M.hp||""))}"></label></div>
-<p><small id="yg-hpinfo"></small></p><p>Kesit faktörü: <b id="yg-hpv"></b></p></div>
-<div class="yg-c"><h3><span class="n">4</span>Çelik ne kadar hızlı ısınır?</h3>
-<p>EN 1993-1-2 §4.2.5'e göre her 5 saniyede çeliğe giren ısı hesaplanır. Korumasız çelik:</p>
-<div class="yg-f">Δθa = (Hp/A) / (ca · ρa) · ḣnet · Δt
-ḣnet = 25·(θg − θa) + 0,7·σ·[(θg+273)⁴ − (θa+273)⁴]</div>
-<p>Yalıtımlı çelik (yalıtım tabakasının ısıl direnci d/λ ile, ısı kapasitesi ihmal):</p>
-<div class="yg-f">Δθa = (Hp/A) · (θg − θa) / (d/λ · ca · ρa) · Δt</div>
-<p><small>ρa = 7850 kg/m³, ca çeliğin sıcaklığa bağlı özgül ısısı (EN 1993-1-2 §3.4.1.2), σ = 5,67·10⁻⁸ W/m²K⁴.</small></p>
-<div class="yg-ctl"><label><span>Temsili koruma d/λ: <b id="yg-R-v"></b></span><input type="range" id="yg-R" min="0.02" max="0.4" step="0.01" value="${M.R}"></label></div>
-<div class="yg-lg"><span><i style="background:#ff6a3d"></i>Gaz (ISO 834)</span><span><i style="background:#6fa8ff"></i>Korumasız çelik</span><span><i style="background:#3ccf8e"></i>Temsili korumalı çelik</span><span><i style="background:#f0ab00"></i>θcr</span></div>
-<div id="yg-ch"></div><div class="yg-res" id="yg-res"></div>
-<p><small>Yeşil eğri sadece prensibi göstermek içindir. İntümesan köpüğün ısıl direnci sıcaklıkla ve kalınlıkla değişir; boya kalınlığı bu grafikten çıkarılamaz.</small></p></div>
-<div class="yg-c"><h3><span class="n">5</span>Kalınlık nereden gelir?</h3>
-<p>Ürün EN 13381-8'e göre yüklü ve yüksüz profillerle fırında test edilir. Test verileriyle her yangın süresi için bir <b>yükleme tablosu</b> hazırlanır: satırlarda Hp/A, sütunlarda kritik sıcaklık, hücrelerde gereken kuru film kalınlığı.</p>
-<table class="yg-tb"><tr><th>Hp/A ↓ · θcr →</th><th>500 °C</th><th>550 °C</th><th>600 °C</th></tr><tr><th>100</th><td>●</td><td>●</td><td>●</td></tr><tr><th>150</th><td>●</td><td class="h">●</td><td>●</td></tr><tr><th>200</th><td>●</td><td>●</td><td>●</td></tr></table>
-<p><small>● = ürünün sertifikasındaki kalınlık değeri (tablo yapısını göstermek içindir, değer içermez). Kolon, kiriş ve boru/kutu profiller için ayrı tablolar vardır. Tablo dışında kalan değerler için interpolasyon kuralları sertifikada tanımlıdır.</small></p>
-<p>Analiz yapacak kişi her profil için: yangın süresi → doğru tablo, Hp/A → satır, θcr → sütun okuyarak kalınlığı bulur; sonra m² × kalınlık ile toplam boya miktarını hesaplar.</p></div>`; }
+function ygHowUpd(){ const el=$("#yg-ch"); if(!el) return; const M=YG.m, r={t:M.fam,s:M.s,exp:M.exp}, s=secOf(r), HpA=s?hpA(r,s):0, Tc=ygCrit(M.mu), c=ygChart(HpA,Tc,0);
+  el.innerHTML=c.svg; $("#yg-mu-v").textContent=`Kullanım oranı μ₀ = ${fmt(M.mu,2)}`;
+  $("#yg-res").innerHTML=`<div><b>${fmt(HpA,0)} m⁻¹</b><span>Hp/A · ${M.fam} ${M.s}, ${M.exp} yüz</span></div><div class="w"><b>${fmt(Tc,0)} °C</b><span>Kritik sıcaklık</span></div><div class="g"><b>${c.tu!=null?fmt(c.tu,0)+" dk":"> 120 dk"}</b><span>Korumasız çelik bu sürede kritik sıcaklığa ulaşır</span></div>`;
+  const rows=[100,150,200,250], cols=[500,550,600,650], ri=rows.reduce((b,x,i)=>Math.abs(x-HpA)<Math.abs(rows[b]-HpA)?i:b,0), ci=cols.reduce((b,x,i)=>Math.abs(x-Tc)<Math.abs(cols[b]-Tc)?i:b,0);
+  $("#yg-lt").innerHTML=`<tr><th>Hp/A ↓ · θcr →</th>${cols.map(x=>`<th>${x} °C</th>`).join("")}</tr>`+rows.map((x,i)=>`<tr><th>${x}</th>${cols.map((y,j)=>`<td class="${i===ri&&j===ci?"h":""}">●</td>`).join("")}</tr>`).join(""); }
 
 const YG_STD=[
- ["Selülozik yangın: test ve sınıflandırma",[
-  ["EN 13381-8","Avrupa","Çelik elemanlara uygulanan reaktif (intümesan) korumanın yangın testi ve değerlendirmesi. Steelmaster yükleme tabloları bu standarda göre çıkar.",""],
-  ["EN 13381-9","Avrupa","Gövdesi delikli (petek/hücreli) kirişlerde yangın koruma değerlendirmesi.",""],
-  ["EN 1363-1 / ISO 834-1","Avrupa · Uluslararası","Yangın dayanım testlerinin genel koşulları ve standart selülozik zaman-sıcaklık eğrisi.",""],
-  ["EN 13501-2","Avrupa","Yangın dayanım sınıflandırması. Taşıyıcı çelik için R: R15, R30, R45, R60, R90, R120, R180, R240.",""],
-  ["EAD 350402-00-1106","Avrupa","Reaktif yangın koruma ürünleri için Avrupa Değerlendirme Belgesi (eski ETAG 018-2). ETA ve CE işaretinin dayanağı; X, Y, Z1, Z2 dayanıklılık sınıfları.",""],
-  ["BS 476-20/21","İngiltere","İngiliz yangın testi standardı; birçok şartnamede hâlâ istenir.",""],
-  ["UL 263 / ASTM E119","ABD","Amerikan selülozik yangın testi; sonuç UL tasarım numarası olarak verilir.",""]]],
- ["Tasarım",[
-  ["EN 1993-1-2 (Eurocode 3)","Avrupa","Çelik yapıların yangın tasarımı: sıcaklıkla dayanım kaybı, kritik sıcaklık (Denk. 4.22), çelik sıcaklık hesabı (§4.2.5).",""],
-  ["EN 1991-1-2 (Eurocode 1)","Avrupa","Yangında yapıya etkiyen yükler ve yangın eğrileri.",""]]],
- ["Korozyon ve uygulama",[
-  ["ISO 12944","Uluslararası","Boya sistemiyle korozyon koruması; ortam korozivite sınıfı (C1–CX) ve astar/son kat seçimi.","cr"],
-  ["ISO 8501-1","Uluslararası","Çelik yüzey hazırlık dereceleri (ör. Sa 2½).","cr"],
-  ["ISO 2808 / ISO 19840","Uluslararası","Kuru film kalınlığı ölçüm yöntemleri ve kabul kriterleri.","cr"]]],
- ["Türkiye",[
-  ["Binaların Yangından Korunması Hakkında Yönetmelik","Türkiye","Yapı elemanlarının yangına dayanım sürelerini bina sınıfı ve yüksekliğine göre belirler. Projede gereken süre (R30/R60/R90…) proje müellifi ve yangın danışmanınca bu yönetmeliğe göre belirlenir.","tr"],
-  ["TS EN 13381-8 · TS EN 13501-2","Türkiye","Avrupa standartlarının Türk Standardı olarak kabul edilmiş halleri.","tr"]]],
- ["Kısaca: hidrokarbon ve jet yangını (Steelmaster kapsamı dışında)",[
-  ["EN 1363-2 · UL 1709","Avrupa · ABD","Hızlı yükselen hidrokarbon yangını eğrisi ve testi.","hc"],
-  ["ISO 22899-1","Uluslararası","Jet yangınına karşı pasif yangın koruma testi.","hc"],
-  ["ISO 20088","Uluslararası","Kriyojenik dökülmeye karşı koruma (LNG tesisleri).","hc"]]]];
-function ygStd(){ return YG_STD.map(([h,L])=>`<div class="yg-c"><h3>${h}</h3>${L.map(([c,r,d,k])=>`<div class="yg-std ${k}"><b>${esc(c)}</b><span class="rg">${esc(r)}</span><p>${esc(d)}</p></div>`).join("")}</div>`).join(""); }
+ ["Test ve sertifika",[["EN 13381-8","Çelikte intümesan korumanın yangın testi; yükleme tabloları buradan çıkar."],["EN 1363-1 · ISO 834","Standart selülozik yangın eğrisi ve test koşulları."],["EN 13501-2","Yangın dayanım sınıfı: R30, R60, R90, R120…"],["EAD 350402 · ETA · CE","Avrupa onayı; X, Y, Z1, Z2 ortam sınıfları."],["BS 476-20/21 · UL 263","İngiliz ve Amerikan yangın testleri; bazı şartnamelerde istenir."]]],
+ ["Tasarım",[["EN 1993-1-2","Eurocode 3: yangında çelik dayanımı, kritik sıcaklık ve ısınma hesabı."]]],
+ ["Uygulama",[["ISO 12944","Korozyon koruması ve ortam sınıfı (C1–CX)."],["ISO 8501-1","Yüzey hazırlığı (Sa 2½)."],["ISO 2808 · ISO 19840","Kuru film kalınlığı ölçümü."]]],
+ ["Türkiye",[["Binaların Yangından Korunması Hakkında Yönetmelik","Bina sınıfı ve yüksekliğine göre gereken dayanım süresini belirler."],["TS EN 13381-8 · TS EN 13501-2","Avrupa standartlarının Türk Standardı karşılıkları."]]],
+ ["Diğer yangın tipleri",[["UL 1709 · ISO 22899-1","Hidrokarbon ve jet yangını testleri (Jotachar)."]]]];
+function ygStd(){ return YG_STD.map(([h,L])=>`<div class="yg-c yg-sl"><h3>${h}</h3>${L.map(([c,d])=>`<div><b>${esc(c)}</b><span>${esc(d)}</span></div>`).join("")}</div>`).join(""); }
 
 /* ---- Analiz talebi ---- */
 const YG_SEL={curve:["Selülozik (ISO 834)","Hidrokarbon / jet"],
@@ -4252,24 +4215,18 @@ const YG_IL="Adana,Adıyaman,Afyonkarahisar,Ağrı,Aksaray,Amasya,Ankara,Antalya
 YG.a=Object.assign({fam:"HEB",s:"300",exp:4,L:"",n:1,el:"Kolon",a:"",b:"",th:""},load("yg-a",{})); YG.st=YG.st||"an"; YG.files=YG.files||[]; YG.open=YG.open||{proj:true};
 const ygAR=()=>{ const A=YG.a; return A.fam in STD?{t:A.fam,s:A.s,exp:+A.exp}:A.fam==="boru"?{t:"boru",d:num(A.a),th:num(A.th),exp:4}:{t:"kutu",a:num(A.a),b:num(A.b)||num(A.a),th:num(A.th),exp:+A.exp}; };
 const ygCritOf=()=>{ const m=String(YG.f.crit||"").match(/(\d{3})/); return m?{T:+m[1],def:false}:{T:ygCrit(0.6),def:true}; };
-const YG_STEPS=[["proj","Proje"],["fire","Yangın"],["env","Ortam"],["prof","Profil"],["ana","Analiz"],["send","Sonuç"]];
+const YG_STEPS=[["proj","Proje"],["fire","Yangın"],["env","Ortam"],["prof","Profil"],["note","Ekler"],["send","Gönder"]];
 function ygDone(){ const f=YG.f, pr=YG.rows.length>0&&YG.rows.every(r=>num(r.L)>0);
-  return {proj:!!f.proj, fire:!!(f.curve&&f.rate), env:!!f.env, prof:pr, ana:pr, send:!!YG.sent}; }
+  return {proj:!!f.proj, fire:!!(f.curve&&f.rate), env:!!f.env, prof:pr, note:!!(f.note||YG.files.length), send:!!YG.sent}; }
 function ygStepHTML(){ const d=ygDone(); const act=(YG_STEPS.find(s=>!d[s[0]])||YG_STEPS[5])[0];
   return YG_STEPS.map(([k,l],i)=>`<button type="button" data-ys="${k}" class="${d[k]?"ok":k===act?"on":""}"><i>${d[k]?"✓":i+1}</i>${l}</button>`).join(""); }
 const ygSec=(k,n,ic,t,body)=>`<details class="yg-sec" id="ys-${k}" data-sec="${k}"${YG.open[k]?" open":""}><summary><span class="ic">${ygI(ic)}</span><b>${n}. ${t}</b><span class="st" id="yst-${k}" hidden>Tamam</span><svg class="cv" viewBox="0 0 24 24">${YGI.chev}</svg></summary><div class="yg-sb">${body}</div></details>`;
 function ygPrevHTML(){ const r=ygAR(), s=secOf(r), hp=s&&s.A>0?hpA(r,s):0;
   return `${r.t==="kutu"?ygBox():r.t==="boru"?ygTube():ygBeam("steel","ygpv")}<b>${esc(stLbl(Object.assign({},r,{exp:4})))}</b><span>${r.t==="boru"?"Çevre":(+r.exp===3?"3 yüz":"4 yüz")}</span><span>Hp/A: ${hp?fmt(hp,0)+" m⁻¹":"—"}</span>`; }
-function ygAnaHTML(){ if(YG.st==="tl"){ const ms=ygMissing();
-    return `<div class="yg-chk">${ms.length?ms.map(x=>`<span class="no">• Eksik: ${x}</span>`).join(""):`<span class="ok">✓ Talep analiz için hazır</span>`}</div><div class="yg-pre">${esc(ygText().replace(/\*/g,""))}</div>`; }
-  const r=YG.rows.length&&!secOf(ygAR())?YG.rows[0]:ygAR(), s=secOf(r), HpA=s&&s.A>0?hpA(r,s):0, C=ygCritOf(), R=0.12, c=ygChart(HpA,C.T,R);
-  const rows=[100,150,200], cols=[500,550,600], ri=rows.reduce((b,x,i)=>Math.abs(x-HpA)<Math.abs(rows[b]-HpA)?i:b,0), ci=cols.reduce((b,x,i)=>Math.abs(x-C.T)<Math.abs(cols[b]-C.T)?i:b,0);
-  return `<div class="yg-an"><div class="yg-pan"><h4>Yangın eğrisi · sıcaklık/zaman</h4>${c.svg}<div class="yg-lg"><span><i style="background:#ff6a3d"></i>Gaz (ISO 834)</span><span><i style="background:#6fa8ff"></i>Korumasız</span><span><i style="background:#3ccf8e"></i>Temsili korumalı</span><span><i style="background:#f0ab00"></i>θcr (${fmt(C.T,0)} °C)</span></div></div>
-   <div class="yg-pan yg-sum"><h4>Hesap özeti</h4><div>${ygI("ibeam")}<span>${esc(stLbl(Object.assign({},r,{exp:4})))} · Hp/A</span><b>${HpA?fmt(HpA,0)+" m⁻¹":"—"}</b></div><div>${ygI("therm")}<span>Kritik sıcaklık${C.def?" (μ₀ = 0,6 varsayımı)":""}</span><b>${fmt(C.T,0)} °C</b></div><div>${ygI("lay")}<span>Temsili koruma d/λ</span><b>${fmt(R,2)} m²K/W</b></div><div>${ygI("clock")}<span>Korumasız çelik ${fmt(C.T,0)} °C'ye</span><b>${c.tu!=null?fmt(c.tu,0)+" dk":"> 120 dk"}</b></div><div>${ygI("clock")}<span>Temsili korumalı çelik</span><b>${c.tp!=null?fmt(c.tp,0)+" dk":"> 120 dk"}</b></div></div></div>
-   <p><small>Yeşil eğri ve süresi prensibi göstermek içindir; Steelmaster'ın gerçek performansı değildir. Kalınlık yalnızca yükleme tablosundan okunur.</small></p>
-   <details class="yg-ld" open><summary>Yükleme tablosu (EN 13381-8) <svg class="cv" viewBox="0 0 24 24" style="width:18px;height:18px;fill:none;stroke:#cfe0ff;stroke-width:2">${YGI.chev}</svg></summary>
-   <table class="yg-tb"><tr><th>Hp/A ↓ · θcr →</th>${cols.map(x=>`<th>${x} °C</th>`).join("")}</tr>${rows.map((x,i)=>`<tr><th>${x}</th>${cols.map((y,j)=>`<td class="${i===ri&&j===ci?"h":""}">●</td>`).join("")}</tr>`).join("")}</table>
-   <p style="margin:0 10px 10px"><small>Sarı nokta, bu profilin tabloda okunacağı yaklaşık hücredir. Değerler ürün sertifikasındadır; analiz yapan kişi okur.</small></p></details>`; }
+function ygAnaHTML(){ const ms=ygMissing(), n=YG.rows.length, m2=YG.rows.reduce((a,r)=>a+ygRowM2(r),0);
+  return `<div class="yg-k4" style="grid-template-columns:repeat(3,1fr)"><div><b>${n}</b><span>profil</span></div><div><b>${fmt(m2,1)}</b><span>m² boyanacak</span></div><div><b>${esc(YG.f.rate||"—")}</b><span>dayanım</span></div></div>
+   <div class="yg-chk">${ms.length?ms.map(x=>`<span class="no">• Eksik: ${x}</span>`).join(""):`<span class="ok">✓ Talep analiz için hazır</span>`}</div>
+   <details class="yg-fx"><summary>Gönderilecek mesajı gör</summary><div class="yg-pre">${esc(ygText().replace(/\*/g,""))}</div></details>`; }
 function ygReq(){ const f=YG.f, A=YG.a, to=YG.to, std=A.fam in STD;
   const I=(k,l,ic,ph,o={})=>`<label${o.w2?' class="w2"':""}><span>${l}${o.req?' <i class="req">*</i>':""}</span><span class="yg-in">${ygI(ic)}<input type="${o.type||"text"}" data-ygf="${k}" value="${esc(f[k]||"")}" placeholder="${ph||""}"${o.list?` list="${o.list}"`:""}></span></label>`;
   const S=(k,l,ic,o={})=>`<label${o.w2?' class="w2"':""}><span>${l}${o.req?' <i class="req">*</i>':""}</span><span class="yg-in">${ygI(ic)}<select data-ygf="${k}">${ygOpts(k,f[k])}</select></span></label>`;
@@ -4287,51 +4244,49 @@ ${ygSec("prof",4,"ibeam","Profil listesi",`<div class="yg-pc"><div class="yg-pv"
    <label>Boy (m)<input type="number" inputmode="decimal" id="yg-aL" value="${esc(String(A.L||""))}" placeholder="0,00"></label><label>Adet<input type="number" inputmode="decimal" id="yg-an" value="${esc(String(A.n||1))}"></label></div></div>
  <div class="yg-bt2"><button type="button" class="a" id="yg-aadd">${ygI("plus")}Profil ekle</button><label class="u"><input type="file" id="yg-upf" accept=".pdf,image/*,.xlsx,.xls,.csv,.txt" hidden>${ygI("up")}<span>Çelik listesi yükle<small>PDF, fotoğraf veya Excel</small></span></label></div>
  <div class="yg-rows" id="yg-rows">${ygRowsHTML()}</div>`)}
-${ygSec("ana",5,"calc","Hesaplama ve analiz",`<div class="yg-sub" id="yg-sub"><button type="button" data-yst="an" aria-pressed="${YG.st==="an"}">Standartlara göre analiz</button><button type="button" data-yst="tl" aria-pressed="${YG.st==="tl"}">Analiz talebi</button></div><div id="yg-ana">${ygAnaHTML()}</div>`)}
-${ygSec("note",6,"clip","Not ve ekler",`<div class="yg-fm"><label class="w2"><span class="yg-in" style="display:block"><textarea data-ygf="note" placeholder="örn. Statik rapor ve çizimler ayrıca gönderilecek; termin 3 hafta">${esc(f.note||"")}</textarea></span></label></div>
+${ygSec("note",5,"clip","Not ve ekler",`<div class="yg-fm"><label class="w2"><span class="yg-in" style="display:block"><textarea data-ygf="note" placeholder="örn. Statik rapor ve çizimler ayrıca gönderilecek; termin 3 hafta">${esc(f.note||"")}</textarea></span></label></div>
  <label class="yg-dz"><input type="file" id="yg-fa" multiple hidden>${ygI("up")}<span><b>Dosya ekle</b> (statik rapor, çizim, şartname vb.)</span></label><div class="yg-files" id="yg-files">${ygFilesHTML()}</div>`)}
-${ygSec("chk",7,"check","Uygulama ve kontrol",`<ul class="yg-ck"><li>Her profil, kendi yükleme tablosundaki kalınlığa göre boyanır; tüm yapıya tek kalınlık verilmez.</li><li>Kat başına ıslak kalınlık ve katlar arası bekleme süresi ürün föyünden (TDS) alınır.</li><li>Kuru film kalınlığı ISO 2808 / ISO 19840'a göre ölçülür.</li><li>Eksik kalınlık yangın süresini doğrudan kısaltır; fazlası maliyeti artırır.</li></ul>`)}
-<div class="yg-bar2" id="ys-send"><div class="yg-rcp"><span>Alıcı: <b>${to.name?esc(to.name):"seçilmedi"}</b>${to.name&&(to.wa||to.mail)?" · "+[to.wa,to.mail].filter(Boolean).map(esc).join(" · "):""}</span><button type="button" class="linkbtn" id="yg-toedit">${to.name?"Değiştir":"Alıcı ekle"}</button></div>
+${ygSec("send",6,"check","Özet ve gönder",`<div id="yg-ana">${ygAnaHTML()}</div>`)}
+<div class="yg-bar2"><div class="yg-rcp"><span>Alıcı: <b>${to.name?esc(to.name):"seçilmedi"}</b>${to.name&&(to.wa||to.mail)?" · "+[to.wa,to.mail].filter(Boolean).map(esc).join(" · "):""}</span><button type="button" class="linkbtn" id="yg-toedit">${to.name?"Değiştir":"Alıcı ekle"}</button></div>
  <div class="yg-acts"><button type="button" id="yg-clr">${ygI("reset")}Temizle</button><button type="button" id="yg-pdf">${ygI("pdf")}PDF</button><a id="yg-mail">${ygI("mail")}E-posta</a><a class="wa" id="yg-wa" target="_blank" rel="noopener">${ygI("wa")}WhatsApp ile gönder</a></div></div>`; }
 function ygFilesHTML(){ return YG.files.map((f,i)=>`<div>${ygI("clip").replace("<svg",'<svg style="width:16px;height:16px;fill:none;stroke:#cfe0ff;stroke-width:2"')}<span>${esc(f.name)}</span><small>${fmt(f.size/1048576,1)} MB</small><button type="button" class="x" data-ygfd="${i}" aria-label="Kaldır" style="background:none;border:0;color:#fff;font-size:18px">×</button></div>`).join(""); }
 function ygLinks(){ const wa=$("#yg-wa"), ml=$("#yg-mail"); if(!wa) return; const t=ygText(), n=(YG.to.wa||"").replace(/\D/g,"");
   wa.href=(n?"https://wa.me/"+n:"https://wa.me/")+"?text="+encodeURIComponent(t);
   ml.href=`mailto:${encodeURIComponent(YG.to.mail||"")}?subject=${encodeURIComponent("Yangın koruma analiz talebi"+(YG.f.proj?" – "+YG.f.proj:""))}&body=${encodeURIComponent(t.replace(/\*/g,""))}`;
   const st=$("#yg-step"); if(st) st.innerHTML=ygStepHTML(); const d=ygDone(); ["proj","fire","env","prof"].forEach(k=>{const e=$("#yst-"+k); if(e) e.hidden=!d[k];});
-  if(YG.st==="tl"){ const a=$("#yg-ana"); if(a) a.innerHTML=ygAnaHTML(); } }
+  const a=$("#yg-ana"); if(a) a.innerHTML=ygAnaHTML(); }
 function ygAnaUpd(){ const a=$("#yg-ana"); if(a) a.innerHTML=ygAnaHTML(); }
 function ygRowsUpd(){ const el=$("#yg-rows"); if(el) el.innerHTML=ygRowsHTML(); ygSave(); ygLinks(); ygAnaUpd(); }
 function ygToEdit(){ const t=YG.to; const d=sheet("Analizi yapacak kişi",`<div class="yg-fm" style="grid-template-columns:1fr"><label>Ad soyad / ünvan<input type="text" id="yg-tn" value="${esc(t.name||"")}" placeholder="örn. Jotun yangın koruma uzmanı"></label><label>WhatsApp numarası<input type="tel" id="yg-tw" value="${esc(t.wa||"")}" placeholder="90 5xx xxx xx xx"></label><label>E-posta<input type="email" id="yg-tm" value="${esc(t.mail||"")}"></label></div><div class="q-actions"><button type="button" class="btn primary" id="yg-tok">Kaydet</button><button type="button" class="btn" data-close>Vazgeç</button></div>`);
   d.querySelector("#yg-tok").onclick=()=>{ YG.to={name:d.querySelector("#yg-tn").value.trim(),wa:d.querySelector("#yg-tw").value.trim(),mail:d.querySelector("#yg-tm").value.trim()}; store("yg-to",YG.to); d.close(); ygRender(); }; }
-const YG_HERO={how:["Yangın Koruma","Çeliğin yangında nasıl korunduğu, Steelmaster’ın çalışma mantığı, standartlar ve kalınlık analizi talebi."],math:["Hesap Mantığı","Yangın eğrisi, kritik sıcaklık ve kesit faktörüyle çeliğin nasıl ısındığı."],std:["Standartlar","Yangın korumada geçerli test, tasarım ve uygulama standartları."],req:["Kalınlık Analizi Talebi","Çelik elemanlar için gerekli bilgileri hazırlayın; yangın koruma kalınlığı analizi için Jotun teknik ekibine gönderin."]};
+const YG_HERO={how:["Yangın Koruma","Çelik yangında neden korunur, Steelmaster nasıl çalışır ve kalınlık neye göre belirlenir."],std:["Standartlar","Yangın korumada bilinmesi gereken test, tasarım ve uygulama standartları."],req:["Kalınlık Analizi Talebi","Çelik elemanlar için gerekli bilgileri hazırlayın; yangın koruma kalınlığı analizi için Jotun teknik ekibine gönderin."]};
 function ygRender(){ const b=$("#yg-body"); if(!b) return; $("#yg-tabs").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.yt===YG.tab));
   const H=YG_HERO[YG.tab]; $("#yg-h").textContent=H[0]; $("#yg-p").textContent=H[1];
-  b.innerHTML=YG.tab==="how"?ygHow():YG.tab==="math"?ygMath():YG.tab==="std"?ygStd():ygReq();
-  if(YG.tab==="math") ygMathUpd(); if(YG.tab==="req") ygLinks(); }
+  b.innerHTML=YG.tab==="how"?ygHow():YG.tab==="std"?ygStd():ygReq();
+  if(YG.tab==="how") ygHowUpd(); if(YG.tab==="req") ygLinks(); }
 const ygA=()=>store("yg-a",YG.a);
-function ygPvUpd(){ const p=$("#yg-pv"); if(p) p.innerHTML=ygPrevHTML(); ygA(); if(YG.st==="an") ygAnaUpd(); }
+function ygPvUpd(){ const p=$("#yg-pv"); if(p) p.innerHTML=ygPrevHTML(); ygA(); }
 $("#yg-tabs").addEventListener("click",e=>{const b=e.target.closest("[data-yt]"); if(!b) return; YG.tab=b.dataset.yt; ygRender(); window.scrollTo(0,0);});
 $("#yg-body").addEventListener("toggle",e=>{ const d=e.target; if(d.dataset&&d.dataset.sec) YG.open[d.dataset.sec]=d.open; },true);
 $("#yg-body").addEventListener("input",e=>{ const t=e.target, M=YG.m, A=YG.a;
-  if(t.id==="yg-mu"){ M.mu=+t.value; ygMathUpd(); } else if(t.id==="yg-R"){ M.R=+t.value; ygMathUpd(); } else if(t.id==="yg-hp"){ M.hp=t.value; ygMathUpd(); }
+  if(t.id==="yg-mu"){ M.mu=+t.value; ygHowUpd(); }
   else if(t.dataset.ygf){ YG.f[t.dataset.ygf]=t.value; YG.sent=false; ygSave(); ygLinks(); }
   else if(["yg-aa","yg-ab","yg-at"].includes(t.id)){ A[{"yg-aa":"a","yg-ab":"b","yg-at":"th"}[t.id]]=t.value; ygPvUpd(); }
   else if(t.id==="yg-aL"){ A.L=t.value; ygA(); } else if(t.id==="yg-an"){ A.n=t.value; ygA(); }
   else if(t.dataset.yge!=null&&t.tagName==="INPUT"){ const r=YG.rows[+t.dataset.yge]; r[t.dataset.k]=t.value; r.uns=false; ygSave(); ygLinks(); const sm=t.closest(".yg-row").querySelector("small"); const hp=ygRowHp(r); if(sm) sm.textContent=`Hp/A ${hp?fmt(hp,0)+" m⁻¹":"— (et kalınlığı gerekli)"} · ${fmt(ygRowM2(r),1)} m²`; } });
 $("#yg-body").addEventListener("change",e=>{ const t=e.target, M=YG.m, A=YG.a;
-  if(t.id==="yg-fam"){ M.fam=t.value; M.s=STD[M.fam].some(p=>p[0]==M.s)?M.s:String(STD[M.fam][Math.min(6,STD[M.fam].length-1)][0]); $("#yg-sz").innerHTML=ygSizeOpts(M.fam,M.s); M.hp=""; $("#yg-hp").value=""; ygMathUpd(); }
-  else if(t.id==="yg-sz"){ M.s=t.value; M.hp=""; $("#yg-hp").value=""; ygMathUpd(); } else if(t.id==="yg-exp"){ M.exp=+t.value; M.hp=""; $("#yg-hp").value=""; ygMathUpd(); }
-  else if(t.dataset.ygf){ YG.f[t.dataset.ygf]=t.value; YG.sent=false; ygSave(); ygLinks(); const w=$("#yg-hcw"); if(w) w.hidden=!(YG.f.curve||"").startsWith("Hidro"); if(t.dataset.ygf==="crit") ygAnaUpd(); }
+  if(t.id==="yg-fam"){ M.fam=t.value; M.s=STD[M.fam].some(p=>p[0]==M.s)?M.s:String(STD[M.fam][Math.min(6,STD[M.fam].length-1)][0]); $("#yg-sz").innerHTML=ygSizeOpts(M.fam,M.s); ygHowUpd(); }
+  else if(t.id==="yg-sz"){ M.s=t.value; ygHowUpd(); } else if(t.id==="yg-exp"){ M.exp=+t.value; ygHowUpd(); }
+  else if(t.dataset.ygf){ YG.f[t.dataset.ygf]=t.value; YG.sent=false; ygSave(); ygLinks(); const w=$("#yg-hcw"); if(w) w.hidden=!(YG.f.curve||"").startsWith("Hidro"); }
   else if(t.id==="yg-afam"){ A.fam=t.value; if(A.fam in STD&&!STD[A.fam].some(p=>p[0]==A.s)) A.s=String(STD[A.fam][Math.min(6,STD[A.fam].length-1)][0]); if(A.fam==="boru") A.exp=4; ygA(); const sc=$("#ys-prof .yg-sb"); ygRender(); }
   else if(t.id==="yg-asz"){ A.s=t.value; ygPvUpd(); } else if(t.id==="yg-aexp"){ A.exp=+t.value; ygPvUpd(); } else if(t.id==="yg-ael"){ A.el=t.value; ygA(); }
   else if(t.id==="yg-upf"){ const f=t.files[0]; t.value=""; if(f) ygFile(f); }
-  else if(t.id==="yg-fa"){ [...t.files].forEach(f=>YG.files.push(f)); t.value=""; $("#yg-files").innerHTML=ygFilesHTML(); toast(`${YG.files.length} dosya eklendi`); }
+  else if(t.id==="yg-fa"){ [...t.files].forEach(f=>YG.files.push(f)); t.value=""; $("#yg-files").innerHTML=ygFilesHTML(); ygLinks(); toast(`${YG.files.length} dosya eklendi`); }
   else if(t.dataset.yge!=null&&t.tagName==="SELECT"){ const r=YG.rows[+t.dataset.yge]; r[t.dataset.k]=t.dataset.k==="exp"?+t.value:t.value; ygRowsUpd(); } });
 $("#yg-body").addEventListener("click",async e=>{ const t=e.target.closest("button,a")||e.target;
   if(t.dataset.ygto){ YG.tab=t.dataset.ygto; ygRender(); window.scrollTo(0,0); return; }
   if(t.dataset.ys){ const k=t.dataset.ys, el=$("#ys-"+k); if(el){ if(el.tagName==="DETAILS"){ el.open=true; YG.open[k]=true; } el.scrollIntoView({behavior:"smooth",block:"start"}); } return; }
-  if(t.dataset.yst){ YG.st=t.dataset.yst; $("#yg-sub").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.yst===YG.st)); ygAnaUpd(); return; }
-  if(t.dataset.ygfd!=null){ YG.files.splice(+t.dataset.ygfd,1); $("#yg-files").innerHTML=ygFilesHTML(); return; }
+    if(t.dataset.ygfd!=null){ YG.files.splice(+t.dataset.ygfd,1); $("#yg-files").innerHTML=ygFilesHTML(); ygLinks(); return; }
   if(t.id==="yg-toedit") ygToEdit();
   else if(t.dataset.ygdel!=null){ YG.rows.splice(+t.dataset.ygdel,1); ygRowsUpd(); }
   else if(t.id==="yg-aadd"){ const A=YG.a, r=ygAR(), L=num(A.L), n=Math.max(1,num(A.n)||1);
