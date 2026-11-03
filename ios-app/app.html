@@ -1449,6 +1449,34 @@ button.dm-it{cursor:pointer}
 .dm-hcard{position:relative}.dm-hcard .dm-bd{position:static;flex:none;margin-right:6px}
 .dm-hcard #dm-sub{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
 .dm-hcard #dm-sub em{font-style:normal;color:#f0ab00;font-weight:700}
+
+#v-sarfiyat .sf-up{display:flex;align-items:center;gap:12px;margin-top:12px;padding:12px 14px;border:1.5px dashed rgba(240,171,0,.55);border-radius:14px;background:rgba(240,171,0,.08);cursor:pointer;color:#fff}
+#v-sarfiyat .sf-up svg{width:24px;height:24px;flex:none;fill:none;stroke:#f0ab00;stroke-width:1.8;stroke-linecap:round}
+#v-sarfiyat .sf-up span{display:flex;flex-direction:column}#v-sarfiyat .sf-up small{color:rgba(214,224,240,.75);font-size:12.5px}
+.sf-alist{margin-top:12px;background:#f4f7fb;color:#0b1f45;border-radius:14px;padding:10px 12px}
+.sf-alist[hidden]{display:none}
+.sf-alh{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}.sf-alh b{font-size:14px}.sf-alh .linkbtn{color:#b03a2e;font-size:13px}
+.sf-ali{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid #dbe2ec;font-size:14px}
+.sf-ali .n{width:22px;height:22px;border-radius:50%;background:#1f5fd6;color:#fff;font:700 11.5px/22px var(--f-body);text-align:center;flex:none}
+.sf-ali .t{flex:1;min-width:0}.sf-ali .t small{display:block;color:#7a869c;font-size:11.5px}
+.sf-ali .x{border:0;background:none;color:#b03a2e;font-size:20px;cursor:pointer;padding:0 4px}
+.sf-ali.tot{border:0;font-size:15px}.sf-ali.tot b{color:#1f5fd6;font-size:17px}
+.sf-alw{margin:6px 0 0;font-size:12.5px;color:#9a5b00}.sf-alw .linkbtn{color:#1f5fd6}
+.st-rows{display:flex;flex-direction:column;gap:8px}
+.st-r{display:flex;gap:10px;background:rgba(255,255,255,.06);border:1px solid rgba(140,170,220,.25);border-radius:12px;padding:10px}
+.st-r.uns{border-color:#f0ab00;background:rgba(240,171,0,.1)}
+.st-c input{width:20px;height:20px;margin-top:2px}
+.st-m{flex:1;min-width:0}.st-m b{display:block}.st-m small{display:block;color:rgba(214,224,240,.6);font-size:11.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.st-q{display:flex;gap:6px;align-items:center;margin-top:6px}.st-q input,.st-q select{height:40px;border-radius:10px;border:1px solid #c9d3e3;padding:0 10px;font:500 15px var(--f-body);min-width:0}
+.st-q input{flex:1 1 0!important;width:auto!important;min-width:60px;background:#fff!important;color:#0b1f45!important}.st-q select{flex:0 0 92px!important;width:92px!important;background:#fff!important;color:#0b1f45!important;padding:0 8px!important}.st-a{flex:none;font-weight:700;color:#f0ab00;min-width:70px;text-align:right}
+.st-tot{margin:10px 0;font-size:15px}.st-sk{margin:8px 0;font-size:13px}.st-sk ul{padding-left:18px;max-height:200px;overflow:auto}
+
+.dm-kpb button{border:0;font:inherit;cursor:pointer;background:#0b1f45;color:#fff;border-radius:10px;padding:8px 6px;text-align:center;position:relative}
+.dm-kpb button::after{content:"›";position:absolute;right:6px;top:4px;color:rgba(255,255,255,.4);font-size:14px}
+.dm-kpb button:active{background:#16305f}
+.dm-kpb b{display:block;font:800 18px var(--f-body);color:#f0ab00}.dm-kpb span{font-size:11px;opacity:.85}
+.dm-bar[data-pk]{cursor:pointer}
+.sheet .dm-it{margin-bottom:8px}
 </style>
 
 <div id="app-bg" aria-hidden="true"></div>
@@ -1675,6 +1703,8 @@ button.dm-it{cursor:pointer}
           <div class="sf-ag" data-a="tank" hidden><label class="sf-f"><span>Çap</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-td" placeholder="0"><i>m</i></span></label><label class="sf-f"><span>Yükseklik</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-th" placeholder="0"><i>m</i></span></label><div class="sf-chk"><label><input type="checkbox" id="sf-tt" checked> Tavan</label><label><input type="checkbox" id="sf-tb"> Taban</label></div></div>
           <div class="sf-ag" data-a="ton" hidden><label class="sf-f"><span>Çelik miktarı</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-tn" placeholder="0"><i>ton</i></span></label><div class="sf-chips sf-tfc" id="sf-tfc"><button type="button" data-tf="15" aria-pressed="false">Ağır<small>≈15 m²/t</small></button><button type="button" data-tf="25" aria-pressed="false">Orta<small>≈25 m²/t</small></button><button type="button" data-tf="35" aria-pressed="false">Hafif<small>≈35 m²/t</small></button></div><label class="sf-f"><span>Ton başına yüzey</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-tf" placeholder="0"><i>m²/t</i></span></label><p class="hint sf-tip">Profil tipini bilmiyorsanız yaklaşık değer seçin. Ağır: kalın kolon/kiriş, Orta: karışık konstrüksiyon, Hafif: ince profil, makas, korkuluk. Profil biliniyorsa "Profil" sekmesi daha doğrudur.</p></div>
           <div class="sf-ares"><span id="sf-ar">—</span><span class="sf-abtns"><button type="button" class="btn" id="sf-aadd">Alana ekle</button><button type="button" class="btn primary" id="sf-aset">Alan olarak kullan</button></span></div>
+          <label class="sf-up"><input type="file" id="sf-upf" accept=".pdf,image/*,.xlsx,.xls,.csv,.txt" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.5l-8.5 8.5a5 5 0 0 1-7-7L14 5.5a3.3 3.3 0 0 1 4.7 4.7l-8.5 8.5a1.7 1.7 0 0 1-2.4-2.4l7.8-7.8"/></svg><span><b>Çelik listesi yükle</b><small>PDF, fotoğraf veya Excel – profiller okunup listeye eklenir</small></span></label>
+          <div class="sf-alist" id="sf-alist"></div>
         </div>
         <div class="sf-kp" id="sf-kp"></div>
       </div>
@@ -2367,7 +2397,7 @@ $("#r-list").addEventListener("click",e=>{const b=e.target.closest(".r-cg");if(!
 /* ---------- Şartname metni ve karşılaştırma (Grundfos "tender text" mantığı) ---------- */
 function sheet(title,html,cls){
   let d=$("#sheet"); if(!d){d=document.createElement("dialog");d.id="sheet";d.className="sheet";document.body.appendChild(d);d.addEventListener("click",e=>{if(e.target===d||e.target.closest("[data-close]"))d.close();});}
-  d.className="sheet"+(cls?" "+cls:"");
+  d.className="sheet"+(cls?" "+cls:""); d.oninput=null; d.onchange=null; d.onclick=null;
   d.innerHTML=`<div class="sheet-in"><div class="sheet-h"><h3>${title}</h3><button type="button" class="x" data-close aria-label="Kapat">×</button></div>${html}</div>`;
   try{d.showModal()}catch(e){d.setAttribute("open","")}
   try{const a=document.activeElement; if(a&&d.contains(a)&&a.classList.contains("x")) a.blur();}catch(e){}
@@ -3533,7 +3563,7 @@ function sfChips(){
   $("#sf-prof").innerHTML=SF_PROF.map(([v,a,b])=>`<button type="button" data-prof="${v}" aria-pressed="${v===num(SF.prof)}"><i class="tx tx${v}"></i><span>${a}${b?`<small>${b}</small>`:""}</span></button>`).join("");
 }
 function sfUpd(){ SF.coats.forEach((c,i)=>{const el=$("#sf-r-"+i); if(el) el.innerHTML=sfResHTML(c,i);}); sfSum(); sfSave(); }
-function sfRender(){
+function sfRender(){ setTimeout(()=>{try{sfListRender()}catch(e){}},0);
   $("#sf-area").value=SF.area||""; $("#sf-proj").value=SF.proj||""; $("#sf-who").value=load("sf-who",""); sfChips();
   $("#sf-coats").innerHTML=SF.coats.map(sfCoat).join(""); sfSum(); sfSave();
 }
@@ -3542,7 +3572,7 @@ function sfFromSystem(sy,s){
   SF.sys={iso:sy.iso,env:s.env==="Im"?"Im1–Im3":s.env,dur:DUR[s.dur],sub:s.sub==="cs"?"Karbon çelik":"Sıcak daldırma galvaniz",prep:s.sub==="cs"?"Sa 2½ (ISO 8501-1)":"Süpürme raspa (ISO 12944-4)"};
   sfRender(); location.hash="#sarfiyat"; toast("Sarfiyata aktarıldı");
 }
-$("#sf-area").addEventListener("input",e=>{SF.area=e.target.value;sfUpd();});
+$("#sf-area").addEventListener("input",e=>{SF.area=e.target.value; setTimeout(()=>{try{sfListRender()}catch(_){}} ,0);sfUpd();});
 $("#sf-proj").addEventListener("input",e=>{SF.proj=e.target.value;sfSave();});
 $("#sf-who").addEventListener("input",e=>store("sf-who",e.target.value));
 $("#sf-loss").addEventListener("click",e=>{const b=e.target.closest("[data-loss]");if(!b)return;SF.loss=+b.dataset.loss;sfChips();sfUpd();});
@@ -3577,8 +3607,76 @@ $("#sf-ps").addEventListener("change",()=>{sfProfUI();sfArea();}); sfProfUI();
 $("#sf-tfc").addEventListener("click",e=>{const b=e.target.closest("[data-tf]");if(!b)return;$("#sf-tf").value=b.dataset.tf;$("#sf-tfc").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b));sfArea();});
 $("#sf-tf").addEventListener("input",()=>$("#sf-tfc").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.tf===$("#sf-tf").value)));
 $("#sf-areaw").addEventListener("input",sfArea);$("#sf-areaw").addEventListener("change",sfArea);
-$("#sf-aset").addEventListener("click",()=>{const a=sfArea();if(!(a>0))return;SF.area=Math.round(a*10)/10;$("#sf-area").value=SF.area;sfUpd();toast("Alan güncellendi");});
-$("#sf-aadd").addEventListener("click",()=>{const a=sfArea();if(!(a>0))return;SF.area=Math.round((num(SF.area)+a)*10)/10;$("#sf-area").value=SF.area;sfUpd();toast(`${fmt(a,1)} m² eklendi`);});
+function sfAreaLbl(){ const v=id=>num($("#"+id).value), f=(x,d)=>fmt(x,d);
+  if(SFA==="prof"){ const t=$("#sf-ps").value; if(t==="kutu") return `Kutu ${v("sf-ka")}×${v("sf-kb")} mm · ${f(v("sf-pq"),1)} m`; return `${t} ${$("#sf-pz").value} · ${f(v("sf-pq"),1)} ${$("#sf-pu").value==="ton"?"ton":"m"}`; }
+  if(SFA==="ton") return `Çelik ${f(v("sf-tn"),1)} ton × ${f(v("sf-tf"),0)} m²/t`;
+  if(SFA==="boru") return `Boru Ø${v("sf-pd")} mm · ${f(v("sf-pl"),1)} m${(v("sf-pn")||1)>1?" × "+v("sf-pn"):""}`;
+  if(SFA==="levha") return `Levha ${v("sf-le")}×${v("sf-lb")} m${(v("sf-ln")||1)>1?" × "+v("sf-ln"):""}${$("#sf-l2").checked?" · 2 yüz":""}`;
+  if(SFA==="tank") return `Tank Ø${v("sf-td")} × ${v("sf-th")} m${$("#sf-tt").checked?" + tavan":""}${$("#sf-tb").checked?" + taban":""}`; return "Kalem"; }
+const sfItems=()=>(SF.items=SF.items||[]);
+const sfItemsTot=()=>sfItems().reduce((a,x)=>a+num(x.m2),0);
+function sfListRender(){ const L=sfItems(), el=$("#sf-alist"); if(!el) return; const tot=sfItemsTot(), ar=num(SF.area);
+  if(!L.length){ el.innerHTML=""; el.hidden=true; return; } el.hidden=false;
+  el.innerHTML=`<div class="sf-alh"><b>Hesaplanan kalemler · ${L.length}</b><button type="button" class="linkbtn" id="sf-alclr">Listeyi temizle</button></div>`+L.map((x,i)=>`<div class="sf-ali"><span class="n">${i+1}</span><span class="t">${esc(x.lbl)}${x.src?`<small>${esc(x.src)}</small>`:""}</span><b>${fmt(num(x.m2),1)} m²</b><button type="button" class="x" data-ali="${i}" aria-label="Kalemi sil">×</button></div>`).join("")+
+   `<div class="sf-ali tot"><span class="t">Toplam</span><b>${fmt(tot,1)} m²</b></div>${Math.abs(tot-ar)>0.05?`<p class="sf-alw">Boyanacak alan (${fmt(ar,1)} m²) listedeki toplamdan farklı. <button type="button" class="linkbtn" id="sf-alsync">Alanı ${fmt(tot,1)} m² yap</button></p>`:""}`;
+  el.querySelectorAll("[data-ali]").forEach(b=>b.onclick=()=>{ const x=L.splice(+b.dataset.ali,1)[0]; SF.area=Math.max(0,Math.round((num(SF.area)-num(x.m2))*10)/10)||""; $("#sf-area").value=SF.area; sfUpd(); sfListRender(); });
+  const c=$("#sf-alclr"); if(c) c.onclick=()=>{ SF.items=[]; SF.area=""; $("#sf-area").value=""; sfUpd(); sfListRender(); };
+  const sy=$("#sf-alsync"); if(sy) sy.onclick=()=>{ SF.area=Math.round(tot*10)/10; $("#sf-area").value=SF.area; sfUpd(); sfListRender(); };
+}
+function sfAddItem(lbl,a,src){ sfItems().push({lbl,m2:Math.round(a*100)/100,src:src||""}); SF.area=Math.round((num(SF.area)+a)*10)/10; $("#sf-area").value=SF.area; sfUpd(); sfListRender(); }
+$("#sf-aset").addEventListener("click",()=>{const a=sfArea();if(!(a>0))return;SF.items=[{lbl:sfAreaLbl(),m2:Math.round(a*100)/100}];SF.area=Math.round(a*10)/10;$("#sf-area").value=SF.area;sfUpd();sfListRender();toast("Alan güncellendi");});
+$("#sf-aadd").addEventListener("click",()=>{const a=sfArea();if(!(a>0))return;sfAddItem(sfAreaLbl(),a);toast(`${fmt(a,1)} m² eklendi`);});
+/* Çelik listesi yükleme: PDF / fotoğraf / Excel → profil satırları */
+const trNum=x=>{x=String(x).trim(); if(/,\d{1,3}$/.test(x)) x=x.replace(/\./g,"").replace(",","."); else if(/^\d{1,3}(\.\d{3})+$/.test(x)) x=x.replace(/\./g,""); else x=x.replace(/,/g,""); return parseFloat(x);};
+function steelParse(text){ const rows=[], skip=[];
+  text.split(/\n+/).map(l=>l.replace(/\s+/g," ").trim()).filter(l=>l.length>2).forEach(l=>{
+    let m, r=null; const L=l.toUpperCase().replace(/HE\s*([AB])\s*(\d)/g,"HE$1 $2");
+    if((m=L.match(/\b(IPE|HEA|HEB)\s*-?\s*(\d{2,3})\b/))&&PROF[m[1]]&&PROF[m[1]].some(p=>p[0]===+m[2])) r={t:m[1],s:m[2]};
+    else if((m=L.match(/\b(\d{2,3})\s*[X×\*]\s*(\d{2,3})\s*[X×\*]\s*\d+(?:[.,]\d+)?/))) r={t:"kutu",a:+m[1],b:+m[2]};
+    else if((m=L.match(/(?:Ø|BORU\s*)(\d{2,4}(?:[.,]\d+)?)/))) r={t:"boru",d:trNum(m[1])};
+    else if(/\b(UPN|NPU|NPI|INP|L\s*\d{2,3}\s*[X×]|HEM|IPN)\b/.test(L)){ skip.push(l+" → tabloda yok"); return; }
+    if(!r){ if(/\d/.test(l)&&/(kg|ton|\bm\b|mt|metre|adet)/i.test(l)) skip.push(l); return; }
+    const rest=l.slice(l.toUpperCase().indexOf(m[0])+m[0].length);
+    const last=re=>{const all=[...rest.matchAll(re)]; return all.length?all[all.length-1]:null;};
+    const kg=last(/(\d[\d.,]*)\s*(kg)(?![a-zğüşıöç])/gi), ton=last(/(\d[\d.,]*)\s*(ton|t)(?![a-zğüşıöç])/gi), mt=last(/(\d[\d.,]*)\s*(m|mt|metre|mtül)(?![a-zğüşıöç²])/gi);
+    if(ton&&r.t!=="kutu"&&r.t!=="boru"){ r.q=trNum(ton[1]); r.u="ton"; } else if(kg&&r.t!=="kutu"&&r.t!=="boru"){ r.q=trNum(kg[1])/1000; r.u="ton"; } else if(mt){ r.q=trNum(mt[1]); r.u="m"; }
+    else { const nums=(rest.match(/\d[\d.,]*/g)||[]).map(trNum).filter(x=>x>0); r.q=nums.length?Math.max(...nums):""; r.u="m"; r.unsure=true; }
+    r.line=l; rows.push(r); });
+  return {rows,skip}; }
+const stM2=r=>{ const q=num(r.q); if(!(q>0)) return 0; if(r.t==="kutu") return 2*(r.a+r.b)/1000*q; if(r.t==="boru") return Math.PI*r.d/1000*q;
+  const P=PROF[r.t].find(x=>x[0]===+r.s); return P?(r.u==="ton"?P[2]/P[1]*1000*q:P[2]*q):0; };
+const stLbl=r=>r.t==="kutu"?`Kutu ${r.a}×${r.b} mm`:r.t==="boru"?`Boru Ø${fmt(r.d,1)} mm`:`${r.t} ${r.s}`;
+async function steelFile(f){
+  const n=f.name.toLowerCase(), t=(f.type||"").toLowerCase(); toast("Liste okunuyor…");
+  let text="", note="";
+  try{
+    if(t==="application/pdf"||n.endsWith(".pdf")){ text=await pdfText(f); if(pdfText.ocr) note="Taranmış PDF; yazı tanıma ile okundu."; if(pdfText.drop) note+=` Net okunamayan ${pdfText.drop} satır atlandı.`; }
+    else if(t.startsWith("image/")){ text=await ocr(f); if(ocr.drop) note=`Net okunamayan ${ocr.drop} satır atlandı.`; }
+    else if(/\.(xlsx|xls)$/.test(n)){ if(!window.XLSX) await loadScript("https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"); const wb=XLSX.read(await f.arrayBuffer());
+      text=wb.SheetNames.map(sn=>XLSX.utils.sheet_to_json(wb.Sheets[sn],{header:1}).map(r=>r.map(c=>c==null?"":String(c)).join(" \t ")).join("\n")).join("\n"); }
+    else text=await f.text();
+  }catch(e){ toast("Dosya okunamadı"); return; }
+  if(!text.trim()){ toast("Dosyada yazı okuyamadım"); return; }
+  const {rows,skip}=steelParse(text); steelReview(rows,skip,f.name,note);
+}
+function steelReview(rows,skip,name,note){
+  const body=()=>`<p class="hint">${esc(name)}${note?" · "+esc(note):""}</p>
+   ${rows.length?`<p class="hint">Okunan ${rows.length} kalem. Miktarları kontrol edin; <b style="color:#f0ab00">sarı</b> olanlarda birimden emin olamadım.</p>
+   <div class="st-rows">${rows.map((r,i)=>`<div class="st-r${r.unsure?" uns":""}"><label class="st-c"><input type="checkbox" data-sc="${i}" ${r.off?"":"checked"}></label><div class="st-m"><b>${esc(stLbl(r))}</b><small>${esc(r.line.slice(0,90))}</small>
+     <div class="st-q"><input type="number" inputmode="decimal" data-sq="${i}" value="${r.q===""?"":Math.round(num(r.q)*1000)/1000}" placeholder="miktar"><select data-su="${i}" ${r.t==="kutu"||r.t==="boru"?"disabled":""}><option value="m"${r.u==="m"?" selected":""}>metre</option><option value="ton"${r.u==="ton"?" selected":""}>ton</option></select><span class="st-a" id="st-a-${i}">${fmt(stM2(r),1)} m²</span></div></div></div>`).join("")}</div>
+   <div class="st-tot">Seçilenler: <b id="st-tot">${fmt(rows.filter(r=>!r.off).reduce((a,r)=>a+stM2(r),0),1)} m²</b></div>`:`<p class="dm-empty">Listede tanıdığım profil (IPE, HEA, HEB, kutu, boru) bulamadım.</p>`}
+   ${skip.length?`<details class="st-sk"><summary>Okuyamadığım / tanımadığım ${skip.length} satır</summary><ul>${skip.slice(0,60).map(x=>`<li>${esc(x.slice(0,100))}</li>`).join("")}</ul><p class="hint">Bu satırları elle ekleyin (Tonaj sekmesi ile de girilebilir).</p></details>`:""}
+   <div class="q-actions">${rows.length?`<button type="button" class="btn primary" id="st-add">Seçilenleri listeye ekle</button>`:""}<button type="button" class="btn" data-close>Kapat</button></div>`;
+  const d=sheet("Çelik listesi",body(),"full");
+  const upd=()=>{ rows.forEach((r,i)=>{const a=d.querySelector("#st-a-"+i); if(a) a.textContent=fmt(stM2(r),1)+" m²";}); const tt=d.querySelector("#st-tot"); if(tt) tt.textContent=fmt(rows.filter(r=>!r.off).reduce((a,r)=>a+stM2(r),0),1)+" m²"; };
+  d.oninput=(e=>{const t=e.target; if(t.dataset.sq!=null){rows[+t.dataset.sq].q=t.value; rows[+t.dataset.sq].unsure=false; t.closest(".st-r").classList.remove("uns");} if(t.dataset.sc!=null) rows[+t.dataset.sc].off=!t.checked; upd();});
+  d.onchange=(e=>{const t=e.target; if(t.dataset.su!=null){rows[+t.dataset.su].u=t.value; upd();} if(t.dataset.sc!=null){rows[+t.dataset.sc].off=!t.checked; upd();}});
+  const ad=d.querySelector("#st-add"); if(ad) ad.onclick=()=>{ const sel=rows.filter(r=>!r.off&&stM2(r)>0); if(!sel.length){toast("Miktarı girilmiş kalem yok");return;}
+    sel.forEach(r=>sfItems().push({lbl:`${stLbl(r)} · ${fmt(num(r.q),r.u==="ton"?2:1)} ${r.u==="ton"?"ton":"m"}`,m2:Math.round(stM2(r)*100)/100,src:name}));
+    const a=sel.reduce((x,r)=>x+stM2(r),0); SF.area=Math.round((num(SF.area)+a)*10)/10; $("#sf-area").value=SF.area; sfUpd(); sfListRender(); d.close(); toast(`${sel.length} kalem · ${fmt(a,1)} m² eklendi`); };
+}
+$("#sf-upf").addEventListener("change",e=>{const f=e.target.files[0]; e.target.value=""; if(f) steelFile(f);});
+sfListRender();
 sfRender();
 
 function gate(){
@@ -3653,11 +3751,20 @@ function panelHTML(){ const Q=Object.values(DM.q), n=Q.length, c=k=>Q.filter(q=>
   const lr={}; Q.filter(q=>q.status==="kay").forEach(q=>lr[q.reason||"—"]=(lr[q.reason||"—"]||0)+1);
   const miss=CATALOG.filter(p=>p.cat!=="MCI Tinter"&&!/Thinner/i.test(p.name)&&(!p.vs||!p.vs.length||!p.packs||!p.packs.length));
   return `<p class="dm-note">Demo: şimdilik bu cihazdaki teklifler gösteriliyor. Bulut kaydı açılınca tüm bayilerin verisi bayi bazında burada toplanır.</p>
-  <div class="dm-kp"><div><b>${n}</b><span>Teklif</span></div><div><b>${c("gon")+c("gor")}</b><span>Açık</span></div><div><b>${kaz}</b><span>Kazanılan</span></div><div><b>%${rate}</b><span>Kazanma oranı</span></div></div>
+  <div class="dm-kp dm-kpb"><button type="button" data-pk="all"><b>${n}</b><span>Teklif</span></button><button type="button" data-pk="open"><b>${c("gon")+c("gor")}</b><span>Açık</span></button><button type="button" data-pk="kaz"><b>${kaz}</b><span>Kazanılan</span></button><button type="button" data-pk="rate"><b>%${rate}</b><span>Kazanma oranı</span></button></div>
   <div class="dm-card"><h4>Kazanılan tutar</h4><p class="dm-big">${won.toLocaleString("tr-TR",{maximumFractionDigits:0})}</p><small>Para birimleri karışık olabilir; bulut sürümünde birime göre ayrılır.</small></div>
-  <div class="dm-card"><h4>Kaybedilme nedenleri</h4>${Object.keys(lr).length?Object.entries(lr).map(([k,v])=>`<div class="dm-bar"><span>${esc(k)}</span><i style="width:${Math.round(v*100/kay)}%"></i><b>${v}</b></div>`).join(""):`<small>Henüz kaybedilen teklif yok.</small>`}</div>
+  <div class="dm-card"><h4>Kaybedilme nedenleri</h4>${Object.keys(lr).length?Object.entries(lr).map(([k,v])=>`<div class="dm-bar" data-pk="r:${esc(k)}" role="button" tabindex="0"><span>${esc(k)}</span><i style="width:${Math.round(v*100/kay)}%"></i><b>${v}</b></div>`).join(""):`<small>Henüz kaybedilen teklif yok.</small>`}</div>
   <details class="dm-card"><summary><h4 style="display:inline">Teknik verisi eksik ürünler · ${miss.length}</h4></summary><small>Katı madde veya ambalaj bilgisi olmayan ürünlerde sarfiyat hesaplanamaz. Güncel TDS'lerden tamamlanmalı.</small><ul class="dm-ul">${miss.map(p=>`<li>${esc(p.name)} <small>${!p.vs||!p.vs.length?"katı madde":""}${(!p.vs||!p.vs.length)&&(!p.packs||!p.packs.length)?" · ":""}${!p.packs||!p.packs.length?"ambalaj":""}</small></li>`).join("")}</ul></details>`; }
 /* --- Müşteri sayfası --- */
+function pkOpen(k){ const E=Object.entries(DM.q).sort((a,b)=>(b[1].date||"").localeCompare(a[1].date||""));
+  const T={all:"Tüm teklifler",open:"Açık teklifler",kaz:"Kazanılan teklifler",rate:"Sonuçlanan teklifler"};
+  const L=E.filter(([no,q])=>k==="all"||(k==="open"&&(q.status==="gon"||q.status==="gor"))||(k==="kaz"&&q.status==="kaz")||(k==="rate"&&(q.status==="kaz"||q.status==="kay"))||(k.startsWith("r:")&&q.status==="kay"&&(q.reason||"—")===k.slice(2)));
+  const sum=L.reduce((a,[,q])=>a+(q.total||0),0);
+  const d=sheet(k.startsWith("r:")?"Kaybedilen: "+esc(k.slice(2)):T[k],`${k==="rate"?`<p class="hint">Kazanma oranı = kazanılan ÷ (kazanılan + kaybedilen). Açık teklifler orana dahil değildir.</p>`:""}
+   <p class="hint">${L.length} teklif${sum>0?" · toplam "+sum.toLocaleString("tr-TR",{maximumFractionDigits:0}):""}</p>
+   ${L.length?L.map(([no,q])=>{const st=QST[q.status];return `<button type="button" class="dm-it dm-q" data-qedit="${esc(no)}"><div class="dm-qh"><b>${esc(q.customer||"Müşterisiz teklif")}</b><span class="dm-st" style="background:${st[1]}">${st[0]}</span></div><span>${esc(no)} · ${trD(q.date)}${q.total>0?" · "+q.total.toLocaleString("tr-TR",{maximumFractionDigits:0})+" "+(CUR[q.cur]||""):""}${q.project?" · "+esc(q.project):""}</span><small>${q.status==="kay"?"Neden: "+esc(q.reason||"—"):q.status==="kaz"?"Kazanıldı":"Takip: "+trD(q.follow)}${q.note?" · "+esc(q.note):""}</small></button>`}).join(""):`<p class="dm-empty">Bu grupta teklif yok.</p>`}`,"full");
+  d.onclick=(e=>{ if(e.target.closest("[data-qedit]")) d.close(); });
+}
 function custOpen(i){ const c=DM.c[i]; if(!c) return;
   const qs=Object.entries(DM.q).filter(([no,q])=>q.customer&&tnormS(q.customer)===tnormS(c.name));
   const d=sheet(esc(c.name),`<div class="dm-cc">${c.person?`<span>👤 ${esc(c.person)}</span>`:""}${c.city?`<span>📍 ${esc(c.city)}</span>`:""}${c.note?`<span>📝 ${esc(c.note)}</span>`:""}</div>
@@ -3697,6 +3804,7 @@ document.addEventListener("click",e=>{ const t=e.target;
   const ist=t.closest("[data-ist]"); if(ist){IST=ist.dataset.ist; islerRender(); return;}
   const co=t.closest("[data-cop]"); if(co){ if(route.last!=="isler"){location.hash="#isler";} custOpen(+co.dataset.cop); return;}
   if(t.closest("[data-cnew]")){custForm(null);return;}
+  const pk=t.closest("[data-pk]"); if(pk){pkOpen(pk.dataset.pk);return;}
   const qe=t.closest("[data-qedit]"); if(qe){qEdit(qe.dataset.qedit);return;}
 });
 
