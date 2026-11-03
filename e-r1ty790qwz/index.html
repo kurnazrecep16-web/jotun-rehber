@@ -1460,8 +1460,8 @@ button.dm-it{cursor:pointer}
 #v-sarfiyat .sf-ag .sf-tfc,#v-sarfiyat .sf-ag .sf-tip,#v-sarfiyat .sf-ag .sf-chk{grid-column:1/-1}
 #v-sarfiyat .sf-in select option{color:#0b1f45;background:#fff}
 #v-sarfiyat .sf-tfc{display:grid!important;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:8px}
-#v-sarfiyat #sf-at{display:flex;overflow-x:auto;scrollbar-width:none}
-#v-sarfiyat #sf-at button{flex:1 0 auto}
+#v-sarfiyat #sf-at{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+#v-sarfiyat #sf-at button{white-space:nowrap;padding:9px 4px}
 
 .dm-hcard{position:relative}.dm-hcard .dm-bd{position:static;flex:none;margin-right:6px}
 .dm-hcard #dm-sub{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
@@ -1470,6 +1470,7 @@ button.dm-it{cursor:pointer}
 #v-sarfiyat .sf-up{display:flex;align-items:center;gap:12px;margin-top:12px;padding:12px 14px;border:1.5px dashed rgba(240,171,0,.55);border-radius:14px;background:rgba(240,171,0,.08);cursor:pointer;color:#fff}
 #v-sarfiyat .sf-up svg{width:24px;height:24px;flex:none;fill:none;stroke:#f0ab00;stroke-width:1.8;stroke-linecap:round}
 #v-sarfiyat .sf-up span{display:flex;flex-direction:column}#v-sarfiyat .sf-up small{color:rgba(214,224,240,.75);font-size:12.5px}
+.sf-tabs{display:grid;grid-template-columns:repeat(3,1fr)}.sf-tabs button{white-space:nowrap}.st-q select[data-st]{flex:1.7 1 0;min-width:0}.st-q select[data-se]{flex:1 1 0;min-width:0}.sf-ag .sf-w2{grid-column:1/-1}.sf-ag label[hidden]{display:none}.st-r.lrn{border-left:3px solid #4f8cff}.st-q+.st-q{margin-top:6px}.st-lr{margin-top:8px}
 .sf-alist{margin-top:12px;background:#f4f7fb;color:#0b1f45;border-radius:14px;padding:10px 12px}
 .sf-alist[hidden]{display:none}
 .sf-alh{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}.sf-alh b{font-size:14px}.sf-alh .linkbtn{color:#b03a2e;font-size:13px}
@@ -1709,14 +1710,28 @@ button.dm-it{cursor:pointer}
           <button type="button" class="sf-ab" id="sf-areab"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h1M11.5 11h1M15 11h1M8 14.5h1M11.5 14.5h1M15 14.5h1M8 18h1M11.5 18h1M15 18h1"/></svg><span>Alanı hesapla</span></button>
         </div>
         <div class="sf-area" id="sf-areaw" hidden>
-          <div class="sf-tabs" id="sf-at"><button type="button" data-a="prof" aria-pressed="true">Profil</button><button type="button" data-a="ton" aria-pressed="false">Tonaj</button><button type="button" data-a="boru" aria-pressed="false">Boru</button><button type="button" data-a="levha" aria-pressed="false">Levha</button><button type="button" data-a="tank" aria-pressed="false">Tank</button></div>
-          <div class="sf-ag" data-a="prof"><label class="sf-f"><span>Profil</span><span class="sf-in"><select id="sf-ps"><option value="IPE">IPE</option><option value="HEA">HEA</option><option value="HEB">HEB</option><option value="UPN">UPN (NPU)</option><option value="kutu">Kutu profil</option><option value="kose">Köşebent</option><option value="lama">Lama</option></select></span></label>
-            <label class="sf-f" id="sf-pzw"><span>Ölçü</span><span class="sf-in"><select id="sf-pz"></select></span></label>
-            <label class="sf-f sf-kutu" hidden><span>Kenar a</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-ka" placeholder="100"><i>mm</i></span></label><label class="sf-f sf-kutu" hidden><span>Kenar b</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-kb" placeholder="50"><i>mm</i></span></label>
+          <div class="sf-tabs" id="sf-at"><button type="button" data-a="prof" aria-pressed="true">Profil</button><button type="button" data-a="hol" aria-pressed="false">Kutu &amp; boru</button><button type="button" data-a="bar" aria-pressed="false">Dolu &amp; lama</button><button type="button" data-a="sac" aria-pressed="false">Sac</button><button type="button" data-a="ton" aria-pressed="false">Tonaj</button><button type="button" data-a="tank" aria-pressed="false">Tank</button></div>
+          <div class="sf-ag" data-a="prof"><label class="sf-f sf-w2"><span>Profil ailesi</span><span class="sf-in"><select id="sf-ps"><optgroup label="I / H profiller · EN 10365"><option value="IPE">IPE</option><option value="HEA">HEA (HE A)</option><option value="HEB">HEB (HE B)</option><option value="HEM">HEM (HE M)</option><option value="INP">INP / IPN / NPI</option></optgroup><optgroup label="U profiller · EN 10365"><option value="UPN">UPN / NPU</option><option value="UPE">UPE</option></optgroup><optgroup label="Köşebent · EN 10056"><option value="kose">Köşebent (L)</option></optgroup></select></span></label>
+            <label class="sf-f sf-tab1"><span>Ölçü</span><span class="sf-in"><select id="sf-pz"></select></span></label>
+            <label class="sf-f sf-w2"><span>Maruziyet (yangın boyasında)</span><span class="sf-in"><select id="sf-pe"><option value="4">4 yüz (tüm çevre)</option><option value="3">3 yüz (üst başlık döşemeye bitişik – b düşülür)</option></select></span></label>
+            <label class="sf-f sf-kos" hidden><span>Kol a</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-la" placeholder="50"><i>mm</i></span></label><label class="sf-f sf-kos" hidden><span>Kol b</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-lb2" placeholder="50"><i>mm</i></span></label><label class="sf-f sf-kos" hidden><span>Kalınlık t</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-lt" placeholder="5"><i>mm</i></span></label>
             <label class="sf-f"><span>Miktar</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-pq" placeholder="0"></span></label><label class="sf-f"><span>Birim</span><span class="sf-in"><select id="sf-pu"><option value="m">metre</option><option value="ton">ton</option></select></span></label>
             <p class="hint sf-tip" id="sf-pinfo"></p></div>
-          <div class="sf-ag" data-a="levha" hidden><label class="sf-f"><span>En</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-le" placeholder="0"><i>m</i></span></label><label class="sf-f"><span>Boy</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-lb" placeholder="0"><i>m</i></span></label><label class="sf-f"><span>Adet</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-ln" value="1"><i>ad</i></span></label><div class="sf-chk"><label><input type="checkbox" id="sf-l2" checked> İki yüzü de boyanacak</label></div></div>
-          <div class="sf-ag" data-a="boru" hidden><label class="sf-f"><span>Dış çap</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-pd" placeholder="0"><i>mm</i></span></label><label class="sf-f"><span>Uzunluk</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-pl" placeholder="0"><i>m</i></span></label><label class="sf-f"><span>Adet</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-pn" value="1"><i>ad</i></span></label></div>
+          <div class="sf-ag" data-a="hol" hidden><label class="sf-f sf-w2"><span>Tip · EN 10219 / 10210</span><span class="sf-in"><select id="sf-hs"><option value="kutu">Kare / dikdörtgen kutu</option><option value="boru">Boru (yuvarlak)</option></select></span></label>
+            <label class="sf-f sf-hk"><span>Kenar a</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-ha" placeholder="100"><i>mm</i></span></label><label class="sf-f sf-hk"><span>Kenar b</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-hb" placeholder="50"><i>mm</i></span></label>
+            <label class="sf-f sf-hb" hidden><span>Dış çap</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-hd" placeholder="114,3"><i>mm</i></span></label>
+            <label class="sf-f"><span>Et kalınlığı t</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-ht" placeholder="4"><i>mm</i></span></label>
+            <label class="sf-f"><span>Uzunluk</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-hq" placeholder="0"><i>m</i></span></label>
+            <div class="sf-chk"><label><input type="checkbox" id="sf-hi"> İç yüzey de boyanacak (açık uçlu / iç koruma)</label></div>
+            <p class="hint sf-tip" id="sf-hinfo"></p></div>
+          <div class="sf-ag" data-a="bar" hidden><label class="sf-f sf-w2"><span>Tip · EN 10058 / 10059 / 10060</span><span class="sf-in"><select id="sf-bs"><option value="lama">Lama (yassı)</option><option value="karedolu">Kare dolu</option><option value="mil">Yuvarlak dolu mil</option></select></span></label>
+            <label class="sf-f"><span id="sf-bal">Genişlik</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-ba" placeholder="40"><i>mm</i></span></label><label class="sf-f sf-bb"><span>Kalınlık</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-bb" placeholder="10"><i>mm</i></span></label>
+            <label class="sf-f"><span>Uzunluk</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-bq" placeholder="0"><i>m</i></span></label>
+            <p class="hint sf-tip" id="sf-binfo"></p></div>
+          <div class="sf-ag" data-a="sac" hidden><label class="sf-f"><span>En</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-se" placeholder="1500"><i>mm</i></span></label><label class="sf-f"><span>Boy</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-sb" placeholder="3000"><i>mm</i></span></label><label class="sf-f"><span>Adet</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-sn" value="1"><i>ad</i></span></label>
+            <label class="sf-f"><span>Boyanacak yüz</span><span class="sf-in"><select id="sf-sf"><option value="2">İki yüz</option><option value="1">Tek yüz</option></select></span></label>
+            <label class="sf-f"><span>Yüzey katsayısı</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-sk" value="1" step="0.01"><i>×</i></span></label>
+            <p class="hint sf-tip">Düz sacta 1. Trapez / oluklu sacta üreticinin verdiği açınım oranını girin (açılmış genişlik ÷ örtme genişliği). Sac ve levha: EN 10029 / EN 10051.</p></div>
           <div class="sf-ag" data-a="tank" hidden><label class="sf-f"><span>Çap</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-td" placeholder="0"><i>m</i></span></label><label class="sf-f"><span>Yükseklik</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-th" placeholder="0"><i>m</i></span></label><div class="sf-chk"><label><input type="checkbox" id="sf-tt" checked> Tavan</label><label><input type="checkbox" id="sf-tb"> Taban</label></div></div>
           <div class="sf-ag" data-a="ton" hidden><label class="sf-f"><span>Çelik miktarı</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-tn" placeholder="0"><i>ton</i></span></label><div class="sf-chips sf-tfc" id="sf-tfc"><button type="button" data-tf="15" aria-pressed="false">Ağır<small>≈15 m²/t</small></button><button type="button" data-tf="25" aria-pressed="false">Orta<small>≈25 m²/t</small></button><button type="button" data-tf="35" aria-pressed="false">Hafif<small>≈35 m²/t</small></button></div><label class="sf-f"><span>Ton başına yüzey</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-tf" placeholder="0"><i>m²/t</i></span></label><p class="hint sf-tip">Profil tipini bilmiyorsanız yaklaşık değer seçin. Ağır: kalın kolon/kiriş, Orta: karışık konstrüksiyon, Hafif: ince profil, makas, korkuluk. Profil biliniyorsa "Profil" sekmesi daha doğrudur.</p></div>
           <div class="sf-ares"><span id="sf-ar">—</span><span class="sf-abtns"><button type="button" class="btn" id="sf-aadd">Alana ekle</button><button type="button" class="btn primary" id="sf-aset">Alan olarak kullan</button></span></div>
@@ -3376,7 +3391,7 @@ wxLoad();
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)wxLoad();});
 
 /* Yeni sürüm yayınlandıysa uygulama açıkken kendini yeniler */
-(()=>{const B="1793717800"; if(!/^\d+$/.test(B)) return;
+(()=>{const B="1793719233"; if(!/^\d+$/.test(B)) return;
   const chk=()=>fetch(location.pathname+"?b="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const B="(\d+)"/); if(m&&+m[1]>+B) location.reload();}).catch(()=>{});
   document.addEventListener("visibilitychange",()=>{if(!document.hidden)chk();}); setTimeout(chk,4000);})();
 
@@ -3601,21 +3616,55 @@ $("#sf-coats").addEventListener("click",e=>{const b=e.target.closest("[data-rm]"
 $("#sf-add").addEventListener("click",()=>{SF.coats.push({name:"",dft:""});sfRender();const c=$("#sf-coats").lastElementChild;if(c)c.scrollIntoView({behavior:"smooth",block:"center"});});
 /* Alan yardımcısı */
 let SFA="prof";
-const PROF={IPE:[[80,6.0,.328],[100,8.1,.400],[120,10.4,.475],[140,12.9,.551],[160,15.8,.623],[180,18.8,.698],[200,22.4,.768],[220,26.2,.848],[240,30.7,.922],[270,36.1,1.041],[300,42.2,1.160],[330,49.1,1.254],[360,57.1,1.353],[400,66.3,1.467],[450,77.6,1.605],[500,90.7,1.744],[550,106,1.877],[600,122,2.014]],
- HEA:[[100,16.7,.561],[120,19.9,.677],[140,24.7,.794],[160,30.4,.906],[180,35.5,1.024],[200,42.3,1.136],[220,50.5,1.255],[240,60.3,1.369],[260,68.2,1.484],[280,76.4,1.603],[300,88.3,1.717]],
- UPN:[[80,8.64,.312],[100,10.6,.372],[120,13.4,.434],[140,16.0,.489],[160,18.8,.546],[180,22.0,.611],[200,25.3,.661],[220,29.4,.718],[240,33.2,.775],[260,37.9,.834],[280,41.8,.890],[300,46.2,.950]],
- HEB:[[100,20.4,.567],[120,26.7,.686],[140,33.7,.805],[160,42.6,.918],[180,51.2,1.037],[200,61.3,1.151],[220,71.5,1.270],[240,83.2,1.384],[260,93.0,1.499],[280,103,1.618],[300,117,1.732]]};
-function sfProfUI(){ const t=$("#sf-ps").value, k=!PROF[t];
-  const la=document.querySelectorAll(".sf-kutu>span:first-child"); if(la.length===2){ la[0].textContent=t==="lama"?"Genişlik":"Kenar a"; la[1].textContent=t==="lama"?"Kalınlık":"Kenar b"; } $("#sf-pzw").hidden=k; document.querySelectorAll(".sf-kutu").forEach(x=>x.hidden=!k);
-  const u=$("#sf-pu"); u.querySelector('option[value="ton"]').disabled=k; if(k) u.value="m";
-  if(!k){ const cur=$("#sf-pz").value; $("#sf-pz").innerHTML=PROF[t].map(p=>`<option value="${p[0]}">${t} ${p[0]}</option>`).join(""); if(PROF[t].some(p=>String(p[0])===cur)) $("#sf-pz").value=cur; else $("#sf-pz").value="200"; } }
+/* EN 10365 sıcak haddelenmiş profiller: [ölçü, kg/m, m²/m (4 yüz çevre), başlık genişliği b mm] */
+const STD={
+ IPE:[[80,6.11,.328,46],[100,8.26,.400,55],[120,10.6,.475,64],[140,13.1,.551,73],[160,16.1,.623,82],[180,19.2,.698,91],[200,22.8,.768,100],[220,26.7,.848,110],[240,31.3,.922,120],[270,36.8,1.04,135],[300,43.0,1.16,150],[330,50.1,1.25,160],[360,58.2,1.35,170],[400,67.6,1.47,180],[450,79.1,1.61,190],[500,92.4,1.74,200],[550,108,1.88,210],[600,125,2.01,220]],
+ HEA:[[100,17.0,.561,100],[120,20.3,.677,120],[140,25.1,.794,140],[160,31.0,.906,160],[180,36.2,1.02,180],[200,43.1,1.14,200],[220,51.5,1.26,220],[240,61.5,1.37,240],[260,69.5,1.48,260],[280,77.8,1.60,280],[300,90.0,1.72,300],[320,99.5,1.76,300],[340,107,1.79,300],[360,114,1.83,300],[400,127,1.91,300],[450,142,2.01,300],[500,158,2.11,300],[550,169,2.21,300],[600,181,2.31,300],[650,193,2.41,300],[700,208,2.50,300],[800,229,2.70,300],[900,256,2.90,300],[1000,277,3.10,300]],
+ HEB:[[100,20.8,.567,100],[120,27.2,.686,120],[140,34.4,.805,140],[160,43.4,.918,160],[180,52.2,1.04,180],[200,62.5,1.15,200],[220,72.8,1.27,220],[240,84.8,1.38,240],[260,94.8,1.50,260],[280,105,1.62,280],[300,119,1.73,300],[320,129,1.77,300],[340,137,1.81,300],[360,145,1.85,300],[400,158,1.93,300],[450,174,2.03,300],[500,191,2.12,300],[550,203,2.22,300],[600,216,2.32,300],[650,229,2.42,300],[700,245,2.52,300],[800,267,2.71,300],[900,297,2.91,300],[1000,320,3.11,300]],
+ HEM:[[100,42.6,.619,106],[120,53.1,.738,126],[140,64.4,.857,146],[160,77.6,.970,166],[180,90.6,1.09,186],[200,105,1.20,206],[220,120,1.32,226],[240,160,1.46,248],[260,176,1.57,268],[280,192,1.69,288],[300,242,1.83,310],[320,250,1.87,309],[340,253,1.90,309],[360,255,1.93,308],[400,261,2.00,307],[450,268,2.10,307],[500,275,2.18,306],[550,284,2.28,306],[600,291,2.37,305],[650,299,2.47,305],[700,306,2.56,304],[800,323,2.75,303],[900,339,2.93,302],[1000,355,3.13,302]],
+ INP:[[80,6.06,.303,42],[100,8.50,.370,50],[120,11.3,.438,58],[140,14.6,.506,66],[160,18.2,.573,74],[180,22.3,.641,82],[200,26.7,.709,90],[220,31.6,.776,98],[240,36.9,.844,106],[260,42.7,.908,113],[280,48.8,.967,119],[300,55.2,1.03,125],[320,62.2,1.09,131],[340,69.3,1.15,137],[360,77.6,1.21,143],[380,85.6,1.27,149],[400,94.2,1.33,155]],
+ UPN:[[80,8.82,.313,45],[100,10.8,.372,50],[120,13.6,.429,55],[140,16.3,.487,60],[160,19.2,.545,65],[180,22.4,.603,70],[200,25.7,.660,75],[220,30.0,.718,80],[240,33.8,.776,85],[260,38.6,.833,90],[280,42.7,.891,95],[300,47.0,.949,100],[320,60.6,.984,100],[350,61.8,1.05,100],[380,64.3,1.11,102],[400,73.2,1.18,110]],
+ UPE:[[80,9.05,.342,50],[100,11.1,.401,55],[120,13.5,.460,60],[140,16.0,.519,65],[160,19.0,.577,70],[180,22.0,.636,75],[200,25.3,.695,80],[220,29.4,.754,85],[240,34.0,.810,90],[270,39.5,.889,95],[300,45.3,.968,100],[330,54.2,1.04,105],[360,62.3,1.12,110],[400,73.5,1.22,115]]};
+const PROF=STD;
+const STN={IPE:"IPE",HEA:"HEA",HEB:"HEB",HEM:"HEM",INP:"INP",UPN:"UPN",UPE:"UPE",kutu:"Kutu profil",boru:"Boru",kose:"Köşebent",lama:"Lama",karedolu:"Kare dolu",mil:"Dolu mil",levha:"Sac"};
+/* Kesit: p = boyanan çevre m²/m (dış), A = kesit alanı m², b = 3 yüzde düşülecek genişlik m */
+function secOf(r){ const T=STD[r.t]; if(T){ const P=T.find(x=>x[0]===+r.s); return P?{p:P[2],A:P[1]/7850,b:P[3]/1000}:null; }
+  const a=num(r.a)/1000, b=num(r.b)/1000, t=num(r.th)/1000, d=num(r.d)/1000;
+  switch(r.t){
+    case "kose": if(!(a>0)) return null; { const bb=b||a, tt=t||Math.min(a,bb)/10; return {p:2*(a+bb),A:(a+bb-tt)*tt,est:!t}; }
+    case "kutu": if(!(a>0)) return null; { const bb=b||a; return {p:2*(a+bb),pi:t?Math.max(0,2*(a+bb-4*t)):2*(a+bb),A:t?2*t*(a+bb-2*t):0,b:a}; }
+    case "boru": if(!(d>0)) return null; return {p:Math.PI*d,pi:Math.PI*Math.max(0,d-2*t),A:t?Math.PI*t*(d-t):0};
+    case "lama": if(!(a>0)) return null; return {p:2*(a+b),A:a*b};
+    case "karedolu": if(!(a>0)) return null; return {p:4*a,A:a*a};
+    case "mil": if(!(d>0)) return null; return {p:Math.PI*d,A:Math.PI*d*d/4};
+  } return null; }
+const secP=(r,s)=>s.p+(r.inner&&s.pi!=null?s.pi:0)-(+r.exp===3&&s.b?s.b:0);
+function stM2(r){ const q=num(r.q); if(!(q>0)) return 0;
+  if(r.t==="levha") return num(r.a)*num(r.b)/1e6*(+r.f||2)*q*(num(r.k)||1);
+  const s=secOf(r); if(!s) return 0; let L=q; if(r.u==="ton"){ if(!(s.A>0)) return 0; L=q*1000/(s.A*7850); } return secP(r,s)*L; }
+const stTonOk=r=>{ if(r.t==="levha") return false; const s=secOf(r); return !!(s&&s.A>0); };
+const stLbl=r=>{ const f0=x=>fmt(num(x),num(x)%1?1:0), ab=()=>`${f0(r.a)}×${f0(r.b||r.a)}${r.th?"×"+f0(r.th):""} mm`, ex=+r.exp===3?" · 3 yüz":"";
+  switch(r.t){ case "kutu": return "Kutu "+ab()+(r.inner?" · iç+dış":"")+ex; case "kose": return "Köşebent L"+ab(); case "lama": return `Lama ${f0(r.a)}×${f0(r.b)} mm`; case "karedolu": return `Kare dolu ${f0(r.a)} mm`;
+    case "levha": return `Sac ${f0(r.a)}×${f0(r.b)} mm (${+r.f===1?"tek":"2"} yüz${num(r.k)>1?" ×"+fmt(num(r.k),2):""})`; case "boru": return `Boru Ø${fmt(num(r.d),1)}${r.th?"×"+f0(r.th):""} mm${r.inner?" · iç+dış":""}`; case "mil": return `Dolu mil Ø${f0(r.d)} mm`; default: return `${r.t} ${r.s}${ex}`; } };
+const hpA=(r,s)=>{ const p=secP(r,s); return s.A>0?p/s.A:0; };
+const secInfo=(r)=>{ const s=secOf(r); if(!s) return ""; const p=secP(r,s), kg=s.A*7850;
+  return `${fmt(p,3)} m²/m${kg?` · ${fmt(kg,kg<10?2:1)} kg/m · ≈ ${fmt(p/kg*1000,1)} m²/ton · Hp/A ${fmt(hpA(r,s),0)} m⁻¹`:""}${s.est?" (et kalınlığı tahmini)":""}`; };
+function sfProfUI(){ const t=$("#sf-ps").value, k=t==="kose";
+  $("#sf-pz").closest("label").hidden=k; $("#sf-pe").closest("label").hidden=k; document.querySelectorAll(".sf-kos").forEach(x=>x.hidden=!k);
+  if(!k){ const cur=$("#sf-pz").value; $("#sf-pz").innerHTML=STD[t].map(p=>`<option value="${p[0]}">${t} ${p[0]}</option>`).join(""); $("#sf-pz").value=STD[t].some(p=>String(p[0])===cur)?cur:(STD[t].some(p=>p[0]===200)?"200":String(STD[t][0][0])); } }
+function sfHolUI(){ const b=$("#sf-hs").value==="boru"; document.querySelectorAll(".sf-hk").forEach(x=>x.hidden=b); $("#sf-hd").closest("label").hidden=!b; }
+function sfBarUI(){ const t=$("#sf-bs").value; $("#sf-bal").textContent=t==="lama"?"Genişlik":t==="mil"?"Çap":"Kenar"; $("#sf-bb").closest("label").hidden=t!=="lama"; }
+function sfRow(){ const v=id=>num($("#"+id).value), s=id=>$("#"+id).value;
+  if(SFA==="prof"){ const t=s("sf-ps"); return t==="kose"?{t,a:v("sf-la"),b:v("sf-lb2"),th:v("sf-lt"),q:v("sf-pq"),u:s("sf-pu")}:{t,s:s("sf-pz"),exp:+s("sf-pe"),q:v("sf-pq"),u:s("sf-pu")}; }
+  if(SFA==="hol") return s("sf-hs")==="boru"?{t:"boru",d:v("sf-hd"),th:v("sf-ht"),inner:$("#sf-hi").checked,q:v("sf-hq"),u:"m"}:{t:"kutu",a:v("sf-ha"),b:v("sf-hb"),th:v("sf-ht"),inner:$("#sf-hi").checked,q:v("sf-hq"),u:"m"};
+  if(SFA==="bar"){ const t=s("sf-bs"); return t==="mil"?{t,d:v("sf-ba"),q:v("sf-bq"),u:"m"}:t==="karedolu"?{t,a:v("sf-ba"),q:v("sf-bq"),u:"m"}:{t,a:v("sf-ba"),b:v("sf-bb"),q:v("sf-bq"),u:"m"}; }
+  if(SFA==="sac") return {t:"levha",a:v("sf-se"),b:v("sf-sb"),q:Math.max(1,v("sf-sn")||1),u:"adet",f:+s("sf-sf"),k:v("sf-sk")||1};
+  return null; }
 function sfArea(){
-  const v=id=>num($("#"+id).value); let a=0;
-  if(SFA==="prof"){ const t=$("#sf-ps").value, q=v("sf-pq"), inf=$("#sf-pinfo");
-    if(!PROF[t]){ a=2*(v("sf-ka")+v("sf-kb"))/1000*q; inf.textContent=t==="lama"?"Lamada çevre: 2 × (genişlik + kalınlık).":t==="kose"?"Köşebentte iki kanadın iki yüzü: ≈ 2 × (a + b).":"Kutu profilde dış yüzey hesaplanır (2 × (a + b))."; }
-    else { const P=PROF[t].find(x=>String(x[0])===$("#sf-pz").value); if(P){ a=$("#sf-pu").value==="ton"?P[2]/P[1]*1000*q:P[2]*q; inf.textContent=`${t} ${P[0]}: ${fmt(P[2],3)} m²/m · ${fmt(P[1],1)} kg/m · ≈ ${fmt(P[2]/P[1]*1000,1)} m²/ton (standart profil tablosu, yaklaşık)`; } } }
-  if(SFA==="levha") a=v("sf-le")*v("sf-lb")*Math.max(1,v("sf-ln")||1)*($("#sf-l2").checked?2:1);
-  if(SFA==="boru") a=Math.PI*v("sf-pd")/1000*v("sf-pl")*Math.max(1,v("sf-pn")||1);
+  const v=id=>num($("#"+id).value); let a=0; const r=sfRow();
+  if(r){ a=stM2(r); const inf={prof:"#sf-pinfo",hol:"#sf-hinfo",bar:"#sf-binfo"}[SFA];
+    if(inf){ const pu=$("#sf-pu"); if(SFA==="prof"){ const ok=stTonOk(r); pu.querySelector('option[value="ton"]').disabled=!ok; if(!ok&&pu.value==="ton"){ pu.value="m"; r.u="m"; a=stM2(r);} }
+      const i=secInfo(r); $(inf).textContent=i?(r.t in STD?`${r.t} ${r.s}: `:"")+i+(SFA==="prof"&&r.t in STD?" · EN 10365":""):(SFA==="hol"?"Dış yüzey çevre × uzunluk. Et kalınlığı girilirse kg/m ve Hp/A da gösterilir.":SFA==="bar"?"Çevre × uzunluk (uçlar dahil değil).":""); } }
   if(SFA==="tank"){const d=v("sf-td"),h=v("sf-th");a=Math.PI*d*h+($("#sf-tt").checked?Math.PI*d*d/4:0)+($("#sf-tb").checked?Math.PI*d*d/4:0);}
   if(SFA==="ton") a=v("sf-tn")*v("sf-tf");
   $("#sf-ar").textContent=a>0?`${fmt(a,1)} m²`:"—"; return a;
@@ -3623,14 +3672,15 @@ function sfArea(){
 $("#sf-areab").addEventListener("click",()=>{const w=$("#sf-areaw");w.hidden=!w.hidden;});
 $("#sf-at").addEventListener("click",e=>{const b=e.target.closest("[data-a]");if(!b)return;SFA=b.dataset.a;$("#sf-at").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b));document.querySelectorAll(".sf-ag").forEach(g=>g.hidden=g.dataset.a!==SFA);sfArea();});
 $("#sf-ps").addEventListener("change",()=>{sfProfUI();sfArea();}); sfProfUI();
+$("#sf-hs").addEventListener("change",()=>{sfHolUI();sfArea();}); sfHolUI();
+$("#sf-bs").addEventListener("change",()=>{sfBarUI();sfArea();}); sfBarUI();
 $("#sf-tfc").addEventListener("click",e=>{const b=e.target.closest("[data-tf]");if(!b)return;$("#sf-tf").value=b.dataset.tf;$("#sf-tfc").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b));sfArea();});
 $("#sf-tf").addEventListener("input",()=>$("#sf-tfc").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.tf===$("#sf-tf").value)));
 $("#sf-areaw").addEventListener("input",sfArea);$("#sf-areaw").addEventListener("change",sfArea);
-function sfAreaLbl(){ const v=id=>num($("#"+id).value), f=(x,d)=>fmt(x,d);
-  if(SFA==="prof"){ const t=$("#sf-ps").value; if(!PROF[t]) return `${({kutu:"Kutu",kose:"Köşebent",lama:"Lama"})[t]} ${v("sf-ka")}×${v("sf-kb")} mm · ${f(v("sf-pq"),1)} m`; return `${t} ${$("#sf-pz").value} · ${f(v("sf-pq"),1)} ${$("#sf-pu").value==="ton"?"ton":"m"}`; }
+const qLbl=r=>`${fmt(num(r.q),r.u==="ton"?2:r.u==="adet"?0:1)} ${r.u==="ton"?"ton":r.u==="adet"?"adet":"m"}`;
+function sfAreaLbl(){ const v=id=>num($("#"+id).value), f=(x,d)=>fmt(x,d); const r=sfRow();
+  if(r) return `${stLbl(r)} · ${qLbl(r)}`;
   if(SFA==="ton") return `Çelik ${f(v("sf-tn"),1)} ton × ${f(v("sf-tf"),0)} m²/t`;
-  if(SFA==="boru") return `Boru Ø${v("sf-pd")} mm · ${f(v("sf-pl"),1)} m${(v("sf-pn")||1)>1?" × "+v("sf-pn"):""}`;
-  if(SFA==="levha") return `Levha ${v("sf-le")}×${v("sf-lb")} m${(v("sf-ln")||1)>1?" × "+v("sf-ln"):""}${$("#sf-l2").checked?" · 2 yüz":""}`;
   if(SFA==="tank") return `Tank Ø${v("sf-td")} × ${v("sf-th")} m${$("#sf-tt").checked?" + tavan":""}${$("#sf-tb").checked?" + taban":""}`; return "Kalem"; }
 const sfItems=()=>(SF.items=SF.items||[]);
 const sfItemsTot=()=>sfItems().reduce((a,x)=>a+num(x.m2),0);
@@ -3647,37 +3697,48 @@ $("#sf-aset").addEventListener("click",()=>{const a=sfArea();if(!(a>0))return;SF
 $("#sf-aadd").addEventListener("click",()=>{const a=sfArea();if(!(a>0))return;sfAddItem(sfAreaLbl(),a);toast(`${fmt(a,1)} m² eklendi`);});
 /* Çelik listesi yükleme: PDF / fotoğraf / Excel → profil satırları */
 const trNum=x=>{x=String(x).trim(); if(/,\d{1,3}$/.test(x)) x=x.replace(/\./g,"").replace(",","."); else if(/^\d{1,3}(\.\d{3})+$/.test(x)) x=x.replace(/\./g,""); else x=x.replace(/,/g,""); return parseFloat(x);};
-function steelParse(text){ const rows=[], skip=[];
-  const N="(\\d+(?:[.,]\\d+)?)", DIM=new RegExp(N+"\\s*[x×X\\*]\\s*"+N+"(?:\\s*[x×X\\*]\\s*"+N+")?");
+/* Çelik listesi okuma: kural tabanlı + kullanıcı düzeltmelerinden öğrenme (st-learn) */
+const stLearn=()=>load("st-learn",{});
+const stKey=(U,i,e)=>{ const w=x=>x.replace(/\bS\s?\d{3}[A-Z0-9+]*/g," ").replace(/[^A-ZÇĞIÖŞÜ ]/g," ").split(" ").filter(z=>z.length>1).join(" "); return (w(U.slice(0,i))||w(U.slice(e)).split(" ").slice(0,2).join(" ")).slice(0,28); };
+const ST_AB=["kutu","kose","lama","karedolu","levha"], ST_D=["boru","mil"];
+function stRetype(r,t){ if(t===r.t) return; if(t in STD){ if(r.s&&STD[t].some(p=>p[0]===+r.s)) r.t=t; return; } if(r.t in STD) return;
+  if(ST_D.includes(t)&&!ST_D.includes(r.t)){ r.d=r.a; } if(ST_AB.includes(t)&&ST_D.includes(r.t)){ r.a=r.d; r.b=r.d; }
+  if(t==="levha"){ r.u="adet"; if(!(num(r.q)>0)) r.q=1; } else if(r.t==="levha") r.u="m"; r.t=t; }
+function steelParse(text){ const rows=[], skip=[], LR=stLearn();
+  const N="(\\d+(?:[.,]\\d+)?)", X="\\s*[x×X\\*]\\s*", DIM=new RegExp(N+X+N+"(?:"+X+N+")?"), OD=new RegExp("Ø\\s*"+N+"(?:"+X+N+")?");
   text.split(/\n+/).map(l=>l.replace(/\s+/g," ").trim()).filter(l=>l.length>2).forEach(raw=>{
-    const low=raw.startsWith("\u2047"); const l=raw.replace(/^\u2047/,"");
-    const U=l.toLocaleUpperCase("tr-TR").replace(/HE\s*([AB])\s*(\d)/g,"HE$1 $2").replace(/[@øΦφ©®°]/g,"Ø");
+    const low=raw.startsWith("⁇"); const l=raw.replace(/^⁇/,"");
+    const U=l.toLocaleUpperCase("tr-TR").replace(/İ/g,"I").replace(/[@øΦφ©®°](?=\s*\d)/g,"Ø").replace(/\bHE\s*-?\s*(\d{3,4})\s*([ABM])\b/g,"HE$2 $1").replace(/\bHE\s*-?\s*([ABM])\s*-?\s*(\d)/g,"HE$1 $2");
+    const kw=re=>re.test(U);
     let m, r=null, end=0;
-    if((m=U.match(/\b(IPE|HEA|HEB|UPN|NPU)\s*-?\s*(\d{2,3})\b/))){ const t=m[1]==="NPU"?"UPN":m[1]; if(PROF[t]&&PROF[t].some(p=>p[0]===+m[2])) r={t,s:m[2]}; else { skip.push(l+" → ölçü tabloda yok"); return; } end=m.index+m[0].length; }
-    else if((m=U.match(DIM))){ const a=trNum(m[1]), b=trNum(m[2]); end=m.index+m[0].length;
-      if(/SAC|LEVHA|PLAKA|PLATE|TABAKA/.test(U)) r={t:"levha",a,b};
-      else if(/K.{0,3}EBENT|KÖŞE|KOSE|\bL\s?\d/.test(U)) r={t:"kose",a,b};
-      else if(/LAMA|FLAT/.test(U)) r={t:"lama",a,b};
-      else if(/BORU|PIPE/.test(U)){ const d=U.match(/Ø\s*(\d+(?:[.,]\d+)?)/); r={t:"boru",d:d?trNum(d[1]):a}; }
-      else if(/M[İI]L\b|DOLU|YUVARLAK/.test(U)){ r={t:"mil",d:a}; }
-      else r={t:"kutu",a,b,unsure:!(/KARE|D.KD.RTGEN|KUTU|PROF/.test(U))}; }
-    else if((m=U.match(/Ø\s*(\d+(?:[.,]\d+)?)/))){ end=m.index+m[0].length; r={t:/M[İI]L\b|DOLU|YUVARLAK/.test(U)?"mil":"boru",d:trNum(m[1])}; }
-    else if((m=U.match(/(BORU|PIPE|M[İI]L\b|DOLU|YUVARLAK)[^\d]*?(?:\b[SC]\d{2,3}\S*\s*)?(\d+(?:[.,]\d+)?)\s*MM/))){ end=m.index+m[0].length; r={t:/BORU|PIPE/.test(m[1])?"boru":"mil",d:trNum(m[2])}; }
-    if(!r){ if(/\d/.test(l)&&/(kg|ton|\bm\b|\dm\b|mt|metre|adet|profil|demir|boru|sac)/i.test(l)) skip.push(l); return; }
-    const rest=l.slice(end);
+    if((m=U.match(/\b(IPE|HEA|HEB|HEM|INP|IPN|NPI|UPN|NPU|UNP|UPE)\s*-?\s*(\d{2,4})\b/))){ const t=({IPN:"INP",NPI:"INP",NPU:"UPN",UNP:"UPN"})[m[1]]||m[1];
+      if(STD[t].some(p=>p[0]===+m[2])) r={t,s:m[2]}; else { skip.push(l+" → "+t+" "+m[2]+" EN tablosunda yok"); return; } end=m.index+m[0].length; }
+    else if(kw(/BORU|PIPE|\bCHS\b/)&&(m=U.match(OD)||U.match(DIM))){ end=m.index+m[0].length; r={t:"boru",d:trNum(m[1]),th:m[2]?trNum(m[2]):0}; }
+    else if((m=U.match(DIM))){ const a=trNum(m[1]), b=trNum(m[2]), c=m[3]?trNum(m[3]):0; end=m.index+m[0].length;
+      if(kw(/SAC|LEVHA|PLAKA|PLATE|TABAKA|\bPL\b|\bPLT\b/)){ const s=[a,b,c].filter(x=>x>0).sort((x,y)=>y-x); r={t:"levha",a:s[0],b:s[1],f:kw(/TEK\s*Y[ÜU]Z|1\s*Y[ÜU]Z/)?1:2}; }
+      else if(kw(/K.{0,3}EBENT|KÖŞE|KOSE|ANGLE|\bL\s?\d/)) r={t:"kose",a,b,th:c};
+      else if(kw(/LAMA|FLAT|\bFB\b/)) r={t:"lama",a:Math.max(a,b),b:Math.min(a,b)};
+      else if(kw(/M[İI]L\b|YUVARLAK DOLU|\bROUND BAR/)) r={t:"mil",d:a};
+      else r={t:"kutu",a,b,th:c,unsure:!kw(/KARE|D.KD.RTGEN|KUTU|PROF|\bSHS\b|\bRHS\b|HOLLOW/)}; }
+    else if((m=U.match(OD))){ end=m.index+m[0].length; r=kw(/M[İI]L\b|DOLU|YUVARLAK/)?{t:"mil",d:trNum(m[1])}:{t:"boru",d:trNum(m[1]),th:m[2]?trNum(m[2]):0}; }
+    else if((m=U.match(/(BORU|PIPE|M[İI]L\b|DOLU|YUVARLAK|KARE DOLU)[^\d]*?(?:\b[SC]\d{2,3}\S*\s*)?(\d+(?:[.,]\d+)?)\s*MM/))){ end=m.index+m[0].length; r=/BORU|PIPE/.test(m[1])?{t:"boru",d:trNum(m[2])}:/KARE/.test(m[1])?{t:"karedolu",a:trNum(m[2])}:{t:"mil",d:trNum(m[2])}; }
+    if(!r){ if(/\d/.test(l)&&/(kg|ton|\bm\b|\dm\b|mt|metre|adet|profil|demir|boru|sac|\bR\d{2,3}\b)/i.test(l)) skip.push(l); return; }
+    if(kw(/\b3\s*-?\s*(Y[ÜU]Z|SIDED?|SIDES|TARAF)\b/)) r.exp=3; else if(kw(/\b4\s*-?\s*(Y[ÜU]Z|SIDED?|SIDES|TARAF)\b/)) r.exp=4;
+    if(kw(/IÇ\s*(VE|\+|-)?\s*DIŞ|IC\s*(VE|\+)?\s*DIS|INSIDE|IÇ YÜZEY/)&&(r.t==="kutu"||r.t==="boru")) r.inner=true;
+    let rest=l.slice(end).replace(/\bR\s?\d{2,3}\b/gi," ").replace(/Hp\s*\/\s*A\s*[:=]?\s*\d+[\d.,]*/gi," ").replace(/\d+\s*°\s*C\b/gi," ").replace(/\b[34]\s*-?\s*(y[üu]z|sided?|sides|taraf)\b/gi," ").replace(/\bDFT\s*[:=]?\s*\d[\d.,]*\s*(mm|µm|um|mic)?/gi," ");
     const last=re=>{const all=[...rest.matchAll(re)]; return all.length?all[all.length-1]:null;};
-    const kg=last(/(\d[\d.,]*)\s*(kg)(?![a-zğüşıöç])/gi), ton=last(/(\d[\d.,]*)\s*(ton|t)(?![a-zğüşıöç])/gi), mt=last(/(\d[\d.,]*)\s*(m|mt|metre|mtül)(?![a-zğüşıöç²])/gi), ad=last(/(\d[\d.,]*)\s*(adet|ad|pcs)(?![a-zğüşıöç])/gi);
-    const tab=PROF[r.t];
+    const kg=last(/(\d[\d.,]*)\s*(kg)(?![a-zğüşıöç])/gi), ton=last(/(\d[\d.,]*)\s*(ton|t)(?![a-zğüşıöç])/gi), mts=[...rest.matchAll(/(\d[\d.,]*)\s*(m|mt|metre|mtül)(?![a-zğüşıöç²])/gi)], ad=last(/(\d[\d.,]*)\s*(adet|ad|pcs|pc|nos|no)(?![a-zğüşıöç])/gi),
+      mm=rest.match(/(?:\bL|BOY|LENGTH|UZUNLUK)\s*[=:]?\s*(\d[\d.,]*)\s*mm/i), mt=mts.length?mts[mts.length-1]:null;
+    const tonOk=stTonOk(r);
     if(r.t==="levha"){ r.u="adet"; r.q=ad?trNum(ad[1]):1; if(!ad) r.unsure=true; }
-    else if(tab&&ton){ r.q=trNum(ton[1]); r.u="ton"; } else if(tab&&kg){ r.q=trNum(kg[1])/1000; r.u="ton"; } else if(mt){ r.q=trNum(mt[1]); r.u="m"; }
+    else if(tonOk&&ton){ r.q=trNum(ton[1]); r.u="ton"; } else if(tonOk&&kg){ r.q=trNum(kg[1])/1000; r.u="ton"; }
+    else if(mt||mm){ const L=mt?trNum(mt[1]):trNum(mm[1])/1000; r.u="m";
+      if(ad&&mts.length<=1){ const n=trNum(ad[1]); r.q=n*L; r.calc=`${fmt(n,0)} ad × ${fmt(L,2)} m`; } else r.q=L; }
     else { const nums=(rest.match(/\d[\d.,]*/g)||[]).map(trNum).filter(x=>x>0); r.q=nums.length?Math.max(...nums):""; r.u="m"; r.unsure=true; }
+    r.key=stKey(U,m.index,end); const lr=r.key&&LR[r.key];
+    if(lr){ if(lr.t&&lr.t!==r.t){ const t0=r.t; stRetype(r,lr.t); if(r.t!==t0){ r.learn=true; r.unsure=false; } } if(lr.u&&r.unsure&&lr.u!==r.u&&(lr.u!=="ton"||stTonOk(r))&&r.t!=="levha"){ r.u=lr.u; r.learn=true; r.unsure=false; } }
     if(low) r.unsure=true; r.line=l; rows.push(r); });
   return {rows,skip}; }
-const stM2=r=>{ const q=num(r.q); if(!(q>0)) return 0;
-  if(r.t==="kutu"||r.t==="kose") return 2*(r.a+r.b)/1000*q; if(r.t==="lama") return 2*(r.a+r.b)/1000*q;
-  if(r.t==="boru"||r.t==="mil") return Math.PI*r.d/1000*q; if(r.t==="levha") return r.a*r.b/1e6*2*q;
-  const P=(PROF[r.t]||[]).find(x=>x[0]===+r.s); return P?(r.u==="ton"?P[2]/P[1]*1000*q:P[2]*q):0; };
-const stLbl=r=>{ const ab=()=>`${fmt(r.a,0)}×${fmt(r.b,0)} mm`; switch(r.t){ case "kutu": return "Kutu "+ab(); case "kose": return "Köşebent "+ab(); case "lama": return "Lama "+ab(); case "levha": return "Sac "+ab()+" (2 yüz)"; case "boru": return `Boru Ø${fmt(r.d,1)} mm`; case "mil": return `Dolu mil Ø${fmt(r.d,0)} mm`; default: return `${r.t} ${r.s}`; } };
 let TESS6=null;
 async function steelOcr(blob){
   if(!window.Tesseract) await loadScript("https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js");
@@ -3700,20 +3761,36 @@ async function steelFile(f){
   const {rows,skip}=steelParse(text); steelReview(rows,skip,f.name,note);
 }
 function steelReview(rows,skip,name,note){
-  const body=()=>`<p class="hint">${esc(name)}${note?" · "+esc(note):""}</p>
-   ${rows.length?`<p class="hint">Okunan ${rows.length} kalem. Miktarları kontrol edin; <b style="color:#f0ab00">sarı</b> olanlarda birimden emin olamadım.</p>
-   <div class="st-rows">${rows.map((r,i)=>`<div class="st-r${r.unsure?" uns":""}"><label class="st-c"><input type="checkbox" data-sc="${i}" ${r.off?"":"checked"}></label><div class="st-m"><b>${esc(stLbl(r))}</b><small>${esc(r.line.slice(0,90))}</small>
-     <div class="st-q"><input type="number" inputmode="decimal" data-sq="${i}" value="${r.q===""?"":Math.round(num(r.q)*1000)/1000}" placeholder="miktar"><select data-su="${i}" ${PROF[r.t]?"":"disabled"}>${r.t==="levha"?`<option value="adet" selected>adet</option>`:`<option value="m"${r.u==="m"?" selected":""}>metre</option>${PROF[r.t]?`<option value="ton"${r.u==="ton"?" selected":""}>ton</option>`:""}`}</select><span class="st-a" id="st-a-${i}">${fmt(stM2(r),1)} m²</span></div></div></div>`).join("")}</div>
-   <div class="st-tot">Seçilenler: <b id="st-tot">${fmt(rows.filter(r=>!r.off).reduce((a,r)=>a+stM2(r),0),1)} m²</b></div>`:`<p class="dm-empty">Listede tanıdığım profil (IPE, HEA, HEB, kutu, boru) bulamadım.</p>`}
-   ${skip.length?`<details class="st-sk"><summary>Okuyamadığım / tanımadığım ${skip.length} satır</summary><ul>${skip.slice(0,60).map(x=>`<li>${esc(x.slice(0,100))}</li>`).join("")}</ul><p class="hint">Bu satırları elle ekleyin (Tonaj sekmesi ile de girilebilir).</p></details>`:""}
-   <div class="q-actions">${rows.length?`<button type="button" class="btn primary" id="st-add">Seçilenleri listeye ekle</button>`:""}<button type="button" class="btn" data-close>Kapat</button></div>`;
+  const tot=()=>rows.filter(r=>!r.off).reduce((a,r)=>a+stM2(r),0);
+  const nL=Object.keys(stLearn()).length, nLr=rows.filter(r=>r.learn).length;
+  const tOpts=r=>(r.t in STD?Object.keys(STD).filter(t=>STD[t].some(p=>p[0]===+r.s)):Object.keys(STN).filter(t=>!(t in STD))).map(t=>`<option value="${t}"${t===r.t?" selected":""}>${STN[t]}</option>`).join("");
+  const uOpts=r=>r.t==="levha"?`<option value="adet" selected>adet</option>`:`<option value="m"${r.u==="m"?" selected":""}>metre</option>${stTonOk(r)?`<option value="ton"${r.u==="ton"?" selected":""}>ton</option>`:""}`;
+  const row=(r,i)=>{ const s=r.t==="levha"?null:secOf(r), hp=s&&s.A>0?hpA(r,s):0;
+    return `<div class="st-r${r.unsure?" uns":""}${r.learn?" lrn":""}"><label class="st-c"><input type="checkbox" data-sc="${i}" ${r.off?"":"checked"}></label><div class="st-m"><b>${esc(stLbl(r))}</b><small>${esc(r.line.slice(0,90))}${r.calc?" · "+esc(r.calc):""}${hp?` · Hp/A ${fmt(hp,0)} m⁻¹`:""}${r.learn?" · <em>öğrenilen düzeltme</em>":""}</small>
+     <div class="st-q"><select data-st="${i}" aria-label="Tip">${tOpts(r)}</select>${(r.t in STD)||r.t==="kutu"?`<select data-se="${i}" aria-label="Maruziyet"><option value="4"${+r.exp===3?"":" selected"}>4 yüz</option><option value="3"${+r.exp===3?" selected":""}>3 yüz</option></select>`:""}</div>
+     <div class="st-q"><input type="number" inputmode="decimal" data-sq="${i}" value="${r.q===""?"":Math.round(num(r.q)*1000)/1000}" placeholder="miktar"><select data-su="${i}" ${r.t==="levha"?"disabled":""}>${uOpts(r)}</select><span class="st-a" id="st-a-${i}">${fmt(stM2(r),1)} m²</span></div></div></div>`; };
+  const body=()=>`<div class="st-wrap"><p class="hint">${esc(name)}${note?" · "+esc(note):""}</p>
+   ${rows.length?`<p class="hint">Okunan ${rows.length} kalem. Tip veya birim yanlışsa değiştirin; aynı yazımı bir dahaki listede doğru okurum. <b style="color:#f0ab00">Sarı</b>: emin olamadım.${nLr?` ${nLr} kalemde önceki düzeltmeniz uygulandı.`:""}</p>
+   <div class="st-rows">${rows.map(row).join("")}</div>
+   <div class="st-tot">Seçilenler: <b id="st-tot">${fmt(tot(),1)} m²</b></div>`:`<p class="dm-empty">Listede tanıdığım profil (IPE, HEA, HEB, HEM, UPN, kutu, boru, köşebent, lama, sac) bulamadım.</p>`}
+   ${skip.length?`<details class="st-sk"><summary>Okuyamadığım / tanımadığım ${skip.length} satır</summary><ul>${skip.slice(0,60).map(x=>`<li>${esc(x.slice(0,110))}</li>`).join("")}</ul><p class="hint">Bu satırları elle ekleyin (Tonaj sekmesi ile de girilebilir).</p></details>`:""}
+   ${nL?`<p class="hint st-lr">Öğrenilmiş ${nL} düzeltme var. <button type="button" class="linkbtn" id="st-lclr">Sıfırla</button></p>`:""}
+   <div class="q-actions">${rows.length?`<button type="button" class="btn primary" id="st-add">Seçilenleri listeye ekle</button>`:""}<button type="button" class="btn" data-close>Kapat</button></div></div>`;
   const d=sheet("Çelik listesi",body(),"full");
-  const upd=()=>{ rows.forEach((r,i)=>{const a=d.querySelector("#st-a-"+i); if(a) a.textContent=fmt(stM2(r),1)+" m²";}); const tt=d.querySelector("#st-tot"); if(tt) tt.textContent=fmt(rows.filter(r=>!r.off).reduce((a,r)=>a+stM2(r),0),1)+" m²"; };
+  const learn=(r,patch)=>{ if(!r.key) return; const L=stLearn(); L[r.key]=Object.assign(L[r.key]||{},patch); store("st-learn",L); };
+  const upd=()=>{ rows.forEach((r,i)=>{const a=d.querySelector("#st-a-"+i); if(a) a.textContent=fmt(stM2(r),1)+" m²";}); const tt=d.querySelector("#st-tot"); if(tt) tt.textContent=fmt(tot(),1)+" m²"; };
+  const bind=()=>{ const ad=d.querySelector("#st-add"); if(ad) ad.onclick=()=>{ const sel=rows.filter(r=>!r.off&&stM2(r)>0); if(!sel.length){toast("Miktarı girilmiş kalem yok");return;}
+      sel.forEach(r=>sfItems().push({lbl:`${stLbl(r)} · ${qLbl(r)}`,m2:Math.round(stM2(r)*100)/100,src:name}));
+      const a=sel.reduce((x,r)=>x+stM2(r),0); SF.area=Math.round((num(SF.area)+a)*10)/10; $("#sf-area").value=SF.area; sfUpd(); sfListRender(); d.close(); toast(`${sel.length} kalem · ${fmt(a,1)} m² eklendi`); };
+    const lc=d.querySelector("#st-lclr"); if(lc) lc.onclick=()=>{ store("st-learn",{}); lc.parentNode.remove(); toast("Öğrenilen düzeltmeler silindi"); }; };
+  const rer=()=>{ const w=d.querySelector(".st-wrap"); const y=w.parentNode.scrollTop; w.outerHTML=body(); bind(); const w2=d.querySelector(".st-wrap"); if(w2&&w2.parentNode) w2.parentNode.scrollTop=y; };
   d.oninput=(e=>{const t=e.target; if(t.dataset.sq!=null){rows[+t.dataset.sq].q=t.value; rows[+t.dataset.sq].unsure=false; t.closest(".st-r").classList.remove("uns");} if(t.dataset.sc!=null) rows[+t.dataset.sc].off=!t.checked; upd();});
-  d.onchange=(e=>{const t=e.target; if(t.dataset.su!=null){rows[+t.dataset.su].u=t.value; upd();} if(t.dataset.sc!=null){rows[+t.dataset.sc].off=!t.checked; upd();}});
-  const ad=d.querySelector("#st-add"); if(ad) ad.onclick=()=>{ const sel=rows.filter(r=>!r.off&&stM2(r)>0); if(!sel.length){toast("Miktarı girilmiş kalem yok");return;}
-    sel.forEach(r=>sfItems().push({lbl:`${stLbl(r)} · ${fmt(num(r.q),r.u==="ton"?2:r.u==="adet"?0:1)} ${r.u==="ton"?"ton":r.u==="adet"?"adet":"m"}`,m2:Math.round(stM2(r)*100)/100,src:name}));
-    const a=sel.reduce((x,r)=>x+stM2(r),0); SF.area=Math.round((num(SF.area)+a)*10)/10; $("#sf-area").value=SF.area; sfUpd(); sfListRender(); d.close(); toast(`${sel.length} kalem · ${fmt(a,1)} m² eklendi`); };
+  d.onchange=(e=>{const t=e.target;
+    if(t.dataset.st!=null){ const r=rows[+t.dataset.st]; stRetype(r,t.value); r.unsure=false; r.learn=false; learn(r,{t:r.t}); if(r.u==="ton"&&!stTonOk(r)) r.u="m"; rer(); if(r.key) toast(`Öğrendim: “${r.key}” → ${STN[r.t]}`); return; }
+    if(t.dataset.se!=null){ rows[+t.dataset.se].exp=+t.value; rer(); return; }
+    if(t.dataset.su!=null){ const r=rows[+t.dataset.su]; r.u=t.value; r.unsure=false; learn(r,{u:r.u}); upd(); }
+    if(t.dataset.sc!=null){rows[+t.dataset.sc].off=!t.checked; upd();}});
+  bind();
 }
 $("#sf-upf").addEventListener("change",e=>{const f=e.target.files[0]; e.target.value=""; if(f) steelFile(f);});
 sfListRender();
