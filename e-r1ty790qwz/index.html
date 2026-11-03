@@ -1364,6 +1364,10 @@ dialog.sheet .x:focus:not(:focus-visible){outline:none}
 .clr-pill{position:absolute;top:16px;right:16px;display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 12px;border-radius:17px;border:1px solid rgba(255,120,110,.45);background:rgba(215,38,46,.12);color:#ffb3ad;font:600 13.5px var(--f-body);cursor:pointer;z-index:2}
 .clr-pill svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .clr-pill:active{background:rgba(215,38,46,.25)}
+
+.prod-chg{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:none;border:0;padding:0;cursor:pointer;text-align:left;font:inherit;color:inherit}
+.prod-chg .chg{display:inline-flex;align-items:center;gap:3px;font:600 12.5px var(--f-body);color:#1f5fd6;background:#e7effd;border-radius:12px;padding:3px 8px 3px 10px}
+.prod-chg .chg svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round}
 </style>
 
 <div id="app-bg" aria-hidden="true"></div>
@@ -2008,7 +2012,7 @@ function renderLines(){
   const tb=$("#q-body");
   tb.innerHTML = Q.lines.map((ln,i)=>{const packs=packsOf(ln.name);const u=isKg(ln.name)?"kg":"L";
    return `<tr${ln.auto?' class="auto"':""}>
-    <td>${ln.key?`<span class="prod">${esc(ln.name)}</span>`:`<input type="text" id="q-n-${i}" data-i="${i}" data-f="name" value="${esc(ln.name)}" placeholder="Ürün seçin veya yazın" aria-label="Ürün adı" autocomplete="off" role="combobox" aria-expanded="false"><div class="cb" id="q-cb-${i}" hidden></div>`}${ln.auto?`<span class="need">Boyanın %15'i · İhtiyaç ≈ ${fmt(Math.ceil(ln.needL),0)} L</span>`:ln.needL&&!ln.m2?`<span class="need">İhtiyaç ≈ ${fmt(Math.ceil(ln.needL),0)} L</span>`:""}${ln.auto?"":specChip(ln)}${ln.auto?"":colorCell(ln,i)}${tintCell(ln,i)}</td>
+    <td>${ln.key&&!ln.edit?(ln.auto?`<span class="prod">${esc(ln.name)}</span>`:`<button type="button" class="prod prod-chg" data-chg="${i}" aria-label="${esc(ln.name)} – ürünü değiştir">${esc(ln.name)}<span class="chg">Değiştir<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span></button>`):`<input type="text" id="q-n-${i}" data-i="${i}" data-f="name" value="${ln.edit?"":esc(ln.name)}" placeholder="${ln.edit?esc(ln.name)+" yerine ürün seçin":"Ürün seçin veya yazın"}" aria-label="Ürün adı" autocomplete="off" role="combobox" aria-expanded="false"><div class="cb" id="q-cb-${i}" hidden></div>`}${ln.auto?`<span class="need">Boyanın %15'i · İhtiyaç ≈ ${fmt(Math.ceil(ln.needL),0)} L</span>`:ln.needL&&!ln.m2?`<span class="need">İhtiyaç ≈ ${fmt(Math.ceil(ln.needL),0)} L</span>`:""}${ln.auto?"":specChip(ln)}${ln.auto?"":colorCell(ln,i)}${tintCell(ln,i)}</td>
     <td class="n" data-label="Ambalaj">${packs.length>1?`<select id="q-k-${i}" data-i="${i}" data-f="pack" aria-label="Ambalaj">${packs.map(x=>`<option value="${x}"${x===num(ln.pack)?" selected":""}>${fmt(x,x%1?2:0)} ${u}</option>`).join("")}</select>`
       :packs.length===1?`<span class="mono">${fmt(packs[0],packs[0]%1?2:0)} ${u}</span>`
       :`<input type="number" id="q-k-${i}" data-i="${i}" data-f="pack" min="0" step="0.1" value="${ln.pack}" placeholder="L" aria-label="Ambalaj litre">`}</td>
@@ -2031,6 +2035,8 @@ function updCells(i){const ln=Q.lines[i];const u=isKg(ln.name)?"kg":"L";
   const tr=$("#q-tr-"+i); if(tr) tr.innerHTML=tintRes(ln);}
 function onLine(e){
   const t=e.target; let f=t.dataset.f; if(f==null)return; const i=+t.dataset.i, ln=Q.lines[i];
+  if(f==="name"&&ln.key&&!ln.edit) return;
+  if(f==="name"&&ln.edit){ if(e.type==="input") cbRender(i); if((e.type==="change"||!e.inputType||e.inputType==="insertReplacementText")) pickName(i,t.value); return; }
   ln[f]=t.value;
   if(f==="name"&&!ln.key&&e.type==="input") cbRender(i);
   if(f==="ral"&&e.type==="input"&&$("#q-rc-"+i)) ralRender(i);
@@ -2067,9 +2073,9 @@ function pickOpen(){
   const k=Q.lines.length-1;
   setTimeout(()=>{const r=$("#q-body").rows[k]; if(!r) return; r.scrollIntoView({block:"center",behavior:"smooth"}); r.classList.add("just"); setTimeout(()=>r.classList.remove("just"),1400);},200);
 }
-function pickName(i){const ln=Q.lines[i]; if(!ln||ln.key) return false; const v=tnormS(ln.name.trim()); if(!v) return false;
+function pickName(i,nm){const ln=Q.lines[i]; if(!ln||(ln.key&&!ln.edit)) return false; const v=tnormS(String(nm!=null?nm:ln.name).trim()); if(!v) return false;
   const c=CATALOG.find(p=>tnormS(p.name)===v&&p.cat!=="MCI Tinter"); if(!c) return false;
-  const q=num(ln.qty)||1; Q.lines[i]=mkLine(c.name,null); Q.lines[i].qty=q; renderLines(); renderDoc();
+  const q=num(ln.qty)||1, need=ln.edit?ln.needL:null; Q.lines[i]=mkLine(c.name,null); Q.lines[i].qty=q; if(need) Q.lines[i].needL=need; renderLines(); renderDoc();
   setTimeout(()=>{const r=$("#q-body").rows[i]; if(r){r.classList.add("just"); setTimeout(()=>r.classList.remove("just"),1400); const qi=r.querySelector('input[data-f="qty"]'); if(qi) qi.focus();}},60); return true;}
 $("#q-pick").addEventListener("click",pickOpen);
 /* Ürün açılır listesi: yazarak arama + kaydırmalı liste; satır sırasına göre öneri (1. kat astar, 2. ara kat, 3.+ son kat) */
@@ -2112,11 +2118,13 @@ function ralRender(i){
 }
 function cbClose(i){const rb=$("#q-rc-"+i); if(rb) rb.hidden=true;const box=$("#q-cb-"+i), inp=$("#q-n-"+i); if(box) box.hidden=true; if(inp) inp.setAttribute("aria-expanded","false");}
 $("#q-body").addEventListener("click",e=>{const t=e.target; if(!t.dataset||t.tagName!=="INPUT") return; if(t.dataset.f==="ral"&&t.getAttribute("role")==="combobox"){ ralRender(+t.dataset.i); return; } if(t.dataset.f==="name"&&t.id){ cbRender(+t.dataset.i); setTimeout(()=>{const y=t.getBoundingClientRect().top+window.scrollY-90; window.scrollTo({top:y,behavior:"smooth"});},60);} });
-$("#q-body").addEventListener("focusout",e=>{const t=e.target; if(t.dataset&&(t.dataset.f==="name"||t.dataset.f==="ral")) setTimeout(()=>cbClose(+t.dataset.i),180);});
+$("#q-body").addEventListener("focusout",e=>{const t=e.target; if(t.dataset&&(t.dataset.f==="name"||t.dataset.f==="ral")){ const i=+t.dataset.i; setTimeout(()=>{cbClose(i); const ln=Q.lines[i]; if(t.dataset.f==="name"&&ln&&ln.edit&&document.activeElement!==t){ ln.edit=false; renderLines(); }},220);} });
+$("#q-body").addEventListener("click",e=>{const b=e.target.closest("[data-chg]"); if(!b) return; const i=+b.dataset.chg; Q.lines.forEach(l=>l.edit=false); Q.lines[i].edit=true; renderLines();
+  const x=$("#q-n-"+i); if(x){ x.focus(); cbRender(i); }});
 $("#q-body").addEventListener("pointerdown",e=>{if(e.target.closest(".cb")) e.preventDefault();});
 $("#q-body").addEventListener("click",e=>{const rb=e.target.closest("[data-raln]"); if(rb){const box=rb.closest(".cb"); const i=+box.id.split("-").pop(); Q.lines[i].ral=rb.dataset.raln; const inp=$("#q-r-"+i); if(inp){inp.value=rb.dataset.raln; inp.blur();} cbClose(i); updCells(i); renderDoc(); return;}
   const b=e.target.closest("[data-cbn]"); if(!b) return; const box=b.closest(".cb"); const i=+box.id.split("-").pop();
-  Q.lines[i].name=b.dataset.cbn; cbClose(i); pickName(i);});
+  cbClose(i); if(Q.lines[i].edit) pickName(i,b.dataset.cbn); else { Q.lines[i].name=b.dataset.cbn; pickName(i); }});
 try{if(!document.querySelector(".sb-cover"))document.body.insertAdjacentHTML("afterbegin",'<div class="sb-cover" aria-hidden="true"></div>')}catch(e){}
 document.addEventListener("click",e=>{if(e.target.id==="q-miss-go"){const x=[...document.querySelectorAll("#q-body input.price")].find(i=>!(num(i.value)>0));if(x){x.scrollIntoView({block:"center",behavior:"smooth"});setTimeout(()=>x.focus(),250);}}});
 $("#q-clear").addEventListener("click",()=>{ if(!Q.lines.some(l=>l.name)){toast("Teklif zaten boş");return;}
@@ -3209,7 +3217,7 @@ wxLoad();
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)wxLoad();});
 
 /* Yeni sürüm yayınlandıysa uygulama açıkken kendini yeniler */
-(()=>{const B="1793700114"; if(!/^\d+$/.test(B)) return;
+(()=>{const B="1793700290"; if(!/^\d+$/.test(B)) return;
   const chk=()=>fetch(location.pathname+"?b="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const B="(\d+)"/); if(m&&+m[1]>+B) location.reload();}).catch(()=>{});
   document.addEventListener("visibilitychange",()=>{if(!document.hidden)chk();}); setTimeout(chk,4000);})();
 
