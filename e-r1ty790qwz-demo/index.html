@@ -1619,6 +1619,17 @@ button.dm-it{cursor:pointer}
 .yg-fx{margin-top:8px}.yg-fx summary{cursor:pointer;font:700 13.5px var(--f-body);color:#cfe0ff}
 .yg-sl>div{display:flex;flex-direction:column;padding:8px 0;border-top:1px solid rgba(140,170,220,.14)}.yg-sl>div:first-of-type{border-top:0}.yg-sl b{color:#fff;font-size:14.5px}.yg-sl span{font-size:13px;color:rgba(214,224,240,.78);margin-top:2px}
 #yg-tabs.yg-tabs3{grid-template-columns:1fr 1fr 1fr}
+
+.yg-step3:before{left:16%;right:16%}
+.yg-wz{padding:14px}
+.yg-g{margin:14px 0 4px}.yg-gl{display:block;font-size:13px;color:rgba(214,224,240,.85);margin-bottom:7px}
+.yg-chips{display:flex;flex-wrap:wrap;gap:6px}
+.yg-chips button{min-height:38px;padding:0 13px;border-radius:20px;border:1px solid rgba(140,170,220,.35);background:rgba(5,14,32,.5);color:#e6eefc;font:600 13px var(--f-body);cursor:pointer}
+.yg-chips button.on{background:#f0ab00;border-color:#f0ab00;color:#0b1f45}
+.yg-more{margin-top:14px}.yg-more summary small{color:rgba(214,224,240,.6);font-weight:500;margin-left:4px}.yg-more .yg-fm{margin-top:10px}
+.yg-nav{display:grid;grid-template-columns:1fr 2fr;gap:8px;margin-top:16px}
+.yg-nav button{min-height:48px;border-radius:24px;border:1px solid rgba(207,224,255,.45);background:rgba(5,14,32,.45);color:#fff;font:700 14px var(--f-body);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:4px}
+.yg-nav .nx{background:#f0ab00;border-color:#f0ab00;color:#0b1f45}.yg-nav svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.4}
 .demo-rb{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(70px + env(safe-area-inset-bottom,0px));z-index:80;background:#f0ab00;color:#0b1f45;font:800 11px var(--f-body);letter-spacing:.08em;padding:4px 10px;border-radius:8px;pointer-events:none}
 </style>
 
@@ -3531,7 +3542,7 @@ wxLoad();
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)wxLoad();});
 
 /* Yeni sürüm yayınlandıysa uygulama açıkken kendini yeniler */
-(()=>{const B="1793739047"; if(!/^\d+$/.test(B)) return;
+(()=>{const B="1793740893"; if(!/^\d+$/.test(B)) return;
   const chk=()=>fetch(location.pathname+"?b="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const B="(\d+)"/); if(m&&+m[1]>+B) location.reload();}).catch(()=>{});
   document.addEventListener("visibilitychange",()=>{if(!document.hidden)chk();}); setTimeout(chk,4000);})();
 
@@ -4215,12 +4226,13 @@ const YG_IL="Adana,Adıyaman,Afyonkarahisar,Ağrı,Aksaray,Amasya,Ankara,Antalya
 YG.a=Object.assign({fam:"HEB",s:"300",exp:4,L:"",n:1,el:"Kolon",a:"",b:"",th:""},load("yg-a",{})); YG.st=YG.st||"an"; YG.files=YG.files||[]; YG.open=YG.open||{proj:true};
 const ygAR=()=>{ const A=YG.a; return A.fam in STD?{t:A.fam,s:A.s,exp:+A.exp}:A.fam==="boru"?{t:"boru",d:num(A.a),th:num(A.th),exp:4}:{t:"kutu",a:num(A.a),b:num(A.b)||num(A.a),th:num(A.th),exp:+A.exp}; };
 const ygCritOf=()=>{ const m=String(YG.f.crit||"").match(/(\d{3})/); return m?{T:+m[1],def:false}:{T:ygCrit(0.6),def:true}; };
-const YG_STEPS=[["proj","Proje"],["fire","Yangın"],["env","Ortam"],["prof","Profil"],["note","Ekler"],["send","Gönder"]];
-function ygDone(){ const f=YG.f, pr=YG.rows.length>0&&YG.rows.every(r=>num(r.L)>0);
-  return {proj:!!f.proj, fire:!!(f.curve&&f.rate), env:!!f.env, prof:pr, note:!!(f.note||YG.files.length), send:!!YG.sent}; }
-function ygStepHTML(){ const d=ygDone(); const act=(YG_STEPS.find(s=>!d[s[0]])||YG_STEPS[5])[0];
-  return YG_STEPS.map(([k,l],i)=>`<button type="button" data-ys="${k}" class="${d[k]?"ok":k===act?"on":""}"><i>${d[k]?"✓":i+1}</i>${l}</button>`).join(""); }
-const ygSec=(k,n,ic,t,body)=>`<details class="yg-sec" id="ys-${k}" data-sec="${k}"${YG.open[k]?" open":""}><summary><span class="ic">${ygI(ic)}</span><b>${n}. ${t}</b><span class="st" id="yst-${k}" hidden>Tamam</span><svg class="cv" viewBox="0 0 24 24">${YGI.chev}</svg></summary><div class="yg-sb">${body}</div></details>`;
+const YG_STEPS=[["proj","Proje ve koşullar"],["prof","Profiller"],["send","Gönder"]];
+YG.stp=+load("yg-stp",0)||0;
+function ygDone(){ const f=YG.f; return {proj:!!(f.proj&&f.curve&&f.rate&&f.env), prof:YG.rows.length>0&&YG.rows.every(r=>num(r.L)>0), send:!!YG.sent}; }
+function ygStepHTML(){ const d=ygDone();
+  return YG_STEPS.map(([k,l],i)=>`<button type="button" data-ys="${i}" class="${i===YG.stp?"on":d[k]?"ok":""}"><i>${d[k]&&i!==YG.stp?"✓":i+1}</i>${l}</button>`).join(""); }
+const YG_SHORT={"Selülozik (ISO 834)":"Selülozik","Hidrokarbon / jet":"Hidrokarbon / jet","İç mekân, normal nem (Z2)":"İç mekân","İç mekân, yüksek nem (Z1)":"İç, nemli","Yarı açık (Y)":"Yarı açık","Dış ortam (X)":"Dış ortam"};
+const ygChips=(k,opts)=>`<div class="yg-chips" data-ygcg="${k}">${(opts||YG_SEL[k]).map(o=>`<button type="button" data-ygc="${k}" data-v="${esc(o)}" class="${YG.f[k]===o?"on":""}">${esc(YG_SHORT[o]||o)}</button>`).join("")}</div>`;
 function ygShape(fam,size){ const row=(STD[fam]||[]).find(p=>String(p[0])===String(size))||(STD[fam]||[])[0]; if(!row) return ygBeam("steel","ygpv");
   const sz=+row[0], bR=+row[3]||sz/2, hR=fam==="HEA"?sz*.96:fam==="HEM"?sz+(sz<=300?30:20):sz;
   const H=72, B=Math.max(16,Math.min(84,H*bR/hR)), C=fam==="UPN"||fam==="UPE", tap=fam==="INP"||fam==="UPN";
@@ -4245,33 +4257,37 @@ function ygAnaHTML(){ const ms=ygMissing(), n=YG.rows.length, m2=YG.rows.reduce(
   return `<div class="yg-k4" style="grid-template-columns:repeat(3,1fr)"><div><b>${n}</b><span>profil</span></div><div><b>${fmt(m2,1)}</b><span>m² boyanacak</span></div><div><b>${esc(YG.f.rate||"—")}</b><span>dayanım</span></div></div>
    <div class="yg-chk">${ms.length?ms.map(x=>`<span class="no">• Eksik: ${x}</span>`).join(""):`<span class="ok">✓ Talep analiz için hazır</span>`}</div>
    <details class="yg-fx"><summary>Gönderilecek mesajı gör</summary><div class="yg-pre">${esc(ygText().replace(/\*/g,""))}</div></details>`; }
-function ygReq(){ const f=YG.f, A=YG.a, to=YG.to, std=A.fam in STD;
+function ygReq(){ const f=YG.f, A=YG.a, to=YG.to, std=A.fam in STD, st=YG.stp;
   const I=(k,l,ic,ph,o={})=>`<label${o.w2?' class="w2"':""}><span>${l}${o.req?' <i class="req">*</i>':""}</span><span class="yg-in">${ygI(ic)}<input type="${o.type||"text"}" data-ygf="${k}" value="${esc(f[k]||"")}" placeholder="${ph||""}"${o.list?` list="${o.list}"`:""}></span></label>`;
-  const S=(k,l,ic,o={})=>`<label${o.w2?' class="w2"':""}><span>${l}${o.req?' <i class="req">*</i>':""}</span><span class="yg-in">${ygI(ic)}<select data-ygf="${k}">${ygOpts(k,f[k])}</select></span></label>`;
+  const S=(k,l,ic,o={})=>`<label${o.w2?' class="w2"':""}><span>${l}</span><span class="yg-in">${ygI(ic)}<select data-ygf="${k}">${ygOpts(k,f[k])}</select></span></label>`;
   const hc=(f.curve||"").startsWith("Hidro");
   const sel=(id,opts,v)=>`<select id="${id}">${opts.map(([a,b])=>`<option value="${a}"${String(a)===String(v)?" selected":""}>${b}</option>`).join("")}</select>`;
-  return `<div class="yg-step" id="yg-step">${ygStepHTML()}</div>
-${ygSec("proj",1,"doc","Proje bilgileri",`<div class="yg-fm">${I("proj","Proje adı","bld","örn. Lojistik deposu çelik çatı",{w2:1,req:1})}${I("cust","Müşteri / firma","users","Firma adı")}${I("city","Şehir","pin","Seçin",{list:"yg-il"})}${I("cont","Yetkili kişi","user","Ad soyad")}${I("tel","Telefon","tel","+90 (5xx) xxx xx xx",{type:"tel"})}${S("std","İstenen test standardı","std",{w2:1})}</div><datalist id="yg-il">${YG_IL.map(x=>`<option value="${x}">`).join("")}</datalist>`)}
-${ygSec("fire",2,"fire","Yangın gereksinimi",`<div class="yg-fm">${S("curve","Yangın tipi","fire",{req:1})}${S("rate","Dayanım süresi","clock",{req:1})}${S("crit","Kritik sıcaklık","therm")}<div class="yg-warn" id="yg-hcw"${hc?"":" hidden"}>${ygI("info")}<span>Steelmaster bu yangın tipi için uygun değildir; talep Jotachar değerlendirmesi için Jotun teknik ekibine gider.</span></div></div>
- <p><small>Kritik sıcaklık statik hesaptan gelir. Bilinmiyorsa "Danışman belirlesin" seçin.</small></p>`)}
-${ygSec("env",3,"lay","Ortam ve yüzey",`<div class="yg-fm">${S("env","Ortam","wind",{req:1})}${S("cor","Korozivite (ISO 12944)","shield")}${S("app","Uygulama yeri","fac")}${S("surf","Yüzey durumu","roll")}${I("top","Son kat / renk","pal","örn. RAL 7035 isteniyor",{w2:1})}</div>`)}
-${ygSec("prof",4,"ibeam","Profil listesi",`<div class="yg-pc"><div class="yg-pv" id="yg-pv">${ygPrevHTML()}</div><div class="yg-pf yg-fm">
+  const G=(l,body)=>`<div class="yg-g"><span class="yg-gl">${l} <i class="req">*</i></span>${body}</div>`;
+  let body;
+  if(st===0) body=`<div class="yg-fm">${I("proj","Proje adı","bld","örn. Lojistik deposu çelik çatı",{w2:1,req:1})}${I("cust","Müşteri / firma","users","Firma adı")}${I("city","Şehir","pin","Seçin",{list:"yg-il"})}</div><datalist id="yg-il">${YG_IL.map(x=>`<option value="${x}">`).join("")}</datalist>
+   ${G("Yangın tipi",ygChips("curve"))}<div class="yg-warn" id="yg-hcw"${hc?"":" hidden"}>${ygI("info")}<span>Steelmaster bu yangın tipi için uygun değildir; talep Jotachar değerlendirmesi için gider.</span></div>
+   ${G("Dayanım süresi",ygChips("rate",["R30","R60","R90","R120","R180","Bilmiyorum"]))}
+   ${G("Ortam",ygChips("env"))}
+   <details class="yg-fx yg-more"${YG.more?" open":""}><summary>Ek bilgiler <small>isteğe bağlı</small></summary><div class="yg-fm">${I("cont","Yetkili kişi","user","Ad soyad")}${I("tel","Telefon","tel","+90 5xx",{type:"tel"})}${S("crit","Kritik sıcaklık","therm")}${S("cor","Korozivite","shield")}${S("app","Uygulama yeri","fac")}${S("surf","Yüzey durumu","roll")}${S("std","Test standardı","std",{w2:1})}${I("top","Son kat / renk","pal","örn. RAL 7035",{w2:1})}</div></details>`;
+  else if(st===1) body=`<div class="yg-pc"><div class="yg-pv" id="yg-pv">${ygPrevHTML()}</div><div class="yg-pf yg-fm">
    <label>Profil${sel("yg-afam",[...Object.keys(STD).map(k=>[k,k]),["kutu","Kutu profil"],["boru","Boru"]],A.fam)}</label>
    ${std?`<label>Ölçü${sel("yg-asz",STD[A.fam].map(p=>[p[0],A.fam+" "+p[0]]),A.s)}</label>`:`<label>${A.fam==="boru"?"Çap":"Kenar a"} (mm)<input type="number" inputmode="decimal" id="yg-aa" value="${esc(String(A.a||""))}"></label>${A.fam==="kutu"?`<label>Kenar b (mm)<input type="number" inputmode="decimal" id="yg-ab" value="${esc(String(A.b||""))}"></label>`:""}<label>Et kalınlığı (mm)<input type="number" inputmode="decimal" id="yg-at" value="${esc(String(A.th||""))}"></label>`}
    <label>Maruziyet${sel("yg-aexp",[[4,"4 yüz"],[3,"3 yüz"]],A.exp)}</label><label>Eleman${sel("yg-ael",YG_EL.map(e=>[e,e]),A.el)}</label>
    <label>Boy (m)<input type="number" inputmode="decimal" id="yg-aL" value="${esc(String(A.L||""))}" placeholder="0,00"></label><label>Adet<input type="number" inputmode="decimal" id="yg-an" value="${esc(String(A.n||1))}"></label></div></div>
- <div class="yg-bt2"><button type="button" class="a" id="yg-aadd">${ygI("plus")}Profil ekle</button><label class="u"><input type="file" id="yg-upf" accept=".pdf,image/*,.xlsx,.xls,.csv,.txt" hidden>${ygI("up")}<span>Çelik listesi yükle<small>PDF, fotoğraf veya Excel</small></span></label></div>
- <div class="yg-rows" id="yg-rows">${ygRowsHTML()}</div>`)}
-${ygSec("note",5,"clip","Not ve ekler",`<div class="yg-fm"><label class="w2"><span class="yg-in" style="display:block"><textarea data-ygf="note" placeholder="örn. Statik rapor ve çizimler ayrıca gönderilecek; termin 3 hafta">${esc(f.note||"")}</textarea></span></label></div>
- <label class="yg-dz"><input type="file" id="yg-fa" multiple hidden>${ygI("up")}<span><b>Dosya ekle</b> (statik rapor, çizim, şartname vb.)</span></label><div class="yg-files" id="yg-files">${ygFilesHTML()}</div>`)}
-${ygSec("send",6,"check","Özet ve gönder",`<div id="yg-ana">${ygAnaHTML()}</div>`)}
-<div class="yg-bar2"><div class="yg-rcp"><span>Alıcı: <b>${to.name?esc(to.name):"seçilmedi"}</b>${to.name&&(to.wa||to.mail)?" · "+[to.wa,to.mail].filter(Boolean).map(esc).join(" · "):""}</span><button type="button" class="linkbtn" id="yg-toedit">${to.name?"Değiştir":"Alıcı ekle"}</button></div>
- <div class="yg-acts"><button type="button" id="yg-clr">${ygI("reset")}Temizle</button><button type="button" id="yg-pdf">${ygI("pdf")}PDF</button><a id="yg-mail">${ygI("mail")}E-posta</a><a class="wa" id="yg-wa" target="_blank" rel="noopener">${ygI("wa")}WhatsApp ile gönder</a></div></div>`; }
+   <div class="yg-bt2"><button type="button" class="a" id="yg-aadd">${ygI("plus")}Profil ekle</button><label class="u"><input type="file" id="yg-upf" accept=".pdf,image/*,.xlsx,.xls,.csv,.txt" hidden>${ygI("up")}<span>Çelik listesi yükle<small>PDF, fotoğraf veya Excel</small></span></label></div>
+   <div class="yg-rows" id="yg-rows">${ygRowsHTML()}</div>`;
+  else body=`<div id="yg-ana">${ygAnaHTML()}</div>
+   <div class="yg-fm" style="margin-top:10px"><label class="w2"><span>Not</span><span class="yg-in" style="display:block"><textarea data-ygf="note" rows="2" placeholder="örn. Statik rapor ayrıca gönderilecek; termin 3 hafta">${esc(f.note||"")}</textarea></span></label></div>
+   <label class="yg-dz"><input type="file" id="yg-fa" multiple hidden>${ygI("up")}<span><b>Dosya ekle</b> (statik rapor, çizim, şartname)</span></label><div class="yg-files" id="yg-files">${ygFilesHTML()}</div>
+   <div class="yg-bar2"><div class="yg-rcp"><span>Alıcı: <b>${to.name?esc(to.name):"seçilmedi"}</b>${to.name&&(to.wa||to.mail)?" · "+[to.wa,to.mail].filter(Boolean).map(esc).join(" · "):""}</span><button type="button" class="linkbtn" id="yg-toedit">${to.name?"Değiştir":"Alıcı ekle"}</button></div>
+   <div class="yg-acts"><button type="button" id="yg-clr">${ygI("reset")}Temizle</button><button type="button" id="yg-pdf">${ygI("pdf")}PDF</button><a id="yg-mail">${ygI("mail")}E-posta</a><a class="wa" id="yg-wa" target="_blank" rel="noopener">${ygI("wa")}WhatsApp ile gönder</a></div></div>`;
+  const nav=st<2?`<div class="yg-nav">${st>0?`<button type="button" data-ys="${st-1}">Geri</button>`:"<span></span>"}<button type="button" class="nx" data-ys="${st+1}">İleri: ${YG_STEPS[st+1][1]}<svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button></div>`:`<div class="yg-nav"><button type="button" data-ys="1">Geri</button><span></span></div>`;
+  return `<div class="yg-step yg-step3" id="yg-step">${ygStepHTML()}</div><div class="yg-sec yg-wz" id="yg-wz">${body}${nav}</div>`; }
 function ygFilesHTML(){ return YG.files.map((f,i)=>`<div>${ygI("clip").replace("<svg",'<svg style="width:16px;height:16px;fill:none;stroke:#cfe0ff;stroke-width:2"')}<span>${esc(f.name)}</span><small>${fmt(f.size/1048576,1)} MB</small><button type="button" class="x" data-ygfd="${i}" aria-label="Kaldır" style="background:none;border:0;color:#fff;font-size:18px">×</button></div>`).join(""); }
 function ygLinks(){ const wa=$("#yg-wa"), ml=$("#yg-mail"); if(!wa) return; const t=ygText(), n=(YG.to.wa||"").replace(/\D/g,"");
   wa.href=(n?"https://wa.me/"+n:"https://wa.me/")+"?text="+encodeURIComponent(t);
   ml.href=`mailto:${encodeURIComponent(YG.to.mail||"")}?subject=${encodeURIComponent("Yangın koruma analiz talebi"+(YG.f.proj?" – "+YG.f.proj:""))}&body=${encodeURIComponent(t.replace(/\*/g,""))}`;
-  const st=$("#yg-step"); if(st) st.innerHTML=ygStepHTML(); const d=ygDone(); ["proj","fire","env","prof"].forEach(k=>{const e=$("#yst-"+k); if(e) e.hidden=!d[k];});
+  const st=$("#yg-step"); if(st) st.innerHTML=ygStepHTML(); 
   const a=$("#yg-ana"); if(a) a.innerHTML=ygAnaHTML(); }
 function ygAnaUpd(){ const a=$("#yg-ana"); if(a) a.innerHTML=ygAnaHTML(); }
 function ygRowsUpd(){ const el=$("#yg-rows"); if(el) el.innerHTML=ygRowsHTML(); ygSave(); ygLinks(); ygAnaUpd(); }
@@ -4285,7 +4301,7 @@ function ygRender(){ const b=$("#yg-body"); if(!b) return; $("#yg-tabs").querySe
 const ygA=()=>store("yg-a",YG.a);
 function ygPvUpd(){ const p=$("#yg-pv"); if(p) p.innerHTML=ygPrevHTML(); ygA(); }
 $("#yg-tabs").addEventListener("click",e=>{const b=e.target.closest("[data-yt]"); if(!b) return; YG.tab=b.dataset.yt; ygRender(); window.scrollTo(0,0);});
-$("#yg-body").addEventListener("toggle",e=>{ const d=e.target; if(d.dataset&&d.dataset.sec) YG.open[d.dataset.sec]=d.open; },true);
+$("#yg-body").addEventListener("toggle",e=>{ const d=e.target; if(d.classList&&d.classList.contains("yg-more")) YG.more=d.open; },true);
 $("#yg-body").addEventListener("input",e=>{ const t=e.target, M=YG.m, A=YG.a;
   if(t.id==="yg-mu"){ M.mu=+t.value; ygHowUpd(); }
   else if(t.dataset.ygf){ YG.f[t.dataset.ygf]=t.value; YG.sent=false; ygSave(); ygLinks(); }
@@ -4303,7 +4319,8 @@ $("#yg-body").addEventListener("change",e=>{ const t=e.target, M=YG.m, A=YG.a;
   else if(t.dataset.yge!=null&&t.tagName==="SELECT"){ const r=YG.rows[+t.dataset.yge]; r[t.dataset.k]=t.dataset.k==="exp"?+t.value:t.value; ygRowsUpd(); } });
 $("#yg-body").addEventListener("click",async e=>{ const t=e.target.closest("button,a")||e.target;
   if(t.dataset.ygto){ YG.tab=t.dataset.ygto; ygRender(); window.scrollTo(0,0); return; }
-  if(t.dataset.ys){ const k=t.dataset.ys, el=$("#ys-"+k); if(el){ if(el.tagName==="DETAILS"){ el.open=true; YG.open[k]=true; } el.scrollIntoView({behavior:"smooth",block:"start"}); } return; }
+  if(t.dataset.ys!=null){ YG.stp=Math.max(0,Math.min(2,+t.dataset.ys)); store("yg-stp",YG.stp); ygRender(); const st=$("#yg-step"); if(st) st.scrollIntoView({block:"start"}); return; }
+  if(t.dataset.ygc){ const k=t.dataset.ygc, v=t.dataset.v; YG.f[k]=YG.f[k]===v?"":v; YG.sent=false; ygSave(); t.parentNode.querySelectorAll("button").forEach(b=>b.classList.toggle("on",YG.f[k]===b.dataset.v)); if(k==="curve"){ const w=$("#yg-hcw"); if(w) w.hidden=!(YG.f.curve||"").startsWith("Hidro"); } ygLinks(); return; }
     if(t.dataset.ygfd!=null){ YG.files.splice(+t.dataset.ygfd,1); $("#yg-files").innerHTML=ygFilesHTML(); ygLinks(); return; }
   if(t.id==="yg-toedit") ygToEdit();
   else if(t.dataset.ygdel!=null){ YG.rows.splice(+t.dataset.ygdel,1); ygRowsUpd(); }
