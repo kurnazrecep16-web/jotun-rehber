@@ -1368,6 +1368,15 @@ dialog.sheet .x:focus:not(:focus-visible){outline:none}
 .prod-chg{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:none;border:0;padding:0;cursor:pointer;text-align:left;font:inherit;color:inherit}
 .prod-chg .chg{display:inline-flex;align-items:center;gap:3px;font:600 12.5px var(--f-body);color:#1f5fd6;background:#e7effd;border-radius:12px;padding:3px 8px 3px 10px}
 .prod-chg .chg svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round}
+
+.th-ch{display:flex;flex-wrap:wrap;gap:6px}
+.th-ch button{flex:1;min-width:0;height:44px;padding:0 6px;border-radius:10px;border:1px solid #c9d3e3;background:#fff;color:#0b1f45;font:600 14.5px var(--f-body);cursor:pointer}
+.th-ch button[aria-pressed="true"]{background:#1f5fd6;border-color:#1f5fd6;color:#fff}
+.th-auto{display:inline-block;margin-top:4px;border:0;background:#eef3fb;color:#1f5fd6;font:600 12.5px var(--f-body);border-radius:12px;padding:4px 10px;cursor:pointer}
+
+#q-body tr.auto td:nth-child(2){grid-column:1/3!important;grid-row:2!important}
+#q-body tr.auto td:nth-child(3){grid-column:3!important;grid-row:2!important}
+#q-body tr.auto td:nth-child(2) .th-ch{flex-wrap:nowrap}
 </style>
 
 <div id="app-bg" aria-hidden="true"></div>
@@ -1945,6 +1954,13 @@ function bestPack(need,packs){
   let best=null; for(const p of ps){ if(p===1&&need>5) continue; const tot=Math.ceil(need/p)*p; if(!best||tot<best.tot) best={p,tot}; }
   return best?best.p:ps[0];
 }
+/* Tiner ambalajı: bir üst ambalajın en az %60'ı kadar ihtiyaç varsa büyük ambalaja geçilir; 5 L üstünde 1 L kullanılmaz */
+function thinPlan(req,packs){ let P=packs.map(Number).filter(p=>p>0).sort((a,b)=>b-a); if(req>5&&P.some(p=>p>1)) P=P.filter(p=>p>1); if(!P.length||!(req>0)) return [];
+  const out=[]; let rem=req;
+  for(let k=0;k<P.length;k++){ const p=P[k]; if(rem<=1e-9) break;
+    if(k===P.length-1){ out.push({pk:p,qty:Math.max(1,Math.ceil(rem/p-1e-9))}); break; }
+    let n=Math.floor(rem/p+1e-9), r=rem-n*p; if(r>=0.6*p-1e-9){ n++; r=0; } if(n>0) out.push({pk:p,qty:n}); rem=r; }
+  return out; }
 function syncThinner(){
   if(!Q.thOff) Q.thOff={};
   const need={};
@@ -1952,10 +1968,13 @@ function syncThinner(){
   Q.lines=Q.lines.filter(l=>!l.auto||(need[l.thNo]&&!Q.thOff[l.thNo]));
   Object.entries(need).forEach(([no,L])=>{
     const nm=thinName(no); if(Q.thOff[no]||!CATALOG.some(p=>p.name===nm)||L<=0) return;
-    const req=L*THIN_RATE; let ln=Q.lines.find(l=>l.auto&&l.thNo===no);
-    if(!ln){ ln=mkLine(nm,req,"th"); ln.auto=true; ln.thNo=no; Q.lines.push(ln); }
-    ln.needL=req;
-    if(!ln.manual){ const pk=bestPack(req,packsOf(nm)); if(pk){ ln.pack=pk; ln.qty=Math.max(1,Math.ceil(req/pk)); } }
+    const req=L*THIN_RATE; const ls=Q.lines.filter(l=>l.auto&&l.thNo===no);
+    const man=ls.find(l=>l.manual);
+    if(man){ Q.lines=Q.lines.filter(l=>!(l.auto&&l.thNo===no&&l!==man)); man.needL=req; man.sub=0; return; }
+    const plan=thinPlan(req,packsOf(nm)); if(!plan.length) return;
+    while(ls.length<plan.length){ const ln=mkLine(nm,req,"th"); ln.auto=true; ln.thNo=no; const last=ls[ls.length-1]; const at=last?Q.lines.indexOf(last)+1:Q.lines.length; Q.lines.splice(at,0,ln); ls.push(ln); }
+    ls.slice(plan.length).forEach(x=>{const k=Q.lines.indexOf(x); if(k>=0) Q.lines.splice(k,1);});
+    plan.forEach((pp,k)=>{ const ln=ls[k]; ln.pack=pp.pk; ln.qty=pp.qty; ln.needL=req; ln.sub=k; ln.split=plan.length>1; });
   });
 }
 const lineKg = l=>num(l.dens)>0?lineL(l)*num(l.dens):null;
@@ -2013,8 +2032,8 @@ function renderLines(){
   const tb=$("#q-body");
   tb.innerHTML = Q.lines.map((ln,i)=>{const packs=packsOf(ln.name);const u=isKg(ln.name)?"kg":"L";
    return `<tr${ln.auto?' class="auto"':""}>
-    <td>${ln.key&&!ln.edit?(ln.auto?`<span class="prod">${esc(ln.name)}</span>`:`<button type="button" class="prod prod-chg" data-chg="${i}" aria-label="${esc(ln.name)} – ürünü değiştir">${esc(ln.name)}<span class="chg">Değiştir<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span></button>`):`<input type="text" id="q-n-${i}" data-i="${i}" data-f="name" value="${ln.edit?"":esc(ln.name)}" placeholder="${ln.edit?esc(ln.name)+" yerine ürün seçin":"Ürün seçin veya yazın"}" aria-label="Ürün adı" autocomplete="off" role="combobox" aria-expanded="false"><div class="cb" id="q-cb-${i}" hidden></div>`}${ln.auto?`<span class="need">Boyanın %15'i · İhtiyaç ≈ ${fmt(Math.ceil(ln.needL),0)} L</span>`:ln.needL&&!ln.m2?`<span class="need">İhtiyaç ≈ ${fmt(Math.ceil(ln.needL),0)} L</span>`:""}${ln.auto?"":specChip(ln)}${ln.auto?"":colorCell(ln,i)}${tintCell(ln,i)}</td>
-    <td class="n" data-label="Ambalaj">${packs.length>1?`<select id="q-k-${i}" data-i="${i}" data-f="pack" aria-label="Ambalaj">${packs.map(x=>`<option value="${x}"${x===num(ln.pack)?" selected":""}>${fmt(x,x%1?2:0)} ${u}</option>`).join("")}</select>`
+    <td>${ln.key&&!ln.edit?(ln.auto?`<span class="prod">${esc(ln.name)}</span>`:`<button type="button" class="prod prod-chg" data-chg="${i}" aria-label="${esc(ln.name)} – ürünü değiştir">${esc(ln.name)}<span class="chg">Değiştir<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span></button>`):`<input type="text" id="q-n-${i}" data-i="${i}" data-f="name" value="${ln.edit?"":esc(ln.name)}" placeholder="${ln.edit?esc(ln.name)+" yerine ürün seçin":"Ürün seçin veya yazın"}" aria-label="Ürün adı" autocomplete="off" role="combobox" aria-expanded="false"><div class="cb" id="q-cb-${i}" hidden></div>`}${ln.auto?`<span class="need">${ln.sub?"Tiner · ek ambalaj":`Boyanın %15'i · İhtiyaç ≈ ${fmt(Math.ceil(ln.needL),0)} L`}</span>${ln.manual?`<button type="button" class="th-auto" data-thauto="${i}">↺ Otomatik ambalaja dön</button>`:""}`:ln.needL&&!ln.m2?`<span class="need">İhtiyaç ≈ ${fmt(Math.ceil(ln.needL),0)} L</span>`:""}${ln.auto?"":specChip(ln)}${ln.auto?"":colorCell(ln,i)}${tintCell(ln,i)}</td>
+    <td class="n" data-label="Ambalaj">${ln.auto&&packs.length>1?`<div class="th-ch" role="group" aria-label="Tiner ambalajı">${packs.map(x=>`<button type="button" data-thp="${i}" data-v="${x}" aria-pressed="${x===num(ln.pack)}">${fmt(x,0)} L</button>`).join("")}</div>`:packs.length>1?`<select id="q-k-${i}" data-i="${i}" data-f="pack" aria-label="Ambalaj">${packs.map(x=>`<option value="${x}"${x===num(ln.pack)?" selected":""}>${fmt(x,x%1?2:0)} ${u}</option>`).join("")}</select>`
       :packs.length===1?`<span class="mono">${fmt(packs[0],packs[0]%1?2:0)} ${u}</span>`
       :`<input type="number" id="q-k-${i}" data-i="${i}" data-f="pack" min="0" step="0.1" value="${ln.pack}" placeholder="L" aria-label="Ambalaj litre">`}</td>
     <td class="n" data-label="Adet"><input type="number" id="q-q-${i}" data-i="${i}" data-f="qty" min="0" step="1" value="${ln.qty}" aria-label="Adet / takım"></td>
@@ -2048,10 +2067,10 @@ function onLine(e){
   if(f==="pack"){ const cr=$("#q-cr-"+i); if(ln.m2&&cr) setTimeout(()=>{cr.innerHTML=calcRes(ln)},0); if(ln.needL&&num(ln.pack)){ln.qty=Math.ceil(ln.needL/num(ln.pack));const qi=$("#q-q-"+i);if(qi)qi.value=ln.qty;}
     }
   if(f==="price"&&ln.name){const v=num(t.value);if(v>0){PRICES[ln.name]=v;store("q-prices-l",PRICES)}}
-  if(ln.auto&&(f==="qty"||f==="pack")) ln.manual=true;
+  if(ln.auto&&(f==="qty"||f==="pack")){ ln.manual=true; if(ln.split){ syncThinner(); renderLines(); renderDoc(); return; } }
   if(!ln.auto&&(f==="qty"||f==="pack")){ const before=Q.lines.length; syncThinner();
     if(Q.lines.length!==before){ renderLines(); renderDoc(); return; }
-    Q.lines.forEach((l,k)=>{ if(!l.auto) return; const qi=$("#q-q-"+k); if(qi&&document.activeElement!==qi) qi.value=l.qty; const ki=$("#q-k-"+k); if(ki&&ki.tagName==="SELECT") ki.value=l.pack; const nd=$("#q-body").rows[k]&&$("#q-body").rows[k].querySelector(".need"); if(nd) nd.textContent=`Boyanın %15'i · İhtiyaç ≈ ${fmt(Math.ceil(l.needL),0)} L`; updCells(k); }); }
+    Q.lines.forEach((l,k)=>{ if(!l.auto) return; const qi=$("#q-q-"+k); if(qi&&document.activeElement!==qi) qi.value=l.qty; const ki=$("#q-k-"+k); if(ki&&ki.tagName==="SELECT") ki.value=l.pack; const rw=$("#q-body").rows[k]; if(rw) rw.querySelectorAll("[data-thp]").forEach(b=>b.setAttribute("aria-pressed",num(b.dataset.v)===num(l.pack))); const nd=$("#q-body").rows[k]&&$("#q-body").rows[k].querySelector(".need"); if(nd) nd.textContent=`Boyanın %15'i · İhtiyaç ≈ ${fmt(Math.ceil(l.needL),0)} L`; updCells(k); }); }
   if(f==="dens"&&ln.name){const v=num(t.value);if(v>0){DENS[ln.name]=v;store("q-dens",Object.fromEntries(Object.entries(DENS)))}}
   updCells(i); renderDoc(); if(f==="price") missUpd();
 }
@@ -2079,6 +2098,10 @@ function pickName(i,nm){const ln=Q.lines[i]; if(!ln||(ln.key&&!ln.edit)) return 
   const q=num(ln.qty)||1, need=ln.edit?ln.needL:null; Q.lines[i]=mkLine(c.name,null); Q.lines[i].qty=q; if(need) Q.lines[i].needL=need; renderLines(); renderDoc();
   setTimeout(()=>{const r=$("#q-body").rows[i]; if(r){r.classList.add("just"); setTimeout(()=>r.classList.remove("just"),1400); const qi=r.querySelector('input[data-f="qty"]'); if(qi) qi.focus();}},60); return true;}
 $("#q-pick").addEventListener("click",pickOpen);
+$("#q-body").addEventListener("click",e=>{const b=e.target.closest("[data-thp],[data-thauto]"); if(!b) return;
+  if(b.dataset.thauto!=null){ const ln=Q.lines[+b.dataset.thauto]; Q.lines.forEach(l=>{if(l.auto&&l.thNo===ln.thNo) l.manual=false;}); }
+  else { const ln=Q.lines[+b.dataset.thp], v=num(b.dataset.v); ln.manual=true; ln.pack=v; ln.qty=Math.max(1,Math.ceil((ln.needL||v)/v-1e-9)); }
+  syncThinner(); renderLines(); renderDoc();});
 /* Ürün açılır listesi: yazarak arama + kaydırmalı liste; satır sırasına göre öneri (1. kat astar, 2. ara kat, 3.+ son kat) */
 const roleOf=p=>{const t=(p.name+" "+(p.note||"")).toLowerCase(); if(p.cat==="Flooring") return "z";
   if(p.cat==="Zinc Rich"||p.cat==="Shopprimer"||/primer|astar|sealer/.test(t)) return "p";
@@ -3218,7 +3241,7 @@ wxLoad();
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)wxLoad();});
 
 /* Yeni sürüm yayınlandıysa uygulama açıkken kendini yeniler */
-(()=>{const B="1793702622"; if(!/^\d+$/.test(B)) return;
+(()=>{const B="1793704367"; if(!/^\d+$/.test(B)) return;
   const chk=()=>fetch(location.pathname+"?b="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const B="(\d+)"/); if(m&&+m[1]>+B) location.reload();}).catch(()=>{});
   document.addEventListener("visibilitychange",()=>{if(!document.hidden)chk();}); setTimeout(chk,4000);})();
 
