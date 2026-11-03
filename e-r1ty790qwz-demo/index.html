@@ -1903,6 +1903,29 @@ html body #v-ana .hm-t b span,html body #v-ana .hm-sec span,html body #v-ana .hm
 html body #v-ana #h-fp .hm-t>span{font-size:13.5px!important}
 html body #v-ana .hm-foot .hf-tx b{white-space:normal;overflow:visible;text-overflow:clip;line-height:1.2}
 html body #v-ana .hm-foot .hf-sw{padding:0 12px;white-space:nowrap;flex:none}
+
+/* Sistem sayfası: ana sayfayla aynı uygulama alanı kutuları */
+html body #v-sistem .hm-sec{display:flex;align-items:center;gap:10px;margin:22px 0 12px;font:800 21px var(--f-body)!important;letter-spacing:0!important;text-transform:none!important;color:#fff!important}
+html body #v-sistem .hm-sec::before{content:"";flex:none;width:5px;height:22px;border-radius:3px;background:#f0ab00}
+html body #v-sistem .hm-tile{min-height:70px;padding:6px 12px 6px 6px;gap:10px;border-radius:16px;background:linear-gradient(180deg,rgba(18,36,74,.95),rgba(9,22,48,.95));border:1px solid rgba(110,150,230,.4);box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 6px 16px rgba(0,0,0,.22)}
+html body #v-sistem .hm-tile:active{transform:scale(.98)}
+html body #v-sistem .hm-tile .hm-ti{width:66px!important;height:50px!important;flex:none;background-size:contain!important;background-repeat:no-repeat!important;background-position:center!important;background-color:transparent!important;border:0!important;filter:drop-shadow(0 4px 6px rgba(0,0,0,.35))}
+html body #v-sistem .hm-tile .hm-tl{font:800 15px/1.2 var(--f-body);color:#fff}
+html body #v-sistem .hm-tile .chev{width:20px;height:20px;stroke:#fff;opacity:.9}
+html body #v-sistem .hm-tile .ic-celik{background-image:url(hm/celik.webp)!important}
+html body #v-sistem .hm-tile .ic-makine{background-image:url(hm/makine.webp)!important}
+html body #v-sistem .hm-tile .ic-tankdis{background-image:url(hm/tankdis.webp)!important}
+html body #v-sistem .hm-tile .ic-boru{background-image:url(hm/boru.webp)!important}
+html body #v-sistem .hm-tile .ic-bakim{background-image:url(hm/bakim.webp)!important}
+html body #v-sistem .hm-tile .ic-tankici{background-image:url(hm/tankic.webp)!important}
+html body #v-sistem .hm-tile .ic-sicak{background-image:url(hm/sicak.webp)!important}
+html body #v-sistem .hm-tile .ic-beton{background-image:url(hm/beton.webp)!important}
+html body #v-sistem .hm-tile .ic-tekne{background-image:url(hm/gemi.webp)!important}
+html body #v-sistem .hm-tile .ic-yangin{background-image:url(hm/yangin.webp)!important}
+@media (max-width:360px){html body #v-sistem .hm-top .hm-t b{font-size:17px!important}html body #v-sistem .hm-tile .hm-ti{width:54px!important}html body #v-sistem .hm-tile .hm-tl{font-size:14px}}
+html body #v-sistem .hm-t b span,html body #v-sistem .hm-sec span,html body #v-sistem .hm-tl span{font:inherit!important;color:inherit!important;margin:0!important;letter-spacing:inherit}
+html body #v-sistem .sx-wsec .hm-tile.sel{border-color:#f5b818!important;box-shadow:0 0 0 2px rgba(245,184,24,.25)!important}
+html body #v-sistem .hm-sec{margin-top:6px}
 /* ---- Sarfiyat profil önizlemesi ---- */
 .sf-pvw{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:10px;margin:2px 0 12px;padding:10px 12px 10px 6px;border-radius:18px;background:radial-gradient(90% 110% at 28% 50%,rgba(79,140,255,.22),rgba(79,140,255,0) 62%),linear-gradient(180deg,rgba(16,34,68,.85),rgba(5,14,32,.8));border:1px solid rgba(120,160,230,.3);color:#e8eef8}
 .sf-pvw[hidden]{display:none}
@@ -1980,7 +2003,7 @@ html body #v-ana .hm-foot .hf-sw{padding:0 12px;white-space:nowrap;flex:none}
 </section>
 <div id="v-sistem">
 <div class="sx-hero"><h2>Kaplama Sistemi<br>Oluşturun</h2><p>Ne boyanacağını, ortamı ve dayanım süresini seçin; size en uygun Jotun sistemini bulalım.</p></div>
-<section class="sx-wsec sx-col" id="sx-wsec"><h3 class="hm-sec">1. Ne boyanacak?</h3><div class="hm-cats" id="sx-what"></div></section>
+<section class="sx-wsec sx-col" id="sx-wsec"><h3 class="hm-sec">1. <span class="role-b">Uygulama Alanı Seçin</span><span class="role-s">Ne boyanacak?</span></h3><div class="hm-cats" id="sx-what"></div></section>
 <div id="sx-wz" hidden></div>
 
 <div class="grid">
@@ -3672,7 +3695,7 @@ document.addEventListener("click",e=>{ if(!isSor()) return; const b=e.target.clo
   if(!coats.length){toast("Aktarılacak ürün bulunamadı");return;}
   SF.coats=coats; SF.sys=null; const ar=(W.ans&&W.ans.area)||(CW.ans&&CW.ans.area); if(ar) SF.area=ar; sfRender(); location.hash="#sarfiyat"; toast("Sarfiyata aktarıldı");},true);
 /* Sistem: ne boyanacak → metal ise ISO formu, özel iş ise adım adım */
-const SXW=[["celik","Çelik yapı"],["ekipman","Makine"],["tankdis","Tank dış"],["boru","Boru dış"],["bakim","Paslı / bakım"],["tankic","Tank içi"],["sicak","Sıcak yüzey"],["zemin","Beton zemin"],["tekne","Gemi"],["yangin","Yangın"]];
+const SXW=[["celik", "<span class=\"role-b\">Çelik Yapı</span><span class=\"role-s\">Çelik yapı</span>"], ["ekipman", "<span class=\"role-b\">Makine &amp; Ekipman</span><span class=\"role-s\">Makine</span>"], ["tankdis", "<span class=\"role-b\">Tank Dışı</span><span class=\"role-s\">Tank dış</span>"], ["boru", "<span class=\"role-b\">Boru Dışı</span><span class=\"role-s\">Boru dış</span>"], ["bakim", "<span class=\"role-b\">Paslı / Bakım</span><span class=\"role-s\">Paslı / bakım</span>"], ["tankic", "<span class=\"role-b\">Tank İçi</span><span class=\"role-s\">Tank içi</span>"], ["sicak", "<span class=\"role-b\">Sıcak Yüzey</span><span class=\"role-s\">Sıcak yüzey</span>"], ["zemin", "<span class=\"role-b\">Beton Zemin</span><span class=\"role-s\">Beton zemin</span>"], ["tekne", "Gemi"], ["yangin", "Yangın"]];
 const SX_METAL=["celik","ekipman","tankdis","boru"];
 let SXK="celik";
 function sxWhat(k){
@@ -3832,7 +3855,7 @@ wxLoad();
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)wxLoad();});
 
 /* Yeni sürüm yayınlandıysa uygulama açıkken kendini yeniler */
-(()=>{const B="1793749112"; if(!/^\d+$/.test(B)) return;
+(()=>{const B="1793749183"; if(!/^\d+$/.test(B)) return;
   const chk=()=>fetch(location.pathname+"?b="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const B="(\d+)"/); if(m&&+m[1]>+B) location.reload();}).catch(()=>{});
   document.addEventListener("visibilitychange",()=>{if(!document.hidden)chk();}); setTimeout(chk,4000);})();
 
