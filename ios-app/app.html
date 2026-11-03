@@ -2035,7 +2035,7 @@ function pickOpen(){
   Q.lines.push({key:null,name:"",pack:"",qty:1,needL:null,dens:"",price:""});
   if(!Q.no)newNo(); renderLines(); renderDoc(); if(location.hash!=="#teklif") location.hash="#teklif";
   const k=Q.lines.length-1;
-  setTimeout(()=>{const r=$("#q-body").rows[k]; if(!r) return; r.scrollIntoView({block:"center",behavior:"smooth"}); const x=r.querySelector('input[data-f="name"]'); if(x) x.focus();},200);
+  setTimeout(()=>{const r=$("#q-body").rows[k]; if(!r) return; r.scrollIntoView({block:"center",behavior:"smooth"}); r.classList.add("just"); setTimeout(()=>r.classList.remove("just"),1400);},200);
 }
 function pickName(i){const ln=Q.lines[i]; if(!ln||ln.key) return false; const v=tnormS(ln.name.trim()); if(!v) return false;
   const c=CATALOG.find(p=>tnormS(p.name)===v&&p.cat!=="MCI Tinter"); if(!c) return false;
@@ -2080,7 +2080,7 @@ function ralRender(i){
   box.innerHTML=h||`<p class="cb-h">Bulunamadı — yazdığınız kod kullanılır.</p>`; box.hidden=false;
 }
 function cbClose(i){const rb=$("#q-rc-"+i); if(rb) rb.hidden=true;const box=$("#q-cb-"+i), inp=$("#q-n-"+i); if(box) box.hidden=true; if(inp) inp.setAttribute("aria-expanded","false");}
-$("#q-body").addEventListener("focusin",e=>{const t=e.target; if(t.dataset&&t.dataset.f==="ral"&&t.getAttribute("role")==="combobox"){ ralRender(+t.dataset.i); return; } if(t.dataset&&t.dataset.f==="name"&&t.id){ cbRender(+t.dataset.i); setTimeout(()=>{const y=t.getBoundingClientRect().top+window.scrollY-90; window.scrollTo({top:y,behavior:"smooth"});},60);} });
+$("#q-body").addEventListener("click",e=>{const t=e.target; if(!t.dataset||t.tagName!=="INPUT") return; if(t.dataset.f==="ral"&&t.getAttribute("role")==="combobox"){ ralRender(+t.dataset.i); return; } if(t.dataset.f==="name"&&t.id){ cbRender(+t.dataset.i); setTimeout(()=>{const y=t.getBoundingClientRect().top+window.scrollY-90; window.scrollTo({top:y,behavior:"smooth"});},60);} });
 $("#q-body").addEventListener("focusout",e=>{const t=e.target; if(t.dataset&&(t.dataset.f==="name"||t.dataset.f==="ral")) setTimeout(()=>cbClose(+t.dataset.i),180);});
 $("#q-body").addEventListener("pointerdown",e=>{if(e.target.closest(".cb")) e.preventDefault();});
 $("#q-body").addEventListener("click",e=>{const rb=e.target.closest("[data-raln]"); if(rb){const box=rb.closest(".cb"); const i=+box.id.split("-").pop(); Q.lines[i].ral=rb.dataset.raln; const inp=$("#q-r-"+i); if(inp){inp.value=rb.dataset.raln; inp.blur();} cbClose(i); updCells(i); renderDoc(); return;}
