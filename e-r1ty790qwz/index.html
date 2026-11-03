@@ -1349,6 +1349,9 @@ dialog.sheet::backdrop{background:rgba(3,12,28,.72);-webkit-backdrop-filter:blur
  dialog.sheet.full .sheet-in{max-height:none;height:100%;box-sizing:border-box;padding-top:calc(14px + env(safe-area-inset-top,0px))}
 }
 dialog.sheet .x:focus:not(:focus-visible){outline:none}
+
+#q-body tr.just{box-shadow:0 0 0 3px #f0ab00;transition:box-shadow .3s}
+.sb-cover{position:fixed;top:0;left:0;right:0;height:env(safe-area-inset-top,0px);background:var(--bg,#0b1320);z-index:90;pointer-events:none}
 </style>
 
 <div id="app-bg" aria-hidden="true"></div>
@@ -2052,26 +2055,29 @@ function pkList(){
   L.innerHTML=it.map(([p,i])=>{const n=Q.lines.filter(l=>l.name===p.name).reduce((a,l)=>a+num(l.qty),0);const d=num(DENS[p.name]);const t=thinNo(p.name);
     const info=[CATS[p.cat]?CATS[p.cat][0]:"",p.vs&&p.vs[0]?`Katı madde %${p.vs[0]}`:"",d?`${fmt(d,d%1?2:0)} kg/L`:"",p.packs&&p.packs.length?p.packs.join(" / ")+(isKg(p.name)?" kg":" L"):"",t?`Tiner N° ${t}`:""].filter(Boolean).join(" · ");
     return `<button type="button" class="pk-it${n?" on":""}" data-pk="${i}"><span class="t"><b>${esc(p.name)}</b><small>${esc(info)}</small></span><span class="add">${n?"✓ "+n:"+"}</span></button>`}).join("")||`<p class="hint">Ürün bulunamadı.</p>`;
-  const c=Q.lines.filter(l=>l.name&&!l.auto).length; const f=$("#pk-done"); if(f) f.textContent=c?`Bitti · ${c} ürün →`:"Kapat";
+  
 }
 function pickOpen(){
   const cats=["all",...Object.keys(CATS).filter(c=>c!=="MCI Tinter"&&CATALOG.some(p=>p.cat===c&&!/Thinner/i.test(p.name)))];
   const has=Q.lines.some(l=>l.name);
   const d=sheet("Ürün seç",`<input type="search" class="pk-q" id="pk-q" placeholder="Ürün ara (örn. Penguard, Hardtop)" autocomplete="off">
    <div class="pk-cats" id="pk-cats">${cats.map(c=>`<button type="button" data-c="${c}" aria-pressed="${c===PK.cat}">${c==="all"?"Tümü":esc(CATS[c][0])}</button>`).join("")}</div>
-   ${has?`<p class="hint pk-new">Mevcut teklife eklenir. <button type="button" class="linkbtn" id="pk-reset">Boş teklifle başla</button></p>`:`<p class="hint pk-new">Ürüne dokunun; katı madde, yoğunluk, ambalaj ve tiner otomatik gelir. Adet ve fiyatı siz girersiniz.</p>`}
+   ${has?`<p class="hint pk-new">Dokunduğunuz ürün mevcut teklife eklenir. <button type="button" class="linkbtn" id="pk-reset">Boş teklifle başla</button></p>`:`<p class="hint pk-new">Ürüne dokunun, teklife eklenir. Katı madde, yoğunluk, ambalaj ve tiner otomatik gelir; adet ve fiyatı siz girersiniz.</p>`}
    <div class="pk-list" id="pk-list"></div>
-   <div class="pk-foot"><button type="button" class="btn ghost" id="pk-free">Listede yok, elle yaz</button><button type="button" class="btn primary" id="pk-done">Kapat</button></div>`,"full");
+   <div class="pk-foot"><button type="button" class="btn ghost" id="pk-free">Listede yok, elle yaz</button><button type="button" class="btn" id="pk-done">Kapat</button></div>`,"full");
   pkList();
   $("#pk-q").addEventListener("input",e=>{PK.q=e.target.value;pkList();});
   $("#pk-cats").addEventListener("click",e=>{const b=e.target.closest("[data-c]");if(!b)return;PK.cat=b.dataset.c;$("#pk-cats").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b));pkList();});
   $("#pk-list").addEventListener("click",e=>{const b=e.target.closest("[data-pk]");if(!b)return;const p=CATALOG[+b.dataset.pk];
-    if(!Q.no)newNo(); addLine(p.name,null); renderLines(); renderDoc(); pkList(); toast(`${p.name} eklendi`);});
+    if(!Q.no)newNo(); addLine(p.name,null); renderLines(); renderDoc(); d.close(); if(location.hash!=="#teklif") location.hash="#teklif";
+    const k=Q.lines.findIndex(l=>l.name===p.name);
+    setTimeout(()=>{const r=$("#q-body").rows[k]; if(!r) return; r.scrollIntoView({block:"center",behavior:"smooth"}); r.classList.add("just"); setTimeout(()=>r.classList.remove("just"),1600);},180);});
   const rs=$("#pk-reset"); if(rs) rs.onclick=()=>{Q.lines=[];Q.sys=null;Q.thOff={};newNo();renderLines();renderDoc();rs.parentElement.textContent="Boş teklif başlatıldı. Ürünleri seçin.";pkList();};
   $("#pk-free").onclick=()=>{Q.lines.push({key:null,name:"",pack:"",qty:1,needL:null,dens:"",price:""});if(!Q.no)newNo();renderLines();renderDoc();d.close();location.hash="#teklif";setTimeout(()=>{const x=$("#q-body").querySelector('input[data-f="name"]');if(x)x.focus();},150);};
   $("#pk-done").onclick=()=>{d.close();if(location.hash!=="#teklif")location.hash="#teklif";};
 }
 $("#q-pick").addEventListener("click",pickOpen);
+try{if(!document.querySelector(".sb-cover"))document.body.insertAdjacentHTML("afterbegin",'<div class="sb-cover" aria-hidden="true"></div>')}catch(e){}
 document.addEventListener("click",e=>{if(e.target.id==="q-miss-go"){const x=[...document.querySelectorAll("#q-body input.price")].find(i=>!(num(i.value)>0));if(x){x.scrollIntoView({block:"center",behavior:"smooth"});setTimeout(()=>x.focus(),250);}}});
 $("#q-clear").addEventListener("click",()=>{Q.lines=[];Q.sys=null;Q.thOff={};renderLines();renderDoc();});
 
@@ -3152,7 +3158,7 @@ wxLoad();
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)wxLoad();});
 
 /* Yeni sürüm yayınlandıysa uygulama açıkken kendini yeniler */
-(()=>{const B="1793697605"; if(!/^\d+$/.test(B)) return;
+(()=>{const B="1793697828"; if(!/^\d+$/.test(B)) return;
   const chk=()=>fetch(location.pathname+"?b="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const B="(\d+)"/); if(m&&+m[1]>+B) location.reload();}).catch(()=>{});
   document.addEventListener("visibilitychange",()=>{if(!document.hidden)chk();}); setTimeout(chk,4000);})();
 
