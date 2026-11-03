@@ -3634,17 +3634,18 @@ function steelParse(text){ const rows=[], skip=[];
   const N="(\\d+(?:[.,]\\d+)?)", DIM=new RegExp(N+"\\s*[x×X\\*]\\s*"+N+"(?:\\s*[x×X\\*]\\s*"+N+")?");
   text.split(/\n+/).map(l=>l.replace(/\s+/g," ").trim()).filter(l=>l.length>2).forEach(raw=>{
     const low=raw.startsWith("\u2047"); const l=raw.replace(/^\u2047/,"");
-    const U=l.toLocaleUpperCase("tr-TR").replace(/HE\s*([AB])\s*(\d)/g,"HE$1 $2").replace(/[@øΦφ]/g,"Ø");
+    const U=l.toLocaleUpperCase("tr-TR").replace(/HE\s*([AB])\s*(\d)/g,"HE$1 $2").replace(/[@øΦφ©®°]/g,"Ø");
     let m, r=null, end=0;
     if((m=U.match(/\b(IPE|HEA|HEB|UPN|NPU)\s*-?\s*(\d{2,3})\b/))){ const t=m[1]==="NPU"?"UPN":m[1]; if(PROF[t]&&PROF[t].some(p=>p[0]===+m[2])) r={t,s:m[2]}; else { skip.push(l+" → ölçü tabloda yok"); return; } end=m.index+m[0].length; }
     else if((m=U.match(DIM))){ const a=trNum(m[1]), b=trNum(m[2]); end=m.index+m[0].length;
       if(/SAC|LEVHA|PLAKA|PLATE|TABAKA/.test(U)) r={t:"levha",a,b};
       else if(/K.{0,3}EBENT|KÖŞE|KOSE|\bL\s?\d/.test(U)) r={t:"kose",a,b};
       else if(/LAMA|FLAT/.test(U)) r={t:"lama",a,b};
-      else if(/BORU/.test(U)&&/Ø/.test(U)){ const d=U.match(/Ø\s*(\d+(?:[.,]\d+)?)/); r={t:"boru",d:trNum(d[1])}; }
+      else if(/BORU|PIPE/.test(U)){ const d=U.match(/Ø\s*(\d+(?:[.,]\d+)?)/); r={t:"boru",d:d?trNum(d[1]):a}; }
+      else if(/M[İI]L\b|DOLU|YUVARLAK/.test(U)){ r={t:"mil",d:a}; }
       else r={t:"kutu",a,b,unsure:!(/KARE|D.KD.RTGEN|KUTU|PROF/.test(U))}; }
     else if((m=U.match(/Ø\s*(\d+(?:[.,]\d+)?)/))){ end=m.index+m[0].length; r={t:/M[İI]L\b|DOLU|YUVARLAK/.test(U)?"mil":"boru",d:trNum(m[1])}; }
-    else if((m=U.match(/BORU\D{0,12}(\d+(?:[.,]\d+)?)/))){ end=m.index+m[0].length; r={t:"boru",d:trNum(m[1])}; }
+    else if((m=U.match(/(BORU|PIPE|M[İI]L\b|DOLU|YUVARLAK)[^\d]*?(?:\b[SC]\d{2,3}\S*\s*)?(\d+(?:[.,]\d+)?)\s*MM/))){ end=m.index+m[0].length; r={t:/BORU|PIPE/.test(m[1])?"boru":"mil",d:trNum(m[2])}; }
     if(!r){ if(/\d/.test(l)&&/(kg|ton|\bm\b|\dm\b|mt|metre|adet|profil|demir|boru|sac)/i.test(l)) skip.push(l); return; }
     const rest=l.slice(end);
     const last=re=>{const all=[...rest.matchAll(re)]; return all.length?all[all.length-1]:null;};
