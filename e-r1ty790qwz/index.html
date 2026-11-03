@@ -1710,7 +1710,7 @@ button.dm-it{cursor:pointer}
         </div>
         <div class="sf-area" id="sf-areaw" hidden>
           <div class="sf-tabs" id="sf-at"><button type="button" data-a="prof" aria-pressed="true">Profil</button><button type="button" data-a="ton" aria-pressed="false">Tonaj</button><button type="button" data-a="boru" aria-pressed="false">Boru</button><button type="button" data-a="levha" aria-pressed="false">Levha</button><button type="button" data-a="tank" aria-pressed="false">Tank</button></div>
-          <div class="sf-ag" data-a="prof"><label class="sf-f"><span>Profil</span><span class="sf-in"><select id="sf-ps"><option value="IPE">IPE</option><option value="HEA">HEA</option><option value="HEB">HEB</option><option value="kutu">Kutu profil</option></select></span></label>
+          <div class="sf-ag" data-a="prof"><label class="sf-f"><span>Profil</span><span class="sf-in"><select id="sf-ps"><option value="IPE">IPE</option><option value="HEA">HEA</option><option value="HEB">HEB</option><option value="UPN">UPN (NPU)</option><option value="kutu">Kutu profil</option><option value="kose">Köşebent</option><option value="lama">Lama</option></select></span></label>
             <label class="sf-f" id="sf-pzw"><span>Ölçü</span><span class="sf-in"><select id="sf-pz"></select></span></label>
             <label class="sf-f sf-kutu" hidden><span>Kenar a</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-ka" placeholder="100"><i>mm</i></span></label><label class="sf-f sf-kutu" hidden><span>Kenar b</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-kb" placeholder="50"><i>mm</i></span></label>
             <label class="sf-f"><span>Miktar</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-pq" placeholder="0"></span></label><label class="sf-f"><span>Birim</span><span class="sf-in"><select id="sf-pu"><option value="m">metre</option><option value="ton">ton</option></select></span></label>
@@ -3376,7 +3376,7 @@ wxLoad();
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)wxLoad();});
 
 /* Yeni sürüm yayınlandıysa uygulama açıkken kendini yeniler */
-(()=>{const B="1793715841"; if(!/^\d+$/.test(B)) return;
+(()=>{const B="1793716944"; if(!/^\d+$/.test(B)) return;
   const chk=()=>fetch(location.pathname+"?b="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const B="(\d+)"/); if(m&&+m[1]>+B) location.reload();}).catch(()=>{});
   document.addEventListener("visibilitychange",()=>{if(!document.hidden)chk();}); setTimeout(chk,4000);})();
 
@@ -3603,14 +3603,16 @@ $("#sf-add").addEventListener("click",()=>{SF.coats.push({name:"",dft:""});sfRen
 let SFA="prof";
 const PROF={IPE:[[80,6.0,.328],[100,8.1,.400],[120,10.4,.475],[140,12.9,.551],[160,15.8,.623],[180,18.8,.698],[200,22.4,.768],[220,26.2,.848],[240,30.7,.922],[270,36.1,1.041],[300,42.2,1.160],[330,49.1,1.254],[360,57.1,1.353],[400,66.3,1.467],[450,77.6,1.605],[500,90.7,1.744],[550,106,1.877],[600,122,2.014]],
  HEA:[[100,16.7,.561],[120,19.9,.677],[140,24.7,.794],[160,30.4,.906],[180,35.5,1.024],[200,42.3,1.136],[220,50.5,1.255],[240,60.3,1.369],[260,68.2,1.484],[280,76.4,1.603],[300,88.3,1.717]],
+ UPN:[[80,8.64,.312],[100,10.6,.372],[120,13.4,.434],[140,16.0,.489],[160,18.8,.546],[180,22.0,.611],[200,25.3,.661],[220,29.4,.718],[240,33.2,.775],[260,37.9,.834],[280,41.8,.890],[300,46.2,.950]],
  HEB:[[100,20.4,.567],[120,26.7,.686],[140,33.7,.805],[160,42.6,.918],[180,51.2,1.037],[200,61.3,1.151],[220,71.5,1.270],[240,83.2,1.384],[260,93.0,1.499],[280,103,1.618],[300,117,1.732]]};
-function sfProfUI(){ const t=$("#sf-ps").value, k=t==="kutu"; $("#sf-pzw").hidden=k; document.querySelectorAll(".sf-kutu").forEach(x=>x.hidden=!k);
+function sfProfUI(){ const t=$("#sf-ps").value, k=!PROF[t];
+  const la=document.querySelectorAll(".sf-kutu>span:first-child"); if(la.length===2){ la[0].textContent=t==="lama"?"Genişlik":"Kenar a"; la[1].textContent=t==="lama"?"Kalınlık":"Kenar b"; } $("#sf-pzw").hidden=k; document.querySelectorAll(".sf-kutu").forEach(x=>x.hidden=!k);
   const u=$("#sf-pu"); u.querySelector('option[value="ton"]').disabled=k; if(k) u.value="m";
   if(!k){ const cur=$("#sf-pz").value; $("#sf-pz").innerHTML=PROF[t].map(p=>`<option value="${p[0]}">${t} ${p[0]}</option>`).join(""); if(PROF[t].some(p=>String(p[0])===cur)) $("#sf-pz").value=cur; else $("#sf-pz").value="200"; } }
 function sfArea(){
   const v=id=>num($("#"+id).value); let a=0;
   if(SFA==="prof"){ const t=$("#sf-ps").value, q=v("sf-pq"), inf=$("#sf-pinfo");
-    if(t==="kutu"){ a=2*(v("sf-ka")+v("sf-kb"))/1000*q; inf.textContent="Kutu profilde dış yüzey hesaplanır (2 × (a + b))."; }
+    if(!PROF[t]){ a=2*(v("sf-ka")+v("sf-kb"))/1000*q; inf.textContent=t==="lama"?"Lamada çevre: 2 × (genişlik + kalınlık).":t==="kose"?"Köşebentte iki kanadın iki yüzü: ≈ 2 × (a + b).":"Kutu profilde dış yüzey hesaplanır (2 × (a + b))."; }
     else { const P=PROF[t].find(x=>String(x[0])===$("#sf-pz").value); if(P){ a=$("#sf-pu").value==="ton"?P[2]/P[1]*1000*q:P[2]*q; inf.textContent=`${t} ${P[0]}: ${fmt(P[2],3)} m²/m · ${fmt(P[1],1)} kg/m · ≈ ${fmt(P[2]/P[1]*1000,1)} m²/ton (standart profil tablosu, yaklaşık)`; } } }
   if(SFA==="levha") a=v("sf-le")*v("sf-lb")*Math.max(1,v("sf-ln")||1)*($("#sf-l2").checked?2:1);
   if(SFA==="boru") a=Math.PI*v("sf-pd")/1000*v("sf-pl")*Math.max(1,v("sf-pn")||1);
@@ -3625,7 +3627,7 @@ $("#sf-tfc").addEventListener("click",e=>{const b=e.target.closest("[data-tf]");
 $("#sf-tf").addEventListener("input",()=>$("#sf-tfc").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.tf===$("#sf-tf").value)));
 $("#sf-areaw").addEventListener("input",sfArea);$("#sf-areaw").addEventListener("change",sfArea);
 function sfAreaLbl(){ const v=id=>num($("#"+id).value), f=(x,d)=>fmt(x,d);
-  if(SFA==="prof"){ const t=$("#sf-ps").value; if(t==="kutu") return `Kutu ${v("sf-ka")}×${v("sf-kb")} mm · ${f(v("sf-pq"),1)} m`; return `${t} ${$("#sf-pz").value} · ${f(v("sf-pq"),1)} ${$("#sf-pu").value==="ton"?"ton":"m"}`; }
+  if(SFA==="prof"){ const t=$("#sf-ps").value; if(!PROF[t]) return `${({kutu:"Kutu",kose:"Köşebent",lama:"Lama"})[t]} ${v("sf-ka")}×${v("sf-kb")} mm · ${f(v("sf-pq"),1)} m`; return `${t} ${$("#sf-pz").value} · ${f(v("sf-pq"),1)} ${$("#sf-pu").value==="ton"?"ton":"m"}`; }
   if(SFA==="ton") return `Çelik ${f(v("sf-tn"),1)} ton × ${f(v("sf-tf"),0)} m²/t`;
   if(SFA==="boru") return `Boru Ø${v("sf-pd")} mm · ${f(v("sf-pl"),1)} m${(v("sf-pn")||1)>1?" × "+v("sf-pn"):""}`;
   if(SFA==="levha") return `Levha ${v("sf-le")}×${v("sf-lb")} m${(v("sf-ln")||1)>1?" × "+v("sf-ln"):""}${$("#sf-l2").checked?" · 2 yüz":""}`;
@@ -3646,29 +3648,49 @@ $("#sf-aadd").addEventListener("click",()=>{const a=sfArea();if(!(a>0))return;sf
 /* Çelik listesi yükleme: PDF / fotoğraf / Excel → profil satırları */
 const trNum=x=>{x=String(x).trim(); if(/,\d{1,3}$/.test(x)) x=x.replace(/\./g,"").replace(",","."); else if(/^\d{1,3}(\.\d{3})+$/.test(x)) x=x.replace(/\./g,""); else x=x.replace(/,/g,""); return parseFloat(x);};
 function steelParse(text){ const rows=[], skip=[];
-  text.split(/\n+/).map(l=>l.replace(/\s+/g," ").trim()).filter(l=>l.length>2).forEach(l=>{
-    let m, r=null; const L=l.toUpperCase().replace(/HE\s*([AB])\s*(\d)/g,"HE$1 $2");
-    if((m=L.match(/\b(IPE|HEA|HEB)\s*-?\s*(\d{2,3})\b/))&&PROF[m[1]]&&PROF[m[1]].some(p=>p[0]===+m[2])) r={t:m[1],s:m[2]};
-    else if((m=L.match(/\b(\d{2,3})\s*[X×\*]\s*(\d{2,3})\s*[X×\*]\s*\d+(?:[.,]\d+)?/))) r={t:"kutu",a:+m[1],b:+m[2]};
-    else if((m=L.match(/(?:Ø|BORU\s*)(\d{2,4}(?:[.,]\d+)?)/))) r={t:"boru",d:trNum(m[1])};
-    else if(/\b(UPN|NPU|NPI|INP|L\s*\d{2,3}\s*[X×]|HEM|IPN)\b/.test(L)){ skip.push(l+" → tabloda yok"); return; }
-    if(!r){ if(/\d/.test(l)&&/(kg|ton|\bm\b|mt|metre|adet)/i.test(l)) skip.push(l); return; }
-    const rest=l.slice(l.toUpperCase().indexOf(m[0])+m[0].length);
+  const N="(\\d+(?:[.,]\\d+)?)", DIM=new RegExp(N+"\\s*[x×X\\*]\\s*"+N+"(?:\\s*[x×X\\*]\\s*"+N+")?");
+  text.split(/\n+/).map(l=>l.replace(/\s+/g," ").trim()).filter(l=>l.length>2).forEach(raw=>{
+    const low=raw.startsWith("\u2047"); const l=raw.replace(/^\u2047/,"");
+    const U=l.toLocaleUpperCase("tr-TR").replace(/HE\s*([AB])\s*(\d)/g,"HE$1 $2").replace(/[@øΦφ]/g,"Ø");
+    let m, r=null, end=0;
+    if((m=U.match(/\b(IPE|HEA|HEB|UPN|NPU)\s*-?\s*(\d{2,3})\b/))){ const t=m[1]==="NPU"?"UPN":m[1]; if(PROF[t]&&PROF[t].some(p=>p[0]===+m[2])) r={t,s:m[2]}; else { skip.push(l+" → ölçü tabloda yok"); return; } end=m.index+m[0].length; }
+    else if((m=U.match(DIM))){ const a=trNum(m[1]), b=trNum(m[2]); end=m.index+m[0].length;
+      if(/SAC|LEVHA|PLAKA|PLATE|TABAKA/.test(U)) r={t:"levha",a,b};
+      else if(/K.{0,3}EBENT|KÖŞE|KOSE|\bL\s?\d/.test(U)) r={t:"kose",a,b};
+      else if(/LAMA|FLAT/.test(U)) r={t:"lama",a,b};
+      else if(/BORU/.test(U)&&/Ø/.test(U)){ const d=U.match(/Ø\s*(\d+(?:[.,]\d+)?)/); r={t:"boru",d:trNum(d[1])}; }
+      else r={t:"kutu",a,b,unsure:!(/KARE|D.KD.RTGEN|KUTU|PROF/.test(U))}; }
+    else if((m=U.match(/Ø\s*(\d+(?:[.,]\d+)?)/))){ end=m.index+m[0].length; r={t:/M[İI]L\b|DOLU|YUVARLAK/.test(U)?"mil":"boru",d:trNum(m[1])}; }
+    else if((m=U.match(/BORU\D{0,12}(\d+(?:[.,]\d+)?)/))){ end=m.index+m[0].length; r={t:"boru",d:trNum(m[1])}; }
+    if(!r){ if(/\d/.test(l)&&/(kg|ton|\bm\b|\dm\b|mt|metre|adet|profil|demir|boru|sac)/i.test(l)) skip.push(l); return; }
+    const rest=l.slice(end);
     const last=re=>{const all=[...rest.matchAll(re)]; return all.length?all[all.length-1]:null;};
-    const kg=last(/(\d[\d.,]*)\s*(kg)(?![a-zğüşıöç])/gi), ton=last(/(\d[\d.,]*)\s*(ton|t)(?![a-zğüşıöç])/gi), mt=last(/(\d[\d.,]*)\s*(m|mt|metre|mtül)(?![a-zğüşıöç²])/gi);
-    if(ton&&r.t!=="kutu"&&r.t!=="boru"){ r.q=trNum(ton[1]); r.u="ton"; } else if(kg&&r.t!=="kutu"&&r.t!=="boru"){ r.q=trNum(kg[1])/1000; r.u="ton"; } else if(mt){ r.q=trNum(mt[1]); r.u="m"; }
+    const kg=last(/(\d[\d.,]*)\s*(kg)(?![a-zğüşıöç])/gi), ton=last(/(\d[\d.,]*)\s*(ton|t)(?![a-zğüşıöç])/gi), mt=last(/(\d[\d.,]*)\s*(m|mt|metre|mtül)(?![a-zğüşıöç²])/gi), ad=last(/(\d[\d.,]*)\s*(adet|ad|pcs)(?![a-zğüşıöç])/gi);
+    const tab=PROF[r.t];
+    if(r.t==="levha"){ r.u="adet"; r.q=ad?trNum(ad[1]):1; if(!ad) r.unsure=true; }
+    else if(tab&&ton){ r.q=trNum(ton[1]); r.u="ton"; } else if(tab&&kg){ r.q=trNum(kg[1])/1000; r.u="ton"; } else if(mt){ r.q=trNum(mt[1]); r.u="m"; }
     else { const nums=(rest.match(/\d[\d.,]*/g)||[]).map(trNum).filter(x=>x>0); r.q=nums.length?Math.max(...nums):""; r.u="m"; r.unsure=true; }
-    r.line=l; rows.push(r); });
+    if(low) r.unsure=true; r.line=l; rows.push(r); });
   return {rows,skip}; }
-const stM2=r=>{ const q=num(r.q); if(!(q>0)) return 0; if(r.t==="kutu") return 2*(r.a+r.b)/1000*q; if(r.t==="boru") return Math.PI*r.d/1000*q;
-  const P=PROF[r.t].find(x=>x[0]===+r.s); return P?(r.u==="ton"?P[2]/P[1]*1000*q:P[2]*q):0; };
-const stLbl=r=>r.t==="kutu"?`Kutu ${r.a}×${r.b} mm`:r.t==="boru"?`Boru Ø${fmt(r.d,1)} mm`:`${r.t} ${r.s}`;
+const stM2=r=>{ const q=num(r.q); if(!(q>0)) return 0;
+  if(r.t==="kutu"||r.t==="kose") return 2*(r.a+r.b)/1000*q; if(r.t==="lama") return 2*(r.a+r.b)/1000*q;
+  if(r.t==="boru"||r.t==="mil") return Math.PI*r.d/1000*q; if(r.t==="levha") return r.a*r.b/1e6*2*q;
+  const P=(PROF[r.t]||[]).find(x=>x[0]===+r.s); return P?(r.u==="ton"?P[2]/P[1]*1000*q:P[2]*q):0; };
+const stLbl=r=>{ const ab=()=>`${fmt(r.a,0)}×${fmt(r.b,0)} mm`; switch(r.t){ case "kutu": return "Kutu "+ab(); case "kose": return "Köşebent "+ab(); case "lama": return "Lama "+ab(); case "levha": return "Sac "+ab()+" (2 yüz)"; case "boru": return `Boru Ø${fmt(r.d,1)} mm`; case "mil": return `Dolu mil Ø${fmt(r.d,0)} mm`; default: return `${r.t} ${r.s}`; } };
+let TESS6=null;
+async function steelOcr(blob){
+  if(!window.Tesseract) await loadScript("https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js");
+  if(!TESS6){ TESS6=await window.Tesseract.createWorker("tur+eng"); await TESS6.setParameters({tessedit_pageseg_mode:"6",preserve_interword_spaces:"1"}); }
+  const r=await TESS6.recognize(blob); const d=(r&&r.data)||{}; const L=(d.lines||[]).filter(x=>x.text.trim());
+  if(!L.length) return d.text||""; steelOcr.low=L.filter(x=>x.confidence!=null&&x.confidence<60).length;
+  return L.map(x=>(x.confidence!=null&&x.confidence<60?"\u2047":"")+x.text.trim()).join("\n");
+}
 async function steelFile(f){
   const n=f.name.toLowerCase(), t=(f.type||"").toLowerCase(); toast("Liste okunuyor…");
   let text="", note="";
   try{
     if(t==="application/pdf"||n.endsWith(".pdf")){ text=await pdfText(f); if(pdfText.ocr) note="Taranmış PDF; yazı tanıma ile okundu."; if(pdfText.drop) note+=` Net okunamayan ${pdfText.drop} satır atlandı.`; }
-    else if(t.startsWith("image/")){ text=await ocr(f); if(ocr.drop) note=`Net okunamayan ${ocr.drop} satır atlandı.`; }
+    else if(t.startsWith("image/")){ text=await steelOcr(f); if(steelOcr.low) note=`${steelOcr.low} satır net değildi; sarı işaretlendi.`; }
     else if(/\.(xlsx|xls)$/.test(n)){ if(!window.XLSX) await loadScript("https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"); const wb=XLSX.read(await f.arrayBuffer());
       text=wb.SheetNames.map(sn=>XLSX.utils.sheet_to_json(wb.Sheets[sn],{header:1}).map(r=>r.map(c=>c==null?"":String(c)).join(" \t ")).join("\n")).join("\n"); }
     else text=await f.text();
@@ -3680,7 +3702,7 @@ function steelReview(rows,skip,name,note){
   const body=()=>`<p class="hint">${esc(name)}${note?" · "+esc(note):""}</p>
    ${rows.length?`<p class="hint">Okunan ${rows.length} kalem. Miktarları kontrol edin; <b style="color:#f0ab00">sarı</b> olanlarda birimden emin olamadım.</p>
    <div class="st-rows">${rows.map((r,i)=>`<div class="st-r${r.unsure?" uns":""}"><label class="st-c"><input type="checkbox" data-sc="${i}" ${r.off?"":"checked"}></label><div class="st-m"><b>${esc(stLbl(r))}</b><small>${esc(r.line.slice(0,90))}</small>
-     <div class="st-q"><input type="number" inputmode="decimal" data-sq="${i}" value="${r.q===""?"":Math.round(num(r.q)*1000)/1000}" placeholder="miktar"><select data-su="${i}" ${r.t==="kutu"||r.t==="boru"?"disabled":""}><option value="m"${r.u==="m"?" selected":""}>metre</option><option value="ton"${r.u==="ton"?" selected":""}>ton</option></select><span class="st-a" id="st-a-${i}">${fmt(stM2(r),1)} m²</span></div></div></div>`).join("")}</div>
+     <div class="st-q"><input type="number" inputmode="decimal" data-sq="${i}" value="${r.q===""?"":Math.round(num(r.q)*1000)/1000}" placeholder="miktar"><select data-su="${i}" ${PROF[r.t]?"":"disabled"}>${r.t==="levha"?`<option value="adet" selected>adet</option>`:`<option value="m"${r.u==="m"?" selected":""}>metre</option>${PROF[r.t]?`<option value="ton"${r.u==="ton"?" selected":""}>ton</option>`:""}`}</select><span class="st-a" id="st-a-${i}">${fmt(stM2(r),1)} m²</span></div></div></div>`).join("")}</div>
    <div class="st-tot">Seçilenler: <b id="st-tot">${fmt(rows.filter(r=>!r.off).reduce((a,r)=>a+stM2(r),0),1)} m²</b></div>`:`<p class="dm-empty">Listede tanıdığım profil (IPE, HEA, HEB, kutu, boru) bulamadım.</p>`}
    ${skip.length?`<details class="st-sk"><summary>Okuyamadığım / tanımadığım ${skip.length} satır</summary><ul>${skip.slice(0,60).map(x=>`<li>${esc(x.slice(0,100))}</li>`).join("")}</ul><p class="hint">Bu satırları elle ekleyin (Tonaj sekmesi ile de girilebilir).</p></details>`:""}
    <div class="q-actions">${rows.length?`<button type="button" class="btn primary" id="st-add">Seçilenleri listeye ekle</button>`:""}<button type="button" class="btn" data-close>Kapat</button></div>`;
@@ -3689,7 +3711,7 @@ function steelReview(rows,skip,name,note){
   d.oninput=(e=>{const t=e.target; if(t.dataset.sq!=null){rows[+t.dataset.sq].q=t.value; rows[+t.dataset.sq].unsure=false; t.closest(".st-r").classList.remove("uns");} if(t.dataset.sc!=null) rows[+t.dataset.sc].off=!t.checked; upd();});
   d.onchange=(e=>{const t=e.target; if(t.dataset.su!=null){rows[+t.dataset.su].u=t.value; upd();} if(t.dataset.sc!=null){rows[+t.dataset.sc].off=!t.checked; upd();}});
   const ad=d.querySelector("#st-add"); if(ad) ad.onclick=()=>{ const sel=rows.filter(r=>!r.off&&stM2(r)>0); if(!sel.length){toast("Miktarı girilmiş kalem yok");return;}
-    sel.forEach(r=>sfItems().push({lbl:`${stLbl(r)} · ${fmt(num(r.q),r.u==="ton"?2:1)} ${r.u==="ton"?"ton":"m"}`,m2:Math.round(stM2(r)*100)/100,src:name}));
+    sel.forEach(r=>sfItems().push({lbl:`${stLbl(r)} · ${fmt(num(r.q),r.u==="ton"?2:r.u==="adet"?0:1)} ${r.u==="ton"?"ton":r.u==="adet"?"adet":"m"}`,m2:Math.round(stM2(r)*100)/100,src:name}));
     const a=sel.reduce((x,r)=>x+stM2(r),0); SF.area=Math.round((num(SF.area)+a)*10)/10; $("#sf-area").value=SF.area; sfUpd(); sfListRender(); d.close(); toast(`${sel.length} kalem · ${fmt(a,1)} m² eklendi`); };
 }
 $("#sf-upf").addEventListener("change",e=>{const f=e.target.files[0]; e.target.value=""; if(f) steelFile(f);});
