@@ -3531,7 +3531,7 @@ wxLoad();
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)wxLoad();});
 
 /* Yeni sürüm yayınlandıysa uygulama açıkken kendini yeniler */
-(()=>{const B="1793733998"; if(!/^\d+$/.test(B)) return;
+(()=>{const B="1793739047"; if(!/^\d+$/.test(B)) return;
   const chk=()=>fetch(location.pathname+"?b="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const B="(\d+)"/); if(m&&+m[1]>+B) location.reload();}).catch(()=>{});
   document.addEventListener("visibilitychange",()=>{if(!document.hidden)chk();}); setTimeout(chk,4000);})();
 
@@ -4221,8 +4221,26 @@ function ygDone(){ const f=YG.f, pr=YG.rows.length>0&&YG.rows.every(r=>num(r.L)>
 function ygStepHTML(){ const d=ygDone(); const act=(YG_STEPS.find(s=>!d[s[0]])||YG_STEPS[5])[0];
   return YG_STEPS.map(([k,l],i)=>`<button type="button" data-ys="${k}" class="${d[k]?"ok":k===act?"on":""}"><i>${d[k]?"✓":i+1}</i>${l}</button>`).join(""); }
 const ygSec=(k,n,ic,t,body)=>`<details class="yg-sec" id="ys-${k}" data-sec="${k}"${YG.open[k]?" open":""}><summary><span class="ic">${ygI(ic)}</span><b>${n}. ${t}</b><span class="st" id="yst-${k}" hidden>Tamam</span><svg class="cv" viewBox="0 0 24 24">${YGI.chev}</svg></summary><div class="yg-sb">${body}</div></details>`;
+function ygShape(fam,size){ const row=(STD[fam]||[]).find(p=>String(p[0])===String(size))||(STD[fam]||[])[0]; if(!row) return ygBeam("steel","ygpv");
+  const sz=+row[0], bR=+row[3]||sz/2, hR=fam==="HEA"?sz*.96:fam==="HEM"?sz+(sz<=300?30:20):sz;
+  const H=72, B=Math.max(16,Math.min(84,H*bR/hR)), C=fam==="UPN"||fam==="UPE", tap=fam==="INP"||fam==="UPN";
+  const tf=fam==="HEM"?H*.12:fam==="HEB"?H*.1:H*.08, tw=Math.max(5,fam==="HEM"?H*.09:H*.065), t1=tap?tf*.7:tf, t2=tap?tf*1.3:tf;
+  let P; if(C) P=[[0,0],[B,0],[B,t1],[tw,t2],[tw,H-t2],[B,H-t1],[B,H],[0,H]];
+  else { const c=B/2,w=tw/2; P=[[0,0],[B,0],[B,t1],[c+w,t2],[c+w,H-t2],[B,H-t1],[B,H],[0,H],[0,H-t1],[c-w,H-t2],[c-w,t2],[0,t1]]; }
+  const D=[64,-28], ox=6, oy=10-D[1]; P=P.map(([x,y])=>[x+ox,y+oy]);
+  let ar=0; P.forEach((a,i)=>{const b=P[(i+1)%P.length]; ar+=a[0]*b[1]-b[0]*a[1];});
+  const f=[]; P.forEach((a,i)=>{ const b=P[(i+1)%P.length], ex=b[0]-a[0], ey=b[1]-a[1], L=Math.hypot(ex,ey)||1; let nx=ey/L, ny=-ex/L; if(ar<0){nx=-nx;ny=-ny;}
+    const v=nx*D[0]+ny*D[1]; if(v<=0.01) return; const k=((a[0]+b[0])/2)*D[0]+((a[1]+b[1])/2)*D[1];
+    const up=-ny>Math.abs(nx)*.5, col=up?`url(#ygsa)`:`url(#ygsb)`;
+    f.push({k,d:`M${a[0].toFixed(1)} ${a[1].toFixed(1)}L${b[0].toFixed(1)} ${b[1].toFixed(1)}L${(b[0]+D[0]).toFixed(1)} ${(b[1]+D[1]).toFixed(1)}L${(a[0]+D[0]).toFixed(1)} ${(a[1]+D[1]).toFixed(1)}Z`,col}); });
+  f.sort((a,b)=>b.k-a.k);
+  const W=Math.ceil(ox+B+D[0]+6), Ht=Math.ceil(oy+H+6);
+  return `<svg viewBox="0 0 ${W} ${Ht}" class="yg-il" aria-hidden="true"><defs><linearGradient id="ygsa" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#c9d1dc"/><stop offset="1" stop-color="#6b7686"/></linearGradient><linearGradient id="ygsb" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8d98a8"/><stop offset="1" stop-color="#4c5666"/></linearGradient></defs>${f.map(q=>`<path d="${q.d}" fill="${q.col}" stroke="#4c5666" stroke-width=".3" stroke-linejoin="round"/>`).join("")}<path d="M${P.map(p=>p[0].toFixed(1)+" "+p[1].toFixed(1)).join("L")}Z" fill="#aeb7c4" stroke="#ffffff" stroke-opacity=".5" stroke-width=".8" stroke-linejoin="round"/></svg>`; }
+function ygBoxS(a,b){ const H=64, B=Math.max(20,Math.min(80,H*(b>0&&a>0?b/a:1))), t=7, D=[60,-26], ox=6, oy=10-D[1], x0=ox, y0=oy, x1=ox+B, y1=oy+H;
+  const W=Math.ceil(x1+D[0]+6), Ht=Math.ceil(y1+6);
+  return `<svg viewBox="0 0 ${W} ${Ht}" class="yg-il" aria-hidden="true"><path d="M${x1} ${y0}L${x1+D[0]} ${y0+D[1]}V${y1+D[1]}L${x1} ${y1}Z" fill="#6b7686"/><path d="M${x0} ${y0}L${x1} ${y0}L${x1+D[0]} ${y0+D[1]}L${x0+D[0]} ${y0+D[1]}Z" fill="#c9d1dc"/><path d="M${x0} ${y0}H${x1}V${y1}H${x0}Z" fill="#aeb7c4" stroke="#fff" stroke-opacity=".5" stroke-width=".8"/><path d="M${x0+t} ${y0+t}H${x1-t}V${y1-t}H${x0+t}Z" fill="#26344a"/><path d="M${x0+t} ${y0+t}H${x1-t}L${x1-t} ${y0+t+4}H${x0+t+4}V${y1-t}H${x0+t}Z" fill="#4c5666"/></svg>`; }
 function ygPrevHTML(){ const r=ygAR(), s=secOf(r), hp=s&&s.A>0?hpA(r,s):0;
-  return `${r.t==="kutu"?ygBox():r.t==="boru"?ygTube():ygBeam("steel","ygpv")}<b>${esc(stLbl(Object.assign({},r,{exp:4})))}</b><span>${r.t==="boru"?"Çevre":(+r.exp===3?"3 yüz":"4 yüz")}</span><span>Hp/A: ${hp?fmt(hp,0)+" m⁻¹":"—"}</span>`; }
+  return `${r.t==="kutu"?ygBoxS(r.a,r.b):r.t==="boru"?ygTube():ygShape(r.t,r.s)}<b>${esc(stLbl(Object.assign({},r,{exp:4})))}</b><span>${r.t==="boru"?"Çevre":(+r.exp===3?"3 yüz":"4 yüz")}</span><span>Hp/A: ${hp?fmt(hp,0)+" m⁻¹":"—"}</span>`; }
 function ygAnaHTML(){ const ms=ygMissing(), n=YG.rows.length, m2=YG.rows.reduce((a,r)=>a+ygRowM2(r),0);
   return `<div class="yg-k4" style="grid-template-columns:repeat(3,1fr)"><div><b>${n}</b><span>profil</span></div><div><b>${fmt(m2,1)}</b><span>m² boyanacak</span></div><div><b>${esc(YG.f.rate||"—")}</b><span>dayanım</span></div></div>
    <div class="yg-chk">${ms.length?ms.map(x=>`<span class="no">• Eksik: ${x}</span>`).join(""):`<span class="ok">✓ Talep analiz için hazır</span>`}</div>
