@@ -1863,7 +1863,7 @@ button.dm-it{cursor:pointer}
   <div id="is-body"></div>
 </section>
 <section id="v-yangin" hidden>
-  <div class="dm-hero"><span class="dm-tag">DEMO</span><h2>Yangın koruma</h2><p>Pasif yangın koruma boyalarının çalışma mantığı, standartlar ve kalınlık analizi talebi.</p></div>
+  <div class="dm-hero"><span class="dm-tag">DEMO</span><h2>Yangın koruma</h2><p>Selülozik (bina) yangınında çelik koruma: boyanın çalışma mantığı, standartlar ve kalınlık analizi talebi.</p></div>
   <div class="dm-tabs" id="yg-tabs"><button type="button" data-yt="how" aria-pressed="true">Nasıl çalışır</button><button type="button" data-yt="math" aria-pressed="false">Hesap mantığı</button><button type="button" data-yt="std" aria-pressed="false">Standartlar</button><button type="button" data-yt="req" aria-pressed="false">Analiz talebi</button></div>
   <div id="yg-body"></div>
   <p class="foot" style="margin-top:14px">Bu ekran bilgilendirme amaçlıdır; kalınlık hesabı yapmaz. Yangın koruma kalınlığı yalnızca ürünün sertifikalı yükleme tablolarına göre Jotun teknik ekibi tarafından belirlenir.</p>
@@ -3449,7 +3449,7 @@ wxLoad();
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)wxLoad();});
 
 /* Yeni sürüm yayınlandıysa uygulama açıkken kendini yeniler */
-(()=>{const B="1793729202"; if(!/^\d+$/.test(B)) return;
+(()=>{const B="1793730259"; if(!/^\d+$/.test(B)) return;
   const chk=()=>fetch(location.pathname+"?b="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const B="(\d+)"/); if(m&&+m[1]>+B) location.reload();}).catch(()=>{});
   document.addEventListener("visibilitychange",()=>{if(!document.hidden)chk();}); setTimeout(chk,4000);})();
 
@@ -3993,7 +3993,7 @@ function ygSim(HpA,R,gas,tmax){ const dt=5, out={u:[],p:[]}; let Tu=20,Tp=20; co
   return out; }
 const ygHit=(arr,T)=>{ const x=arr.find(p=>p[1]>=T); return x?x[0]:null; };
 function ygHpA(){ const M=YG.m; if(num(M.hp)>0) return num(M.hp); const r={t:M.fam,s:M.s,exp:M.exp}; const s=secOf(r); return s?hpA(r,s):0; }
-function ygChart(){ const M=YG.m, gas=M.curve==="hc"?ygHc:ygIso, HpA=ygHpA(), Tc=ygCrit(M.mu), tmax=120, sim=ygSim(HpA,M.R,gas,tmax);
+function ygChart(){ const M=YG.m, gas=ygIso, HpA=ygHpA(), Tc=ygCrit(M.mu), tmax=120, sim=ygSim(HpA,M.R,gas,tmax);
   const W=340,H=210,L=36,B=24,T0=8,R0=8, x=t=>L+t/tmax*(W-L-R0), y=T=>H-B-T/1200*(H-B-T0);
   const path=a=>a.map((p,i)=>(i?"L":"M")+x(p[0]).toFixed(1)+" "+y(Math.min(1200,p[1])).toFixed(1)).join("");
   const g=[]; for(let t=0;t<=tmax;t++) g.push([t,gas(t)]);
@@ -4025,27 +4025,29 @@ function ygHow(){ return `
 <div class="yg-c"><h3>Sistem katmanları</h3>
 <div class="yg-ly"><div style="background:#e6ecf5">Son kat <small>· nem, kirlilik ve UV'ye karşı korur, renk verir (ortama göre gerekli olabilir)</small></div><div style="background:#f6e7c7">İntümesan kat <small>· yangın koruma; kalınlığı sertifikalı tablodan gelir</small></div><div style="background:#f3cfc8">Astar <small>· korozyon koruması; intümesanla uyumu onaylı olmalı</small></div><div style="background:#aab4c3">Çelik <small>· ISO 8501-1 Sa 2½ ya da astar föyündeki hazırlık</small></div></div>
 <p>Astar ve son kat, yangın testinde intümesanla birlikte denenmiş ve onaylanmış ürünlerden seçilmelidir. Onaysız bir astar ya da son kat, köpüğün tutunmasını ve kabarmasını bozabilir.</p></div>
-<div class="yg-c"><h3>Yangın türleri</h3>
-<div class="yg-std"><b>Selülozik yangın</b><span class="rg">Binalar</span><p>Ahşap, kâğıt, tekstil gibi malzemelerin yanması. Sıcaklık yavaş yükselir (ISO 834 / EN 1363-1 eğrisi). İnce film intümesan boyalar bu yangın tipi için kullanılır.</p></div>
-<div class="yg-std hc"><b>Hidrokarbon yangını</b><span class="rg">Petrokimya · enerji</span><p>Akaryakıt ve gaz yangını. Sıcaklık birkaç dakikada 1000 °C'yi geçer (EN 1363-2 HC eğrisi, UL 1709). Epoksi esaslı pasif yangın koruma sistemleri gerekir.</p></div>
-<div class="yg-std hc"><b>Jet yangını</b><span class="rg">Basınçlı hat · offshore</span><p>Basınçlı gazın alev jeti; ısıya ek olarak aşındırıcı kuvvet. ISO 22899-1 ile test edilir.</p></div></div>
+<div class="yg-c"><h3>Bu ekran selülozik yangın içindir</h3>
+<div class="yg-std"><b>Selülozik yangın</b><span class="rg">Binalar</span><p>Ahşap, kâğıt, tekstil, plastik eşya gibi malzemelerin yanması: depolar, fabrika binaları, AVM, okul, otopark, havalimanı. Sıcaklık standart eğriyle yükselir (ISO 834 / EN 1363-1). Steelmaster ince film intümesan boyalar bu yangın tipi için test edilip sertifikalandırılmıştır.</p></div>
+<p><small>Hidrokarbon ve jet yangını hakkında kısa bilgi bu sekmenin sonundadır.</small></p></div>
 <div class="yg-c"><h3>Ortam sınıfları (EAD 350402)</h3>
 <p>Avrupa onayında (ETA) intümesan sistemin hangi ortamda dayanıklı olduğu belirtilir:</p>
 <div class="yg-k"><div><b>Z2</b><span>İç mekân, normal nem</span></div><div><b>Z1</b><span>İç mekân, yüksek nem (≥ %85 BN)</span></div><div><b>Y</b><span>Yarı açık; yağmura doğrudan maruz değil</span></div><div><b>X</b><span>Dış ortam, tüm koşullar</span></div></div>
 <p>Ortam sınıfı arttıkça çoğu zaman uygun son kat şart olur. Korozyon tarafı için ISO 12944 korozivite sınıfı (C1–CX) ayrıca belirlenir.</p></div>
-<div class="yg-c"><h3>Jotun Steelmaster serisi</h3>
-<p>Selülozik yangın için su bazlı ince film intümesan kaplamalar (EN 13381-8, BS 476-20/21):</p>
-<div class="yg-k"><div><b>Steelmaster 600 WF</b><span>60 dakikaya kadar</span></div><div><b>Steelmaster 900 WF</b><span>90 dakikaya kadar</span></div><div><b>Steelmaster 1200 WF</b><span>120 dakikaya kadar</span></div></div>
-<p>Hangi ürünün seçileceği ve kalınlığı; profil, maruziyet, yangın süresi ve kritik sıcaklığa göre Jotun teknik ekibince belirlenir. Hidrokarbon ve jet yangını projeleri için de Jotun teknik ekibine danışın.</p></div>
+<div class="yg-c"><h3>Jotun Steelmaster serisi · selülozik</h3>
+<p>Selülozik yangında yapısal çeliği koruyan intümesan kaplamalar (EN 13381-8, BS 476-20/21):</p>
+<div class="yg-k"><div><b>Steelmaster 600 WF</b><span>Su bazlı · 60 dakikaya kadar</span></div><div><b>Steelmaster 900 WF</b><span>Su bazlı · 90 dakikaya kadar</span></div><div><b>Steelmaster 1200 WF</b><span>Su bazlı · 120 dakikaya kadar</span></div><div><b>Steelmaster 1200 HPE</b><span>Epoksi · 120 dakikaya kadar · atölye uygulaması, dış ortam C5'e kadar</span></div></div>
+<p>Ürün ve kalınlık; profil, maruziyet, yangın süresi ve kritik sıcaklığa göre Jotun teknik ekibince belirlenir.</p></div>
 <div class="yg-c"><h3>Uygulama ve kontrol</h3>
-<ul><li>Kat başına uygulanabilecek maksimum ıslak kalınlık ve katlar arası bekleme süresi ürün föyünden (TDS) alınır.</li><li>Kuru film kalınlığı ISO 2808 / ISO 19840'a göre ölçülür; intümesanda ölçüm sıklığı ve kabul kriteri ürünün uygulama kılavuzunda tanımlıdır.</li><li>Her profilin boyası, o profilin yükleme tablosundaki kalınlığa göre ayrı ayrı hedeflenir; tüm yapıya tek kalınlık verilmez.</li><li>Kalınlık eksikliği yangın süresini doğrudan kısaltır; fazlası ise maliyeti ve kuruma süresini artırır.</li></ul></div>`; }
+<ul><li>Kat başına uygulanabilecek maksimum ıslak kalınlık ve katlar arası bekleme süresi ürün föyünden (TDS) alınır.</li><li>Kuru film kalınlığı ISO 2808 / ISO 19840'a göre ölçülür; intümesanda ölçüm sıklığı ve kabul kriteri ürünün uygulama kılavuzunda tanımlıdır.</li><li>Her profilin boyası, o profilin yükleme tablosundaki kalınlığa göre ayrı ayrı hedeflenir; tüm yapıya tek kalınlık verilmez.</li><li>Kalınlık eksikliği yangın süresini doğrudan kısaltır; fazlası ise maliyeti ve kuruma süresini artırır.</li></ul></div>
+<div class="yg-c" style="border-color:rgba(217,69,43,.5)"><h3>Kısaca: hidrokarbon ve jet yangını</h3>
+<p><b>Steelmaster bu yangın tiplerinde kullanılmaz.</b> Akaryakıt/gaz yangınında sıcaklık birkaç dakikada 1000 °C'yi geçer (UL 1709, EN 1363-2); jet yangınında buna alevin aşındırıcı gücü eklenir (ISO 22899-1).</p>
+<p>Jotun'un bu alandaki çözümü <b>Jotachar</b> serisi epoksi esaslı pasif yangın korumasıdır: rafineri, petrokimya, LNG, tank sahası ve offshore projeleri. Bu projeleri analiz talebiyle doğrudan Jotun teknik ekibine iletin.</p></div>`; }
 
 function ygMath(){ const M=YG.m; return `
 <div class="yg-c"><h3><span class="n">1</span>Yangın eğrisi: gaz sıcaklığı</h3>
 <p>Testlerde fırın sıcaklığı standart bir eğriyi izler. Bina yangını için ISO 834 / EN 1363-1:</p>
 <div class="yg-f">θg = 20 + 345 · log₁₀(8t + 1)     [t: dakika]</div>
 <div class="yg-k"><div><b>842 °C</b><span>30 dk</span></div><div><b>945 °C</b><span>60 dk</span></div><div><b>1006 °C</b><span>90 dk</span></div><div><b>1049 °C</b><span>120 dk</span></div></div>
-<p>Hidrokarbon eğrisi (EN 1363-2) çok daha hızlı yükselir:</p><div class="yg-f">θg = 20 + 1080 · (1 − 0,325·e^(−0,167t) − 0,675·e^(−2,5t))</div></div>
+</div>
 <div class="yg-c"><h3><span class="n">2</span>Kritik çelik sıcaklığı θcr</h3>
 <p>Çeliğin yangında göçmeden taşıyabileceği en yüksek sıcaklık. Elemanın yangın anındaki <b>kullanım oranına</b> (μ₀ = yangındaki yük etkisi ÷ başlangıçtaki taşıma kapasitesi) bağlıdır. EN 1993-1-2 Denklem 4.22:</p>
 <div class="yg-f">θcr = 39,19 · ln[ 1 / (0,9674 · μ₀^3,833) − 1 ] + 482</div>
@@ -4065,8 +4067,8 @@ function ygMath(){ const M=YG.m; return `
 <p>Yalıtımlı çelik (yalıtım tabakasının ısıl direnci d/λ ile, ısı kapasitesi ihmal):</p>
 <div class="yg-f">Δθa = (Hp/A) · (θg − θa) / (d/λ · ca · ρa) · Δt</div>
 <p><small>ρa = 7850 kg/m³, ca çeliğin sıcaklığa bağlı özgül ısısı (EN 1993-1-2 §3.4.1.2), σ = 5,67·10⁻⁸ W/m²K⁴.</small></p>
-<div class="yg-ctl"><label>Yangın eğrisi<select id="yg-cv"><option value="iso"${M.curve==="iso"?" selected":""}>Selülozik (ISO 834)</option><option value="hc"${M.curve==="hc"?" selected":""}>Hidrokarbon (EN 1363-2)</option></select></label><label><span>Temsili koruma d/λ: <b id="yg-R-v"></b></span><input type="range" id="yg-R" min="0.02" max="0.4" step="0.01" value="${M.R}"></label></div>
-<div class="yg-lg"><span><i style="background:#ff6a3d"></i>Gaz</span><span><i style="background:#6fa8ff"></i>Korumasız çelik</span><span><i style="background:#3ccf8e"></i>Temsili korumalı çelik</span><span><i style="background:#f0ab00"></i>θcr</span></div>
+<div class="yg-ctl"><label><span>Temsili koruma d/λ: <b id="yg-R-v"></b></span><input type="range" id="yg-R" min="0.02" max="0.4" step="0.01" value="${M.R}"></label></div>
+<div class="yg-lg"><span><i style="background:#ff6a3d"></i>Gaz (ISO 834)</span><span><i style="background:#6fa8ff"></i>Korumasız çelik</span><span><i style="background:#3ccf8e"></i>Temsili korumalı çelik</span><span><i style="background:#f0ab00"></i>θcr</span></div>
 <div id="yg-ch"></div><div class="yg-res" id="yg-res"></div>
 <p><small>Yeşil eğri sadece prensibi göstermek içindir. İntümesan köpüğün ısıl direnci sıcaklıkla ve kalınlıkla değişir; boya kalınlığı bu grafikten çıkarılamaz.</small></p></div>
 <div class="yg-c"><h3><span class="n">5</span>Kalınlık nereden gelir?</h3>
@@ -4076,18 +4078,14 @@ function ygMath(){ const M=YG.m; return `
 <p>Analiz yapacak kişi her profil için: yangın süresi → doğru tablo, Hp/A → satır, θcr → sütun okuyarak kalınlığı bulur; sonra m² × kalınlık ile toplam boya miktarını hesaplar.</p></div>`; }
 
 const YG_STD=[
- ["Test ve sınıflandırma",[
-  ["EN 13381-8","Avrupa","Çelik elemanlara uygulanan reaktif (intümesan) korumanın yangın testi ve değerlendirmesi. Yükleme tabloları bu standarda göre çıkar.",""],
+ ["Selülozik yangın: test ve sınıflandırma",[
+  ["EN 13381-8","Avrupa","Çelik elemanlara uygulanan reaktif (intümesan) korumanın yangın testi ve değerlendirmesi. Steelmaster yükleme tabloları bu standarda göre çıkar.",""],
   ["EN 13381-9","Avrupa","Gövdesi delikli (petek/hücreli) kirişlerde yangın koruma değerlendirmesi.",""],
   ["EN 1363-1 / ISO 834-1","Avrupa · Uluslararası","Yangın dayanım testlerinin genel koşulları ve standart selülozik zaman-sıcaklık eğrisi.",""],
-  ["EN 1363-2","Avrupa","Alternatif yangın eğrileri: hidrokarbon, dış ortam ve yavaş gelişen yangın.","hc"],
-  ["EN 13501-2","Avrupa","Yangın dayanım sınıflandırması. Taşıyıcı çelik için R (taşıma kapasitesi): R15, R30, R45, R60, R90, R120, R180, R240.",""],
+  ["EN 13501-2","Avrupa","Yangın dayanım sınıflandırması. Taşıyıcı çelik için R: R15, R30, R45, R60, R90, R120, R180, R240.",""],
   ["EAD 350402-00-1106","Avrupa","Reaktif yangın koruma ürünleri için Avrupa Değerlendirme Belgesi (eski ETAG 018-2). ETA ve CE işaretinin dayanağı; X, Y, Z1, Z2 dayanıklılık sınıfları.",""],
-  ["BS 476-20/21","İngiltere","İngiliz yangın testi standardı; birçok ülkede hâlâ şartnamelerde istenir.",""],
-  ["UL 263 / ASTM E119","ABD","Amerikan selülozik yangın testi; sonuç UL tasarım numarası (design) olarak verilir.",""],
-  ["UL 1709","ABD","Hızlı yükselen hidrokarbon yangını testi (yaklaşık 5 dakikada 1093 °C).","hc"],
-  ["ISO 22899-1","Uluslararası","Jet yangınına karşı pasif yangın koruma testi.","hc"],
-  ["ISO 20088","Uluslararası","Kriyojenik sıvı/gaz dökülmesine karşı koruma testleri (LNG tesisleri).","cr"]]],
+  ["BS 476-20/21","İngiltere","İngiliz yangın testi standardı; birçok şartnamede hâlâ istenir.",""],
+  ["UL 263 / ASTM E119","ABD","Amerikan selülozik yangın testi; sonuç UL tasarım numarası olarak verilir.",""]]],
  ["Tasarım",[
   ["EN 1993-1-2 (Eurocode 3)","Avrupa","Çelik yapıların yangın tasarımı: sıcaklıkla dayanım kaybı, kritik sıcaklık (Denk. 4.22), çelik sıcaklık hesabı (§4.2.5).",""],
   ["EN 1991-1-2 (Eurocode 1)","Avrupa","Yangında yapıya etkiyen yükler ve yangın eğrileri.",""]]],
@@ -4097,14 +4095,18 @@ const YG_STD=[
   ["ISO 2808 / ISO 19840","Uluslararası","Kuru film kalınlığı ölçüm yöntemleri ve kabul kriterleri.","cr"]]],
  ["Türkiye",[
   ["Binaların Yangından Korunması Hakkında Yönetmelik","Türkiye","Yapı elemanlarının yangına dayanım sürelerini bina sınıfı ve yüksekliğine göre belirler. Projede gereken süre (R30/R60/R90…) proje müellifi ve yangın danışmanınca bu yönetmeliğe göre belirlenir.","tr"],
-  ["TS EN 13381-8 · TS EN 13501-2","Türkiye","Avrupa standartlarının Türk Standardı olarak kabul edilmiş halleri.","tr"]]]];
+  ["TS EN 13381-8 · TS EN 13501-2","Türkiye","Avrupa standartlarının Türk Standardı olarak kabul edilmiş halleri.","tr"]]],
+ ["Kısaca: hidrokarbon ve jet yangını (Steelmaster kapsamı dışında)",[
+  ["EN 1363-2 · UL 1709","Avrupa · ABD","Hızlı yükselen hidrokarbon yangını eğrisi ve testi.","hc"],
+  ["ISO 22899-1","Uluslararası","Jet yangınına karşı pasif yangın koruma testi.","hc"],
+  ["ISO 20088","Uluslararası","Kriyojenik dökülmeye karşı koruma (LNG tesisleri).","hc"]]]];
 function ygStd(){ return YG_STD.map(([h,L])=>`<div class="yg-c"><h3>${h}</h3>${L.map(([c,r,d,k])=>`<div class="yg-std ${k}"><b>${esc(c)}</b><span class="rg">${esc(r)}</span><p>${esc(d)}</p></div>`).join("")}</div>`).join(""); }
 
 /* ---- Analiz talebi ---- */
-const YG_SEL={curve:["Selülozik (bina, ISO 834)","Hidrokarbon (EN 1363-2 / UL 1709)","Jet yangını (ISO 22899)","Bilmiyorum"],
+const YG_SEL={curve:["Selülozik (bina, ISO 834)","Hidrokarbon / jet yangını"],
   rate:["R15","R30","R45","R60","R90","R120","R180","Bilmiyorum"], crit:["Danışman belirlesin","350 °C","400 °C","450 °C","500 °C","550 °C","600 °C","620 °C","650 °C","700 °C"],
   env:["İç mekân, normal nem (Z2)","İç mekân, yüksek nem (Z1)","Yarı açık (Y)","Dış ortam (X)"], cor:["C1","C2","C3","C4","C5","CX","Bilmiyorum"],
-  surf:["Yeni çelik, raspa yapılacak (Sa 2½)","Atölye astarlı çelik","Galvaniz","Mevcut boyalı yüzey"], app:["Atölye","Şantiye","Atölye + şantiye"], std:["EN 13381-8","BS 476-20/21","UL 263","UL 1709","Şartnamede yok / bilmiyorum"]};
+  surf:["Yeni çelik, raspa yapılacak (Sa 2½)","Atölye astarlı çelik","Galvaniz","Mevcut boyalı yüzey"], app:["Atölye","Şantiye","Atölye + şantiye"], std:["EN 13381-8","BS 476-20/21","UL 263","Şartnamede yok / bilmiyorum"]};
 const ygOpts=(k,v)=>`<option value="">Seçin</option>`+YG_SEL[k].map(o=>`<option${o===v?" selected":""}>${esc(o)}</option>`).join("");
 const ygRowM2=r=>stM2(Object.assign({},r,{q:num(r.L)*Math.max(1,num(r.n)||1),u:"m"}));
 const ygRowHp=r=>{ const s=secOf(r); return s&&s.A>0?hpA(r,s):0; };
@@ -4123,7 +4125,7 @@ function ygReq(){ const f=YG.f, to=YG.to, ms=ygMissing();
   return `
 <div class="yg-to"><div><b>${to.name?esc(to.name):"Gönderilecek kişi seçilmedi"}</b><br><span>${to.name?[to.wa,to.mail].filter(Boolean).map(esc).join(" · "):"Analizi yapacak kişinin adı, WhatsApp ve e-postası"}</span></div><button type="button" class="btn" id="yg-toedit">${to.name?"Değiştir":"Ekle"}</button></div>
 <div class="yg-c"><h3><span class="n">1</span>Proje</h3><div class="yg-fm">${I("proj","Proje adı *","örn. Lojistik deposu çelik çatı","w2")}${I("cust","Müşteri / firma","")}${I("city","Şehir","")}${I("cont","Yetkili kişi","")}${I("tel","Telefon","")}${S("std","İstenen test standardı",1)}</div></div>
-<div class="yg-c"><h3><span class="n">2</span>Yangın gereksinimi</h3><div class="yg-fm">${S("curve","Yangın tipi *",1)}${S("rate","Dayanım süresi *")}${S("crit","Kritik sıcaklık")}</div>
+<div class="yg-c"><h3><span class="n">2</span>Yangın gereksinimi</h3><div class="yg-fm">${S("curve","Yangın tipi *",1)}<p class="hint w2" id="yg-hcw" style="color:#ffb199;margin:0"${f.curve&&f.curve.startsWith("Hidro")?"":" hidden"}>Steelmaster bu yangın tipi için uygun değildir; talep Jotachar değerlendirmesi için Jotun teknik ekibine gider.</p>${S("rate","Dayanım süresi *")}${S("crit","Kritik sıcaklık")}</div>
 <p><small>Kritik sıcaklık statik hesaptan gelir. Bilinmiyorsa "Danışman belirlesin" seçin; kullanım oranı biliniyorsa nota yazın.</small></p></div>
 <div class="yg-c"><h3><span class="n">3</span>Ortam ve yüzey</h3><div class="yg-fm">${S("env","Ortam *",1)}${S("cor","Korozivite (ISO 12944)")}${S("app","Uygulama yeri")}${S("surf","Yüzey durumu",1)}${I("top","Son kat / renk","örn. RAL 7035 isteniyor","w2")}</div></div>
 <div class="yg-c"><h3><span class="n">4</span>Profil listesi</h3><div class="yg-rows" id="yg-rows">${ygRowsHTML()}</div>
@@ -4182,7 +4184,7 @@ $("#yg-body").addEventListener("input",e=>{ const t=e.target, M=YG.m;
 $("#yg-body").addEventListener("change",e=>{ const t=e.target, M=YG.m;
   if(t.id==="yg-fam"){ M.fam=t.value; M.s=STD[M.fam].some(p=>p[0]==M.s)?M.s:String(STD[M.fam][Math.min(6,STD[M.fam].length-1)][0]); $("#yg-sz").innerHTML=ygSizeOpts(M.fam,M.s); M.hp=""; $("#yg-hp").value=""; ygMathUpd(); }
   else if(t.id==="yg-sz"){ M.s=t.value; M.hp=""; $("#yg-hp").value=""; ygMathUpd(); } else if(t.id==="yg-exp"){ M.exp=+t.value; M.hp=""; $("#yg-hp").value=""; ygMathUpd(); } else if(t.id==="yg-cv"){ M.curve=t.value; ygMathUpd(); }
-  else if(t.dataset.ygf){ YG.f[t.dataset.ygf]=t.value; ygSave(); ygLinks(); }
+  else if(t.dataset.ygf){ YG.f[t.dataset.ygf]=t.value; ygSave(); ygLinks(); const w=$("#yg-hcw"); if(w) w.hidden=!(YG.f.curve||"").startsWith("Hidro"); }
   else if(t.id==="yg-afam") ygAddUI();
   else if(t.id==="yg-upf"){ const f=t.files[0]; t.value=""; if(f) ygFile(f); }
   else if(t.dataset.yge!=null&&t.tagName==="SELECT"){ const r=YG.rows[+t.dataset.yge]; r[t.dataset.k]=t.dataset.k==="exp"?+t.value:t.value; ygRowsUpd(); } });
