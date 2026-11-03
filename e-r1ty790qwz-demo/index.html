@@ -1383,8 +1383,7 @@ dialog.sheet .x:focus:not(:focus-visible){outline:none}
 #q-body tr.auto td:nth-child(2){grid-column:1/3!important;grid-row:2!important}
 #q-body tr.auto td:nth-child(3){grid-column:3!important;grid-row:2!important}
 #q-body tr.auto td:nth-child(2) .th-ch{flex-wrap:nowrap}
-
-/* ---- DEMO ---- */
+/* ---- İşlerim ---- */
 .dm-hrow{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0 4px}
 .dm-hc{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:3px;text-align:left;padding:14px;border-radius:18px;border:1px solid rgba(140,170,220,.22);background:linear-gradient(160deg,#16305f,#0d1a33);color:#fff;font:inherit;cursor:pointer}
 .dm-hc b{font:700 16px var(--f-body)}.dm-hc span:not(.dm-hci){font-size:12px;color:rgba(214,224,240,.75);line-height:1.3}
@@ -1446,7 +1445,104 @@ button.dm-it{cursor:pointer}
 .dm-appi dl{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;margin:6px 0;font-size:13.5px}.dm-appi dt{color:#5d6b82}
 .dm-oc{width:100%;border-collapse:collapse;font-size:12.5px}.dm-oc th,.dm-oc td{border:1px solid #d7e2f5;padding:4px;text-align:center}.dm-oc th{color:#5d6b82;font-weight:600;font-size:11.5px}
 .dm-miss{color:#b03a2e;font-size:13px}
-.demo-rb{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(70px + env(safe-area-inset-bottom,0px));z-index:80;background:#f0ab00;color:#0b1f45;font:800 11px var(--f-body);padding:3px 10px;border-radius:8px;pointer-events:none;opacity:.9}
+
+.dm-hw{display:flex;align-items:center;gap:14px;width:100%;margin:12px 0 2px;padding:16px;border-radius:20px;border:1px solid rgba(140,170,220,.22);background:linear-gradient(135deg,#16305f,#0d1a33);color:#fff;font:inherit;text-align:left;cursor:pointer;position:relative}
+.dm-hw .dm-hci{margin:0;width:46px;height:46px;border-radius:14px;flex:none}
+.dm-hw .dm-hci svg{width:24px;height:24px}
+.dm-hwt{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.dm-hwt b{font:700 18px var(--f-body)}
+.dm-hwt span{font-size:13px;color:rgba(214,224,240,.8);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dm-hwt em{font-style:normal;color:#f0ab00;font-weight:700}
+.dm-hw .chev{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2;flex:none}
+.dm-hw .dm-bd{position:static;flex:none}
+
+#v-sarfiyat .sf-area select{width:100%;height:48px;box-sizing:border-box;border:1px solid rgba(140,170,220,.25)!important;border-radius:12px;background:rgba(5,14,32,.55) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23dfe7f5' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 12px center/18px!important;color:#fff;font:500 16px var(--f-body);padding:0 38px 0 14px;outline:0;-webkit-appearance:none;appearance:none}
+#v-sarfiyat .sf-ag .sf-tfc,#v-sarfiyat .sf-ag .sf-tip,#v-sarfiyat .sf-ag .sf-chk{grid-column:1/-1}
+#v-sarfiyat .sf-in select option{color:#0b1f45;background:#fff}
+#v-sarfiyat .sf-tfc{display:grid!important;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:8px}
+#v-sarfiyat #sf-at{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+#v-sarfiyat #sf-at button{white-space:nowrap;padding:9px 4px}
+
+.dm-hcard{position:relative}.dm-hcard .dm-bd{position:static;flex:none;margin-right:6px}
+.dm-hcard #dm-sub{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.dm-hcard #dm-sub em{font-style:normal;color:#f0ab00;font-weight:700}
+
+#v-sarfiyat .sf-up{display:flex;align-items:center;gap:12px;margin-top:12px;padding:12px 14px;border:1.5px dashed rgba(240,171,0,.55);border-radius:14px;background:rgba(240,171,0,.08);cursor:pointer;color:#fff}
+#v-sarfiyat .sf-up svg{width:24px;height:24px;flex:none;fill:none;stroke:#f0ab00;stroke-width:1.8;stroke-linecap:round}
+#v-sarfiyat .sf-up span{display:flex;flex-direction:column}#v-sarfiyat .sf-up small{color:rgba(214,224,240,.75);font-size:12.5px}
+.sf-tabs{display:grid;grid-template-columns:repeat(3,1fr)}.sf-tabs button{white-space:nowrap}.st-q select[data-st]{flex:1.7 1 0;min-width:0}.st-q select[data-se]{flex:1 1 0;min-width:0}.sf-ag .sf-w2{grid-column:1/-1}.sf-ag label[hidden]{display:none}.st-q+.st-q{margin-top:6px}
+.sf-alist{margin-top:12px;background:#f4f7fb;color:#0b1f45;border-radius:14px;padding:10px 12px}
+.sf-alist[hidden]{display:none}
+.sf-alh{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}.sf-alh b{font-size:14px}.sf-alh .linkbtn{color:#b03a2e;font-size:13px}
+.sf-ali{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid #dbe2ec;font-size:14px}
+.sf-ali .n{width:22px;height:22px;border-radius:50%;background:#1f5fd6;color:#fff;font:700 11.5px/22px var(--f-body);text-align:center;flex:none}
+.sf-ali .t{flex:1;min-width:0}.sf-ali .t small{display:block;color:#7a869c;font-size:11.5px}
+.sf-ali .x{border:0;background:none;color:#b03a2e;font-size:20px;cursor:pointer;padding:0 4px}
+.sf-ali.tot{border:0;font-size:15px}.sf-ali.tot b{color:#1f5fd6;font-size:17px}
+.sf-alw{margin:6px 0 0;font-size:12.5px;color:#9a5b00}.sf-alw .linkbtn{color:#1f5fd6}
+.st-rows{display:flex;flex-direction:column;gap:8px}
+.st-r{display:flex;gap:10px;background:rgba(255,255,255,.06);border:1px solid rgba(140,170,220,.25);border-radius:12px;padding:10px}
+.st-r.uns{border-color:#f0ab00;background:rgba(240,171,0,.1)}
+.st-c input{width:20px;height:20px;margin-top:2px}
+.st-m{flex:1;min-width:0}.st-m b{display:block}.st-m small{display:block;color:rgba(214,224,240,.6);font-size:11.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.st-q{display:flex;gap:6px;align-items:center;margin-top:6px}.st-q input,.st-q select{height:40px;border-radius:10px;border:1px solid #c9d3e3;padding:0 10px;font:500 15px var(--f-body);min-width:0}
+.st-q input{flex:1 1 0!important;width:auto!important;min-width:60px;background:#fff!important;color:#0b1f45!important}.st-q select{flex:0 0 92px!important;width:92px!important;background:#fff!important;color:#0b1f45!important;padding:0 8px!important}.st-a{flex:none;font-weight:700;color:#f0ab00;min-width:70px;text-align:right}
+.st-tot{margin:10px 0;font-size:15px}.st-sk{margin:8px 0;font-size:13px}.st-sk ul{padding-left:18px;max-height:200px;overflow:auto}
+
+.dm-kpb button{border:0;font:inherit;cursor:pointer;background:#0b1f45;color:#fff;border-radius:10px;padding:8px 6px;text-align:center;position:relative}
+.dm-kpb button::after{content:"›";position:absolute;right:6px;top:4px;color:rgba(255,255,255,.4);font-size:14px}
+.dm-kpb button:active{background:#16305f}
+.dm-kpb b{display:block;font:800 18px var(--f-body);color:#f0ab00}.dm-kpb span{font-size:11px;opacity:.85}
+.dm-bar[data-pk]{cursor:pointer}
+.sheet .dm-it{margin-bottom:8px}
+.yg-c{background:rgba(255,255,255,.05);border:1px solid rgba(140,170,220,.22);border-radius:16px;padding:14px 14px 12px;margin:0 0 12px;color:#e8eef8}
+.yg-c h3{margin:0 0 6px;font:800 17px var(--f-body);color:#fff;display:flex;align-items:center;gap:8px}
+.yg-c h3 .n{flex:none;width:24px;height:24px;border-radius:50%;background:#1f5fd6;color:#fff;font:800 13px/24px var(--f-body);text-align:center}
+.yg-c p,.yg-c li{font-size:14.5px;line-height:1.5;color:rgba(226,234,246,.88)}.yg-c p{margin:6px 0}.yg-c ul{margin:6px 0;padding-left:18px}
+.yg-c b{color:#fff}.yg-c small{color:rgba(214,224,240,.65)}
+.yg-k{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin:8px 0}
+.yg-k>div{background:rgba(5,14,32,.5);border:1px solid rgba(140,170,220,.2);border-radius:12px;padding:10px}.yg-k b{display:block;font-size:15px}.yg-k span{font-size:13px;color:rgba(214,224,240,.75)}
+.yg-f{font:600 14px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(5,14,32,.65);border:1px solid rgba(140,170,220,.2);border-radius:10px;padding:10px 12px;color:#ffd27a;white-space:pre-wrap;word-break:break-word;font-size:13px;margin:8px 0}
+#yg-tabs{display:grid;grid-template-columns:1fr 1fr;overflow:visible}#yg-tabs button{width:100%}
+.yg-svg{width:100%;height:auto;display:block;margin:6px 0}
+.yg-lg{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12.5px;color:rgba(214,224,240,.85);margin:2px 0 6px}.yg-lg i{display:inline-block;width:14px;height:3px;border-radius:2px;margin-right:5px;vertical-align:3px}
+.yg-ctl{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin:8px 0}
+.yg-ctl label{display:flex;flex-direction:column;gap:4px;font-size:12.5px;color:rgba(214,224,240,.75)}
+.yg-ctl select,.yg-ctl input,.yg-fm input,.yg-fm select,.yg-fm textarea{height:44px;box-sizing:border-box;border:1px solid rgba(140,170,220,.25);border-radius:10px;background:rgba(5,14,32,.55);color:#fff;font:500 15px var(--f-body);padding:0 10px;width:100%;min-width:0}
+.yg-fm textarea{height:76px;padding:8px 10px;resize:vertical}
+.yg-ctl input[type=range]{padding:0;height:32px;accent-color:#f0ab00;background:none;border:0}
+.yg-res{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin-top:6px}
+.yg-res>div{border-radius:12px;padding:10px;background:rgba(31,95,214,.18);border:1px solid rgba(31,95,214,.45)}.yg-res b{display:block;font:800 20px var(--f-body);color:#fff}.yg-res span{font-size:12.5px;color:rgba(214,224,240,.8)}
+.yg-res>div.w{background:rgba(240,171,0,.14);border-color:rgba(240,171,0,.5)}.yg-res>div.g{background:rgba(30,142,90,.18);border-color:rgba(30,142,90,.55)}
+.yg-sw{position:relative;height:120px;border-radius:12px;background:linear-gradient(#0d2347,#0a1a36);overflow:hidden;margin:8px 0}
+.yg-sw .st{position:absolute;left:0;right:0;bottom:0;height:34px;background:repeating-linear-gradient(135deg,#5b6b82 0 6px,#4c5a70 6px 12px)}
+.yg-sw .pr{position:absolute;left:0;right:0;bottom:34px;height:8px;background:#b24a3a}
+.yg-sw .ch{position:absolute;left:0;right:0;bottom:42px;height:4px;background:#e9e3d6;transform-origin:bottom;animation:ygsw 6s ease-in-out infinite;border-radius:0 0 4px 4px;background:radial-gradient(circle at 20% 30%,#fff 0 3px,transparent 4px) 0 0/22px 18px,#d9d0bf}
+.yg-sw .fl{position:absolute;left:0;right:0;top:0;height:40px;background:linear-gradient(#ff7a1a00,#ff7a1a55);animation:ygfl 6s ease-in-out infinite}
+.yg-sw .lb{position:absolute;right:10px;font:700 12px var(--f-body);color:#fff;text-shadow:0 1px 2px #000}
+@keyframes ygsw{0%,15%{height:4px}55%,85%{height:66px}100%{height:4px}}
+@keyframes ygfl{0%,10%{opacity:0}30%,85%{opacity:1}100%{opacity:0}}
+.yg-ly{display:flex;flex-direction:column;gap:3px;margin:8px 0}.yg-ly div{border-radius:8px;padding:8px 10px;font-size:13.5px;color:#0b1f45;font-weight:700}.yg-ly small{color:#0b1f45;opacity:.75;font-weight:500}
+.yg-std{border-left:3px solid #1f5fd6;padding:8px 0 8px 10px;margin:8px 0}.yg-std b{font-size:15px}.yg-std .rg{display:inline-block;font:700 11px var(--f-body);padding:2px 7px;border-radius:6px;background:rgba(31,95,214,.3);color:#cfe0ff;margin-left:6px;vertical-align:1px}
+.yg-std p{margin:3px 0 0}.yg-std.hc{border-color:#d9452b}.yg-std.tr{border-color:#f0ab00}.yg-std.cr{border-color:#1e8e5a}
+.yg-tb{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0}.yg-tb th,.yg-tb td{border:1px solid rgba(140,170,220,.25);padding:6px;text-align:center}.yg-tb th{background:rgba(31,95,214,.25);color:#fff}.yg-tb td{color:rgba(226,234,246,.7)}.yg-tb td.h{color:#ffd27a;font-weight:700}
+.yg-fm{display:grid;grid-template-columns:1fr 1fr;gap:10px}.yg-fm label{display:flex;flex-direction:column;gap:4px;font-size:12.5px;color:rgba(214,224,240,.78);min-width:0}.yg-fm .w2{grid-column:1/-1}
+.yg-rows{display:flex;flex-direction:column;gap:6px;margin:8px 0}
+.yg-row{display:grid;grid-template-columns:1fr auto;gap:4px 8px;background:rgba(5,14,32,.5);border:1px solid rgba(140,170,220,.2);border-radius:12px;padding:8px 10px}
+.yg-row.uns{border-color:#f0ab00}.yg-row b{font-size:14.5px;color:#fff}.yg-row small{grid-column:1/-1;color:rgba(214,224,240,.7);font-size:12.5px}
+.yg-row .x{width:30px;height:30px;border-radius:50%;border:0;background:rgba(255,255,255,.08);color:#fff;font-size:18px;cursor:pointer}
+.yg-row .ed{grid-column:1/-1;display:grid;grid-template-columns:1.2fr 1fr .8fr .8fr;gap:6px}.yg-row .ed select,.yg-row .ed input{height:38px;font-size:14px;border-radius:9px;border:1px solid rgba(140,170,220,.25);background:rgba(5,14,32,.55);color:#fff;padding:0 6px;min-width:0}
+.yg-add{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.yg-chk{display:flex;flex-direction:column;gap:4px;margin:6px 0}.yg-chk span{font-size:13.5px}.yg-chk .ok{color:#7fe0a8}.yg-chk .no{color:#ffcf66}
+.yg-act{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.yg-act .btn{width:100%;justify-content:center}.yg-act .w2{grid-column:1/-1}
+.yg-up{display:flex;align-items:center;gap:10px;border:1px dashed rgba(240,171,0,.6);border-radius:12px;padding:10px 12px;cursor:pointer;margin-top:8px}.yg-up b{display:block;color:#fff}.yg-up small{color:rgba(214,224,240,.7)}
+.yg-to{display:flex;align-items:center;justify-content:space-between;gap:10px;background:rgba(31,95,214,.15);border:1px solid rgba(31,95,214,.45);border-radius:12px;padding:10px 12px;margin-bottom:10px}.yg-to b{color:#fff}.yg-to span{font-size:13px;color:rgba(214,224,240,.8)}
+.yg-doc{background:#fff;color:#0b1f45;font:13px/1.45 var(--f-body);width:714px}
+.yg-doc h1{font-size:20px;margin:0 0 2px}.yg-doc h2{font-size:14px;margin:14px 0 6px;border-bottom:2px solid #0b1f45;padding-bottom:3px}
+.yg-doc table{width:100%;border-collapse:collapse}.yg-doc td,.yg-doc th{border:1px solid #c9d3e3;padding:4px 6px;text-align:left;font-size:12px}.yg-doc th{background:#eef3fa}
+.hm-card.yg-hcard .hm-ic svg{width:30px;height:30px}
+@media (max-width:420px){.yg-row .ed{grid-template-columns:1fr 1fr}}
+.demo-rb{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(70px + env(safe-area-inset-bottom,0px));z-index:80;background:#f0ab00;color:#0b1f45;font:800 11px var(--f-body);letter-spacing:.08em;padding:4px 10px;border-radius:8px;pointer-events:none}
 </style>
 
 <div id="app-bg" aria-hidden="true"></div>
@@ -1488,10 +1584,9 @@ button.dm-it{cursor:pointer}
     <button type="button" class="hm-card hm-pri" data-go="sistem"><span class="ico ic-sistem hm-ic"></span><span class="hm-t"><b>Boya sistemi hesapla</b><span>ISO 12944</span></span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
     <button type="button" class="hm-card role-b" data-go="kendi"><span class="hm-ic hm-svg"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M28 8H15a3 3 0 0 0-3 3v26a3 3 0 0 0 3 3h18a3 3 0 0 0 3-3V16z" fill="none" stroke="#e8eef8" stroke-width="2.6" stroke-linejoin="round"/><path d="M28 8v8h8" fill="none" stroke="#e8eef8" stroke-width="2.6" stroke-linejoin="round"/><path d="M24 22v12M18 28h12" stroke="#e8352a" stroke-width="3.2" stroke-linecap="round"/></svg></span><span class="hm-t"><b>Kendi teklifini hazırla</b></span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
     <button type="button" class="hm-card role-s" data-go="sarfiyat"><span class="ico ic-sarf hm-ic"></span><span class="hm-t"><b>Sarfiyat hesapla</b></span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
-  </div>
-  <div class="dm-hrow"><button type="button" class="dm-hc" data-go="isler"><span class="dm-hci"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="17" rx="2"/><path d="M8 2v4M16 2v4M8 11h8M8 15h5"/></svg></span><b>İşlerim</b><span>Müşteri · ziyaret · teklif takibi</span><i class="dm-bd" id="dm-bd" hidden></i></button>
-    <button type="button" class="dm-hc" data-go="arac"><span class="dm-hci"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.5-.5-.5-2.5z"/></svg></span><b>Saha araçları</b><span>Çelik m² · kalınlık raporu</span></button></div>
-  <div class="dm-today" id="h-today" hidden></div>
+    <button type="button" class="hm-card dm-hcard" data-go="isler"><span class="hm-ic hm-svg"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="11" y="10" width="26" height="30" rx="3" fill="none" stroke="#e8eef8" stroke-width="2.6"/><path d="M17 6v8M31 6v8" stroke="#e8eef8" stroke-width="2.6" stroke-linecap="round"/><path d="M17 23h14M17 30h9" stroke="#f0ab00" stroke-width="2.6" stroke-linecap="round"/></svg></span><span class="hm-t"><b>İşlerim</b><span id="dm-sub">Müşteri, ziyaret ve teklif takibi</span></span><i class="dm-bd" id="dm-bd" hidden></i><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+    <button type="button" class="hm-card yg-hcard" data-go="yangin"><span class="hm-ic hm-svg"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6c4 7 11 11 11 20a11 11 0 0 1-22 0c0-5 3-8 5-11 1 4 3 6 5 6-1-6 0-10 1-15z" fill="none" stroke="#e8eef8" stroke-width="2.6" stroke-linejoin="round"/><path d="M24 40a5 5 0 0 1-5-5c0-3 2-4 3-6 1 2 2 3 4 3 1 1 3 2 3 3a5 5 0 0 1-5 5z" fill="#f0ab00"/></svg></span><span class="hm-t"><b>Yangın koruma</b><span>Standartlar, hesap mantığı, analiz talebi</span></span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+    </div>
   <div class="hx role-s">
     <button type="button" class="hx-b" data-hx="opp" aria-expanded="false"><span class="hx-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10 5 7 4.5 3 5v13c4-.5 7 0 9 1.5 2-1.5 5-2 9-1.5V5c-4-.5-7 0-9 1.5z"/><path d="M12 6.5v13"/></svg></span><span class="hx-t"><b>Yatırımlar Dergisi</b><span>Yeni yatırımlar ve projeler</span></span><svg class="hx-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
     <button type="button" class="hx-b" data-hx="news" aria-expanded="false"><span class="hx-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="15" rx="2"/><rect x="6" y="7.5" width="5" height="4.5" rx=".5"/><path d="M13.5 8h4.5M13.5 11h4.5M6 15h12M7 19v1.5M17 19v1.5"/></svg></span><span class="hx-t"><b>Sektör Haberleri</b><span>Sektörden güncel gelişmeler</span></span><svg class="hx-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
@@ -1664,11 +1759,33 @@ button.dm-it{cursor:pointer}
           <button type="button" class="sf-ab" id="sf-areab"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h1M11.5 11h1M15 11h1M8 14.5h1M11.5 14.5h1M15 14.5h1M8 18h1M11.5 18h1M15 18h1"/></svg><span>Alanı hesapla</span></button>
         </div>
         <div class="sf-area" id="sf-areaw" hidden>
-          <div class="sf-tabs" id="sf-at"><button type="button" data-a="boru" aria-pressed="true">Boru</button><button type="button" data-a="tank" aria-pressed="false">Tank</button><button type="button" data-a="ton" aria-pressed="false">Çelik (ton)</button></div>
-          <div class="sf-ag" data-a="boru"><label class="sf-f"><span>Dış çap</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-pd" placeholder="0"><i>mm</i></span></label><label class="sf-f"><span>Uzunluk</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-pl" placeholder="0"><i>m</i></span></label><label class="sf-f"><span>Adet</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-pn" value="1"><i>ad</i></span></label></div>
+          <div class="sf-tabs" id="sf-at"><button type="button" data-a="prof" aria-pressed="true">Profil</button><button type="button" data-a="hol" aria-pressed="false">Kutu &amp; boru</button><button type="button" data-a="bar" aria-pressed="false">Dolu &amp; lama</button><button type="button" data-a="sac" aria-pressed="false">Sac</button><button type="button" data-a="ton" aria-pressed="false">Tonaj</button><button type="button" data-a="tank" aria-pressed="false">Tank</button></div>
+          <div class="sf-ag" data-a="prof"><label class="sf-f sf-w2"><span>Profil ailesi</span><span class="sf-in"><select id="sf-ps"><optgroup label="I / H profiller · EN 10365"><option value="IPE">IPE</option><option value="HEA">HEA (HE A)</option><option value="HEB">HEB (HE B)</option><option value="HEM">HEM (HE M)</option><option value="INP">INP / IPN / NPI</option></optgroup><optgroup label="U profiller · EN 10365"><option value="UPN">UPN / NPU</option><option value="UPE">UPE</option></optgroup><optgroup label="Köşebent · EN 10056"><option value="kose">Köşebent (L)</option></optgroup></select></span></label>
+            <label class="sf-f sf-tab1"><span>Ölçü</span><span class="sf-in"><select id="sf-pz"></select></span></label>
+            <label class="sf-f sf-w2"><span>Maruziyet (yangın boyasında)</span><span class="sf-in"><select id="sf-pe"><option value="4">4 yüz (tüm çevre)</option><option value="3">3 yüz (üst başlık döşemeye bitişik – b düşülür)</option></select></span></label>
+            <label class="sf-f sf-kos" hidden><span>Kol a</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-la" placeholder="50"><i>mm</i></span></label><label class="sf-f sf-kos" hidden><span>Kol b</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-lb2" placeholder="50"><i>mm</i></span></label><label class="sf-f sf-kos" hidden><span>Kalınlık t</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-lt" placeholder="5"><i>mm</i></span></label>
+            <label class="sf-f"><span>Miktar</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-pq" placeholder="0"></span></label><label class="sf-f"><span>Birim</span><span class="sf-in"><select id="sf-pu"><option value="m">metre</option><option value="ton">ton</option></select></span></label>
+            <p class="hint sf-tip" id="sf-pinfo"></p></div>
+          <div class="sf-ag" data-a="hol" hidden><label class="sf-f sf-w2"><span>Tip · EN 10219 / 10210</span><span class="sf-in"><select id="sf-hs"><option value="kutu">Kare / dikdörtgen kutu</option><option value="boru">Boru (yuvarlak)</option></select></span></label>
+            <label class="sf-f sf-hk"><span>Kenar a</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-ha" placeholder="100"><i>mm</i></span></label><label class="sf-f sf-hk"><span>Kenar b</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-hb" placeholder="50"><i>mm</i></span></label>
+            <label class="sf-f sf-hb" hidden><span>Dış çap</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-hd" placeholder="114,3"><i>mm</i></span></label>
+            <label class="sf-f"><span>Et kalınlığı t</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-ht" placeholder="4"><i>mm</i></span></label>
+            <label class="sf-f"><span>Uzunluk</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-hq" placeholder="0"><i>m</i></span></label>
+            <div class="sf-chk"><label><input type="checkbox" id="sf-hi"> İç yüzey de boyanacak (açık uçlu / iç koruma)</label></div>
+            <p class="hint sf-tip" id="sf-hinfo"></p></div>
+          <div class="sf-ag" data-a="bar" hidden><label class="sf-f sf-w2"><span>Tip · EN 10058 / 10059 / 10060</span><span class="sf-in"><select id="sf-bs"><option value="lama">Lama (yassı)</option><option value="karedolu">Kare dolu</option><option value="mil">Yuvarlak dolu mil</option></select></span></label>
+            <label class="sf-f"><span id="sf-bal">Genişlik</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-ba" placeholder="40"><i>mm</i></span></label><label class="sf-f sf-bb"><span>Kalınlık</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-bb" placeholder="10"><i>mm</i></span></label>
+            <label class="sf-f"><span>Uzunluk</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-bq" placeholder="0"><i>m</i></span></label>
+            <p class="hint sf-tip" id="sf-binfo"></p></div>
+          <div class="sf-ag" data-a="sac" hidden><label class="sf-f"><span>En</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-se" placeholder="1500"><i>mm</i></span></label><label class="sf-f"><span>Boy</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-sb" placeholder="3000"><i>mm</i></span></label><label class="sf-f"><span>Adet</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-sn" value="1"><i>ad</i></span></label>
+            <label class="sf-f"><span>Boyanacak yüz</span><span class="sf-in"><select id="sf-sf"><option value="2">İki yüz</option><option value="1">Tek yüz</option></select></span></label>
+            <label class="sf-f"><span>Yüzey katsayısı</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-sk" value="1" step="0.01"><i>×</i></span></label>
+            <p class="hint sf-tip">Düz sacta 1. Trapez / oluklu sacta üreticinin verdiği açınım oranını girin (açılmış genişlik ÷ örtme genişliği). Sac ve levha: EN 10029 / EN 10051.</p></div>
           <div class="sf-ag" data-a="tank" hidden><label class="sf-f"><span>Çap</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-td" placeholder="0"><i>m</i></span></label><label class="sf-f"><span>Yükseklik</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-th" placeholder="0"><i>m</i></span></label><div class="sf-chk"><label><input type="checkbox" id="sf-tt" checked> Tavan</label><label><input type="checkbox" id="sf-tb"> Taban</label></div></div>
-          <div class="sf-ag" data-a="ton" hidden><label class="sf-f"><span>Çelik miktarı</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-tn" placeholder="0"><i>ton</i></span></label><label class="sf-f"><span>Ton başına yüzey</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-tf" placeholder="0"><i>m²/t</i></span></label><p class="hint sf-tip">Ton başına yüzey profile göre değişir; proje çiziminden veya profil tablosundan alın.</p></div>
+          <div class="sf-ag" data-a="ton" hidden><label class="sf-f"><span>Çelik miktarı</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-tn" placeholder="0"><i>ton</i></span></label><div class="sf-chips sf-tfc" id="sf-tfc"><button type="button" data-tf="15" aria-pressed="false">Ağır<small>≈15 m²/t</small></button><button type="button" data-tf="25" aria-pressed="false">Orta<small>≈25 m²/t</small></button><button type="button" data-tf="35" aria-pressed="false">Hafif<small>≈35 m²/t</small></button></div><label class="sf-f"><span>Ton başına yüzey</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-tf" placeholder="0"><i>m²/t</i></span></label><p class="hint sf-tip">Profil tipini bilmiyorsanız yaklaşık değer seçin. Ağır: kalın kolon/kiriş, Orta: karışık konstrüksiyon, Hafif: ince profil, makas, korkuluk. Profil biliniyorsa "Profil" sekmesi daha doğrudur.</p></div>
           <div class="sf-ares"><span id="sf-ar">—</span><span class="sf-abtns"><button type="button" class="btn" id="sf-aadd">Alana ekle</button><button type="button" class="btn primary" id="sf-aset">Alan olarak kullan</button></span></div>
+          <label class="sf-up"><input type="file" id="sf-upf" accept=".pdf,image/*,.xlsx,.xls,.csv,.txt" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.5l-8.5 8.5a5 5 0 0 1-7-7L14 5.5a3.3 3.3 0 0 1 4.7 4.7l-8.5 8.5a1.7 1.7 0 0 1-2.4-2.4l7.8-7.8"/></svg><span><b>Çelik listesi yükle</b><small>PDF, fotoğraf veya Excel – profiller okunup listeye eklenir</small></span></label>
+          <div class="sf-alist" id="sf-alist"></div>
         </div>
         <div class="sf-kp" id="sf-kp"></div>
       </div>
@@ -1740,16 +1857,17 @@ button.dm-it{cursor:pointer}
 </section>
 
 <section id="v-isler" hidden>
-  <div class="dm-hero"><span class="dm-tag">DEMO</span><h2>İşlerim</h2><p>Müşteriler, ziyaretler ve verilen tekliflerin takibi.</p></div>
+  <div class="dm-hero"><h2>İşlerim</h2><p>Müşteriler, ziyaretler ve verilen tekliflerin takibi.</p></div>
   <div class="dm-today" id="is-today"></div>
-  <div class="dm-tabs" id="is-tabs"><button type="button" data-ist="c" aria-pressed="true">Müşteriler</button><button type="button" data-ist="q" aria-pressed="false">Teklifler</button><button type="button" data-ist="p" class="role-s" aria-pressed="false">Bayi paneli</button></div>
+  <div class="dm-tabs" id="is-tabs"><button type="button" data-ist="c" aria-pressed="true">Müşteriler</button><button type="button" data-ist="q" class="role-b" aria-pressed="false">Teklifler</button><button type="button" data-ist="p" class="role-s" aria-pressed="false">Bayi paneli</button></div>
   <div id="is-body"></div>
 </section>
-<section id="v-arac" hidden>
-  <div class="dm-hero"><span class="dm-tag">DEMO</span><h2>Saha araçları</h2><p>Sahada en çok ihtiyaç duyulan hesaplar ve kontrol raporu.</p></div>
-  <div class="dm-tabs" id="ar-tabs"><button type="button" data-art="m2" aria-pressed="true">Çelik m²</button><button type="button" data-art="dft" aria-pressed="false">Kalınlık raporu</button></div>
-  <div id="ar-body"></div>
-  <p class="foot" style="margin-top:14px">Değerler yaklaşıktır, bilgilendirme amaçlıdır. Uygulamadan önce ilgili ürünün güncel Jotun teknik föyünü (TDS) kontrol ediniz.</p>
+<section id="v-yangin" hidden>
+  <div class="dm-hero"><span class="dm-tag">DEMO</span><h2>Yangın koruma</h2><p>Pasif yangın koruma boyalarının çalışma mantığı, standartlar ve kalınlık analizi talebi.</p></div>
+  <div class="dm-tabs" id="yg-tabs"><button type="button" data-yt="how" aria-pressed="true">Nasıl çalışır</button><button type="button" data-yt="math" aria-pressed="false">Hesap mantığı</button><button type="button" data-yt="std" aria-pressed="false">Standartlar</button><button type="button" data-yt="req" aria-pressed="false">Analiz talebi</button></div>
+  <div id="yg-body"></div>
+  <p class="foot" style="margin-top:14px">Bu ekran bilgilendirme amaçlıdır; kalınlık hesabı yapmaz. Yangın koruma kalınlığı yalnızca ürünün sertifikalı yükleme tablolarına göre Jotun teknik ekibi tarafından belirlenir.</p>
+  <div id="yg-doc" class="yg-doc" hidden></div>
 </section>
 <section id="v-urunler" hidden>
   <div class="ur-hero"><h2>Endüstriyi<br>Birlikte Koruyoruz</h2><p>Daha güvenli, daha sürdürülebilir bir gelecek için.</p><i class="hm-bar"></i></div>
@@ -2346,7 +2464,7 @@ function renderRehber(){
     const tags=[c[0].replace(/\s*\(.*\)/,"")]; if(p.mix.length) tags.push(p.mix[0]==="tek bileşen"?"Tek bileşen":"2 bileşen"); if(p.vs.length) tags.push(`%${p.vs[0]} katı`);
     return `<details class="r-item"><summary><span class="ri-img" aria-hidden="true"><i class="can1"></i></span><span class="ri-m"><span class="r-name">${esc(p.name)}${p.offlist?'<span class="r-tag">Liste dışı</span>':""}${p.new?'<span class="r-tag new">Yeni</span>':""}</span><span class="r-note">${esc((JT[p.name]&&JT[p.name].desc)||p.note||c[1])}</span><span class="ri-tags">${tags.map((t,k)=>`<i${k?"":' class="on"'}>${esc(t)}</i>`).join("")}</span></span><span class="ri-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span></summary>
       <div class="r-body">${(()=>{const j=JT[p.name]||{};const li=a=>a&&a.length?`<ul class="ri-ul">${a.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:"";
-        return (j.feats?`<div class="ri-sec"><b>Öne çıkanlar</b>${li(j.feats)}</div>`:"")+(j.uses?`<div class="ri-sec"><b>Kullanım alanı</b><p class="ri-chips">${j.uses.map(x=>`<i>${esc(x)}</i>`).join("")}</p></div>`:(c[2]?`<div class="ri-sec"><b>Kullanım alanı</b><p>${c[2]}</p></div>`:""))+(j.temp?`<div class="ri-sec"><b>Sıcaklık</b><p>${esc(j.temp)}</p></div>`:"")+(j.approvals?`<div class="ri-sec"><b>Onaylar</b>${li(j.approvals)}</div>`:"")+appiHTML(p.name)+((!p.vs||!p.vs.length)&&p.cat!=="MCI Tinter"&&!/Thinner/i.test(p.name)?`<div class="ri-sec dm-miss">⚠ Bu üründe katı madde bilgisi eksik; sarfiyat hesaplanamaz. Güncel TDS'ten tamamlanacak.</div>`:"");})()}
+        return (j.feats?`<div class="ri-sec"><b>Öne çıkanlar</b>${li(j.feats)}</div>`:"")+(j.uses?`<div class="ri-sec"><b>Kullanım alanı</b><p class="ri-chips">${j.uses.map(x=>`<i>${esc(x)}</i>`).join("")}</p></div>`:(c[2]?`<div class="ri-sec"><b>Kullanım alanı</b><p>${c[2]}</p></div>`:""))+(j.temp?`<div class="ri-sec"><b>Sıcaklık</b><p>${esc(j.temp)}</p></div>`:"")+(j.approvals?`<div class="ri-sec"><b>Onaylar</b>${li(j.approvals)}</div>`:"");})()}
       <dl>
         ${row("Katı madde",vs)}
         ${row("Karışım",p.mix.length?p.mix.join(" / ")+(p.mix[0]==="tek bileşen"?"":" (hacimce)"):"")}
@@ -2367,7 +2485,7 @@ $("#r-list").addEventListener("click",e=>{const b=e.target.closest(".r-cg");if(!
 /* ---------- Şartname metni ve karşılaştırma (Grundfos "tender text" mantığı) ---------- */
 function sheet(title,html,cls){
   let d=$("#sheet"); if(!d){d=document.createElement("dialog");d.id="sheet";d.className="sheet";document.body.appendChild(d);d.addEventListener("click",e=>{if(e.target===d||e.target.closest("[data-close]"))d.close();});}
-  d.className="sheet"+(cls?" "+cls:"");
+  d.className="sheet"+(cls?" "+cls:""); d.oninput=null; d.onchange=null; d.onclick=null;
   d.innerHTML=`<div class="sheet-in"><div class="sheet-h"><h3>${title}</h3><button type="button" class="x" data-close aria-label="Kapat">×</button></div>${html}</div>`;
   try{d.showModal()}catch(e){d.setAttribute("open","")}
   try{const a=document.activeElement; if(a&&d.contains(a)&&a.classList.contains("x")) a.blur();}catch(e){}
@@ -2443,14 +2561,15 @@ function histRender(){
 }
 document.addEventListener("click",e=>{const o=e.target.closest("[data-hopen]"),c=e.target.closest("[data-hcopy]");if(o)loadSnap(HIST[+o.dataset.hopen],false);if(c)loadSnap(HIST[+c.dataset.hcopy],true);});
 function route(){
-  const V=["ana","sistem","teklif","sarfiyat","danisman","urunler","isler","arac"];
+  const V=["ana","sistem","teklif","sarfiyat","danisman","urunler","isler","yangin"];
   const h=(location.hash||"#ana").slice(1); let v=V.includes(h)?h:"ana"; if(UROLE==="s"&&v==="teklif") v="ana";
   const changed=route.last!==v; route.last=v;
   V.forEach(k=>{$("#v-"+k).hidden=k!==v; const t=$("#t-"+k); if(!t) return; if(k===v)t.setAttribute("aria-current","page"); else t.removeAttribute("aria-current");});
   document.body.dataset.view=v;
   try{fitTag()}catch(e){}
   if(v==="ana"){ homeRender(); histRender(); try{dmBadge()}catch(e){} }
-  try{ if(v==="isler") islerRender(); if(v==="arac") aracRender(); }catch(e){}
+  try{ if(v==="isler") islerRender(); }catch(e){}
+  try{ if(v==="yangin") ygRender(); }catch(e){}
   if(v==="teklif") badgeUpd();
   if(changed&&!route.keep) window.scrollTo(0,0); route.keep=false;
 }
@@ -2466,7 +2585,7 @@ function homeRender(){
 function go(where){
   const dm=k=>{$("#dm-"+k).checked=true;$("#d-mode").dispatchEvent(new Event("change"));};
   if(where.startsWith("what:")){location.hash="#sistem";sxWhat(where.slice(5));setTimeout(()=>{const c=$(".sx-wcard");if(c)c.scrollIntoView({behavior:"smooth",block:"start"});},120);return;}
-  if(where==="isler"){location.hash="#isler";return;} if(where==="arac"){location.hash="#arac";return;}
+  if(where==="isler"){location.hash="#isler";return;}
   if(where==="sistem"){location.hash="#sistem";}
   else if(where==="teklif"){location.hash="#teklif";}
   else if(where==="wizard"){location.hash="#sistem";}
@@ -3329,7 +3448,7 @@ wxLoad();
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)wxLoad();});
 
 /* Yeni sürüm yayınlandıysa uygulama açıkken kendini yeniler */
-(()=>{const B="1793711869"; if(!/^\d+$/.test(B)) return;
+(()=>{const B="1793728954"; if(!/^\d+$/.test(B)) return;
   const chk=()=>fetch(location.pathname+"?b="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const B="(\d+)"/); if(m&&+m[1]>+B) location.reload();}).catch(()=>{});
   document.addEventListener("visibilitychange",()=>{if(!document.hidden)chk();}); setTimeout(chk,4000);})();
 
@@ -3533,7 +3652,7 @@ function sfChips(){
   $("#sf-prof").innerHTML=SF_PROF.map(([v,a,b])=>`<button type="button" data-prof="${v}" aria-pressed="${v===num(SF.prof)}"><i class="tx tx${v}"></i><span>${a}${b?`<small>${b}</small>`:""}</span></button>`).join("");
 }
 function sfUpd(){ SF.coats.forEach((c,i)=>{const el=$("#sf-r-"+i); if(el) el.innerHTML=sfResHTML(c,i);}); sfSum(); sfSave(); }
-function sfRender(){
+function sfRender(){ setTimeout(()=>{try{sfListRender()}catch(e){}},0);
   $("#sf-area").value=SF.area||""; $("#sf-proj").value=SF.proj||""; $("#sf-who").value=load("sf-who",""); sfChips();
   $("#sf-coats").innerHTML=SF.coats.map(sfCoat).join(""); sfSum(); sfSave();
 }
@@ -3542,7 +3661,7 @@ function sfFromSystem(sy,s){
   SF.sys={iso:sy.iso,env:s.env==="Im"?"Im1–Im3":s.env,dur:DUR[s.dur],sub:s.sub==="cs"?"Karbon çelik":"Sıcak daldırma galvaniz",prep:s.sub==="cs"?"Sa 2½ (ISO 8501-1)":"Süpürme raspa (ISO 12944-4)"};
   sfRender(); location.hash="#sarfiyat"; toast("Sarfiyata aktarıldı");
 }
-$("#sf-area").addEventListener("input",e=>{SF.area=e.target.value;sfUpd();});
+$("#sf-area").addEventListener("input",e=>{SF.area=e.target.value; setTimeout(()=>{try{sfListRender()}catch(_){}} ,0);sfUpd();});
 $("#sf-proj").addEventListener("input",e=>{SF.proj=e.target.value;sfSave();});
 $("#sf-who").addEventListener("input",e=>store("sf-who",e.target.value));
 $("#sf-loss").addEventListener("click",e=>{const b=e.target.closest("[data-loss]");if(!b)return;SF.loss=+b.dataset.loss;sfChips();sfUpd();});
@@ -3553,19 +3672,178 @@ $("#sf-coats").addEventListener("change",e=>{const t=e.target;if(t.tagName==="SE
 $("#sf-coats").addEventListener("click",e=>{const b=e.target.closest("[data-rm]");if(!b)return;if(SF.coats.length>1)SF.coats.splice(+b.dataset.rm,1);else SF.coats=[{name:"",dft:""}];SF.sys=null;sfRender();});
 $("#sf-add").addEventListener("click",()=>{SF.coats.push({name:"",dft:""});sfRender();const c=$("#sf-coats").lastElementChild;if(c)c.scrollIntoView({behavior:"smooth",block:"center"});});
 /* Alan yardımcısı */
-let SFA="boru";
+let SFA="prof";
+/* EN 10365 sıcak haddelenmiş profiller: [ölçü, kg/m, m²/m (4 yüz çevre), başlık genişliği b mm] */
+const STD={
+ IPE:[[80,6.11,.328,46],[100,8.26,.400,55],[120,10.6,.475,64],[140,13.1,.551,73],[160,16.1,.623,82],[180,19.2,.698,91],[200,22.8,.768,100],[220,26.7,.848,110],[240,31.3,.922,120],[270,36.8,1.04,135],[300,43.0,1.16,150],[330,50.1,1.25,160],[360,58.2,1.35,170],[400,67.6,1.47,180],[450,79.1,1.61,190],[500,92.4,1.74,200],[550,108,1.88,210],[600,125,2.01,220]],
+ HEA:[[100,17.0,.561,100],[120,20.3,.677,120],[140,25.1,.794,140],[160,31.0,.906,160],[180,36.2,1.02,180],[200,43.1,1.14,200],[220,51.5,1.26,220],[240,61.5,1.37,240],[260,69.5,1.48,260],[280,77.8,1.60,280],[300,90.0,1.72,300],[320,99.5,1.76,300],[340,107,1.79,300],[360,114,1.83,300],[400,127,1.91,300],[450,142,2.01,300],[500,158,2.11,300],[550,169,2.21,300],[600,181,2.31,300],[650,193,2.41,300],[700,208,2.50,300],[800,229,2.70,300],[900,256,2.90,300],[1000,277,3.10,300]],
+ HEB:[[100,20.8,.567,100],[120,27.2,.686,120],[140,34.4,.805,140],[160,43.4,.918,160],[180,52.2,1.04,180],[200,62.5,1.15,200],[220,72.8,1.27,220],[240,84.8,1.38,240],[260,94.8,1.50,260],[280,105,1.62,280],[300,119,1.73,300],[320,129,1.77,300],[340,137,1.81,300],[360,145,1.85,300],[400,158,1.93,300],[450,174,2.03,300],[500,191,2.12,300],[550,203,2.22,300],[600,216,2.32,300],[650,229,2.42,300],[700,245,2.52,300],[800,267,2.71,300],[900,297,2.91,300],[1000,320,3.11,300]],
+ HEM:[[100,42.6,.619,106],[120,53.1,.738,126],[140,64.4,.857,146],[160,77.6,.970,166],[180,90.6,1.09,186],[200,105,1.20,206],[220,120,1.32,226],[240,160,1.46,248],[260,176,1.57,268],[280,192,1.69,288],[300,242,1.83,310],[320,250,1.87,309],[340,253,1.90,309],[360,255,1.93,308],[400,261,2.00,307],[450,268,2.10,307],[500,275,2.18,306],[550,284,2.28,306],[600,291,2.37,305],[650,299,2.47,305],[700,306,2.56,304],[800,323,2.75,303],[900,339,2.93,302],[1000,355,3.13,302]],
+ INP:[[80,6.06,.303,42],[100,8.50,.370,50],[120,11.3,.438,58],[140,14.6,.506,66],[160,18.2,.573,74],[180,22.3,.641,82],[200,26.7,.709,90],[220,31.6,.776,98],[240,36.9,.844,106],[260,42.7,.908,113],[280,48.8,.967,119],[300,55.2,1.03,125],[320,62.2,1.09,131],[340,69.3,1.15,137],[360,77.6,1.21,143],[380,85.6,1.27,149],[400,94.2,1.33,155]],
+ UPN:[[80,8.82,.313,45],[100,10.8,.372,50],[120,13.6,.429,55],[140,16.3,.487,60],[160,19.2,.545,65],[180,22.4,.603,70],[200,25.7,.660,75],[220,30.0,.718,80],[240,33.8,.776,85],[260,38.6,.833,90],[280,42.7,.891,95],[300,47.0,.949,100],[320,60.6,.984,100],[350,61.8,1.05,100],[380,64.3,1.11,102],[400,73.2,1.18,110]],
+ UPE:[[80,9.05,.342,50],[100,11.1,.401,55],[120,13.5,.460,60],[140,16.0,.519,65],[160,19.0,.577,70],[180,22.0,.636,75],[200,25.3,.695,80],[220,29.4,.754,85],[240,34.0,.810,90],[270,39.5,.889,95],[300,45.3,.968,100],[330,54.2,1.04,105],[360,62.3,1.12,110],[400,73.5,1.22,115]]};
+const PROF=STD;
+const STN={IPE:"IPE",HEA:"HEA",HEB:"HEB",HEM:"HEM",INP:"INP",UPN:"UPN",UPE:"UPE",kutu:"Kutu profil",boru:"Boru",kose:"Köşebent",lama:"Lama",karedolu:"Kare dolu",mil:"Dolu mil",levha:"Sac"};
+/* Kesit: p = boyanan çevre m²/m (dış), A = kesit alanı m², b = 3 yüzde düşülecek genişlik m */
+function secOf(r){ const T=STD[r.t]; if(T){ const P=T.find(x=>x[0]===+r.s); return P?{p:P[2],A:P[1]/7850,b:P[3]/1000}:null; }
+  const a=num(r.a)/1000, b=num(r.b)/1000, t=num(r.th)/1000, d=num(r.d)/1000;
+  switch(r.t){
+    case "kose": if(!(a>0)) return null; { const bb=b||a, tt=t||Math.min(a,bb)/10; return {p:2*(a+bb),A:(a+bb-tt)*tt,est:!t}; }
+    case "kutu": if(!(a>0)) return null; { const bb=b||a; return {p:2*(a+bb),pi:t?Math.max(0,2*(a+bb-4*t)):2*(a+bb),A:t?2*t*(a+bb-2*t):0,b:a}; }
+    case "boru": if(!(d>0)) return null; return {p:Math.PI*d,pi:Math.PI*Math.max(0,d-2*t),A:t?Math.PI*t*(d-t):0};
+    case "lama": if(!(a>0)) return null; return {p:2*(a+b),A:a*b};
+    case "karedolu": if(!(a>0)) return null; return {p:4*a,A:a*a};
+    case "mil": if(!(d>0)) return null; return {p:Math.PI*d,A:Math.PI*d*d/4};
+  } return null; }
+const secP=(r,s)=>s.p+(r.inner&&s.pi!=null?s.pi:0)-(+r.exp===3&&s.b?s.b:0);
+function stM2(r){ const q=num(r.q); if(!(q>0)) return 0;
+  if(r.t==="levha") return num(r.a)*num(r.b)/1e6*(+r.f||2)*q*(num(r.k)||1);
+  const s=secOf(r); if(!s) return 0; let L=q; if(r.u==="ton"){ if(!(s.A>0)) return 0; L=q*1000/(s.A*7850); } return secP(r,s)*L; }
+const stTonOk=r=>{ if(r.t==="levha") return false; const s=secOf(r); return !!(s&&s.A>0); };
+const stLbl=r=>{ const f0=x=>fmt(num(x),num(x)%1?1:0), ab=()=>`${f0(r.a)}×${f0(r.b||r.a)}${r.th?"×"+f0(r.th):""} mm`, ex=+r.exp===3?" · 3 yüz":"";
+  switch(r.t){ case "kutu": return "Kutu "+ab()+(r.inner?" · iç+dış":"")+ex; case "kose": return "Köşebent L"+ab(); case "lama": return `Lama ${f0(r.a)}×${f0(r.b)} mm`; case "karedolu": return `Kare dolu ${f0(r.a)} mm`;
+    case "levha": return `Sac ${f0(r.a)}×${f0(r.b)} mm (${+r.f===1?"tek":"2"} yüz${num(r.k)>1?" ×"+fmt(num(r.k),2):""})`; case "boru": return `Boru Ø${fmt(num(r.d),1)}${r.th?"×"+f0(r.th):""} mm${r.inner?" · iç+dış":""}`; case "mil": return `Dolu mil Ø${f0(r.d)} mm`; default: return `${r.t} ${r.s}${ex}`; } };
+const hpA=(r,s)=>{ const p=secP(r,s); return s.A>0?p/s.A:0; };
+const secInfo=(r)=>{ const s=secOf(r); if(!s) return ""; const p=secP(r,s), kg=s.A*7850;
+  return `${fmt(p,3)} m²/m${kg?` · ${fmt(kg,kg<10?2:1)} kg/m · ≈ ${fmt(p/kg*1000,1)} m²/ton · Hp/A ${fmt(hpA(r,s),0)} m⁻¹`:""}${s.est?" (et kalınlığı tahmini)":""}`; };
+function sfProfUI(){ const t=$("#sf-ps").value, k=t==="kose";
+  $("#sf-pz").closest("label").hidden=k; $("#sf-pe").closest("label").hidden=k; document.querySelectorAll(".sf-kos").forEach(x=>x.hidden=!k);
+  if(!k){ const cur=$("#sf-pz").value; $("#sf-pz").innerHTML=STD[t].map(p=>`<option value="${p[0]}">${t} ${p[0]}</option>`).join(""); $("#sf-pz").value=STD[t].some(p=>String(p[0])===cur)?cur:(STD[t].some(p=>p[0]===200)?"200":String(STD[t][0][0])); } }
+function sfHolUI(){ const b=$("#sf-hs").value==="boru"; document.querySelectorAll(".sf-hk").forEach(x=>x.hidden=b); $("#sf-hd").closest("label").hidden=!b; }
+function sfBarUI(){ const t=$("#sf-bs").value; $("#sf-bal").textContent=t==="lama"?"Genişlik":t==="mil"?"Çap":"Kenar"; $("#sf-bb").closest("label").hidden=t!=="lama"; }
+function sfRow(){ const v=id=>num($("#"+id).value), s=id=>$("#"+id).value;
+  if(SFA==="prof"){ const t=s("sf-ps"); return t==="kose"?{t,a:v("sf-la"),b:v("sf-lb2"),th:v("sf-lt"),q:v("sf-pq"),u:s("sf-pu")}:{t,s:s("sf-pz"),exp:+s("sf-pe"),q:v("sf-pq"),u:s("sf-pu")}; }
+  if(SFA==="hol") return s("sf-hs")==="boru"?{t:"boru",d:v("sf-hd"),th:v("sf-ht"),inner:$("#sf-hi").checked,q:v("sf-hq"),u:"m"}:{t:"kutu",a:v("sf-ha"),b:v("sf-hb"),th:v("sf-ht"),inner:$("#sf-hi").checked,q:v("sf-hq"),u:"m"};
+  if(SFA==="bar"){ const t=s("sf-bs"); return t==="mil"?{t,d:v("sf-ba"),q:v("sf-bq"),u:"m"}:t==="karedolu"?{t,a:v("sf-ba"),q:v("sf-bq"),u:"m"}:{t,a:v("sf-ba"),b:v("sf-bb"),q:v("sf-bq"),u:"m"}; }
+  if(SFA==="sac") return {t:"levha",a:v("sf-se"),b:v("sf-sb"),q:Math.max(1,v("sf-sn")||1),u:"adet",f:+s("sf-sf"),k:v("sf-sk")||1};
+  return null; }
 function sfArea(){
-  const v=id=>num($("#"+id).value); let a=0;
-  if(SFA==="boru") a=Math.PI*v("sf-pd")/1000*v("sf-pl")*Math.max(1,v("sf-pn")||1);
+  const v=id=>num($("#"+id).value); let a=0; const r=sfRow();
+  if(r){ a=stM2(r); const inf={prof:"#sf-pinfo",hol:"#sf-hinfo",bar:"#sf-binfo"}[SFA];
+    if(inf){ const pu=$("#sf-pu"); if(SFA==="prof"){ const ok=stTonOk(r); pu.querySelector('option[value="ton"]').disabled=!ok; if(!ok&&pu.value==="ton"){ pu.value="m"; r.u="m"; a=stM2(r);} }
+      const i=secInfo(r); $(inf).textContent=i?(r.t in STD?`${r.t} ${r.s}: `:"")+i+(SFA==="prof"&&r.t in STD?" · EN 10365":""):(SFA==="hol"?"Dış yüzey çevre × uzunluk. Et kalınlığı girilirse kg/m ve Hp/A da gösterilir.":SFA==="bar"?"Çevre × uzunluk (uçlar dahil değil).":""); } }
   if(SFA==="tank"){const d=v("sf-td"),h=v("sf-th");a=Math.PI*d*h+($("#sf-tt").checked?Math.PI*d*d/4:0)+($("#sf-tb").checked?Math.PI*d*d/4:0);}
   if(SFA==="ton") a=v("sf-tn")*v("sf-tf");
   $("#sf-ar").textContent=a>0?`${fmt(a,1)} m²`:"—"; return a;
 }
 $("#sf-areab").addEventListener("click",()=>{const w=$("#sf-areaw");w.hidden=!w.hidden;});
 $("#sf-at").addEventListener("click",e=>{const b=e.target.closest("[data-a]");if(!b)return;SFA=b.dataset.a;$("#sf-at").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b));document.querySelectorAll(".sf-ag").forEach(g=>g.hidden=g.dataset.a!==SFA);sfArea();});
+$("#sf-ps").addEventListener("change",()=>{sfProfUI();sfArea();}); sfProfUI();
+$("#sf-hs").addEventListener("change",()=>{sfHolUI();sfArea();}); sfHolUI();
+$("#sf-bs").addEventListener("change",()=>{sfBarUI();sfArea();}); sfBarUI();
+$("#sf-tfc").addEventListener("click",e=>{const b=e.target.closest("[data-tf]");if(!b)return;$("#sf-tf").value=b.dataset.tf;$("#sf-tfc").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b));sfArea();});
+$("#sf-tf").addEventListener("input",()=>$("#sf-tfc").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.tf===$("#sf-tf").value)));
 $("#sf-areaw").addEventListener("input",sfArea);$("#sf-areaw").addEventListener("change",sfArea);
-$("#sf-aset").addEventListener("click",()=>{const a=sfArea();if(!(a>0))return;SF.area=Math.round(a*10)/10;$("#sf-area").value=SF.area;sfUpd();toast("Alan güncellendi");});
-$("#sf-aadd").addEventListener("click",()=>{const a=sfArea();if(!(a>0))return;SF.area=Math.round((num(SF.area)+a)*10)/10;$("#sf-area").value=SF.area;sfUpd();toast(`${fmt(a,1)} m² eklendi`);});
+const qLbl=r=>`${fmt(num(r.q),r.u==="ton"?2:r.u==="adet"?0:1)} ${r.u==="ton"?"ton":r.u==="adet"?"adet":"m"}`;
+function sfAreaLbl(){ const v=id=>num($("#"+id).value), f=(x,d)=>fmt(x,d); const r=sfRow();
+  if(r) return `${stLbl(r)} · ${qLbl(r)}`;
+  if(SFA==="ton") return `Çelik ${f(v("sf-tn"),1)} ton × ${f(v("sf-tf"),0)} m²/t`;
+  if(SFA==="tank") return `Tank Ø${v("sf-td")} × ${v("sf-th")} m${$("#sf-tt").checked?" + tavan":""}${$("#sf-tb").checked?" + taban":""}`; return "Kalem"; }
+const sfItems=()=>(SF.items=SF.items||[]);
+const sfItemsTot=()=>sfItems().reduce((a,x)=>a+num(x.m2),0);
+function sfListRender(){ const L=sfItems(), el=$("#sf-alist"); if(!el) return; const tot=sfItemsTot(), ar=num(SF.area);
+  if(!L.length){ el.innerHTML=""; el.hidden=true; return; } el.hidden=false;
+  el.innerHTML=`<div class="sf-alh"><b>Hesaplanan kalemler · ${L.length}</b><button type="button" class="linkbtn" id="sf-alclr">Listeyi temizle</button></div>`+L.map((x,i)=>`<div class="sf-ali"><span class="n">${i+1}</span><span class="t">${esc(x.lbl)}${x.src?`<small>${esc(x.src)}</small>`:""}</span><b>${fmt(num(x.m2),1)} m²</b><button type="button" class="x" data-ali="${i}" aria-label="Kalemi sil">×</button></div>`).join("")+
+   `<div class="sf-ali tot"><span class="t">Toplam</span><b>${fmt(tot,1)} m²</b></div>${Math.abs(tot-ar)>0.05?`<p class="sf-alw">Boyanacak alan (${fmt(ar,1)} m²) listedeki toplamdan farklı. <button type="button" class="linkbtn" id="sf-alsync">Alanı ${fmt(tot,1)} m² yap</button></p>`:""}`;
+  el.querySelectorAll("[data-ali]").forEach(b=>b.onclick=()=>{ const x=L.splice(+b.dataset.ali,1)[0]; SF.area=Math.max(0,Math.round((num(SF.area)-num(x.m2))*10)/10)||""; $("#sf-area").value=SF.area; sfUpd(); sfListRender(); });
+  const c=$("#sf-alclr"); if(c) c.onclick=()=>{ SF.items=[]; SF.area=""; $("#sf-area").value=""; sfUpd(); sfListRender(); };
+  const sy=$("#sf-alsync"); if(sy) sy.onclick=()=>{ SF.area=Math.round(tot*10)/10; $("#sf-area").value=SF.area; sfUpd(); sfListRender(); };
+}
+function sfAddItem(lbl,a,src){ sfItems().push({lbl,m2:Math.round(a*100)/100,src:src||""}); SF.area=Math.round((num(SF.area)+a)*10)/10; $("#sf-area").value=SF.area; sfUpd(); sfListRender(); }
+$("#sf-aset").addEventListener("click",()=>{const a=sfArea();if(!(a>0))return;SF.items=[{lbl:sfAreaLbl(),m2:Math.round(a*100)/100}];SF.area=Math.round(a*10)/10;$("#sf-area").value=SF.area;sfUpd();sfListRender();toast("Alan güncellendi");});
+$("#sf-aadd").addEventListener("click",()=>{const a=sfArea();if(!(a>0))return;sfAddItem(sfAreaLbl(),a);toast(`${fmt(a,1)} m² eklendi`);});
+/* Çelik listesi yükleme: PDF / fotoğraf / Excel → profil satırları */
+const trNum=x=>{x=String(x).trim(); if(/,\d{1,3}$/.test(x)) x=x.replace(/\./g,"").replace(",","."); else if(/^\d{1,3}(\.\d{3})+$/.test(x)) x=x.replace(/\./g,""); else x=x.replace(/,/g,""); return parseFloat(x);};
+/* Çelik listesi okuma: kural tabanlı */
+try{localStorage.removeItem("st-learn")}catch(e){}
+const ST_AB=["kutu","kose","lama","karedolu","levha"], ST_D=["boru","mil"];
+function stRetype(r,t){ if(t===r.t) return; if(t in STD){ if(r.s&&STD[t].some(p=>p[0]===+r.s)) r.t=t; return; } if(r.t in STD) return;
+  if(ST_D.includes(t)&&!ST_D.includes(r.t)){ r.d=r.a; } if(ST_AB.includes(t)&&ST_D.includes(r.t)){ r.a=r.d; r.b=r.d; }
+  if(t==="levha"){ r.u="adet"; if(!(num(r.q)>0)) r.q=1; } else if(r.t==="levha") r.u="m"; r.t=t; }
+function steelParse(text){ const rows=[], skip=[];
+  const N="(\\d+(?:[.,]\\d+)?)", X="\\s*[x×X\\*]\\s*", DIM=new RegExp(N+X+N+"(?:"+X+N+")?"), OD=new RegExp("Ø\\s*"+N+"(?:"+X+N+")?");
+  text.split(/\n+/).map(l=>l.replace(/\s+/g," ").trim()).filter(l=>l.length>2).forEach(raw=>{
+    const low=raw.startsWith("⁇"); const l=raw.replace(/^⁇/,"");
+    const U=l.toLocaleUpperCase("tr-TR").replace(/İ/g,"I").replace(/[@øΦφ©®°](?=\s*\d)/g,"Ø").replace(/\bHE\s*-?\s*(\d{3,4})\s*([ABM])\b/g,"HE$2 $1").replace(/\bHE\s*-?\s*([ABM])\s*-?\s*(\d)/g,"HE$1 $2");
+    const kw=re=>re.test(U);
+    let m, r=null, end=0;
+    if((m=U.match(/\b(IPE|HEA|HEB|HEM|INP|IPN|NPI|UPN|NPU|UNP|UPE)\s*-?\s*(\d{2,4})\b/))){ const t=({IPN:"INP",NPI:"INP",NPU:"UPN",UNP:"UPN"})[m[1]]||m[1];
+      if(STD[t].some(p=>p[0]===+m[2])) r={t,s:m[2]}; else { skip.push(l+" → "+t+" "+m[2]+" EN tablosunda yok"); return; } end=m.index+m[0].length; }
+    else if(kw(/BORU|PIPE|\bCHS\b/)&&(m=U.match(OD)||U.match(DIM))){ end=m.index+m[0].length; r={t:"boru",d:trNum(m[1]),th:m[2]?trNum(m[2]):0}; }
+    else if((m=U.match(DIM))){ const a=trNum(m[1]), b=trNum(m[2]), c=m[3]?trNum(m[3]):0; end=m.index+m[0].length;
+      if(kw(/SAC|LEVHA|PLAKA|PLATE|TABAKA|\bPL\b|\bPLT\b/)){ const s=[a,b,c].filter(x=>x>0).sort((x,y)=>y-x); r={t:"levha",a:s[0],b:s[1],f:kw(/TEK\s*Y[ÜU]Z|1\s*Y[ÜU]Z/)?1:2}; }
+      else if(kw(/K.{0,3}EBENT|KÖŞE|KOSE|ANGLE|\bL\s?\d/)) r={t:"kose",a,b,th:c};
+      else if(kw(/LAMA|FLAT|\bFB\b/)) r={t:"lama",a:Math.max(a,b),b:Math.min(a,b)};
+      else if(kw(/M[İI]L\b|YUVARLAK DOLU|\bROUND BAR/)) r={t:"mil",d:a};
+      else r={t:"kutu",a,b,th:c,unsure:!kw(/KARE|D.KD.RTGEN|KUTU|PROF|\bSHS\b|\bRHS\b|HOLLOW/)}; }
+    else if((m=U.match(OD))){ end=m.index+m[0].length; r=kw(/M[İI]L\b|DOLU|YUVARLAK/)?{t:"mil",d:trNum(m[1])}:{t:"boru",d:trNum(m[1]),th:m[2]?trNum(m[2]):0}; }
+    else if((m=U.match(/(BORU|PIPE|M[İI]L\b|DOLU|YUVARLAK|KARE DOLU)[^\d]*?(?:\b[SC]\d{2,3}\S*\s*)?(\d+(?:[.,]\d+)?)\s*MM/))){ end=m.index+m[0].length; r=/BORU|PIPE/.test(m[1])?{t:"boru",d:trNum(m[2])}:/KARE/.test(m[1])?{t:"karedolu",a:trNum(m[2])}:{t:"mil",d:trNum(m[2])}; }
+    if(!r){ if(/\d/.test(l)&&/(kg|ton|\bm\b|\dm\b|mt|metre|adet|profil|demir|boru|sac|\bR\d{2,3}\b)/i.test(l)) skip.push(l); return; }
+    if(kw(/\b3\s*-?\s*(Y[ÜU]Z|SIDED?|SIDES|TARAF)\b/)) r.exp=3; else if(kw(/\b4\s*-?\s*(Y[ÜU]Z|SIDED?|SIDES|TARAF)\b/)) r.exp=4;
+    if(kw(/IÇ\s*(VE|\+|-)?\s*DIŞ|IC\s*(VE|\+)?\s*DIS|INSIDE|IÇ YÜZEY/)&&(r.t==="kutu"||r.t==="boru")) r.inner=true;
+    let rest=l.slice(end).replace(/\bR\s?\d{2,3}\b/gi," ").replace(/Hp\s*\/\s*A\s*[:=]?\s*\d+[\d.,]*/gi," ").replace(/\d+\s*°\s*C\b/gi," ").replace(/\b[34]\s*-?\s*(y[üu]z|sided?|sides|taraf)\b/gi," ").replace(/\bDFT\s*[:=]?\s*\d[\d.,]*\s*(mm|µm|um|mic)?/gi," ");
+    const last=re=>{const all=[...rest.matchAll(re)]; return all.length?all[all.length-1]:null;};
+    const kg=last(/(\d[\d.,]*)\s*(kg)(?![a-zğüşıöç])/gi), ton=last(/(\d[\d.,]*)\s*(ton|t)(?![a-zğüşıöç])/gi), mts=[...rest.matchAll(/(\d[\d.,]*)\s*(m|mt|metre|mtül)(?![a-zğüşıöç²])/gi)], ad=last(/(\d[\d.,]*)\s*(adet|ad|pcs|pc|nos|no)(?![a-zğüşıöç])/gi),
+      mm=rest.match(/(?:\bL|BOY|LENGTH|UZUNLUK)\s*[=:]?\s*(\d[\d.,]*)\s*mm/i), mt=mts.length?mts[mts.length-1]:null;
+    const tonOk=stTonOk(r);
+    if(r.t==="levha"){ r.u="adet"; r.q=ad?trNum(ad[1]):1; if(!ad) r.unsure=true; }
+    else if(tonOk&&ton){ r.q=trNum(ton[1]); r.u="ton"; } else if(tonOk&&kg){ r.q=trNum(kg[1])/1000; r.u="ton"; }
+    else if(mt||mm){ const L=mt?trNum(mt[1]):trNum(mm[1])/1000; r.u="m";
+      if(ad&&mts.length<=1){ const n=trNum(ad[1]); r.q=n*L; r.calc=`${fmt(n,0)} ad × ${fmt(L,2)} m`; } else r.q=L; }
+    else { const nums=(rest.match(/\d[\d.,]*/g)||[]).map(trNum).filter(x=>x>0); r.q=nums.length?Math.max(...nums):""; r.u="m"; r.unsure=true; }
+    if(low) r.unsure=true; r.line=l; rows.push(r); });
+  return {rows,skip}; }
+let TESS6=null;
+async function steelOcr(blob){
+  if(!window.Tesseract) await loadScript("https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js");
+  if(!TESS6){ TESS6=await window.Tesseract.createWorker("tur+eng"); await TESS6.setParameters({tessedit_pageseg_mode:"6",preserve_interword_spaces:"1"}); }
+  const r=await TESS6.recognize(blob); const d=(r&&r.data)||{}; const L=(d.lines||[]).filter(x=>x.text.trim());
+  if(!L.length) return d.text||""; steelOcr.low=L.filter(x=>x.confidence!=null&&x.confidence<60).length;
+  return L.map(x=>(x.confidence!=null&&x.confidence<60?"\u2047":"")+x.text.trim()).join("\n");
+}
+async function steelFile(f){
+  const n=f.name.toLowerCase(), t=(f.type||"").toLowerCase(); toast("Liste okunuyor…");
+  let text="", note="";
+  try{
+    if(t==="application/pdf"||n.endsWith(".pdf")){ text=await pdfText(f); if(pdfText.ocr) note="Taranmış PDF; yazı tanıma ile okundu."; if(pdfText.drop) note+=` Net okunamayan ${pdfText.drop} satır atlandı.`; }
+    else if(t.startsWith("image/")){ text=await steelOcr(f); if(steelOcr.low) note=`${steelOcr.low} satır net değildi; sarı işaretlendi.`; }
+    else if(/\.(xlsx|xls)$/.test(n)){ if(!window.XLSX) await loadScript("https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"); const wb=XLSX.read(await f.arrayBuffer());
+      text=wb.SheetNames.map(sn=>XLSX.utils.sheet_to_json(wb.Sheets[sn],{header:1}).map(r=>r.map(c=>c==null?"":String(c)).join(" \t ")).join("\n")).join("\n"); }
+    else text=await f.text();
+  }catch(e){ toast("Dosya okunamadı"); return; }
+  if(!text.trim()){ toast("Dosyada yazı okuyamadım"); return; }
+  const {rows,skip}=steelParse(text); steelReview(rows,skip,f.name,note);
+}
+function steelReview(rows,skip,name,note){
+  const tot=()=>rows.filter(r=>!r.off).reduce((a,r)=>a+stM2(r),0);
+  const tOpts=r=>(r.t in STD?Object.keys(STD).filter(t=>STD[t].some(p=>p[0]===+r.s)):Object.keys(STN).filter(t=>!(t in STD))).map(t=>`<option value="${t}"${t===r.t?" selected":""}>${STN[t]}</option>`).join("");
+  const uOpts=r=>r.t==="levha"?`<option value="adet" selected>adet</option>`:`<option value="m"${r.u==="m"?" selected":""}>metre</option>${stTonOk(r)?`<option value="ton"${r.u==="ton"?" selected":""}>ton</option>`:""}`;
+  const row=(r,i)=>{ const s=r.t==="levha"?null:secOf(r), hp=s&&s.A>0?hpA(r,s):0;
+    return `<div class="st-r${r.unsure?" uns":""}"><label class="st-c"><input type="checkbox" data-sc="${i}" ${r.off?"":"checked"}></label><div class="st-m"><b>${esc(stLbl(r))}</b><small>${esc(r.line.slice(0,90))}${r.calc?" · "+esc(r.calc):""}${hp?` · Hp/A ${fmt(hp,0)} m⁻¹`:""}</small>
+     <div class="st-q"><select data-st="${i}" aria-label="Tip">${tOpts(r)}</select>${(r.t in STD)||r.t==="kutu"?`<select data-se="${i}" aria-label="Maruziyet"><option value="4"${+r.exp===3?"":" selected"}>4 yüz</option><option value="3"${+r.exp===3?" selected":""}>3 yüz</option></select>`:""}</div>
+     <div class="st-q"><input type="number" inputmode="decimal" data-sq="${i}" value="${r.q===""?"":Math.round(num(r.q)*1000)/1000}" placeholder="miktar"><select data-su="${i}" ${r.t==="levha"?"disabled":""}>${uOpts(r)}</select><span class="st-a" id="st-a-${i}">${fmt(stM2(r),1)} m²</span></div></div></div>`; };
+  const body=()=>`<div class="st-wrap"><p class="hint">${esc(name)}${note?" · "+esc(note):""}</p>
+   ${rows.length?`<p class="hint">Okunan ${rows.length} kalem. Tip veya birim yanlışsa değiştirin. <b style="color:#f0ab00">Sarı</b>: emin olamadım.</p>
+   <div class="st-rows">${rows.map(row).join("")}</div>
+   <div class="st-tot">Seçilenler: <b id="st-tot">${fmt(tot(),1)} m²</b></div>`:`<p class="dm-empty">Listede tanıdığım profil (IPE, HEA, HEB, HEM, UPN, kutu, boru, köşebent, lama, sac) bulamadım.</p>`}
+   ${skip.length?`<details class="st-sk"><summary>Okuyamadığım / tanımadığım ${skip.length} satır</summary><ul>${skip.slice(0,60).map(x=>`<li>${esc(x.slice(0,110))}</li>`).join("")}</ul><p class="hint">Bu satırları elle ekleyin (Tonaj sekmesi ile de girilebilir).</p></details>`:""}
+   <div class="q-actions">${rows.length?`<button type="button" class="btn primary" id="st-add">Seçilenleri listeye ekle</button>`:""}<button type="button" class="btn" data-close>Kapat</button></div></div>`;
+  const d=sheet("Çelik listesi",body(),"full");
+  const upd=()=>{ rows.forEach((r,i)=>{const a=d.querySelector("#st-a-"+i); if(a) a.textContent=fmt(stM2(r),1)+" m²";}); const tt=d.querySelector("#st-tot"); if(tt) tt.textContent=fmt(tot(),1)+" m²"; };
+  const bind=()=>{ const ad=d.querySelector("#st-add"); if(ad) ad.onclick=()=>{ const sel=rows.filter(r=>!r.off&&stM2(r)>0); if(!sel.length){toast("Miktarı girilmiş kalem yok");return;}
+      sel.forEach(r=>sfItems().push({lbl:`${stLbl(r)} · ${qLbl(r)}`,m2:Math.round(stM2(r)*100)/100,src:name}));
+      const a=sel.reduce((x,r)=>x+stM2(r),0); SF.area=Math.round((num(SF.area)+a)*10)/10; $("#sf-area").value=SF.area; sfUpd(); sfListRender(); d.close(); toast(`${sel.length} kalem · ${fmt(a,1)} m² eklendi`); }; };
+  const rer=()=>{ const w=d.querySelector(".st-wrap"); const y=w.parentNode.scrollTop; w.outerHTML=body(); bind(); const w2=d.querySelector(".st-wrap"); if(w2&&w2.parentNode) w2.parentNode.scrollTop=y; };
+  d.oninput=(e=>{const t=e.target; if(t.dataset.sq!=null){rows[+t.dataset.sq].q=t.value; rows[+t.dataset.sq].unsure=false; t.closest(".st-r").classList.remove("uns");} if(t.dataset.sc!=null) rows[+t.dataset.sc].off=!t.checked; upd();});
+  d.onchange=(e=>{const t=e.target;
+    if(t.dataset.st!=null){ const r=rows[+t.dataset.st]; stRetype(r,t.value); r.unsure=false; if(r.u==="ton"&&!stTonOk(r)) r.u="m"; rer(); return; }
+    if(t.dataset.se!=null){ rows[+t.dataset.se].exp=+t.value; rer(); return; }
+    if(t.dataset.su!=null){ const r=rows[+t.dataset.su]; r.u=t.value; r.unsure=false; upd(); }
+    if(t.dataset.sc!=null){rows[+t.dataset.sc].off=!t.checked; upd();}});
+  bind();
+}
+$("#sf-upf").addEventListener("change",e=>{const f=e.target.files[0]; e.target.value=""; if(f) steelFile(f);});
+sfListRender();
 sfRender();
 
 function gate(){
@@ -3604,7 +3882,7 @@ if(matchMedia("(max-width:700px)").matches){const pv=$(".q-prev");if(pv)pv.open=
   accOk(load("acc","")).then(ok=>{ if(ok){ $("#code-gate").hidden=true; roleGate(true); } else accAsk(); });
   render(); badgeUpd(); route();})();
 
-/* ================= DEMO: İşlerim + Saha araçları ================= */
+/* ================= İşlerim: müşteri, ziyaret, teklif takibi ================= */
 const DM={c:load("crm-c",[]), q:load("crm-q",{}), r:load("crm-r",[])};
 const dmSave=k=>store("crm-"+k,DM[k]);
 const today=()=>new Date().toISOString().slice(0,10);
@@ -3619,10 +3897,12 @@ function dmTodo(){ const t=today(), out=[];
   Object.entries(DM.q).forEach(([no,q])=>{ if((q.status==="gon"||q.status==="gor")&&q.follow&&q.follow<=t) out.push({k:"q",no,t:`Teklif takibi: ${q.customer||"Müşterisiz teklif"}`,s:`${no} · ${q.follow<t?"gecikti ("+trD(q.follow)+")":"bugün"}`,late:q.follow<t}); });
   DM.c.forEach((c,i)=>(c.visits||[]).forEach(v=>{ if(v.nextDate&&!v.done&&v.nextDate<=t) out.push({k:"v",ci:i,t:`${c.name}: ${v.next||"takip"}`,s:v.nextDate<t?"gecikti ("+trD(v.nextDate)+")":"bugün",late:v.nextDate<t}); }));
   return out; }
-function dmBadge(){ const n=dmTodo().length, b=$("#dm-bd"); if(b){ b.hidden=!n; b.textContent=n; } const td=$("#h-today"); if(td){ const L=dmTodo(); td.hidden=!L.length; td.innerHTML=L.length?`<button type="button" class="dm-tdh" data-go="isler"><b>Bugün yapılacaklar · ${L.length}</b><span>${esc(L[0].t)}${L.length>1?` ve ${L.length-1} iş daha`:""}</span></button>`:""; } }
+function dmBadge(){ const L=dmTodo(), n=L.length, b=$("#dm-bd"); if(b){ b.hidden=!n; b.textContent=n; }
+  const sb=$("#dm-sub"); if(sb){ const nc=DM.c.length, nq=Object.values(DM.q).filter(q=>q.status==="gon"||q.status==="gor").length;
+    sb.innerHTML=n?`<em>Bugün ${n} takip</em> · ${esc(L[0].t)}`:(nc||nq)?[nc?nc+" müşteri":"",nq&&!isSor()?nq+" açık teklif":""].filter(Boolean).join(" · "):(isSor()?"Müşteri, ziyaret ve bayi paneli":"Müşteri, ziyaret ve teklif takibi"); } }
 function todayHTML(){ const L=dmTodo(); if(!L.length) return `<div class="dm-ok">Bugün için takip bekleyen iş yok.</div>`;
   return `<h3 class="dm-h3">Bugün yapılacaklar</h3>`+L.map(x=>`<div class="dm-td${x.late?" late":""}"><div><b>${esc(x.t)}</b><span>${esc(x.s)}</span></div>${x.k==="q"?`<button type="button" class="dm-mini" data-qedit="${esc(x.no)}">Güncelle</button>`:`<button type="button" class="dm-mini" data-cop="${x.ci}">Aç</button>`}</div>`).join(""); }
-let IST="c", DMART="m2";
+let IST="c";
 function islerRender(){ trkSync(); $("#is-today").innerHTML=todayHTML(); document.querySelectorAll("[data-ist]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.ist===IST));
   const B=$("#is-body");
   if(IST==="c"){ B.innerHTML=`<button type="button" class="dm-add" data-cnew>+ Yeni müşteri</button>`+(DM.c.length?DM.c.map((c,i)=>{const lv=(c.visits||[])[0];return `<button type="button" class="dm-it" data-cop="${i}"><b>${esc(c.name)}</b><span>${esc([c.person,c.city].filter(Boolean).join(" · "))}</span><small>${lv?"Son ziyaret "+trD(lv.date)+(lv.nextDate&&!lv.done?" · sonraki: "+trD(lv.nextDate):""):"Henüz ziyaret yok"}</small></button>`}).join(""):`<p class="dm-empty">Henüz müşteri yok. Müşteri ekleyip ziyaretlerinizi kaydedin; takip tarihi gelince "Bugün yapılacaklar"da görünür.</p>`); }
@@ -3638,11 +3918,20 @@ function panelHTML(){ const Q=Object.values(DM.q), n=Q.length, c=k=>Q.filter(q=>
   const lr={}; Q.filter(q=>q.status==="kay").forEach(q=>lr[q.reason||"—"]=(lr[q.reason||"—"]||0)+1);
   const miss=CATALOG.filter(p=>p.cat!=="MCI Tinter"&&!/Thinner/i.test(p.name)&&(!p.vs||!p.vs.length||!p.packs||!p.packs.length));
   return `<p class="dm-note">Demo: şimdilik bu cihazdaki teklifler gösteriliyor. Bulut kaydı açılınca tüm bayilerin verisi bayi bazında burada toplanır.</p>
-  <div class="dm-kp"><div><b>${n}</b><span>Teklif</span></div><div><b>${c("gon")+c("gor")}</b><span>Açık</span></div><div><b>${kaz}</b><span>Kazanılan</span></div><div><b>%${rate}</b><span>Kazanma oranı</span></div></div>
+  <div class="dm-kp dm-kpb"><button type="button" data-pk="all"><b>${n}</b><span>Teklif</span></button><button type="button" data-pk="open"><b>${c("gon")+c("gor")}</b><span>Açık</span></button><button type="button" data-pk="kaz"><b>${kaz}</b><span>Kazanılan</span></button><button type="button" data-pk="rate"><b>%${rate}</b><span>Kazanma oranı</span></button></div>
   <div class="dm-card"><h4>Kazanılan tutar</h4><p class="dm-big">${won.toLocaleString("tr-TR",{maximumFractionDigits:0})}</p><small>Para birimleri karışık olabilir; bulut sürümünde birime göre ayrılır.</small></div>
-  <div class="dm-card"><h4>Kaybedilme nedenleri</h4>${Object.keys(lr).length?Object.entries(lr).map(([k,v])=>`<div class="dm-bar"><span>${esc(k)}</span><i style="width:${Math.round(v*100/kay)}%"></i><b>${v}</b></div>`).join(""):`<small>Henüz kaybedilen teklif yok.</small>`}</div>
+  <div class="dm-card"><h4>Kaybedilme nedenleri</h4>${Object.keys(lr).length?Object.entries(lr).map(([k,v])=>`<div class="dm-bar" data-pk="r:${esc(k)}" role="button" tabindex="0"><span>${esc(k)}</span><i style="width:${Math.round(v*100/kay)}%"></i><b>${v}</b></div>`).join(""):`<small>Henüz kaybedilen teklif yok.</small>`}</div>
   <details class="dm-card"><summary><h4 style="display:inline">Teknik verisi eksik ürünler · ${miss.length}</h4></summary><small>Katı madde veya ambalaj bilgisi olmayan ürünlerde sarfiyat hesaplanamaz. Güncel TDS'lerden tamamlanmalı.</small><ul class="dm-ul">${miss.map(p=>`<li>${esc(p.name)} <small>${!p.vs||!p.vs.length?"katı madde":""}${(!p.vs||!p.vs.length)&&(!p.packs||!p.packs.length)?" · ":""}${!p.packs||!p.packs.length?"ambalaj":""}</small></li>`).join("")}</ul></details>`; }
 /* --- Müşteri sayfası --- */
+function pkOpen(k){ const E=Object.entries(DM.q).sort((a,b)=>(b[1].date||"").localeCompare(a[1].date||""));
+  const T={all:"Tüm teklifler",open:"Açık teklifler",kaz:"Kazanılan teklifler",rate:"Sonuçlanan teklifler"};
+  const L=E.filter(([no,q])=>k==="all"||(k==="open"&&(q.status==="gon"||q.status==="gor"))||(k==="kaz"&&q.status==="kaz")||(k==="rate"&&(q.status==="kaz"||q.status==="kay"))||(k.startsWith("r:")&&q.status==="kay"&&(q.reason||"—")===k.slice(2)));
+  const sum=L.reduce((a,[,q])=>a+(q.total||0),0);
+  const d=sheet(k.startsWith("r:")?"Kaybedilen: "+esc(k.slice(2)):T[k],`${k==="rate"?`<p class="hint">Kazanma oranı = kazanılan ÷ (kazanılan + kaybedilen). Açık teklifler orana dahil değildir.</p>`:""}
+   <p class="hint">${L.length} teklif${sum>0?" · toplam "+sum.toLocaleString("tr-TR",{maximumFractionDigits:0}):""}</p>
+   ${L.length?L.map(([no,q])=>{const st=QST[q.status];return `<button type="button" class="dm-it dm-q" data-qedit="${esc(no)}"><div class="dm-qh"><b>${esc(q.customer||"Müşterisiz teklif")}</b><span class="dm-st" style="background:${st[1]}">${st[0]}</span></div><span>${esc(no)} · ${trD(q.date)}${q.total>0?" · "+q.total.toLocaleString("tr-TR",{maximumFractionDigits:0})+" "+(CUR[q.cur]||""):""}${q.project?" · "+esc(q.project):""}</span><small>${q.status==="kay"?"Neden: "+esc(q.reason||"—"):q.status==="kaz"?"Kazanıldı":"Takip: "+trD(q.follow)}${q.note?" · "+esc(q.note):""}</small></button>`}).join(""):`<p class="dm-empty">Bu grupta teklif yok.</p>`}`,"full");
+  d.onclick=(e=>{ if(e.target.closest("[data-qedit]")) d.close(); });
+}
 function custOpen(i){ const c=DM.c[i]; if(!c) return;
   const qs=Object.entries(DM.q).filter(([no,q])=>q.customer&&tnormS(q.customer)===tnormS(c.name));
   const d=sheet(esc(c.name),`<div class="dm-cc">${c.person?`<span>👤 ${esc(c.person)}</span>`:""}${c.city?`<span>📍 ${esc(c.city)}</span>`:""}${c.note?`<span>📝 ${esc(c.note)}</span>`:""}</div>
@@ -3680,72 +3969,233 @@ function qEdit(no){ const q=DM.q[no]; if(!q) return;
 }
 document.addEventListener("click",e=>{ const t=e.target;
   const ist=t.closest("[data-ist]"); if(ist){IST=ist.dataset.ist; islerRender(); return;}
-  const art=t.closest("[data-art]"); if(art){DMART=art.dataset.art; aracRender(); return;}
   const co=t.closest("[data-cop]"); if(co){ if(route.last!=="isler"){location.hash="#isler";} custOpen(+co.dataset.cop); return;}
   if(t.closest("[data-cnew]")){custForm(null);return;}
+  const pk=t.closest("[data-pk]"); if(pk){pkOpen(pk.dataset.pk);return;}
   const qe=t.closest("[data-qedit]"); if(qe){qEdit(qe.dataset.qedit);return;}
 });
-/* --- Saha araçları --- */
-const PROF={IPE:[[80,6.0,.328],[100,8.1,.400],[120,10.4,.475],[140,12.9,.551],[160,15.8,.623],[180,18.8,.698],[200,22.4,.768],[220,26.2,.848],[240,30.7,.922],[270,36.1,1.041],[300,42.2,1.160],[330,49.1,1.254],[360,57.1,1.353],[400,66.3,1.467],[450,77.6,1.605],[500,90.7,1.744],[550,106,1.877],[600,122,2.014]],
- HEA:[[100,16.7,.561],[120,19.9,.677],[140,24.7,.794],[160,30.4,.906],[180,35.5,1.024],[200,42.3,1.136],[220,50.5,1.255],[240,60.3,1.369],[260,68.2,1.484],[280,76.4,1.603],[300,88.3,1.717]],
- HEB:[[100,20.4,.567],[120,26.7,.686],[140,33.7,.805],[160,42.6,.918],[180,51.2,1.037],[200,61.3,1.151],[220,71.5,1.270],[240,83.2,1.384],[260,93.0,1.499],[280,103,1.618],[300,117,1.732]]};
-let M2=load("dm-m2",[]);
-const m2Of=r=>{const v=num(r.v); if(r.t==="ton") return num(r.f)*v; if(r.t==="kutu") return 2*(num(r.a)+num(r.b))/1000*v; if(r.t==="boru") return Math.PI*num(r.a)/1000*v; if(r.t==="levha") return 2*num(r.a)*num(r.b)*v;
-  const P=(PROF[r.t]||[]).find(x=>x[0]===num(r.s)); if(!P) return 0; return r.u==="ton"?P[2]/P[1]*1000*v:P[2]*v; };
-const m2Lbl=r=>{ if(r.t==="ton") return `Genel · ${fmt(num(r.v),1)} ton × ${num(r.f)} m²/ton`; if(r.t==="kutu") return `Kutu ${r.a}×${r.b} mm · ${fmt(num(r.v),1)} m`; if(r.t==="boru") return `Boru Ø${r.a} mm · ${fmt(num(r.v),1)} m`; if(r.t==="levha") return `Levha ${r.a}×${r.b} m · ${num(r.v)} adet (2 yüz)`; return `${r.t} ${r.s} · ${fmt(num(r.v),1)} ${r.u==="ton"?"ton":"m"}`; };
-function aracRender(){ document.querySelectorAll("[data-art]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.art===DMART)); const B=$("#ar-body");
- if(DMART==="m2"){ const tot=M2.reduce((a,r)=>a+m2Of(r),0);
-  B.innerHTML=`<div class="dm-card"><h4>Kalem ekle</h4><div class="dm-f">
-   <label>Tip<select id="m-t"><option value="IPE">IPE profil</option><option value="HEA">HEA profil</option><option value="HEB">HEB profil</option><option value="kutu">Kutu profil</option><option value="boru">Boru</option><option value="levha">Levha / sac</option><option value="ton">Sadece tonaj biliniyor</option></select></label>
-   <div id="m-x"></div><button type="button" class="btn primary" id="m-add">Ekle</button></div></div>
-   <div class="dm-card"><h4>Liste</h4>${M2.length?M2.map((r,k)=>`<div class="dm-mr"><span>${esc(m2Lbl(r))}</span><b>${fmt(m2Of(r),1)} m²</b><button type="button" class="x" data-m2del="${k}" aria-label="Sil">×</button></div>`).join("")+`<div class="dm-mr tot"><span>Toplam boyanacak alan</span><b>${fmt(tot,1)} m²</b></div>
-   <div class="dm-acts"><button type="button" class="btn primary" id="m-sf">Sarfiyata aktar</button><button type="button" class="btn" id="m-clr">Listeyi temizle</button></div>`:`<p class="dm-empty">Profil, boru, levha ya da tonaj ekleyin; toplam m² burada çıkar.</p>`}</div>
-   <p class="dm-note">Profil değerleri standart tablolardan yaklaşık boyama yüzeyidir (m²/m). Tonajdan hesapta ağır profil ≈ 15, orta ≈ 25, hafif ≈ 35 m²/ton kabul edilir.</p>`;
-  const ex=()=>{ const t=$("#m-t").value, X=$("#m-x");
-   if(PROF[t]) X.innerHTML=`<label>Ölçü<select id="m-s">${PROF[t].map(p=>`<option value="${p[0]}">${t} ${p[0]} · ${p[2]} m²/m · ${p[1]} kg/m</option>`).join("")}</select></label><label>Miktar<span class="dm-iu"><input type="number" inputmode="decimal" id="m-v" placeholder="0"><select id="m-u"><option value="m">metre</option><option value="ton">ton</option></select></span></label>`;
-   else if(t==="kutu") X.innerHTML=`<label>Kenarlar (mm)<span class="dm-iu"><input type="number" id="m-a" placeholder="100"><input type="number" id="m-b" placeholder="50"></span></label><label>Uzunluk (m)<input type="number" inputmode="decimal" id="m-v" placeholder="0"></label>`;
-   else if(t==="boru") X.innerHTML=`<label>Dış çap (mm)<input type="number" id="m-a" placeholder="114,3"></label><label>Uzunluk (m)<input type="number" inputmode="decimal" id="m-v" placeholder="0"></label>`;
-   else if(t==="levha") X.innerHTML=`<label>En × boy (m)<span class="dm-iu"><input type="number" id="m-a" placeholder="1,5"><input type="number" id="m-b" placeholder="6"></span></label><label>Adet<input type="number" id="m-v" placeholder="1"></label>`;
-   else X.innerHTML=`<label>Tonaj<input type="number" inputmode="decimal" id="m-v" placeholder="0"></label><label>Profil yoğunluğu<select id="m-f"><option value="15">Ağır profil (≈15 m²/ton)</option><option value="25" selected>Orta (≈25 m²/ton)</option><option value="35">Hafif (≈35 m²/ton)</option></select></label>`; };
-  ex(); $("#m-t").onchange=ex;
-  $("#m-add").onclick=()=>{ const t=$("#m-t").value, g=id=>{const x=$("#"+id);return x?x.value:"";}; const r={t,v:g("m-v"),s:g("m-s"),u:g("m-u")||"m",a:g("m-a"),b:g("m-b"),f:g("m-f")};
-   if(!(num(r.v)>0)){toast("Miktar girin");return;} if(!(m2Of(r)>0)){toast("Ölçüleri girin");return;} M2.push(r); store("dm-m2",M2); aracRender(); };
-  B.querySelectorAll("[data-m2del]").forEach(b=>b.onclick=()=>{M2.splice(+b.dataset.m2del,1);store("dm-m2",M2);aracRender();});
-  const sf=$("#m-sf"); if(sf) sf.onclick=()=>{ SF.area=String(Math.ceil(tot)); sfSave(); sfRender(); location.hash="#sarfiyat"; toast(`${Math.ceil(tot)} m² sarfiyata aktarıldı`); };
-  const cl=$("#m-clr"); if(cl) cl.onclick=()=>{M2=[];store("dm-m2",M2);aracRender();};
- }
- if(DMART==="dft"){ const c=WX&&WX.c;
-  B.innerHTML=`<div class="dm-card"><h4>Ölçüm bilgileri</h4><div class="dm-f">
-   <label>Proje / alan<input type="text" id="d-p" placeholder="örn. Depo kolonları, 2. kat"></label><label>Kat / ürün<input type="text" id="d-k" placeholder="örn. Ara kat – Penguard Express"></label>
-   <label>Nominal KFK (NDFT, µm)<input type="number" id="d-n" placeholder="örn. 120"></label><label>İzin verilen en yüksek KFK (µm)<input type="number" id="d-m" placeholder="boş bırakılırsa 3 × NDFT"></label>
-   <label>Ölçümler (µm) – boşluk veya virgülle<textarea id="d-v" rows="3" placeholder="125 118 130 96 142 ..."></textarea></label>
-   <label>Çelik yüzey sıcaklığı (°C)<input type="number" id="d-s" placeholder="${c?Math.round(c.temperature_2m):""}"></label></div></div>
-   <div id="d-out"></div>`;
-  const calc=()=>{ const N=num($("#d-n").value), MX=num($("#d-m").value)||3*N, V=$("#d-v").value.split(/[\s,;]+/).map(x=>parseFloat(x.replace(",","."))).filter(x=>x>0), O=$("#d-out");
-   if(!N||!V.length){O.innerHTML=`<p class="dm-empty">NDFT ve ölçümleri girin; ISO 19840 kontrolü otomatik yapılır.</p>`;return;}
-   const n=V.length, mean=V.reduce((a,b)=>a+b,0)/n, mn=Math.min(...V), mxv=Math.max(...V), sd=Math.sqrt(V.reduce((a,b)=>a+(b-mean)**2,0)/(n>1?n-1:1));
-   const lo=V.filter(x=>x<0.8*N).length, mid=V.filter(x=>x>=0.8*N&&x<N).length, hi=V.filter(x=>x>MX).length;
-   const R=[[mean>=N,`Ortalama ≥ NDFT (${fmt(mean,0)} ≥ ${N} µm)`],[lo===0,`NDFT'nin %80'inin (${fmt(0.8*N,0)} µm) altında ölçüm yok${lo?` – ${lo} ölçüm altında`:""}`],[mid<=0.2*n,`%80–100 arası ölçümler en fazla %20 (${mid}/${n} = %${Math.round(mid*100/n)})`],[hi===0,`En yüksek sınır (${MX} µm) aşılmamış${hi?` – ${hi} ölçüm üstünde`:""}`]];
-   const ok=R.every(r=>r[0]); const s=num($("#d-s").value); let env="";
-   if(c){ const st=$("#d-s").value!==""?s:c.temperature_2m, dT=st-c.dew_point_2m; env=`<div class="dm-card"><h4>Ortam (İstanbul, şimdi)</h4><div class="dm-kp"><div><b>${fmt(c.temperature_2m,1)}°</b><span>Hava</span></div><div><b>%${Math.round(c.relative_humidity_2m)}</b><span>Nem</span></div><div><b>${fmt(c.dew_point_2m,1)}°</b><span>Çiğ noktası</span></div><div><b class="${dT>=3?"ok":"bad"}">${fmt(dT,1)}°</b><span>Yüzey – çiğ</span></div></div><small>${dT>=3?"Yüzey sıcaklığı çiğ noktasının en az 3 °C üzerinde (ISO 8502-4).":"Yüzey sıcaklığı çiğ noktasına 3 °C'den yakın; uygulama için uygun değil."}</small></div>`; }
-   O.innerHTML=`<div class="dm-res ${ok?"ok":"bad"}"><b>${ok?"✓ Kabul edilir":"✗ Kabul edilmez"}</b><span>ISO 19840 kriterlerine göre</span></div>
-    <div class="dm-card"><div class="dm-kp"><div><b>${n}</b><span>Ölçüm</span></div><div><b>${fmt(mean,0)}</b><span>Ortalama</span></div><div><b>${fmt(mn,0)}</b><span>En düşük</span></div><div><b>${fmt(mxv,0)}</b><span>En yüksek</span></div></div><small>Standart sapma ${fmt(sd,1)} µm</small>
-    ${R.map(r=>`<div class="dm-chk ${r[0]?"ok":"bad"}">${r[0]?"✓":"✗"} ${r[1]}</div>`).join("")}</div>${env}
-    <div class="dm-acts"><button type="button" class="btn primary" id="d-wa">WhatsApp'ta paylaş</button><button type="button" class="btn" id="d-cp">Metni kopyala</button></div>`;
-   const txt=()=>[`*KALINLIK KONTROL RAPORU*`,`${$("#d-p").value||"-"} | ${$("#d-k").value||"-"}`,`Tarih: ${new Date().toLocaleString("tr-TR")}`,`NDFT ${N} µm · üst sınır ${MX} µm · ${n} ölçüm`,`Ortalama ${fmt(mean,0)} · min ${fmt(mn,0)} · max ${fmt(mxv,0)} · s ${fmt(sd,1)} µm`,...R.map(r=>(r[0]?"✓ ":"✗ ")+r[1]),`SONUÇ: ${ok?"Kabul edilir":"Kabul edilmez"} (ISO 19840)`,c?`Ortam: ${fmt(c.temperature_2m,1)}°C, %${Math.round(c.relative_humidity_2m)} nem, çiğ noktası ${fmt(c.dew_point_2m,1)}°C`:"",`Ölçümler: ${V.join(", ")}`].filter(Boolean).join("\n");
-   $("#d-wa").onclick=()=>window.open("https://wa.me/?text="+encodeURIComponent(txt()),"_blank");
-   $("#d-cp").onclick=()=>{try{navigator.clipboard.writeText(txt());toast("Kopyalandı");}catch(e){}};
-  };
-  B.querySelectorAll("input,textarea").forEach(x=>x.addEventListener("input",calc)); calc();
- }
-}
-/* --- Ürün detayı: uygulama bilgileri (TDS'ten, teyit edilenler) --- */
-const APPI={"Hardtop XP":{src:"TDS 19.08.2024",pot:"23 °C'de 1,5 saat · 40 °C'de 50 dk",dft:"50–80 µm (ıslak 100–160 µm)",oc:[["5 °C","24 sa"],["10 °C","14 sa"],["23 °C","7 sa"],["40 °C","4 sa"]]}};
-function appiHTML(n){ const a=APPI[n]; if(!a) return ""; return `<div class="ri-sec dm-appi"><b>Uygulama bilgileri <small>(${a.src} · demo)</small></b><dl><dt>Kap ömrü</dt><dd>${a.pot}</dd><dt>Önerilen KFK / kat</dt><dd>${a.dft}</dd></dl><table class="dm-oc"><tr><th>Yüzey sıcaklığı</th><th>Üst kat için en az bekleme</th></tr>${a.oc.map(o=>`<tr><td>${o[0]}</td><td>${o[1]}</td></tr>`).join("")}</table></div>`; }
+
+trkSync(); dmBadge(); if(route.last==="isler") islerRender();
+/* ================= DEMO: Yangın koruma ================= */
+const YG={tab:"how", f:load("yg-f",{}), rows:load("yg-rows",[]), to:load("yg-to",{}), m:{fam:"HEB",s:"300",exp:4,hp:"",mu:0.6,R:0.12,curve:"iso"}};
+const ygSave=()=>{store("yg-f",YG.f);store("yg-rows",YG.rows);};
+const ygIso=t=>20+345*Math.log10(8*t+1);
+const ygHc=t=>20+1080*(1-0.325*Math.exp(-0.167*t)-0.675*Math.exp(-2.5*t));
+const ygCa=T=>T<600?425+0.773*T-1.69e-3*T*T+2.22e-6*T*T*T:T<735?666+13002/(738-T):T<900?545+17820/(T-731):650;
+const ygCrit=mu=>{ mu=Math.max(0.013,Math.min(0.99,mu)); return 39.19*Math.log(1/(0.9674*Math.pow(mu,3.833))-1)+482; };
+/* EN 1993-1-2 §4.2.5: korumasız (4.25) ve korumalı (4.27, φ≈0) çelik sıcaklığı */
+function ygSim(HpA,R,gas,tmax){ const dt=5, out={u:[],p:[]}; let Tu=20,Tp=20; const sb=5.67e-8;
+  for(let s=0;s<=tmax*60;s+=dt){ const t=s/60, Tg=gas(t);
+    if(s%60===0){ out.u.push([t,Tu]); out.p.push([t,Tp]); }
+    const hn=25*(Tg-Tu)+0.7*sb*(Math.pow(Tg+273,4)-Math.pow(Tu+273,4)); Tu+=HpA/(ygCa(Tu)*7850)*hn*dt;
+    if(R>0) Tp+=HpA/(R*ygCa(Tp)*7850)*(Tg-Tp)*dt; }
+  return out; }
+const ygHit=(arr,T)=>{ const x=arr.find(p=>p[1]>=T); return x?x[0]:null; };
+function ygHpA(){ const M=YG.m; if(num(M.hp)>0) return num(M.hp); const r={t:M.fam,s:M.s,exp:M.exp}; const s=secOf(r); return s?hpA(r,s):0; }
+function ygChart(){ const M=YG.m, gas=M.curve==="hc"?ygHc:ygIso, HpA=ygHpA(), Tc=ygCrit(M.mu), tmax=120, sim=ygSim(HpA,M.R,gas,tmax);
+  const W=340,H=210,L=36,B=24,T0=8,R0=8, x=t=>L+t/tmax*(W-L-R0), y=T=>H-B-T/1200*(H-B-T0);
+  const path=a=>a.map((p,i)=>(i?"L":"M")+x(p[0]).toFixed(1)+" "+y(Math.min(1200,p[1])).toFixed(1)).join("");
+  const g=[]; for(let t=0;t<=tmax;t++) g.push([t,gas(t)]);
+  const grid=[0,300,600,900,1200].map(T=>`<line x1="${L}" x2="${W-R0}" y1="${y(T)}" y2="${y(T)}" stroke="rgba(140,170,220,.18)"/><text x="${L-5}" y="${y(T)+4}" text-anchor="end" font-size="10" fill="#9fb2cf">${T}</text>`).join("")+[0,30,60,90,120].map(t=>`<line x1="${x(t)}" x2="${x(t)}" y1="${T0}" y2="${H-B}" stroke="rgba(140,170,220,.12)"/><text x="${x(t)}" y="${H-B+14}" text-anchor="middle" font-size="10" fill="#9fb2cf">${t}</text>`).join("");
+  const tu=ygHit(sim.u,Tc), tp=ygHit(sim.p,Tc);
+  const svg=`<svg class="yg-svg" viewBox="0 0 ${W} ${H}" role="img" aria-label="Zaman-sıcaklık grafiği">${grid}<text x="${W-R0}" y="${H-2}" text-anchor="end" font-size="10" fill="#9fb2cf">dakika</text><text x="4" y="12" font-size="10" fill="#9fb2cf">°C</text>
+    <line x1="${L}" x2="${W-R0}" y1="${y(Tc)}" y2="${y(Tc)}" stroke="#f0ab00" stroke-dasharray="5 4" stroke-width="1.5"/>
+    <path d="${path(g)}" fill="none" stroke="#ff6a3d" stroke-width="2.4"/><path d="${path(sim.u)}" fill="none" stroke="#6fa8ff" stroke-width="2.4"/><path d="${path(sim.p)}" fill="none" stroke="#3ccf8e" stroke-width="2.4"/>
+    ${tu!=null?`<circle cx="${x(tu)}" cy="${y(Tc)}" r="4" fill="#6fa8ff"/>`:""}${tp!=null?`<circle cx="${x(tp)}" cy="${y(Tc)}" r="4" fill="#3ccf8e"/>`:""}</svg>`;
+  return {svg,tu,tp,Tc,HpA}; }
+function ygMathUpd(){ const el=$("#yg-ch"); if(!el) return; const c=ygChart(), M=YG.m;
+  el.innerHTML=c.svg; $("#yg-tc").textContent=fmt(c.Tc,0)+" °C"; $("#yg-hpv").textContent=c.HpA?fmt(c.HpA,0)+" m⁻¹":"—";
+  $("#yg-res").innerHTML=`<div class="w"><b>${c.tu!=null?fmt(c.tu,0)+" dk":"> 120 dk"}</b><span>Korumasız çelik ${fmt(c.Tc,0)} °C'ye ulaşır</span></div><div class="g"><b>${c.tp!=null?fmt(c.tp,0)+" dk":"> 120 dk"}</b><span>Temsili korumayla (d/λ = ${fmt(M.R,2)})</span></div>`;
+  $("#yg-mu-v").textContent="μ₀ = "+fmt(M.mu,2); $("#yg-R-v").textContent=fmt(M.R,2)+" m²K/W";
+  const hp=$("#yg-hpinfo"); if(hp){ const r={t:M.fam,s:M.s,exp:M.exp}, s=secOf(r); hp.textContent=num(M.hp)>0?"Elle girilen kesit faktörü":s?`${M.fam} ${M.s} · ${M.exp} yüz · çevre ${fmt(secP(r,s),3)} m · kesit ${fmt(s.A*1e4,1)} cm² → Hp/A = ${fmt(hpA(r,s),0)} m⁻¹`:""; } }
+const ygFamOpts=sel=>Object.keys(STD).map(k=>`<option value="${k}"${k===sel?" selected":""}>${k}</option>`).join("");
+const ygSizeOpts=(fam,sel)=>STD[fam].map(p=>`<option value="${p[0]}"${String(p[0])===String(sel)?" selected":""}>${fam} ${p[0]}</option>`).join("");
+
+function ygHow(){ return `
+<div class="yg-c"><h3>Çelik neden korunur?</h3>
+<p>Çelik yanmaz ama ısındıkça taşıma gücünü kaybeder. EN 1993-1-2'ye göre yapı çeliği yaklaşık <b>500 °C'de akma dayanımının %22'sini, 600 °C'de yarısından fazlasını</b> kaybeder. Bina yangınında gaz sıcaklığı 30 dakikada 840 °C'yi geçer; korumasız ince bir profil 10–15 dakikada kritik sıcaklığa ulaşabilir.</p>
+<div class="yg-k"><div><b>400 °C</b><span>Akma dayanımı ≈ %100</span></div><div><b>500 °C</b><span>≈ %78</span></div><div><b>600 °C</b><span>≈ %47</span></div><div><b>700 °C</b><span>≈ %23</span></div></div>
+<small>Tablo: EN 1993-1-2 Tablo 3.1, karbon çeliği akma dayanımı azaltma katsayısı k<sub>y,θ</sub>.</small></div>
+<div class="yg-c"><h3>İntümesan boya nasıl çalışır?</h3>
+<div class="yg-sw" aria-hidden="true"><div class="fl"></div><div class="ch"></div><div class="pr"></div><div class="st"></div><span class="lb" style="bottom:50px">Köpük kömür tabakası</span><span class="lb" style="bottom:10px">Çelik</span></div>
+<p>İntümesan (kabaran) kaplama normal koşulda ince bir boya filmidir. Sıcaklık yaklaşık <b>200–250 °C</b>'ye çıkınca film yumuşar ve kimyasal tepkime başlar:</p>
+<ul><li><b>Asit kaynağı</b> (genelde amonyum polifosfat) ayrışır ve asit açığa çıkarır.</li><li><b>Karbon kaynağı</b> (ör. pentaeritritol) bu asitle kömürleşir.</li><li><b>Şişirici</b> (ör. melamin) gaz verir; yumuşamış kütle köpük gibi kabarır.</li></ul>
+<p>Sonuçta ilk kalınlığın onlarca katı kalınlıkta, ısıyı çok kötü ileten, gözenekli bir <b>kömür köpüğü</b> oluşur. Bu tabaka çeliğe ulaşan ısıyı yavaşlatır ve çeliğin kritik sıcaklığa varma süresini uzatır. Boya yangını söndürmez; çeliğe <b>zaman kazandırır</b>.</p></div>
+<div class="yg-c"><h3>Sistem katmanları</h3>
+<div class="yg-ly"><div style="background:#e6ecf5">Son kat <small>· nem, kirlilik ve UV'ye karşı korur, renk verir (ortama göre gerekli olabilir)</small></div><div style="background:#f6e7c7">İntümesan kat <small>· yangın koruma; kalınlığı sertifikalı tablodan gelir</small></div><div style="background:#f3cfc8">Astar <small>· korozyon koruması; intümesanla uyumu onaylı olmalı</small></div><div style="background:#aab4c3">Çelik <small>· ISO 8501-1 Sa 2½ ya da astar föyündeki hazırlık</small></div></div>
+<p>Astar ve son kat, yangın testinde intümesanla birlikte denenmiş ve onaylanmış ürünlerden seçilmelidir. Onaysız bir astar ya da son kat, köpüğün tutunmasını ve kabarmasını bozabilir.</p></div>
+<div class="yg-c"><h3>Yangın türleri</h3>
+<div class="yg-std"><b>Selülozik yangın</b><span class="rg">Binalar</span><p>Ahşap, kâğıt, tekstil gibi malzemelerin yanması. Sıcaklık yavaş yükselir (ISO 834 / EN 1363-1 eğrisi). İnce film intümesan boyalar bu yangın tipi için kullanılır.</p></div>
+<div class="yg-std hc"><b>Hidrokarbon yangını</b><span class="rg">Petrokimya · enerji</span><p>Akaryakıt ve gaz yangını. Sıcaklık birkaç dakikada 1000 °C'yi geçer (EN 1363-2 HC eğrisi, UL 1709). Epoksi esaslı pasif yangın koruma sistemleri gerekir.</p></div>
+<div class="yg-std hc"><b>Jet yangını</b><span class="rg">Basınçlı hat · offshore</span><p>Basınçlı gazın alev jeti; ısıya ek olarak aşındırıcı kuvvet. ISO 22899-1 ile test edilir.</p></div></div>
+<div class="yg-c"><h3>Ortam sınıfları (EAD 350402)</h3>
+<p>Avrupa onayında (ETA) intümesan sistemin hangi ortamda dayanıklı olduğu belirtilir:</p>
+<div class="yg-k"><div><b>Z2</b><span>İç mekân, normal nem</span></div><div><b>Z1</b><span>İç mekân, yüksek nem (≥ %85 BN)</span></div><div><b>Y</b><span>Yarı açık; yağmura doğrudan maruz değil</span></div><div><b>X</b><span>Dış ortam, tüm koşullar</span></div></div>
+<p>Ortam sınıfı arttıkça çoğu zaman uygun son kat şart olur. Korozyon tarafı için ISO 12944 korozivite sınıfı (C1–CX) ayrıca belirlenir.</p></div>
+<div class="yg-c"><h3>Jotun Steelmaster serisi</h3>
+<p>Selülozik yangın için su bazlı ince film intümesan kaplamalar (EN 13381-8, BS 476-20/21):</p>
+<div class="yg-k"><div><b>Steelmaster 600 WF</b><span>60 dakikaya kadar</span></div><div><b>Steelmaster 900 WF</b><span>90 dakikaya kadar</span></div><div><b>Steelmaster 1200 WF</b><span>120 dakikaya kadar</span></div></div>
+<p>Hangi ürünün seçileceği ve kalınlığı; profil, maruziyet, yangın süresi ve kritik sıcaklığa göre Jotun teknik ekibince belirlenir. Hidrokarbon ve jet yangını projeleri için de Jotun teknik ekibine danışın.</p></div>
+<div class="yg-c"><h3>Uygulama ve kontrol</h3>
+<ul><li>Kat başına uygulanabilecek maksimum ıslak kalınlık ve katlar arası bekleme süresi ürün föyünden (TDS) alınır.</li><li>Kuru film kalınlığı ISO 2808 / ISO 19840'a göre ölçülür; intümesanda ölçüm sıklığı ve kabul kriteri ürünün uygulama kılavuzunda tanımlıdır.</li><li>Her profilin boyası, o profilin yükleme tablosundaki kalınlığa göre ayrı ayrı hedeflenir; tüm yapıya tek kalınlık verilmez.</li><li>Kalınlık eksikliği yangın süresini doğrudan kısaltır; fazlası ise maliyeti ve kuruma süresini artırır.</li></ul></div>`; }
+
+function ygMath(){ const M=YG.m; return `
+<div class="yg-c"><h3><span class="n">1</span>Yangın eğrisi: gaz sıcaklığı</h3>
+<p>Testlerde fırın sıcaklığı standart bir eğriyi izler. Bina yangını için ISO 834 / EN 1363-1:</p>
+<div class="yg-f">θg = 20 + 345 · log₁₀(8t + 1)     [t: dakika]</div>
+<div class="yg-k"><div><b>842 °C</b><span>30 dk</span></div><div><b>945 °C</b><span>60 dk</span></div><div><b>1006 °C</b><span>90 dk</span></div><div><b>1049 °C</b><span>120 dk</span></div></div>
+<p>Hidrokarbon eğrisi (EN 1363-2) çok daha hızlı yükselir:</p><div class="yg-f">θg = 20 + 1080 · (1 − 0,325·e^(−0,167t) − 0,675·e^(−2,5t))</div></div>
+<div class="yg-c"><h3><span class="n">2</span>Kritik çelik sıcaklığı θcr</h3>
+<p>Çeliğin yangında göçmeden taşıyabileceği en yüksek sıcaklık. Elemanın yangın anındaki <b>kullanım oranına</b> (μ₀ = yangındaki yük etkisi ÷ başlangıçtaki taşıma kapasitesi) bağlıdır. EN 1993-1-2 Denklem 4.22:</p>
+<div class="yg-f">θcr = 39,19 · ln[ 1 / (0,9674 · μ₀^3,833) − 1 ] + 482</div>
+<div class="yg-ctl"><label><span id="yg-mu-v">μ₀</span><input type="range" id="yg-mu" min="0.2" max="0.9" step="0.01" value="${M.mu}"></label><label>Kritik sıcaklık<b id="yg-tc" style="font:800 22px var(--f-body);color:#f0ab00"></b></label></div>
+<p><small>Yük azaldıkça θcr yükselir, daha az boya gerekir. θcr'yi projenin statik hesabı belirler; bilinmiyorsa analiz talebinde boş bırakın.</small></p></div>
+<div class="yg-c"><h3><span class="n">3</span>Kesit faktörü Hp/A</h3>
+<p>Isıya açık çevrenin (Hp) kesit alanına (A) oranı. Büyük Hp/A = ince, hızlı ısınan profil = daha kalın boya.</p>
+<div class="yg-f">Hp/A = ısıya açık çevre (m) / kesit alanı (m²)   [m⁻¹]</div>
+<svg class="yg-svg" viewBox="0 0 320 120" aria-hidden="true" style="max-width:420px"><g transform="translate(30,10)"><rect x="0" y="0" width="80" height="10" fill="#5b6b82"/><rect x="35" y="10" width="10" height="70" fill="#5b6b82"/><rect x="0" y="80" width="80" height="10" fill="#5b6b82"/><path d="M-3 -3H83V13H48V77H83V93H-3V77H32V13H-3Z" fill="none" stroke="#ff6a3d" stroke-width="2.5"/><text x="40" y="108" text-anchor="middle" font-size="11" fill="#cfe0ff">4 yüz</text></g>
+<g transform="translate(190,10)"><rect x="-20" y="-8" width="120" height="8" fill="#9aa6b8"/><rect x="0" y="0" width="80" height="10" fill="#5b6b82"/><rect x="35" y="10" width="10" height="70" fill="#5b6b82"/><rect x="0" y="80" width="80" height="10" fill="#5b6b82"/><path d="M-3 3V13H32V77H-3V93H83V77H48V13H83V3" fill="none" stroke="#ff6a3d" stroke-width="2.5"/><text x="40" y="108" text-anchor="middle" font-size="11" fill="#cfe0ff">3 yüz (üst döşeme)</text></g></svg>
+<div class="yg-ctl"><label>Profil<select id="yg-fam">${ygFamOpts(M.fam)}</select></label><label>Ölçü<select id="yg-sz">${ygSizeOpts(M.fam,M.s)}</select></label><label>Maruziyet<select id="yg-exp"><option value="4"${M.exp==4?" selected":""}>4 yüz</option><option value="3"${M.exp==3?" selected":""}>3 yüz</option></select></label><label>Ya da Hp/A gir<input type="number" inputmode="decimal" id="yg-hp" placeholder="m⁻¹" value="${esc(String(M.hp||""))}"></label></div>
+<p><small id="yg-hpinfo"></small></p><p>Kesit faktörü: <b id="yg-hpv"></b></p></div>
+<div class="yg-c"><h3><span class="n">4</span>Çelik ne kadar hızlı ısınır?</h3>
+<p>EN 1993-1-2 §4.2.5'e göre her 5 saniyede çeliğe giren ısı hesaplanır. Korumasız çelik:</p>
+<div class="yg-f">Δθa = (Hp/A) / (ca · ρa) · ḣnet · Δt
+ḣnet = 25·(θg − θa) + 0,7·σ·[(θg+273)⁴ − (θa+273)⁴]</div>
+<p>Yalıtımlı çelik (yalıtım tabakasının ısıl direnci d/λ ile, ısı kapasitesi ihmal):</p>
+<div class="yg-f">Δθa = (Hp/A) · (θg − θa) / (d/λ · ca · ρa) · Δt</div>
+<p><small>ρa = 7850 kg/m³, ca çeliğin sıcaklığa bağlı özgül ısısı (EN 1993-1-2 §3.4.1.2), σ = 5,67·10⁻⁸ W/m²K⁴.</small></p>
+<div class="yg-ctl"><label>Yangın eğrisi<select id="yg-cv"><option value="iso"${M.curve==="iso"?" selected":""}>Selülozik (ISO 834)</option><option value="hc"${M.curve==="hc"?" selected":""}>Hidrokarbon (EN 1363-2)</option></select></label><label><span>Temsili koruma d/λ: <b id="yg-R-v"></b></span><input type="range" id="yg-R" min="0.02" max="0.4" step="0.01" value="${M.R}"></label></div>
+<div class="yg-lg"><span><i style="background:#ff6a3d"></i>Gaz</span><span><i style="background:#6fa8ff"></i>Korumasız çelik</span><span><i style="background:#3ccf8e"></i>Temsili korumalı çelik</span><span><i style="background:#f0ab00"></i>θcr</span></div>
+<div id="yg-ch"></div><div class="yg-res" id="yg-res"></div>
+<p><small>Yeşil eğri sadece prensibi göstermek içindir. İntümesan köpüğün ısıl direnci sıcaklıkla ve kalınlıkla değişir; boya kalınlığı bu grafikten çıkarılamaz.</small></p></div>
+<div class="yg-c"><h3><span class="n">5</span>Kalınlık nereden gelir?</h3>
+<p>Ürün EN 13381-8'e göre yüklü ve yüksüz profillerle fırında test edilir. Test verileriyle her yangın süresi için bir <b>yükleme tablosu</b> hazırlanır: satırlarda Hp/A, sütunlarda kritik sıcaklık, hücrelerde gereken kuru film kalınlığı.</p>
+<table class="yg-tb"><tr><th>Hp/A ↓ · θcr →</th><th>500 °C</th><th>550 °C</th><th>600 °C</th></tr><tr><th>100</th><td>●</td><td>●</td><td>●</td></tr><tr><th>150</th><td>●</td><td class="h">●</td><td>●</td></tr><tr><th>200</th><td>●</td><td>●</td><td>●</td></tr></table>
+<p><small>● = ürünün sertifikasındaki kalınlık değeri (tablo yapısını göstermek içindir, değer içermez). Kolon, kiriş ve boru/kutu profiller için ayrı tablolar vardır. Tablo dışında kalan değerler için interpolasyon kuralları sertifikada tanımlıdır.</small></p>
+<p>Analiz yapacak kişi her profil için: yangın süresi → doğru tablo, Hp/A → satır, θcr → sütun okuyarak kalınlığı bulur; sonra m² × kalınlık ile toplam boya miktarını hesaplar.</p></div>`; }
+
+const YG_STD=[
+ ["Test ve sınıflandırma",[
+  ["EN 13381-8","Avrupa","Çelik elemanlara uygulanan reaktif (intümesan) korumanın yangın testi ve değerlendirmesi. Yükleme tabloları bu standarda göre çıkar.",""],
+  ["EN 13381-9","Avrupa","Gövdesi delikli (petek/hücreli) kirişlerde yangın koruma değerlendirmesi.",""],
+  ["EN 1363-1 / ISO 834-1","Avrupa · Uluslararası","Yangın dayanım testlerinin genel koşulları ve standart selülozik zaman-sıcaklık eğrisi.",""],
+  ["EN 1363-2","Avrupa","Alternatif yangın eğrileri: hidrokarbon, dış ortam ve yavaş gelişen yangın.","hc"],
+  ["EN 13501-2","Avrupa","Yangın dayanım sınıflandırması. Taşıyıcı çelik için R (taşıma kapasitesi): R15, R30, R45, R60, R90, R120, R180, R240.",""],
+  ["EAD 350402-00-1106","Avrupa","Reaktif yangın koruma ürünleri için Avrupa Değerlendirme Belgesi (eski ETAG 018-2). ETA ve CE işaretinin dayanağı; X, Y, Z1, Z2 dayanıklılık sınıfları.",""],
+  ["BS 476-20/21","İngiltere","İngiliz yangın testi standardı; birçok ülkede hâlâ şartnamelerde istenir.",""],
+  ["UL 263 / ASTM E119","ABD","Amerikan selülozik yangın testi; sonuç UL tasarım numarası (design) olarak verilir.",""],
+  ["UL 1709","ABD","Hızlı yükselen hidrokarbon yangını testi (yaklaşık 5 dakikada 1093 °C).","hc"],
+  ["ISO 22899-1","Uluslararası","Jet yangınına karşı pasif yangın koruma testi.","hc"],
+  ["ISO 20088","Uluslararası","Kriyojenik sıvı/gaz dökülmesine karşı koruma testleri (LNG tesisleri).","cr"]]],
+ ["Tasarım",[
+  ["EN 1993-1-2 (Eurocode 3)","Avrupa","Çelik yapıların yangın tasarımı: sıcaklıkla dayanım kaybı, kritik sıcaklık (Denk. 4.22), çelik sıcaklık hesabı (§4.2.5).",""],
+  ["EN 1991-1-2 (Eurocode 1)","Avrupa","Yangında yapıya etkiyen yükler ve yangın eğrileri.",""]]],
+ ["Korozyon ve uygulama",[
+  ["ISO 12944","Uluslararası","Boya sistemiyle korozyon koruması; ortam korozivite sınıfı (C1–CX) ve astar/son kat seçimi.","cr"],
+  ["ISO 8501-1","Uluslararası","Çelik yüzey hazırlık dereceleri (ör. Sa 2½).","cr"],
+  ["ISO 2808 / ISO 19840","Uluslararası","Kuru film kalınlığı ölçüm yöntemleri ve kabul kriterleri.","cr"]]],
+ ["Türkiye",[
+  ["Binaların Yangından Korunması Hakkında Yönetmelik","Türkiye","Yapı elemanlarının yangına dayanım sürelerini bina sınıfı ve yüksekliğine göre belirler. Projede gereken süre (R30/R60/R90…) proje müellifi ve yangın danışmanınca bu yönetmeliğe göre belirlenir.","tr"],
+  ["TS EN 13381-8 · TS EN 13501-2","Türkiye","Avrupa standartlarının Türk Standardı olarak kabul edilmiş halleri.","tr"]]]];
+function ygStd(){ return YG_STD.map(([h,L])=>`<div class="yg-c"><h3>${h}</h3>${L.map(([c,r,d,k])=>`<div class="yg-std ${k}"><b>${esc(c)}</b><span class="rg">${esc(r)}</span><p>${esc(d)}</p></div>`).join("")}</div>`).join(""); }
+
+/* ---- Analiz talebi ---- */
+const YG_SEL={curve:["Selülozik (bina, ISO 834)","Hidrokarbon (EN 1363-2 / UL 1709)","Jet yangını (ISO 22899)","Bilmiyorum"],
+  rate:["R15","R30","R45","R60","R90","R120","R180","Bilmiyorum"], crit:["Danışman belirlesin","350 °C","400 °C","450 °C","500 °C","550 °C","600 °C","620 °C","650 °C","700 °C"],
+  env:["İç mekân, normal nem (Z2)","İç mekân, yüksek nem (Z1)","Yarı açık (Y)","Dış ortam (X)"], cor:["C1","C2","C3","C4","C5","CX","Bilmiyorum"],
+  surf:["Yeni çelik, raspa yapılacak (Sa 2½)","Atölye astarlı çelik","Galvaniz","Mevcut boyalı yüzey"], app:["Atölye","Şantiye","Atölye + şantiye"], std:["EN 13381-8","BS 476-20/21","UL 263","UL 1709","Şartnamede yok / bilmiyorum"]};
+const ygOpts=(k,v)=>`<option value="">Seçin</option>`+YG_SEL[k].map(o=>`<option${o===v?" selected":""}>${esc(o)}</option>`).join("");
+const ygRowM2=r=>stM2(Object.assign({},r,{q:num(r.L)*Math.max(1,num(r.n)||1),u:"m"}));
+const ygRowHp=r=>{ const s=secOf(r); return s&&s.A>0?hpA(r,s):0; };
+const YG_EL=["Kolon","Kiriş","Çapraz","Diğer"];
+function ygRowsHTML(){ if(!YG.rows.length) return `<p class="hint">Henüz profil yok. Aşağıdan ekleyin ya da çelik listesini yükleyin.</p>`;
+  const tm=YG.rows.reduce((a,r)=>a+ygRowM2(r),0);
+  return YG.rows.map((r,i)=>{ const hp=ygRowHp(r), canExp=(r.t in STD)||r.t==="kutu";
+    return `<div class="yg-row${r.uns?" uns":""}"><b>${esc(stLbl(Object.assign({},r,{exp:4})))}</b><button type="button" class="x" data-ygdel="${i}" aria-label="Sil">×</button>
+     <div class="ed"><select data-yge="${i}" data-k="el">${YG_EL.map(e=>`<option${e===r.el?" selected":""}>${e}</option>`).join("")}</select><select data-yge="${i}" data-k="exp"${canExp?"":" disabled"}><option value="4"${+r.exp===3?"":" selected"}>4 yüz</option><option value="3"${+r.exp===3?" selected":""}>3 yüz</option></select><input type="number" inputmode="decimal" data-yge="${i}" data-k="L" value="${r.L===""?"":r.L}" placeholder="boy m"><input type="number" inputmode="decimal" data-yge="${i}" data-k="n" value="${r.n||1}" placeholder="adet"></div>
+     <small>Hp/A ${hp?fmt(hp,0)+" m⁻¹":"— (et kalınlığı gerekli)"} · ${fmt(ygRowM2(r),1)} m²${r.uns?" · miktarı kontrol edin":""}</small></div>`; }).join("")+`<p class="hint" style="margin:4px 0 0">Toplam ${YG.rows.length} kalem · <b style="color:#fff">${fmt(tm,1)} m²</b></p>`; }
+function ygMissing(){ const f=YG.f, m=[]; if(!f.proj) m.push("Proje adı"); if(!f.rate) m.push("Yangın dayanım süresi"); if(!f.curve) m.push("Yangın tipi"); if(!f.env) m.push("Ortam");
+  if(!YG.rows.length) m.push("Profil listesi"); else if(YG.rows.some(r=>!(num(r.L)>0))) m.push("Bazı profillerde boy"); return m; }
+function ygReq(){ const f=YG.f, to=YG.to, ms=ygMissing();
+  const I=(k,l,ph,t)=>`<label${t==="w2"?' class="w2"':""}>${l}<input type="text" data-ygf="${k}" value="${esc(f[k]||"")}" placeholder="${ph||""}"></label>`;
+  const S=(k,l,w)=>`<label${w?' class="w2"':""}>${l}<select data-ygf="${k}">${ygOpts(k,f[k])}</select></label>`;
+  return `
+<div class="yg-to"><div><b>${to.name?esc(to.name):"Gönderilecek kişi seçilmedi"}</b><br><span>${to.name?[to.wa,to.mail].filter(Boolean).map(esc).join(" · "):"Analizi yapacak kişinin adı, WhatsApp ve e-postası"}</span></div><button type="button" class="btn" id="yg-toedit">${to.name?"Değiştir":"Ekle"}</button></div>
+<div class="yg-c"><h3><span class="n">1</span>Proje</h3><div class="yg-fm">${I("proj","Proje adı *","örn. Lojistik deposu çelik çatı","w2")}${I("cust","Müşteri / firma","")}${I("city","Şehir","")}${I("cont","Yetkili kişi","")}${I("tel","Telefon","")}${S("std","İstenen test standardı",1)}</div></div>
+<div class="yg-c"><h3><span class="n">2</span>Yangın gereksinimi</h3><div class="yg-fm">${S("curve","Yangın tipi *",1)}${S("rate","Dayanım süresi *")}${S("crit","Kritik sıcaklık")}</div>
+<p><small>Kritik sıcaklık statik hesaptan gelir. Bilinmiyorsa "Danışman belirlesin" seçin; kullanım oranı biliniyorsa nota yazın.</small></p></div>
+<div class="yg-c"><h3><span class="n">3</span>Ortam ve yüzey</h3><div class="yg-fm">${S("env","Ortam *",1)}${S("cor","Korozivite (ISO 12944)")}${S("app","Uygulama yeri")}${S("surf","Yüzey durumu",1)}${I("top","Son kat / renk","örn. RAL 7035 isteniyor","w2")}</div></div>
+<div class="yg-c"><h3><span class="n">4</span>Profil listesi</h3><div class="yg-rows" id="yg-rows">${ygRowsHTML()}</div>
+<div class="yg-add"><select id="yg-afam">${ygFamOpts("HEB")}<option value="kutu">Kutu profil</option><option value="boru">Boru</option></select><select id="yg-asz">${ygSizeOpts("HEB",300)}</select></div>
+<div class="yg-add yg-ad2" hidden><input type="number" inputmode="decimal" id="yg-aa" placeholder="a / çap mm"><input type="number" inputmode="decimal" id="yg-ab" placeholder="b mm (kutu)"><input type="number" inputmode="decimal" id="yg-at" placeholder="et kalınlığı mm"></div>
+<div class="yg-add"><input type="number" inputmode="decimal" id="yg-aL" placeholder="Boy (m)"><input type="number" inputmode="decimal" id="yg-an" placeholder="Adet" value="1"></div>
+<div class="yg-add"><select id="yg-ael">${YG_EL.map(e=>`<option>${e}</option>`).join("")}</select><select id="yg-aexp"><option value="4">4 yüz</option><option value="3">3 yüz</option></select></div>
+<div class="yg-act"><button type="button" class="btn w2" id="yg-aadd">+ Profili ekle</button></div>
+<label class="yg-up"><input type="file" id="yg-upf" accept=".pdf,image/*,.xlsx,.xls,.csv,.txt" hidden><span style="font-size:22px">📎</span><span><b>Çelik listesi yükle</b><small>PDF, fotoğraf veya Excel – profiller listeye eklenir</small></span></label></div>
+<div class="yg-c"><h3><span class="n">5</span>Not ve ekler</h3><div class="yg-fm"><label class="w2">Not<textarea data-ygf="note" placeholder="örn. Statik rapor ve çizimler ayrıca gönderilecek; termin 3 hafta">${esc(f.note||"")}</textarea></label></div>
+<p><small>Çizim, statik rapor ve şartname dosyalarını gönderdiğiniz mesaja ayrıca ekleyin.</small></p></div>
+<div class="yg-c"><h3>Gönder</h3><div class="yg-chk">${ms.length?ms.map(x=>`<span class="no">• Eksik: ${x}</span>`).join(""):`<span class="ok">✓ Talep analiz için hazır</span>`}</div>
+<div class="yg-act"><a class="btn primary" id="yg-wa" target="_blank" rel="noopener">WhatsApp ile gönder</a><a class="btn" id="yg-mail">E-posta ile gönder</a><button type="button" class="btn w2" id="yg-pdf">PDF indir</button><button type="button" class="linkbtn w2" id="yg-clr" style="justify-self:center">Formu temizle</button></div></div>`; }
+function ygText(){ const f=YG.f, d=new Date().toLocaleDateString("tr-TR"), L=["*YANGIN KORUMA ANALİZ TALEBİ*",d,""];
+  const p=(l,v)=>{ if(v) L.push(`${l}: ${v}`); };
+  p("Proje",f.proj); p("Müşteri",f.cust); p("Şehir",f.city); p("Yetkili",[f.cont,f.tel].filter(Boolean).join(" · ")); p("Bayi",(dealerEl&&dealerEl.value||"").trim());
+  L.push(""); p("Yangın tipi",f.curve); p("Dayanım",f.rate); p("Kritik sıcaklık",f.crit); p("Test standardı",f.std);
+  p("Ortam",f.env); p("Korozivite",f.cor); p("Yüzey",f.surf); p("Uygulama",f.app); p("Son kat",f.top);
+  if(YG.rows.length){ L.push("","*PROFİLLER*"); YG.rows.forEach((r,i)=>{ const hp=ygRowHp(r); L.push(`${i+1}. ${stLbl(Object.assign({},r,{exp:4}))} · ${r.el||"-"} · ${+r.exp===3?"3":"4"} yüz · ${fmt(num(r.n)||1,0)} ad × ${fmt(num(r.L),2)} m · Hp/A ${hp?fmt(hp,0):"-"} · ${fmt(ygRowM2(r),1)} m²`); });
+    L.push(`Toplam: ${fmt(YG.rows.reduce((a,r)=>a+ygRowM2(r),0),1)} m²`); }
+  p("\nNot",f.note); L.push("","Her profil için kuru film kalınlığı, ürün önerisi ve toplam boya miktarı rica olunur."); return L.join("\n"); }
+function ygDoc(){ const f=YG.f, row=(l,v)=>v?`<tr><th style="width:34%">${l}</th><td>${esc(v)}</td></tr>`:"";
+  $("#yg-doc").innerHTML=`<h1>Yangın Koruma Analiz Talebi</h1><div>${new Date().toLocaleDateString("tr-TR")}${YG.to.name?" · Alıcı: "+esc(YG.to.name):""}</div>
+   <h2>Proje</h2><table>${row("Proje",f.proj)}${row("Müşteri",f.cust)}${row("Şehir",f.city)}${row("Yetkili",[f.cont,f.tel].filter(Boolean).join(" · "))}${row("Bayi",(dealerEl&&dealerEl.value||"").trim())}</table>
+   <h2>Yangın gereksinimi ve ortam</h2><table>${row("Yangın tipi",f.curve)}${row("Dayanım süresi",f.rate)}${row("Kritik sıcaklık",f.crit)}${row("Test standardı",f.std)}${row("Ortam",f.env)}${row("Korozivite (ISO 12944)",f.cor)}${row("Yüzey",f.surf)}${row("Uygulama",f.app)}${row("Son kat / renk",f.top)}</table>
+   ${YG.rows.length?`<h2>Profil listesi</h2><table><tr><th>#</th><th>Profil</th><th>Eleman</th><th>Maruziyet</th><th>Adet × boy</th><th>Hp/A (m⁻¹)</th><th>m²</th></tr>${YG.rows.map((r,i)=>{const hp=ygRowHp(r);return `<tr><td>${i+1}</td><td>${esc(stLbl(Object.assign({},r,{exp:4})))}</td><td>${esc(r.el||"")}</td><td>${+r.exp===3?"3":"4"} yüz</td><td>${fmt(num(r.n)||1,0)} × ${fmt(num(r.L),2)} m</td><td>${hp?fmt(hp,0):""}</td><td>${fmt(ygRowM2(r),1)}</td></tr>`;}).join("")}<tr><th colspan="6">Toplam</th><th>${fmt(YG.rows.reduce((a,r)=>a+ygRowM2(r),0),1)}</th></tr></table>`:""}
+   ${f.note?`<h2>Not</h2><p>${esc(f.note)}</p>`:""}<p style="margin-top:14px;font-size:11px;color:#5a6b85">Hp/A ve m² değerleri EN 10365 profil tablolarından yaklaşık hesaplanmıştır. Kalınlık hesabı, ürünün sertifikalı yükleme tablolarına göre Jotun teknik ekibince yapılır.</p>`; }
+function ygLinks(){ const wa=$("#yg-wa"), ml=$("#yg-mail"); if(!wa) return; const t=ygText(), n=(YG.to.wa||"").replace(/\D/g,"");
+  wa.href=(n?"https://wa.me/"+n:"https://wa.me/")+"?text="+encodeURIComponent(t);
+  ml.href=`mailto:${encodeURIComponent(YG.to.mail||"")}?subject=${encodeURIComponent("Yangın koruma analiz talebi"+(YG.f.proj?" – "+YG.f.proj:""))}&body=${encodeURIComponent(t.replace(/\*/g,""))}`;
+  const ch=document.querySelector(".yg-chk"); if(ch){ const ms=ygMissing(); ch.innerHTML=ms.length?ms.map(x=>`<span class="no">• Eksik: ${x}</span>`).join(""):`<span class="ok">✓ Talep analiz için hazır</span>`; } }
+function ygRowsUpd(){ const el=$("#yg-rows"); if(el) el.innerHTML=ygRowsHTML(); ygSave(); ygLinks(); }
+function ygAddUI(){ const fam=$("#yg-afam").value, std=fam in STD; $("#yg-asz").hidden=!std; document.querySelector(".yg-ad2").hidden=std;
+  if(std) $("#yg-asz").innerHTML=ygSizeOpts(fam,$("#yg-asz").value||200); $("#yg-ab").hidden=fam==="boru"; $("#yg-aexp").disabled=fam==="boru"; }
+async function ygFile(f){ const n=f.name.toLowerCase(), t=(f.type||"").toLowerCase(); toast("Liste okunuyor…"); let text="";
+  try{ if(t==="application/pdf"||n.endsWith(".pdf")) text=await pdfText(f); else if(t.startsWith("image/")) text=await steelOcr(f);
+    else if(/\.(xlsx|xls)$/.test(n)){ if(!window.XLSX) await loadScript("https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"); const wb=XLSX.read(await f.arrayBuffer()); text=wb.SheetNames.map(sn=>XLSX.utils.sheet_to_json(wb.Sheets[sn],{header:1}).map(r=>r.map(c=>c==null?"":String(c)).join(" \t ")).join("\n")).join("\n"); }
+    else text=await f.text(); }catch(e){ toast("Dosya okunamadı"); return; }
+  const {rows,skip}=steelParse(text); let k=0;
+  rows.filter(r=>r.t!=="levha"&&r.t!=="lama"&&r.t!=="mil"&&r.t!=="karedolu").forEach(r=>{ let L=num(r.q), nn=1;
+    if(r.u==="ton"){ const s=secOf(r); L=s&&s.A>0?L*1000/(s.A*7850):0; }
+    if(r.calc){ const m=r.calc.match(/^([\d.,]+) ad × ([\d.,]+) m/); if(m){ nn=trNum(m[1]); L=trNum(m[2]); } }
+    const el=/KOLON|COLUMN/i.test(r.line)?"Kolon":/K[İI]R[İI][ŞS]|BEAM/i.test(r.line)?"Kiriş":/BRACE|[ÇC]APRAZ/i.test(r.line)?"Çapraz":"Diğer";
+    YG.rows.push({t:r.t,s:r.s,a:r.a,b:r.b,th:r.th,d:r.d,exp:r.exp||4,el,L:Math.round(L*100)/100||"",n:nn,uns:!!r.unsure}); k++; });
+  ygRowsUpd(); toast(k?`${k} profil eklendi${skip.length?` · ${skip.length} satır okunamadı`:""}`:"Listede profil okuyamadım"); }
+function ygToEdit(){ const t=YG.to; const d=sheet("Analizi yapacak kişi",`<div class="yg-fm" style="grid-template-columns:1fr"><label>Ad soyad / ünvan<input type="text" id="yg-tn" value="${esc(t.name||"")}" placeholder="örn. Jotun yangın koruma uzmanı"></label><label>WhatsApp numarası<input type="tel" id="yg-tw" value="${esc(t.wa||"")}" placeholder="90 5xx xxx xx xx"></label><label>E-posta<input type="email" id="yg-tm" value="${esc(t.mail||"")}"></label></div><div class="q-actions"><button type="button" class="btn primary" id="yg-tok">Kaydet</button><button type="button" class="btn" data-close>Vazgeç</button></div>`);
+  d.querySelector("#yg-tok").onclick=()=>{ YG.to={name:d.querySelector("#yg-tn").value.trim(),wa:d.querySelector("#yg-tw").value.trim(),mail:d.querySelector("#yg-tm").value.trim()}; store("yg-to",YG.to); d.close(); ygRender(); }; }
+function ygRender(){ const b=$("#yg-body"); if(!b) return; $("#yg-tabs").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.yt===YG.tab));
+  b.innerHTML=YG.tab==="how"?ygHow():YG.tab==="math"?ygMath():YG.tab==="std"?ygStd():ygReq();
+  if(YG.tab==="math") ygMathUpd(); if(YG.tab==="req"){ ygAddUI(); ygLinks(); } }
+$("#yg-tabs").addEventListener("click",e=>{const b=e.target.closest("[data-yt]"); if(!b) return; YG.tab=b.dataset.yt; ygRender(); window.scrollTo(0,0);});
+$("#yg-body").addEventListener("input",e=>{ const t=e.target, M=YG.m;
+  if(t.id==="yg-mu"){ M.mu=+t.value; ygMathUpd(); } else if(t.id==="yg-R"){ M.R=+t.value; ygMathUpd(); } else if(t.id==="yg-hp"){ M.hp=t.value; ygMathUpd(); }
+  else if(t.dataset.ygf){ YG.f[t.dataset.ygf]=t.value; ygSave(); ygLinks(); }
+  else if(t.dataset.yge!=null&&t.tagName==="INPUT"){ const r=YG.rows[+t.dataset.yge]; r[t.dataset.k]=t.value; r.uns=false; ygSave(); ygLinks(); const sm=t.closest(".yg-row").querySelector("small"); const hp=ygRowHp(r); if(sm) sm.textContent=`Hp/A ${hp?fmt(hp,0)+" m⁻¹":"— (et kalınlığı gerekli)"} · ${fmt(ygRowM2(r),1)} m²`; } });
+$("#yg-body").addEventListener("change",e=>{ const t=e.target, M=YG.m;
+  if(t.id==="yg-fam"){ M.fam=t.value; M.s=STD[M.fam].some(p=>p[0]==M.s)?M.s:String(STD[M.fam][Math.min(6,STD[M.fam].length-1)][0]); $("#yg-sz").innerHTML=ygSizeOpts(M.fam,M.s); M.hp=""; $("#yg-hp").value=""; ygMathUpd(); }
+  else if(t.id==="yg-sz"){ M.s=t.value; M.hp=""; $("#yg-hp").value=""; ygMathUpd(); } else if(t.id==="yg-exp"){ M.exp=+t.value; M.hp=""; $("#yg-hp").value=""; ygMathUpd(); } else if(t.id==="yg-cv"){ M.curve=t.value; ygMathUpd(); }
+  else if(t.dataset.ygf){ YG.f[t.dataset.ygf]=t.value; ygSave(); ygLinks(); }
+  else if(t.id==="yg-afam") ygAddUI();
+  else if(t.id==="yg-upf"){ const f=t.files[0]; t.value=""; if(f) ygFile(f); }
+  else if(t.dataset.yge!=null&&t.tagName==="SELECT"){ const r=YG.rows[+t.dataset.yge]; r[t.dataset.k]=t.dataset.k==="exp"?+t.value:t.value; ygRowsUpd(); } });
+$("#yg-body").addEventListener("click",e=>{ const t=e.target;
+  if(t.id==="yg-toedit") ygToEdit();
+  else if(t.dataset.ygdel!=null){ YG.rows.splice(+t.dataset.ygdel,1); ygRowsUpd(); }
+  else if(t.id==="yg-aadd"){ const fam=$("#yg-afam").value, L=num($("#yg-aL").value), n=Math.max(1,num($("#yg-an").value)||1), el=$("#yg-ael").value, exp=+$("#yg-aexp").value; let r;
+    if(fam in STD) r={t:fam,s:$("#yg-asz").value}; else if(fam==="boru") r={t:"boru",d:num($("#yg-aa").value),th:num($("#yg-at").value)}; else r={t:"kutu",a:num($("#yg-aa").value),b:num($("#yg-ab").value)||num($("#yg-aa").value),th:num($("#yg-at").value)};
+    if(!secOf(r)){ toast("Profil ölçüsünü girin"); return; } if(!(L>0)){ toast("Boyu girin"); $("#yg-aL").focus(); return; }
+    YG.rows.push(Object.assign(r,{exp:fam==="boru"?4:exp,el,L,n})); $("#yg-aL").value=""; $("#yg-an").value="1"; ygRowsUpd(); toast("Profil eklendi"); }
+  else if(t.id==="yg-pdf"){ if(!pdfReady()){ toast("Bu ortamda PDF indirilemiyor"); return; } ygDoc(); const d=new Date(),pad=x=>String(x).padStart(2,"0"); pdfFromEl($("#yg-doc"),`Yangin_Analiz_Talebi_${(YG.f.proj||"proje").replace(/[^\p{L}\p{N}]+/gu,"_").slice(0,40)}_${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}.pdf`,t,"Analiz talebini paylaş"); }
+  else if(t.id==="yg-clr"){ if(!YG.rows.length&&!Object.keys(YG.f).length) return; const bk={f:YG.f,rows:YG.rows}; YG.f={}; YG.rows=[]; ygSave(); ygRender(); undoToast("Form temizlendi",()=>{YG.f=bk.f;YG.rows=bk.rows;ygSave();ygRender();}); } });
 
 try{document.body.insertAdjacentHTML("beforeend",'<div class="demo-rb">DEMO SÜRÜM</div>')}catch(e){}
-trkSync(); dmBadge(); route();
-
 })();
 </script>
 <div id="pwa-bar" hidden><img src="icon-192.png" alt=""><div class="t"><b>Jotun Endüstri'yi yükle</b><span id="pwa-msg">Telefonunda uygulama olarak açılsın.</span></div><button type="button" id="pwa-in">Yükle</button><button type="button" id="pwa-x" aria-label="Kapat">×</button></div>
