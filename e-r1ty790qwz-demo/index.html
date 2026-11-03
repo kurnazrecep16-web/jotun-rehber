@@ -1831,6 +1831,21 @@ button.yg-si:active{background:rgba(31,95,214,.18)}
 .yg-xb li{position:relative;padding-left:16px;font-size:13.5px;line-height:1.5;color:rgba(226,234,246,.9)}.yg-xb li:before{content:"";position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:#4f8cff}
 .yg-xb .n{display:flex;gap:9px;margin-top:12px;padding:10px 12px;border-radius:12px;background:rgba(240,171,0,.1);border:1px solid rgba(240,171,0,.4);font-size:13px;line-height:1.45;color:#ffe3a3}
 .yg-xb .n svg{flex:none;width:18px;height:18px;fill:none;stroke:#f0ab00;stroke-width:1.8;margin-top:1px}
+/* ---- v11 hero ---- */
+.yg-hero{overflow:hidden;margin:-4px -16px 6px;padding:10px 16px 18px;background:radial-gradient(120% 90% at 90% 20%,rgba(31,95,214,.25),rgba(31,95,214,0) 60%)}
+.yg-hph{position:absolute;right:0;top:0;height:100%;width:62%;object-fit:cover;object-position:left center;opacity:.85;-webkit-mask:linear-gradient(90deg,transparent 0,rgba(0,0,0,.35) 30%,rgba(0,0,0,.8) 60%,#000 90%);mask:linear-gradient(90deg,transparent 0,rgba(0,0,0,.35) 30%,rgba(0,0,0,.8) 60%,#000 90%);pointer-events:none}
+.yg-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,16,38,.92) 0,rgba(6,16,38,.55) 55%,rgba(6,16,38,.1) 100%);pointer-events:none}
+.yg-hero>*:not(.yg-hph){position:relative;z-index:1}
+.yg-ht{align-items:center}
+.yg-ht>div{padding-left:14px;border-left:1px solid rgba(214,224,240,.25)}
+.yg-fi{width:68px;height:68px;border-radius:18px;border:1.5px solid rgba(79,140,255,.75)!important;background:linear-gradient(180deg,#1d3f86,#0d2250)!important;box-shadow:0 8px 22px rgba(31,95,214,.4)}
+.yg-kick{display:block;margin-top:6px;font:600 10.5px var(--f-body);letter-spacing:.28em;text-transform:uppercase;color:rgba(214,224,240,.8)}
+.yg-hero h2{margin:4px 0 2px;font-size:30px;letter-spacing:-.01em;text-shadow:0 2px 14px rgba(0,0,0,.5)}
+.yg-hero p{max-width:30ch;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+.yg-bar{width:56px;margin:8px 0 10px}
+#yg-tabs.yg-tabs3 button{height:70px;border-radius:18px;border:1px solid rgba(110,150,230,.4);background:linear-gradient(180deg,rgba(16,34,70,.75),rgba(6,16,38,.75));-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);font-size:13.5px}
+#yg-tabs.yg-tabs3 button[aria-pressed="true"]{background:linear-gradient(180deg,#3b7cf5,#1f5fd6);border-color:#8fb4ff;box-shadow:0 8px 24px rgba(31,95,214,.5)}
+@media (min-width:620px){#yg-tabs.yg-tabs3 button{flex-direction:row;gap:12px;height:62px}}
 .demo-rb{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(70px + env(safe-area-inset-bottom,0px));z-index:80;background:#f0ab00;color:#0b1f45;font:800 11px var(--f-body);letter-spacing:.08em;padding:4px 10px;border-radius:8px;pointer-events:none}
 </style>
 
@@ -2152,9 +2167,9 @@ button.yg-si:active{background:rgba(31,95,214,.18)}
   <div id="is-body"></div>
 </section>
 <section id="v-yangin" hidden>
-  <div class="yg-hero"><a href="#ana" class="yg-back" aria-label="Ana sayfaya dön"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></a>
+  <div class="yg-hero"><img class="yg-hph" src="ill/hero-steel.webp" alt="" aria-hidden="true"><a href="#ana" class="yg-back" aria-label="Ana sayfaya dön"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></a>
     <div class="yg-ht"><span class="yg-fi" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 5c4 7 12 12 12 22a12 12 0 0 1-24 0c0-6 3-9 5-12 1 4 3 6 5 6-1-6 0-11 2-16z" fill="#f0ab00"/><path d="M24 41a6 6 0 0 1-6-6c0-3 2-5 3-7 1 2 3 3 4 3 2 1 5 3 5 5a6 6 0 0 1-6 5z" fill="#fff3d1"/></svg></span>
-    <div><span class="dm-tag">DEMO</span><h2 id="yg-h">Yangın Koruma</h2><p id="yg-p"></p><i class="yg-bar"></i></div></div></div>
+    <div><span class="dm-tag">DEMO</span><span class="yg-kick" id="yg-k">ENDÜSTRİYEL ÇELİKLER İÇİN</span><h2 id="yg-h">Yangın Koruma</h2><p id="yg-p"></p><i class="yg-bar"></i></div></div></div>
   <div class="yg-tabs yg-tabs3" id="yg-tabs">
     <button type="button" data-yt="how" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/><path d="M3 17.5l9 5 9-5" opacity=".6"/></svg>Nasıl çalışır</button>
     <button type="button" data-yt="std" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6c-2-1.5-5-2-8-1.5v13c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5v-13c-3-.5-6 0-8 1.5z"/><path d="M12 6v13"/></svg>Standartlar</button>
@@ -3743,7 +3758,7 @@ wxLoad();
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)wxLoad();});
 
 /* Yeni sürüm yayınlandıysa uygulama açıkken kendini yeniler */
-(()=>{const B="1793746479"; if(!/^\d+$/.test(B)) return;
+(()=>{const B="1793747309"; if(!/^\d+$/.test(B)) return;
   const chk=()=>fetch(location.pathname+"?b="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const B="(\d+)"/); if(m&&+m[1]>+B) location.reload();}).catch(()=>{});
   document.addEventListener("visibilitychange",()=>{if(!document.hidden)chk();}); setTimeout(chk,4000);})();
 
@@ -4544,7 +4559,7 @@ function ygToEdit(){ const t=YG.to; const d=sheet("Analizi yapacak kişi",`<div 
   d.querySelector("#yg-tok").onclick=()=>{ YG.to={name:d.querySelector("#yg-tn").value.trim(),wa:d.querySelector("#yg-tw").value.trim(),mail:d.querySelector("#yg-tm").value.trim()}; store("yg-to",YG.to); d.close(); ygRender(); }; }
 const YG_HERO={how:["Yangın Koruma","Çelik yangında neden korunur, Steelmaster nasıl çalışır ve kalınlık neye göre belirlenir."],std:["Standartlar","Yangın korumada bilinmesi gereken test, tasarım ve uygulama standartları."],req:["Kalınlık Analizi Talebi","Çelik elemanlar için gerekli bilgileri hazırlayın; yangın koruma kalınlığı analizi için Jotun teknik ekibine gönderin."]};
 function ygRender(){ const b=$("#yg-body"); if(!b) return; $("#yg-tabs").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.yt===YG.tab));
-  const H=YG_HERO[YG.tab]; $("#yg-h").textContent=H[0]; $("#yg-p").textContent=H[1];
+  const H=YG_HERO[YG.tab]; $("#yg-h").textContent=H[0]; $("#yg-p").textContent=H[1]; const kk=$("#yg-k"); if(kk) kk.textContent={how:"Endüstriyel çelikler için",std:"Test · tasarım · uygulama",req:"Jotun teknik ekibine"}[YG.tab];
   if(YG.tab==="req") ygPreload(); b.innerHTML=YG.tab==="how"?ygHow():YG.tab==="std"?ygStd():ygReq();
   if(YG.tab==="how") ygHowUpd(); if(YG.tab==="req") ygLinks(); }
 const ygA=()=>store("yg-a",YG.a);
