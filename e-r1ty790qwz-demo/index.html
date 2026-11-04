@@ -1926,6 +1926,17 @@ html body #v-sistem .hm-tile .ic-yangin{background-image:url(hm/yangin.webp)!imp
 html body #v-sistem .hm-t b span,html body #v-sistem .hm-sec span,html body #v-sistem .hm-tl span{font:inherit!important;color:inherit!important;margin:0!important;letter-spacing:inherit}
 html body #v-sistem .sx-wsec .hm-tile.sel{border-color:#f5b818!important;box-shadow:0 0 0 2px rgba(245,184,24,.25)!important}
 html body #v-sistem .hm-sec{margin-top:6px}
+
+/* Sistem: diğer seçenekler butonu */
+html body #cmp-btn.cmp-btn{display:flex!important;align-items:center;gap:12px;width:100%;min-height:68px;margin:14px 0 6px;padding:10px 14px!important;border-radius:18px!important;border:1.5px solid #6a9dff!important;background:linear-gradient(180deg,rgba(47,111,240,.35),rgba(31,95,214,.18))!important;color:#fff!important;text-align:left;box-shadow:0 0 0 3px rgba(79,140,255,.12),0 10px 24px rgba(31,95,214,.3)!important;cursor:pointer;animation:cbp 2.4s ease-in-out 2}
+@keyframes cbp{0%,100%{box-shadow:0 0 0 3px rgba(79,140,255,.12),0 10px 24px rgba(31,95,214,.3)}50%{box-shadow:0 0 0 6px rgba(79,140,255,.28),0 10px 24px rgba(31,95,214,.45)}}
+html body #cmp-btn .cb-ic{flex:none;width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#3b7cf5,#1f5fd6)}
+html body #cmp-btn .cb-ic svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:1.9}
+html body #cmp-btn .cb-t{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+html body #cmp-btn .cb-t b{font:800 16px var(--f-body);color:#fff}html body #cmp-btn .cb-t small{font:600 13px var(--f-body);color:#cfe0ff}
+html body #cmp-btn em{flex:none;min-width:26px;height:26px;padding:0 7px;border-radius:13px;background:#f0ab00;color:#0b1f45;font:800 13px/26px var(--f-body);font-style:normal;text-align:center}
+html body #cmp-btn .cb-ch{flex:none;width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2.2}
+html body #cmp-btn:active{transform:scale(.98)}
 /* ---- Sarfiyat profil önizlemesi ---- */
 .sf-pvw{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:10px;margin:2px 0 12px;padding:10px 12px 10px 6px;border-radius:18px;background:radial-gradient(90% 110% at 28% 50%,rgba(79,140,255,.22),rgba(79,140,255,0) 62%),linear-gradient(180deg,rgba(16,34,68,.85),rgba(5,14,32,.8));border:1px solid rgba(120,160,230,.3);color:#e8eef8}
 .sf-pvw[hidden]{display:none}
@@ -2424,7 +2435,7 @@ function render(){
     html += `<div class="empty">Bu ortam ve dayanım için seçilen astar tipinde ISO 12944-5 sistemi yok. ${s.env==="C5"?"C5'te alkid sistem tanımlı değildir; epoksi veya çinkolu astarı deneyin.":"Astar tipini \"Hepsi\" yapın veya bir üst dayanım/kategori sistemi seçin."}</div>`;
   }
   if(list.length) html += card(list[0],s,0,prepBox(s,list));
-  if(list.length>1) html += `<button type="button" class="btn ghost cmp-btn" id="cmp-btn">Diğer ${list.length-1} seçenek · yan yana karşılaştır</button>`;
+  if(list.length>1) html += `<button type="button" class="btn ghost cmp-btn" id="cmp-btn"><span class="cb-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1.5"/><rect x="14" y="4" width="7" height="16" rx="1.5"/></svg></span><span class="cb-t"><b>Diğer ${list.length-1} sistem seçeneği</b><small>Yan yana karşılaştır</small></span><svg class="cb-ch" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>`;
   out.innerHTML = html;
   out.querySelectorAll("[data-copy]").forEach(b=>b.addEventListener("click",()=>copy(b,list[+b.dataset.copy],s)));
   out.querySelectorAll("[data-quote]").forEach(b=>b.addEventListener("click",()=>quoteFromSystem(list[+b.dataset.quote],s)));
@@ -3855,7 +3866,7 @@ wxLoad();
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)wxLoad();});
 
 /* Yeni sürüm yayınlandıysa uygulama açıkken kendini yeniler */
-(()=>{const B="1793750404"; if(!/^\d+$/.test(B)) return;
+(()=>{const B="1793750529"; if(!/^\d+$/.test(B)) return;
   const chk=()=>fetch(location.pathname+"?b="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const B="(\d+)"/); if(m&&+m[1]>+B) location.reload();}).catch(()=>{});
   document.addEventListener("visibilitychange",()=>{if(!document.hidden)chk();}); setTimeout(chk,4000);})();
 
