@@ -2205,7 +2205,7 @@ html body #cmp-btn:active{transform:scale(.98)}
 <section id="v-danisman" hidden>
   <div class="seg modes" id="d-mode" role="tablist" hidden>
     <input type="radio" name="dmode" id="dm-w" value="w" hidden><label for="dm-w" hidden>Adım adım</label>
-    <input type="radio" name="dmode" id="dm-r" value="r" hidden><label for="dm-r" hidden>Rakibe karşı</label>
+    <input type="radio" name="dmode" id="dm-r" value="r" hidden><label for="dm-r" hidden>Alternatif öner</label>
     <input type="radio" name="dmode" id="dm-c" value="c" checked><label for="dm-c">Soru sor</label>
   </div>
 
@@ -2789,7 +2789,7 @@ function renderDoc(){
     return `<tr><td>${i+1}</td><td>${esc(l.name)}${l.ral?`<br><small style="color:#4b5b74">${esc(l.ral)}</small>`:""}${num(l.m2)>0&&num(l.dft)>0?`<br><small style="color:#4b5b74">${fmt(num(l.m2),0)} m² · ${fmt(num(l.dft),0)} µm</small>`:""}</td><td class="n">${num(l.pack)?fmt(packEff(l),packEff(l)%1?2:0)+" "+u:"—"}</td><td class="n">${fmt(q,0)}</td><td class="n">${lineL(l)?fmt(lineL(l),lineL(l)%1?2:0)+" "+u:"—"}</td><td class="n">${kg!=null?fmt(kg,1):"—"}</td><td class="n">${p>0?money(unitP(l)):"—"}</td><td class="n">${kgPrice(l)!=null?money(kgPrice(l)):"—"}</td><td class="n">${lineAmt(l)>0?money(lineAmt(l)):"—"}</td></tr>`}).join("");
   const missing = Q.lines.some(l=>l.name&&!(parseFloat(l.price)>0));
   $("#q-doc").innerHTML = `
-   <div class="top"><div><div class="lab">Fiyat teklifi</div><div class="dealer">${f.dealer?esc(f.dealer):"Bayi adı"}</div></div>
+   <div class="top"><div><div class="lab">Fiyat teklifi</div><div class="dealer">${f.dealer?esc(f.dealer):""}</div></div>
      <div class="meta">${Q.no||"—"}<br>Tarih: ${f.date}<br>Geçerlilik: ${f.until}</div></div>
    <div class="to"><span class="lab">Sayın</span><b>${f.customer?esc(f.customer):"Müşteri adı"}</b>${f.project?`<span>${esc(f.project)}</span>`:""}</div>
    ${rows?`<div class="tbl-wrap"><table><thead><tr><th>#</th><th>Ürün</th><th class="n">Ambalaj</th><th class="n">Adet</th><th class="n">Toplam L</th><th class="n">Toplam kg</th><th class="n">L fiyatı</th><th class="n">kg fiyatı</th><th class="n">Tutar</th></tr></thead><tbody>${rows}</tbody><tfoot><tr><td></td><td>Toplam</td><td></td><td class="n">${fmt(t.adet,0)}</td><td class="n">${fmt(t.lt,t.lt%1?2:0)} L</td><td class="n">${t.kg?fmt(t.kg,1)+(t.kgKnown?"":"*"):"—"}</td><td></td><td></td><td></td></tr></tfoot></table></div>
@@ -4011,7 +4011,7 @@ function sfDoc(){
   const tq=M.reduce((a,m)=>a+m.q,0), tL=M.reduce((a,m)=>a+m.L,0), tkg=M.reduce((a,m)=>a+(m.kg||0),0);
   const sys=SF.sys?`<div class="sys"><b>Sistem: ISO 12944-5 / ${esc(SF.sys.iso)}</b><br>${esc(SF.sys.sub)} · Ortam ${esc(SF.sys.env)} · ${esc(SF.sys.dur)}${SF.sys.prep?` · Yüzey hazırlığı: ${esc(SF.sys.prep)}`:""}</div>`:"";
   $("#sf-doc").innerHTML=`
-   <div class="top"><div><div class="lab">Sarfiyat ve malzeme listesi</div><div class="dealer">${proj?esc(proj):"Proje"}</div></div>
+   <div class="top"><div><div class="lab">Sarfiyat ve malzeme listesi</div><div class="dealer">${proj?esc(proj):""}</div></div>
      <div class="meta">${no}<br>Tarih: ${d.toLocaleDateString("tr-TR")}${who?`<br>Hazırlayan: ${esc(who)}`:""}</div></div>
    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 16px">
      ${[["Alan",fmt(t.A,0)+" m²"],["Fire",`%${fmt(num(SF.loss),0)}${num(SF.prof)?` · +${SF.prof} µm`:""}`],["Toplam KFK",fmt(t.dft,0)+" µm"],["m² başına",t.lpm?fmt(t.lpm,3)+" L":"—"]].map(([k,v])=>`<div style="background:#f1f3f7;border-radius:6px;padding:8px 10px"><div class="lab">${k}</div><b style="font-size:15px">${v}</b></div>`).join("")}</div>
@@ -4276,7 +4276,7 @@ $("#ch-fwd").addEventListener("click",()=>{
 gate();
 
 $("#f").addEventListener("input",render);
-$("#f").addEventListener("change",render);
+$("#f").addEventListener("change",e=>{if(e.target.matches("input[type=number],input[type=text]"))return;render();});
 $("#f").addEventListener("submit",e=>e.preventDefault());
 renderProducts(); render();
 renderLines();renderDoc();
