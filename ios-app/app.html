@@ -1478,6 +1478,466 @@ button.dm-it{cursor:pointer}
 .dm-kpb b{display:block;font:800 18px var(--f-body);color:#f0ab00}.dm-kpb span{font-size:11px;opacity:.85}
 .dm-bar[data-pk]{cursor:pointer}
 .sheet .dm-it{margin-bottom:8px}
+.yg-c{background:rgba(255,255,255,.05);border:1px solid rgba(140,170,220,.22);border-radius:16px;padding:14px 14px 12px;margin:0 0 12px;color:#e8eef8}
+.yg-c h3{margin:0 0 6px;font:800 17px var(--f-body);color:#fff;display:flex;align-items:center;gap:8px}
+.yg-c h3 .n{flex:none;width:24px;height:24px;border-radius:50%;background:#1f5fd6;color:#fff;font:800 13px/24px var(--f-body);text-align:center}
+.yg-c p,.yg-c li{font-size:14.5px;line-height:1.5;color:rgba(226,234,246,.88)}.yg-c p{margin:6px 0}.yg-c ul{margin:6px 0;padding-left:18px}
+.yg-c b{color:#fff}.yg-c small{color:rgba(214,224,240,.65)}
+.yg-k{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin:8px 0}
+.yg-k>div{background:rgba(5,14,32,.5);border:1px solid rgba(140,170,220,.2);border-radius:12px;padding:10px}.yg-k b{display:block;font-size:15px}.yg-k span{font-size:13px;color:rgba(214,224,240,.75)}
+.yg-f{font:600 14px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(5,14,32,.65);border:1px solid rgba(140,170,220,.2);border-radius:10px;padding:10px 12px;color:#ffd27a;white-space:pre-wrap;word-break:break-word;font-size:13px;margin:8px 0}
+#yg-tabs{display:grid;grid-template-columns:1fr 1fr;overflow:visible}#yg-tabs button{width:100%}
+.yg-svg{width:100%;height:auto;display:block;margin:6px 0}
+.yg-lg{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12.5px;color:rgba(214,224,240,.85);margin:2px 0 6px}.yg-lg i{display:inline-block;width:14px;height:3px;border-radius:2px;margin-right:5px;vertical-align:3px}
+.yg-ctl{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin:8px 0}
+.yg-ctl label{display:flex;flex-direction:column;gap:4px;font-size:12.5px;color:rgba(214,224,240,.75)}
+.yg-ctl select,.yg-ctl input,.yg-fm input,.yg-fm select,.yg-fm textarea{height:44px;box-sizing:border-box;border:1px solid rgba(140,170,220,.25);border-radius:10px;background:rgba(5,14,32,.55);color:#fff;font:500 15px var(--f-body);padding:0 10px;width:100%;min-width:0}
+.yg-fm textarea{height:76px;padding:8px 10px;resize:vertical}
+.yg-ctl input[type=range]{padding:0;height:32px;accent-color:#f0ab00;background:none;border:0}
+.yg-res{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin-top:6px}
+.yg-res>div{border-radius:12px;padding:10px;background:rgba(31,95,214,.18);border:1px solid rgba(31,95,214,.45)}.yg-res b{display:block;font:800 20px var(--f-body);color:#fff}.yg-res span{font-size:12.5px;color:rgba(214,224,240,.8)}
+.yg-res>div.w{background:rgba(240,171,0,.14);border-color:rgba(240,171,0,.5)}.yg-res>div.g{background:rgba(30,142,90,.18);border-color:rgba(30,142,90,.55)}
+.yg-sw{position:relative;height:120px;border-radius:12px;background:linear-gradient(#0d2347,#0a1a36);overflow:hidden;margin:8px 0}
+.yg-sw .st{position:absolute;left:0;right:0;bottom:0;height:34px;background:repeating-linear-gradient(135deg,#5b6b82 0 6px,#4c5a70 6px 12px)}
+.yg-sw .pr{position:absolute;left:0;right:0;bottom:34px;height:8px;background:#b24a3a}
+.yg-sw .ch{position:absolute;left:0;right:0;bottom:42px;height:4px;background:#e9e3d6;transform-origin:bottom;animation:ygsw 6s ease-in-out infinite;border-radius:0 0 4px 4px;background:radial-gradient(circle at 20% 30%,#fff 0 3px,transparent 4px) 0 0/22px 18px,#d9d0bf}
+.yg-sw .fl{position:absolute;left:0;right:0;top:0;height:40px;background:linear-gradient(#ff7a1a00,#ff7a1a55);animation:ygfl 6s ease-in-out infinite}
+.yg-sw .lb{position:absolute;right:10px;font:700 12px var(--f-body);color:#fff;text-shadow:0 1px 2px #000}
+@keyframes ygsw{0%,15%{height:4px}55%,85%{height:66px}100%{height:4px}}
+@keyframes ygfl{0%,10%{opacity:0}30%,85%{opacity:1}100%{opacity:0}}
+.yg-ly{display:flex;flex-direction:column;gap:3px;margin:8px 0}.yg-ly div{border-radius:8px;padding:8px 10px;font-size:13.5px;color:#0b1f45;font-weight:700}.yg-ly small{color:#0b1f45;opacity:.75;font-weight:500}
+.yg-std{border-left:3px solid #1f5fd6;padding:8px 0 8px 10px;margin:8px 0}.yg-std b{font-size:15px}.yg-std .rg{display:inline-block;font:700 11px var(--f-body);padding:2px 7px;border-radius:6px;background:rgba(31,95,214,.3);color:#cfe0ff;margin-left:6px;vertical-align:1px}
+.yg-std p{margin:3px 0 0}.yg-std.hc{border-color:#d9452b}.yg-std.tr{border-color:#f0ab00}.yg-std.cr{border-color:#1e8e5a}
+.yg-tb{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0}.yg-tb th,.yg-tb td{border:1px solid rgba(140,170,220,.25);padding:6px;text-align:center}.yg-tb th{background:rgba(31,95,214,.25);color:#fff}.yg-tb td{color:rgba(226,234,246,.7)}.yg-tb td.h{color:#ffd27a;font-weight:700}
+.yg-fm{display:grid;grid-template-columns:1fr 1fr;gap:10px}.yg-fm label{display:flex;flex-direction:column;gap:4px;font-size:12.5px;color:rgba(214,224,240,.78);min-width:0}.yg-fm .w2{grid-column:1/-1}
+.yg-rows{display:flex;flex-direction:column;gap:6px;margin:8px 0}
+.yg-row{display:grid;grid-template-columns:1fr auto;gap:4px 8px;background:rgba(5,14,32,.5);border:1px solid rgba(140,170,220,.2);border-radius:12px;padding:8px 10px}
+.yg-row.uns{border-color:#f0ab00}.yg-row b{font-size:14.5px;color:#fff}.yg-row small{grid-column:1/-1;color:rgba(214,224,240,.7);font-size:12.5px}
+.yg-row .x{width:30px;height:30px;border-radius:50%;border:0;background:rgba(255,255,255,.08);color:#fff;font-size:18px;cursor:pointer}
+.yg-row .ed{grid-column:1/-1;display:grid;grid-template-columns:1.2fr 1fr .8fr .8fr;gap:6px}.yg-row .ed select,.yg-row .ed input{height:38px;font-size:14px;border-radius:9px;border:1px solid rgba(140,170,220,.25);background:rgba(5,14,32,.55);color:#fff;padding:0 6px;min-width:0}
+.yg-add{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.yg-chk{display:flex;flex-direction:column;gap:4px;margin:6px 0}.yg-chk span{font-size:13.5px}.yg-chk .ok{color:#7fe0a8}.yg-chk .no{color:#ffcf66}
+.yg-act{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.yg-act .btn{width:100%;justify-content:center}.yg-act .w2{grid-column:1/-1}
+.yg-up{display:flex;align-items:center;gap:10px;border:1px dashed rgba(240,171,0,.6);border-radius:12px;padding:10px 12px;cursor:pointer;margin-top:8px}.yg-up b{display:block;color:#fff}.yg-up small{color:rgba(214,224,240,.7)}
+.yg-to{display:flex;align-items:center;justify-content:space-between;gap:10px;background:rgba(31,95,214,.15);border:1px solid rgba(31,95,214,.45);border-radius:12px;padding:10px 12px;margin-bottom:10px}.yg-to b{color:#fff}.yg-to span{font-size:13px;color:rgba(214,224,240,.8)}
+.yg-doc{background:#fff;color:#0b1f45;font:13px/1.45 var(--f-body);width:714px}
+.yg-doc h1{font-size:20px;margin:0 0 2px}.yg-doc h2{font-size:14px;margin:14px 0 6px;border-bottom:2px solid #0b1f45;padding-bottom:3px}
+.yg-doc table{width:100%;border-collapse:collapse}.yg-doc td,.yg-doc th{border:1px solid #c9d3e3;padding:4px 6px;text-align:left;font-size:12px}.yg-doc th{background:#eef3fa}
+.hm-card.yg-hcard .hm-ic svg{width:30px;height:30px}
+@media (max-width:420px){.yg-row .ed{grid-template-columns:1fr 1fr}}
+/* ---- v2 tasarım ---- */
+.yg-hero{position:relative;padding:4px 2px 14px}
+.yg-back{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:12px;border:1px solid rgba(140,170,220,.3);background:rgba(5,14,32,.45);margin-bottom:10px}
+.yg-back svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.yg-ht{display:flex;gap:14px;align-items:flex-start}.yg-fi{flex:none;width:64px;height:64px;border-radius:16px;background:linear-gradient(160deg,#173a73,#0c2147);border:1px solid rgba(240,171,0,.45);display:flex;align-items:center;justify-content:center;box-shadow:0 0 24px rgba(240,171,0,.18)}.yg-fi svg{width:38px;height:38px}
+.yg-hero h2{margin:6px 0 4px;color:#fff;font:800 27px/1.15 var(--f-body)}.yg-hero p{margin:0;color:rgba(214,224,240,.85);font-size:15px;line-height:1.45}
+.yg-bar{display:block;width:44px;height:4px;border-radius:2px;background:#f0ab00;margin-top:12px}
+.yg-tabs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:4px 0 14px}
+.yg-tabs button{display:flex;align-items:center;justify-content:center;gap:10px;height:52px;border-radius:26px;border:1px solid rgba(140,170,220,.32);background:rgba(5,14,32,.35);color:#fff;font:700 15px var(--f-body);cursor:pointer}
+.yg-tabs button svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.yg-tabs button[aria-pressed="true"]{background:linear-gradient(180deg,#2f6ff0,#1f5fd6);border-color:#4f8cff;box-shadow:0 6px 18px rgba(31,95,214,.35)}
+.yg-c{background:linear-gradient(180deg,rgba(23,42,78,.55),rgba(12,24,48,.55));border-radius:18px}
+.yg-c h3 .n{width:30px;height:30px;font:800 15px/30px var(--f-body);box-shadow:0 0 0 4px rgba(31,95,214,.18)}
+.yg-hc{position:relative;overflow:hidden;min-height:150px}.yg-hc .yg-tx{position:relative;z-index:1;max-width:64%}
+.yg-hc .yg-il{position:absolute;right:-6px;bottom:-4px;width:46%;max-width:190px;pointer-events:none}
+.yg-hc.wide .yg-tx{max-width:100%}
+.yg-step{display:flex;justify-content:space-between;position:relative;background:rgba(5,14,32,.45);border:1px solid rgba(140,170,220,.22);border-radius:16px;padding:12px 8px 10px;margin-bottom:12px}
+.yg-step:before{content:"";position:absolute;left:9%;right:9%;top:27px;height:2px;background:rgba(140,170,220,.3)}
+.yg-step button{position:relative;z-index:1;flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;background:none;border:0;color:rgba(214,224,240,.8);font:600 12.5px var(--f-body);cursor:pointer;padding:0}
+.yg-step button i{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font:800 13px var(--f-body);font-style:normal;background:#13264a;border:1.5px solid rgba(140,170,220,.45);color:#fff}
+.yg-step button.on i{background:#f0ab00;border-color:#f0ab00;color:#0b1f45;box-shadow:0 0 0 4px rgba(240,171,0,.2)}.yg-step button.on{color:#fff}
+.yg-step button.ok i{background:#1e8e5a;border-color:#1e8e5a}
+.yg-sec{background:linear-gradient(180deg,rgba(23,42,78,.55),rgba(12,24,48,.55));border:1px solid rgba(140,170,220,.22);border-radius:18px;margin:0 0 12px;color:#e8eef8;scroll-margin-top:80px}
+.yg-sec>summary{list-style:none;display:flex;align-items:center;gap:12px;padding:14px;cursor:pointer}.yg-sec>summary::-webkit-details-marker{display:none}
+.yg-sec>summary .ic{flex:none;width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(240,171,0,.12)}.yg-sec>summary .ic svg{width:22px;height:22px;fill:none;stroke:#f0ab00;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.yg-sec>summary b{flex:1;font:800 17px var(--f-body);color:#fff}.yg-sec>summary .cv{width:20px;height:20px;fill:none;stroke:#cfe0ff;stroke-width:2;transition:transform .2s}.yg-sec[open]>summary .cv{transform:rotate(180deg)}
+.yg-sec>summary .st{font:700 11px var(--f-body);padding:3px 8px;border-radius:8px;background:rgba(30,142,90,.25);color:#7fe0a8}
+.yg-sb{padding:0 14px 14px}
+.yg-fm .req{color:#ff6a5a;font-style:normal}
+.yg-in{position:relative;display:block}.yg-in>svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);width:19px;height:19px;fill:none;stroke:#cfe0ff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+.yg-in input,.yg-in select{padding-left:38px!important}
+.yg-warn{display:flex;gap:10px;align-items:flex-start;border:1px solid rgba(240,171,0,.6);background:rgba(240,171,0,.1);border-radius:12px;padding:10px;font-size:13px;line-height:1.4;color:#ffe2a3}.yg-warn svg{flex:none;width:20px;height:20px;fill:none;stroke:#f0ab00;stroke-width:2}
+.yg-pc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:10px;align-items:stretch}
+.yg-pv{background:rgba(5,14,32,.5);border:1px solid rgba(140,170,220,.22);border-radius:14px;padding:10px;display:flex;flex-direction:column;justify-content:center;gap:2px}
+.yg-pv svg{width:100%;max-width:150px;height:auto}.yg-pv b{font:800 19px var(--f-body);color:#fff}.yg-pv span{font-size:13px;color:rgba(214,224,240,.8)}
+.yg-pf{display:grid;grid-template-columns:1fr 1fr;gap:8px}.yg-pf label{font-size:12px}
+.yg-bt2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.yg-bt2>*{display:flex;align-items:center;justify-content:center;gap:8px;min-height:50px;border-radius:12px;font:700 14.5px var(--f-body);cursor:pointer;text-align:left}
+.yg-bt2 .a{border:1px solid rgba(207,224,255,.55);background:transparent;color:#fff}.yg-bt2 .u{border:1.5px solid #f0ab00;color:#fff;background:rgba(240,171,0,.06)}.yg-bt2 .u small{display:block;font-weight:500;font-size:11.5px;color:rgba(214,224,240,.8)}
+.yg-bt2 svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}.yg-bt2 .u svg{stroke:#f0ab00}
+.yg-sub{display:grid;grid-template-columns:1fr 1fr;background:rgba(5,14,32,.5);border:1px solid rgba(140,170,220,.22);border-radius:12px;padding:3px;margin-bottom:10px}
+.yg-sub button{height:38px;border:0;border-radius:9px;background:none;color:rgba(214,224,240,.85);font:700 13.5px var(--f-body);cursor:pointer}.yg-sub button[aria-pressed="true"]{background:#1f5fd6;color:#fff}
+.yg-an{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:10px}
+.yg-pan{background:rgba(5,14,32,.5);border:1px solid rgba(140,170,220,.22);border-radius:14px;padding:10px}.yg-pan h4{margin:0 0 6px;font:800 14px var(--f-body);color:#fff}
+.yg-sum div{display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid rgba(140,170,220,.14);font-size:12.5px;color:rgba(214,224,240,.85)}.yg-sum div:last-child{border:0}
+.yg-sum svg{flex:none;width:18px;height:18px;fill:none;stroke:#f0ab00;stroke-width:1.8}.yg-sum span{flex:1}.yg-sum b{color:#fff;font:800 14px var(--f-body);white-space:nowrap}
+.yg-ld{margin-top:10px;background:rgba(5,14,32,.5);border:1px solid rgba(140,170,220,.22);border-radius:14px}.yg-ld>summary{list-style:none;padding:10px 12px;font:800 14px var(--f-body);color:#fff;cursor:pointer;display:flex;justify-content:space-between}.yg-ld>summary::-webkit-details-marker{display:none}.yg-ld .yg-tb{margin:0 10px 10px;width:calc(100% - 20px)}
+.yg-tb td.h{color:#f0ab00;font-size:16px}
+.yg-pre{white-space:pre-wrap;font:13px/1.5 var(--f-body);background:rgba(5,14,32,.55);border:1px solid rgba(140,170,220,.2);border-radius:12px;padding:10px;max-height:320px;overflow:auto;color:#e8eef8}
+.yg-files{display:flex;flex-direction:column;gap:6px;margin-top:8px}.yg-files div{display:flex;align-items:center;gap:8px;font-size:13px;background:rgba(5,14,32,.5);border-radius:10px;padding:6px 10px}.yg-files span{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.yg-dz{display:flex;align-items:center;gap:10px;border:1px dashed rgba(207,224,255,.45);border-radius:12px;padding:12px;margin-top:10px;cursor:pointer;font-size:13.5px;color:rgba(214,224,240,.85)}.yg-dz b{color:#fff}.yg-dz svg{width:22px;height:22px;fill:none;stroke:#cfe0ff;stroke-width:2;flex:none}
+.yg-ck{list-style:none;margin:0;padding:0}.yg-ck li{display:flex;gap:10px;padding:6px 0;font-size:14px;line-height:1.45;color:rgba(226,234,246,.9)}.yg-ck li:before{content:"";flex:none;width:18px;height:18px;margin-top:1px;background:no-repeat center/18px url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f0ab00' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12.5l5 5L20 6.5'/%3E%3C/svg%3E")}
+.yg-bar2{margin:4px 0 6px}.yg-rcp{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:13px;color:rgba(214,224,240,.85);margin-bottom:8px}.yg-rcp b{color:#fff}
+.yg-acts{display:grid;grid-template-columns:1fr .8fr 1fr 1.6fr;gap:6px}
+.yg-acts>*{display:flex;align-items:center;justify-content:center;gap:5px;min-height:48px;padding:0 6px;border-radius:24px;border:1px solid rgba(207,224,255,.45);background:rgba(5,14,32,.45);color:#fff;font:700 12px/1.15 var(--f-body);cursor:pointer;text-align:center;text-decoration:none}
+.yg-acts svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2;flex:none;stroke-linecap:round;stroke-linejoin:round}
+.yg-acts .wa{background:#f0ab00;border-color:#f0ab00;color:#0b1f45}
+@media (max-width:340px){.yg-acts{grid-template-columns:1fr 1fr}.yg-an,.yg-pc{grid-template-columns:1fr}}
+@media (max-width:360px){.yg-tabs button{font-size:13.5px;gap:6px}}
+.yg-hh{display:flex;align-items:center;gap:6px}.yg-hh>div{flex:1;min-width:0}.yg-hh>svg.yg-il{position:static;flex:none;width:40%;max-width:170px;margin:-6px -8px -6px 0}
+.yg-cta{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:48px;margin-top:10px;border-radius:24px;border:0;background:#f0ab00;color:#0b1f45;font:800 15px var(--f-body);cursor:pointer}.yg-cta svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2}
+.yg-pv b{font-size:16px;line-height:1.25}
+.yg-an{grid-template-columns:1fr}
+.yg-sec,.yg-c{overflow:hidden}
+.yg-fm label>span:first-child{display:block}
+.yg-acts>*:not(.wa){white-space:nowrap}
+/* v3 */
+.yg-tabs3{grid-template-columns:1fr 1fr 1fr}.yg-tabs3 button{flex-direction:column;gap:4px;height:64px;border-radius:18px;font-size:13.5px}
+.yg-k4{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:10px 0 6px}.yg-k4>div{background:rgba(5,14,32,.5);border:1px solid rgba(140,170,220,.2);border-radius:12px;padding:8px 6px;text-align:center}.yg-k4 b{display:block;font:800 15px var(--f-body);color:#fff}.yg-k4 span{font-size:11.5px;color:rgba(214,224,240,.75);line-height:1.25;display:block;margin-top:2px}
+.yg-q4 b{color:#f0ab00}
+.yg-ft{display:flex;flex-direction:column;gap:8px;margin:8px 0}.yg-ft>div{display:flex;align-items:center;gap:10px;background:rgba(5,14,32,.45);border-radius:12px;padding:10px}.yg-ft i{flex:none;width:4px;align-self:stretch;border-radius:2px}.yg-ft p{flex:1;margin:0}.yg-ft b{display:block;color:#fff;font-size:15px}.yg-ft span{font-size:12.5px;color:rgba(214,224,240,.78)}
+.yg-ft em{flex:none;font:700 12px var(--f-body);font-style:normal;padding:4px 9px;border-radius:8px;background:rgba(31,95,214,.3);color:#cfe0ff}.yg-ft em.o{background:rgba(217,69,43,.22);color:#ffc2b5}
+.yg-pr{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:8px 0 6px}.yg-pr span{background:rgba(240,171,0,.08);border:1px solid rgba(240,171,0,.35);border-radius:12px;padding:8px 10px;font-size:12px;color:rgba(214,224,240,.85)}.yg-pr b{display:block;color:#fff;font:800 15px var(--f-body)}
+.yg-res{grid-template-columns:repeat(3,1fr);gap:6px}.yg-res>div{padding:8px}.yg-res b{font-size:17px}.yg-res span{font-size:11.5px;line-height:1.3;display:block}
+.yg-fx{margin-top:8px}.yg-fx summary{cursor:pointer;font:700 13.5px var(--f-body);color:#cfe0ff}
+.yg-sl>div{display:flex;flex-direction:column;padding:8px 0;border-top:1px solid rgba(140,170,220,.14)}.yg-sl>div:first-of-type{border-top:0}.yg-sl b{color:#fff;font-size:14.5px}.yg-sl span{font-size:13px;color:rgba(214,224,240,.78);margin-top:2px}
+#yg-tabs.yg-tabs3{grid-template-columns:1fr 1fr 1fr}
+
+.yg-step3:before{left:16%;right:16%}
+.yg-wz{padding:14px}
+.yg-g{margin:14px 0 4px}.yg-gl{display:block;font-size:13px;color:rgba(214,224,240,.85);margin-bottom:7px}
+.yg-chips{display:flex;flex-wrap:wrap;gap:6px}
+.yg-chips button{min-height:38px;padding:0 13px;border-radius:20px;border:1px solid rgba(140,170,220,.35);background:rgba(5,14,32,.5);color:#e6eefc;font:600 13px var(--f-body);cursor:pointer}
+.yg-chips button.on{background:#f0ab00;border-color:#f0ab00;color:#0b1f45}
+.yg-more{margin-top:14px}.yg-more summary small{color:rgba(214,224,240,.6);font-weight:500;margin-left:4px}.yg-more .yg-fm{margin-top:10px}
+.yg-nav{display:grid;grid-template-columns:1fr 2fr;gap:8px;margin-top:16px}
+.yg-nav button{min-height:48px;border-radius:24px;border:1px solid rgba(207,224,255,.45);background:rgba(5,14,32,.45);color:#fff;font:700 14px var(--f-body);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:4px}
+.yg-nav .nx{background:#f0ab00;border-color:#f0ab00;color:#0b1f45}.yg-nav svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.4}
+
+.yg-wz{margin-bottom:12px}
+.yg-h1{display:flex;align-items:center;gap:10px;margin:0 0 12px}.yg-h1 .n{width:26px;height:26px;border-radius:50%;background:#f0ab00;color:#0b1f45;font:800 13px var(--f-body);display:flex;align-items:center;justify-content:center}.yg-h1 b{font:800 16px var(--f-body);color:#fff;flex:1}.yg-h1 .ok{color:#3ecf8e;font-weight:800}
+.yg-wz .yg-g:first-of-type{margin-top:12px}
+/* ---- v6 talep kartları ---- */
+.yg-card{background:linear-gradient(180deg,rgba(24,44,82,.62),rgba(11,22,46,.62));border:1px solid rgba(120,160,230,.24);border-radius:20px;padding:14px;margin:0 0 12px;color:#e8eef8;box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 10px 30px rgba(0,0,0,.25);scroll-margin-top:80px;overflow:hidden}
+.yg-card>.yg-hd{display:flex;align-items:center;gap:10px;margin:-2px 0 14px}
+.yg-card>.yg-hd .ic{flex:none;width:36px;height:36px;border-radius:11px;display:flex;align-items:center;justify-content:center;background:rgba(79,140,255,.14);border:1px solid rgba(79,140,255,.25)}
+.yg-card>.yg-hd .ic svg{width:21px;height:21px;fill:none;stroke:#dbe7ff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.yg-card h3{flex:1;margin:0;font:800 17px var(--f-body);color:#fff;letter-spacing:-.01em}
+.yg-lk{display:inline-flex;align-items:center;gap:4px;background:none;border:0;padding:4px 2px;color:#8fb4ff;font:600 12.5px var(--f-body);cursor:pointer}.yg-lk svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2}
+.yg-fl{display:grid;grid-template-columns:1fr 1fr;gap:12px 10px}
+.yg-fl>.full,.yg-fl>[id^="ygq-"],.yg-fl>.yg-warn{grid-column:1/-1}
+.yg-r{display:flex;flex-direction:column;gap:6px;min-width:0}
+.yg-l{font-size:12.5px;color:rgba(214,224,240,.8)}
+.yg-card input,.yg-card select{width:100%;min-height:46px;border-radius:13px;border:1px solid rgba(140,170,220,.28);background:rgba(4,12,30,.55);color:#fff;font:500 15px var(--f-body);padding:0 12px;box-sizing:border-box}
+.yg-card input::placeholder{color:rgba(214,224,240,.45)}
+.yg-card input:focus,.yg-card select:focus{outline:none;border-color:#4f8cff;box-shadow:0 0 0 3px rgba(79,140,255,.2)}
+.yg-chips{display:flex;flex-wrap:wrap;gap:7px}
+.yg-chips button{display:inline-flex;align-items:center;gap:6px;min-height:42px;padding:0 14px;border-radius:22px;border:1px solid rgba(140,170,220,.32);background:rgba(4,12,30,.45);color:#e6eefc;font:700 13.5px var(--f-body);cursor:pointer;transition:background .15s,border-color .15s}
+.yg-chips button svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.yg-chips button.on{background:linear-gradient(180deg,#3b7cf5,#1f5fd6);border-color:#6a9dff;color:#fff;box-shadow:0 4px 14px rgba(31,95,214,.35)}
+#ygq-rate .yg-chips{display:grid;grid-template-columns:repeat(5,1fr)}#ygq-rate .yg-chips button{padding:0;justify-content:center}
+#ygq-env .yg-chips,#ygq-curve .yg-chips{display:grid;grid-template-columns:1fr 1fr}#ygq-env .yg-chips button,#ygq-curve .yg-chips button{justify-content:center}
+.yg-miss{animation:ygmiss 1.6s}@keyframes ygmiss{0%,60%{box-shadow:0 0 0 2px #ff6a5a;border-radius:14px}100%{box-shadow:none}}
+.yg-more{margin-top:14px;border-top:1px solid rgba(140,170,220,.16);padding-top:10px}
+.yg-more summary{list-style:none;display:flex;align-items:center;gap:6px;color:#8fb4ff;font:700 13.5px var(--f-body);cursor:pointer}.yg-more summary::-webkit-details-marker{display:none}
+.yg-more summary svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.2}.yg-more summary small{color:rgba(214,224,240,.5);font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.yg-more[open] summary svg{transform:rotate(45deg)}.yg-more .yg-fl{margin-top:12px}
+.yg-seg{display:flex;background:rgba(4,12,30,.55);border:1px solid rgba(140,170,220,.26);border-radius:13px;padding:3px}
+.yg-seg button{display:flex;align-items:center;gap:5px;height:34px;padding:0 10px;border:0;border-radius:10px;background:none;color:rgba(214,224,240,.85);font:700 12.5px var(--f-body);cursor:pointer;white-space:nowrap}
+.yg-seg button svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2}.yg-seg button.on{background:linear-gradient(180deg,#3b7cf5,#1f5fd6);color:#fff}
+.yg-ad{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.4fr);gap:10px}
+.yg-ad .yg-pv{border-radius:16px;padding:10px;background:radial-gradient(120% 90% at 50% 30%,rgba(79,140,255,.12),rgba(4,12,30,.55));border:1px solid rgba(140,170,220,.22)}
+.yg-ad .yg-pv b{font-size:15px}.yg-ad .yg-pv span{font-size:12px}
+.yg-af{display:grid;grid-template-columns:1fr 1fr;gap:8px}.yg-af label{display:flex;flex-direction:column;gap:4px;min-width:0;font-size:11.5px;color:rgba(214,224,240,.75)}
+.yg-af input,.yg-af select{min-height:42px;font-size:14px;padding:0 9px;border-radius:11px}
+.yg-addb{width:100%;margin-top:12px;min-height:50px;border-radius:15px;border:1.5px dashed rgba(120,165,255,.55);background:rgba(31,95,214,.1);color:#fff;font:800 15px var(--f-body);display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer}
+.yg-addb svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.2}
+.yg-dz2{display:flex;align-items:center;gap:12px;padding:22px 14px;border-radius:16px;border:1.5px dashed rgba(120,165,255,.55);background:rgba(31,95,214,.1);cursor:pointer}
+.yg-dz2 svg{flex:none;width:30px;height:30px;fill:none;stroke:#8fb4ff;stroke-width:1.8}.yg-dz2 b{display:block;color:#fff;font-size:15px}.yg-dz2 small{display:block;color:rgba(214,224,240,.65);font-size:12px;margin-top:2px}
+.yg-empty{margin:12px 0 0;text-align:center;color:rgba(214,224,240,.55);font-size:13px}
+div.yg-tb{margin-top:14px;display:flex;flex-direction:column;gap:6px}
+.yg-th{display:none}
+.yg-tr{display:grid;grid-template-columns:26px minmax(0,1fr) auto;align-items:center;gap:10px;padding:9px 10px;border-radius:13px;background:rgba(4,12,30,.45);border:1px solid rgba(140,170,220,.18)}
+.yg-tr.uns{border-color:rgba(240,171,0,.55)}.yg-tr.ed{border-color:#4f8cff;background:rgba(31,95,214,.15)}
+.yg-tr .no{width:24px;height:24px;border-radius:7px;background:rgba(79,140,255,.16);color:#cfe0ff;font:800 12px var(--f-body);display:flex;align-items:center;justify-content:center}
+.yg-tr .pf{display:flex;align-items:center;gap:9px;min-width:0}.yg-tr .pf>svg{flex:none;width:24px;height:24px;fill:none;stroke:#cfe0ff;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.yg-tr .pf>span{min-width:0}.yg-tr .pf b{display:block;font:700 14px var(--f-body);color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.yg-tr .pf small{display:block;font-size:12px;color:rgba(214,224,240,.65)}
+.yg-tr .wd{display:none}
+.yg-tr .ac{display:flex;gap:2px}.yg-tr .ac button{width:36px;height:36px;border:0;border-radius:10px;background:none;color:#cfe0ff;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.yg-tr .ac button:active{background:rgba(255,255,255,.08)}.yg-tr .ac svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.yg-tot{display:flex;align-items:center;gap:8px;margin-top:8px;padding:12px;border-radius:13px;background:linear-gradient(90deg,rgba(31,95,214,.22),rgba(31,95,214,.08));border:1px solid rgba(79,140,255,.3);font-size:13px;color:#e6eefc}
+.yg-tot svg{width:18px;height:18px;fill:none;stroke:#cfe0ff;stroke-width:1.8}.yg-tot b{flex:1;font-weight:800}.yg-tot span{font-weight:800;white-space:nowrap}.yg-tot i{width:1px;height:14px;background:rgba(214,224,240,.35)}
+.yg-nt{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:10px}
+.yg-ntl{flex:1;display:flex;align-items:center;gap:8px;min-width:0}.yg-ntl .ic2 svg{width:22px;height:22px;fill:none;stroke:#cfe0ff;stroke-width:1.8;stroke-linecap:round;display:block}
+.yg-ntl input{flex:1;min-width:0}
+.yg-atb{position:relative;flex:none;width:46px;height:46px;border-radius:13px;border:1px solid rgba(140,170,220,.28);background:rgba(4,12,30,.55);display:flex;align-items:center;justify-content:center;cursor:pointer}
+.yg-atb svg{width:20px;height:20px;fill:none;stroke:#cfe0ff;stroke-width:1.9}.yg-atb em{position:absolute;top:-5px;right:-5px;min-width:18px;height:18px;border-radius:9px;background:#f0ab00;color:#0b1f45;font:800 11px/18px var(--f-body);font-style:normal;text-align:center}
+.yg-nt .yg-files{flex-basis:100%}.yg-nt .yg-files:empty{display:none}
+.yg-send{display:grid;grid-template-columns:1fr 62px 62px;gap:8px;margin-top:4px}
+.yg-go{display:flex;align-items:center;justify-content:center;gap:9px;min-height:56px;border-radius:18px;background:linear-gradient(180deg,#3b7cf5,#1f5fd6);border:1px solid #6a9dff;color:#fff;font:800 17px var(--f-body);text-decoration:none;box-shadow:0 10px 26px rgba(31,95,214,.4);cursor:pointer}
+.yg-go svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linejoin:round}
+.yg-sq{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:56px;border-radius:16px;border:1px solid rgba(140,170,220,.32);background:rgba(4,12,30,.5);color:#fff;font:700 11px var(--f-body);text-decoration:none;cursor:pointer;padding:0}
+.yg-sq svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8}
+.yg-rcp2{margin:10px 2px 4px;font-size:12px;line-height:1.5;color:rgba(214,224,240,.7);text-align:center}.yg-rcp2 b{color:#fff}.yg-rcp2 .ms{color:#ffb4a8}.yg-rcp2 .okk{color:#6fe0a5;font-weight:700}.yg-rcp2 .yg-lk{padding:0;font-size:12px}
+.yg-sl2{display:block}
+@media (min-width:620px){
+ .yg-fl>.yg-r{display:grid;grid-template-columns:130px 1fr;align-items:center}.yg-fl{grid-template-columns:1fr}
+ .yg-th{display:grid;grid-template-columns:26px minmax(0,1.6fr) .8fr .8fr .6fr 76px;gap:10px;padding:0 10px;font-size:12px;color:rgba(214,224,240,.6)}
+ .yg-tr{grid-template-columns:26px minmax(0,1.6fr) .8fr .8fr .6fr 76px}.yg-tr .wd{display:block;font-size:13.5px}.yg-tr .pf small{display:none}
+}
+@media (max-width:360px){.yg-ad{grid-template-columns:1fr}#ygq-rate .yg-chips{grid-template-columns:repeat(3,1fr)}}
+
+.yg-chips button{white-space:nowrap}#ygq-curve .yg-chips button{padding:0 8px;font-size:13px}
+.yg-card h3{white-space:nowrap}
+@media (max-width:420px){.yg-seg button{padding:0 9px}}
+
+.yg-hint2{grid-column:1/-1;margin:-4px 0 0;font-size:12px;color:rgba(214,224,240,.6);line-height:1.4}
+@media (min-width:620px){.yg-hint2{padding-left:140px}}
+
+/* ---- v7 profil kütüphanesi önizlemesi ---- */
+.yg-ad{grid-template-columns:1fr!important}
+.yg-ad .yg-pv{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:10px;padding:10px 12px 10px 6px;background:radial-gradient(90% 110% at 28% 50%,rgba(79,140,255,.22),rgba(79,140,255,0) 62%),linear-gradient(180deg,rgba(16,34,68,.8),rgba(5,14,32,.75));border:1px solid rgba(120,160,230,.28);border-radius:18px;flex-direction:initial}
+.yg-pim{position:relative;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center}
+.yg-pim:after{content:"";position:absolute;left:14%;right:14%;bottom:6%;height:10%;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.45),rgba(0,0,0,0));z-index:0}
+.yg-pim img{position:relative;z-index:1;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 6px 10px rgba(0,0,0,.35));animation:ygpi .25s ease}
+@keyframes ygpi{from{opacity:.2;transform:scale(.97)}to{opacity:1;transform:none}}
+.yg-pin{min-width:0;display:flex;flex-direction:column;gap:3px}
+.yg-ad .yg-pv .yg-pin b{font:800 17px/1.2 var(--f-body);color:#fff;word-break:break-word}
+.yg-ad .yg-pv .yg-pin .sb{font-size:12px;color:rgba(214,224,240,.7)}
+.yg-pin dl{margin:8px 0 0;display:grid;gap:5px}
+.yg-pin dl div{display:flex;justify-content:space-between;align-items:baseline;gap:6px;padding:5px 8px;border-radius:9px;background:rgba(4,12,30,.5);border:1px solid rgba(140,170,220,.16)}
+.yg-pin dt{font-size:11.5px;color:rgba(214,224,240,.65)}.yg-pin dd{margin:0;font:800 13.5px var(--f-body);color:#fff;white-space:nowrap}.yg-pin dd small{font-weight:600;font-size:10.5px;color:rgba(214,224,240,.6)}
+.yg-af{grid-template-columns:1fr 1fr 1fr}
+@media (max-width:400px){.yg-af{grid-template-columns:1fr 1fr}}
+@media (max-width:340px){.yg-ad .yg-pv{grid-template-columns:1fr}}
+/* ---- v8 Nasıl çalışır kartları ---- */
+.yg-c h3 .tn{flex:none;width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#1d3f86,#132a5c);border:1px solid rgba(79,140,255,.55);box-shadow:0 4px 12px rgba(31,95,214,.3)}
+.yg-c h3 .tn svg{width:19px;height:19px;fill:none;stroke:#f0ab00;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.yg-c2{position:relative;overflow:hidden;padding:16px 14px 14px;border-radius:22px;background:linear-gradient(180deg,rgba(20,38,74,.85),rgba(8,18,40,.85));border:1px solid rgba(110,150,230,.28);box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 12px 30px rgba(0,0,0,.3)}
+.yg-hd2{position:relative;z-index:1;display:flex;gap:12px;align-items:flex-start;margin-bottom:12px}
+.yg-hd2 .ti{flex:none;width:50px;height:50px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#1d3f86,#10264f);border:1.5px solid rgba(79,140,255,.75);box-shadow:0 6px 18px rgba(31,95,214,.35)}
+.yg-hd2 .ti svg{width:26px;height:26px;fill:none;stroke:#fff;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.yg-hd2 h3{margin:0 0 4px;font:800 19px/1.2 var(--f-body);color:#fff;display:block}
+.yg-hd2 p{margin:0;font-size:13.5px;line-height:1.45;color:rgba(214,224,240,.82)}
+.yg-hd2 .bar{display:block;width:58px;height:4px;border-radius:3px;background:#f0ab00;margin-top:9px}
+.yg-q4b{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:10px}
+.yg-q4b>div{display:flex;align-items:center;gap:9px;padding:9px 10px;border-radius:13px;background:rgba(4,12,30,.5);border:1px solid rgba(140,170,220,.22)}
+.yg-q4b svg{flex:none;width:24px;height:24px;fill:none;stroke:#f0ab00;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.yg-q4b svg~p{margin:0}.yg-q4b b{display:block;font:800 15px var(--f-body);color:#f0ab00}.yg-q4b span{font-size:11.5px;color:rgba(214,224,240,.8)}
+.yg-ctl2{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;padding:10px;border-radius:15px;background:rgba(4,12,30,.4);border:1px solid rgba(140,170,220,.16)}
+.yg-ctl2 label{display:flex;flex-direction:column;gap:4px;font-size:12px;color:rgba(214,224,240,.75);min-width:0}
+.yg-ctl2 select{height:42px;border:1px solid rgba(140,170,220,.3);border-radius:11px;background:rgba(4,12,30,.6);color:#fff;font:600 14px var(--f-body);padding:0 8px;width:100%}
+.yg-ctl2 .sl{grid-column:1/-1;display:grid;grid-template-columns:auto 1fr;align-items:center;gap:10px;font-size:13px;color:#e6eefc}
+.yg-ctl2 .sl #yg-mu-v{white-space:nowrap;font-weight:700}
+.yg-ctl2 input[type=range]{-webkit-appearance:none;appearance:none;height:6px;border-radius:4px;background:linear-gradient(90deg,#f0ab00 var(--p,57%),rgba(255,255,255,.14) var(--p,57%));outline:none}
+.yg-ctl2 input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.4);cursor:pointer}
+.yg-ctl2 input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:#fff;border:0}
+.yg-res2{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:10px 0}
+.yg-res2>div{display:flex;flex-direction:column;gap:4px;padding:10px 9px;border-radius:14px;border:1px solid}
+.yg-res2>div>svg{width:22px;height:22px;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.yg-res2 p{margin:0}.yg-res2 b{display:block;font:800 18px/1.15 var(--f-body);color:#fff;white-space:nowrap}.yg-res2 span{display:block;font-size:11px;line-height:1.3;color:rgba(214,224,240,.8);margin-top:2px}
+.yg-res2 .b{background:linear-gradient(180deg,rgba(31,95,214,.35),rgba(31,95,214,.15));border-color:rgba(79,140,255,.6)}.yg-res2 .b svg{stroke:#9cc0ff}
+.yg-res2 .w{background:linear-gradient(180deg,rgba(240,171,0,.25),rgba(240,171,0,.08));border-color:rgba(240,171,0,.6)}.yg-res2 .w svg{stroke:#f0ab00}
+.yg-res2 .g{background:linear-gradient(180deg,rgba(30,142,90,.3),rgba(30,142,90,.1));border-color:rgba(60,207,142,.55)}.yg-res2 .g svg{stroke:#6fe0a5}
+.yg-chw{padding:6px 2px 0}
+.yg-nt2{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;margin:8px 0;border-radius:13px;background:rgba(4,12,30,.45);border:1px solid rgba(140,170,220,.2);font-size:12.5px;line-height:1.45;color:rgba(226,234,246,.88)}
+.yg-nt2>svg{flex:none;width:20px;height:20px;fill:none;stroke:#cfe0ff;stroke-width:1.8;margin-top:1px}
+.yg-ltb{margin:10px 0 0;border-radius:15px;background:rgba(4,12,30,.4);border:1px solid rgba(140,170,220,.2);padding:0 10px}
+.yg-ltb>summary{list-style:none;display:flex;align-items:center;gap:9px;padding:12px 2px;cursor:pointer}.yg-ltb>summary::-webkit-details-marker{display:none}
+.yg-ltb>summary>svg:first-child{width:20px;height:20px;fill:none;stroke:#cfe0ff;stroke-width:1.6}.yg-ltb>summary b{flex:1;font:800 14.5px var(--f-body);color:#fff}
+.yg-ltb .cv{width:18px;height:18px;fill:none;stroke:#cfe0ff;stroke-width:2;transition:transform .2s}.yg-ltb[open] .cv{transform:rotate(180deg)}
+.yg-ltb table{margin:0 0 8px;border-radius:10px;overflow:hidden;border-collapse:separate;border-spacing:0}
+.yg-ltb th,.yg-ltb td{border:0;border-right:1px solid rgba(140,170,220,.18);border-bottom:1px solid rgba(140,170,220,.18);padding:8px 4px;font-size:12px}
+.yg-ltb tr:first-child th{background:rgba(31,95,214,.35)}.yg-ltb tr th:first-child{background:rgba(31,95,214,.22)}
+.yg-ltb td{color:rgba(214,224,240,.45);font-size:15px}.yg-ltb td.h{color:#f0ab00;font-size:19px;text-shadow:0 0 10px rgba(240,171,0,.7)}
+.yg-ltb small{display:block;padding-bottom:10px}
+.yg-ft2{display:flex;align-items:center;gap:8px;margin-top:10px;font-size:12px;color:rgba(214,224,240,.72)}.yg-ft2 svg{flex:none;width:18px;height:18px;fill:none;stroke:#cfe0ff;stroke-width:1.6}.yg-ft2>span{display:flex;align-items:center;gap:8px}
+.yg-fx2{margin-top:8px}.yg-fx2>summary{display:flex;align-items:center;gap:6px}.yg-fx2>summary svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8}
+.yg-sys .ph{position:absolute;right:0;top:0;width:58%;max-width:290px;height:auto;opacity:.55;-webkit-mask:linear-gradient(225deg,#000 25%,transparent 75%);mask:linear-gradient(225deg,#000 25%,transparent 75%);pointer-events:none}
+.yg-lyr{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.1fr);gap:8px;align-items:center}
+.yg-lyr>img{width:100%;height:auto;-webkit-mask:radial-gradient(75% 70% at 50% 50%,#000 60%,transparent 100%);mask:radial-gradient(75% 70% at 50% 50%,#000 60%,transparent 100%)}
+.yg-lyr .ls{display:flex;flex-direction:column;gap:7px}
+.yg-lyr .ls>div{display:flex;align-items:center;gap:8px;padding:9px 9px;border-radius:12px;border:1px solid}
+.yg-lyr .ls svg{flex:none;width:22px;height:22px;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.yg-lyr .ls p{margin:0;min-width:0}.yg-lyr .ls b{display:block;font:800 13.5px var(--f-body);color:#fff}.yg-lyr .ls span{display:block;font-size:11px;line-height:1.3;color:rgba(214,224,240,.8)}
+.yg-lyr .l1{background:rgba(120,150,200,.14);border-color:rgba(170,195,235,.45)}.yg-lyr .l1 svg{stroke:#dbe7ff}
+.yg-lyr .l2{background:rgba(240,171,0,.14);border-color:rgba(240,171,0,.7);box-shadow:0 0 14px rgba(240,171,0,.18)}.yg-lyr .l2 svg{stroke:#f0ab00}
+.yg-lyr .l3{background:rgba(217,69,43,.16);border-color:rgba(240,110,90,.6)}.yg-lyr .l3 svg{stroke:#ff8a75}
+.yg-lyr .l4{background:rgba(120,150,200,.1);border-color:rgba(170,195,235,.35)}.yg-lyr .l4 svg{stroke:#cfe0ff}
+.yg-env{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.yg-env button{display:flex;flex-direction:column;align-items:center;gap:2px;padding:10px 2px;border-radius:14px;border:1px solid rgba(140,170,220,.3);background:rgba(4,12,30,.45);color:#e6eefc;cursor:pointer;font-family:var(--f-body)}
+.yg-env svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}.yg-env b{font:800 17px var(--f-body)}.yg-env span{font-size:10.5px;line-height:1.2;text-align:center;color:rgba(214,224,240,.8)}
+.yg-env button.on{background:linear-gradient(180deg,#3b7cf5,#1f5fd6);border-color:#8fb4ff;box-shadow:0 6px 18px rgba(31,95,214,.4)}.yg-env button.on span{color:#fff}
+.yg-envd{margin:8px 2px 0;font-size:12.5px;color:#cfe0ff;min-height:18px}
+.yg-cta2{padding:0;min-height:300px}
+.yg-cta2 .ph{position:absolute;right:0;top:0;height:100%;width:62%;object-fit:cover;-webkit-mask:linear-gradient(90deg,transparent 0,#000 55%);mask:linear-gradient(90deg,transparent 0,#000 55%);opacity:.85}
+.yg-cta2 .in{position:relative;z-index:1;padding:18px 14px 16px;background:linear-gradient(90deg,rgba(8,18,40,.96) 0,rgba(8,18,40,.75) 55%,rgba(8,18,40,.15) 100%)}
+.yg-cta2 .yg-hd2{max-width:82%}
+.yg-cta2 .yg-hd2 h3{font-size:21px}
+.yg-fe{display:flex;gap:0;margin:6px 0 16px;max-width:92%}
+.yg-fe>div{flex:1;display:flex;align-items:center;gap:7px;padding:0 8px;border-left:1px solid rgba(214,224,240,.2)}.yg-fe>div:first-child{border-left:0;padding-left:0}
+.yg-fe svg{flex:none;width:24px;height:24px;fill:none;stroke:#fff;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}.yg-fe span{font:700 12px/1.25 var(--f-body);color:#fff}
+.yg-cta3{width:100%;display:flex;align-items:center;gap:12px;min-height:58px;padding:0 16px;border-radius:18px;border:1px solid #6a9dff;background:linear-gradient(180deg,#3b7cf5,#1f5fd6);color:#fff;font:800 15.5px var(--f-body);cursor:pointer;box-shadow:0 10px 26px rgba(31,95,214,.45);text-align:left}
+.yg-cta3>svg{flex:none;width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.yg-cta3>svg:first-child{padding-right:12px;border-right:1px solid rgba(255,255,255,.3);width:34px}.yg-cta3 span{flex:1}
+@media (max-width:370px){.yg-ctl2{grid-template-columns:1fr 1fr}.yg-res2 b{font-size:16px}.yg-fe span{font-size:11px}}
+@media (min-width:620px){.yg-q4b{grid-template-columns:repeat(4,1fr)}.yg-cta2 .yg-hd2,.yg-fe{max-width:62%}.yg-cta3{max-width:68%}}
+.yg-ltb table{width:100%;table-layout:fixed}.yg-ltb th{text-transform:none;letter-spacing:0;font:700 11.5px var(--f-body)!important;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.yg-ltb tr th:first-child{width:30%}
+/* ---- v9 standartlar ---- */
+.yg-sc{position:relative;overflow:hidden;margin:0 0 12px;padding:14px 12px 12px;border-radius:20px;background:linear-gradient(180deg,rgba(22,42,80,.85),rgba(9,20,44,.85));border:1px solid rgba(110,150,230,.3);box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 10px 26px rgba(0,0,0,.28)}
+.yg-sc .ph{position:absolute;right:0;top:0;width:62%;max-width:320px;height:74px;object-fit:cover;opacity:.75;-webkit-mask:linear-gradient(90deg,transparent 0,#000 60%);mask:linear-gradient(90deg,transparent 0,#000 60%);pointer-events:none}
+.yg-sc .hd{position:relative;display:flex;align-items:center;gap:12px;margin:2px 4px 12px}
+.yg-sc .hd svg{width:28px;height:28px;fill:none;stroke:#e6eefc;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.yg-sc h3{margin:0;font:800 19px var(--f-body);color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.5)}
+.yg-si{position:relative;margin-top:7px;border-radius:14px;background:rgba(4,12,30,.55);border:1px solid rgba(140,170,220,.22);overflow:hidden}
+.yg-si>summary{list-style:none;display:flex;align-items:center;gap:10px;padding:10px 10px 10px 18px;cursor:pointer;position:relative}.yg-si>summary::-webkit-details-marker{display:none}
+.yg-si>summary:before{content:"";position:absolute;left:9px;top:12px;bottom:12px;width:3.5px;border-radius:3px;background:var(--ac)}
+.yg-si.b{--ac:#3b82f6}.yg-si.y{--ac:#f0ab00}.yg-si.o{--ac:#ff7a1a}
+.yg-si p{flex:1;margin:0;min-width:0}.yg-si b{display:block;font:800 15.5px/1.25 var(--f-body);color:#fff}.yg-si span{display:block;margin-top:2px;font-size:12.5px;line-height:1.4;color:rgba(214,224,240,.82)}
+.yg-si .cv{flex:none;width:20px;height:20px;fill:none;stroke:#e6eefc;stroke-width:2;transition:transform .2s}.yg-si[open] .cv{transform:rotate(90deg)}
+.yg-si .x{padding:0 12px 12px 18px;font-size:12.5px;line-height:1.5;color:#cfe0ff;border-top:1px solid rgba(140,170,220,.14);padding-top:9px;margin:0 0 0 0}
+.yg-snt{margin-top:4px}
+/* ---- v10 detay kartları ---- */
+button.yg-si{display:flex;align-items:center;gap:10px;width:100%;padding:10px 10px 10px 18px;text-align:left;color:inherit;font-family:inherit;cursor:pointer}
+button.yg-si:before{content:"";position:absolute;left:9px;top:12px;bottom:12px;width:3.5px;border-radius:3px;background:var(--ac)}
+button.yg-si:active{background:rgba(31,95,214,.18)}
+.yg-tap [data-ygx],.yg-lyr [data-ygx]{cursor:pointer;position:relative;transition:transform .12s,border-color .15s}
+.yg-tap [data-ygx]:active,.yg-lyr [data-ygx]:active{transform:scale(.97)}
+.yg-tap [data-ygx]:after,.yg-lyr [data-ygx]:after{content:"";position:absolute;right:7px;top:7px;width:5px;height:5px;border-right:1.6px solid rgba(214,224,240,.55);border-top:1.6px solid rgba(214,224,240,.55);transform:rotate(45deg)}
+.sheet.yg-xs{background:linear-gradient(180deg,#14284f,#0a1631);color:#e8eef8;border:1px solid rgba(110,150,230,.3)}
+.sheet.yg-xs .sheet-h h3{color:#fff;font:800 19px var(--f-body)}.sheet.yg-xs .x{color:#cfe0ff}
+.yg-xb .s{margin:0;font-size:14.5px;line-height:1.5;color:#e6eefc}
+.yg-xb .kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:7px;margin:12px 0 4px}
+.yg-xb .kv>div{padding:9px 10px;border-radius:12px;background:rgba(4,12,30,.5);border:1px solid rgba(140,170,220,.22)}
+.yg-xb .kv span{display:block;font-size:11.5px;color:rgba(214,224,240,.7)}.yg-xb .kv b{display:block;margin-top:2px;font:800 14.5px var(--f-body);color:#f0ab00}
+.yg-xb ul{margin:10px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px}
+.yg-xb li{position:relative;padding-left:16px;font-size:13.5px;line-height:1.5;color:rgba(226,234,246,.9)}.yg-xb li:before{content:"";position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:#4f8cff}
+.yg-xb .n{display:flex;gap:9px;margin-top:12px;padding:10px 12px;border-radius:12px;background:rgba(240,171,0,.1);border:1px solid rgba(240,171,0,.4);font-size:13px;line-height:1.45;color:#ffe3a3}
+.yg-xb .n svg{flex:none;width:18px;height:18px;fill:none;stroke:#f0ab00;stroke-width:1.8;margin-top:1px}
+/* ---- v11 hero ---- */
+.yg-hero{overflow:hidden;margin:-4px -16px 6px;padding:10px 16px 18px;background:radial-gradient(120% 90% at 90% 20%,rgba(31,95,214,.25),rgba(31,95,214,0) 60%)}
+.yg-hph{position:absolute;right:0;top:0;height:100%;width:62%;object-fit:cover;object-position:left center;opacity:.85;-webkit-mask:linear-gradient(90deg,transparent 0,rgba(0,0,0,.35) 30%,rgba(0,0,0,.8) 60%,#000 90%);mask:linear-gradient(90deg,transparent 0,rgba(0,0,0,.35) 30%,rgba(0,0,0,.8) 60%,#000 90%);pointer-events:none}
+.yg-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,16,38,.92) 0,rgba(6,16,38,.55) 55%,rgba(6,16,38,.1) 100%);pointer-events:none}
+.yg-hero>*:not(.yg-hph){position:relative;z-index:1}
+.yg-ht{align-items:center}
+.yg-ht>div{padding-left:14px;border-left:1px solid rgba(214,224,240,.25)}
+.yg-fi{width:68px;height:68px;border-radius:18px;border:1.5px solid rgba(79,140,255,.75)!important;background:linear-gradient(180deg,#1d3f86,#0d2250)!important;box-shadow:0 8px 22px rgba(31,95,214,.4)}
+.yg-kick{display:block;margin-top:6px;font:600 10.5px var(--f-body);letter-spacing:.28em;text-transform:uppercase;color:rgba(214,224,240,.8)}
+.yg-hero h2{margin:4px 0 2px;font-size:30px;letter-spacing:-.01em;text-shadow:0 2px 14px rgba(0,0,0,.5)}
+.yg-hero p{max-width:30ch;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+.yg-bar{width:56px;margin:8px 0 10px}
+#yg-tabs.yg-tabs3 button{height:70px;border-radius:18px;border:1px solid rgba(110,150,230,.4);background:linear-gradient(180deg,rgba(16,34,70,.75),rgba(6,16,38,.75));-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);font-size:13.5px}
+#yg-tabs.yg-tabs3 button[aria-pressed="true"]{background:linear-gradient(180deg,#3b7cf5,#1f5fd6);border-color:#8fb4ff;box-shadow:0 8px 24px rgba(31,95,214,.5)}
+@media (min-width:620px){#yg-tabs.yg-tabs3 button{flex-direction:row;gap:12px;height:62px}}
+.demo-rb{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(70px + env(safe-area-inset-bottom,0px));z-index:80;background:#f0ab00;color:#0b1f45;font:800 11px var(--f-body);letter-spacing:.08em;padding:4px 10px;border-radius:8px;pointer-events:none}
+/* ==== Demo ana sayfa tasarımı ==== */
+html body #v-ana .hm-hero{padding-bottom:6px}
+html body #v-ana .hm-h{font-size:34px;letter-spacing:-.01em;text-shadow:0 2px 14px rgba(0,0,0,.45)}
+html body #v-ana .hm-sub{font-size:16px;color:rgba(226,234,246,.9);text-shadow:0 1px 8px rgba(0,0,0,.5)}
+html body #v-ana .hm-bar{width:60px;height:4px;border-radius:3px;background:#f0ab00}
+html body #v-ana .hm-top{gap:9px}
+html body #v-ana .hm-top .hm-card,html body #v-ana #h-fp>summary.fp-card{min-height:72px!important;padding:8px 16px 8px 8px!important;gap:0!important;border-radius:18px!important;background:linear-gradient(180deg,rgba(20,40,80,.92),rgba(10,24,52,.92))!important;border:1px solid rgba(110,150,230,.45)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 8px 20px rgba(0,0,0,.25)!important}
+html body #v-ana .hm-top .hm-card.hm-pri{min-height:84px!important;background:linear-gradient(180deg,#3d80f7 0%,#2463e0 55%,#1b52c4 100%)!important;border:1px solid #8fb4ff!important;box-shadow:0 0 0 1px rgba(143,180,255,.25),0 10px 30px rgba(31,95,214,.55)!important}
+html body #v-ana .hm-top .hm-ic,html body #v-ana #h-fp .fp-ic{width:76px!important;height:56px!important;flex:none;margin-right:26px!important;border:0!important;border-radius:0!important;box-shadow:none!important;background-color:transparent!important;background-size:contain!important;background-repeat:no-repeat!important;background-position:center!important;padding:0!important;position:relative;overflow:visible!important;filter:drop-shadow(0 4px 6px rgba(0,0,0,.35))}
+html body #v-ana .hm-top .hm-ic::after,html body #v-ana #h-fp .fp-ic::after{content:""!important;position:absolute!important;right:-13px!important;top:6px!important;bottom:6px!important;width:1px!important;background:rgba(255,255,255,.25)!important;display:block!important}
+html body #v-ana .hm-top .hm-ic svg,html body #v-ana #h-fp .fp-ic svg{display:none!important}
+html body #v-ana .hm-top .hm-pri .hm-ic{background-image:url(hm/boya.webp)!important;width:84px!important;height:64px!important}
+html body #v-ana .hm-top [data-go="kendi"] .hm-ic{background-image:url(hm/teklif.webp)!important}
+html body #v-ana .hm-top .dm-hcard .hm-ic{background-image:url(hm/isler.webp)!important}
+html body #v-ana .hm-top .yg-hcard .hm-ic{background-image:url(hm/yangin.webp)!important}
+html body #v-ana #h-fp .fp-ic{background-image:url(hm/firsat.webp)!important}
+html body #v-ana .hm-top .hm-t b,html body #v-ana #h-fp .hm-t b{font:800 19px/1.2 var(--f-body)!important;color:#fff!important;letter-spacing:-.005em}
+html body #v-ana .hm-top .hm-t>span,html body #v-ana #h-fp .hm-t>span{font-size:14px!important;color:rgba(226,234,246,.82)!important;margin-top:2px}
+html body #v-ana .hm-top .hm-pri .hm-t>span{color:rgba(255,255,255,.9)!important}
+html body #v-ana .hm-top .chev,html body #v-ana #h-fp .fp-chev{width:22px;height:22px;stroke:#fff;stroke-width:2.2;opacity:.95}
+html body #v-ana .hm-oppw{margin-top:9px}
+/* staff: Yatırımlar / Sektör kartları */
+html body #v-ana .hx{gap:9px;margin-top:9px}
+html body #v-ana .hx-b{border-radius:18px;background:linear-gradient(180deg,rgba(20,40,80,.92),rgba(10,24,52,.92));border:1px solid rgba(110,150,230,.45);box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 8px 20px rgba(0,0,0,.25)}
+html body #v-ana .hx-b .hx-ic svg{stroke:#f0ab00}
+html body #v-ana .hx-b b{font-weight:800;color:#fff}
+/* bölüm başlığı */
+html body #v-ana .hm-sec{display:flex;align-items:center;gap:10px;margin:22px 0 12px;font:800 21px var(--f-body)!important;letter-spacing:0!important;text-transform:none!important;color:#fff!important}
+html body #v-ana .hm-sec::before{content:"";flex:none;width:5px;height:22px;border-radius:3px;background:#f0ab00}
+/* uygulama alanı kutuları */
+html body #v-ana .hm-cats{gap:9px}
+html body #v-ana .hm-tile{min-height:70px;padding:6px 12px 6px 6px;gap:10px;border-radius:16px;background:linear-gradient(180deg,rgba(18,36,74,.95),rgba(9,22,48,.95));border:1px solid rgba(110,150,230,.4);box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 6px 16px rgba(0,0,0,.22)}
+html body #v-ana .hm-tile:active{transform:scale(.98)}
+html body #v-ana .hm-tile .hm-ti{width:66px!important;height:50px!important;flex:none;background-size:contain!important;background-repeat:no-repeat!important;background-position:center!important;background-color:transparent!important;border:0!important;filter:drop-shadow(0 4px 6px rgba(0,0,0,.35))}
+html body #v-ana .hm-tile .hm-tl{font:800 15px/1.2 var(--f-body);color:#fff}
+html body #v-ana .hm-tile .chev{width:20px;height:20px;stroke:#fff;opacity:.9}
+html body #v-ana .hm-tile .ic-celik{background-image:url(hm/celik.webp)!important}
+html body #v-ana .hm-tile .ic-makine{background-image:url(hm/makine.webp)!important}
+html body #v-ana .hm-tile .ic-tankdis{background-image:url(hm/tankdis.webp)!important}
+html body #v-ana .hm-tile .ic-boru{background-image:url(hm/boru.webp)!important}
+html body #v-ana .hm-tile .ic-bakim{background-image:url(hm/bakim.webp)!important}
+html body #v-ana .hm-tile .ic-tankici{background-image:url(hm/tankic.webp)!important}
+html body #v-ana .hm-tile .ic-sicak{background-image:url(hm/sicak.webp)!important}
+html body #v-ana .hm-tile .ic-beton{background-image:url(hm/beton.webp)!important}
+html body #v-ana .hm-tile .ic-tekne{background-image:url(hm/gemi.webp)!important}
+html body #v-ana .hm-tile .ic-yangin{background-image:url(hm/yangin.webp)!important}
+/* son teklifler & oturum */
+html body #v-ana .h-hist>*{border-radius:16px}
+html body #v-ana .hm-foot{border-radius:20px;background:linear-gradient(180deg,rgba(20,40,80,.92),rgba(10,24,52,.92));border:1px solid rgba(110,150,230,.4);box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 8px 20px rgba(0,0,0,.25)}
+html body #v-ana .hm-foot .hf-av{border:2px solid #f0ab00;background:rgba(240,171,0,.08)}
+html body #v-ana .hm-foot .hf-sw{border-radius:14px;border:1px solid rgba(140,170,220,.45);background:rgba(4,12,30,.45);font-weight:800}
+@media (max-width:360px){html body #v-ana .hm-top .hm-t b{font-size:17px!important}html body #v-ana .hm-tile .hm-ti{width:54px!important}html body #v-ana .hm-tile .hm-tl{font-size:14px}}
+html body #v-ana .hm-t b span,html body #v-ana .hm-sec span,html body #v-ana .hm-tl span{font:inherit!important;color:inherit!important;margin:0!important;letter-spacing:inherit}
+html body #v-ana #h-fp .hm-t>span{font-size:13.5px!important}
+html body #v-ana .hm-foot .hf-tx b{white-space:normal;overflow:visible;text-overflow:clip;line-height:1.2}
+html body #v-ana .hm-foot .hf-sw{padding:0 12px;white-space:nowrap;flex:none}
+
+/* Sistem sayfası: ana sayfayla aynı uygulama alanı kutuları */
+html body #v-sistem .hm-sec{display:flex;align-items:center;gap:10px;margin:22px 0 12px;font:800 21px var(--f-body)!important;letter-spacing:0!important;text-transform:none!important;color:#fff!important}
+html body #v-sistem .hm-sec::before{content:"";flex:none;width:5px;height:22px;border-radius:3px;background:#f0ab00}
+html body #v-sistem .hm-tile{min-height:70px;padding:6px 12px 6px 6px;gap:10px;border-radius:16px;background:linear-gradient(180deg,rgba(18,36,74,.95),rgba(9,22,48,.95));border:1px solid rgba(110,150,230,.4);box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 6px 16px rgba(0,0,0,.22)}
+html body #v-sistem .hm-tile:active{transform:scale(.98)}
+html body #v-sistem .hm-tile .hm-ti{width:66px!important;height:50px!important;flex:none;background-size:contain!important;background-repeat:no-repeat!important;background-position:center!important;background-color:transparent!important;border:0!important;filter:drop-shadow(0 4px 6px rgba(0,0,0,.35))}
+html body #v-sistem .hm-tile .hm-tl{font:800 15px/1.2 var(--f-body);color:#fff}
+html body #v-sistem .hm-tile .chev{width:20px;height:20px;stroke:#fff;opacity:.9}
+html body #v-sistem .hm-tile .ic-celik{background-image:url(hm/celik.webp)!important}
+html body #v-sistem .hm-tile .ic-makine{background-image:url(hm/makine.webp)!important}
+html body #v-sistem .hm-tile .ic-tankdis{background-image:url(hm/tankdis.webp)!important}
+html body #v-sistem .hm-tile .ic-boru{background-image:url(hm/boru.webp)!important}
+html body #v-sistem .hm-tile .ic-bakim{background-image:url(hm/bakim.webp)!important}
+html body #v-sistem .hm-tile .ic-tankici{background-image:url(hm/tankic.webp)!important}
+html body #v-sistem .hm-tile .ic-sicak{background-image:url(hm/sicak.webp)!important}
+html body #v-sistem .hm-tile .ic-beton{background-image:url(hm/beton.webp)!important}
+html body #v-sistem .hm-tile .ic-tekne{background-image:url(hm/gemi.webp)!important}
+html body #v-sistem .hm-tile .ic-yangin{background-image:url(hm/yangin.webp)!important}
+@media (max-width:360px){html body #v-sistem .hm-top .hm-t b{font-size:17px!important}html body #v-sistem .hm-tile .hm-ti{width:54px!important}html body #v-sistem .hm-tile .hm-tl{font-size:14px}}
+html body #v-sistem .hm-t b span,html body #v-sistem .hm-sec span,html body #v-sistem .hm-tl span{font:inherit!important;color:inherit!important;margin:0!important;letter-spacing:inherit}
+html body #v-sistem .sx-wsec .hm-tile.sel{border-color:#f5b818!important;box-shadow:0 0 0 2px rgba(245,184,24,.25)!important}
+html body #v-sistem .hm-sec{margin-top:6px}
+
+/* Sistem: diğer seçenekler butonu */
+html body #cmp-btn.cmp-btn{display:flex!important;align-items:center;gap:12px;width:100%;min-height:68px;margin:14px 0 6px;padding:10px 14px!important;border-radius:18px!important;border:1.5px solid #6a9dff!important;background:linear-gradient(180deg,rgba(47,111,240,.35),rgba(31,95,214,.18))!important;color:#fff!important;text-align:left;box-shadow:0 0 0 3px rgba(79,140,255,.12),0 10px 24px rgba(31,95,214,.3)!important;cursor:pointer;animation:cbp 2.4s ease-in-out 2}
+@keyframes cbp{0%,100%{box-shadow:0 0 0 3px rgba(79,140,255,.12),0 10px 24px rgba(31,95,214,.3)}50%{box-shadow:0 0 0 6px rgba(79,140,255,.28),0 10px 24px rgba(31,95,214,.45)}}
+html body #cmp-btn .cb-ic{flex:none;width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#3b7cf5,#1f5fd6)}
+html body #cmp-btn .cb-ic svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:1.9}
+html body #cmp-btn .cb-t{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+html body #cmp-btn .cb-t b{font:800 16px var(--f-body);color:#fff}html body #cmp-btn .cb-t small{font:600 13px var(--f-body);color:#cfe0ff}
+html body #cmp-btn em{flex:none;min-width:26px;height:26px;padding:0 7px;border-radius:13px;background:#f0ab00;color:#0b1f45;font:800 13px/26px var(--f-body);font-style:normal;text-align:center}
+html body #cmp-btn .cb-ch{flex:none;width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2.2}
+html body #cmp-btn:active{transform:scale(.98)}
+/* ---- Sarfiyat profil önizlemesi ---- */
+.sf-pvw{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:10px;margin:2px 0 12px;padding:10px 12px 10px 6px;border-radius:18px;background:radial-gradient(90% 110% at 28% 50%,rgba(79,140,255,.22),rgba(79,140,255,0) 62%),linear-gradient(180deg,rgba(16,34,68,.85),rgba(5,14,32,.8));border:1px solid rgba(120,160,230,.3);color:#e8eef8}
+.sf-pvw[hidden]{display:none}
+.sfp-im{position:relative;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center}
+.sfp-im:after{content:"";position:absolute;left:14%;right:14%;bottom:6%;height:10%;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.45),rgba(0,0,0,0))}
+.sfp-im img{position:relative;z-index:1;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 6px 10px rgba(0,0,0,.35));animation:sfpi .25s ease}
+@keyframes sfpi{from{opacity:.2;transform:scale(.97)}to{opacity:1;transform:none}}
+.sfp-in{min-width:0;display:flex;flex-direction:column;gap:3px}
+.sfp-k{font:700 10.5px var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:#f0ab00}
+.sfp-in b{font:800 17px/1.2 var(--f-body);color:#fff;word-break:break-word}
+.sfp-s{font-size:12px;line-height:1.35;color:rgba(214,224,240,.72)}
+.sfp-in dl{margin:7px 0 0;display:grid;gap:5px}
+.sfp-in dl div{display:flex;justify-content:space-between;align-items:baseline;gap:6px;padding:5px 8px;border-radius:9px;background:rgba(4,12,30,.5);border:1px solid rgba(140,170,220,.16)}
+.sfp-in dt{font-size:11.5px;color:rgba(214,224,240,.65)}.sfp-in dd{margin:0;font:800 13.5px var(--f-body);color:#fff;white-space:nowrap}.sfp-in dd small{font-weight:600;font-size:10.5px;color:rgba(214,224,240,.6)}
+@media (max-width:340px){.sf-pvw{grid-template-columns:1fr}}
+
+.sfp-in dt{white-space:nowrap}
+.sf-area:has(.sf-pvw:not([hidden])) .sf-ag:not([hidden]) .sf-tip[id]{display:none}
 </style>
 
 <div id="app-bg" aria-hidden="true"></div>
@@ -1504,39 +1964,40 @@ button.dm-it{cursor:pointer}
   <button type="button" class="hd-wx" id="hd-wx" hidden aria-label="Hava durumu ve uygulama koşulları"></button>
   <nav class="tabs" aria-label="Bölümler">
   <a href="#ana" id="t-ana" class="tab" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg><span>Ana Sayfa</span></a>
-  <a href="#sistem" id="t-sistem" class="tab"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg><span class="lg">Sistem</span><span class="sm">Sistem</span></a>
+  <a href="#sistem" id="t-sistem" class="tab"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg><span class="lg"><span class="role-b">Sistemler</span><span class="role-s">Sistem</span></span><span class="sm"><span class="role-b">Sistemler</span><span class="role-s">Sistem</span></span></a>
   <a href="#sarfiyat" id="t-sarfiyat" class="tab" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c3 4.2 6 7.6 6 11a6 6 0 0 1-12 0c0-3.4 3-6.8 6-11z"/><path d="M9.5 15h5"/></svg><span>Sarfiyat</span></a>
-  <a href="#teklif" id="t-teklif" class="tab"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg><span>Teklif</span><b class="badge-n" id="t-badge" hidden></b></a>
-  <a href="#danisman" id="t-danisman" class="tab"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></svg><span>Danışman</span></a>
+  <a href="#teklif" id="t-teklif" class="tab"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg><span>Teklifler</span><b class="badge-n" id="t-badge" hidden></b></a>
+  <a href="#danisman" id="t-danisman" class="tab"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></svg><span><span class="role-b">Teknik Destek</span><span class="role-s">Danışman</span></span></a>
   <a href="#urunler" id="t-urunler" class="tab"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M4 7.5l8 4.5 8-4.5M12 12v9"/></svg><span>Ürünler</span></a>
 </nav>
 </header>
 
 <section id="v-ana">
-  <div class="hm-hero"><h2 class="hm-h" id="h-greet">Hoş geldiniz</h2><p class="hm-sub">Endüstriyel koruma çözümleriyle daha sürdürülebilir bir gelecek.</p><i class="hm-bar"></i></div>
+  <div class="hm-hero"><h2 class="hm-h" id="h-greet">Hoş geldiniz</h2><p class="hm-sub"><span class="role-b">Endüstriyel koruma çözümleri</span><span class="role-s">Endüstriyel koruma çözümleriyle daha sürdürülebilir bir gelecek.</span></p><i class="hm-bar"></i></div>
   <div class="h-resume" id="h-resume" hidden></div>
   <div class="hm-top">
-    <button type="button" class="hm-card hm-pri" data-go="sistem"><span class="ico ic-sistem hm-ic"></span><span class="hm-t"><b>Boya sistemi hesapla</b><span>ISO 12944</span></span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
-    <button type="button" class="hm-card role-b" data-go="kendi"><span class="hm-ic hm-svg"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M28 8H15a3 3 0 0 0-3 3v26a3 3 0 0 0 3 3h18a3 3 0 0 0 3-3V16z" fill="none" stroke="#e8eef8" stroke-width="2.6" stroke-linejoin="round"/><path d="M28 8v8h8" fill="none" stroke="#e8eef8" stroke-width="2.6" stroke-linejoin="round"/><path d="M24 22v12M18 28h12" stroke="#e8352a" stroke-width="3.2" stroke-linecap="round"/></svg></span><span class="hm-t"><b>Kendi teklifini hazırla</b></span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+    <button type="button" class="hm-card hm-pri" data-go="sistem"><span class="ico ic-sistem hm-ic"></span><span class="hm-t"><b><span class="role-b">Boya Sistemi Seç</span><span class="role-s">Boya sistemi hesapla</span></b><span>ISO 12944</span></span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+    <button type="button" class="hm-card role-b" data-go="kendi"><span class="hm-ic hm-svg"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M28 8H15a3 3 0 0 0-3 3v26a3 3 0 0 0 3 3h18a3 3 0 0 0 3-3V16z" fill="none" stroke="#e8eef8" stroke-width="2.6" stroke-linejoin="round"/><path d="M28 8v8h8" fill="none" stroke="#e8eef8" stroke-width="2.6" stroke-linejoin="round"/><path d="M24 22v12M18 28h12" stroke="#e8352a" stroke-width="3.2" stroke-linecap="round"/></svg></span><span class="hm-t"><b>Teklif Oluştur</b></span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
     <button type="button" class="hm-card role-s" data-go="sarfiyat"><span class="ico ic-sarf hm-ic"></span><span class="hm-t"><b>Sarfiyat hesapla</b></span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
-    <button type="button" class="hm-card dm-hcard" data-go="isler"><span class="hm-ic hm-svg"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="11" y="10" width="26" height="30" rx="3" fill="none" stroke="#e8eef8" stroke-width="2.6"/><path d="M17 6v8M31 6v8" stroke="#e8eef8" stroke-width="2.6" stroke-linecap="round"/><path d="M17 23h14M17 30h9" stroke="#f0ab00" stroke-width="2.6" stroke-linecap="round"/></svg></span><span class="hm-t"><b>İşlerim</b><span id="dm-sub">Müşteri, ziyaret ve teklif takibi</span></span><i class="dm-bd" id="dm-bd" hidden></i><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
-  </div>
+    <button type="button" class="hm-card dm-hcard" data-go="isler"><span class="hm-ic hm-svg"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="11" y="10" width="26" height="30" rx="3" fill="none" stroke="#e8eef8" stroke-width="2.6"/><path d="M17 6v8M31 6v8" stroke="#e8eef8" stroke-width="2.6" stroke-linecap="round"/><path d="M17 23h14M17 30h9" stroke="#f0ab00" stroke-width="2.6" stroke-linecap="round"/></svg></span><span class="hm-t"><b>İş Takibim</b><span id="dm-sub">Müşteri, ziyaret ve teklifler</span></span><i class="dm-bd" id="dm-bd" hidden></i><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+    <button type="button" class="hm-card yg-hcard role-s" data-go="yangin"><span class="hm-ic hm-svg"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6c4 7 11 11 11 20a11 11 0 0 1-22 0c0-5 3-8 5-11 1 4 3 6 5 6-1-6 0-10 1-15z" fill="none" stroke="#e8eef8" stroke-width="2.6" stroke-linejoin="round"/><path d="M24 40a5 5 0 0 1-5-5c0-3 2-4 3-6 1 2 2 3 4 3 1 1 3 2 3 3a5 5 0 0 1-5 5z" fill="#f0ab00"/></svg></span><span class="hm-t"><b>Yangın koruma</b><span>Nasıl çalışır, standartlar, analiz talebi</span></span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+    </div>
   <div class="hx role-s">
     <button type="button" class="hx-b" data-hx="opp" aria-expanded="false"><span class="hx-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10 5 7 4.5 3 5v13c4-.5 7 0 9 1.5 2-1.5 5-2 9-1.5V5c-4-.5-7 0-9 1.5z"/><path d="M12 6.5v13"/></svg></span><span class="hx-t"><b>Yatırımlar Dergisi</b><span>Yeni yatırımlar ve projeler</span></span><svg class="hx-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
     <button type="button" class="hx-b" data-hx="news" aria-expanded="false"><span class="hx-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="15" rx="2"/><rect x="6" y="7.5" width="5" height="4.5" rx=".5"/><path d="M13.5 8h4.5M13.5 11h4.5M6 15h12M7 19v1.5M17 19v1.5"/></svg></span><span class="hx-t"><b>Sektör Haberleri</b><span>Sektörden güncel gelişmeler</span></span><svg class="hx-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
   </div>
   <div class="hx-p hm-opps role-s" id="h-opps" hidden></div>
   <div class="hx-p hm-news role-s" id="h-news" hidden></div>
-  <details class="hm-oppw role-b" id="h-fp"><summary class="hm-card fp-card"><span class="hm-ic hm-svg fp-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.5"/></svg></span><span class="hm-t"><b>FIRSAT</b><span>Conseal Touch Up · Base 6</span></span><svg class="chev fp-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></summary>
+  <details class="hm-oppw role-b" id="h-fp"><summary class="hm-card fp-card"><span class="hm-ic hm-svg fp-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.5"/></svg></span><span class="hm-t"><b>Fırsatlar</b><span>Güncel kampanyalar ve fırsatlar</span></span><svg class="chev fp-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></summary>
   <div class="fp-c" id="h-fp-c"></div></details>
-  <h3 class="hm-sec">Ne boyanacak?</h3>
-  <div class="hm-cats"><button type="button" class="hm-tile" data-go="what:celik"><span class="ico ic-celik hm-ti"></span><span class="hm-tl">Çelik yapı</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:ekipman"><span class="ico ic-makine hm-ti"></span><span class="hm-tl">Makine</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:tankdis"><span class="ico ic-tankdis hm-ti"></span><span class="hm-tl">Tank dış</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:boru"><span class="ico ic-boru hm-ti"></span><span class="hm-tl">Boru dış</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:bakim"><span class="ico ic-bakim hm-ti"></span><span class="hm-tl">Paslı / bakım</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:tankic"><span class="ico ic-tankici hm-ti"></span><span class="hm-tl">Tank içi</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:sicak"><span class="ico ic-sicak hm-ti"></span><span class="hm-tl">Sıcak yüzey</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:zemin"><span class="ico ic-beton hm-ti"></span><span class="hm-tl">Beton zemin</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:tekne"><span class="ico ic-tekne hm-ti"></span><span class="hm-tl">Gemi</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:yangin"><span class="ico ic-yangin hm-ti"></span><span class="hm-tl">Yangın</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
-  <div id="h-hist-wrap" hidden><h3 class="hm-sec" style="margin-bottom:8px">Son teklifler</h3><div class="h-hist" id="h-hist"></div></div>
-  <div class="hm-foot"><span class="hf-av" id="role-av" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.6"/><path d="M4.8 19.5c1.3-3.4 4-5 7.2-5s5.9 1.6 7.2 5"/></svg></span><div class="hf-tx"><small>Oturum</small><b id="role-lbl"></b><span class="hf-up"><i></i><span id="hf-upd">Güncel</span></span></div><button type="button" class="hf-sw" id="role-chg" aria-label="Kullanıcı rolünü değiştir"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h11l-3-3M17 17H6l3 3"/></svg>Rolü değiştir</button></div>
+  <h3 class="hm-sec">Uygulama Alanı Seçin</h3>
+  <div class="hm-cats"><button type="button" class="hm-tile" data-go="what:celik"><span class="ico ic-celik hm-ti"></span><span class="hm-tl">Çelik Yapı</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:ekipman"><span class="ico ic-makine hm-ti"></span><span class="hm-tl">Makine &amp; Ekipman</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:tankdis"><span class="ico ic-tankdis hm-ti"></span><span class="hm-tl">Tank Dışı</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:boru"><span class="ico ic-boru hm-ti"></span><span class="hm-tl">Boru Dışı</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:bakim"><span class="ico ic-bakim hm-ti"></span><span class="hm-tl">Paslı / Bakım</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:tankic"><span class="ico ic-tankici hm-ti"></span><span class="hm-tl">Tank İçi</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:sicak"><span class="ico ic-sicak hm-ti"></span><span class="hm-tl">Sıcak Yüzey</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:zemin"><span class="ico ic-beton hm-ti"></span><span class="hm-tl">Beton Zemin</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:tekne"><span class="ico ic-tekne hm-ti"></span><span class="hm-tl">Gemi</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:yangin"><span class="ico ic-yangin hm-ti"></span><span class="hm-tl">Yangın</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
+  <div id="h-hist-wrap" hidden><h3 class="hm-sec" style="margin-bottom:8px">Son Teklifler</h3><div class="h-hist" id="h-hist"></div></div>
+  <div class="hm-foot"><span class="hf-av" id="role-av" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.6"/><path d="M4.8 19.5c1.3-3.4 4-5 7.2-5s5.9 1.6 7.2 5"/></svg></span><div class="hf-tx"><small>Oturum</small><b id="role-lbl"></b><span class="hf-up"><i></i><span id="hf-upd">Güncel</span></span></div><button type="button" class="hf-sw" id="role-chg" aria-label="Kullanıcı rolünü değiştir"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h11l-3-3M17 17H6l3 3"/></svg><span class="role-b">Rolü Değiştir</span><span class="role-s">Rolü değiştir</span></button></div>
 </section>
 <div id="v-sistem">
 <div class="sx-hero"><h2>Kaplama Sistemi<br>Oluşturun</h2><p>Ne boyanacağını, ortamı ve dayanım süresini seçin; size en uygun Jotun sistemini bulalım.</p></div>
-<section class="sx-wsec sx-col" id="sx-wsec"><h3 class="hm-sec">1. Ne boyanacak?</h3><div class="hm-cats" id="sx-what"></div></section>
+<section class="sx-wsec sx-col" id="sx-wsec"><h3 class="hm-sec">1. Uygulama Alanı Seçin</h3><div class="hm-cats" id="sx-what"></div></section>
 <div id="sx-wz" hidden></div>
 
 <div class="grid">
@@ -1696,7 +2157,6 @@ button.dm-it{cursor:pointer}
           <div class="sf-tabs" id="sf-at"><button type="button" data-a="prof" aria-pressed="true">Profil</button><button type="button" data-a="hol" aria-pressed="false">Kutu &amp; boru</button><button type="button" data-a="bar" aria-pressed="false">Dolu &amp; lama</button><button type="button" data-a="sac" aria-pressed="false">Sac</button><button type="button" data-a="ton" aria-pressed="false">Tonaj</button><button type="button" data-a="tank" aria-pressed="false">Tank</button></div>
           <div class="sf-ag" data-a="prof"><label class="sf-f sf-w2"><span>Profil ailesi</span><span class="sf-in"><select id="sf-ps"><optgroup label="I / H profiller · EN 10365"><option value="IPE">IPE</option><option value="HEA">HEA (HE A)</option><option value="HEB">HEB (HE B)</option><option value="HEM">HEM (HE M)</option><option value="INP">INP / IPN / NPI</option></optgroup><optgroup label="U profiller · EN 10365"><option value="UPN">UPN / NPU</option><option value="UPE">UPE</option></optgroup><optgroup label="Köşebent · EN 10056"><option value="kose">Köşebent (L)</option></optgroup></select></span></label>
             <label class="sf-f sf-tab1"><span>Ölçü</span><span class="sf-in"><select id="sf-pz"></select></span></label>
-            <label class="sf-f sf-w2"><span>Maruziyet (yangın boyasında)</span><span class="sf-in"><select id="sf-pe"><option value="4">4 yüz (tüm çevre)</option><option value="3">3 yüz (üst başlık döşemeye bitişik – b düşülür)</option></select></span></label>
             <label class="sf-f sf-kos" hidden><span>Kol a</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-la" placeholder="50"><i>mm</i></span></label><label class="sf-f sf-kos" hidden><span>Kol b</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-lb2" placeholder="50"><i>mm</i></span></label><label class="sf-f sf-kos" hidden><span>Kalınlık t</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-lt" placeholder="5"><i>mm</i></span></label>
             <label class="sf-f"><span>Miktar</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-pq" placeholder="0"></span></label><label class="sf-f"><span>Birim</span><span class="sf-in"><select id="sf-pu"><option value="m">metre</option><option value="ton">ton</option></select></span></label>
             <p class="hint sf-tip" id="sf-pinfo"></p></div>
@@ -1717,6 +2177,7 @@ button.dm-it{cursor:pointer}
             <p class="hint sf-tip">Düz sacta 1. Trapez / oluklu sacta üreticinin verdiği açınım oranını girin (açılmış genişlik ÷ örtme genişliği). Sac ve levha: EN 10029 / EN 10051.</p></div>
           <div class="sf-ag" data-a="tank" hidden><label class="sf-f"><span>Çap</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-td" placeholder="0"><i>m</i></span></label><label class="sf-f"><span>Yükseklik</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-th" placeholder="0"><i>m</i></span></label><div class="sf-chk"><label><input type="checkbox" id="sf-tt" checked> Tavan</label><label><input type="checkbox" id="sf-tb"> Taban</label></div></div>
           <div class="sf-ag" data-a="ton" hidden><label class="sf-f"><span>Çelik miktarı</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-tn" placeholder="0"><i>ton</i></span></label><div class="sf-chips sf-tfc" id="sf-tfc"><button type="button" data-tf="15" aria-pressed="false">Ağır<small>≈15 m²/t</small></button><button type="button" data-tf="25" aria-pressed="false">Orta<small>≈25 m²/t</small></button><button type="button" data-tf="35" aria-pressed="false">Hafif<small>≈35 m²/t</small></button></div><label class="sf-f"><span>Ton başına yüzey</span><span class="sf-in"><input type="number" inputmode="decimal" id="sf-tf" placeholder="0"><i>m²/t</i></span></label><p class="hint sf-tip">Profil tipini bilmiyorsanız yaklaşık değer seçin. Ağır: kalın kolon/kiriş, Orta: karışık konstrüksiyon, Hafif: ince profil, makas, korkuluk. Profil biliniyorsa "Profil" sekmesi daha doğrudur.</p></div>
+          <div class="sf-pvw" id="sf-pvw" hidden></div>
           <div class="sf-ares"><span id="sf-ar">—</span><span class="sf-abtns"><button type="button" class="btn" id="sf-aadd">Alana ekle</button><button type="button" class="btn primary" id="sf-aset">Alan olarak kullan</button></span></div>
           <label class="sf-up"><input type="file" id="sf-upf" accept=".pdf,image/*,.xlsx,.xls,.csv,.txt" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.5l-8.5 8.5a5 5 0 0 1-7-7L14 5.5a3.3 3.3 0 0 1 4.7 4.7l-8.5 8.5a1.7 1.7 0 0 1-2.4-2.4l7.8-7.8"/></svg><span><b>Çelik listesi yükle</b><small>PDF, fotoğraf veya Excel – profiller okunup listeye eklenir</small></span></label>
           <div class="sf-alist" id="sf-alist"></div>
@@ -1791,10 +2252,22 @@ button.dm-it{cursor:pointer}
 </section>
 
 <section id="v-isler" hidden>
-  <div class="dm-hero"><h2>İşlerim</h2><p>Müşteriler, ziyaretler ve verilen tekliflerin takibi.</p></div>
+  <div class="dm-hero"><h2>İş Takibim</h2><p>Müşteriler, ziyaretler ve verilen tekliflerin takibi.</p></div>
   <div class="dm-today" id="is-today"></div>
   <div class="dm-tabs" id="is-tabs"><button type="button" data-ist="c" aria-pressed="true">Müşteriler</button><button type="button" data-ist="q" class="role-b" aria-pressed="false">Teklifler</button><button type="button" data-ist="p" class="role-s" aria-pressed="false">Bayi paneli</button></div>
   <div id="is-body"></div>
+</section>
+<section id="v-yangin" hidden>
+  <div class="yg-hero"><img class="yg-hph" src="ill/hero-steel.webp" alt="" aria-hidden="true"><a href="#ana" class="yg-back" aria-label="Ana sayfaya dön"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></a>
+    <div class="yg-ht"><span class="yg-fi" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 5c4 7 12 12 12 22a12 12 0 0 1-24 0c0-6 3-9 5-12 1 4 3 6 5 6-1-6 0-11 2-16z" fill="#f0ab00"/><path d="M24 41a6 6 0 0 1-6-6c0-3 2-5 3-7 1 2 3 3 4 3 2 1 5 3 5 5a6 6 0 0 1-6 5z" fill="#fff3d1"/></svg></span>
+    <div><span class="yg-kick" id="yg-k">ENDÜSTRİYEL ÇELİKLER İÇİN</span><h2 id="yg-h">Yangın Koruma</h2><p id="yg-p"></p><i class="yg-bar"></i></div></div></div>
+  <div class="yg-tabs yg-tabs3" id="yg-tabs">
+    <button type="button" data-yt="how" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/><path d="M3 17.5l9 5 9-5" opacity=".6"/></svg>Nasıl çalışır</button>
+    <button type="button" data-yt="std" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6c-2-1.5-5-2-8-1.5v13c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5v-13c-3-.5-6 0-8 1.5z"/><path d="M12 6v13"/></svg>Standartlar</button>
+    <button type="button" data-yt="req" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6v18h12V8z"/><path d="M9 12h6M9 16h3"/><path d="M14 17l5.5-5.5 2 2L16 19h-2z"/></svg>Analiz talebi</button></div>
+  <div id="yg-body"></div>
+  <p class="foot" style="margin-top:14px">Bu ekran bilgilendirme amaçlıdır; kalınlık hesabı yapmaz. Yangın koruma kalınlığı yalnızca ürünün sertifikalı yükleme tablolarına göre Jotun teknik ekibi tarafından belirlenir.</p>
+  <div id="yg-doc" class="yg-doc" hidden></div>
 </section>
 <section id="v-urunler" hidden>
   <div class="ur-hero"><h2>Endüstriyi<br>Birlikte Koruyoruz</h2><p>Daha güvenli, daha sürdürülebilir bir gelecek için.</p><i class="hm-bar"></i></div>
@@ -1945,7 +2418,7 @@ function render(){
     html += `<div class="empty">Bu ortam ve dayanım için seçilen astar tipinde ISO 12944-5 sistemi yok. ${s.env==="C5"?"C5'te alkid sistem tanımlı değildir; epoksi veya çinkolu astarı deneyin.":"Astar tipini \"Hepsi\" yapın veya bir üst dayanım/kategori sistemi seçin."}</div>`;
   }
   if(list.length) html += card(list[0],s,0,prepBox(s,list));
-  if(list.length>1) html += `<button type="button" class="btn ghost cmp-btn" id="cmp-btn">Diğer ${list.length-1} seçenek · yan yana karşılaştır</button>`;
+  if(list.length>1) html += `<button type="button" class="btn ghost cmp-btn" id="cmp-btn"><span class="cb-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1.5"/><rect x="14" y="4" width="7" height="16" rx="1.5"/></svg></span><span class="cb-t"><b>Diğer ${list.length-1} sistem seçeneği</b><small>Yan yana karşılaştır</small></span><svg class="cb-ch" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>`;
   out.innerHTML = html;
   out.querySelectorAll("[data-copy]").forEach(b=>b.addEventListener("click",()=>copy(b,list[+b.dataset.copy],s)));
   out.querySelectorAll("[data-quote]").forEach(b=>b.addEventListener("click",()=>quoteFromSystem(list[+b.dataset.quote],s)));
@@ -2378,7 +2851,7 @@ function renderRehber(){
   const rc=""; $("#r-rival").innerHTML=rc; $("#r-rival").hidden=!rc;
   $("#r-count").textContent=rc&&!list.length?"":`${list.length} ürün${q?" · tüm ürünlerde arandı":""}`;
   if(rCat==="all"&&!q){
-    const cats=Object.keys(CATS).filter(c=>c!=="MCI Tinter"&&CATALOG.some(p=>p.cat===c));
+    const cats=Object.keys(CATS).filter(c=>c!=="MCI Tinter"&&c!=="Fire Protection"&&CATALOG.some(p=>p.cat===c));
     $("#r-count").textContent="";
     $("#r-list").innerHTML=`<div class="r-cgrid">${cats.map(c=>`<button type="button" class="r-cg cgi-${CG_IMG[c]||"gen"}" data-c="${c}"><svg class="cg-ic" viewBox="0 0 24 24" aria-hidden="true">${CG_IC[c]||CG_IC.Other}</svg><b>${CATS[c][0]}</b><span>${CATALOG.filter(p=>p.cat===c).length} ürün</span><i class="cg-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></button>`).join("")}</div>`;
     return;
@@ -2488,7 +2961,7 @@ function histRender(){
 }
 document.addEventListener("click",e=>{const o=e.target.closest("[data-hopen]"),c=e.target.closest("[data-hcopy]");if(o)loadSnap(HIST[+o.dataset.hopen],false);if(c)loadSnap(HIST[+c.dataset.hcopy],true);});
 function route(){
-  const V=["ana","sistem","teklif","sarfiyat","danisman","urunler","isler"];
+  const V=["ana","sistem","teklif","sarfiyat","danisman","urunler","isler","yangin"];
   const h=(location.hash||"#ana").slice(1); let v=V.includes(h)?h:"ana"; if(UROLE==="s"&&v==="teklif") v="ana";
   const changed=route.last!==v; route.last=v;
   V.forEach(k=>{$("#v-"+k).hidden=k!==v; const t=$("#t-"+k); if(!t) return; if(k===v)t.setAttribute("aria-current","page"); else t.removeAttribute("aria-current");});
@@ -2496,6 +2969,7 @@ function route(){
   try{fitTag()}catch(e){}
   if(v==="ana"){ homeRender(); histRender(); try{dmBadge()}catch(e){} }
   try{ if(v==="isler") islerRender(); }catch(e){}
+  try{ if(v==="yangin") ygRender(); }catch(e){}
   if(v==="teklif") badgeUpd();
   if(changed&&!route.keep) window.scrollTo(0,0); route.keep=false;
 }
@@ -2512,6 +2986,7 @@ function go(where){
   const dm=k=>{$("#dm-"+k).checked=true;$("#d-mode").dispatchEvent(new Event("change"));};
   if(where.startsWith("what:")){location.hash="#sistem";sxWhat(where.slice(5));setTimeout(()=>{const c=$(".sx-wcard");if(c)c.scrollIntoView({behavior:"smooth",block:"start"});},120);return;}
   if(where==="isler"){location.hash="#isler";return;}
+  if(where==="yangin"){location.hash="#yangin";return;}
   if(where==="sistem"){location.hash="#sistem";}
   else if(where==="teklif"){location.hash="#teklif";}
   else if(where==="wizard"){location.hash="#sistem";}
@@ -3214,7 +3689,7 @@ document.addEventListener("click",e=>{ if(!isSor()) return; const b=e.target.clo
   if(!coats.length){toast("Aktarılacak ürün bulunamadı");return;}
   SF.coats=coats; SF.sys=null; const ar=(W.ans&&W.ans.area)||(CW.ans&&CW.ans.area); if(ar) SF.area=ar; sfRender(); location.hash="#sarfiyat"; toast("Sarfiyata aktarıldı");},true);
 /* Sistem: ne boyanacak → metal ise ISO formu, özel iş ise adım adım */
-const SXW=[["celik","Çelik yapı"],["ekipman","Makine"],["tankdis","Tank dış"],["boru","Boru dış"],["bakim","Paslı / bakım"],["tankic","Tank içi"],["sicak","Sıcak yüzey"],["zemin","Beton zemin"],["tekne","Gemi"],["yangin","Yangın"]];
+const SXW=[["celik", "Çelik Yapı"], ["ekipman", "Makine &amp; Ekipman"], ["tankdis", "Tank Dışı"], ["boru", "Boru Dışı"], ["bakim", "Paslı / Bakım"], ["tankic", "Tank İçi"], ["sicak", "Sıcak Yüzey"], ["zemin", "Beton Zemin"], ["tekne", "Gemi"], ["yangin", "Yangın"]];
 const SX_METAL=["celik","ekipman","tankdis","boru"];
 let SXK="celik";
 function sxWhat(k){
@@ -3475,7 +3950,7 @@ const SF_LOSS=[0,10,20,30,40], SF_PROF=[[0,"Yok",""],[10,"İnce","10 µm"],[25,"
 const SFI={"doc": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"5\" y=\"3\" width=\"14\" height=\"18\" rx=\"2\"/><path d=\"M9 8h6M9 12h6M9 16h3\"/></svg>", "bld": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 21V5l8-2v18M12 21V9l8 2v10M3 21h18M7 8h2M7 12h2M7 16h2M15 14h2M15 17h2\"/></svg>", "usr": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"8\" r=\"4\"/><path d=\"M4 21c1-4.5 4.5-6.5 8-6.5s7 2 8 6.5\"/></svg>", "area": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 8V4h4M16 4h4v4M20 16v4h-4M8 20H4v-4\" /><path d=\"M10 4h4M10 20h4M4 10v4M20 10v4\" stroke-dasharray=\"2 2\"/></svg>", "calc": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"5\" y=\"3\" width=\"14\" height=\"18\" rx=\"2\"/><path d=\"M8 7h8M8 11h1M11.5 11h1M15 11h1M8 14.5h1M11.5 14.5h1M15 14.5h1M8 18h1M11.5 18h1M15 18h1\"/></svg>", "can": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><ellipse cx=\"12\" cy=\"5.5\" rx=\"7\" ry=\"2.5\"/><path d=\"M5 5.5v13c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-13\"/><path d=\"M9 12h6\"/></svg>", "lay": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 3l9 5-9 5-9-5z\"/><path d=\"M3 12l9 5 9-5\"/><path d=\"M3 16l9 5 9-5\"/></svg>", "kg": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M6 9h12l2 11H4z\"/><circle cx=\"12\" cy=\"6\" r=\"2.5\"/></svg>", "pen": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 20h16\"/><path d=\"M14.5 4.5l4 4L9 18H5v-4z\"/></svg>", "brush": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M14 4l6 6-7 7-6-6z\"/><path d=\"M7 11l-3 3c-1 1-1 3 0 4s3 1 4 0l3-3\"/></svg>", "fire": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 21c-4 0-6.5-2.6-6.5-6.2 0-3.4 2.6-5.3 3.6-8.3 1.6 1.3 2.4 2.8 2.6 4.4 1-1 1.6-2.4 1.6-4.4 3 2 5.2 5.2 5.2 8.3 0 3.6-2.5 6.2-6.5 6.2z\"/></svg>", "trash": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3\"/></svg>", "rul": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"2.5\" y=\"8.5\" width=\"19\" height=\"7\" rx=\"1.5\" transform=\"rotate(-45 12 12)\"/><path d=\"M9 9l1.5 1.5M11.5 6.5l1.5 1.5M6.5 11.5L8 13M14 4l1.5 1.5\"/></svg>", "pdf": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M14 3H6v18h12V7z\"/><path d=\"M14 3v4h4M9 13h6M9 17h4\"/></svg>", "wa": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 20l1.3-4A8 8 0 1 1 8 18.7z\"/><path d=\"M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8a4 4 0 0 1-1.8-1.8l.8-1-1-2z\"/></svg>", "cp": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"8\" y=\"8\" width=\"12\" height=\"12\" rx=\"2\"/><path d=\"M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3\"/></svg>", "plus": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 5v14M5 12h14\"/></svg>"};
 let SF=load("sf",null)||{area:"",loss:20,prof:0,coats:[{name:"",dft:""}]};
 const sfSave=()=>store("sf",SF);
-const sfOpts=sel=>`<option value="">Ürün seçin</option>`+Object.keys(CATS).map(c=>{const it=CATALOG.filter(p=>p.cat===c&&c!=="MCI Tinter"&&!/Thinner/i.test(p.name)&&!isKg(p.name)&&p.vs&&p.vs[0]);return it.length?`<optgroup label="${esc(CATS[c][0])}">${it.map(p=>`<option${p.name===sel?" selected":""}>${esc(p.name)}</option>`).join("")}</optgroup>`:""}).join("");
+const sfOpts=sel=>`<option value="">Ürün seçin</option>`+Object.keys(CATS).map(c=>{const it=CATALOG.filter(p=>p.cat===c&&c!=="MCI Tinter"&&c!=="Fire Protection"&&!/Thinner/i.test(p.name)&&!isKg(p.name)&&p.vs&&p.vs[0]);return it.length?`<optgroup label="${esc(CATS[c][0])}">${it.map(p=>`<option${p.name===sel?" selected":""}>${esc(p.name)}</option>`).join("")}</optgroup>`:""}).join("");
 function sfCoat(c,i){
   return `<div class="sf-coat" data-i="${i}">
    <div class="sf-ch"><span class="n">${i+1}</span><h3>${i===0?"Astar / 1. kat":i+1+". kat"}</h3><button type="button" class="sf-x" data-rm="${i}" aria-label="Katı sil">${SFI.trash}</button></div>
@@ -3632,14 +4107,14 @@ const stLbl=r=>{ const f0=x=>fmt(num(x),num(x)%1?1:0), ab=()=>`${f0(r.a)}×${f0(
     case "levha": return `Sac ${f0(r.a)}×${f0(r.b)} mm (${+r.f===1?"tek":"2"} yüz${num(r.k)>1?" ×"+fmt(num(r.k),2):""})`; case "boru": return `Boru Ø${fmt(num(r.d),1)}${r.th?"×"+f0(r.th):""} mm${r.inner?" · iç+dış":""}`; case "mil": return `Dolu mil Ø${f0(r.d)} mm`; default: return `${r.t} ${r.s}${ex}`; } };
 const hpA=(r,s)=>{ const p=secP(r,s); return s.A>0?p/s.A:0; };
 const secInfo=(r)=>{ const s=secOf(r); if(!s) return ""; const p=secP(r,s), kg=s.A*7850;
-  return `${fmt(p,3)} m²/m${kg?` · ${fmt(kg,kg<10?2:1)} kg/m · ≈ ${fmt(p/kg*1000,1)} m²/ton · Hp/A ${fmt(hpA(r,s),0)} m⁻¹`:""}${s.est?" (et kalınlığı tahmini)":""}`; };
+  return `${fmt(p,3)} m²/m${kg?` · ${fmt(kg,kg<10?2:1)} kg/m · ≈ ${fmt(p/kg*1000,1)} m²/ton`:""}${s.est?" (et kalınlığı tahmini)":""}`; };
 function sfProfUI(){ const t=$("#sf-ps").value, k=t==="kose";
-  $("#sf-pz").closest("label").hidden=k; $("#sf-pe").closest("label").hidden=k; document.querySelectorAll(".sf-kos").forEach(x=>x.hidden=!k);
+  $("#sf-pz").closest("label").hidden=k; document.querySelectorAll(".sf-kos").forEach(x=>x.hidden=!k);
   if(!k){ const cur=$("#sf-pz").value; $("#sf-pz").innerHTML=STD[t].map(p=>`<option value="${p[0]}">${t} ${p[0]}</option>`).join(""); $("#sf-pz").value=STD[t].some(p=>String(p[0])===cur)?cur:(STD[t].some(p=>p[0]===200)?"200":String(STD[t][0][0])); } }
 function sfHolUI(){ const b=$("#sf-hs").value==="boru"; document.querySelectorAll(".sf-hk").forEach(x=>x.hidden=b); $("#sf-hd").closest("label").hidden=!b; }
 function sfBarUI(){ const t=$("#sf-bs").value; $("#sf-bal").textContent=t==="lama"?"Genişlik":t==="mil"?"Çap":"Kenar"; $("#sf-bb").closest("label").hidden=t!=="lama"; }
 function sfRow(){ const v=id=>num($("#"+id).value), s=id=>$("#"+id).value;
-  if(SFA==="prof"){ const t=s("sf-ps"); return t==="kose"?{t,a:v("sf-la"),b:v("sf-lb2"),th:v("sf-lt"),q:v("sf-pq"),u:s("sf-pu")}:{t,s:s("sf-pz"),exp:+s("sf-pe"),q:v("sf-pq"),u:s("sf-pu")}; }
+  if(SFA==="prof"){ const t=s("sf-ps"); return t==="kose"?{t,a:v("sf-la"),b:v("sf-lb2"),th:v("sf-lt"),q:v("sf-pq"),u:s("sf-pu")}:{t,s:s("sf-pz"),exp:4,q:v("sf-pq"),u:s("sf-pu")}; }
   if(SFA==="hol") return s("sf-hs")==="boru"?{t:"boru",d:v("sf-hd"),th:v("sf-ht"),inner:$("#sf-hi").checked,q:v("sf-hq"),u:"m"}:{t:"kutu",a:v("sf-ha"),b:v("sf-hb"),th:v("sf-ht"),inner:$("#sf-hi").checked,q:v("sf-hq"),u:"m"};
   if(SFA==="bar"){ const t=s("sf-bs"); return t==="mil"?{t,d:v("sf-ba"),q:v("sf-bq"),u:"m"}:t==="karedolu"?{t,a:v("sf-ba"),q:v("sf-bq"),u:"m"}:{t,a:v("sf-ba"),b:v("sf-bb"),q:v("sf-bq"),u:"m"}; }
   if(SFA==="sac") return {t:"levha",a:v("sf-se"),b:v("sf-sb"),q:Math.max(1,v("sf-sn")||1),u:"adet",f:+s("sf-sf"),k:v("sf-sk")||1};
@@ -3648,7 +4123,7 @@ function sfArea(){
   const v=id=>num($("#"+id).value); let a=0; const r=sfRow();
   if(r){ a=stM2(r); const inf={prof:"#sf-pinfo",hol:"#sf-hinfo",bar:"#sf-binfo"}[SFA];
     if(inf){ const pu=$("#sf-pu"); if(SFA==="prof"){ const ok=stTonOk(r); pu.querySelector('option[value="ton"]').disabled=!ok; if(!ok&&pu.value==="ton"){ pu.value="m"; r.u="m"; a=stM2(r);} }
-      const i=secInfo(r); $(inf).textContent=i?(r.t in STD?`${r.t} ${r.s}: `:"")+i+(SFA==="prof"&&r.t in STD?" · EN 10365":""):(SFA==="hol"?"Dış yüzey çevre × uzunluk. Et kalınlığı girilirse kg/m ve Hp/A da gösterilir.":SFA==="bar"?"Çevre × uzunluk (uçlar dahil değil).":""); } }
+      const i=secInfo(r); $(inf).textContent=i?(r.t in STD?`${r.t} ${r.s}: `:"")+i+(SFA==="prof"&&r.t in STD?" · EN 10365":""):(SFA==="hol"?"Dış yüzey çevre × uzunluk. Et kalınlığı girilirse kg/m de gösterilir.":SFA==="bar"?"Çevre × uzunluk (uçlar dahil değil).":""); } }
   if(SFA==="tank"){const d=v("sf-td"),h=v("sf-th");a=Math.PI*d*h+($("#sf-tt").checked?Math.PI*d*d/4:0)+($("#sf-tb").checked?Math.PI*d*d/4:0);}
   if(SFA==="ton") a=v("sf-tn")*v("sf-tf");
   $("#sf-ar").textContent=a>0?`${fmt(a,1)} m²`:"—"; return a;
@@ -3742,12 +4217,13 @@ async function steelFile(f){
   const {rows,skip}=steelParse(text); steelReview(rows,skip,f.name,note);
 }
 function steelReview(rows,skip,name,note){
+  rows.forEach(r=>{ r.exp=4; });
   const tot=()=>rows.filter(r=>!r.off).reduce((a,r)=>a+stM2(r),0);
   const tOpts=r=>(r.t in STD?Object.keys(STD).filter(t=>STD[t].some(p=>p[0]===+r.s)):Object.keys(STN).filter(t=>!(t in STD))).map(t=>`<option value="${t}"${t===r.t?" selected":""}>${STN[t]}</option>`).join("");
   const uOpts=r=>r.t==="levha"?`<option value="adet" selected>adet</option>`:`<option value="m"${r.u==="m"?" selected":""}>metre</option>${stTonOk(r)?`<option value="ton"${r.u==="ton"?" selected":""}>ton</option>`:""}`;
   const row=(r,i)=>{ const s=r.t==="levha"?null:secOf(r), hp=s&&s.A>0?hpA(r,s):0;
-    return `<div class="st-r${r.unsure?" uns":""}"><label class="st-c"><input type="checkbox" data-sc="${i}" ${r.off?"":"checked"}></label><div class="st-m"><b>${esc(stLbl(r))}</b><small>${esc(r.line.slice(0,90))}${r.calc?" · "+esc(r.calc):""}${hp?` · Hp/A ${fmt(hp,0)} m⁻¹`:""}</small>
-     <div class="st-q"><select data-st="${i}" aria-label="Tip">${tOpts(r)}</select>${(r.t in STD)||r.t==="kutu"?`<select data-se="${i}" aria-label="Maruziyet"><option value="4"${+r.exp===3?"":" selected"}>4 yüz</option><option value="3"${+r.exp===3?" selected":""}>3 yüz</option></select>`:""}</div>
+    return `<div class="st-r${r.unsure?" uns":""}"><label class="st-c"><input type="checkbox" data-sc="${i}" ${r.off?"":"checked"}></label><div class="st-m"><b>${esc(stLbl(r))}</b><small>${esc(r.line.slice(0,90))}${r.calc?" · "+esc(r.calc):""}</small>
+     <div class="st-q"><select data-st="${i}" aria-label="Tip">${tOpts(r)}</select></div>
      <div class="st-q"><input type="number" inputmode="decimal" data-sq="${i}" value="${r.q===""?"":Math.round(num(r.q)*1000)/1000}" placeholder="miktar"><select data-su="${i}" ${r.t==="levha"?"disabled":""}>${uOpts(r)}</select><span class="st-a" id="st-a-${i}">${fmt(stM2(r),1)} m²</span></div></div></div>`; };
   const body=()=>`<div class="st-wrap"><p class="hint">${esc(name)}${note?" · "+esc(note):""}</p>
    ${rows.length?`<p class="hint">Okunan ${rows.length} kalem. Tip veya birim yanlışsa değiştirin. <b style="color:#f0ab00">Sarı</b>: emin olamadım.</p>
@@ -3826,7 +4302,7 @@ function dmTodo(){ const t=today(), out=[];
   return out; }
 function dmBadge(){ const L=dmTodo(), n=L.length, b=$("#dm-bd"); if(b){ b.hidden=!n; b.textContent=n; }
   const sb=$("#dm-sub"); if(sb){ const nc=DM.c.length, nq=Object.values(DM.q).filter(q=>q.status==="gon"||q.status==="gor").length;
-    sb.innerHTML=n?`<em>Bugün ${n} takip</em> · ${esc(L[0].t)}`:(nc||nq)?[nc?nc+" müşteri":"",nq&&!isSor()?nq+" açık teklif":""].filter(Boolean).join(" · "):(isSor()?"Müşteri, ziyaret ve bayi paneli":"Müşteri, ziyaret ve teklif takibi"); } }
+    sb.innerHTML=n?`<em>Bugün ${n} takip</em> · ${esc(L[0].t)}`:(nc||nq)?[nc?nc+" müşteri":"",nq&&!isSor()?nq+" açık teklif":""].filter(Boolean).join(" · "):(isSor()?"Müşteri, ziyaret ve bayi paneli":"Müşteri, ziyaret ve teklifler"); } }
 function todayHTML(){ const L=dmTodo(); if(!L.length) return `<div class="dm-ok">Bugün için takip bekleyen iş yok.</div>`;
   return `<h3 class="dm-h3">Bugün yapılacaklar</h3>`+L.map(x=>`<div class="dm-td${x.late?" late":""}"><div><b>${esc(x.t)}</b><span>${esc(x.s)}</span></div>${x.k==="q"?`<button type="button" class="dm-mini" data-qedit="${esc(x.no)}">Güncelle</button>`:`<button type="button" class="dm-mini" data-cop="${x.ci}">Aç</button>`}</div>`).join(""); }
 let IST="c";
@@ -3903,5 +4379,346 @@ document.addEventListener("click",e=>{ const t=e.target;
 });
 
 trkSync(); dmBadge(); if(route.last==="isler") islerRender();
+/* ================= DEMO: Yangın koruma ================= */
+const YG={tab:"how", f:load("yg-f",{}), rows:load("yg-rows",[]), to:load("yg-to",{}), m:{fam:"HEB",s:"300",exp:4,hp:"",mu:0.6,R:0.12,curve:"iso"}};
+const ygSave=()=>{store("yg-f",YG.f);store("yg-rows",YG.rows);};
+const ygIso=t=>20+345*Math.log10(8*t+1);
+const ygHc=t=>20+1080*(1-0.325*Math.exp(-0.167*t)-0.675*Math.exp(-2.5*t));
+const ygCa=T=>T<600?425+0.773*T-1.69e-3*T*T+2.22e-6*T*T*T:T<735?666+13002/(738-T):T<900?545+17820/(T-731):650;
+const ygCrit=mu=>{ mu=Math.max(0.013,Math.min(0.99,mu)); return 39.19*Math.log(1/(0.9674*Math.pow(mu,3.833))-1)+482; };
+/* EN 1993-1-2 §4.2.5: korumasız (4.25) ve korumalı (4.27, φ≈0) çelik sıcaklığı */
+function ygSim(HpA,R,gas,tmax){ const dt=5, out={u:[],p:[]}; let Tu=20,Tp=20; const sb=5.67e-8;
+  for(let s=0;s<=tmax*60;s+=dt){ const t=s/60, Tg=gas(t);
+    if(s%60===0){ out.u.push([t,Tu]); out.p.push([t,Tp]); }
+    const hn=25*(Tg-Tu)+0.7*sb*(Math.pow(Tg+273,4)-Math.pow(Tu+273,4)); Tu+=HpA/(ygCa(Tu)*7850)*hn*dt;
+    if(R>0) Tp+=HpA/(R*ygCa(Tp)*7850)*(Tg-Tp)*dt; }
+  return out; }
+const ygHit=(arr,T)=>{ const x=arr.find(p=>p[1]>=T); return x?x[0]:null; };
+function ygHpA(){ const M=YG.m; if(num(M.hp)>0) return num(M.hp); const r={t:M.fam,s:M.s,exp:M.exp}; const s=secOf(r); return s?hpA(r,s):0; }
+function ygChart(H0,T0c,Rp){ const M=YG.m, gas=ygIso, HpA=H0!=null?H0:ygHpA(), Tc=T0c!=null?T0c:ygCrit(M.mu), tmax=120, sim=ygSim(HpA,Rp!=null?Rp:M.R,gas,tmax);
+  const W=340,H=216,L=36,B=24,T0=18,R0=8, x=t=>L+t/tmax*(W-L-R0), y=T=>H-B-T/1200*(H-B-T0);
+  const path=a=>a.map((p,i)=>(i?"L":"M")+x(p[0]).toFixed(1)+" "+y(Math.min(1200,p[1])).toFixed(1)).join("");
+  const g=[]; for(let t=0;t<=tmax;t++) g.push([t,gas(t)]);
+  const grid=[0,300,600,900,1200].map(T=>`<line x1="${L}" x2="${W-R0}" y1="${y(T)}" y2="${y(T)}" stroke="rgba(140,170,220,.18)"/><text x="${L-5}" y="${y(T)+4}" text-anchor="end" font-size="10" fill="#9fb2cf">${T}</text>`).join("")+[0,30,60,90,120].map(t=>`<line x1="${x(t)}" x2="${x(t)}" y1="${T0}" y2="${H-B}" stroke="rgba(140,170,220,.12)"/><text x="${x(t)}" y="${H-B+14}" text-anchor="middle" font-size="10" fill="#9fb2cf">${t}</text>`).join("");
+  const tu=ygHit(sim.u,Tc), tp=ygHit(sim.p,Tc);
+  const svg=`<svg class="yg-svg" viewBox="0 0 ${W} ${H}" role="img" aria-label="Zaman-sıcaklık grafiği">${grid}<text x="${W-R0}" y="${H-2}" text-anchor="end" font-size="10" fill="#9fb2cf">dakika</text><text x="${L}" y="10" font-size="10" fill="#9fb2cf">°C</text>
+    <line x1="${L}" x2="${W-R0}" y1="${y(Tc)}" y2="${y(Tc)}" stroke="#f0ab00" stroke-dasharray="5 4" stroke-width="1.5"/>
+    <path d="${path(g)}" fill="none" stroke="#ff6a3d" stroke-width="2.4"/><path d="${path(sim.u)}" fill="none" stroke="#6fa8ff" stroke-width="2.4"/>${Rp===0?"":`<path d="${path(sim.p)}" fill="none" stroke="#3ccf8e" stroke-width="2.4"/>`}
+    ${tu!=null?`<circle cx="${x(tu)}" cy="${y(Tc)}" r="4" fill="#6fa8ff"/>`:""}${tp!=null&&Rp!==0?`<circle cx="${x(tp)}" cy="${y(Tc)}" r="4" fill="#3ccf8e"/>`:""}</svg>`;
+  return {svg,tu,tp,Tc,HpA}; }
+const ygFamOpts=sel=>Object.keys(STD).map(k=>`<option value="${k}"${k===sel?" selected":""}>${k}</option>`).join("");
+const ygSizeOpts=(fam,sel)=>STD[fam].map(p=>`<option value="${p[0]}"${String(p[0])===String(sel)?" selected":""}>${fam} ${p[0]}</option>`).join("");
+
+/* İllüstrasyonlar */
+function ygBeam(kind,id){ const hot=kind==="hot", co=kind==="coat";
+  const g=hot?`<linearGradient id="${id}a" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#ffd27a"/><stop offset=".45" stop-color="#ff6a1a"/><stop offset="1" stop-color="#5a2a1a"/></linearGradient><linearGradient id="${id}b" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ff8a2a"/><stop offset="1" stop-color="#3a1f18"/></linearGradient><filter id="${id}g" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="5"/></filter>`
+   :`<linearGradient id="${id}a" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="${co?"#f1f3f6":"#c9d1dc"}"/><stop offset="1" stop-color="${co?"#9aa3b0":"#6b7686"}"/></linearGradient><linearGradient id="${id}b" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="${co?"#c8ced8":"#8d98a8"}"/><stop offset="1" stop-color="${co?"#7c8594":"#4c5666"}"/></linearGradient>${co?`<pattern id="${id}p" width="5" height="5" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r=".9" fill="#ffffff" opacity=".55"/><circle cx="4" cy="3.6" r=".7" fill="#7c8594" opacity=".5"/></pattern>`:""}`;
+  const F=`url(#${id}a)`, S=`url(#${id}b)`, fr=hot?"#d9d9dc":co?"#e6e9ee":"#aeb7c4", P=co?`<g fill="url(#${id}p)"><path d="M10 40L50 40L120 10L80 10Z"/><path d="M34 83L50 83L120 53L104 53Z"/></g>`:"";
+  return `<svg viewBox="0 0 130 100" class="yg-il" aria-hidden="true"><defs>${g}</defs>${hot?`<ellipse cx="85" cy="45" rx="45" ry="22" fill="#ff6a1a" opacity=".45" filter="url(#${id}g)"/>`:""}
+   <path d="M34 47L104 17L104 53L34 83Z" fill="${S}"/><path d="M34 83L50 83L120 53L104 53Z" fill="${F}"/><path d="M50 83L50 90L120 60L120 53Z" fill="${S}"/>
+   <path d="M10 40L50 40L120 10L80 10Z" fill="${F}"/><path d="M50 40L50 47L120 17L120 10Z" fill="${S}"/>${P}
+   <path d="M10 40H50V47H34V83H50V90H10V83H26V47H10Z" fill="${fr}" stroke="${hot?"#ffb36b":"#ffffff"}" stroke-opacity=".5" stroke-width=".8"/></svg>`; }
+function ygShield(){ return `<svg viewBox="0 0 120 120" class="yg-il" aria-hidden="true" style="width:38%"><defs><filter id="ygsh" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="4"/></filter><linearGradient id="ygfl" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#ffb000"/><stop offset="1" stop-color="#ff6a1a"/></linearGradient></defs>
+  <path d="M60 10l38 14v28c0 26-17 44-38 54C39 96 22 78 22 52V24z" fill="none" stroke="#f0ab00" stroke-width="7" filter="url(#ygsh)" opacity=".7"/>
+  <path d="M60 10l38 14v28c0 26-17 44-38 54C39 96 22 78 22 52V24z" fill="rgba(12,33,71,.85)" stroke="#f0ab00" stroke-width="4"/>
+  <path d="M60 30c5 9 15 14 15 27a15 15 0 0 1-30 0c0-7 4-11 6-15 1 5 4 7 6 7-1-7 0-13 3-19z" fill="url(#ygfl)"/><path d="M60 78a7 7 0 0 1-7-7c0-4 3-6 4-8 1 3 3 4 5 4 2 1 5 3 5 5a7 7 0 0 1-7 6z" fill="#ffe3a3"/></svg>`; }
+function ygBox(){ return `<svg viewBox="0 0 130 100" class="yg-il" aria-hidden="true"><path d="M50 40L120 10V60L50 90Z" fill="#6b7686"/><path d="M10 40L50 40L120 10L80 10Z" fill="#c9d1dc"/><path d="M10 40H50V90H10Z" fill="#aeb7c4"/><path d="M16 46H44V84H16Z" fill="#26344a"/><path d="M16 46H44L44 50H20V84H16Z" fill="#4c5666"/></svg>`; }
+function ygTube(){ return `<svg viewBox="0 0 130 100" class="yg-il" aria-hidden="true"><path d="M30 42L100 12A22 22 0 0 1 100 56L30 86Z" fill="#8d98a8"/><path d="M30 42L100 12" stroke="#c9d1dc" stroke-width="3"/><circle cx="30" cy="64" r="22" fill="#aeb7c4"/><circle cx="30" cy="64" r="16" fill="#26344a"/></svg>`; }
+const YGI={ comp:'<circle cx="12" cy="5" r="2"/><path d="M11 7L5 20M13 7l6 13M7.5 15h9"/>', bars:'<path d="M5 20V12M10 20V7M15 20v-5M20 20V4"/>', cube:'<path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M4 7.5l8 4.5 8-4.5M12 12v9"/>', grid:'<rect x="3" y="4" width="18" height="16" rx="1.5"/><path d="M3 9h18M3 14h18M9 4v16M15 4v16"/>', brush:'<path d="M14 4l6 6-7 7-6-6z"/><path d="M7 11l-3 3c-1 1-1 3 0 4s3 1 4 0l3-3"/>', drops:'<path d="M8 4c2 3 4 5 4 8a4 4 0 0 1-8 0c0-3 2-5 4-8z"/><path d="M16 8c1.6 2.4 3 4 3 6a3 3 0 0 1-6 0"/>', rain:'<path d="M7 15h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 7.5 3.8 3.8 0 0 0 7 15z"/><path d="M8 18l-1 2M12 18l-1 2M16 18l-1 2"/>', ang:'<path d="M6 4v16h14"/><path d="M9 4v13h11"/>', tee:'<path d="M4 5h16v3H4zM10.5 8v12h3V8"/>', flat:'<path d="M3 14l14-7h4L7 14z"/><path d="M3 14v2h4l14-7V7"/>', rod:'<circle cx="7" cy="16" r="3"/><path d="M9 13.6L18 6M10 18.4l9-7.6"/><circle cx="18.5" cy="8.5" r="2.5"/>', home:'<path d="M4 11l8-7 8 7"/><path d="M6 10v10h12V10"/>', drop:'<path d="M12 3c3 5 6 8 6 12a6 6 0 0 1-12 0c0-4 3-7 6-12z"/>', cloud:'<path d="M7 18h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 10.5 3.8 3.8 0 0 0 7 18z"/>', sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/>', jet:'<path d="M21 3L3 10l7 3 3 7z"/><path d="M10 13l11-10"/>', pen:'<path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M14 6l4 4"/>', trash:'<path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/>', send:'<path d="M21 3L3 10l7 3 3 7z"/><path d="M10 13l11-10"/>', list:'<path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1"/><circle cx="4.5" cy="12" r="1"/><circle cx="4.5" cy="18" r="1"/>', tube:'<path d="M5 19L17 7"/><circle cx="18.5" cy="5.5" r="2.5"/><path d="M3.5 17.5l3 3"/>', box:'<rect x="5" y="5" width="14" height="14" rx="1"/><rect x="8" y="8" width="8" height="8"/>', chan:'<path d="M17 4H7v16h10M7 4v16"/>', doc:'<path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 12h6M9 16h4"/>', fire:'<path d="M12 3c2 4 6 6 6 11a6 6 0 0 1-12 0c0-3 2-5 3-7 0 2 1 3 2 3 0-3 0-5 1-7z"/>', lay:'<path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/>', ibeam:'<path d="M5 4h14M5 20h14M12 4v16"/><path d="M8 4v2M16 4v2M8 18v2M16 18v2"/>', calc:'<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 12h2M12 12h2M8 16h2M12 16h2"/>', clip:'<path d="M21 12.5l-8.5 8.5a5 5 0 0 1-7-7L14 5.5a3.3 3.3 0 0 1 4.7 4.7l-8.5 8.5a1.7 1.7 0 0 1-2.4-2.4l7.8-7.8"/>', check:'<rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 12l3 3 5-6"/>',
+  bld:'<path d="M4 21V7l8-4 8 4v14M9 21v-5h6v5M8 10h1M12 10h1M16 10h0"/>', user:'<circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/>', users:'<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.3-5.5 6.5-5.5s5.7 2 6.5 5.5"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 14.5c2 .6 3.2 2.5 3.6 5.5"/>', pin:'<path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>', tel:'<path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/>', std:'<path d="M14 3H6v18h12V7z"/><path d="M9 11h6M9 15h6"/>',
+  clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>', therm:'<path d="M10 14V5a2 2 0 0 1 4 0v9a4 4 0 1 1-4 0z"/><path d="M12 10v6"/>', wind:'<path d="M3 8h11a3 3 0 1 0-3-3M3 12h15a3 3 0 1 1-3 3M3 16h7"/>', shield:'<path d="M12 3l8 3v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/>', fac:'<path d="M3 21V10l5 3V10l5 3V7l8 4v10z"/><path d="M7 17h2M12 17h2M17 17h2"/>', roll:'<rect x="3" y="4" width="14" height="6" rx="1"/><path d="M17 7h3v5h-8v3M11 15h2v6h-2z"/>', pal:'<path d="M12 3a9 9 0 0 0 0 18c1.5 0 2-1 2-2s-1-2 0-3 2-.5 3-.5a4 4 0 0 0 4-4c0-4.5-4-8.5-9-8.5z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10" cy="7" r="1"/><circle cx="15" cy="7.5" r="1"/>',
+  info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/>', up:'<path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/>', plus:'<path d="M12 5v14M5 12h14"/>', reset:'<path d="M4 12a8 8 0 1 0 2.5-5.8"/><path d="M4 4v4h4"/>', pdf:'<path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 13h6M9 17h6"/>', mail:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>', wa:'<path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/><path d="M9 9c0 3 3 6 6 6l1-1.5-2-1-1 1c-1-.5-2-1.5-2.5-2.5l1-1-1-2z"/>', chev:'<path d="M6 9l6 6 6-6"/>' };
+const ygI=k=>`<svg viewBox="0 0 24 24" aria-hidden="true">${YGI[k]||""}</svg>`;
+
+function ygHow(){ const M=YG.m; return `
+<div class="yg-c"><div class="yg-hh"><div><h3><span class="tn">${ygI("therm")}</span>Çelik yanmaz, ama yangında güç kaybeder</h3>
+<p>Yapı çeliği 400 °C'ye kadar dayanımını korur; 550–600 °C civarında kritik seviyeye ulaşır. Korumasız ince bir profil, bina yangınında 10–15 dakikada bu sınıra gelebilir.</p></div>${ygBeam("hot","ygb1")}</div>
+<div class="yg-k4 yg-tap"><div data-ygx="k400"><b>400 °C</b><span>%100</span></div><div data-ygx="k500"><b>500 °C</b><span>%78</span></div><div data-ygx="k600"><b>600 °C</b><span>%47</span></div><div data-ygx="k700"><b>700 °C</b><span>%23</span></div></div>
+<small>Akma dayanımının kalan oranı · EN 1993-1-2</small></div>
+
+<div class="yg-c"><h3><span class="tn">${ygI("fire")}</span>Yangının tipi, korumayı belirler</h3>
+<div class="yg-ft yg-tap"><div data-ygx="fcel"><i style="background:#1f5fd6"></i><p><b>Selülozik</b><span>Ahşap, kâğıt, eşya yangını · depo, fabrika, AVM, okul, otopark</span></p><em>Steelmaster</em></div>
+<div data-ygx="fhc"><i style="background:#d9452b"></i><p><b>Hidrokarbon</b><span>Akaryakıt ve gaz yangını · rafineri, petrokimya, tank sahası</span></p><em class="o">Jotachar</em></div>
+<div data-ygx="fjet"><i style="background:#d9452b"></i><p><b>Jet yangını</b><span>Basınçlı gaz alevi · gaz hattı, LNG, offshore</span></p><em class="o">Jotachar</em></div></div>
+<p><small>Hidrokarbon ve jet yangını projeleri doğrudan Jotun teknik ekibiyle değerlendirilir.</small></p></div>
+
+<div class="yg-c"><div class="yg-hh"><div><h3><span class="tn">${ygI("shield")}</span>Steelmaster, ısının çeliğe ulaşmasını geciktirir</h3>
+<p>Normalde ince bir boya filmidir. Yangında yaklaşık 200–250 °C'de kabararak ilk kalınlığının onlarca katı, ısıyı çok kötü ileten bir kömür köpüğüne dönüşür.</p></div>${ygBeam("coat","ygb2")}</div>
+<div class="yg-sw" aria-hidden="true"><div class="fl"></div><div class="ch"></div><div class="pr"></div><div class="st"></div><span class="lb" style="bottom:50px">Köpük kömür tabakası</span><span class="lb" style="bottom:10px">Çelik</span></div>
+<p>Boya yangını söndürmez; çeliğe tahliye ve müdahale için <b>zaman kazandırır</b>.</p>
+<div class="yg-pr yg-tap"><span data-ygx="p600"><b>600 WF</b>60 dk · su bazlı</span><span data-ygx="p900"><b>900 WF</b>90 dk · su bazlı</span><span data-ygx="p1200"><b>1200 WF</b>120 dk · su bazlı</span><span data-ygx="p1200h"><b>1200 HPE</b>120 dk · epoksi, dış ortam</span></div>
+<small>Steelmaster serisi · EN 13381-8, BS 476-20/21 sertifikalı</small></div>
+
+<div class="yg-c yg-c2"><div class="yg-hd2"><span class="ti">${ygI("bars")}</span><div><h3>Kalınlık dört bilgiyle belirlenir</h3><p>Profil, yangın süresi ve kritik sıcaklık, gereken kuru film kalınlığını belirler. Kendin dene:</p><i class="bar"></i></div></div>
+<div class="yg-q4b yg-tap"><div data-ygx="qR">${ygI("fire")}<p><b>R60</b><span>Yangın süresi</span></p></div><div data-ygx="qHp">${ygI("lay")}<p><b>Hp/A</b><span>Kesit faktörü</span></p></div><div data-ygx="qExp">${ygI("cube")}<p><b>4 yüz</b><span>Maruziyet</span></p></div><div data-ygx="qT">${ygI("therm")}<p><b>θcr</b><span>Kritik sıcaklık</span></p></div></div>
+<div class="yg-ctl2"><label>Profil<select id="yg-fam">${ygFamOpts(M.fam)}</select></label><label>Ölçü<select id="yg-sz">${ygSizeOpts(M.fam,M.s)}</select></label><label>Maruziyet<select id="yg-exp"><option value="4"${M.exp==4?" selected":""}>4 yüz</option><option value="3"${M.exp==3?" selected":""}>3 yüz</option></select></label>
+ <label class="sl"><span id="yg-mu-v">Kullanım oranı</span><input type="range" id="yg-mu" min="0.2" max="0.9" step="0.01" value="${M.mu}"></label></div>
+<div class="yg-res2" id="yg-res"></div>
+<div class="yg-chw"><div id="yg-ch"></div>
+<div class="yg-lg"><span><i style="background:#ff6a3d"></i>Yangın (ISO 834)</span><span><i style="background:#6fa8ff"></i>Korumasız çelik</span><span><i style="background:#f0ab00"></i>Kritik sıcaklık (θcr)</span></div></div>
+<div class="yg-nt2">${ygI("info")}<span>İnce ve çevresi geniş profil (yüksek Hp/A) daha hızlı ısınır, daha kalın boya ister. Elemanın yükü azaldıkça kritik sıcaklık yükselir, daha az boya gerekir.</span></div>
+<details class="yg-ltb" open><summary>${ygI("grid")}<b>Sertifikalı kalınlık tablosu</b><svg class="cv" viewBox="0 0 24 24">${YGI.chev}</svg></summary><table class="yg-tb" id="yg-lt"></table><small>Sarı nokta, seçtiğin profilin okunacağı hücredir.</small></details>
+<div class="yg-ft2"><span>${ygI("lay")}Değerler sertifikadadır; kalınlığı Jotun teknik ekibi belirler.</span></div>
+<details class="yg-fx yg-fx2"><summary>${ygI("doc")}Formülleri göster</summary>
+<div class="yg-f">Yangın eğrisi (ISO 834):  θg = 20 + 345·log₁₀(8t + 1)
+Kritik sıcaklık (EN 1993-1-2):  θcr = 39,19·ln[1/(0,9674·μ₀^3,833) − 1] + 482
+Kesit faktörü:  Hp/A = ısıya açık çevre / kesit alanı
+Çelik ısınması (EN 1993-1-2 §4.2.5):  Δθa = (Hp/A)/(ca·ρa) · ḣnet · Δt</div></details></div>
+
+<div class="yg-c yg-c2 yg-sys"><img class="ph" src="ill/sys-steel.webp" alt="" aria-hidden="true"><div class="yg-hd2"><span class="ti">${ygI("lay")}</span><div><h3>Doğru sistem, doğru ortam</h3><p>Ortam koşullarına uygun sistem seçimiyle uzun ömürlü koruma sağlanır.</p><i class="bar"></i></div></div>
+<div class="yg-lyr"><img src="ill/layers.webp" alt="Çelik üzerinde astar, Steelmaster ve son kat katmanları" width="376" height="454"><div class="ls">
+ <div class="l1" data-ygx="lTop">${ygI("brush")}<p><b>Son kat</b><span>Nem, kir ve UV'ye karşı</span></p></div>
+ <div class="l2" data-ygx="lSm">${ygI("shield")}<p><b>Steelmaster</b><span>Yangın koruması</span></p></div>
+ <div class="l3" data-ygx="lPr">${ygI("shield")}<p><b>Astar</b><span>Korozyon koruması</span></p></div>
+ <div class="l4" data-ygx="lSt">${ygI("ibeam")}<p><b>Çelik</b><span>Sa 2½ yüzey hazırlığı</span></p></div></div></div>
+<div class="yg-nt2">${ygI("info")}<span>Astar ve son kat, Steelmaster ile birlikte test edilmiş onaylı ürünlerden seçilir. Ortam ağırlaştıkça son kat şartı değişir.</span></div>
+<div class="yg-env" id="yg-env">${YG_ENV.map(([k,ic,l],i)=>`<button type="button" data-ygenv="${i}" class="${i===(YG.envI||0)?"on":""}">${ygI(ic)}<b>${k}</b><span>${l}</span></button>`).join("")}</div>
+<p class="yg-envd" id="yg-envd">${YG_ENV[YG.envI||0][3]}</p>
+<div class="yg-ft2"><span>${ygI("lay")}Her profil kendi tablo kalınlığına göre boyanır; kuru film kalınlığı ISO 2808'e göre ölçülür.</span></div></div>
+
+<div class="yg-c yg-c2 yg-cta2"><img class="ph" src="ill/cta-steel.webp" alt="" aria-hidden="true"><div class="in"><div class="yg-hd2"><span class="ti">${ygI("fire")}</span><div><h3>Yangın dayanım analizi</h3><p>Projen için doğru ürün ve kalınlıkla, standartlara uygun yangın dayanımı.</p><i class="bar"></i></div></div>
+<div class="yg-fe"><div>${ygI("shield")}<span>Güvenli<br>koruma</span></div><div>${ygI("lay")}<span>Standartlara<br>uygun</span></div><div>${ygI("clock")}<span>Uzun süreli<br>dayanım</span></div></div>
+<button type="button" class="yg-cta3" data-ygto="req">${ygI("doc")}<span>Projem için analiz talebi hazırla</span><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div></div>`; }
+const YG_ENV=[["Z2","drop","İç, normal nem","Z2 · İç mekân, normal nem, sıcaklık 0 °C üzerinde."],["Z1","drops","İç, yüksek nem","Z1 · İç mekân, yüksek nem, sıcaklık 0 °C üzerinde."],["Y","sun","Yarı açık","Y · Yarı açık: donma ve UV'ye açık, yağmura doğrudan maruz değil."],["X","rain","Dış ortam","X · Dış ortam: tüm hava koşullarına açık."]];
+function ygHowUpd(){ const el=$("#yg-ch"); if(!el) return; const M=YG.m, r={t:M.fam,s:M.s,exp:M.exp}, s=secOf(r), HpA=s?hpA(r,s):0, Tc=ygCrit(M.mu), c=ygChart(HpA,Tc,0);
+  el.innerHTML=c.svg; $("#yg-mu-v").textContent=`Kullanım oranı μ₀ = ${fmt(M.mu,2)}`; const mu=$("#yg-mu"); if(mu) mu.style.setProperty("--p",((M.mu-.2)/.7*100).toFixed(1)+"%");
+  $("#yg-res").innerHTML=`<div class="b">${ygI("lay")}<p><b>${fmt(HpA,0)} m⁻¹</b><span>Hp/A · ${M.fam} ${M.s}, ${M.exp} yüz</span></p></div><div class="w">${ygI("therm")}<p><b>${fmt(Tc,0)} °C</b><span>Kritik sıcaklık</span></p></div><div class="g">${ygI("clock")}<p><b>${c.tu!=null?fmt(c.tu,0)+" dk":"> 120 dk"}</b><span>Korumasız çelik bu sürede kritik sıcaklığa ulaşır</span></p></div>`;
+  const rows=[100,150,200,250], cols=[500,550,600,650], ri=rows.reduce((b,x,i)=>Math.abs(x-HpA)<Math.abs(rows[b]-HpA)?i:b,0), ci=cols.reduce((b,x,i)=>Math.abs(x-Tc)<Math.abs(cols[b]-Tc)?i:b,0);
+  $("#yg-lt").innerHTML=`<tr><th>Hp/A · θcr</th>${cols.map(x=>`<th>${x} °C</th>`).join("")}</tr>`+rows.map((x,i)=>`<tr><th>${x}</th>${cols.map((y,j)=>`<td class="${i===ri&&j===ci?"h":""}">●</td>`).join("")}</tr>`).join(""); }
+
+/* ---- Detay kartları (dokununca açılan özet bilgi) ---- */
+const YG_X={
+ "EN 13381-8":{t:"EN 13381-8",s:"Reaktif (intümesan) kaplamaların çelik elemanlara kattığı yangın dayanımını belirleyen test ve değerlendirme standardı.",k:[["Kapsam","Reaktif kaplamalı çelik"],["Çıktı","Yükleme tabloları"],["Yangın eğrisi","Selülozik (ISO 834)"]],p:["Yüklü kirişler ve kısa kolon numuneleri fırında test edilir; çelik sıcaklıkları ölçülür.","Sonuç; Hp/A, dayanım süresi ve kritik sıcaklığa göre gereken kuru film kalınlığını gösteren tablolardır.","I/H profiller ile kutu ve boru profiller için ayrı tablolar bulunur."],n:"Kalınlık bu tablolardan okunur; tablo kapsamı dışında kalan profilleri Jotun teknik ekibi değerlendirir."},
+ "EN 1363-1 · ISO 834":{t:"EN 1363-1 · ISO 834",s:"Yangın dayanım testlerinin genel koşulları ve bina yangınlarını temsil eden standart zaman-sıcaklık eğrisi.",k:[["30 dk","≈ 842 °C"],["60 dk","≈ 945 °C"],["90 dk","≈ 1006 °C"],["120 dk","≈ 1049 °C"]],p:["Eğri: θg = 20 + 345·log₁₀(8t + 1); t dakika cinsinden.","Ahşap, kâğıt, tekstil gibi malzemelerin yandığı selülozik yangını temsil eder.","Steelmaster testleri bu eğriyle yapılır."],n:"Hidrokarbon yangınında sıcaklık çok daha hızlı yükselir; o durumda farklı eğri ve ürün gerekir."},
+ "EN 13501-2":{t:"EN 13501-2",s:"Yapı elemanlarının yangın dayanım sınıflandırması.",k:[["R","Taşıyıcılık"],["E","Bütünlük"],["I","Isı yalıtımı"]],p:["Süre dakika cinsindendir: R15, R30, R45, R60, R90, R120, R180, R240.","Taşıyıcı çelik kolon ve kirişlerde R sınıfı istenir; yangın duvarlarında REI aranır.","Örnek: R60, elemanın 60 dakika taşıyıcılığını koruması demektir."],n:"Projede istenen sınıf, yönetmelik ve proje şartnamesinden gelir."},
+ "EAD 350402 · ETA · CE":{t:"EAD 350402 · ETA · CE",s:"Reaktif kaplamalar için Avrupa Değerlendirme Belgesi; ürün bu belgeye göre ETA alır ve CE işareti taşır.",k:[["X","Dış ortam"],["Y","Yarı açık"],["Z1","İç, yüksek nem"],["Z2","İç, normal nem"]],p:["ETA; ürünün yangın performansını, dayanıklılığını ve kullanılabileceği ortam sınıflarını gösterir.","Hangi ortamda hangi astar ve son katla kullanılabileceği ETA'da yazar."],n:"Sistem seçiminde ortam sınıfı ve ETA'daki onaylı kombinasyon birlikte kontrol edilir."},
+ "BS 476-20/21 · UL 263":{t:"BS 476-20/21 · UL 263",s:"İngiliz ve Amerikan selülozik yangın test standartları.",k:[["BS 476-20","Genel test yöntemi"],["BS 476-21","Taşıyıcı elemanlar"],["UL 263","ABD · ASTM E119"]],p:["BS 476, İngiliz şartnameli ve bazı uluslararası projelerde istenebilir.","UL 263, ASTM E119 eğrisini kullanır; ABD şartnameli projelerde karşınıza çıkar.","Avrupa ve Türkiye projelerinde esas standart EN 13381-8'dir."],n:"Şartnamede hangi standart yazıyorsa kalınlık o standardın sertifikasına göre belirlenir."},
+ "EN 1993-1-2":{t:"EN 1993-1-2 · Eurocode 3",s:"Çelik yapıların yangın altında tasarımı: dayanım kaybı, kritik sıcaklık ve ısınma hesabı.",k:[["μ₀ 0,4","≈ 620 °C"],["μ₀ 0,5","≈ 585 °C"],["μ₀ 0,6","≈ 554 °C"],["μ₀ 0,7","≈ 526 °C"]],p:["Kritik sıcaklık, elemanın yangındaki kullanım oranından (μ₀) hesaplanır; yük azaldıkça kritik sıcaklık yükselir.","Kesit faktörü Hp/A, çeliğin ne kadar hızlı ısınacağını belirler.","Korumasız ve korumalı çeliğin ısınması adım adım hesaplanır."],n:"Kritik sıcaklık statik projeden alınmalıdır; bilinmiyorsa değeri teknik ekip belirler."},
+ "ISO 12944":{t:"ISO 12944",s:"Çelik yapıların boya sistemleriyle korozyondan korunması.",k:[["C1–C2","Düşük"],["C3","Orta"],["C4","Yüksek"],["C5 · CX","Çok yüksek · Ekstrem"]],p:["Bölüm 2 ortamın korozivite sınıfını, bölüm 5 boya sistemlerini tanımlar.","Dayanıklılık sınıfları: L, M, H, VH.","Yangın sisteminde astar, ortamın korozivite sınıfına göre seçilir."],n:"Astar ve son kat, Steelmaster ile uyumlu onaylı ürünlerden seçilir."},
+ "ISO 8501-1":{t:"ISO 8501-1",s:"Boya öncesi çelik yüzeyin görsel temizlik dereceleri.",k:[["St 2 · St 3","El / mekanik"],["Sa 2","Kapsamlı raspa"],["Sa 2½","Çok kapsamlı raspa"],["Sa 3","Görsel temiz"]],p:["Sa 2½: yüzeyde yağ, kir, tufal, pas ve eski boya kalmaz; yalnızca hafif gölgeler kabul edilir.","Yangın sistemlerinde genellikle Sa 2½ hedeflenir."],n:"Yüzey hazırlığı, sistemin yapışması ve ömrü için belirleyicidir."},
+ "ISO 2808 · ISO 19840":{t:"ISO 2808 · ISO 19840",s:"Kuru film kalınlığının ölçümü ve kabulü.",k:[["ISO 2808","Ölçüm yöntemleri"],["ISO 19840","Pürüzlü yüzeyde ölçüm"]],p:["ISO 2808 kalınlık ölçüm yöntemlerini tanımlar.","ISO 19840, raspa yapılmış yüzeyde ölçümü ve genel kabul kriterlerini tanımlar.","Her profil, kendi tablo kalınlığına göre ölçülür."],n:"Yangın kaplamasında kabul kriteri ürün ve şartnameye göre teknik ekiple belirlenir."},
+ "Binaların Yangından Korunması Hakkında Yönetmelik":{t:"Yangından Korunma Yönetmeliği",s:"Türkiye'de binaların yangın güvenliği şartlarını belirleyen yönetmelik.",p:["Taşıyıcı sistemden beklenen yangın dayanım süresi, bina kullanım sınıfı ve yüksekliğine göre belirlenir.","Kesin süre proje müellifi ve proje şartnamesiyle netleşir."],n:"Analiz talebinde dayanım süresi bu kaynaklardan alınmalıdır."},
+ "TS EN 13381-8 · TS EN 13501-2":{t:"TS EN standartları",s:"Avrupa standartlarının Türk Standardı olarak kabul edilmiş karşılıkları.",p:["İçerik Avrupa standartlarıyla aynıdır.","Türkiye'deki şartnamelerde bu numaralarla anılır."]},
+ "UL 1709 · EN 1363-2 · ISO 22899-1":{t:"Hidrokarbon ve jet yangını",s:"Akaryakıt ve gaz yangınlarına karşı test standartları.",k:[["UL 1709","Hızlı yükselen HC"],["EN 1363-2","HC eğrisi"],["ISO 22899-1","Jet yangını"]],p:["Hidrokarbon yangınında sıcaklık birkaç dakika içinde 1000 °C'nin üzerine çıkar.","Jet yangını, yüksek ısıya ek olarak basınçlı alevin aşındırıcı etkisini içerir.","Rafineri, petrokimya, LNG ve offshore yapılarında istenir."],n:"Bu projelerde Steelmaster değil Jotachar değerlendirilir; Jotun teknik ekibiyle ele alınır."},
+ "k400":{t:"400 °C",s:"Yapı çeliği bu sıcaklığa kadar akma dayanımını büyük ölçüde korur.",k:[["Kalan dayanım","%100"]],p:["EN 1993-1-2'ye göre akma dayanımı azaltma katsayısı 400 °C'de 1,0'dır."]},
+ "k500":{t:"500 °C",s:"Dayanım kaybı belirginleşir.",k:[["Kalan dayanım","%78"]],p:["Elastisite modülü de belirgin şekilde düşer; eleman daha fazla şekil değiştirir."]},
+ "k600":{t:"600 °C",s:"Çelik dayanımının yarısından fazlasını kaybeder.",k:[["Kalan dayanım","%47"]],p:["Kritik sıcaklıklar çoğu zaman 500–600 °C aralığına düşer; korumanın amacı çeliği bu sınırın altında tutmaktır."]},
+ "k700":{t:"700 °C",s:"Çelik taşıma kapasitesinin büyük kısmını yitirir.",k:[["Kalan dayanım","%23"]],p:["Korumasız ince profiller bina yangınında bu sıcaklığa kısa sürede ulaşabilir."]},
+ "fcel":{t:"Selülozik yangın",s:"Ahşap, kâğıt, tekstil ve eşya gibi malzemelerin yandığı bina yangını.",k:[["Eğri","ISO 834"],["Ürün","Steelmaster"]],p:["Depo, fabrika, AVM, okul, hastane, otopark gibi yapılarda esas alınır.","Sıcaklık yükselişi hidrokarbon yangınına göre daha yavaştır."]},
+ "fhc":{t:"Hidrokarbon yangını",s:"Akaryakıt, solvent ve gaz gibi hidrokarbonların yandığı yangın.",k:[["Eğri","UL 1709 · EN 1363-2"],["Ürün","Jotachar"]],p:["Sıcaklık birkaç dakika içinde 1000 °C'nin üzerine çıkar.","Rafineri, petrokimya ve tank sahalarında görülür."],n:"Steelmaster bu yangın tipi için uygun değildir."},
+ "fjet":{t:"Jet yangını",s:"Basınçlı gaz veya sıvının yüksek hızla yandığı alev.",k:[["Test","ISO 22899-1"],["Ürün","Jotachar"]],p:["Yüksek ısıya ek olarak alevin aşındırıcı etkisi vardır.","Gaz hatları, LNG tesisleri ve offshore yapılarda istenir."]},
+ "p600":{t:"Steelmaster 600 WF",s:"Su bazlı, iç mekân çelik yangın koruma boyası.",k:[["Dayanım","60 dakikaya kadar"],["Yangın tipi","Selülozik"]],p:["Kalınlık, profile göre yükleme tablosundan belirlenir."]},
+ "p900":{t:"Steelmaster 900 WF",s:"Su bazlı, iç mekân çelik yangın koruma boyası.",k:[["Dayanım","90 dakikaya kadar"],["Yangın tipi","Selülozik"]],p:["Kalınlık, profile göre yükleme tablosundan belirlenir."]},
+ "p1200":{t:"Steelmaster 1200 WF",s:"Su bazlı, iç mekân çelik yangın koruma boyası.",k:[["Dayanım","120 dakikaya kadar"],["Yangın tipi","Selülozik"]],p:["Kalınlık, profile göre yükleme tablosundan belirlenir."]},
+ "p1200h":{t:"Steelmaster 1200 HPE",s:"Epoksi esaslı çelik yangın koruma boyası; zorlu ve dış ortamlar için.",k:[["Dayanım","120 dakikaya kadar"],["Yangın tipi","Selülozik"]],p:["Dış ortam ve yüksek korozivite koşullarına yönelik geliştirilmiştir.","Kalınlık, profile göre yükleme tablosundan belirlenir."]},
+ "qR":{t:"Yangın süresi (R)",s:"Elemanın yangında taşıyıcılığını koruması gereken süre.",p:["R30, R60, R90, R120 gibi dakika cinsinden ifade edilir.","Süre uzadıkça gereken boya kalınlığı artar."],n:"Değer yönetmelikten ve proje şartnamesinden gelir."},
+ "qHp":{t:"Kesit faktörü (Hp/A)",s:"Isıya açık çevrenin kesit alanına oranı (m⁻¹).",p:["Yüksek Hp/A: ince ve çevresi geniş profil, hızlı ısınır, daha kalın boya ister.","Düşük Hp/A: kalın ve masif profil, yavaş ısınır, daha az boya ister.","Aynı profil için 3 yüz maruziyette Hp/A düşer."]},
+ "qExp":{t:"Maruziyet",s:"Profilin kaç yüzünün yangına açık olduğu.",k:[["4 yüz","Tüm çevre açık"],["3 yüz","Bir yüz döşemeye/duvara bitişik"]],p:["Beton döşeme taşıyan kirişlerde üst flanş yüzeyi genellikle 3 yüz kabul edilir.","Boru ve dolu yuvarlakta tüm çevre hesaba katılır."]},
+ "qT":{t:"Kritik sıcaklık (θcr)",s:"Elemanın taşıma kapasitesini yitirdiği çelik sıcaklığı.",p:["Elemanın kullanım oranından (μ₀) EN 1993-1-2'ye göre hesaplanır.","Yük azaldıkça kritik sıcaklık yükselir, daha az boya gerekir."],n:"Statik projeden alınmalıdır."},
+ "lTop":{t:"Son kat",s:"Steelmaster'ı nem, kir ve UV'ye karşı koruyan üst kat.",p:["Ortam ağırlaştıkça son kat şartı değişir.","Steelmaster ile birlikte onaylı ürünlerden seçilir."]},
+ "lSm":{t:"Steelmaster",s:"Yangında kabararak çeliği ısıdan yalıtan intümesan katman.",p:["Yaklaşık 200–250 °C'de kabarmaya başlar ve kalınlığının onlarca katı köpük oluşturur.","Kalınlığı profile göre yükleme tablosundan belirlenir."]},
+ "lPr":{t:"Astar",s:"Çeliği korozyondan koruyan ve Steelmaster'ın yapışmasını sağlayan ilk kat.",p:["Ortamın korozivite sınıfına göre seçilir.","Steelmaster ile uyumlu onaylı ürünlerden olmalıdır."]},
+ "lSt":{t:"Çelik yüzey",s:"Sistemin ömrü yüzey hazırlığıyla başlar.",p:["ISO 8501-1'e göre genellikle Sa 2½ raspa hedeflenir.","Yağ, kir ve tuzlardan arındırılmış olmalıdır."]}
+};
+function ygXOpen(k){ const x=YG_X[k]; if(!x) return; sheet(esc(x.t),`<div class="yg-xb"><p class="s">${esc(x.s)}</p>${x.k?`<div class="kv">${x.k.map(([a,b])=>`<div><span>${esc(a)}</span><b>${esc(b)}</b></div>`).join("")}</div>`:""}${x.p?`<ul>${x.p.map(t=>`<li>${esc(t)}</li>`).join("")}</ul>`:""}${x.n?`<div class="n">${ygI("info")}<span>${esc(x.n)}</span></div>`:""}</div>`,"yg-xs"); }
+const YG_STD=[
+ ["Test ve sertifika","std","b","cta-steel",[["EN 13381-8","Çelikte intümesan korumanın yangın testi; yükleme tabloları buradan çıkar.","Steelmaster'ın kalınlık tabloları bu teste göre hazırlanır. Kalınlık; profilin Hp/A değeri, dayanım süresi ve kritik sıcaklıkla tablodan okunur."],["EN 1363-1 · ISO 834","Standart selülozik yangın eğrisi ve test koşulları.","Bina yangınlarını temsil eden zaman-sıcaklık eğrisidir; 60. dakikada fırın sıcaklığı yaklaşık 945 °C'ye ulaşır."],["EN 13501-2","Yangın dayanım sınıfı: R30, R60, R90, R120…","R taşıyıcılığı, E bütünlüğü, I yalıtımı ifade eder. Taşıyıcı çelik elemanlarda R sınıfı istenir."],["EAD 350402 · ETA · CE","Avrupa onayı; X, Y, Z1, Z2 ortam sınıfları.","Ürünün ETA belgesi, hangi ortam sınıfında hangi astar ve son katla kullanılabileceğini gösterir."],["BS 476-20/21 · UL 263","İngiliz ve Amerikan selülozik yangın testleri; bazı şartnamelerde istenir.","BS 476 İngiliz, UL 263 (ASTM E119) Amerikan şartnameli projelerde karşınıza çıkar."]]],
+ ["Tasarım","comp","y","std-tas",[["EN 1993-1-2","Eurocode 3: yangında çelik dayanımı, kritik sıcaklık ve ısınma hesabı.","Kritik sıcaklık, elemanın kullanım oranından (μ₀) hesaplanır. Bu değer statik projeden gelir."]]],
+ ["Uygulama","lay","b","std-uyg",[["ISO 12944","Korozyon koruması ve ortam sınıfı (C1–CX).","Astar seçimi ve sistemin dayanıklılığı, ortamın korozivite sınıfına göre belirlenir."],["ISO 8501-1","Yüzey hazırlığı (Sa 2½).","Boya öncesi yüzeyin temizlik derecesini tanımlar; raspa sonrası Sa 2½ hedeflenir."],["ISO 2808 · ISO 19840","Kuru film kalınlığı ölçümü.","ISO 2808 ölçüm yöntemlerini, ISO 19840 pürüzlü yüzeyde ölçümü ve kabul kriterlerini tanımlar."]]],
+ ["Türkiye","shield","y","std-tr",[["Binaların Yangından Korunması Hakkında Yönetmelik","Bina sınıfı ve yüksekliğine göre gereken dayanım süresini belirler.","Projede istenen R süresi yönetmelikten ve proje şartnamesinden alınır."],["TS EN 13381-8 · TS EN 13501-2","Avrupa standartlarının Türk Standardı karşılıkları.","İçerik Avrupa standartlarıyla aynıdır; Türkiye'deki projelerde bu numaralarla anılır."]]],
+ ["Diğer yangın tipleri","fire","o","std-dig",[["UL 1709 · EN 1363-2 · ISO 22899-1","Hidrokarbon ve jet yangını testleri (Jotachar).","UL 1709 hızla yükselen hidrokarbon yangınını, EN 1363-2 hidrokarbon eğrisini, ISO 22899-1 jet yangınını test eder. Bu projelerde Jotachar değerlendirilir."]]]];
+function ygStd(){ return YG_STD.map(([h,ic,c,img,L])=>`<section class="yg-sc"><img class="ph" src="ill/${img}.webp" alt="" aria-hidden="true"><div class="hd">${ygI(ic)}<h3>${h}</h3></div>${L.map(([k,d])=>`<button type="button" class="yg-si ${c}" data-ygx="${esc(k)}"><p><b>${esc(k)}</b><span>${esc(d)}</span></p><svg class="cv" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>`).join("")}</section>`).join(""); }
+
+/* ---- Analiz talebi ---- */
+const YG_SEL={curve:["Selülozik (ISO 834)","Hidrokarbon / jet"],
+  rate:["R15","R30","R45","R60","R90","R120","R180","Bilmiyorum"], crit:["Danışman belirlesin","350 °C","400 °C","450 °C","500 °C","550 °C","600 °C","620 °C","650 °C","700 °C"],
+  env:["İç mekân, normal nem (Z2)","İç mekân, yüksek nem (Z1)","Yarı açık (Y)","Dış ortam (X)"], cor:["C1","C2","C3","C4","C5","CX","Bilmiyorum"],
+  surf:["Yeni çelik, raspa yapılacak (Sa 2½)","Atölye astarlı çelik","Galvaniz","Mevcut boyalı yüzey"], app:["Atölye","Şantiye","Atölye + şantiye"], std:["EN 13381-8","BS 476-20/21","UL 263 / ASTM E119","UL 1709","EN 1363-2 (HC eğrisi)","ISO 22899-1 (jet yangını)","Şartnamede yok / bilmiyorum"]};
+const YG_STDC={cel:["EN 13381-8","BS 476-20/21","UL 263 / ASTM E119","Şartnamede yok / bilmiyorum"],hc:["UL 1709","EN 1363-2 (HC eğrisi)","ISO 22899-1 (jet yangını)","Şartnamede yok / bilmiyorum"]};
+const YG_CORE={"İç mekân, normal nem (Z2)":["C1","C2","C3"],"İç mekân, yüksek nem (Z1)":["C2","C3","C4"],"Yarı açık (Y)":["C2","C3","C4","C5"],"Dış ortam (X)":["C2","C3","C4","C5","CX"]};
+function ygList(k){ const f=YG.f; if(k==="std") return f.curve?YG_STDC[f.curve.startsWith("Hidro")?"hc":"cel"]:YG_SEL.std;
+  if(k==="cor") return f.env&&YG_CORE[f.env]?[...YG_CORE[f.env],"Bilmiyorum"]:YG_SEL.cor; return YG_SEL[k]; }
+function ygFix(){ const f=YG.f; ["std","cor"].forEach(k=>{ if(f[k]&&!ygList(k).includes(f[k])) f[k]=""; const el=document.querySelector(`[data-ygf="${k}"]`); if(el) el.innerHTML=ygOpts(k,f[k]); }); }
+const ygOpts=(k,v)=>(k==="std"&&!YG.f.curve)?`<option value="">Önce yangın tipini seçin</option>`:(k==="cor"&&!YG.f.env)?`<option value="">Önce ortamı seçin</option>`:`<option value="">Seçin</option>`+ygList(k).map(o=>`<option${o===v?" selected":""}>${esc(o)}</option>`).join("");
+/* ---- Profil görsel kütüphanesi ---- */
+const YG_IMG={IPE:"ipe",INP:"ipe",HEA:"hea",HEB:"heb",HEM:"hem",UPN:"upn",UPE:"upn",boru:"boru",mil:"mil",tee:"t",lama:"lama"};
+const ygImgOf=r=>r.t==="kutu"?(num(r.b)&&num(r.b)!==num(r.a)?"kutu-dik":"kutu-kare"):r.t==="kose"?(num(r.b)&&num(r.b)!==num(r.a)?"l-farkli":"l-esit"):(YG_IMG[r.t]||"heb");
+const YG_FAMS=[...Object.keys(STD).map(k=>[k,k]),["kutu","Kutu profil"],["boru","Boru"],["kose","Köşebent (L)"],["tee","T profil"],["lama","Lama"],["mil","Dolu yuvarlak"]];
+const YG_DIM={kutu:[["a","Kenar a"],["b","Kenar b"],["th","Et kalınlığı"]],boru:[["a","Çap"],["th","Et kalınlığı"]],kose:[["a","Kol a"],["b","Kol b"],["th","Et kalınlığı"]],tee:[["a","Genişlik"],["b","Yükseklik"],["th","Et kalınlığı"]],lama:[["a","Genişlik"],["b","Kalınlık"]],mil:[["a","Çap"]]};
+const ygExp3=t=>(t in STD)||t==="kutu";
+function ygSec(r){ if(r.t==="tee"){ const a=num(r.a)/1000,b=num(r.b)/1000,t=num(r.th)/1000; if(!(a>0&&b>0&&t>0)) return null; return {p:2*(a+b),A:a*t+(b-t)*t}; } return secOf(r); }
+function ygLbl(r){ const f0=x=>fmt(num(x),num(x)%1?1:0); return r.t==="tee"?`T ${f0(r.a)}×${f0(r.b)}×${f0(r.th)} mm`:stLbl(r); }
+let ygPre=false; function ygPreload(){ if(ygPre) return; ygPre=true; ["ipe","hea","heb","hem","upn","kutu-kare","kutu-dik","boru","l-esit","l-farkli","t","lama","mil"].forEach(n=>{ const i=new Image(); i.src=`prof/${n}.webp`; }); }
+const ygRowM2=r=>{ if(r.t==="tee"){ const x=ygSec(r); return x?x.p*num(r.L)*Math.max(1,num(r.n)||1):0; } return stM2(Object.assign({},r,{q:num(r.L)*Math.max(1,num(r.n)||1),u:"m"})); };
+const ygRowHp=r=>{ const s=ygSec(r); return s&&s.A>0?hpA(r,s):0; };
+const YG_EL=["Kolon","Kiriş","Çapraz","Diğer"];
+function ygRowIc(r){ return r.t==="kose"?"ang":r.t==="tee"?"tee":r.t==="lama"?"flat":r.t==="mil"?"rod":r.t==="boru"?"tube":r.t==="kutu"?"box":(r.t==="UPN"||r.t==="UPE")?"chan":"ibeam"; }
+const ygExL=r=>r.t==="boru"||r.t==="mil"?"Çevre":(+r.exp===3?"3 yüz":"4 yüz");
+function ygRowsHTML(){ if(!YG.rows.length) return `<p class="yg-empty">Henüz profil eklenmedi.</p>`;
+  const tL=YG.rows.reduce((a,r)=>a+num(r.L)*Math.max(1,num(r.n)||1),0), tm=YG.rows.reduce((a,r)=>a+ygRowM2(r),0);
+  return `<div class="yg-tb"><div class="yg-th"><span>#</span><span>Profil</span><span class="wd">Eleman</span><span class="wd">Maruziyet</span><span class="wd">Boy</span><span></span></div>`+YG.rows.map((r,i)=>{ const n=Math.max(1,num(r.n)||1), L=num(r.L);
+    return `<div class="yg-tr${r.uns||!(L>0)?" uns":""}${YG.ed===i?" ed":""}"><span class="no">${i+1}</span><span class="pf">${ygI(ygRowIc(r))}<span><b>${esc(ygLbl(Object.assign({},r,{exp:4})))}</b><small>${esc(r.el||"")} · ${ygExL(r)} · ${L>0?fmt(L,1)+" m":"boy yok"}${n>1?" × "+n:""}</small></span></span><span class="wd">${esc(r.el||"")}</span><span class="wd">${ygExL(r)}</span><span class="wd">${L>0?fmt(L,1):"—"}${n>1?" ×"+n:""}</span><span class="ac"><button type="button" data-yged="${i}" aria-label="Düzenle">${ygI("pen")}</button><button type="button" data-ygdel="${i}" aria-label="Sil">${ygI("trash")}</button></span></div>`; }).join("")
+   +`</div><div class="yg-tot">${ygI("lay")}<b>Toplam</b><span>${YG.rows.length} profil</span><i></i><span>${fmt(tL,1)} m</span><i></i><span>${fmt(tm,1)} m²</span></div>`; }
+function ygMissing(){ const f=YG.f, m=[]; if(!f.proj) m.push("Proje adı"); if(!f.rate) m.push("Yangın dayanım süresi"); if(!f.curve) m.push("Yangın tipi"); if(!f.env) m.push("Ortam"); if(!f.crit) m.push("Kritik sıcaklık");
+  if(!YG.rows.length) m.push("Profil listesi"); else if(YG.rows.some(r=>!(num(r.L)>0))) m.push("Bazı profillerde boy"); return m; }
+function ygText(){ const f=YG.f, d=new Date().toLocaleDateString("tr-TR"), L=["*YANGIN KORUMA ANALİZ TALEBİ*",d,""];
+  const p=(l,v)=>{ if(v) L.push(`${l}: ${v}`); };
+  p("Proje",f.proj); p("Müşteri",f.cust); p("Şehir",f.city); p("Yetkili",[f.cont,f.tel].filter(Boolean).join(" · ")); p("Bayi",(dealerEl&&dealerEl.value||"").trim());
+  L.push(""); p("Yangın tipi",f.curve); p("Dayanım",f.rate); p("Kritik sıcaklık",f.crit); p("Test standardı",f.std);
+  p("Ortam",f.env); p("Korozivite",f.cor); p("Yüzey",f.surf); p("Uygulama",f.app);
+  if(YG.rows.length){ L.push("","*PROFİLLER*"); YG.rows.forEach((r,i)=>{ const hp=ygRowHp(r); L.push(`${i+1}. ${ygLbl(Object.assign({},r,{exp:4}))} · ${r.el||"-"} · ${+r.exp===3?"3":"4"} yüz · ${fmt(num(r.n)||1,0)} ad × ${fmt(num(r.L),2)} m · Hp/A ${hp?fmt(hp,0):"-"} · ${fmt(ygRowM2(r),1)} m²`); });
+    L.push(`Toplam: ${fmt(YG.rows.reduce((a,r)=>a+ygRowM2(r),0),1)} m²`); }
+  p("\nNot",f.note); L.push("","Her profil için kuru film kalınlığı, ürün önerisi ve toplam boya miktarı rica olunur."); return L.join("\n"); }
+function ygDoc(){ const f=YG.f, row=(l,v)=>v?`<tr><th style="width:34%">${l}</th><td>${esc(v)}</td></tr>`:"";
+  $("#yg-doc").innerHTML=`<h1>Yangın Koruma Analiz Talebi</h1><div>${new Date().toLocaleDateString("tr-TR")}${YG.to.name?" · Alıcı: "+esc(YG.to.name):""}</div>
+   <h2>Proje</h2><table>${row("Proje",f.proj)}${row("Müşteri",f.cust)}${row("Şehir",f.city)}${row("Yetkili",[f.cont,f.tel].filter(Boolean).join(" · "))}${row("Bayi",(dealerEl&&dealerEl.value||"").trim())}</table>
+   <h2>Yangın gereksinimi ve ortam</h2><table>${row("Yangın tipi",f.curve)}${row("Dayanım süresi",f.rate)}${row("Kritik sıcaklık",f.crit)}${row("Test standardı",f.std)}${row("Ortam",f.env)}${row("Korozivite (ISO 12944)",f.cor)}${row("Yüzey",f.surf)}${row("Uygulama",f.app)}${row("Son kat / renk",f.top)}</table>
+   ${YG.rows.length?`<h2>Profil listesi</h2><table><tr><th>#</th><th>Profil</th><th>Eleman</th><th>Maruziyet</th><th>Adet × boy</th><th>Hp/A (m⁻¹)</th><th>m²</th></tr>${YG.rows.map((r,i)=>{const hp=ygRowHp(r);return `<tr><td>${i+1}</td><td>${esc(ygLbl(Object.assign({},r,{exp:4})))}</td><td>${esc(r.el||"")}</td><td>${+r.exp===3?"3":"4"} yüz</td><td>${fmt(num(r.n)||1,0)} × ${fmt(num(r.L),2)} m</td><td>${hp?fmt(hp,0):""}</td><td>${fmt(ygRowM2(r),1)}</td></tr>`;}).join("")}<tr><th colspan="6">Toplam</th><th>${fmt(YG.rows.reduce((a,r)=>a+ygRowM2(r),0),1)}</th></tr></table>`:""}
+   ${f.note?`<h2>Not</h2><p>${esc(f.note)}</p>`:""}<p style="margin-top:14px;font-size:11px;color:#5a6b85">Hp/A ve m² değerleri EN 10365 profil tablolarından yaklaşık hesaplanmıştır. Kalınlık hesabı, ürünün sertifikalı yükleme tablolarına göre Jotun teknik ekibince yapılır.</p>`; }
+async function ygFile(f){ const n=f.name.toLowerCase(), t=(f.type||"").toLowerCase(); toast("Liste okunuyor…"); let text="";
+  try{ if(t==="application/pdf"||n.endsWith(".pdf")) text=await pdfText(f); else if(t.startsWith("image/")) text=await steelOcr(f);
+    else if(/\.(xlsx|xls)$/.test(n)){ if(!window.XLSX) await loadScript("https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"); const wb=XLSX.read(await f.arrayBuffer()); text=wb.SheetNames.map(sn=>XLSX.utils.sheet_to_json(wb.Sheets[sn],{header:1}).map(r=>r.map(c=>c==null?"":String(c)).join(" \t ")).join("\n")).join("\n"); }
+    else text=await f.text(); }catch(e){ toast("Dosya okunamadı"); return; }
+  const {rows,skip}=steelParse(text); let k=0;
+  rows.filter(r=>r.t!=="levha"&&r.t!=="lama"&&r.t!=="mil"&&r.t!=="karedolu").forEach(r=>{ let L=num(r.q), nn=1;
+    if(r.u==="ton"){ const s=secOf(r); L=s&&s.A>0?L*1000/(s.A*7850):0; }
+    if(r.calc){ const m=r.calc.match(/^([\d.,]+) ad × ([\d.,]+) m/); if(m){ nn=trNum(m[1]); L=trNum(m[2]); } }
+    const el=/KOLON|COLUMN/i.test(r.line)?"Kolon":/K[İI]R[İI][ŞS]|BEAM/i.test(r.line)?"Kiriş":/BRACE|[ÇC]APRAZ/i.test(r.line)?"Çapraz":"Diğer";
+    YG.rows.push({t:r.t,s:r.s,a:r.a,b:r.b,th:r.th,d:r.d,exp:r.exp||4,el,L:Math.round(L*100)/100||"",n:nn,uns:!!r.unsure}); k++; });
+  ygRowsUpd(); toast(k?`${k} profil eklendi${skip.length?` · ${skip.length} satır okunamadı`:""}`:"Listede profil okuyamadım"); }
+/* ---- Analiz talebi v2: adımlı form ---- */
+const YG_IL="Adana,Adıyaman,Afyonkarahisar,Ağrı,Aksaray,Amasya,Ankara,Antalya,Ardahan,Artvin,Aydın,Balıkesir,Bartın,Batman,Bayburt,Bilecik,Bingöl,Bitlis,Bolu,Burdur,Bursa,Çanakkale,Çankırı,Çorum,Denizli,Diyarbakır,Düzce,Edirne,Elazığ,Erzincan,Erzurum,Eskişehir,Gaziantep,Giresun,Gümüşhane,Hakkari,Hatay,Iğdır,Isparta,İstanbul,İzmir,Kahramanmaraş,Karabük,Karaman,Kars,Kastamonu,Kayseri,Kilis,Kırıkkale,Kırklareli,Kırşehir,Kocaeli,Konya,Kütahya,Malatya,Manisa,Mardin,Mersin,Muğla,Muş,Nevşehir,Niğde,Ordu,Osmaniye,Rize,Sakarya,Samsun,Şanlıurfa,Siirt,Sinop,Şırnak,Sivas,Tekirdağ,Tokat,Trabzon,Tunceli,Uşak,Van,Yalova,Yozgat,Zonguldak".split(",");
+YG.a=Object.assign({fam:"HEB",s:"300",exp:4,L:"",n:1,el:"Kolon",a:"",b:"",th:""},load("yg-a",{})); YG.st=YG.st||"an"; YG.files=YG.files||[]; YG.open=YG.open||{proj:true};
+const ygAR=()=>{ const A=YG.a, t=A.fam; if(t in STD) return {t,s:A.s,exp:+A.exp};
+  if(t==="boru") return {t,d:num(A.a),th:num(A.th),exp:4}; if(t==="mil") return {t,d:num(A.a),exp:4};
+  if(t==="lama") return {t,a:num(A.a),b:num(A.b),exp:4}; if(t==="kose"||t==="tee") return {t,a:num(A.a),b:num(A.b)||(t==="kose"?num(A.a):0),th:num(A.th),exp:4};
+  return {t:"kutu",a:num(A.a),b:num(A.b)||num(A.a),th:num(A.th),exp:+A.exp}; };
+const ygCritOf=()=>{ const m=String(YG.f.crit||"").match(/(\d{3})/); return m?{T:+m[1],def:false}:{T:ygCrit(0.6),def:true}; };
+const YG_STEPS=[["proj","Proje ve koşullar"],["prof","Profiller"],["send","Gönder"]];
+YG.stp=+load("yg-stp",0)||0;
+function ygDone(){ const f=YG.f; return {proj:!!(f.proj&&f.curve&&f.rate&&f.env&&f.crit), prof:YG.rows.length>0&&YG.rows.every(r=>num(r.L)>0), send:!!YG.sent}; }
+function ygStepHTML(){ const d=ygDone();
+  return YG_STEPS.map(([k,l],i)=>`<button type="button" data-ys="${i}" class="${i===YG.stp?"on":d[k]?"ok":""}"><i>${d[k]&&i!==YG.stp?"✓":i+1}</i>${l}</button>`).join(""); }
+const YG_SHORT={"Selülozik (ISO 834)":"Selülozik","Hidrokarbon / jet":"Hidrokarbon / jet","İç mekân, normal nem (Z2)":"İç mekân","İç mekân, yüksek nem (Z1)":"İç, nemli","Yarı açık (Y)":"Yarı açık","Dış ortam (X)":"Dış ortam"};
+const ygChips=(k,opts)=>`<div class="yg-chips" data-ygcg="${k}">${(opts||YG_SEL[k]).map(o=>`<button type="button" data-ygc="${k}" data-v="${esc(o)}" class="${YG.f[k]===o?"on":""}">${esc(YG_SHORT[o]||o)}</button>`).join("")}</div>`;
+function ygPrevHTML(){ const r=ygAR(), s=ygSec(r), ok=s&&s.A>0, p=ok?secP(r,s):0, hp=ok?p/s.A:0, kg=ok?s.A*7850:0, row=(r.t in STD)?STD[r.t].find(x=>String(x[0])===String(r.s)):null;
+  const ex=r.t==="boru"||r.t==="mil"?"Çevre":(+r.exp===3?"3 yüz":"4 yüz"), sub=row?`b = ${fmt(row[3],0)} mm`:"";
+  return `<div class="yg-pim"><img src="prof/${ygImgOf(r)}.webp" alt="${esc(ygLbl(Object.assign({},r,{exp:4})))}" width="480" height="360" decoding="async"></div>
+   <div class="yg-pin"><b>${esc(ygLbl(Object.assign({},r,{exp:4})))}</b><span class="sb">${sub?sub+" · ":""}${ex} maruziyet</span>
+    <dl><div><dt>Hp/A</dt><dd>${hp?fmt(hp,0):"—"}<small> m⁻¹</small></dd></div><div><dt>Alan</dt><dd>${p?fmt(p,3):"—"}<small> m²/m</small></dd></div><div><dt>Ağırlık</dt><dd>${kg?fmt(kg,kg<10?2:1):"—"}<small> kg/m</small></dd></div></dl></div>`; }
+function ygAnaHTML(){ const ms=ygMissing(), n=YG.rows.length, m2=YG.rows.reduce((a,r)=>a+ygRowM2(r),0);
+  return `<div class="yg-k4" style="grid-template-columns:repeat(3,1fr)"><div><b>${n}</b><span>profil</span></div><div><b>${fmt(m2,1)}</b><span>m² boyanacak</span></div><div><b>${esc(YG.f.rate||"—")}</b><span>dayanım</span></div></div>
+   <div class="yg-chk">${ms.length?ms.map(x=>`<span class="no">• Eksik: ${x}</span>`).join(""):`<span class="ok">✓ Talep analiz için hazır</span>`}</div>
+   <details class="yg-fx"><summary>Gönderilecek mesajı gör</summary><div class="yg-pre">${esc(ygText().replace(/\*/g,""))}</div></details>`; }
+const YG_ENVI={"İç mekân, normal nem (Z2)":"home","İç mekân, yüksek nem (Z1)":"drop","Yarı açık (Y)":"cloud","Dış ortam (X)":"sun","Selülozik (ISO 834)":"fire","Hidrokarbon / jet":"jet"};
+function ygReq(){ const f=YG.f, A=YG.a, to=YG.to, std=A.fam in STD, pm=YG.pm||"man";
+  const I=(k,l,ic,ph,o={})=>`<label class="yg-r${o.cls?" "+o.cls:""}"><span class="yg-l">${l}${o.req?' <i class="req">*</i>':""}</span><span class="yg-in">${ygI(ic)}<input type="${o.type||"text"}" data-ygf="${k}" value="${esc(f[k]||"")}" placeholder="${ph||""}"${o.list?` list="${o.list}"`:""}></span></label>`;
+  const S=(k,l,ic,o={})=>`<label class="yg-r"${o.id?` id="${o.id}"`:""}><span class="yg-l">${l}${o.req?' <i class="req">*</i>':""}</span><span class="yg-in">${ygI(ic)}<select data-ygf="${k}">${ygOpts(k,f[k])}</select></span></label>`;
+  const C=(k,l,opts)=>`<div class="yg-r" id="ygq-${k}"><span class="yg-l">${l} <i class="req">*</i></span><div class="yg-chips" data-ygcg="${k}">${(opts||YG_SEL[k]).map(o=>`<button type="button" data-ygc="${k}" data-v="${esc(o)}" class="${f[k]===o?"on":""}">${YG_ENVI[o]?ygI(YG_ENVI[o]):""}${esc(YG_SHORT[o]||o)}</button>`).join("")}</div></div>`;
+  const hc=(f.curve||"").startsWith("Hidro");
+  const sel=(id,opts,v)=>`<span class="yg-sl2"><select id="${id}">${opts.map(([a,b])=>`<option value="${a}"${String(a)===String(v)?" selected":""}>${b}</option>`).join("")}</select></span>`;
+  const nI=(id,v,ph)=>`<input type="number" inputmode="decimal" id="${id}" value="${esc(String(v||""))}" placeholder="${ph}">`;
+  const ed=YG.ed!=null;
+  return `<section class="yg-card" id="ygc-proj"><div class="yg-hd"><span class="ic">${ygI("bld")}</span><h3>Proje bilgileri</h3><button type="button" class="yg-lk" id="yg-clr">${ygI("reset")}Temizle</button></div>
+   <div class="yg-fl">${I("proj","Proje adı","bld","örn. Lojistik deposu çelik çatısı",{req:1,cls:"full"})}${I("cust","Müşteri / firma","users","Firma adı")}${I("city","Şehir","pin","Seçin",{list:"yg-il"})}
+   ${C("curve","Yangın tipi")}<div class="yg-warn" id="yg-hcw"${hc?"":" hidden"}>${ygI("info")}<span>Steelmaster bu yangın tipi için uygun değildir; talep Jotachar değerlendirmesine gider.</span></div>
+   ${C("rate","Dayanım süresi",["R30","R60","R90","R120","R180"])}${C("env","Ortam")}
+   ${S("crit","Kritik sıcaklık","therm",{req:1,id:"ygq2-crit"})}${S("std","Test standardı","std")}<p class="yg-hint2">Kritik sıcaklık statik hesaptan gelir; bilinmiyorsa "Danışman belirlesin" seçin.</p></div>
+   <details class="yg-more"${YG.more?" open":""}><summary>${ygI("plus")}Ek bilgi ekle <small>korozivite, yüzey, yetkili kişi</small></summary><div class="yg-fl">${S("cor","Korozivite","shield")}${S("app","Uygulama yeri","fac")}${S("surf","Yüzey durumu","roll")}${I("cont","Yetkili kişi","user","Ad soyad")}${I("tel","Telefon","tel","+90 5xx",{type:"tel"})}</div></details>
+   <datalist id="yg-il">${YG_IL.map(x=>`<option value="${x}">`).join("")}</datalist></section>
+  <section class="yg-card" id="ygc-prof"><div class="yg-hd"><span class="ic">${ygI("lay")}</span><h3>Profiller</h3><div class="yg-seg"><button type="button" data-ygpm="man" class="${pm==="man"?"on":""}">${ygI("pen")}Manuel</button><button type="button" data-ygpm="up" class="${pm==="up"?"on":""}">${ygI("up")}Liste yükle</button></div></div>
+   ${pm==="man"?`<div class="yg-ad"><div class="yg-pv" id="yg-pv">${ygPrevHTML()}</div><div class="yg-af">
+     <label><span>Profil</span>${sel("yg-afam",YG_FAMS,A.fam)}</label>
+     ${std?`<label><span>Ölçü</span>${sel("yg-asz",STD[A.fam].map(p=>[p[0],String(p[0])]),A.s)}</label>`:(YG_DIM[A.fam]||YG_DIM.kutu).map(([k,l])=>`<label><span>${l} (mm)</span>${nI({a:"yg-aa",b:"yg-ab",th:"yg-at"}[k],A[k],"0")}</label>`).join("")}
+     <label><span>Maruziyet</span>${!ygExp3(A.fam)?sel("yg-aexp",[[4,A.fam==="boru"||A.fam==="mil"?"Çevre":"4 yüz"]],4):sel("yg-aexp",[[4,"4 yüz"],[3,"3 yüz"]],A.exp)}</label><label><span>Eleman</span>${sel("yg-ael",YG_EL.map(e=>[e,e]),A.el)}</label>
+     <label><span>Boy (m)</span>${nI("yg-aL",A.L,"0,0")}</label><label><span>Adet</span>${nI("yg-an",A.n||1,"1")}</label></div></div>
+     <button type="button" class="yg-addb" id="yg-aadd">${ygI(ed?"check":"plus")}${ed?"Değişikliği kaydet":"Profili listeye ekle"}</button>${ed?`<button type="button" class="yg-lk" id="yg-edx" style="margin:6px auto 0;display:flex">Vazgeç</button>`:""}`
+   :`<label class="yg-dz yg-dz2"><input type="file" id="yg-upf" accept=".pdf,image/*,.xlsx,.xls,.csv,.txt" hidden>${ygI("up")}<span><b>Çelik listesini yükle</b><small>PDF, fotoğraf veya Excel · profiller otomatik okunur, sonra kontrol edin</small></span></label>`}
+   <div id="yg-rows">${ygRowsHTML()}</div></section>
+  <section class="yg-card yg-nt"><label class="yg-ntl"><span class="ic2">${ygI("list")}</span><input type="text" data-ygf="note" value="${esc(f.note||"")}" placeholder="Not (isteğe bağlı) · örn. termin 3 hafta"></label><label class="yg-atb" aria-label="Dosya ekle"><input type="file" id="yg-fa" multiple hidden>${ygI("clip")}${YG.files.length?`<em>${YG.files.length}</em>`:""}</label>
+   <div class="yg-files" id="yg-files">${ygFilesHTML()}</div></section>
+  <div class="yg-send"><a class="yg-go" id="yg-wa" target="_blank" rel="noopener">${ygI("send")}Talebi gönder</a><button type="button" class="yg-sq" id="yg-pdf">${ygI("pdf")}<span>PDF</span></button><a class="yg-sq" id="yg-mail">${ygI("mail")}<span>E-posta</span></a></div>
+  <p class="yg-rcp2" id="yg-rcp">${ygRcpHTML()}</p>`; }
+function ygRcpHTML(){ const to=YG.to, ms=ygMissing(); return `${ms.length?`<span class="ms">Eksik: ${ms.join(", ")}</span>`:`<span class="okk">✓ Talep hazır</span>`} · WhatsApp ile <b>${to.name?esc(to.name):"kişi seçerek"}</b> gönderilir · <button type="button" class="yg-lk" id="yg-toedit">${to.name?"Alıcıyı değiştir":"Alıcı ekle"}</button>`; }
+function ygFilesHTML(){ return YG.files.map((f,i)=>`<div>${ygI("clip").replace("<svg",'<svg style="width:16px;height:16px;fill:none;stroke:#cfe0ff;stroke-width:2"')}<span>${esc(f.name)}</span><small>${fmt(f.size/1048576,1)} MB</small><button type="button" class="x" data-ygfd="${i}" aria-label="Kaldır" style="background:none;border:0;color:#fff;font-size:18px">×</button></div>`).join(""); }
+function ygLinks(){ const wa=$("#yg-wa"), ml=$("#yg-mail"); if(!wa) return; const t=ygText(), n=(YG.to.wa||"").replace(/\D/g,"");
+  wa.href=(n?"https://wa.me/"+n:"https://wa.me/")+"?text="+encodeURIComponent(t);
+  ml.href=`mailto:${encodeURIComponent(YG.to.mail||"")}?subject=${encodeURIComponent("Yangın koruma analiz talebi"+(YG.f.proj?" – "+YG.f.proj:""))}&body=${encodeURIComponent(t.replace(/\*/g,""))}`;
+  const dn=ygDone(); [0,1].forEach(i=>{const e=$("#yg-ok"+i); if(e) e.hidden=!dn[YG_STEPS[i][0]];}); 
+  const a=$("#yg-ana"); if(a) a.innerHTML=ygAnaHTML(); const rc=$("#yg-rcp"); if(rc) rc.innerHTML=ygRcpHTML(); }
+function ygAnaUpd(){ const a=$("#yg-ana"); if(a) a.innerHTML=ygAnaHTML(); }
+function ygRowsUpd(){ const el=$("#yg-rows"); if(el) el.innerHTML=ygRowsHTML(); ygSave(); ygLinks(); ygAnaUpd(); }
+function ygToEdit(){ const t=YG.to; const d=sheet("Analizi yapacak kişi",`<div class="yg-fm" style="grid-template-columns:1fr"><label>Ad soyad / ünvan<input type="text" id="yg-tn" value="${esc(t.name||"")}" placeholder="örn. Jotun yangın koruma uzmanı"></label><label>WhatsApp numarası<input type="tel" id="yg-tw" value="${esc(t.wa||"")}" placeholder="90 5xx xxx xx xx"></label><label>E-posta<input type="email" id="yg-tm" value="${esc(t.mail||"")}"></label></div><div class="q-actions"><button type="button" class="btn primary" id="yg-tok">Kaydet</button><button type="button" class="btn" data-close>Vazgeç</button></div>`);
+  d.querySelector("#yg-tok").onclick=()=>{ YG.to={name:d.querySelector("#yg-tn").value.trim(),wa:d.querySelector("#yg-tw").value.trim(),mail:d.querySelector("#yg-tm").value.trim()}; store("yg-to",YG.to); d.close(); ygRender(); }; }
+const YG_HERO={how:["Yangın Koruma","Çelik yangında neden korunur, Steelmaster nasıl çalışır ve kalınlık neye göre belirlenir."],std:["Standartlar","Yangın korumada bilinmesi gereken test, tasarım ve uygulama standartları."],req:["Kalınlık Analizi Talebi","Çelik elemanlar için gerekli bilgileri hazırlayın; yangın koruma kalınlığı analizi için Jotun teknik ekibine gönderin."]};
+function ygRender(){ const b=$("#yg-body"); if(!b) return; $("#yg-tabs").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.yt===YG.tab));
+  const H=YG_HERO[YG.tab]; $("#yg-h").textContent=H[0]; $("#yg-p").textContent=H[1]; const kk=$("#yg-k"); if(kk) kk.textContent={how:"Endüstriyel çelikler için",std:"Test · tasarım · uygulama",req:"Jotun teknik ekibine"}[YG.tab];
+  if(YG.tab==="req") ygPreload(); b.innerHTML=YG.tab==="how"?ygHow():YG.tab==="std"?ygStd():ygReq();
+  if(YG.tab==="how") ygHowUpd(); if(YG.tab==="req") ygLinks(); }
+const ygA=()=>store("yg-a",YG.a);
+function ygPvUpd(){ const p=$("#yg-pv"); if(p) p.innerHTML=ygPrevHTML(); ygA(); }
+$("#yg-tabs").addEventListener("click",e=>{const b=e.target.closest("[data-yt]"); if(!b) return; YG.tab=b.dataset.yt; ygRender(); window.scrollTo(0,0);});
+$("#yg-body").addEventListener("toggle",e=>{ const d=e.target; if(d.classList&&d.classList.contains("yg-more")) YG.more=d.open; },true);
+$("#yg-body").addEventListener("input",e=>{ const t=e.target, M=YG.m, A=YG.a;
+  if(t.id==="yg-mu"){ M.mu=+t.value; ygHowUpd(); }
+  else if(t.dataset.ygf){ YG.f[t.dataset.ygf]=t.value; YG.sent=false; ygSave(); ygLinks(); }
+  else if(["yg-aa","yg-ab","yg-at"].includes(t.id)){ A[{"yg-aa":"a","yg-ab":"b","yg-at":"th"}[t.id]]=t.value; ygPvUpd(); }
+  else if(t.id==="yg-aL"){ A.L=t.value; ygA(); } else if(t.id==="yg-an"){ A.n=t.value; ygA(); }
+  else if(t.dataset.yge!=null&&t.tagName==="INPUT"){ const r=YG.rows[+t.dataset.yge]; r[t.dataset.k]=t.value; r.uns=false; ygSave(); ygLinks(); const sm=t.closest(".yg-row").querySelector("small"); const hp=ygRowHp(r); if(sm) sm.textContent=`Hp/A ${hp?fmt(hp,0)+" m⁻¹":"— (et kalınlığı gerekli)"} · ${fmt(ygRowM2(r),1)} m²`; } });
+$("#yg-body").addEventListener("change",e=>{ const t=e.target, M=YG.m, A=YG.a;
+  if(t.id==="yg-fam"){ M.fam=t.value; M.s=STD[M.fam].some(p=>p[0]==M.s)?M.s:String(STD[M.fam][Math.min(6,STD[M.fam].length-1)][0]); $("#yg-sz").innerHTML=ygSizeOpts(M.fam,M.s); ygHowUpd(); }
+  else if(t.id==="yg-sz"){ M.s=t.value; ygHowUpd(); } else if(t.id==="yg-exp"){ M.exp=+t.value; ygHowUpd(); }
+  else if(t.dataset.ygf){ YG.f[t.dataset.ygf]=t.value; YG.sent=false; ygSave(); ygLinks(); const w=$("#yg-hcw"); if(w) w.hidden=!(YG.f.curve||"").startsWith("Hidro"); }
+  else if(t.id==="yg-afam"){ A.fam=t.value; if(A.fam in STD&&!STD[A.fam].some(p=>p[0]==A.s)) A.s=String(STD[A.fam][Math.min(6,STD[A.fam].length-1)][0]); if(!ygExp3(A.fam)) A.exp=4; ygA(); const sc=$("#ys-prof .yg-sb"); ygRender(); }
+  else if(t.id==="yg-asz"){ A.s=t.value; ygPvUpd(); } else if(t.id==="yg-aexp"){ A.exp=+t.value; ygPvUpd(); } else if(t.id==="yg-ael"){ A.el=t.value; ygA(); }
+  else if(t.id==="yg-upf"){ const f=t.files[0]; t.value=""; if(f) ygFile(f); }
+  else if(t.id==="yg-fa"){ [...t.files].forEach(f=>YG.files.push(f)); t.value=""; ygRender(); toast(`${YG.files.length} dosya eklendi`); }
+  else if(t.dataset.yge!=null&&t.tagName==="SELECT"){ const r=YG.rows[+t.dataset.yge]; r[t.dataset.k]=t.dataset.k==="exp"?+t.value:t.value; ygRowsUpd(); } });
+$("#yg-body").addEventListener("click",async e=>{ const t=e.target.closest("button,a")||e.target;
+  { const xe=e.target.closest("[data-ygx]"); if(xe){ ygXOpen(xe.dataset.ygx); return; } }
+  if(t.dataset.ygenv!=null){ YG.envI=+t.dataset.ygenv; $("#yg-env").querySelectorAll("button").forEach((b,i)=>b.classList.toggle("on",i===YG.envI)); $("#yg-envd").textContent=YG_ENV[YG.envI][3]; return; }
+  if(t.dataset.ygto){ YG.tab=t.dataset.ygto; ygRender(); window.scrollTo(0,0); return; }
+  if(t.dataset.ys!=null){ YG.stp=Math.max(0,Math.min(2,+t.dataset.ys)); store("yg-stp",YG.stp); ygRender(); const st=$("#yg-step"); if(st) st.scrollIntoView({block:"start"}); return; }
+  if(t.dataset.ygpm){ YG.pm=t.dataset.ygpm; ygRender(); return; }
+  if(t.dataset.yged!=null){ const i=+t.dataset.yged, r=YG.rows[i]; YG.ed=i; YG.pm="man"; Object.assign(YG.a,{fam:r.t,s:r.s!=null?String(r.s):YG.a.s,a:(r.t==="boru"||r.t==="mil")?(r.d||r.a||""):(r.a||""),b:r.b||"",th:r.th||"",exp:+r.exp||4,el:r.el||"Kolon",L:r.L,n:r.n||1}); ygA(); ygRender(); const c=$("#ygc-prof"); if(c) c.scrollIntoView({behavior:"smooth",block:"start"}); return; }
+  if(t.id==="yg-edx"){ YG.ed=null; YG.a.L=""; YG.a.n=1; ygA(); ygRender(); return; }
+  if(t.dataset.ygc){ const k=t.dataset.ygc, v=t.dataset.v; YG.f[k]=YG.f[k]===v?"":v; YG.sent=false; ygSave(); t.parentNode.querySelectorAll("button").forEach(b=>b.classList.toggle("on",YG.f[k]===b.dataset.v)); if(k==="curve"){ const w=$("#yg-hcw"); if(w) w.hidden=!(YG.f.curve||"").startsWith("Hidro"); } if(k==="curve"||k==="env"){ ygFix(); ygSave(); } ygLinks(); return; }
+    if(t.dataset.ygfd!=null){ YG.files.splice(+t.dataset.ygfd,1); ygRender(); return; }
+  if(t.id==="yg-toedit") ygToEdit();
+  else if(t.dataset.ygdel!=null){ const i=+t.dataset.ygdel, bk=YG.rows[i]; YG.rows.splice(i,1); if(YG.ed!=null){ YG.ed=null; ygSave(); ygRender(); } else ygRowsUpd(); undoToast("Profil silindi",()=>{YG.rows.splice(i,0,bk);ygSave();ygRender();}); }
+  else if(t.id==="yg-aadd"){ const A=YG.a, r=ygAR(), L=num(A.L), n=Math.max(1,num(A.n)||1);
+    if(!ygSec(r)){ toast("Profil ölçüsünü girin"); return; } if(!(L>0)){ toast("Boyu girin"); $("#yg-aL").focus(); return; }
+    const nr=Object.assign(r,{el:A.el,L,n}); if(YG.ed!=null&&YG.rows[YG.ed]){ YG.rows[YG.ed]=nr; YG.ed=null; A.L=""; A.n=1; ygA(); ygSave(); ygRender(); toast("Profil güncellendi"); return; }
+    YG.rows.push(nr); A.L=""; A.n=1; ygA(); $("#yg-aL").value=""; $("#yg-an").value="1"; ygRowsUpd(); toast("Profil eklendi"); }
+  else if(t.id==="yg-wa"){ const ms=ygMissing(); if(ms.length){ e.preventDefault(); toast("Eksik: "+ms.join(", ")); const k=!YG.f.proj?"ygc-proj":!YG.f.curve?"ygq-curve":!YG.f.rate?"ygq-rate":!YG.f.env?"ygq-env":!YG.f.crit?"ygq2-crit":"ygc-prof"; const el=document.getElementById(k); if(el){ el.scrollIntoView({behavior:"smooth",block:"center"}); el.classList.add("yg-miss"); setTimeout(()=>el.classList.remove("yg-miss"),1600); } return; } YG.sent=true; ygLinks(); if(YG.files.length&&navigator.canShare&&navigator.canShare({files:YG.files})){ e.preventDefault(); try{ await navigator.share({text:ygText(),files:YG.files}); }catch(x){} } else if(YG.files.length) toast("Dosyaları WhatsApp mesajına ayrıca ekleyin"); }
+  else if(t.id==="yg-mail"){ YG.sent=true; if(YG.files.length) toast("Dosyaları e-postaya ayrıca ekleyin"); }
+  else if(t.id==="yg-pdf"){ if(!pdfReady()){ toast("Bu ortamda PDF indirilemiyor"); return; } ygDoc(); const d=new Date(),pad=x=>String(x).padStart(2,"0"); pdfFromEl($("#yg-doc"),`Yangin_Analiz_Talebi_${(YG.f.proj||"proje").replace(/[^\p{L}\p{N}]+/gu,"_").slice(0,40)}_${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}.pdf`,t,"Analiz talebini paylaş"); }
+  else if(t.id==="yg-clr"){ if(!YG.rows.length&&!Object.keys(YG.f).length) return; const bk={f:YG.f,rows:YG.rows,files:YG.files}; YG.f={}; YG.rows=[]; YG.files=[]; YG.sent=false; ygSave(); ygRender(); undoToast("Form temizlendi",()=>{YG.f=bk.f;YG.rows=bk.rows;YG.files=bk.files;ygSave();ygRender();}); } });
+
+/* ---- Sarfiyat: profil görsel önizlemesi (demo) ---- */
+(function(){
+  const IMG={IPE:"ipe",INP:"ipe",HEA:"hea",HEB:"heb",HEM:"hem",UPN:"upn",UPE:"upn",boru:"boru",mil:"mil",lama:"lama",karedolu:"kare-dolu"};
+  const img=r=>r.t==="kutu"?(num(r.b)&&num(r.b)!==num(r.a)?"kutu-dik":"kutu-kare"):r.t==="kose"?(num(r.b)&&num(r.b)!==num(r.a)?"l-farkli":"l-esit"):(IMG[r.t]||"heb");
+  const NM={IPE:"IPE",INP:"INP",HEA:"HEA",HEB:"HEB",HEM:"HEM",UPN:"UPN",UPE:"UPE",kutu:"Kutu profil",boru:"Boru",kose:"Köşebent (L)",lama:"Lama",karedolu:"Kare dolu",mil:"Dolu yuvarlak"};
+  ["ipe","hea","heb","hem","upn","kutu-kare","kutu-dik","boru","l-esit","l-farkli","lama","mil","kare-dolu"].forEach(n=>{ const i=new Image(); i.src=`prof/${n}.webp`; });
+  function sfPv(){ const el=$("#sf-pvw"); if(!el) return; const tab=typeof SFA!=="undefined"?SFA:"prof";
+    if(!["prof","hol","bar"].includes(tab)){ el.hidden=true; return; } let r=null; try{ r=sfRow(); }catch(e){} if(!r){ el.hidden=true; return; }
+    el.hidden=false; let s=null; try{ s=secOf(r); }catch(e){}
+    const p=s?s.p:0, kg=s&&s.A>0?s.A*7850:0, row=(r.t in STD)?STD[r.t].find(x=>String(x[0])===String(r.s)):null;
+    const ok=!!s; const lbl=ok?stLbl(Object.assign({},r,{exp:4,inner:false})):NM[r.t]||r.t;
+    const sub=row?`Başlık genişliği b = ${fmt(row[3],0)} mm`:ok?"":"Ölçüleri girin";
+    const fi=n=>n>0?n:null, v=(x,d)=>x?fmt(x,d):"—";
+    const tm=kg?p/kg*1000:0;
+    const src=`prof/${img(r)}.webp`, im=el.querySelector("img");
+    if(im&&im.getAttribute("src")===src&&el.dataset.k===lbl+sub+p+kg){ return; }
+    el.dataset.k=lbl+sub+p+kg;
+    el.innerHTML=`<div class="sfp-im"><img src="${src}" alt="${esc(lbl)}" width="480" height="360" decoding="async"></div>
+     <div class="sfp-in"><span class="sfp-k">${esc(NM[r.t]||"")}</span><b>${esc(lbl)}</b>${sub?`<span class="sfp-s">${esc(sub)}</span>`:""}
+      <dl><div><dt>Alan</dt><dd>${v(p,3)}<small> m²/m</small></dd></div><div><dt>Ağırlık</dt><dd>${v(kg,kg<10?2:1)}<small> kg/m</small></dd></div><div><dt>Ton başı</dt><dd>${v(tm,1)}<small> m²/t</small></dd></div></dl></div>`; }
+  const w=$("#sf-areaw"); if(w){ ["input","change","click"].forEach(ev=>w.addEventListener(ev,()=>setTimeout(sfPv,0))); }
+  const b=$("#sf-areab"); if(b) b.addEventListener("click",()=>setTimeout(sfPv,30));
+  window.addEventListener("hashchange",()=>setTimeout(sfPv,60)); setTimeout(sfPv,200);
+})();
+
 })();
 </script>

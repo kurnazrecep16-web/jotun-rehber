@@ -2277,7 +2277,7 @@ html body #cmp-btn:active{transform:scale(.98)}
 <section id="v-yangin" hidden>
   <div class="yg-hero"><img class="yg-hph" src="ill/hero-steel.webp" alt="" aria-hidden="true"><a href="#ana" class="yg-back" aria-label="Ana sayfaya dön"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></a>
     <div class="yg-ht"><span class="yg-fi" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 5c4 7 12 12 12 22a12 12 0 0 1-24 0c0-6 3-9 5-12 1 4 3 6 5 6-1-6 0-11 2-16z" fill="#f0ab00"/><path d="M24 41a6 6 0 0 1-6-6c0-3 2-5 3-7 1 2 3 3 4 3 2 1 5 3 5 5a6 6 0 0 1-6 5z" fill="#fff3d1"/></svg></span>
-    <div><span class="dm-tag">DEMO</span><span class="yg-kick" id="yg-k">ENDÜSTRİYEL ÇELİKLER İÇİN</span><h2 id="yg-h">Yangın Koruma</h2><p id="yg-p"></p><i class="yg-bar"></i></div></div></div>
+    <div><span class="yg-kick" id="yg-k">ENDÜSTRİYEL ÇELİKLER İÇİN</span><h2 id="yg-h">Yangın Koruma</h2><p id="yg-p"></p><i class="yg-bar"></i></div></div></div>
   <div class="yg-tabs yg-tabs3" id="yg-tabs">
     <button type="button" data-yt="how" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/><path d="M3 17.5l9 5 9-5" opacity=".6"/></svg>Nasıl çalışır</button>
     <button type="button" data-yt="std" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6c-2-1.5-5-2-8-1.5v13c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5v-13c-3-.5-6 0-8 1.5z"/><path d="M12 6v13"/></svg>Standartlar</button>
@@ -3866,7 +3866,7 @@ wxLoad();
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)wxLoad();});
 
 /* Yeni sürüm yayınlandıysa uygulama açıkken kendini yeniler */
-(()=>{const B="1793750908"; if(!/^\d+$/.test(B)) return;
+(()=>{const B="1793751963"; if(!/^\d+$/.test(B)) return;
   const chk=()=>fetch(location.pathname+"?b="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const B="(\d+)"/); if(m&&+m[1]>+B) location.reload();}).catch(()=>{});
   document.addEventListener("visibilitychange",()=>{if(!document.hidden)chk();}); setTimeout(chk,4000);})();
 
@@ -4712,7 +4712,6 @@ $("#yg-body").addEventListener("click",async e=>{ const t=e.target.closest("butt
   else if(t.id==="yg-pdf"){ if(!pdfReady()){ toast("Bu ortamda PDF indirilemiyor"); return; } ygDoc(); const d=new Date(),pad=x=>String(x).padStart(2,"0"); pdfFromEl($("#yg-doc"),`Yangin_Analiz_Talebi_${(YG.f.proj||"proje").replace(/[^\p{L}\p{N}]+/gu,"_").slice(0,40)}_${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}.pdf`,t,"Analiz talebini paylaş"); }
   else if(t.id==="yg-clr"){ if(!YG.rows.length&&!Object.keys(YG.f).length) return; const bk={f:YG.f,rows:YG.rows,files:YG.files}; YG.f={}; YG.rows=[]; YG.files=[]; YG.sent=false; ygSave(); ygRender(); undoToast("Form temizlendi",()=>{YG.f=bk.f;YG.rows=bk.rows;YG.files=bk.files;ygSave();ygRender();}); } });
 
-try{document.body.insertAdjacentHTML("beforeend",'<div class="demo-rb">DEMO SÜRÜM</div>')}catch(e){}
 /* ---- Sarfiyat: profil görsel önizlemesi (demo) ---- */
 (function(){
   const IMG={IPE:"ipe",INP:"ipe",HEA:"hea",HEB:"heb",HEM:"hem",UPN:"upn",UPE:"upn",boru:"boru",mil:"mil",lama:"lama",karedolu:"kare-dolu"};
@@ -4738,6 +4737,8 @@ try{document.body.insertAdjacentHTML("beforeend",'<div class="demo-rb">DEMO SÜR
   window.addEventListener("hashchange",()=>setTimeout(sfPv,60)); setTimeout(sfPv,200);
 })();
 
+
+try{document.body.insertAdjacentHTML("beforeend",'<div class="demo-rb">DEMO SÜRÜM</div>')}catch(e){}
 })();
 </script>
 <div id="pwa-bar" hidden><img src="icon-192.png" alt=""><div class="t"><b>Jotun Endüstri'yi yükle</b><span id="pwa-msg">Telefonunda uygulama olarak açılsın.</span></div><button type="button" id="pwa-in">Yükle</button><button type="button" id="pwa-x" aria-label="Kapat">×</button></div>
