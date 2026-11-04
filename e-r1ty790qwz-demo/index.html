@@ -1955,6 +1955,21 @@ html body #cmp-btn:active{transform:scale(.98)}
 
 .sfp-in dt{white-space:nowrap}
 .sf-area:has(.sf-pvw:not([hidden])) .sf-ag:not([hidden]) .sf-tip[id]{display:none}
+.ac-f{display:flex;gap:8px}.ac-f input{flex:1;min-width:0;min-height:46px;border-radius:12px;border:1px solid rgba(140,170,220,.35);background:rgba(4,12,30,.5);color:inherit;font:500 15px var(--f-body);padding:0 12px}
+.ac-err{margin:0;color:#ff8a75;font-size:13px}.ac-h{margin:8px 0 0;font:700 12px var(--f-body);letter-spacing:.1em;text-transform:uppercase;opacity:.7}
+.ac-l{display:flex;flex-direction:column;gap:7px}.ac-l button{display:flex;flex-direction:column;align-items:flex-start;gap:1px;text-align:left;padding:10px 12px;border-radius:14px;border:1px solid rgba(140,170,220,.3);background:rgba(31,95,214,.1);color:inherit;cursor:pointer;font-family:var(--f-body)}
+.ac-l b{font-size:15px}.ac-l span{font-size:12.5px;opacity:.8}.ac-l small{font-size:11.5px;opacity:.65}
+.ac-r{display:block;font:600 11.5px var(--f-body);opacity:.75;margin-top:1px}
+.ac-flt{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:0 0 10px}.ac-flt>span{font-size:12.5px;opacity:.75;margin-right:2px}
+.ac-flt button{min-height:34px;padding:0 12px;border-radius:17px;border:1px solid rgba(140,170,220,.35);background:rgba(4,12,30,.4);color:#e6eefc;font:700 12.5px var(--f-body);cursor:pointer}
+.ac-flt button[aria-pressed="true"]{background:linear-gradient(180deg,#3b7cf5,#1f5fd6);border-color:#8fb4ff;color:#fff}
+.ac-tg{display:inline-block;margin-left:6px;padding:2px 8px;border-radius:9px;background:rgba(240,171,0,.16);border:1px solid rgba(240,171,0,.45);color:#ffd27a;font:700 11px var(--f-body);font-style:normal;white-space:nowrap}
+.dm-it .ac-tg{margin:4px 0 0}
+[data-role="s"] #is-body .dm-add[data-cnew]{display:none}
+html body[data-role="s"] #is-tabs [data-ist="q"].role-b{display:block!important}
+html body[data-role="s"] #is-tabs{grid-template-columns:repeat(3,1fr)}
+.ac-tg{background:#f0ab00!important;border-color:#f0ab00!important;color:#0b1f45!important;align-self:flex-start;width:fit-content}
+.dm-td .ac-tg,.dm-it .ac-tg{display:inline-block;margin:5px 0 0}
 </style>
 
 <div id="app-bg" aria-hidden="true"></div>
@@ -2010,7 +2025,7 @@ html body #cmp-btn:active{transform:scale(.98)}
   <h3 class="hm-sec">Uygulama Alanı Seçin</h3>
   <div class="hm-cats"><button type="button" class="hm-tile" data-go="what:celik"><span class="ico ic-celik hm-ti"></span><span class="hm-tl">Çelik Yapı</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:ekipman"><span class="ico ic-makine hm-ti"></span><span class="hm-tl">Makine &amp; Ekipman</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:tankdis"><span class="ico ic-tankdis hm-ti"></span><span class="hm-tl">Tank Dışı</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:boru"><span class="ico ic-boru hm-ti"></span><span class="hm-tl">Boru Dışı</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:bakim"><span class="ico ic-bakim hm-ti"></span><span class="hm-tl">Paslı / Bakım</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:tankic"><span class="ico ic-tankici hm-ti"></span><span class="hm-tl">Tank İçi</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:sicak"><span class="ico ic-sicak hm-ti"></span><span class="hm-tl">Sıcak Yüzey</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:zemin"><span class="ico ic-beton hm-ti"></span><span class="hm-tl">Beton Zemin</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:tekne"><span class="ico ic-tekne hm-ti"></span><span class="hm-tl">Gemi</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="hm-tile" data-go="what:yangin"><span class="ico ic-yangin hm-ti"></span><span class="hm-tl">Yangın</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
   <div id="h-hist-wrap" hidden><h3 class="hm-sec" style="margin-bottom:8px">Son Teklifler</h3><div class="h-hist" id="h-hist"></div></div>
-  <div class="hm-foot"><span class="hf-av" id="role-av" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.6"/><path d="M4.8 19.5c1.3-3.4 4-5 7.2-5s5.9 1.6 7.2 5"/></svg></span><div class="hf-tx"><small>Oturum</small><b id="role-lbl"></b><span class="hf-up"><i></i><span id="hf-upd">Güncel</span></span></div><button type="button" class="hf-sw" id="role-chg" aria-label="Kullanıcı rolünü değiştir"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h11l-3-3M17 17H6l3 3"/></svg><span class="role-b">Rolü Değiştir</span><span class="role-s">Rolü değiştir</span></button></div>
+  <div class="hm-foot"><span class="hf-av" id="role-av" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.6"/><path d="M4.8 19.5c1.3-3.4 4-5 7.2-5s5.9 1.6 7.2 5"/></svg></span><div class="hf-tx"><small>Oturum</small><b id="role-lbl"></b><span class="hf-up"><i></i><span id="hf-upd">Güncel</span></span></div><button type="button" class="hf-sw" id="role-chg" aria-label="Kullanıcı rolünü değiştir"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h11l-3-3M17 17H6l3 3"/></svg><span class="role-b">Hesap Değiştir</span><span class="role-s">Hesap Değiştir</span></button></div>
 </section>
 <div id="v-sistem">
 <div class="sx-hero"><h2>Kaplama Sistemi<br>Oluşturun</h2><p>Ne boyanacağını, ortamı ve dayanım süresini seçin; size en uygun Jotun sistemini bulalım.</p></div>
@@ -2958,11 +2973,11 @@ function badgeUpd(){ dealerUI();
   const bar=$("#q-bar"); if(bar){const t=totals();bar.querySelector(".v").textContent=t.grand>0?money(t.grand):`${fmt(t.lt,0)} L`;bar.querySelector(".k").textContent=t.grand>0?"Genel toplam":"Toplam";const ms=Q.lines.filter(l=>l.name&&!(num(l.price)>0)).length,bb=$("#q-bar-pdf");if(bb){bb.textContent=ms?`Fiyat gir (${ms})`:"PDF indir";bb.dataset.miss=ms?"1":"";}}
 }
 /* ---------- Son teklifler (yalnızca bu cihazda) ---------- */
-let HIST=load("q-hist",[]);
+const HK=(()=>{try{const a=JSON.parse(localStorage.getItem("acct"));return a&&/^bayi-/.test(a)?"q-hist@"+a:"q-hist"}catch(e){return "q-hist"}})(); let HIST=load(HK,[]);
 function saveHist(){
   const f=fields(); if(!Q.lines.some(l=>l.name)) return; if(!Q.no) newNo();
   const sn={no:Q.no,date:+Q.date,customer:f.customer,project:f.project,valid:f.valid,kdv:$("#q-kdv").value,cur:$("#q-cur").value,sys:Q.sys,lines:JSON.parse(JSON.stringify(Q.lines)),total:totals().grand};
-  HIST=[sn,...HIST.filter(h=>h.no!==sn.no)].slice(0,10); store("q-hist",HIST);
+  HIST=[sn,...HIST.filter(h=>h.no!==sn.no)].slice(0,10); store(HK,HIST);
 }
 function loadSnap(sn,asNew){
   Q.lines=JSON.parse(JSON.stringify(sn.lines)); Q.sys=sn.sys||null;
@@ -3866,7 +3881,7 @@ wxLoad();
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)wxLoad();});
 
 /* Yeni sürüm yayınlandıysa uygulama açıkken kendini yeniler */
-(()=>{const B="1793751963"; if(!/^\d+$/.test(B)) return;
+(()=>{const B="1793752718"; if(!/^\d+$/.test(B)) return;
   const chk=()=>fetch(location.pathname+"?b="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const B="(\d+)"/); if(m&&+m[1]>+B) location.reload();}).catch(()=>{});
   document.addEventListener("visibilitychange",()=>{if(!document.hidden)chk();}); setTimeout(chk,4000);})();
 
@@ -4299,14 +4314,48 @@ if(matchMedia("(max-width:700px)").matches){const pv=$(".q-prev");if(pv)pv.open=
   const fb=document.createElement("div"); fb.id="sf-bar"; fb.className="m-bar"; fb.innerHTML=`<div><span class="k">Toplam boya</span><b class="v" id="sf-bar-v">—</b></div><button type="button" class="btn primary" id="sf-bar-go">PDF indir</button>`; document.body.appendChild(fb);
   $("#sf-bar-go").onclick=()=>{ if(!sfTotals().L){toast("Önce alan, ürün ve kalınlık girin");return;} if(pdfReady()) sfPdf($("#sf-bar-go")); else window.open("https://wa.me/?text="+encodeURIComponent(sfText()),"_blank"); };
   sfSum(); applyRole();
-  accOk(load("acc","")).then(ok=>{ if(ok){ $("#code-gate").hidden=true; roleGate(true); } else accAsk(); });
+  accOk(load("acc","")).then(ok=>{ if(ok){ $("#code-gate").hidden=true; if(load("acct",null)){ UROLE=load("role","b"); applyRole(); } else roleGate(true); } else accAsk(); });
   render(); badgeUpd(); route();})();
 
 /* ================= İşlerim: müşteri, ziyaret, teklif takibi ================= */
-const DM={c:load("crm-c",[]), q:load("crm-q",{}), r:load("crm-r",[])};
-const dmSave=k=>store("crm-"+k,DM[k]);
 const today=()=>new Date().toISOString().slice(0,10);
 const addDays=(d,n)=>new Date(new Date(d+"T12:00").getTime()+n*864e5).toISOString().slice(0,10);
+/* ---- Demo: e-posta ile giriş ve bayi/sorumlu veri yetkisi ---- */
+const DLR={A:"Demo Bayi A",B:"Demo Bayi B",C:"Demo Bayi C"};
+const ACCTS=[
+ {e:"recep@jotun-demo.com",n:"Recep",t:"Jotun Sorumlusu",role:"s",d:["A","B"]},
+ {e:"sorumlu2@jotun-demo.com",n:"Demo Sorumlu 2",t:"Jotun Sorumlusu",role:"s",d:["B","C"]},
+ {e:"bayi-a@demo.com",n:"Demo Bayi A",t:"Bayi",role:"b",d:"A"},
+ {e:"bayi-b@demo.com",n:"Demo Bayi B",t:"Bayi",role:"b",d:"B"},
+ {e:"bayi-c@demo.com",n:"Demo Bayi C",t:"Bayi",role:"b",d:"C"}];
+const DACC=(()=>{ const a=load("acct",null); return a&&ACCTS.find(x=>x.e===a)||null; })();
+const dmK=(k,d)=>"crm-"+k+"@"+d;
+function dmSeed(d){ if(localStorage.getItem(dmK("c",d))!=null) return;
+  const t=today(), ad=(n)=>addDays(t,n);
+  const S={A:[["Örnek Metal San.","Ahmet Y.","Tekirdağ"],["Demo Çelik Konstrüksiyon","Elif K.","Çorlu"],["Model Makine Ltd.","Murat D.","Silivri"]],
+           B:[["Deneme Tank İmalat","Serkan A.","Edirne"],["Örnek Yapı Çelik","Zeynep T.","Lüleburgaz"],["Test Gemi Bakım","Can B.","Tuzla"]],
+           C:[["Prototip Boru San.","Burak E.","Kırklareli"],["Örnek Enerji A.Ş.","Derya S.","Çerkezköy"]]}[d]||[];
+  const C=S.map(([name,person,city],i)=>({name,person,city,phone:"",note:"Demo kaydı",visits:[{date:ad(-3-i*4),note:"Tanışma ziyareti, sistem önerisi konuşuldu.",next:i%2?"Numune teslimi":"Teklif takibi",nextDate:ad(i===0?0:2+i),done:false}]}));
+  const st=["gon","gor","kaz","kay"], Q={};
+  S.forEach(([name],i)=>{ const no=`D${d}-${String(101+i)}`; Q[no]={status:st[i%4],follow:ad(i===1?-1:3+i),reason:st[i%4]==="kay"?"Teslim süresi":"",note:"",customer:name,project:["Çelik çatı","Tank dış yüzey","Bakım boyası"][i%3],date:ad(-5-i*3),total:0,cur:"TRY"}; });
+  store(dmK("c",d),C); store(dmK("q",d),Q); store(dmK("r",d),[]); }
+let DMF=load("dm-f","all");
+function dmLoad(){ if(!DACC) return {c:load("crm-c",[]),q:load("crm-q",{}),r:load("crm-r",[])};
+  if(DACC.role==="b"){ dmSeed(DACC.d); return {c:load(dmK("c",DACC.d),[]),q:load(dmK("q",DACC.d),{}),r:load(dmK("r",DACC.d),[])}; }
+  if(DMF!=="all"&&!DACC.d.includes(DMF)) DMF="all";
+  const o={c:[],q:{},r:[]};
+  DACC.d.filter(d=>DMF==="all"||DMF===d).forEach(d=>{ dmSeed(d);
+    load(dmK("c",d),[]).forEach(c=>o.c.push(Object.assign(c,{_d:d})));
+    Object.entries(load(dmK("q",d),{})).forEach(([no,q])=>o.q[no]=Object.assign(q,{_d:d}));
+    load(dmK("r",d),[]).forEach(r=>o.r.push(Object.assign(r,{_d:d}))); });
+  return o; }
+const DM=dmLoad();
+const dmSave=k=>{ if(!DACC) return store("crm-"+k,DM[k]); if(DACC.role==="b") return store(dmK(k,DACC.d),DM[k]);
+  const strip=x=>{ const y=Object.assign({},x); delete y._d; return y; };
+  DACC.d.filter(d=>DMF==="all"||DMF===d).forEach(d=>{
+    if(k==="q"){ const o={}; Object.entries(DM.q).filter(([,q])=>q._d===d).forEach(([no,q])=>o[no]=strip(q)); store(dmK("q",d),o); }
+    else store(dmK(k,d),(DM[k]||[]).filter(x=>x._d===d).map(strip)); }); };
+
 const trD=d=>d?new Date(d+"T12:00").toLocaleDateString("tr-TR",{day:"numeric",month:"short"}):"";
 const QST={gon:["Gönderildi","#1f5fd6"],gor:["Görüşülüyor","#c98a00"],kaz:["Kazanıldı","#1e8e5a"],kay:["Kaybedildi","#b03a2e"]};
 const LOSS=["Fiyat","Teslim süresi","Teknik uygunluk","Başka tedarikçi","Proje iptal / ertelendi","Diğer"];
@@ -4337,7 +4386,7 @@ function panelHTML(){ const Q=Object.values(DM.q), n=Q.length, c=k=>Q.filter(q=>
   const won=Q.filter(q=>q.status==="kaz").reduce((a,q)=>a+(q.total||0),0), rate=kaz+kay?Math.round(kaz*100/(kaz+kay)):0;
   const lr={}; Q.filter(q=>q.status==="kay").forEach(q=>lr[q.reason||"—"]=(lr[q.reason||"—"]||0)+1);
   const miss=CATALOG.filter(p=>p.cat!=="MCI Tinter"&&!/Thinner/i.test(p.name)&&(!p.vs||!p.vs.length||!p.packs||!p.packs.length));
-  return `<p class="dm-note">Demo: şimdilik bu cihazdaki teklifler gösteriliyor. Bulut kaydı açılınca tüm bayilerin verisi bayi bazında burada toplanır.</p>
+  return `<p class="dm-note">${typeof DACC!=="undefined"&&DACC&&DACC.role==="s"?"Bağlı bayilerin verileri: "+DACC.d.filter(d=>DMF==="all"||DMF===d).map(d=>DLR[d]).join(", ")+" (demo veriler)":"Bu cihazdaki teklifler gösteriliyor."}</p>
   <div class="dm-kp dm-kpb"><button type="button" data-pk="all"><b>${n}</b><span>Teklif</span></button><button type="button" data-pk="open"><b>${c("gon")+c("gor")}</b><span>Açık</span></button><button type="button" data-pk="kaz"><b>${kaz}</b><span>Kazanılan</span></button><button type="button" data-pk="rate"><b>%${rate}</b><span>Kazanma oranı</span></button></div>
   <div class="dm-card"><h4>Kazanılan tutar</h4><p class="dm-big">${won.toLocaleString("tr-TR",{maximumFractionDigits:0})}</p><small>Para birimleri karışık olabilir; bulut sürümünde birime göre ayrılır.</small></div>
   <div class="dm-card"><h4>Kaybedilme nedenleri</h4>${Object.keys(lr).length?Object.entries(lr).map(([k,v])=>`<div class="dm-bar" data-pk="r:${esc(k)}" role="button" tabindex="0"><span>${esc(k)}</span><i style="width:${Math.round(v*100/kay)}%"></i><b>${v}</b></div>`).join(""):`<small>Henüz kaybedilen teklif yok.</small>`}</div>
@@ -4737,6 +4786,35 @@ $("#yg-body").addEventListener("click",async e=>{ const t=e.target.closest("butt
   window.addEventListener("hashchange",()=>setTimeout(sfPv,60)); setTimeout(sfPv,200);
 })();
 
+
+/* ---- Demo: giriş ekranı ve sorumlu görünümü ---- */
+(function(){
+  function login(role){ const L=ACCTS.filter(a=>!role||a.role===role);
+    const d=sheet(role==="s"?"Jotun Sorumlusu girişi":role==="b"?"Bayi girişi":"Giriş",`<p class="hint" style="margin:0">Kurumsal e-posta adresinizle giriş yapın.</p>
+     <form class="ac-f" id="ac-f"><input type="email" id="ac-e" placeholder="ornek@firma.com" autocomplete="email" required><button type="submit" class="btn primary">Giriş yap</button></form>
+     <p class="ac-err" id="ac-err" hidden>Bu e-posta tanımlı değil.</p>
+     <p class="ac-h">Demo hesapları</p><div class="ac-l">${L.map(a=>`<button type="button" data-ace="${esc(a.e)}"><b>${esc(a.n)}</b><span>${esc(a.e)}</span><small>${a.role==="s"?"Görebildiği bayiler: "+a.d.map(x=>DLR[x]).join(", "):"Sadece kendi kayıtları"}</small></button>`).join("")}</div>
+     <p class="hint">Demo sürüm: gerçek sistemde e-postaya doğrulama kodu gönderilir ve veriler sunucuda tutulur.</p>`);
+    const go=e=>{ const a=ACCTS.find(x=>x.e===String(e||"").trim().toLowerCase()); if(!a){ d.querySelector("#ac-err").hidden=false; return; }
+      store("acct",a.e); store("role",a.role); store("dm-f","all"); location.hash="#ana"; location.reload(); };
+    d.querySelector("#ac-f").onsubmit=e=>{ e.preventDefault(); go(d.querySelector("#ac-e").value); };
+    d.onclick=e=>{ const b=e.target.closest("[data-ace]"); if(b) go(b.dataset.ace); if(e.target===d) d.close(); }; }
+  window.acLogin=login;
+  const rg=$("#role-gate"); if(rg) rg.addEventListener("click",e=>{ const b=e.target.closest(".rg-hot"); if(!b) return; e.stopImmediatePropagation(); login(b.dataset.role); },true);
+  const rc=$("#role-chg"); if(rc) rc.addEventListener("click",e=>{ e.stopImmediatePropagation(); localStorage.removeItem("acct"); location.hash="#ana"; location.reload(); },true);
+  function lbl(){ if(!DACC) return; const l=$("#role-lbl"); if(l) l.innerHTML=`${esc(DACC.n)}<small class="ac-r">${DACC.role==="s"?"Jotun Sorumlusu · "+DACC.d.map(x=>DLR[x]).join(", "):"Bayi"}</small>`; }
+  setTimeout(lbl,0); setTimeout(lbl,600);
+  /* sorumlu: bayi filtresi ve etiketler */
+  function tag(){ if(!DACC||DACC.role!=="s") return; const B=$("#is-body"); if(!B) return;
+    if(!$("#ac-flt")){ const f=document.createElement("div"); f.id="ac-flt"; f.className="ac-flt"; B.parentNode.insertBefore(f,B); }
+    $("#ac-flt").innerHTML=`<span>Bayi:</span>`+[["all","Tümü"],...DACC.d.map(x=>[x,DLR[x]])].map(([k,l])=>`<button type="button" data-acf="${k}" aria-pressed="${DMF===k}">${esc(l)}</button>`).join("");
+    B.querySelectorAll("[data-cop]").forEach(el=>{ const c=DM.c[+el.dataset.cop]; if(c&&c._d&&!el.querySelector(".ac-tg")) el.insertAdjacentHTML("beforeend",`<em class="ac-tg">${esc(DLR[c._d])}</em>`); });
+    B.querySelectorAll(".dm-q [data-qedit]").forEach(el=>{ const q=DM.q[el.dataset.qedit], it=el.closest(".dm-q"); if(q&&q._d&&it&&!it.querySelector(".ac-tg")) it.querySelector(".dm-qh").insertAdjacentHTML("beforeend",`<em class="ac-tg">${esc(DLR[q._d])}</em>`); });
+    const td=$("#is-today"); if(td) td.querySelectorAll("[data-cop]").forEach(el=>{ const c=DM.c[+el.dataset.cop], r=el.closest(".dm-td"); if(c&&c._d&&r&&!r.querySelector(".ac-tg")) r.querySelector("div").insertAdjacentHTML("beforeend",`<em class="ac-tg">${esc(DLR[c._d])}</em>`); });
+    if(td) td.querySelectorAll("[data-qedit]").forEach(el=>{ const q=DM.q[el.dataset.qedit], r=el.closest(".dm-td"); if(q&&q._d&&r&&!r.querySelector(".ac-tg")) r.querySelector("div").insertAdjacentHTML("beforeend",`<em class="ac-tg">${esc(DLR[q._d])}</em>`); }); }
+  const _ir=islerRender; islerRender=function(){ _ir(); tag(); };
+  document.addEventListener("click",e=>{ const b=e.target.closest("[data-acf]"); if(!b) return; DMF=b.dataset.acf; store("dm-f",DMF); Object.assign(DM,dmLoad()); islerRender(); dmBadge(); });
+})();
 
 try{document.body.insertAdjacentHTML("beforeend",'<div class="demo-rb">DEMO SÜRÜM</div>')}catch(e){}
 })();
