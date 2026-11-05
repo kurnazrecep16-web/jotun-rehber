@@ -1,257 +1,362 @@
 {
-  "updated": "2026-11-04",
-  "projects": [
-    {
-      "t": "Marmaraereğlisi Yeniçiftlik ileri biyolojik atıksu arıtma tesisi",
-      "place": "Tekirdağ · Marmaraereğlisi",
-      "what": "TESKİ'nin işi için sözleşme 23 Ekim 2026'da 1,18 milyar TL bedelle ESEN İNŞAAT + YETKAY İNŞAAT ortaklığıyla imzalandı.",
-      "why": "Beton arıtma havuzları ve kanal iç yüzeyleri, kimyasal/atıksu temaslı tanklar, çelik boru ve ekipman kaplaması.",
-      "cat": "tankic",
-      "date": "2026-10-30",
-      "src": "Taahhüt Haber",
-      "url": "https://taahhuthaber.com/30-ekim-2026-cuma-tarih-ve-3996-sayili-taahhut-haber"
-    },
-    {
-      "t": "Ambarlı İleri Biyolojik Atıksu Arıtma Tesisi II. Kademe ve deniz deşarjı",
-      "place": "İstanbul · Ambarlı",
-      "what": "İSKİ'nin II. kademe inşaat ve deniz deşarjı işinin sözleşmesi 5 Ekim 2026'da 18,88 milyar TL bedelle KUZU TOPLU + İSTCON ortaklığıyla imzalandı.",
-      "why": "Beton havuz ve kanal iç yüzeyleri, çamur/proses tankları, deniz deşarj hattı çelik boruları ve deniz suyuna maruz ekipman.",
-      "cat": "tankic",
-      "date": "2026-10-28",
-      "src": "Taahhüt Haber",
-      "url": "https://taahhuthaber.com/28-ekim-2026-carsamba-tarih-ve-3995-sayili-taahhut-haber/"
-    },
-    {
-      "t": "TEİAŞ 400 kV Ambarlı ve Çekmeköy GIS trafo merkezleri",
-      "place": "İstanbul · Ambarlı / Çekmeköy",
-      "what": "Avrupa ve Anadolu yakasında iki 400 kV GIS trafo merkezi yapımı ihaleye çıktı; teklifler 25 Kasım (Ambarlı, İKN 2026/1990439) ve 26 Kasım 2026'da (Çekmeköy, İKN 2026/1981867).",
-      "why": "GIS binası çelik konstrüksiyonu, enerji nakil portal ve taşıyıcıları, trafo ve yardımcı ekipman dış yüzeyleri; Ambarlı'da kıyı atmosferine dayanıklı korozyon koruma.",
-      "cat": "celik",
-      "date": "2026-10-26",
-      "src": "Taahhüt Haber",
-      "url": "https://taahhuthaber.com/taahhut-haberde-th-26-ekim-2026-pazartesi-edu/"
-    },
-    {
-      "t": "Reysaş GYO Tuzla lojistik deposu",
-      "place": "İstanbul · Tuzla Aydınlı",
-      "what": "67.686 m² arsa üzerinde 98.258 m² kapalı alanlı lojistik depo için ruhsat alındı; inşaat 2 Kasım 2026'da başlıyor, 30 Eylül 2027'de devreye alınması hedefleniyor.",
-      "why": "Depo çelik konstrüksiyonu (korozyon ve pasif yangın koruma) ile forklift trafiğine dayanıklı endüstriyel zemin kaplaması.",
-      "cat": "celik",
-      "date": "2026-10-23",
-      "src": "Taşınmaz Haber / KAP",
-      "url": "https://tasinmazhaber.com/reysas-gyo-tuzla-depo-projesi-icin-ruhsat-alindi-insaat-2-kasim-2026da-basliyor/"
-    },
-    {
-      "t": "Edirne'ye 40 milyon $'lık döküm fabrikası",
-      "place": "Edirne · Uzunköprü Atatürk OSB",
-      "what": "Çin merkezli döküm firması fabrika kuracak; sözleşme imzalandı, temel kısa sürede atılacak. Üretim 2027 Eylül hedefleniyor, ~500 istihdam.",
-      "why": "Yeni fabrika binası çelik konstrüksiyon ve ekipman boyası; döküm alanında ısıya dayanıklı sistem ihtiyacı olabilir.",
-      "cat": "celik",
-      "date": "2026-10-22",
-      "src": "Ekonomi Dünya",
-      "url": "https://www.ekonomidunya.com/cin-dokum-firmasindan-edirneye-40-milyon-dolarlik-yatirim/113997"
-    },
-    {
-      "t": "İSKİ Avrupa Yakası içme suyu depoları ve isale hattı ihalesi",
-      "place": "İstanbul · Silivri / Çatalca",
-      "what": "Avrupa Bölgesi İçme Suyu Arıtma Tesisi depoları ile Çatalca sistemi depoları ve isale hattı inşaatı ihaleye çıktı; teklifler 5 Kasım 2026'da, işin süresi 1.095 gün (İKN 2026/1878744).",
-      "why": "Betonarme su depolarının iç yüzeyleri için içme suyu onaylı kaplama, isale hattı çelik boru ve vana/ekipman koruması.",
-      "cat": "tankic",
-      "date": "2026-10-11",
-      "src": "Yeni Akit (resmi ilan)",
-      "url": "https://www.yeniakit.com.tr/haber/istanbul-su-ve-kanalizasyon-idaresi-genel-mudurlugu-iski-catalca-ihale-avrupa-bolgesi-icme-suyu-aritma-tesisi-depo-2027458.html"
-    }
-  ],
-  "news": [
-    {
-      "t": "DYO Boya 9 ayda 7,89 milyar TL net satış ve 20,3 milyon TL net kâr açıkladı; üretim %24, satış tonajı %22 geriledi, faaliyet kâr marjı %5'ten %3'e düştü — Türkiye boya pazarında hacim tarafındaki zayıflığa işaret ediyor",
-      "src": "Hibya / KAP",
-      "date": "2026-11-03",
-      "url": "https://hibya.com/dyo-boyanin-uretimi-yuzde-24-satis-tonaji-yuzde-22-geriledi-1080390"
-    },
-    {
-      "t": "Oxea 1 Kasım'dan itibaren çözücü ve ara ürünlerde zam yaptı: Avrupa'da butil asetat ve neopentil glikol +80 €/ton, n-/i-bütanol +90 €/ton, 2-etilheksanol +100 €/ton — çözücü bazlı sistemlerde hammadde maliyetine yansıyabilir",
-      "src": "PCI Magazine",
-      "date": "2026-11-03",
-      "url": "https://pcimag.com/articles/115472-oxea-raises-prices-across-two-chemical-portfolios"
-    },
-    {
-      "t": "Evonik, BASF'ın 12,5 milyar $'lık satın alma teklifini reddetti — kimya/hammadde tarafında konsolidasyon baskısı sürüyor",
-      "src": "Coatings Türkiye",
-      "date": "2026-11-02",
-      "url": "https://coatingsturkiye.com/haberler/finans-haberleri/evonik-basfin-12-milyar-dolarlik-satin-alma-teklifini-reddetti"
-    },
-    {
-      "t": "Türkiye'nin ham çelik üretimi 9 ayda %6,1 artışla 29,8 milyon tona çıktı; Eylül'de nihai tüketim %6,9 geriledi",
-      "src": "Anadolu Ajansı",
-      "date": "2026-10-30",
-      "url": "https://www.aa.com.tr/tr/ekonomi/turkiyenin-ham-celik-uretimi-9-ayda-yuzde-6-1-artisla-29-8-milyon-tona-cikti/4106220"
-    },
-    {
-      "t": "Olin 3. çeyrekte epoksi satışlarını %17,9 artırarak 412 milyon $'a çıkardı, epoksi fiyat artışı ve tüm bölgelerde yakıt ek ücreti duyurdu; AB'de epoksi için koruma önlemi gündemde, Huntsman birleşmesi 2027'nin ilk çeyreğine çekildi — epoksi bazlı astar ve zemin sistemlerinde maliyet baskısı artabilir",
-      "src": "Olin / The Motley Fool",
-      "date": "2026-10-30",
-      "url": "https://fool.com/earnings/call-transcripts/2026/10/30/olin-oln-q3-2026-earnings-call-transcript"
-    },
-    {
-      "t": "Çin'de TiO2 pazarı Eylül-Ekim sezonunda beklentinin altında kaldı: rutil ~13.550 yuan/ton, fabrika stokları ~330 bin ton; 9 aylık ihracat %13,8 artışla 1,53 milyon ton — bu yılki art arda zamlardan sonra kısa vadede fiyatlar zayıf seyredebilir",
-      "src": "SMM",
-      "date": "2026-10-30",
-      "url": "https://news.metal.com/newscontent/104189057-september-october-peak-season-disappoints-titanium-market-sees-short-term-tug-of-war-between-longs-and-shorts-smm-analysis"
-    },
-    {
-      "t": "Axalta 3. çeyrekte satışlarını %2 artırarak 1,31 milyar $'a çıkardı; AkzoNobel ile 'Axanzo' adlı birleşmede düzenleyici onay süreci sürüyor (AB ve İngiltere kararları Kasım'da, kapanış 2027 başı) — birleşme, endüstriyel kaplama tedarik dengesini değiştirebilir",
-      "src": "Axalta / SEC",
-      "date": "2026-10-29",
-      "url": "https://www.sec.gov/Archives/edgar/data/0001616862/000161686226000008/a920268-kquarterlyxex99.htm"
-    },
-    {
-      "t": "Çinko pulu (flake) teknolojisiyle su bazlı çinko astarlarda metal içeriği %50'nin üzerinde azaltılabiliyor; tuz testinde 1.500 saate ulaşıldı, C3–C4 ortamlara uygun, C5/CX için geliştirme sürüyor — yüksek çinko maliyetine karşı boru, tank ve hafif makine astarlarında alternatif oluşturabilir",
-      "src": "European Coatings",
-      "date": "2026-10-29",
-      "url": "https://www.european-coatings.com/news/coatings-technologies/stabilised-zinc-flakes-enable-sustainable-water-borne-anti-corrosion-coatings/"
-    },
-    {
-      "t": "Kansai Paint, Polisan Kansai Boya'nın kalan %50 payını 93 milyon $'a alarak tamamına sahip oldu; şirket borç kapatma için sermaye artırımına gidecek — Türkiye boya pazarında yabancı sermayenin ağırlığı artıyor",
-      "src": "European Coatings",
-      "date": "2026-10-28",
-      "url": "https://www.european-coatings.com/news/markets-companies/kansai-paint-completes-acquisition-of-polisan-kansai-boya/"
-    },
-    {
-      "t": "PPG 3. çeyrekte satışlarını %7 artırarak 4,35 milyar $'a çıkardı; koruyucu ve deniz kaplamalarında organik satışlar yüksek tek hanede büyüdü, hacim artışı 14. çeyreğe ulaştı — koruyucu/marine segmenti boya sektörünün en güçlü alanı olmaya devam ediyor",
-      "src": "PPG / SEC",
-      "date": "2026-10-27",
-      "url": "https://www.sec.gov/Archives/edgar/data/0000079879/000007987926000315/exhibit99-3q2026earningsre.htm"
-    },
-    {
-      "t": "Saint-Gobain Yapı Kimyasalları Tuzla'da 12. fabrikasını açtı; reçine esaslı zemin sistemleri, koruyucu kaplamalar ve epoksi harçlar üretecek — İstanbul'da endüstriyel zemin kaplamada yerli arz artıyor",
-      "src": "Ekonomi Politikası",
-      "date": "2026-10-15",
-      "url": "https://ekonomipolitikasi.com.tr/saint-gobain-yapi-kimyasallari-tuzlada-12-fabrikasini-devreye-aldi/"
-    },
-    {
-      "t": "Jotun ilk 8 ayda gelirini %2, faaliyet kârını %4 artırdı",
-      "src": "jotun.com",
-      "date": "2026-09-24",
-      "url": "https://www.jotun.com/gb-en/news-and-insights/corporate/continued-growth-for-jotun"
-    }
-  ],
-  "magazine": {
-    "issue": "1814",
-    "date": "2026-11-02",
-    "pdf": "https://kurnazrecep16-web.github.io/jotun-rehber/e-r1ty790qwz/dergi/yatirimlar-1814.pdf",
-    "title": "Yatırımlar Dergisi",
-    "items": [
-      {
-        "t": "TESKİ Marmaraereğlisi Yeniçiftlik ileri biyolojik atıksu arıtma tesisi yapımı",
-        "place": "Tekirdağ · Marmaraereğlisi",
-        "stage": "Sözleşme imzalandı",
-        "budget": "1,185 milyar TL",
-        "who": "Yüklenici: Esen İnşaat – Yetkay İnşaat İş Ortaklığı",
-        "what": "İleri biyolojik atıksu arıtma tesisi yapımı. Yaklaşık maliyet 1,37 milyar TL; 6 teklif.",
-        "why": "Arıtma havuzları, beton ve çelik tank iç yüzeyleri, köprü/sıyırıcı ekipman, proses boruları ve tesis çelik yapıları.",
-        "sys": "Tank içi / arıtma: epoksi tank kaplaması · çelik ekipman C4–C5",
-        "cat": "tankic"
-      },
-      {
-        "t": "İSKİ Avrupa İsale Hatları büyük onarım ve rehabilitasyon işi (1)",
-        "place": "İstanbul · Avrupa Yakası",
-        "stage": "Teklifler 28 Ekim 2026'da toplandı · 14 istekli",
-        "budget": "576,2 milyon TL (yaklaşık maliyet)",
-        "who": "İdare: İSKİ · en uygun teklif: Saka Elektrik İnşaat (402,6 milyon TL)",
-        "what": "Avrupa Yakası'ndaki isale hatlarında büyük onarım ve rehabilitasyon. Sınır değer 401,5 milyon TL.",
-        "why": "Rehabilitasyonda açılan çelik isale borularının dış ve iç yüzey kaplama onarımı; gömülü ve içme suyuyla temas eden yüzeyler.",
-        "sys": "Boru dış · bakım: yüzey toleranslı epoksi mastik (Jotamastic 87) · boru iç: içme suyu onaylı epoksi",
-        "cat": "boru"
-      },
-      {
-        "t": "İBB İstanbul geneli kıyı ve deniz yapıları onarım, tadilat ve güçlendirme (4. grup)",
-        "place": "İstanbul",
-        "stage": "Sözleşme imzalandı · bitiş 27 Ekim 2027",
-        "budget": "458,2 milyon TL",
-        "who": "Yüklenici: Gürsallar Taahhüt",
-        "what": "İstanbul genelinde iskele, rıhtım ve kıyı yapılarının onarım, tadilat ve güçlendirmesi. Yaklaşık maliyet 678,3 milyon TL.",
-        "why": "Deniz suyuna maruz çelik kazık, iskele, korkuluk ve beton yüzeyler; C5 / Im2 ortam. Bir yıllık iş, hızlı temas gerekli.",
-        "sys": "Deniz / sıçrama bölgesi: Im2 epoksi sistemleri · üst yapı C5: çinkolu epoksi + epoksi + poliüretan",
-        "cat": "celik"
-      },
-      {
-        "t": "AYGM İstanbul Kuzey Demiryolu Geçişi (INRAIL) altyapı-üstyapı ve elektrifikasyon",
-        "place": "İstanbul · Çayırova–Çatalca",
-        "stage": "İhale · son teklif 11 Kasım 2026",
-        "budget": "",
-        "who": "İdare: AYGM · ilgilenen firmalar: Bayburt Grup, Cengiz İnşaat, COVEC",
-        "what": "İstanbul'u kuzeyden dolaşan yaklaşık 127 km çift hatlı elektrikli demiryolu; 4 lot (Çayırova–Sabiha Gökçen–Kurtdoğmuş, Kurtdoğmuş–Alibahadır, Alibahadır–YSS Köprüsü–Mithatpaşa, Mithatpaşa–İstanbul Havalimanı–Çatalca). Uluslararası kalkınma bankası finansmanı.",
-        "why": "Köprü ve viyadük çelikleri, katener direkleri, istasyon çelik yapıları; uzun vadeli büyük hacim. İhaleyi alacak yükleniciye erken temas.",
-        "sys": "Çelik yapı · C4–C5 · uzun ömür (Sistem sayfası)",
-        "cat": "celik"
-      },
-      {
-        "t": "İBB İstanbul geneli raylı sistem hatları demiryolu ve inşaat işleri revizyon ve yenileme",
-        "place": "İstanbul",
-        "stage": "Sözleşme imzalandı",
-        "budget": "1,498 milyar TL",
-        "who": "Yüklenici: AKM Yapı",
-        "what": "İstanbul genelindeki raylı sistem hatlarında demiryolu ve inşaat işleri revizyonu ve yenilemesi. Yaklaşık maliyet 1,69 milyar TL.",
-        "why": "Hat boyu çelik aksam, istasyon ve bakım tesislerinde çelik yapılar, korkuluk ve ekipman bakım boyası.",
-        "sys": "Paslı / bakım: Jotamastic 87 + Hardtop XP",
-        "cat": "bakim"
-      },
-      {
-        "t": "Powergy Enerji Tekir-1 RES ve Elektrik Depolama Tesisi",
-        "place": "Kırklareli · Merkez",
-        "stage": "ÇED olumlu",
-        "budget": "706 milyon TL",
-        "who": "Yatırımcı: Powergy Enerji A.Ş.",
-        "what": "6 türbin, 40 MWe rüzgar santrali ve 40 MWe/40 MWh depolama tesisi; yılda 160 milyon kWh üretim.",
-        "why": "Trafo merkezi, depolama konteynerleri, çelik konstrüksiyon ve saha ekipmanında C4 koruma; türbin kuleleri genelde fabrikada boyanır.",
-        "sys": "Çelik yapı · C4: çinkolu epoksi + epoksi + poliüretan",
-        "cat": "celik"
-      },
-      {
-        "t": "Gensan Küçükyaya RES ve Elektrik Depolama Tesisi",
-        "place": "Kırklareli · Vize",
-        "stage": "ÇED olumlu",
-        "budget": "679,2 milyon TL",
-        "who": "Yatırımcı: Gensan Enerji San. ve Tic. A.Ş.",
-        "what": "7 türbin, 51,6 MWe rüzgar santrali ve 51,6 MWe/51,6 MWh depolama tesisi; yılda 206 milyon kWh üretim.",
-        "why": "Trafo, depolama, çelik konstrüksiyon ve ekipman koruması; Karadeniz'e yakın açık sahada C4–C5.",
-        "sys": "Çelik yapı · C4–C5: çinkolu epoksi + epoksi + poliüretan",
-        "cat": "celik"
-      },
-      {
-        "t": "Bakırköy Şenlikköy otopark, kapalı pazaryeri ve açık spor alanları yapımı",
-        "place": "İstanbul · Bakırköy",
-        "stage": "Sözleşme imzalandı",
-        "budget": "244 milyon TL",
-        "who": "İdare: İstanbul Gençlik ve Spor İl Müdürlüğü · yüklenici: Gürsoy İnşaat",
-        "what": "Otopark, kapalı pazaryeri ve açık spor alanları yapımı. Yaklaşık maliyet 351,3 milyon TL.",
-        "why": "Kapalı pazaryeri çelik çatı ve konstrüksiyonu, otopark zemin ve kolon kaplaması.",
-        "sys": "Çelik yapı · C3 + otopark zemini (Jotafloor)",
-        "cat": "celik"
-      },
-      {
-        "t": "SYCS İnşaat Yenice depolamalı RES",
-        "place": "Kırklareli · Vize",
-        "stage": "EPDK üretim lisansı alındı",
-        "budget": "",
-        "who": "Yatırımcı: SYCS İnşaat Çimento San. ve Tic. A.Ş.",
-        "what": "21 MWe kurulu güçte depolamalı rüzgar santrali; lisans 22 Ekim 2026'da başladı.",
-        "why": "Trafo, depolama ünitesi ve saha çelik aksamı koruması; küçük ölçekli.",
-        "sys": "Çelik yapı · C4: çinkolu epoksi + epoksi + poliüretan",
-        "cat": "celik"
-      },
-      {
-        "t": "TEİAŞ 154 kV İpsala–Keşan ve İpsala–Enez enerji iletim hatları",
-        "place": "Edirne · İpsala / Keşan / Enez",
-        "stage": "Yeniden ihale bekleniyor",
-        "budget": "",
-        "who": "İdare: TEİAŞ Genel Müdürlüğü",
-        "what": "İpsala–Keşan (yaklaşık 22,7 km) ve İpsala–Enez 154 kV iletim hatları; önceki ihaleler iptal edildi, yeniden ilan bekleniyor.",
-        "why": "Direkler genelde galvanizli gelir; galvaniz üzeri boyama ve bakım, kıyıya yakın hatlarda C4–C5 dupleks sistem fırsatı.",
-        "sys": "Galvaniz üzeri (dupleks): epoksi ara kat + poliüretan son kat",
-        "cat": "celik"
-      }
-    ]
+ "updated": "2026-11-04",
+ "projects": [
+  {
+   "t": "Marmaraereğlisi Yeniçiftlik ileri biyolojik atıksu arıtma tesisi",
+   "place": "Tekirdağ · Marmaraereğlisi",
+   "what": "TESKİ'nin işi için sözleşme 23 Ekim 2026'da 1,18 milyar TL bedelle ESEN İNŞAAT + YETKAY İNŞAAT ortaklığıyla imzalandı.",
+   "why": "Beton arıtma havuzları ve kanal iç yüzeyleri, kimyasal/atıksu temaslı tanklar, çelik boru ve ekipman kaplaması.",
+   "cat": "tankic",
+   "date": "2026-10-30",
+   "src": "Taahhüt Haber",
+   "url": "https://taahhuthaber.com/30-ekim-2026-cuma-tarih-ve-3996-sayili-taahhut-haber",
+   "t_en": "Marmaraereğlisi Yeniçiftlik advanced biological wastewater treatment plant",
+   "place_en": "Tekirdağ · Marmaraereğlisi",
+   "what_en": "The contract for this TESKİ project was signed on 23 October 2026 with the ESEN İNŞAAT + YETKAY İNŞAAT joint venture for TRY 1.18 billion.",
+   "why_en": "Concrete treatment basins and channel interiors, tanks in contact with chemicals/wastewater, steel pipe and equipment coating."
+  },
+  {
+   "t": "Ambarlı İleri Biyolojik Atıksu Arıtma Tesisi II. Kademe ve deniz deşarjı",
+   "place": "İstanbul · Ambarlı",
+   "what": "İSKİ'nin II. kademe inşaat ve deniz deşarjı işinin sözleşmesi 5 Ekim 2026'da 18,88 milyar TL bedelle KUZU TOPLU + İSTCON ortaklığıyla imzalandı.",
+   "why": "Beton havuz ve kanal iç yüzeyleri, çamur/proses tankları, deniz deşarj hattı çelik boruları ve deniz suyuna maruz ekipman.",
+   "cat": "tankic",
+   "date": "2026-10-28",
+   "src": "Taahhüt Haber",
+   "url": "https://taahhuthaber.com/28-ekim-2026-carsamba-tarih-ve-3995-sayili-taahhut-haber/",
+   "t_en": "Ambarlı Advanced Biological Wastewater Treatment Plant Stage II and sea outfall",
+   "place_en": "İstanbul · Ambarlı",
+   "what_en": "The contract for İSKİ's Stage II construction and sea outfall works was signed on 5 October 2026 with the KUZU TOPLU + İSTCON joint venture for TRY 18.88 billion.",
+   "why_en": "Concrete basin and channel interiors, sludge/process tanks, steel pipes of the sea outfall line and equipment exposed to sea water."
+  },
+  {
+   "t": "TEİAŞ 400 kV Ambarlı ve Çekmeköy GIS trafo merkezleri",
+   "place": "İstanbul · Ambarlı / Çekmeköy",
+   "what": "Avrupa ve Anadolu yakasında iki 400 kV GIS trafo merkezi yapımı ihaleye çıktı; teklifler 25 Kasım (Ambarlı, İKN 2026/1990439) ve 26 Kasım 2026'da (Çekmeköy, İKN 2026/1981867).",
+   "why": "GIS binası çelik konstrüksiyonu, enerji nakil portal ve taşıyıcıları, trafo ve yardımcı ekipman dış yüzeyleri; Ambarlı'da kıyı atmosferine dayanıklı korozyon koruma.",
+   "cat": "celik",
+   "date": "2026-10-26",
+   "src": "Taahhüt Haber",
+   "url": "https://taahhuthaber.com/taahhut-haberde-th-26-ekim-2026-pazartesi-edu/",
+   "t_en": "TEİAŞ 400 kV Ambarlı and Çekmeköy GIS substations",
+   "place_en": "İstanbul · Ambarlı / Çekmeköy",
+   "what_en": "Tenders have been issued for two 400 kV GIS substations on the European and Anatolian sides; bids due 25 November (Ambarlı, İKN 2026/1990439) and 26 November 2026 (Çekmeköy, İKN 2026/1981867).",
+   "why_en": "GIS building steel structure, transmission gantries and supports, transformer and auxiliary equipment exteriors; corrosion protection resistant to the coastal atmosphere at Ambarlı."
+  },
+  {
+   "t": "Reysaş GYO Tuzla lojistik deposu",
+   "place": "İstanbul · Tuzla Aydınlı",
+   "what": "67.686 m² arsa üzerinde 98.258 m² kapalı alanlı lojistik depo için ruhsat alındı; inşaat 2 Kasım 2026'da başlıyor, 30 Eylül 2027'de devreye alınması hedefleniyor.",
+   "why": "Depo çelik konstrüksiyonu (korozyon ve pasif yangın koruma) ile forklift trafiğine dayanıklı endüstriyel zemin kaplaması.",
+   "cat": "celik",
+   "date": "2026-10-23",
+   "src": "Taşınmaz Haber / KAP",
+   "url": "https://tasinmazhaber.com/reysas-gyo-tuzla-depo-projesi-icin-ruhsat-alindi-insaat-2-kasim-2026da-basliyor/",
+   "t_en": "Reysaş GYO Tuzla logistics warehouse",
+   "place_en": "İstanbul · Tuzla Aydınlı",
+   "what_en": "A permit was obtained for a logistics warehouse with 98,258 m² of covered area on a 67,686 m² plot; construction starts on 2 November 2026, with commissioning targeted for 30 September 2027.",
+   "why_en": "Warehouse steel structure (corrosion and passive fire protection) and industrial floor coating resistant to forklift traffic."
+  },
+  {
+   "t": "Edirne'ye 40 milyon $'lık döküm fabrikası",
+   "place": "Edirne · Uzunköprü Atatürk OSB",
+   "what": "Çin merkezli döküm firması fabrika kuracak; sözleşme imzalandı, temel kısa sürede atılacak. Üretim 2027 Eylül hedefleniyor, ~500 istihdam.",
+   "why": "Yeni fabrika binası çelik konstrüksiyon ve ekipman boyası; döküm alanında ısıya dayanıklı sistem ihtiyacı olabilir.",
+   "cat": "celik",
+   "date": "2026-10-22",
+   "src": "Ekonomi Dünya",
+   "url": "https://www.ekonomidunya.com/cin-dokum-firmasindan-edirneye-40-milyon-dolarlik-yatirim/113997",
+   "t_en": "USD 40 million foundry plant in Edirne",
+   "place_en": "Edirne · Uzunköprü Atatürk OSB",
+   "what_en": "A China-based foundry company will build a plant; the contract has been signed and the foundations will be laid soon. Production is targeted for September 2027, ~500 jobs.",
+   "why_en": "Steel structure and equipment coating for the new factory building; heat resistant systems may be needed in the foundry area."
+  },
+  {
+   "t": "İSKİ Avrupa Yakası içme suyu depoları ve isale hattı ihalesi",
+   "place": "İstanbul · Silivri / Çatalca",
+   "what": "Avrupa Bölgesi İçme Suyu Arıtma Tesisi depoları ile Çatalca sistemi depoları ve isale hattı inşaatı ihaleye çıktı; teklifler 5 Kasım 2026'da, işin süresi 1.095 gün (İKN 2026/1878744).",
+   "why": "Betonarme su depolarının iç yüzeyleri için içme suyu onaylı kaplama, isale hattı çelik boru ve vana/ekipman koruması.",
+   "cat": "tankic",
+   "date": "2026-10-11",
+   "src": "Yeni Akit (resmi ilan)",
+   "url": "https://www.yeniakit.com.tr/haber/istanbul-su-ve-kanalizasyon-idaresi-genel-mudurlugu-iski-catalca-ihale-avrupa-bolgesi-icme-suyu-aritma-tesisi-depo-2027458.html",
+   "t_en": "İSKİ European Side drinking water reservoirs and transmission line tender",
+   "place_en": "İstanbul · Silivri / Çatalca",
+   "what_en": "Construction of the European Region Drinking Water Treatment Plant reservoirs, the Çatalca system reservoirs and transmission line has been tendered; bids due 5 November 2026, duration 1,095 days (İKN 2026/1878744).",
+   "why_en": "Drinking-water-approved coating for the interior of reinforced concrete water reservoirs, protection of transmission line steel pipes and valves/equipment."
   }
+ ],
+ "news": [
+  {
+   "t": "DYO Boya 9 ayda 7,89 milyar TL net satış ve 20,3 milyon TL net kâr açıkladı; üretim %24, satış tonajı %22 geriledi, faaliyet kâr marjı %5'ten %3'e düştü — Türkiye boya pazarında hacim tarafındaki zayıflığa işaret ediyor",
+   "src": "Hibya / KAP",
+   "date": "2026-11-03",
+   "url": "https://hibya.com/dyo-boyanin-uretimi-yuzde-24-satis-tonaji-yuzde-22-geriledi-1080390",
+   "t_en": "DYO Boya reported TRY 7.89 billion net sales and TRY 20.3 million net profit for 9 months; production fell 24% and sales tonnage 22%, operating margin dropped from 5% to 3% — pointing to volume weakness in the Turkish paint market"
+  },
+  {
+   "t": "Oxea 1 Kasım'dan itibaren çözücü ve ara ürünlerde zam yaptı: Avrupa'da butil asetat ve neopentil glikol +80 €/ton, n-/i-bütanol +90 €/ton, 2-etilheksanol +100 €/ton — çözücü bazlı sistemlerde hammadde maliyetine yansıyabilir",
+   "src": "PCI Magazine",
+   "date": "2026-11-03",
+   "url": "https://pcimag.com/articles/115472-oxea-raises-prices-across-two-chemical-portfolios",
+   "t_en": "Oxea raised prices for solvents and intermediates from 1 November: in Europe butyl acetate and neopentyl glycol +€80/t, n-/i-butanol +€90/t, 2-ethylhexanol +€100/t — may feed into raw material costs for solvent-borne systems"
+  },
+  {
+   "t": "Evonik, BASF'ın 12,5 milyar $'lık satın alma teklifini reddetti — kimya/hammadde tarafında konsolidasyon baskısı sürüyor",
+   "src": "Coatings Türkiye",
+   "date": "2026-11-02",
+   "url": "https://coatingsturkiye.com/haberler/finans-haberleri/evonik-basfin-12-milyar-dolarlik-satin-alma-teklifini-reddetti",
+   "t_en": "Evonik rejected BASF's USD 12.5 billion takeover offer — consolidation pressure continues on the chemicals/raw materials side"
+  },
+  {
+   "t": "Türkiye'nin ham çelik üretimi 9 ayda %6,1 artışla 29,8 milyon tona çıktı; Eylül'de nihai tüketim %6,9 geriledi",
+   "src": "Anadolu Ajansı",
+   "date": "2026-10-30",
+   "url": "https://www.aa.com.tr/tr/ekonomi/turkiyenin-ham-celik-uretimi-9-ayda-yuzde-6-1-artisla-29-8-milyon-tona-cikti/4106220",
+   "t_en": "Türkiye's crude steel production rose 6.1% to 29.8 million tonnes in 9 months; final consumption fell 6.9% in September"
+  },
+  {
+   "t": "Olin 3. çeyrekte epoksi satışlarını %17,9 artırarak 412 milyon $'a çıkardı, epoksi fiyat artışı ve tüm bölgelerde yakıt ek ücreti duyurdu; AB'de epoksi için koruma önlemi gündemde, Huntsman birleşmesi 2027'nin ilk çeyreğine çekildi — epoksi bazlı astar ve zemin sistemlerinde maliyet baskısı artabilir",
+   "src": "Olin / The Motley Fool",
+   "date": "2026-10-30",
+   "url": "https://fool.com/earnings/call-transcripts/2026/10/30/olin-oln-q3-2026-earnings-call-transcript",
+   "t_en": "Olin increased Q3 epoxy sales by 17.9% to USD 412 million and announced an epoxy price increase and a fuel surcharge in all regions; EU safeguard measures for epoxy are on the agenda and the Huntsman merger was moved to Q1 2027 — cost pressure may rise for epoxy-based primers and floor systems"
+  },
+  {
+   "t": "Çin'de TiO2 pazarı Eylül-Ekim sezonunda beklentinin altında kaldı: rutil ~13.550 yuan/ton, fabrika stokları ~330 bin ton; 9 aylık ihracat %13,8 artışla 1,53 milyon ton — bu yılki art arda zamlardan sonra kısa vadede fiyatlar zayıf seyredebilir",
+   "src": "SMM",
+   "date": "2026-10-30",
+   "url": "https://news.metal.com/newscontent/104189057-september-october-peak-season-disappoints-titanium-market-sees-short-term-tug-of-war-between-longs-and-shorts-smm-analysis",
+   "t_en": "China's TiO2 market underperformed in the September–October season: rutile ~13,550 yuan/t, plant inventories ~330 thousand t; 9-month exports up 13.8% to 1.53 million t — after this year's successive increases, prices may stay weak in the short term"
+  },
+  {
+   "t": "Axalta 3. çeyrekte satışlarını %2 artırarak 1,31 milyar $'a çıkardı; AkzoNobel ile 'Axanzo' adlı birleşmede düzenleyici onay süreci sürüyor (AB ve İngiltere kararları Kasım'da, kapanış 2027 başı) — birleşme, endüstriyel kaplama tedarik dengesini değiştirebilir",
+   "src": "Axalta / SEC",
+   "date": "2026-10-29",
+   "url": "https://www.sec.gov/Archives/edgar/data/0001616862/000161686226000008/a920268-kquarterlyxex99.htm",
+   "t_en": "Axalta increased Q3 sales by 2% to USD 1.31 billion; regulatory approval of the 'Axanzo' merger with AkzoNobel continues (EU and UK decisions in November, closing early 2027) — the merger may change the supply balance in industrial coatings"
+  },
+  {
+   "t": "Çinko pulu (flake) teknolojisiyle su bazlı çinko astarlarda metal içeriği %50'nin üzerinde azaltılabiliyor; tuz testinde 1.500 saate ulaşıldı, C3–C4 ortamlara uygun, C5/CX için geliştirme sürüyor — yüksek çinko maliyetine karşı boru, tank ve hafif makine astarlarında alternatif oluşturabilir",
+   "src": "European Coatings",
+   "date": "2026-10-29",
+   "url": "https://www.european-coatings.com/news/coatings-technologies/stabilised-zinc-flakes-enable-sustainable-water-borne-anti-corrosion-coatings/",
+   "t_en": "Zinc flake technology can reduce the metal content of waterborne zinc primers by more than 50%; 1,500 hours reached in salt spray testing, suitable for C3–C4, development continues for C5/CX — may offer an alternative for pipe, tank and light machinery primers against high zinc costs"
+  },
+  {
+   "t": "Kansai Paint, Polisan Kansai Boya'nın kalan %50 payını 93 milyon $'a alarak tamamına sahip oldu; şirket borç kapatma için sermaye artırımına gidecek — Türkiye boya pazarında yabancı sermayenin ağırlığı artıyor",
+   "src": "European Coatings",
+   "date": "2026-10-28",
+   "url": "https://www.european-coatings.com/news/markets-companies/kansai-paint-completes-acquisition-of-polisan-kansai-boya/",
+   "t_en": "Kansai Paint acquired the remaining 50% of Polisan Kansai Boya for USD 93 million, taking full ownership; the company will raise capital to repay debt — the weight of foreign capital in the Turkish paint market is increasing"
+  },
+  {
+   "t": "PPG 3. çeyrekte satışlarını %7 artırarak 4,35 milyar $'a çıkardı; koruyucu ve deniz kaplamalarında organik satışlar yüksek tek hanede büyüdü, hacim artışı 14. çeyreğe ulaştı — koruyucu/marine segmenti boya sektörünün en güçlü alanı olmaya devam ediyor",
+   "src": "PPG / SEC",
+   "date": "2026-10-27",
+   "url": "https://www.sec.gov/Archives/edgar/data/0000079879/000007987926000315/exhibit99-3q2026earningsre.htm",
+   "t_en": "PPG increased Q3 sales by 7% to USD 4.35 billion; organic sales in protective and marine coatings grew by a high single digit, with volume growth for the 14th quarter — the protective/marine segment remains the strongest area of the paint industry"
+  },
+  {
+   "t": "Saint-Gobain Yapı Kimyasalları Tuzla'da 12. fabrikasını açtı; reçine esaslı zemin sistemleri, koruyucu kaplamalar ve epoksi harçlar üretecek — İstanbul'da endüstriyel zemin kaplamada yerli arz artıyor",
+   "src": "Ekonomi Politikası",
+   "date": "2026-10-15",
+   "url": "https://ekonomipolitikasi.com.tr/saint-gobain-yapi-kimyasallari-tuzlada-12-fabrikasini-devreye-aldi/",
+   "t_en": "Saint-Gobain Construction Chemicals opened its 12th plant in Tuzla; it will produce resin-based floor systems, protective coatings and epoxy mortars — local supply of industrial floor coatings in İstanbul is increasing"
+  },
+  {
+   "t": "Jotun ilk 8 ayda gelirini %2, faaliyet kârını %4 artırdı",
+   "src": "jotun.com",
+   "date": "2026-09-24",
+   "url": "https://www.jotun.com/gb-en/news-and-insights/corporate/continued-growth-for-jotun",
+   "t_en": "Jotun increased revenue by 2% and operating profit by 4% in the first 8 months"
+  }
+ ],
+ "magazine": {
+  "issue": "1814",
+  "date": "2026-11-02",
+  "pdf": "https://kurnazrecep16-web.github.io/jotun-rehber/e-r1ty790qwz/dergi/yatirimlar-1814.pdf",
+  "title": "Yatırımlar Dergisi",
+  "items": [
+   {
+    "t": "TESKİ Marmaraereğlisi Yeniçiftlik ileri biyolojik atıksu arıtma tesisi yapımı",
+    "place": "Tekirdağ · Marmaraereğlisi",
+    "stage": "Sözleşme imzalandı",
+    "budget": "1,185 milyar TL",
+    "who": "Yüklenici: Esen İnşaat – Yetkay İnşaat İş Ortaklığı",
+    "what": "İleri biyolojik atıksu arıtma tesisi yapımı. Yaklaşık maliyet 1,37 milyar TL; 6 teklif.",
+    "why": "Arıtma havuzları, beton ve çelik tank iç yüzeyleri, köprü/sıyırıcı ekipman, proses boruları ve tesis çelik yapıları.",
+    "sys": "Tank içi / arıtma: epoksi tank kaplaması · çelik ekipman C4–C5",
+    "cat": "tankic",
+    "t_en": "Construction of the TESKİ Marmaraereğlisi Yeniçiftlik advanced biological wastewater treatment plant",
+    "stage_en": "Contract signed",
+    "budget_en": "TRY 1.185 billion",
+    "who_en": "Contractor: Esen İnşaat – Yetkay İnşaat Joint Venture",
+    "what_en": "Construction of an advanced biological wastewater treatment plant. Estimated cost TRY 1.37 billion; 6 bids.",
+    "why_en": "Treatment basins, concrete and steel tank interiors, bridge/scraper equipment, process pipes and plant steel structures.",
+    "sys_en": "Tank interior / treatment: epoxy tank lining · steel equipment C4–C5"
+   },
+   {
+    "t": "İSKİ Avrupa İsale Hatları büyük onarım ve rehabilitasyon işi (1)",
+    "place": "İstanbul · Avrupa Yakası",
+    "stage": "Teklifler 28 Ekim 2026'da toplandı · 14 istekli",
+    "budget": "576,2 milyon TL (yaklaşık maliyet)",
+    "who": "İdare: İSKİ · en uygun teklif: Saka Elektrik İnşaat (402,6 milyon TL)",
+    "what": "Avrupa Yakası'ndaki isale hatlarında büyük onarım ve rehabilitasyon. Sınır değer 401,5 milyon TL.",
+    "why": "Rehabilitasyonda açılan çelik isale borularının dış ve iç yüzey kaplama onarımı; gömülü ve içme suyuyla temas eden yüzeyler.",
+    "sys": "Boru dış · bakım: yüzey toleranslı epoksi mastik (Jotamastic 87) · boru iç: içme suyu onaylı epoksi",
+    "cat": "boru",
+    "t_en": "İSKİ European transmission lines major repair and rehabilitation works (1)",
+    "place_en": "İstanbul · European Side",
+    "stage_en": "Bids received on 28 October 2026 · 14 bidders",
+    "budget_en": "TRY 576.2 million (estimated cost)",
+    "who_en": "Authority: İSKİ · lowest bid: Saka Elektrik İnşaat (TRY 402.6 million)",
+    "what_en": "Major repair and rehabilitation of transmission lines on the European Side. Threshold value TRY 401.5 million.",
+    "why_en": "Repair of external and internal coatings of steel transmission pipes exposed during rehabilitation; buried surfaces and surfaces in contact with drinking water.",
+    "sys_en": "Pipe exterior · maintenance: surface-tolerant epoxy mastic (Jotamastic 87) · pipe interior: drinking-water-approved epoxy"
+   },
+   {
+    "t": "İBB İstanbul geneli kıyı ve deniz yapıları onarım, tadilat ve güçlendirme (4. grup)",
+    "place": "İstanbul",
+    "stage": "Sözleşme imzalandı · bitiş 27 Ekim 2027",
+    "budget": "458,2 milyon TL",
+    "who": "Yüklenici: Gürsallar Taahhüt",
+    "what": "İstanbul genelinde iskele, rıhtım ve kıyı yapılarının onarım, tadilat ve güçlendirmesi. Yaklaşık maliyet 678,3 milyon TL.",
+    "why": "Deniz suyuna maruz çelik kazık, iskele, korkuluk ve beton yüzeyler; C5 / Im2 ortam. Bir yıllık iş, hızlı temas gerekli.",
+    "sys": "Deniz / sıçrama bölgesi: Im2 epoksi sistemleri · üst yapı C5: çinkolu epoksi + epoksi + poliüretan",
+    "cat": "celik",
+    "t_en": "İBB İstanbul-wide coastal and marine structures repair, renovation and strengthening (group 4)",
+    "stage_en": "Contract signed · completion 27 October 2027",
+    "budget_en": "TRY 458.2 million",
+    "who_en": "Contractor: Gürsallar Taahhüt",
+    "what_en": "Repair, renovation and strengthening of piers, quays and coastal structures across İstanbul. Estimated cost TRY 678.3 million.",
+    "why_en": "Steel piles, jetties, railings and concrete surfaces exposed to sea water; C5 / Im2 environment. A one-year job, early contact required.",
+    "sys_en": "Marine / splash zone: Im2 epoxy systems · superstructure C5: zinc epoxy + epoxy + polyurethane"
+   },
+   {
+    "t": "AYGM İstanbul Kuzey Demiryolu Geçişi (INRAIL) altyapı-üstyapı ve elektrifikasyon",
+    "place": "İstanbul · Çayırova–Çatalca",
+    "stage": "İhale · son teklif 11 Kasım 2026",
+    "budget": "",
+    "who": "İdare: AYGM · ilgilenen firmalar: Bayburt Grup, Cengiz İnşaat, COVEC",
+    "what": "İstanbul'u kuzeyden dolaşan yaklaşık 127 km çift hatlı elektrikli demiryolu; 4 lot (Çayırova–Sabiha Gökçen–Kurtdoğmuş, Kurtdoğmuş–Alibahadır, Alibahadır–YSS Köprüsü–Mithatpaşa, Mithatpaşa–İstanbul Havalimanı–Çatalca). Uluslararası kalkınma bankası finansmanı.",
+    "why": "Köprü ve viyadük çelikleri, katener direkleri, istasyon çelik yapıları; uzun vadeli büyük hacim. İhaleyi alacak yükleniciye erken temas.",
+    "sys": "Çelik yapı · C4–C5 · uzun ömür (Sistem sayfası)",
+    "cat": "celik",
+    "t_en": "AYGM İstanbul Northern Railway Crossing (INRAIL) infrastructure, superstructure and electrification",
+    "stage_en": "Tender · final bid date 11 November 2026",
+    "who_en": "Authority: AYGM · interested companies: Bayburt Grup, Cengiz İnşaat, COVEC",
+    "what_en": "An approximately 127 km double-track electrified railway bypassing İstanbul to the north; 4 lots (Çayırova–Sabiha Gökçen–Kurtdoğmuş, Kurtdoğmuş–Alibahadır, Alibahadır–YSS Bridge–Mithatpaşa, Mithatpaşa–İstanbul Airport–Çatalca). Financed by international development banks.",
+    "why_en": "Bridge and viaduct steel, catenary masts, station steel structures; large long-term volume. Early contact with the contractor that wins the tender.",
+    "sys_en": "Steel structure · C4–C5 · long life (System page)"
+   },
+   {
+    "t": "İBB İstanbul geneli raylı sistem hatları demiryolu ve inşaat işleri revizyon ve yenileme",
+    "place": "İstanbul",
+    "stage": "Sözleşme imzalandı",
+    "budget": "1,498 milyar TL",
+    "who": "Yüklenici: AKM Yapı",
+    "what": "İstanbul genelindeki raylı sistem hatlarında demiryolu ve inşaat işleri revizyonu ve yenilemesi. Yaklaşık maliyet 1,69 milyar TL.",
+    "why": "Hat boyu çelik aksam, istasyon ve bakım tesislerinde çelik yapılar, korkuluk ve ekipman bakım boyası.",
+    "sys": "Paslı / bakım: Jotamastic 87 + Hardtop XP",
+    "cat": "bakim",
+    "t_en": "İBB İstanbul-wide rail system lines track and construction works revision and renewal",
+    "stage_en": "Contract signed",
+    "budget_en": "TRY 1.498 billion",
+    "who_en": "Contractor: AKM Yapı",
+    "what_en": "Revision and renewal of track and construction works on rail system lines across İstanbul. Estimated cost TRY 1.69 billion.",
+    "why_en": "Trackside steel components, steel structures at stations and maintenance facilities, maintenance painting of railings and equipment.",
+    "sys_en": "Rusty / maintenance: Jotamastic 87 + Hardtop XP"
+   },
+   {
+    "t": "Powergy Enerji Tekir-1 RES ve Elektrik Depolama Tesisi",
+    "place": "Kırklareli · Merkez",
+    "stage": "ÇED olumlu",
+    "budget": "706 milyon TL",
+    "who": "Yatırımcı: Powergy Enerji A.Ş.",
+    "what": "6 türbin, 40 MWe rüzgar santrali ve 40 MWe/40 MWh depolama tesisi; yılda 160 milyon kWh üretim.",
+    "why": "Trafo merkezi, depolama konteynerleri, çelik konstrüksiyon ve saha ekipmanında C4 koruma; türbin kuleleri genelde fabrikada boyanır.",
+    "sys": "Çelik yapı · C4: çinkolu epoksi + epoksi + poliüretan",
+    "cat": "celik",
+    "t_en": "Powergy Enerji Tekir-1 wind farm and electricity storage facility",
+    "place_en": "Kırklareli · Centre",
+    "stage_en": "Positive EIA decision",
+    "budget_en": "TRY 706 million",
+    "who_en": "Investor: Powergy Enerji A.Ş.",
+    "what_en": "6 turbines, a 40 MWe wind farm and a 40 MWe/40 MWh storage facility; 160 million kWh generation per year.",
+    "why_en": "C4 protection for the substation, storage containers, steel structure and site equipment; turbine towers are usually painted at the factory.",
+    "sys_en": "Steel structure · C4: zinc epoxy + epoxy + polyurethane"
+   },
+   {
+    "t": "Gensan Küçükyaya RES ve Elektrik Depolama Tesisi",
+    "place": "Kırklareli · Vize",
+    "stage": "ÇED olumlu",
+    "budget": "679,2 milyon TL",
+    "who": "Yatırımcı: Gensan Enerji San. ve Tic. A.Ş.",
+    "what": "7 türbin, 51,6 MWe rüzgar santrali ve 51,6 MWe/51,6 MWh depolama tesisi; yılda 206 milyon kWh üretim.",
+    "why": "Trafo, depolama, çelik konstrüksiyon ve ekipman koruması; Karadeniz'e yakın açık sahada C4–C5.",
+    "sys": "Çelik yapı · C4–C5: çinkolu epoksi + epoksi + poliüretan",
+    "cat": "celik",
+    "t_en": "Gensan Küçükyaya wind farm and electricity storage facility",
+    "stage_en": "Positive EIA decision",
+    "budget_en": "TRY 679.2 million",
+    "who_en": "Investor: Gensan Enerji San. ve Tic. A.Ş.",
+    "what_en": "7 turbines, a 51.6 MWe wind farm and a 51.6 MWe/51.6 MWh storage facility; 206 million kWh generation per year.",
+    "why_en": "Protection of the substation, storage, steel structure and equipment; C4–C5 on an open site near the Black Sea.",
+    "sys_en": "Steel structure · C4–C5: zinc epoxy + epoxy + polyurethane"
+   },
+   {
+    "t": "Bakırköy Şenlikköy otopark, kapalı pazaryeri ve açık spor alanları yapımı",
+    "place": "İstanbul · Bakırköy",
+    "stage": "Sözleşme imzalandı",
+    "budget": "244 milyon TL",
+    "who": "İdare: İstanbul Gençlik ve Spor İl Müdürlüğü · yüklenici: Gürsoy İnşaat",
+    "what": "Otopark, kapalı pazaryeri ve açık spor alanları yapımı. Yaklaşık maliyet 351,3 milyon TL.",
+    "why": "Kapalı pazaryeri çelik çatı ve konstrüksiyonu, otopark zemin ve kolon kaplaması.",
+    "sys": "Çelik yapı · C3 + otopark zemini (Jotafloor)",
+    "cat": "celik",
+    "t_en": "Construction of a car park, covered marketplace and outdoor sports areas in Bakırköy Şenlikköy",
+    "stage_en": "Contract signed",
+    "budget_en": "TRY 244 million",
+    "who_en": "Authority: İstanbul Provincial Directorate of Youth and Sports · contractor: Gürsoy İnşaat",
+    "what_en": "Construction of a car park, covered marketplace and outdoor sports areas. Estimated cost TRY 351.3 million.",
+    "why_en": "Covered marketplace steel roof and structure, car park floor and column coating.",
+    "sys_en": "Steel structure · C3 + car park floor (Jotafloor)"
+   },
+   {
+    "t": "SYCS İnşaat Yenice depolamalı RES",
+    "place": "Kırklareli · Vize",
+    "stage": "EPDK üretim lisansı alındı",
+    "budget": "",
+    "who": "Yatırımcı: SYCS İnşaat Çimento San. ve Tic. A.Ş.",
+    "what": "21 MWe kurulu güçte depolamalı rüzgar santrali; lisans 22 Ekim 2026'da başladı.",
+    "why": "Trafo, depolama ünitesi ve saha çelik aksamı koruması; küçük ölçekli.",
+    "sys": "Çelik yapı · C4: çinkolu epoksi + epoksi + poliüretan",
+    "cat": "celik",
+    "t_en": "SYCS İnşaat Yenice wind farm with storage",
+    "stage_en": "EPDK generation licence obtained",
+    "who_en": "Investor: SYCS İnşaat Çimento San. ve Tic. A.Ş.",
+    "what_en": "A 21 MWe wind farm with storage; the licence started on 22 October 2026.",
+    "why_en": "Protection of the substation, storage unit and site steel components; small scale.",
+    "sys_en": "Steel structure · C4: zinc epoxy + epoxy + polyurethane"
+   },
+   {
+    "t": "TEİAŞ 154 kV İpsala–Keşan ve İpsala–Enez enerji iletim hatları",
+    "place": "Edirne · İpsala / Keşan / Enez",
+    "stage": "Yeniden ihale bekleniyor",
+    "budget": "",
+    "who": "İdare: TEİAŞ Genel Müdürlüğü",
+    "what": "İpsala–Keşan (yaklaşık 22,7 km) ve İpsala–Enez 154 kV iletim hatları; önceki ihaleler iptal edildi, yeniden ilan bekleniyor.",
+    "why": "Direkler genelde galvanizli gelir; galvaniz üzeri boyama ve bakım, kıyıya yakın hatlarda C4–C5 dupleks sistem fırsatı.",
+    "sys": "Galvaniz üzeri (dupleks): epoksi ara kat + poliüretan son kat",
+    "cat": "celik",
+    "t_en": "TEİAŞ 154 kV İpsala–Keşan and İpsala–Enez transmission lines",
+    "stage_en": "Re-tender expected",
+    "who_en": "Authority: TEİAŞ General Directorate",
+    "what_en": "İpsala–Keşan (approx. 22.7 km) and İpsala–Enez 154 kV transmission lines; previous tenders were cancelled and a new announcement is expected.",
+    "why_en": "Towers usually arrive galvanised; painting and maintenance over galvanising, a duplex system opportunity for C4–C5 on lines near the coast.",
+    "sys_en": "Over galvanising (duplex): epoxy midcoat + polyurethane topcoat"
+   }
+  ]
+ }
 }
