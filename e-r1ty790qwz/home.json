@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-04",
+ "updated": "2026-11-05",
  "projects": [
   {
    "t": "Marmaraereğlisi Yeniçiftlik ileri biyolojik atıksu arıtma tesisi",
@@ -88,6 +88,13 @@
  ],
  "news": [
   {
+   "t": "Betek, 2. su bazlı üretim tesisiyle yıllık 225 bin ton ek kapasite sağlayarak toplam üretim hacmini 345 bin tona çıkarıyor; fabrika elektriğinin %35'ini güneş enerjisinden karşılamaya hazırlanıyor — Türkiye'de su bazlı boya arzı güçleniyor",
+   "src": "Coatings Türkiye",
+   "date": "2026-11-05",
+   "url": "https://coatingsturkiye.com/haberler/boya-ve-kaplama-uretici-haberleri/kuresel-olcekte-bolgesel-liderlik-betekten-225-bin-tonluk-ek-kapasite-ve-yesil-enerji-hamlesi",
+   "t_en": "Betek is adding 225 thousand tonnes of annual capacity with its 2nd waterborne production plant, raising total production volume to 345 thousand tonnes; it is preparing to meet 35% of its factory electricity from solar power — the supply of waterborne paints in Türkiye is strengthening"
+  },
+  {
    "t": "DYO Boya 9 ayda 7,89 milyar TL net satış ve 20,3 milyon TL net kâr açıkladı; üretim %24, satış tonajı %22 geriledi, faaliyet kâr marjı %5'ten %3'e düştü — Türkiye boya pazarında hacim tarafındaki zayıflığa işaret ediyor",
    "src": "Hibya / KAP",
    "date": "2026-11-03",
@@ -107,6 +114,13 @@
    "date": "2026-11-02",
    "url": "https://coatingsturkiye.com/haberler/finans-haberleri/evonik-basfin-12-milyar-dolarlik-satin-alma-teklifini-reddetti",
    "t_en": "Evonik rejected BASF's USD 12.5 billion takeover offer — consolidation pressure continues on the chemicals/raw materials side"
+  },
+  {
+   "t": "İSO Türkiye İmalat PMI Ekim'de 47,9'dan 47,3'e geriledi, 31. aydır 50'nin altında; yeni siparişlerdeki düşüş son üç ayın en hızlısı oldu — imalat kaynaklı endüstriyel boya talebinde baskıya işaret ediyor",
+   "src": "Forbes Türkiye",
+   "date": "2026-11-02",
+   "url": "https://www.forbes.com.tr/ekonomi/turkiye-imalat-sektorundeki-daralma-ekim-ayinda-derinlesti",
+   "t_en": "The İSO Türkiye Manufacturing PMI fell from 47.9 to 47.3 in October, staying below 50 for the 31st month; the decline in new orders was the fastest in three months — pointing to pressure on manufacturing-driven demand for industrial coatings"
   },
   {
    "t": "Türkiye'nin ham çelik üretimi 9 ayda %6,1 artışla 29,8 milyon tona çıktı; Eylül'de nihai tüketim %6,9 geriledi",
@@ -137,13 +151,6 @@
    "t_en": "Axalta increased Q3 sales by 2% to USD 1.31 billion; regulatory approval of the 'Axanzo' merger with AkzoNobel continues (EU and UK decisions in November, closing early 2027) — the merger may change the supply balance in industrial coatings"
   },
   {
-   "t": "Çinko pulu (flake) teknolojisiyle su bazlı çinko astarlarda metal içeriği %50'nin üzerinde azaltılabiliyor; tuz testinde 1.500 saate ulaşıldı, C3–C4 ortamlara uygun, C5/CX için geliştirme sürüyor — yüksek çinko maliyetine karşı boru, tank ve hafif makine astarlarında alternatif oluşturabilir",
-   "src": "European Coatings",
-   "date": "2026-10-29",
-   "url": "https://www.european-coatings.com/news/coatings-technologies/stabilised-zinc-flakes-enable-sustainable-water-borne-anti-corrosion-coatings/",
-   "t_en": "Zinc flake technology can reduce the metal content of waterborne zinc primers by more than 50%; 1,500 hours reached in salt spray testing, suitable for C3–C4, development continues for C5/CX — may offer an alternative for pipe, tank and light machinery primers against high zinc costs"
-  },
-  {
    "t": "Kansai Paint, Polisan Kansai Boya'nın kalan %50 payını 93 milyon $'a alarak tamamına sahip oldu; şirket borç kapatma için sermaye artırımına gidecek — Türkiye boya pazarında yabancı sermayenin ağırlığı artıyor",
    "src": "European Coatings",
    "date": "2026-10-28",
@@ -156,13 +163,6 @@
    "date": "2026-10-27",
    "url": "https://www.sec.gov/Archives/edgar/data/0000079879/000007987926000315/exhibit99-3q2026earningsre.htm",
    "t_en": "PPG increased Q3 sales by 7% to USD 4.35 billion; organic sales in protective and marine coatings grew by a high single digit, with volume growth for the 14th quarter — the protective/marine segment remains the strongest area of the paint industry"
-  },
-  {
-   "t": "Saint-Gobain Yapı Kimyasalları Tuzla'da 12. fabrikasını açtı; reçine esaslı zemin sistemleri, koruyucu kaplamalar ve epoksi harçlar üretecek — İstanbul'da endüstriyel zemin kaplamada yerli arz artıyor",
-   "src": "Ekonomi Politikası",
-   "date": "2026-10-15",
-   "url": "https://ekonomipolitikasi.com.tr/saint-gobain-yapi-kimyasallari-tuzlada-12-fabrikasini-devreye-aldi/",
-   "t_en": "Saint-Gobain Construction Chemicals opened its 12th plant in Tuzla; it will produce resin-based floor systems, protective coatings and epoxy mortars — local supply of industrial floor coatings in İstanbul is increasing"
   },
   {
    "t": "Jotun ilk 8 ayda gelirini %2, faaliyet kârını %4 artırdı",
