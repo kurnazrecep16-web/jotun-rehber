@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-05",
+ "updated": "2026-11-06",
  "projects": [
   {
    "t": "Marmaraereğlisi Yeniçiftlik ileri biyolojik atıksu arıtma tesisi",
@@ -72,21 +72,35 @@
    "why_en": "Steel structure and equipment coating for the new factory building; heat resistant systems may be needed in the foundry area."
   },
   {
-   "t": "İSKİ Avrupa Yakası içme suyu depoları ve isale hattı ihalesi",
-   "place": "İstanbul · Silivri / Çatalca",
-   "what": "Avrupa Bölgesi İçme Suyu Arıtma Tesisi depoları ile Çatalca sistemi depoları ve isale hattı inşaatı ihaleye çıktı; teklifler 5 Kasım 2026'da, işin süresi 1.095 gün (İKN 2026/1878744).",
-   "why": "Betonarme su depolarının iç yüzeyleri için içme suyu onaylı kaplama, isale hattı çelik boru ve vana/ekipman koruması.",
+   "t": "Evrensekiz OSB atıksu arıtma tesisi ve altyapı yatırımı",
+   "place": "Kırklareli · Lüleburgaz",
+   "what": "Sanayi ve Teknoloji Bakanı Kacır'ın katıldığı törenle 25 Eylül 2026'da temeli atıldı: yaklaşık 725 milyon TL'lik, 22.200 m³/gün kapasiteli atıksu arıtma tesisi ve 196 hektarlık OSB için yaklaşık 601 milyon TL'lik altyapı.",
+   "why": "Beton arıtma havuzları ve kanal iç yüzeyleri, atıksu temaslı çelik tank ve ekipmanlar, boru hatları; OSB'ye gelecek yeni fabrikaların çelik konstrüksiyonu.",
    "cat": "tankic",
-   "date": "2026-10-11",
-   "src": "Yeni Akit (resmi ilan)",
-   "url": "https://www.yeniakit.com.tr/haber/istanbul-su-ve-kanalizasyon-idaresi-genel-mudurlugu-iski-catalca-ihale-avrupa-bolgesi-icme-suyu-aritma-tesisi-depo-2027458.html",
-   "t_en": "İSKİ European Side drinking water reservoirs and transmission line tender",
-   "place_en": "İstanbul · Silivri / Çatalca",
-   "what_en": "Construction of the European Region Drinking Water Treatment Plant reservoirs, the Çatalca system reservoirs and transmission line has been tendered; bids due 5 November 2026, duration 1,095 days (İKN 2026/1878744).",
-   "why_en": "Drinking-water-approved coating for the interior of reinforced concrete water reservoirs, protection of transmission line steel pipes and valves/equipment."
+   "date": "2026-09-25",
+   "src": "Son Dakika / AA",
+   "url": "https://www.sondakika.com/guncel/haber-sanayi-ve-teknoloji-bakani-kacir-kirklareli-nde-to-20271429/",
+   "t_en": "Evrensekiz OIZ wastewater treatment plant and infrastructure investment",
+   "place_en": "Kırklareli · Lüleburgaz",
+   "what_en": "The foundation was laid on 25 September 2026 at a ceremony attended by Minister of Industry and Technology Kacır: a wastewater treatment plant of approximately TRY 725 million with a capacity of 22,200 m³/day, and approximately TRY 601 million of infrastructure for the 196-hectare OIZ.",
+   "why_en": "Concrete treatment basins and channel interiors, steel tanks and equipment in contact with wastewater, pipelines; steel structures of new factories coming to the OIZ."
   }
  ],
  "news": [
+  {
+   "t": "Avrupa Komisyonu AkzoNobel–Axalta birleşmesini, AkzoNobel'in Avrupa oto tamir boyası işinin satılması şartıyla onayladı; işlemin 2027 başında tamamlanması bekleniyor — dünyanın en büyük kaplama gruplarından biri oluşurken Avrupa'da endüstriyel kaplama tedarik yapısı yeniden şekillenecek",
+   "src": "AkzoNobel / SEC",
+   "date": "2026-11-06",
+   "url": "https://www.sec.gov/Archives/edgar/data/0000003124/000095010326017091/dp256483_ex9901.htm",
+   "t_en": "The European Commission approved the AkzoNobel–Axalta merger on condition that AkzoNobel's European vehicle refinish business is divested; the deal is expected to close in early 2027 — as one of the world's largest coatings groups takes shape, the industrial coatings supply structure in Europe will be reshaped"
+  },
+  {
+   "t": "Tronox 3. çeyrekte TiO2 gelirini %19 artırarak 653 milyon $'a çıkardı; Q2'de duyurulan zamların 4. çeyrekte de korunacağını, Avrupa ve Asya'da talebin zayıflamasıyla hacmin düşeceğini açıkladı — TiO2 fiyatlarının yüksek kalması son kat maliyetlerini destekliyor",
+   "src": "PCI Magazine",
+   "date": "2026-11-06",
+   "url": "https://www.pcimag.com/articles/115510-tronox-tio-sales-rise-19-as-demand-signals-diverge",
+   "t_en": "Tronox raised Q3 TiO2 revenue by 19% to USD 653 million; it said the price increases announced in Q2 will hold in Q4, while volumes will fall as demand weakens in Europe and Asia — TiO2 prices staying high supports topcoat costs"
+  },
   {
    "t": "Betek, 2. su bazlı üretim tesisiyle yıllık 225 bin ton ek kapasite sağlayarak toplam üretim hacmini 345 bin tona çıkarıyor; fabrika elektriğinin %35'ini güneş enerjisinden karşılamaya hazırlanıyor — Türkiye'de su bazlı boya arzı güçleniyor",
    "src": "Coatings Türkiye",
@@ -135,20 +149,6 @@
    "date": "2026-10-30",
    "url": "https://fool.com/earnings/call-transcripts/2026/10/30/olin-oln-q3-2026-earnings-call-transcript",
    "t_en": "Olin increased Q3 epoxy sales by 17.9% to USD 412 million and announced an epoxy price increase and a fuel surcharge in all regions; EU safeguard measures for epoxy are on the agenda and the Huntsman merger was moved to Q1 2027 — cost pressure may rise for epoxy-based primers and floor systems"
-  },
-  {
-   "t": "Çin'de TiO2 pazarı Eylül-Ekim sezonunda beklentinin altında kaldı: rutil ~13.550 yuan/ton, fabrika stokları ~330 bin ton; 9 aylık ihracat %13,8 artışla 1,53 milyon ton — bu yılki art arda zamlardan sonra kısa vadede fiyatlar zayıf seyredebilir",
-   "src": "SMM",
-   "date": "2026-10-30",
-   "url": "https://news.metal.com/newscontent/104189057-september-october-peak-season-disappoints-titanium-market-sees-short-term-tug-of-war-between-longs-and-shorts-smm-analysis",
-   "t_en": "China's TiO2 market underperformed in the September–October season: rutile ~13,550 yuan/t, plant inventories ~330 thousand t; 9-month exports up 13.8% to 1.53 million t — after this year's successive increases, prices may stay weak in the short term"
-  },
-  {
-   "t": "Axalta 3. çeyrekte satışlarını %2 artırarak 1,31 milyar $'a çıkardı; AkzoNobel ile 'Axanzo' adlı birleşmede düzenleyici onay süreci sürüyor (AB ve İngiltere kararları Kasım'da, kapanış 2027 başı) — birleşme, endüstriyel kaplama tedarik dengesini değiştirebilir",
-   "src": "Axalta / SEC",
-   "date": "2026-10-29",
-   "url": "https://www.sec.gov/Archives/edgar/data/0001616862/000161686226000008/a920268-kquarterlyxex99.htm",
-   "t_en": "Axalta increased Q3 sales by 2% to USD 1.31 billion; regulatory approval of the 'Axanzo' merger with AkzoNobel continues (EU and UK decisions in November, closing early 2027) — the merger may change the supply balance in industrial coatings"
   },
   {
    "t": "Kansai Paint, Polisan Kansai Boya'nın kalan %50 payını 93 milyon $'a alarak tamamına sahip oldu; şirket borç kapatma için sermaye artırımına gidecek — Türkiye boya pazarında yabancı sermayenin ağırlığı artıyor",
